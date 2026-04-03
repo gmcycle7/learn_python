@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Cheat Sheet &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link active">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Cheat Sheet
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PYTHON CHEAT SHEET                                           -->
+      <!-- ============================================================ -->
+
+      <h1>Python Cheat Sheet</h1>
+
+      <p>
+        A dense, scannable quick-reference for everyday Python. Bookmark this
+        page or print it out &mdash; every example is kept to one or two lines
+        so you can find what you need at a glance.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  1. BASIC SYNTAX                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="basic-syntax">1. Basic Syntax</h2>
+
+      <h3>Variables &amp; Assignment</h3>
+<pre><code>x = 10
+name = "Alice"</code></pre>
+
+      <h3>Print</h3>
+<pre><code>print("Hello, world!")
+print(f"Name: {name}, Age: {x}")</code></pre>
+
+      <h3>Input</h3>
+<pre><code>answer = input("Enter your name: ")</code></pre>
+
+      <h3>Comments</h3>
+<pre><code># This is a single-line comment
+x = 5  # inline comment</code></pre>
+
+      <h3>Indentation</h3>
+<pre><code>if True:
+    print("Indentation defines blocks &mdash; use 4 spaces")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  2. DATA TYPES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="data-types">2. Data Types</h2>
+
+<pre><code>x = 42              # int
+pi = 3.14           # float
+name = "Alice"      # str
+flag = True         # bool
+nums = [1, 2, 3]    # list
+pair = (1, 2)       # tuple
+info = {"a": 1}     # dict
+unique = {1, 2, 3}  # set
+empty = None        # NoneType</code></pre>
+
+      <h3>Check Type</h3>
+<pre><code>type(x)        # &lt;class 'int'&gt;
+isinstance(x, int)  # True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. STRING OPERATIONS                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="string-operations">3. String Operations</h2>
+
+      <h3>Create &amp; Concatenate</h3>
+<pre><code>s = "hello"
+full = "hello" + " " + "world"</code></pre>
+
+      <h3>F-String (Formatted String)</h3>
+<pre><code>name = "Alice"
+print(f"Hi, {name}! 2+2={2+2}")</code></pre>
+
+      <h3>Slicing</h3>
+<pre><code>s = "hello"
+s[0]     # 'h'
+s[1:4]   # 'ell'
+s[::-1]  # 'olleh' (reverse)</code></pre>
+
+      <h3>Common Methods</h3>
+<pre><code>"hello".upper()                # 'HELLO'
+"HELLO".lower()                # 'hello'
+"  hi  ".strip()               # 'hi'
+"a,b,c".split(",")             # ['a', 'b', 'c']
+", ".join(["a", "b", "c"])     # 'a, b, c'
+"hello".replace("l", "L")     # 'heLLo'
+"hello".find("ll")            # 2 (-1 if not found)
+"hello".count("l")            # 2
+"hello".startswith("he")      # True
+"hello".endswith("lo")        # True
+"ell" in "hello"              # True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. LIST OPERATIONS                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="list-operations">4. List Operations</h2>
+
+      <h3>Create &amp; Access</h3>
+<pre><code>nums = [10, 20, 30, 40]
+nums[0]     # 10
+nums[-1]    # 40
+nums[1:3]   # [20, 30]</code></pre>
+
+      <h3>Modify</h3>
+<pre><code>nums.append(50)        # [10, 20, 30, 40, 50]
+nums.extend([60, 70])  # adds 60, 70 to end
+nums.insert(0, 5)      # insert 5 at index 0
+nums.remove(20)        # remove first occurrence of 20
+nums.pop()             # remove &amp; return last item
+nums.pop(0)            # remove &amp; return item at index 0</code></pre>
+
+      <h3>Sort &amp; Reverse</h3>
+<pre><code>nums.sort()            # sort in place (ascending)
+nums.sort(reverse=True)
+nums.reverse()         # reverse in place
+sorted(nums)           # returns new sorted list</code></pre>
+
+      <h3>Length &amp; Membership</h3>
+<pre><code>len(nums)          # number of items
+30 in nums         # True</code></pre>
+
+      <h3>List Comprehension</h3>
+<pre><code>squares = [x**2 for x in range(5)]       # [0, 1, 4, 9, 16]
+evens = [x for x in range(10) if x % 2 == 0]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. DICTIONARY OPERATIONS                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="dictionary-operations">5. Dictionary Operations</h2>
+
+      <h3>Create &amp; Access</h3>
+<pre><code>d = {"name": "Alice", "age": 30}
+d["name"]          # 'Alice'
+d.get("age")       # 30
+d.get("x", 0)      # 0 (default if key missing)</code></pre>
+
+      <h3>Add, Update &amp; Delete</h3>
+<pre><code>d["email"] = "a@b.com"   # add / update
+d.update({"age": 31, "city": "NY"})
+del d["email"]           # delete key</code></pre>
+
+      <h3>Iterate</h3>
+<pre><code>d.keys()           # dict_keys(['name', 'age'])
+d.values()         # dict_values(['Alice', 30])
+d.items()          # dict_items([('name','Alice'), ('age',30)])</code></pre>
+
+      <h3>Membership &amp; Comprehension</h3>
+<pre><code>"name" in d              # True (checks keys)
+squares = {x: x**2 for x in range(5)}</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. SET OPERATIONS                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="set-operations">6. Set Operations</h2>
+
+<pre><code>s = {1, 2, 3}
+s.add(4)               # {1, 2, 3, 4}
+s.remove(2)            # {1, 3, 4} &mdash; error if missing
+s.discard(99)          # no error if missing
+
+a = {1, 2, 3}
+b = {3, 4, 5}
+a | b                  # {1, 2, 3, 4, 5}  union
+a &amp; b                  # {3}              intersection
+a - b                  # {1, 2}           difference
+3 in a                 # True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  7. TUPLE OPERATIONS                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="tuple-operations">7. Tuple Operations</h2>
+
+<pre><code>t = (1, 2, 3)
+t[0]                   # 1
+a, b, c = t            # unpacking: a=1, b=2, c=3
+single = (42,)         # single-element tuple (note the comma)</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  8. CONTROL FLOW                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="control-flow">8. Control Flow</h2>
+
+      <h3>if / elif / else</h3>
+<pre><code>if x &gt; 0:
+    print("positive")
+elif x == 0:
+    print("zero")
+else:
+    print("negative")</code></pre>
+
+      <h3>for Loop</h3>
+<pre><code>for item in [1, 2, 3]:
+    print(item)</code></pre>
+
+      <h3>while Loop</h3>
+<pre><code>while x &gt; 0:
+    x -= 1</code></pre>
+
+      <h3>break, continue, pass</h3>
+<pre><code>for i in range(10):
+    if i == 5: break       # exit loop
+    if i % 2 == 0: continue  # skip to next iteration
+    pass                   # do nothing (placeholder)</code></pre>
+
+      <h3>range, enumerate, zip</h3>
+<pre><code>range(5)             # 0, 1, 2, 3, 4
+range(2, 8)          # 2, 3, 4, 5, 6, 7
+range(0, 10, 2)      # 0, 2, 4, 6, 8
+
+for i, val in enumerate(["a", "b", "c"]):
+    print(i, val)    # 0 a, 1 b, 2 c
+
+for a, b in zip([1,2], ["x","y"]):
+    print(a, b)      # 1 x, 2 y</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  9. FUNCTIONS                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="functions">9. Functions</h2>
+
+      <h3>Basic Function</h3>
+<pre><code>def greet(name):
+    return f"Hello, {name}!"</code></pre>
+
+      <h3>Default Arguments</h3>
+<pre><code>def greet(name, greeting="Hi"):
+    return f"{greeting}, {name}!"</code></pre>
+
+      <h3>*args and **kwargs</h3>
+<pre><code>def add(*args):
+    return sum(args)           # add(1, 2, 3) &rarr; 6
+
+def info(**kwargs):
+    for k, v in kwargs.items():
+        print(f"{k}: {v}")     # info(name="Alice", age=30)</code></pre>
+
+      <h3>Lambda (Anonymous Function)</h3>
+<pre><code>double = lambda x: x * 2     # double(5) &rarr; 10
+sorted(names, key=lambda s: s.lower())</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  10. FILE HANDLING                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="file-handling">10. File Handling</h2>
+
+      <h3>Read</h3>
+<pre><code>with open("file.txt", "r") as f:
+    content = f.read()         # entire file as string
+
+with open("file.txt", "r") as f:
+    lines = f.readlines()      # list of lines</code></pre>
+
+      <h3>Write &amp; Append</h3>
+<pre><code>with open("file.txt", "w") as f:
+    f.write("Hello\n")        # overwrite
+
+with open("file.txt", "a") as f:
+    f.write("More text\n")    # append</code></pre>
+
+      <h3>CSV</h3>
+<pre><code>import csv
+with open("data.csv") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)             # each row is a list</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  11. ERROR HANDLING                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="error-handling">11. Error Handling</h2>
+
+      <h3>try / except / else / finally</h3>
+<pre><code>try:
+    result = 10 / x
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except (TypeError, ValueError) as e:
+    print(f"Error: {e}")
+else:
+    print("Success")          # runs if no exception
+finally:
+    print("Always runs")</code></pre>
+
+      <h3>Common Exceptions</h3>
+<pre><code>ValueError       # wrong value (e.g. int("abc"))
+TypeError        # wrong type (e.g. "a" + 1)
+KeyError         # missing dict key
+IndexError       # list index out of range
+FileNotFoundError
+ZeroDivisionError
+AttributeError   # object has no such attribute
+ImportError      # module not found
+NameError        # undefined variable</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  12. COMMON IMPORTS                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-imports">12. Common Imports</h2>
+
+<pre><code>import os                  # file paths, env vars, system commands
+import sys                 # interpreter settings, argv
+import math                # sqrt, ceil, floor, pi, e
+import random              # randint, choice, shuffle
+import datetime            # date, time, timedelta
+import json                # json.loads(), json.dumps()
+import csv                 # csv.reader(), csv.writer()
+from pathlib import Path   # modern file paths
+import re                  # regular expressions
+import shutil              # copy/move files and dirs
+import glob                # file pattern matching
+import subprocess          # run shell commands
+from collections import Counter, defaultdict</code></pre>
+
+      <h3>Quick Examples</h3>
+<pre><code>os.getcwd()                        # current directory
+os.listdir(".")                    # list files
+Path("data/file.txt").read_text()  # read file
+math.sqrt(16)                      # 4.0
+random.randint(1, 10)              # random int 1-10
+json.loads('{"a": 1}')             # parse JSON string
+datetime.datetime.now()            # current date/time
+re.findall(r"\d+", "abc123")      # ['123']</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  13. PACKAGE MANAGEMENT                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="package-management">13. Package Management</h2>
+
+<pre><code>pip install requests           # install a package
+pip install requests==2.28.0   # specific version
+pip list                       # list installed packages
+pip freeze &gt; requirements.txt  # save dependencies
+pip install -r requirements.txt  # install from file</code></pre>
+
+      <h3>Virtual Environments</h3>
+<pre><code>python -m venv myenv           # create virtual env
+source myenv/bin/activate      # activate (Linux/Mac)
+myenv\Scripts\activate         # activate (Windows)
+deactivate                     # deactivate</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  14. OPERATORS REFERENCE                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="operators-reference">14. Operators Reference</h2>
+
+      <h3>Arithmetic</h3>
+<pre><code>x + y       # addition
+x - y       # subtraction
+x * y       # multiplication
+x / y       # division (float)
+x // y      # floor division (int)
+x % y       # modulo (remainder)
+x ** y      # exponentiation</code></pre>
+
+      <h3>Comparison</h3>
+<pre><code>x == y      # equal
+x != y      # not equal
+x &lt; y       # less than
+x &gt; y       # greater than
+x &lt;= y      # less than or equal
+x &gt;= y      # greater than or equal</code></pre>
+
+      <h3>Logical</h3>
+<pre><code>x and y     # True if both True
+x or y      # True if either True
+not x       # invert boolean</code></pre>
+
+      <h3>Assignment</h3>
+<pre><code>x = 10
+x += 5      # x = x + 5
+x -= 3      # x = x - 3
+x *= 2      # x = x * 2
+x /= 4      # x = x / 4</code></pre>
+
+      <h3>Membership</h3>
+<pre><code>"a" in "abc"          # True
+3 not in [1, 2]       # True</code></pre>
+
+      <h3>Identity</h3>
+<pre><code>x is None             # True if x is None
+x is not None         # True if x is not None</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="common-errors.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Common Errors</span></a>
+        <a href="python-for-automation.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Python for Automation</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

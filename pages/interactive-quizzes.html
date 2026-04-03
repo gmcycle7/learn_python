@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quizzes &mdash; Learn Python</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> Learn Python</h2><p>Complete Beginner's Guide</p></div>
+    <div class="sidebar-search"><span class="search-icon">&#128269;</span><input type="text" placeholder="Search pages..." aria-label="Search"><div class="search-results"></div></div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-section"><div class="nav-section-title">A — What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+      <div class="nav-section"><div class="nav-section-title">B — Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+      <div class="nav-section"><div class="nav-section-title">C — Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a><a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a><a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a><a href="basics-dictionaries.html" class="nav-link">Dictionaries</a><a href="basics-conditionals.html" class="nav-link">Conditionals</a><a href="basics-loops.html" class="nav-link">Loops</a><a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a><a href="basics-more.html" class="nav-link">More Built-ins</a><a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a></div>
+      <div class="nav-section"><div class="nav-section-title">D — Common Patterns</div><a href="common-patterns.html" class="nav-link">Common Patterns</a><a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a></div>
+      <div class="nav-section"><div class="nav-section-title">E — MATLAB to Python</div><a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a><a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a></div>
+      <div class="nav-section"><div class="nav-section-title">F — Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+      <div class="nav-section"><div class="nav-section-title">G — Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+      <div class="nav-section"><div class="nav-section-title">H — Practice</div><a href="practice.html" class="nav-link">Practice &amp; Roadmap</a><a href="interactive-quizzes.html" class="nav-link active">Interactive Quizzes</a></div>
+      <div class="nav-section"><div class="nav-section-title">I — Best Practices</div><a href="best-practices.html" class="nav-link">Best Practices</a><a href="common-errors.html" class="nav-link">Common Errors</a></div>
+      <div class="nav-section"><div class="nav-section-title">J — Reference</div><a href="cheatsheet.html" class="nav-link">Cheat Sheet</a><a href="python-for-automation.html" class="nav-link">Python for Automation</a><a href="glossary.html" class="nav-link">Glossary</a></div>
+      <div class="nav-section"><div class="nav-section-title">K — More Topics</div><a href="oop.html" class="nav-link">Object-Oriented Programming</a><a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a></div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        Interactive Quizzes
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION H — INTERACTIVE QUIZZES                              -->
+      <!-- ============================================================ -->
+
+      <h1>Section H &mdash; Interactive Quizzes</h1>
+      <p class="page-subtitle">
+        Test your Python knowledge with 40 hands-on questions. Each quiz is
+        scored instantly &mdash; pick an answer, get immediate feedback, and see
+        your final score at the end.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">How these quizzes work</div>
+        <p>
+          Click on an answer to lock it in. You will see whether you were right
+          or wrong immediately. Once every question in a quiz is answered, your
+          total score appears. Hit <strong>Reset Quiz</strong> to try again.
+        </p>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">On this page</div>
+        <ul>
+          <li><a href="#quiz-basics">Quiz 1: Python Basics (10 questions)</a></li>
+          <li><a href="#quiz-data-structures">Quiz 2: Data Structures (10 questions)</a></li>
+          <li><a href="#quiz-control-flow">Quiz 3: Control Flow &amp; Functions (10 questions)</a></li>
+          <li><a href="#quiz-files-errors">Quiz 4: Files, Errors &amp; Modules (10 questions)</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  QUIZ 1 — PYTHON BASICS                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-basics">Quiz 1: Python Basics</h2>
+      <p>
+        Variables, numbers, strings, <code>print()</code>, comments, and types.
+        Watch out for the tricky ones!
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 1: What does this code print?</h4>
+          <pre><code>x = 7
+y = 2
+print(x // y)</code></pre>
+          <div class="quiz-option" data-value="a">3.5</div>
+          <div class="quiz-option" data-value="b">3.0</div>
+          <div class="quiz-option" data-value="c">3</div>
+          <div class="quiz-option" data-value="d">4</div>
+          <div class="quiz-feedback" data-correct="Correct! The // operator performs integer (floor) division. 7 // 2 = 3." data-incorrect="Not quite. The // operator does floor division, discarding the remainder. Since both operands are ints, the result is the int 3."></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 2: Which of these is a valid variable name in Python?</h4>
+          <div class="quiz-option" data-value="a">2nd_place</div>
+          <div class="quiz-option" data-value="b">_private_var</div>
+          <div class="quiz-option" data-value="c">my-variable</div>
+          <div class="quiz-option" data-value="d">class</div>
+          <div class="quiz-feedback" data-correct="Correct! Variable names can start with a letter or underscore, and _private_var follows that rule." data-incorrect="Not quite. Variable names cannot start with a digit (2nd_place), contain hyphens (my-variable), or be reserved keywords (class). _private_var is the valid one."></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 3: What does this code print?</h4>
+          <pre><code>name = "Python"
+print(name[0] + name[-1])</code></pre>
+          <div class="quiz-option" data-value="a">Py</div>
+          <div class="quiz-option" data-value="b">Pn</div>
+          <div class="quiz-option" data-value="c">yn</div>
+          <div class="quiz-option" data-value="d">Po</div>
+          <div class="quiz-feedback" data-correct="Correct! name[0] is 'P' and name[-1] is 'n', so the result is 'Pn'." data-incorrect="Not quite. name[0] gives the first character 'P', and name[-1] gives the last character 'n'. Concatenated: 'Pn'."></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 4: What is the type of the result?</h4>
+          <pre><code>result = 10 / 2</code></pre>
+          <div class="quiz-option" data-value="a">float</div>
+          <div class="quiz-option" data-value="b">int</div>
+          <div class="quiz-option" data-value="c">str</div>
+          <div class="quiz-option" data-value="d">bool</div>
+          <div class="quiz-feedback" data-correct="Correct! In Python 3, the / operator always returns a float, even when the division is exact. 10 / 2 gives 5.0, which is a float." data-incorrect="Not quite. The / operator in Python 3 always returns a float. Even though 10 / 2 = 5.0, the type is float, not int."></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 5: What does this code print?</h4>
+          <pre><code>x = "3"
+y = 4
+print(x * y)</code></pre>
+          <div class="quiz-option" data-value="a">12</div>
+          <div class="quiz-option" data-value="b">34</div>
+          <div class="quiz-option" data-value="c">3333</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! Multiplying a string by an integer repeats the string. &quot;3&quot; * 4 produces &quot;3333&quot;." data-incorrect="Not quite. x is the string &quot;3&quot;, not the number 3. String * int repeats the string, so &quot;3&quot; * 4 = &quot;3333&quot;."></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 6: What does this code print?</h4>
+          <pre><code>print(type(True))</code></pre>
+          <div class="quiz-option" data-value="a">&lt;class 'int'&gt;</div>
+          <div class="quiz-option" data-value="b">&lt;class 'bool'&gt;</div>
+          <div class="quiz-option" data-value="c">&lt;class 'str'&gt;</div>
+          <div class="quiz-option" data-value="d">&lt;class 'NoneType'&gt;</div>
+          <div class="quiz-feedback" data-correct="Correct! True is a boolean value, so type(True) returns &lt;class 'bool'&gt;. (Note: bool is a subclass of int, but the type shown is still bool.)" data-incorrect="Not quite. True is a boolean literal. While bool is a subclass of int in Python, type(True) reports &lt;class 'bool'&gt;."></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 7: What does this code print?</h4>
+          <pre><code>a = 5
+b = a
+a = 10
+print(b)</code></pre>
+          <div class="quiz-option" data-value="a">10</div>
+          <div class="quiz-option" data-value="b">15</div>
+          <div class="quiz-option" data-value="c">0</div>
+          <div class="quiz-option" data-value="d">5</div>
+          <div class="quiz-feedback" data-correct="Correct! Integers are immutable. When b = a was executed, b got the value 5. Reassigning a to 10 does not affect b." data-incorrect="Not quite. b = a copies the value 5 into b. Later changing a to 10 does not change b, because integers are immutable objects and b still references the original 5."></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 8: Which line is a valid single-line comment?</h4>
+          <div class="quiz-option" data-value="a"># This is a comment</div>
+          <div class="quiz-option" data-value="b">// This is a comment</div>
+          <div class="quiz-option" data-value="c">/* This is a comment */</div>
+          <div class="quiz-option" data-value="d">-- This is a comment</div>
+          <div class="quiz-feedback" data-correct="Correct! Python uses # for single-line comments." data-incorrect="Not quite. Python uses the # symbol for comments. // is used in C/Java/JS, /* */ is C-style block comments, and -- is used in SQL/Lua."></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 9: What does this code print?</h4>
+          <pre><code>x = int("42.0")</code></pre>
+          <div class="quiz-option" data-value="a">42</div>
+          <div class="quiz-option" data-value="b">42.0</div>
+          <div class="quiz-option" data-value="c">ValueError</div>
+          <div class="quiz-option" data-value="d">0</div>
+          <div class="quiz-feedback" data-correct="Correct! int() cannot parse a string with a decimal point directly. &quot;42.0&quot; raises a ValueError. You would need int(float(&quot;42.0&quot;)) instead." data-incorrect="Not quite. int() can convert &quot;42&quot; but not &quot;42.0&quot; &mdash; the decimal point causes a ValueError. To convert it, you would write int(float(&quot;42.0&quot;))."></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 10: What does this code print?</h4>
+          <pre><code>x = "hello"
+print(x.upper().count("L"))</code></pre>
+          <div class="quiz-option" data-value="a">0</div>
+          <div class="quiz-option" data-value="b">2</div>
+          <div class="quiz-option" data-value="c">1</div>
+          <div class="quiz-option" data-value="d">5</div>
+          <div class="quiz-feedback" data-correct="Correct! x.upper() gives &quot;HELLO&quot;, and &quot;HELLO&quot;.count(&quot;L&quot;) counts the uppercase L's, finding 2." data-incorrect="Not quite. &quot;hello&quot;.upper() returns &quot;HELLO&quot;. Then .count(&quot;L&quot;) counts occurrences of &quot;L&quot; in &quot;HELLO&quot;, which is 2 (positions 2 and 3)."></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">Reset Quiz</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  QUIZ 2 — DATA STRUCTURES                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-data-structures">Quiz 2: Data Structures</h2>
+      <p>
+        Lists, tuples, dictionaries, and sets. Know your mutable vs immutable
+        types and how indexing and slicing really work.
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 1: What is the difference between append() and extend()?</h4>
+          <pre><code>a = [1, 2, 3]
+a.append([4, 5])
+print(a)</code></pre>
+          <div class="quiz-option" data-value="a">[1, 2, 3, 4, 5]</div>
+          <div class="quiz-option" data-value="b">[1, 2, 3, [4], [5]]</div>
+          <div class="quiz-option" data-value="c">[1, 2, 3, [4, 5]]</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! append() adds its argument as a single element. The list [4, 5] becomes one nested element. Use extend() to add items individually." data-incorrect="Not quite. append() adds the entire argument as one item. So the list [4, 5] is added as a nested list, giving [1, 2, 3, [4, 5]]."></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 2: What does this code print?</h4>
+          <pre><code>d = {"a": 1, "b": 2, "c": 3}
+print(d.get("z", 0))</code></pre>
+          <div class="quiz-option" data-value="a">0</div>
+          <div class="quiz-option" data-value="b">None</div>
+          <div class="quiz-option" data-value="c">KeyError</div>
+          <div class="quiz-option" data-value="d">"z"</div>
+          <div class="quiz-feedback" data-correct="Correct! .get(key, default) returns the default value when the key is not found. Since &quot;z&quot; is not in the dict, it returns 0." data-incorrect="Not quite. The .get() method returns a default value when the key is missing. d.get(&quot;z&quot;, 0) returns 0 because &quot;z&quot; is not a key. (d[&quot;z&quot;] would raise KeyError.)"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 3: What happens when you try to modify a tuple?</h4>
+          <pre><code>t = (1, 2, 3)
+t[0] = 99</code></pre>
+          <div class="quiz-option" data-value="a">t becomes (99, 2, 3)</div>
+          <div class="quiz-option" data-value="b">t becomes [99, 2, 3]</div>
+          <div class="quiz-option" data-value="c">IndexError</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! Tuples are immutable. Trying to assign to an index raises TypeError: 'tuple' object does not support item assignment." data-incorrect="Not quite. Tuples are immutable &mdash; you cannot change their elements after creation. This raises a TypeError, not an IndexError."></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 4: What does this code print?</h4>
+          <pre><code>s1 = {1, 2, 3, 4}
+s2 = {3, 4, 5, 6}
+print(s1 &amp; s2)</code></pre>
+          <div class="quiz-option" data-value="a">{1, 2, 5, 6}</div>
+          <div class="quiz-option" data-value="b">{3, 4}</div>
+          <div class="quiz-option" data-value="c">{1, 2, 3, 4, 5, 6}</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! The &amp; operator computes the set intersection &mdash; elements present in both sets: {3, 4}." data-incorrect="Not quite. The &amp; operator on sets returns the intersection (elements in both sets). s1 and s2 share 3 and 4, so the result is {3, 4}."></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 5: What does this slice produce?</h4>
+          <pre><code>nums = [10, 20, 30, 40, 50]
+print(nums[1:4])</code></pre>
+          <div class="quiz-option" data-value="a">[20, 30, 40]</div>
+          <div class="quiz-option" data-value="b">[10, 20, 30, 40]</div>
+          <div class="quiz-option" data-value="c">[20, 30, 40, 50]</div>
+          <div class="quiz-option" data-value="d">[20, 30]</div>
+          <div class="quiz-feedback" data-correct="Correct! Slicing with [1:4] includes indices 1, 2, 3 (the stop index 4 is excluded), giving [20, 30, 40]." data-incorrect="Not quite. Python slicing is start-inclusive, end-exclusive. [1:4] means indices 1, 2, 3 &mdash; which are 20, 30, 40."></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 6: What does this code print?</h4>
+          <pre><code>items = [1, 2, 3, 4, 5]
+print(items[::-1])</code></pre>
+          <div class="quiz-option" data-value="a">[1, 2, 3, 4, 5]</div>
+          <div class="quiz-option" data-value="b">[5]</div>
+          <div class="quiz-option" data-value="c">[5, 4, 3, 2, 1]</div>
+          <div class="quiz-option" data-value="d">[]</div>
+          <div class="quiz-feedback" data-correct="Correct! The slice [::-1] reverses the list, producing [5, 4, 3, 2, 1]." data-incorrect="Not quite. The step value of -1 in [::-1] reverses the sequence. The result is [5, 4, 3, 2, 1]."></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 7: What does this code print?</h4>
+          <pre><code>d = {"x": 10, "y": 20}
+print(list(d.keys()))</code></pre>
+          <div class="quiz-option" data-value="a">[10, 20]</div>
+          <div class="quiz-option" data-value="b">['x', 'y']</div>
+          <div class="quiz-option" data-value="c">[('x', 10), ('y', 20)]</div>
+          <div class="quiz-option" data-value="d">{'x', 'y'}</div>
+          <div class="quiz-feedback" data-correct="Correct! .keys() returns the dictionary's keys, and wrapping in list() gives ['x', 'y']." data-incorrect="Not quite. .keys() returns the keys (not values or items). Converting to a list gives ['x', 'y']."></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 8: What does this code print?</h4>
+          <pre><code>a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)</code></pre>
+          <div class="quiz-option" data-value="a">[1, 2, 3]</div>
+          <div class="quiz-option" data-value="b">[4]</div>
+          <div class="quiz-option" data-value="c">[1, 2, 3, [4]]</div>
+          <div class="quiz-option" data-value="d">[1, 2, 3, 4]</div>
+          <div class="quiz-feedback" data-correct="Correct! b = a does not copy the list &mdash; both variables reference the same object. Appending to b also changes a." data-incorrect="Not quite. b = a makes b point to the same list object as a. Mutating through b also affects a. Both show [1, 2, 3, 4]. Use a.copy() or a[:] to make an independent copy."></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 9: What does this code produce?</h4>
+          <pre><code>my_set = {1, 2, 2, 3, 3, 3}
+print(len(my_set))</code></pre>
+          <div class="quiz-option" data-value="a">3</div>
+          <div class="quiz-option" data-value="b">6</div>
+          <div class="quiz-option" data-value="c">1</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="Correct! Sets automatically remove duplicates. {1, 2, 2, 3, 3, 3} becomes {1, 2, 3}, which has length 3." data-incorrect="Not quite. Sets only store unique elements. Duplicate values are discarded, so the set is {1, 2, 3} with length 3."></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 10: What does this code print?</h4>
+          <pre><code>data = {"name": "Alice", "age": 30}
+data["age"] = 31
+data["city"] = "NYC"
+print(len(data))</code></pre>
+          <div class="quiz-option" data-value="a">2</div>
+          <div class="quiz-option" data-value="b">4</div>
+          <div class="quiz-option" data-value="c">3</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! The dict starts with 2 keys. Updating &quot;age&quot; does not add a new key, but adding &quot;city&quot; does. Total: 3 keys." data-incorrect="Not quite. data[&quot;age&quot;] = 31 updates an existing key (still 2 keys). data[&quot;city&quot;] = &quot;NYC&quot; adds a new key, bringing the total to 3."></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">Reset Quiz</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  QUIZ 3 — CONTROL FLOW & FUNCTIONS                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-control-flow">Quiz 3: Control Flow &amp; Functions</h2>
+      <p>
+        Conditionals, loops, functions, scope, and lambda expressions. Pay close
+        attention to what gets returned vs printed.
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 1: What does this code print?</h4>
+          <pre><code>print(list(range(2, 10, 3)))</code></pre>
+          <div class="quiz-option" data-value="a">[2, 5, 8, 11]</div>
+          <div class="quiz-option" data-value="b">[2, 5, 8]</div>
+          <div class="quiz-option" data-value="c">[2, 3, 4, 5, 6, 7, 8, 9]</div>
+          <div class="quiz-option" data-value="d">[3, 6, 9]</div>
+          <div class="quiz-feedback" data-correct="Correct! range(2, 10, 3) starts at 2, steps by 3, and stops before 10: 2, 5, 8." data-incorrect="Not quite. range(start, stop, step) generates numbers from start up to (but not including) stop, stepping by 3. That gives 2, 5, 8."></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 2: What does this code print?</h4>
+          <pre><code>for i in range(3):
+    print(i, end=" ")
+else:
+    print("done")</code></pre>
+          <div class="quiz-option" data-value="a">0 1 2 done</div>
+          <div class="quiz-option" data-value="b">0 1 2</div>
+          <div class="quiz-option" data-value="c">done</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="Correct! The for-else block is valid Python. The else clause runs when the loop completes normally (without break), so it prints &quot;done&quot; after the loop." data-incorrect="Not quite. Python supports for-else syntax. The else block executes after the loop finishes normally (no break). Output: 0 1 2 done."></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 3: What does this function return?</h4>
+          <pre><code>def greet(name="World"):
+    return f"Hello, {name}!"
+
+result = greet()
+print(result)</code></pre>
+          <div class="quiz-option" data-value="a">Hello, name!</div>
+          <div class="quiz-option" data-value="b">Hello, !</div>
+          <div class="quiz-option" data-value="c">Hello, World!</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! When no argument is passed, the default parameter value &quot;World&quot; is used. The f-string produces &quot;Hello, World!&quot;." data-incorrect="Not quite. The function has a default parameter name=&quot;World&quot;. Calling greet() with no arguments uses the default, returning &quot;Hello, World!&quot;."></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 4: What does this code print?</h4>
+          <pre><code>x = 10
+
+def change():
+    x = 20
+
+change()
+print(x)</code></pre>
+          <div class="quiz-option" data-value="a">20</div>
+          <div class="quiz-option" data-value="b">None</div>
+          <div class="quiz-option" data-value="c">Error</div>
+          <div class="quiz-option" data-value="d">10</div>
+          <div class="quiz-feedback" data-correct="Correct! The x inside change() is a local variable. It does not affect the global x. The global x remains 10." data-incorrect="Not quite. Assigning x = 20 inside the function creates a new local variable, leaving the global x unchanged at 10. You would need &quot;global x&quot; to modify the outer one."></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 5: What does this lambda expression evaluate to?</h4>
+          <pre><code>double = lambda x: x * 2
+print(double(7))</code></pre>
+          <div class="quiz-option" data-value="a">x * 2</div>
+          <div class="quiz-option" data-value="b">14</div>
+          <div class="quiz-option" data-value="c">7</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="Correct! The lambda takes x and returns x * 2. Passing 7 gives 14." data-incorrect="Not quite. lambda x: x * 2 creates a function that doubles its argument. double(7) = 7 * 2 = 14."></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 6: What does this code print?</h4>
+          <pre><code>count = 0
+while count &lt; 5:
+    if count == 3:
+        break
+    count += 1
+print(count)</code></pre>
+          <div class="quiz-option" data-value="a">3</div>
+          <div class="quiz-option" data-value="b">4</div>
+          <div class="quiz-option" data-value="c">5</div>
+          <div class="quiz-option" data-value="d">2</div>
+          <div class="quiz-feedback" data-correct="Correct! The loop increments count to 1, 2, 3. On the next iteration, count == 3 triggers the break before incrementing further." data-incorrect="Not quite. Trace through: count starts at 0. It increments to 1, 2, 3. When count is 3, the if-check fires before the increment, so break exits with count = 3."></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 7: What does this code print?</h4>
+          <pre><code>def add(a, b=5):
+    return a + b
+
+print(add(3, b=10))</code></pre>
+          <div class="quiz-option" data-value="a">8</div>
+          <div class="quiz-option" data-value="b">5</div>
+          <div class="quiz-option" data-value="c">13</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! a gets 3, and b is explicitly set to 10 (overriding the default 5). 3 + 10 = 13." data-incorrect="Not quite. The call passes a=3 and b=10. The keyword argument b=10 overrides the default of 5. So 3 + 10 = 13."></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 8: What does this code print?</h4>
+          <pre><code>nums = [1, 2, 3, 4, 5]
+result = [x for x in nums if x % 2 == 0]
+print(result)</code></pre>
+          <div class="quiz-option" data-value="a">[1, 3, 5]</div>
+          <div class="quiz-option" data-value="b">[1, 2, 3, 4, 5]</div>
+          <div class="quiz-option" data-value="c">[0, 0, 0, 0, 0]</div>
+          <div class="quiz-option" data-value="d">[2, 4]</div>
+          <div class="quiz-feedback" data-correct="Correct! The list comprehension filters for even numbers (x % 2 == 0), which are 2 and 4." data-incorrect="Not quite. The condition x % 2 == 0 keeps only even numbers. From [1, 2, 3, 4, 5], the even ones are [2, 4]."></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 9: What does this code print?</h4>
+          <pre><code>def mystery():
+    print("A")
+    return
+    print("B")
+
+mystery()</code></pre>
+          <div class="quiz-option" data-value="a">A B</div>
+          <div class="quiz-option" data-value="b">A</div>
+          <div class="quiz-option" data-value="c">B</div>
+          <div class="quiz-option" data-value="d">None</div>
+          <div class="quiz-feedback" data-correct="Correct! The function prints &quot;A&quot;, then return exits the function immediately. The print(&quot;B&quot;) line is unreachable." data-incorrect="Not quite. The return statement exits the function immediately after printing &quot;A&quot;. The code after return never executes, so only &quot;A&quot; is printed."></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 10: What does this code print?</h4>
+          <pre><code>values = [10, 20, 30]
+total = 0
+for v in values:
+    total += v
+    if total > 25:
+        break
+print(total)</code></pre>
+          <div class="quiz-option" data-value="a">30</div>
+          <div class="quiz-option" data-value="b">60</div>
+          <div class="quiz-option" data-value="c">10</div>
+          <div class="quiz-option" data-value="d">25</div>
+          <div class="quiz-feedback" data-correct="Correct! First iteration: total = 10 (not > 25). Second iteration: total = 30 (> 25), so break. Final total is 30." data-incorrect="Not quite. total starts at 0. After adding 10: total=10. After adding 20: total=30, which is > 25, so break fires. The final total is 30."></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">Reset Quiz</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  QUIZ 4 — FILES, ERRORS & MODULES                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-files-errors">Quiz 4: Files, Errors &amp; Modules</h2>
+      <p>
+        File I/O, exception handling, imports, and identifying common runtime
+        errors. Real-world Python skills tested here.
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 1: What does the file mode <code>"r"</code> do in <code>open()</code>?</h4>
+          <div class="quiz-option" data-value="a">Opens the file for writing (creates if it does not exist)</div>
+          <div class="quiz-option" data-value="b">Opens the file for reading only (file must exist)</div>
+          <div class="quiz-option" data-value="c">Opens the file for appending</div>
+          <div class="quiz-option" data-value="d">Opens the file for reading and writing</div>
+          <div class="quiz-feedback" data-correct="Correct! &quot;r&quot; mode opens a file for reading only. The file must already exist or a FileNotFoundError is raised." data-incorrect="Not quite. &quot;r&quot; is read-only mode. &quot;w&quot; is write, &quot;a&quot; is append, and &quot;r+&quot; is read/write. &quot;r&quot; requires the file to exist."></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 2: What exception is raised by this code?</h4>
+          <pre><code>my_list = [1, 2, 3]
+print(my_list[5])</code></pre>
+          <div class="quiz-option" data-value="a">KeyError</div>
+          <div class="quiz-option" data-value="b">ValueError</div>
+          <div class="quiz-option" data-value="c">IndexError</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! Accessing an index that does not exist in a list raises IndexError. KeyError is for dictionaries." data-incorrect="Not quite. Lists raise IndexError for out-of-range indices. KeyError is for missing dictionary keys. The list only has indices 0, 1, 2."></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 3: What does this code print?</h4>
+          <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("oops")
+finally:
+    print("done")</code></pre>
+          <div class="quiz-option" data-value="a">oops done</div>
+          <div class="quiz-option" data-value="b">oops</div>
+          <div class="quiz-option" data-value="c">done</div>
+          <div class="quiz-option" data-value="d">ZeroDivisionError</div>
+          <div class="quiz-feedback" data-correct="Correct! The except block catches the error and prints &quot;oops&quot;. The finally block always runs, printing &quot;done&quot;." data-incorrect="Not quite. The except clause handles the ZeroDivisionError (prints &quot;oops&quot;). The finally block runs regardless (prints &quot;done&quot;). Output: oops done."></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 4: Which is the correct way to import just the <code>sqrt</code> function from the <code>math</code> module?</h4>
+          <div class="quiz-option" data-value="a">import sqrt from math</div>
+          <div class="quiz-option" data-value="b">import math.sqrt</div>
+          <div class="quiz-option" data-value="c">using math import sqrt</div>
+          <div class="quiz-option" data-value="d">from math import sqrt</div>
+          <div class="quiz-feedback" data-correct="Correct! The syntax is &quot;from module import name&quot;. This lets you use sqrt() directly without the math. prefix." data-incorrect="Not quite. Python's import syntax is: from math import sqrt. &quot;import sqrt from math&quot; looks like JavaScript, and &quot;import math.sqrt&quot; is not valid Python syntax."></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 5: What does the file mode <code>"a"</code> do?</h4>
+          <div class="quiz-option" data-value="a">Overwrites the file from the beginning</div>
+          <div class="quiz-option" data-value="b">Appends to the end of the file (creates it if it does not exist)</div>
+          <div class="quiz-option" data-value="c">Opens for reading only</div>
+          <div class="quiz-option" data-value="d">Deletes the file contents then opens for writing</div>
+          <div class="quiz-feedback" data-correct="Correct! &quot;a&quot; mode opens a file for appending. New data is written at the end. If the file does not exist, it is created." data-incorrect="Not quite. &quot;a&quot; stands for append. It adds to the end of the file without erasing existing content. &quot;w&quot; mode is the one that overwrites."></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 6: What exception does this code raise?</h4>
+          <pre><code>d = {"name": "Alice"}
+print(d["age"])</code></pre>
+          <div class="quiz-option" data-value="a">IndexError</div>
+          <div class="quiz-option" data-value="b">AttributeError</div>
+          <div class="quiz-option" data-value="c">KeyError</div>
+          <div class="quiz-option" data-value="d">NameError</div>
+          <div class="quiz-feedback" data-correct="Correct! Accessing a missing key with bracket notation raises KeyError. Use .get() to avoid this." data-incorrect="Not quite. Dictionaries raise KeyError when you access a key that does not exist using d[key]. IndexError is for lists/sequences."></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>Question 7: What is the purpose of the <code>with</code> statement when working with files?</h4>
+          <pre><code>with open("data.txt", "r") as f:
+    content = f.read()</code></pre>
+          <div class="quiz-option" data-value="a">It automatically closes the file when the block exits, even if an error occurs</div>
+          <div class="quiz-option" data-value="b">It makes the file read-only</div>
+          <div class="quiz-option" data-value="c">It locks the file to prevent other programs from accessing it</div>
+          <div class="quiz-option" data-value="d">It reads the file faster than without &quot;with&quot;</div>
+          <div class="quiz-feedback" data-correct="Correct! The with statement is a context manager that guarantees the file is properly closed, even if an exception is raised inside the block." data-incorrect="Not quite. The with statement ensures the file is automatically closed when the block finishes (or if an error occurs). It is a best practice for resource management."></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>Question 8: What exception does this code raise?</h4>
+          <pre><code>x = "hello"
+y = x + 5</code></pre>
+          <div class="quiz-option" data-value="a">ValueError</div>
+          <div class="quiz-option" data-value="b">SyntaxError</div>
+          <div class="quiz-option" data-value="c">NameError</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="Correct! You cannot concatenate a string and an integer with +. Python raises TypeError: can only concatenate str to str." data-incorrect="Not quite. Adding a string and an integer is a type mismatch. Python raises TypeError because it does not implicitly convert between str and int."></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>Question 9: What does this code print?</h4>
+          <pre><code>try:
+    x = int("abc")
+except ValueError as e:
+    print("caught")
+except TypeError:
+    print("type error")
+else:
+    print("success")</code></pre>
+          <div class="quiz-option" data-value="a">success</div>
+          <div class="quiz-option" data-value="b">caught</div>
+          <div class="quiz-option" data-value="c">type error</div>
+          <div class="quiz-option" data-value="d">abc</div>
+          <div class="quiz-feedback" data-correct="Correct! int(&quot;abc&quot;) raises ValueError, which is caught by the first except block. The else block only runs if no exception occurs." data-incorrect="Not quite. int(&quot;abc&quot;) cannot convert &quot;abc&quot; to an integer, raising ValueError. The matching except clause prints &quot;caught&quot;. The else block is skipped because an exception did occur."></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>Question 10: What exception does this code raise?</h4>
+          <pre><code>print(undefined_variable)</code></pre>
+          <div class="quiz-option" data-value="a">TypeError</div>
+          <div class="quiz-option" data-value="b">ValueError</div>
+          <div class="quiz-option" data-value="c">NameError</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="Correct! Using a variable that has never been defined raises NameError: name 'undefined_variable' is not defined." data-incorrect="Not quite. Referencing a name that was never assigned raises NameError. SyntaxError would be a problem with the code structure itself, not a missing variable."></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">Reset Quiz</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PREV / NEXT NAVIGATION                                       -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="practice.html" class="prev">
+          <span class="nav-label">&larr; Previous</span>
+          <span class="nav-title">Practice &amp; Roadmap</span>
+        </a>
+        <a href="best-practices.html" class="next">
+          <span class="nav-label">Next &rarr;</span>
+          <span class="nav-title">Best Practices</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

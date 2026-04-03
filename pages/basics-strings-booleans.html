@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strings &amp; Booleans &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link active">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Strings &amp; Booleans
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C.2 — STRINGS, BOOLEANS & TYPE CONVERSION           -->
+      <!-- ============================================================ -->
+
+      <h1>Strings, Booleans &amp; Type Conversion</h1>
+
+      <p>
+        This page covers three fundamental topics: <strong>strings</strong>
+        (how Python handles text), <strong>booleans</strong> (true/false
+        values), and <strong>type conversion</strong> (changing one data type
+        into another). If you are coming from MATLAB, you will find some
+        familiar ideas here, but Python handles text very differently and
+        more powerfully than MATLAB does.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB users:</strong> In MATLAB, text is handled with
+        <code>char</code> arrays (single quotes) and <code>string</code>
+        objects (double quotes). In Python, there is only one string type
+        &mdash; <code>str</code> &mdash; and single quotes and double quotes
+        are <em>completely interchangeable</em>. No more remembering which
+        quote type to use!
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. STRINGS                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="strings">1. Strings</h2>
+
+      <p>
+        A <strong>string</strong> is a sequence of characters &mdash; letters,
+        digits, spaces, punctuation, symbols. In Python, strings are
+        <em>immutable</em>, meaning once you create a string you cannot change
+        individual characters in place. Instead, you create new strings.
+      </p>
+
+      <!-- 1.1 Creating Strings -->
+      <h3 id="creating-strings">1.1 Creating Strings</h3>
+
+      <p>
+        Python gives you three ways to create strings:
+      </p>
+
+      <pre><code># Single quotes
+greeting = 'Hello, world!'
+
+# Double quotes — exactly the same as single quotes
+greeting = "Hello, world!"
+
+# Triple quotes — for multi-line strings or strings containing quotes
+paragraph = """This is a string
+that spans multiple
+lines."""
+
+paragraph2 = '''You can also use
+triple single quotes.'''</code></pre>
+
+      <div class="callout callout-info">
+        <strong>When to use which?</strong> Most Python programmers pick
+        either single or double quotes and stick with them consistently.
+        Triple quotes are used for multi-line strings and for
+        <em>docstrings</em> (documentation inside functions). If your string
+        contains an apostrophe, use double quotes:
+        <code>"It's easy"</code>. If it contains double quotes, use single
+        quotes: <code>'She said "hello"'</code>.
+      </div>
+
+      <pre><code># Strings containing quotes — no escaping needed when you choose wisely
+msg1 = "It's a beautiful day"       # apostrophe inside double quotes
+msg2 = 'She said "Python is great"' # double quotes inside single quotes
+msg3 = """He said "It's wonderful""" # triple quotes handle both</code></pre>
+
+      <!-- 1.2 String Concatenation -->
+      <h3 id="concatenation">1.2 String Concatenation with <code>+</code></h3>
+
+      <p>
+        You can join (concatenate) strings using the <code>+</code> operator:
+      </p>
+
+      <pre><code>first = "Hello"
+second = "World"
+combined = first + " " + second
+print(combined)    # Hello World
+
+# Building a path
+folder = "/home/user"
+filename = "data.csv"
+path = folder + "/" + filename
+print(path)        # /home/user/data.csv</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> You <em>cannot</em> concatenate a
+        string and a number directly. This will raise a <code>TypeError</code>:
+        <pre><code>age = 25
+# msg = "I am " + age + " years old"   # TypeError!
+msg = "I am " + str(age) + " years old"  # Convert to string first
+print(msg)   # I am 25 years old</code></pre>
+        Better yet, use f-strings (covered below) &mdash; they handle
+        conversion automatically.
+      </div>
+
+      <!-- 1.3 String Repetition -->
+      <h3 id="repetition">1.3 String Repetition with <code>*</code></h3>
+
+      <p>
+        The <code>*</code> operator repeats a string:
+      </p>
+
+      <pre><code>line = "-" * 40
+print(line)    # ----------------------------------------
+
+cheer = "Hip! " * 3
+print(cheer)   # Hip! Hip! Hip!
+
+# Useful for formatting output
+header = "=" * 50
+print(header)
+print("       REPORT TITLE")
+print(header)</code></pre>
+
+      <!-- 1.4 String Length -->
+      <h3 id="length">1.4 String Length with <code>len()</code></h3>
+
+      <pre><code>text = "Python"
+print(len(text))      # 6
+
+empty = ""
+print(len(empty))     # 0
+
+sentence = "Hello, World!"
+print(len(sentence))  # 13  (spaces and punctuation count)</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> <code>length('Python')</code> or
+        <code>strlength("Python")</code>. In Python, <code>len()</code> is a
+        built-in function that works on strings, lists, and many other types.
+      </div>
+
+      <!-- 1.5 Indexing -->
+      <h3 id="indexing">1.5 Accessing Characters (Indexing)</h3>
+
+      <p>
+        Every character in a string has a position number called an
+        <strong>index</strong>. Python uses <strong>0-based indexing</strong>,
+        meaning the first character is at index 0.
+      </p>
+
+      <pre><code>word = "Python"
+#        P  y  t  h  o  n
+#        0  1  2  3  4  5    (positive index)
+#       -6 -5 -4 -3 -2 -1   (negative index)
+
+print(word[0])    # P  — first character
+print(word[1])    # y  — second character
+print(word[5])    # n  — last character
+print(word[-1])   # n  — last character (using negative index)
+print(word[-2])   # o  — second to last</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Critical difference from MATLAB!</strong> MATLAB uses
+        <strong>1-based indexing</strong>: the first element is at index 1. Python uses
+        <strong>0-based indexing</strong>: the first element is at index 0.
+        This is one of the most common sources of bugs when switching from
+        MATLAB to Python. When you think "first character," reach for
+        <code>[0]</code>, not <code>[1]</code>.
+      </div>
+
+      <pre><code>word = "Python"
+# print(word[6])   # IndexError: string index out of range
+# The valid indices are 0 through 5 (for a 6-character string)</code></pre>
+
+      <!-- 1.6 Slicing -->
+      <h3 id="slicing">1.6 String Slicing</h3>
+
+      <p>
+        Slicing extracts a <em>portion</em> of a string. The syntax is
+        <code>s[start:end]</code>, where <code>start</code> is included and
+        <code>end</code> is <strong>excluded</strong>.
+      </p>
+
+      <pre><code>text = "Hello, World!"
+#       H  e  l  l  o  ,     W  o  r  l  d  !
+#       0  1  2  3  4  5  6  7  8  9 10 11 12
+
+print(text[0:5])     # Hello      (index 0, 1, 2, 3, 4)
+print(text[7:12])    # World      (index 7, 8, 9, 10, 11)
+print(text[:5])      # Hello      (omit start = start from 0)
+print(text[7:])      # World!     (omit end = go to the end)
+print(text[:])       # Hello, World!  (full copy)
+print(text[-6:])     # World!     (last 6 characters)</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why is the end index excluded?</strong> This is a deliberate
+        design choice. It means <code>len(s[start:end])</code> always equals
+        <code>end - start</code>. It also means you can split a string at
+        position <em>n</em> cleanly: <code>s[:n] + s[n:]</code> always equals
+        the original string. MATLAB includes both endpoints, so this takes
+        getting used to.
+      </div>
+
+      <p>
+        You can also add a <strong>step</strong> value:
+        <code>s[start:end:step]</code>
+      </p>
+
+      <pre><code>text = "Hello, World!"
+print(text[::2])     # Hlo ol!     (every 2nd character)
+print(text[1::2])    # el,Wrd      (every 2nd, starting at index 1)
+print(text[::-1])    # !dlroW ,olleH  (reverse the string!)
+
+# Reverse a string — a classic Python trick
+name = "Python"
+print(name[::-1])    # nohtyP</code></pre>
+
+      <!-- 1.7 String Methods -->
+      <h3 id="methods">1.7 Common String Methods</h3>
+
+      <p>
+        Python strings come with dozens of built-in methods. Here are the
+        most important ones:
+      </p>
+
+      <h4>Case Methods</h4>
+
+      <pre><code>text = "Hello, World!"
+print(text.upper())       # HELLO, WORLD!
+print(text.lower())       # hello, world!
+print(text.title())       # Hello, World!
+print(text.capitalize())  # Hello, world!
+print(text.swapcase())    # hELLO, wORLD!
+
+# Useful for case-insensitive comparison
+user_input = "YES"
+if user_input.lower() == "yes":
+    print("User said yes")</code></pre>
+
+      <h4>Whitespace Methods</h4>
+
+      <pre><code>messy = "   Hello, World!   "
+print(messy.strip())      # "Hello, World!"   (removes both sides)
+print(messy.lstrip())     # "Hello, World!   " (left side only)
+print(messy.rstrip())     # "   Hello, World!" (right side only)
+
+# strip() is essential when reading user input or file data
+user_input = "  python  \n"
+clean = user_input.strip()
+print(clean)   # "python"</code></pre>
+
+      <h4>Search and Replace</h4>
+
+      <pre><code>text = "Hello, World! Hello, Python!"
+
+# .find() — returns index of first occurrence, or -1 if not found
+print(text.find("World"))     # 7
+print(text.find("Java"))      # -1
+
+# .count() — counts occurrences
+print(text.count("Hello"))    # 2
+print(text.count("o"))        # 3
+
+# .replace() — replaces all occurrences (returns new string)
+new_text = text.replace("Hello", "Hi")
+print(new_text)   # Hi, World! Hi, Python!
+
+# Replace only the first occurrence
+new_text = text.replace("Hello", "Hi", 1)
+print(new_text)   # Hi, World! Hello, Python!</code></pre>
+
+      <h4>Split and Join</h4>
+
+      <pre><code># .split() — splits a string into a list
+sentence = "Python is a great language"
+words = sentence.split()           # splits on whitespace by default
+print(words)   # ['Python', 'is', 'a', 'great', 'language']
+
+csv_line = "Alice,30,Engineer"
+fields = csv_line.split(",")       # split on comma
+print(fields)  # ['Alice', '30', 'Engineer']
+
+# .join() — joins a list into a string (called on the separator)
+words = ['Python', 'is', 'great']
+sentence = " ".join(words)
+print(sentence)   # Python is great
+
+path_parts = ['home', 'user', 'documents']
+path = "/".join(path_parts)
+print(path)       # home/user/documents
+
+# Join with other separators
+csv = ",".join(["Alice", "30", "Engineer"])
+print(csv)        # Alice,30,Engineer</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Tip:</strong> Notice that <code>.join()</code> is called on
+        the separator string, not on the list. This is a common source of
+        confusion. Think of it as: "Use this separator to join that list."
+      </div>
+
+      <h4>Checking Start/End</h4>
+
+      <pre><code>filename = "report_2024.csv"
+print(filename.startswith("report"))   # True
+print(filename.endswith(".csv"))       # True
+print(filename.endswith(".txt"))       # False
+
+# Useful for filtering files
+if filename.endswith((".csv", ".xlsx")):
+    print("This is a spreadsheet file")</code></pre>
+
+      <!-- 1.8 Substring Check -->
+      <h3 id="in-keyword">1.8 Checking Substrings with <code>in</code></h3>
+
+      <pre><code>text = "Python is a great language"
+
+print("Python" in text)     # True
+print("Java" in text)       # False
+print("great" in text)      # True
+
+# Very natural in if-statements
+email = "user@example.com"
+if "@" in email:
+    print("Looks like a valid email")
+
+# Negation with "not in"
+if "spam" not in email:
+    print("Not spam")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong>
+        <code>contains("Python is great", "Python")</code>. Python's
+        <code>in</code> keyword reads more naturally:
+        <code>"Python" in text</code>.
+      </div>
+
+      <!-- 1.9 Escape Characters -->
+      <h3 id="escape-chars">1.9 Escape Characters</h3>
+
+      <p>
+        Some characters cannot be typed directly in a string. Use a backslash
+        <code>\</code> to create <em>escape sequences</em>:
+      </p>
+
+      <pre><code># Newline
+print("Line 1\nLine 2")
+# Line 1
+# Line 2
+
+# Tab
+print("Name:\tAlice")
+# Name:   Alice
+
+# Backslash itself
+print("C:\\Users\\Documents")
+# C:\Users\Documents
+
+# Quote inside same-style quotes
+print('It\'s a test')      # It's a test
+print("She said \"hi\"")   # She said "hi"</code></pre>
+
+      <h4>Raw Strings</h4>
+
+      <p>
+        Prefix a string with <code>r</code> to make a <strong>raw
+        string</strong>, where backslashes are treated as literal characters:
+      </p>
+
+      <pre><code># Without raw string — backslash has special meaning
+print("C:\new_folder\test")    # \n becomes newline, \t becomes tab!
+
+# With raw string — backslashes are literal
+print(r"C:\new_folder\test")   # C:\new_folder\test
+
+# Essential for:
+# 1. Windows file paths
+path = r"C:\Users\Documents\data.csv"
+
+# 2. Regular expressions
+import re
+pattern = r"\d+\.\d+"    # matches numbers like 3.14</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Windows users:</strong> Always use raw strings for Windows
+        file paths, or use forward slashes instead:
+        <code>"C:/Users/Documents/data.csv"</code>. Python accepts forward
+        slashes on Windows.
+      </div>
+
+      <!-- 1.10 f-strings -->
+      <h3 id="fstrings">1.10 f-Strings (Formatted String Literals)</h3>
+
+      <p>
+        f-strings are the <strong>modern, recommended way</strong> to embed
+        values inside strings. Prefix the string with <code>f</code> and put
+        expressions inside curly braces <code>{}</code>. This is one of the
+        most important features to master in Python.
+      </p>
+
+      <pre><code># Basic variable insertion
+name = "Alice"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+# My name is Alice and I am 30 years old.</code></pre>
+
+      <pre><code># Expressions inside curly braces — any valid Python expression works
+x = 10
+y = 3
+print(f"{x} + {y} = {x + y}")        # 10 + 3 = 13
+print(f"{x} * {y} = {x * y}")        # 10 * 3 = 30
+print(f"{x} / {y} = {x / y:.2f}")    # 10 / 3 = 3.33</code></pre>
+
+      <pre><code># Number formatting
+pi = 3.14159265
+print(f"Pi is approximately {pi:.2f}")    # Pi is approximately 3.14
+print(f"Pi is approximately {pi:.4f}")    # Pi is approximately 3.1416
+
+price = 49.99
+print(f"Total: ${price:,.2f}")            # Total: $49.99
+
+big_number = 1234567890
+print(f"Population: {big_number:,}")      # Population: 1,234,567,890
+
+# Percentage
+ratio = 0.856
+print(f"Accuracy: {ratio:.1%}")           # Accuracy: 85.6%</code></pre>
+
+      <pre><code># Padding and alignment
+name = "Alice"
+score = 95
+print(f"{'Name':<10} {'Score':>5}")   # Name       Score
+print(f"{name:<10} {score:>5}")       # Alice         95
+
+# Left align (<), right align (>), center (^)
+for item in ["Apple", "Banana", "Cherry"]:
+    print(f"{item:^20}")
+#        Apple
+#       Banana
+#       Cherry          </code></pre>
+
+      <pre><code># Calling methods inside f-strings
+name = "alice"
+print(f"Hello, {name.title()}!")      # Hello, Alice!
+
+items = ["eggs", "milk", "bread"]
+print(f"Shopping list has {len(items)} items.")
+# Shopping list has 3 items.</code></pre>
+
+      <pre><code># Multi-line f-strings with triple quotes
+name = "Alice"
+role = "Engineer"
+years = 5
+profile = f"""
+Employee Profile
+================
+Name:       {name}
+Role:       {role}
+Experience: {years} years
+Status:     {"Senior" if years >= 5 else "Junior"}
+"""
+print(profile)</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why f-strings are preferred:</strong> They are the most
+        readable way to build strings with embedded values. Compared to
+        <code>+</code> concatenation, they handle type conversion
+        automatically (no need to call <code>str()</code>). Compared to
+        <code>.format()</code>, they are more concise and let you see the
+        values right where they appear. f-strings were introduced in Python
+        3.6 and are now the standard approach.
+      </div>
+
+      <!-- 1.11 .format() -->
+      <h3 id="format-method">1.11 The <code>.format()</code> Method</h3>
+
+      <p>
+        Before f-strings existed, <code>.format()</code> was the standard way
+        to format strings. You will see it in older code, so it is important
+        to recognize:
+      </p>
+
+      <pre><code># Positional arguments
+print("Hello, {}! You are {} years old.".format("Alice", 30))
+# Hello, Alice! You are 30 years old.
+
+# Named arguments
+print("Hello, {name}! You are {age} years old.".format(name="Alice", age=30))
+# Hello, Alice! You are 30 years old.
+
+# Number formatting works the same way
+print("Pi is {:.2f}".format(3.14159))   # Pi is 3.14
+
+# Reusing arguments
+print("{0} likes {1}. {0} also likes {2}.".format("Alice", "Python", "coffee"))
+# Alice likes Python. Alice also likes coffee.</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Recommendation:</strong> Use f-strings for new code. Only use
+        <code>.format()</code> when you need to define a template string
+        separately from the data that fills it:
+        <pre><code># Template defined once, used many times
+template = "Hello, {name}! Welcome to {place}."
+print(template.format(name="Alice", place="Python"))
+print(template.format(name="Bob", place="the team"))</code></pre>
+      </div>
+
+      <!-- 1.12 Strings are Immutable -->
+      <h3 id="immutable">1.12 Strings Are Immutable</h3>
+
+      <p>
+        You <strong>cannot change a character</strong> in a string by
+        assigning to an index. You must create a new string instead:
+      </p>
+
+      <pre><code>word = "Python"
+# word[0] = "J"   # TypeError: 'str' object does not support item assignment
+
+# Instead, create a new string
+word = "J" + word[1:]
+print(word)   # Jython
+
+# Or use .replace()
+word = "Python"
+word = word.replace("P", "J")
+print(word)   # Jython</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB difference:</strong> In MATLAB, you <em>can</em>
+        change individual characters: <code>s(1) = 'J'</code>. In Python,
+        strings are immutable &mdash; you always create a new string.
+      </div>
+
+      <!-- String Exercises -->
+      <h3 id="string-exercises">1.13 String Exercises</h3>
+
+      <div class="callout callout-info">
+        <strong>Try these exercises.</strong> Click to reveal solutions.
+      </div>
+
+      <p><strong>Exercise 1:</strong> Given the string
+      <code>"Hello, World!"</code>, extract just <code>"World"</code> using
+      slicing.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>text = "Hello, World!"
+result = text[7:12]
+print(result)   # World</code></pre>
+      </details>
+
+      <p><strong>Exercise 2:</strong> Write code that takes a person's first
+      name and last name and prints them in the format
+      <code>"Last, First"</code> using an f-string.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>first = "Alice"
+last = "Smith"
+print(f"{last}, {first}")   # Smith, Alice</code></pre>
+      </details>
+
+      <p><strong>Exercise 3:</strong> Given the string
+      <code>"  Python Programming  "</code>, strip the whitespace, convert
+      to uppercase, and replace "PROGRAMMING" with "ROCKS".</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>text = "  Python Programming  "
+result = text.strip().upper().replace("PROGRAMMING", "ROCKS")
+print(result)   # PYTHON ROCKS</code></pre>
+        <p>Notice how you can <em>chain</em> string methods &mdash; each one
+        returns a new string, so you can call another method on the result
+        immediately.</p>
+      </details>
+
+      <p><strong>Exercise 4:</strong> Split the CSV line
+      <code>"Alice,30,Engineer,New York"</code> into a list of fields, then
+      join them back together separated by <code>" | "</code>.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>csv_line = "Alice,30,Engineer,New York"
+fields = csv_line.split(",")
+print(fields)   # ['Alice', '30', 'Engineer', 'New York']
+
+formatted = " | ".join(fields)
+print(formatted)   # Alice | 30 | Engineer | New York</code></pre>
+      </details>
+
+      <p><strong>Exercise 5:</strong> Using an f-string, print the value of
+      pi (3.14159265) formatted to 3 decimal places, right-aligned in a
+      field 10 characters wide.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>pi = 3.14159265
+print(f"{pi:>10.3f}")   #      3.142</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  2. BOOLEANS                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="booleans">2. Booleans</h2>
+
+      <p>
+        A <strong>boolean</strong> is a value that is either
+        <code>True</code> or <code>False</code>. Booleans are the foundation
+        of all decision-making in your programs &mdash; every
+        <code>if</code> statement, every <code>while</code> loop, every
+        filter relies on boolean values.
+      </p>
+
+      <pre><code>is_active = True
+is_admin = False
+
+print(type(is_active))   # &lt;class 'bool'&gt;</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Capitalization matters!</strong> Python uses
+        <code>True</code> and <code>False</code> with a <strong>capital
+        first letter</strong>. Writing <code>true</code> or
+        <code>false</code> (lowercase) will cause a <code>NameError</code>.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB difference:</strong> MATLAB uses <code>true</code> and
+        <code>false</code> (lowercase). Python uses <code>True</code> and
+        <code>False</code> (capitalized). This will trip you up at first!
+      </div>
+
+      <!-- 2.1 Comparison Operators -->
+      <h3 id="comparison">2.1 Comparison Operators</h3>
+
+      <p>
+        Comparison operators compare two values and return a boolean:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operator</th>
+            <th>Meaning</th>
+            <th>Example</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>==</code></td>
+            <td>Equal to</td>
+            <td><code>5 == 5</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>!=</code></td>
+            <td>Not equal to</td>
+            <td><code>5 != 3</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&lt;</code></td>
+            <td>Less than</td>
+            <td><code>3 &lt; 5</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&gt;</code></td>
+            <td>Greater than</td>
+            <td><code>5 &gt; 3</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&lt;=</code></td>
+            <td>Less than or equal</td>
+            <td><code>5 &lt;= 5</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&gt;=</code></td>
+            <td>Greater than or equal</td>
+            <td><code>5 &gt;= 6</code></td>
+            <td><code>False</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code>x = 10
+y = 20
+
+print(x == y)     # False
+print(x != y)     # True
+print(x < y)      # True
+print(x >= 10)    # True
+
+# Comparison works on strings too (alphabetical order)
+print("apple" < "banana")    # True  (a comes before b)
+print("Python" == "python")  # False (case-sensitive!)
+print("Python".lower() == "python".lower())  # True</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> Do not confuse <code>=</code>
+        (assignment) with <code>==</code> (comparison). Writing
+        <code>if x = 5</code> instead of <code>if x == 5</code> will cause a
+        <code>SyntaxError</code> in Python. (In MATLAB, the same mistake
+        would silently assign a value!)
+      </div>
+
+      <!-- 2.2 Logical Operators -->
+      <h3 id="logical">2.2 Logical Operators</h3>
+
+      <p>
+        Python uses English words for logical operators, not symbols:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Python</th>
+            <th>MATLAB</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>and</code></td>
+            <td><code>&amp;&amp;</code></td>
+            <td>Both must be True</td>
+          </tr>
+          <tr>
+            <td><code>or</code></td>
+            <td><code>||</code></td>
+            <td>At least one must be True</td>
+          </tr>
+          <tr>
+            <td><code>not</code></td>
+            <td><code>~</code></td>
+            <td>Inverts the value</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code>age = 25
+has_license = True
+
+# and — both conditions must be true
+can_drive = age >= 16 and has_license
+print(can_drive)   # True
+
+# or — at least one condition must be true
+is_weekend = False
+is_holiday = True
+day_off = is_weekend or is_holiday
+print(day_off)     # True
+
+# not — inverts the boolean
+is_raining = False
+go_outside = not is_raining
+print(go_outside)  # True
+
+# Combining operators
+x = 15
+in_range = x >= 10 and x <= 20
+print(in_range)    # True
+
+# Python allows chained comparisons (more readable!)
+in_range = 10 <= x <= 20
+print(in_range)    # True</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB users:</strong> Python uses <code>and</code>,
+        <code>or</code>, <code>not</code> instead of <code>&amp;&amp;</code>,
+        <code>||</code>, <code>~</code>. This reads more like English. Also,
+        Python's chained comparisons (<code>10 &lt;= x &lt;= 20</code>) are
+        a nice feature that MATLAB does not have.
+      </div>
+
+      <!-- 2.3 Truthy and Falsy -->
+      <h3 id="truthy-falsy">2.3 Truthy and Falsy Values</h3>
+
+      <p>
+        In Python, every value has an inherent "truthiness." When used in a
+        boolean context (like an <code>if</code> statement), some values act
+        as <code>False</code> and everything else acts as <code>True</code>.
+      </p>
+
+      <p>The following values are <strong>falsy</strong> (evaluate to
+      <code>False</code>):</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Falsy Value</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>False</code></td><td>bool</td></tr>
+          <tr><td><code>0</code></td><td>int</td></tr>
+          <tr><td><code>0.0</code></td><td>float</td></tr>
+          <tr><td><code>""</code> (empty string)</td><td>str</td></tr>
+          <tr><td><code>[]</code> (empty list)</td><td>list</td></tr>
+          <tr><td><code>()</code> (empty tuple)</td><td>tuple</td></tr>
+          <tr><td><code>{}</code> (empty dict)</td><td>dict</td></tr>
+          <tr><td><code>None</code></td><td>NoneType</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Everything else is truthy</strong> &mdash; non-zero numbers,
+      non-empty strings, non-empty lists, etc.</p>
+
+      <pre><code># Falsy values
+print(bool(0))        # False
+print(bool(0.0))      # False
+print(bool(""))       # False
+print(bool([]))       # False
+print(bool(None))     # False
+
+# Truthy values
+print(bool(1))        # True
+print(bool(-1))       # True  (any non-zero number)
+print(bool("hello"))  # True  (any non-empty string)
+print(bool([1, 2]))   # True  (any non-empty list)</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Truthy/falsy values allow you to
+        write clean, Pythonic code. Instead of checking
+        <code>if len(my_list) &gt; 0:</code>, you simply write
+        <code>if my_list:</code>. Instead of
+        <code>if name != "":</code>, you write <code>if name:</code>. This
+        is a very common Python pattern.
+      </div>
+
+      <pre><code># Practical use of truthy/falsy
+name = input("Enter your name: ")
+if name:
+    print(f"Hello, {name}!")
+else:
+    print("You didn't enter a name.")
+
+# Check if a list has items
+results = []
+if not results:
+    print("No results found.")
+
+# Default values using "or"
+username = ""
+display_name = username or "Anonymous"
+print(display_name)   # Anonymous</code></pre>
+
+      <!-- 2.4 bool() Function -->
+      <h3 id="bool-function">2.4 The <code>bool()</code> Function</h3>
+
+      <p>
+        You can explicitly convert any value to a boolean with
+        <code>bool()</code>:
+      </p>
+
+      <pre><code>print(bool(42))        # True
+print(bool(0))         # False
+print(bool("Python"))  # True
+print(bool(""))        # False
+print(bool(" "))       # True  — a space is not empty!
+print(bool("False"))   # True  — the STRING "False" is non-empty!
+print(bool(None))      # False</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Watch out:</strong> <code>bool("False")</code> is
+        <code>True</code>, because <code>"False"</code> is a non-empty
+        string. Only the <em>empty</em> string <code>""</code> is falsy.
+        Similarly, <code>bool("0")</code> is <code>True</code>.
+      </div>
+
+      <!-- Boolean Exercises -->
+      <h3 id="boolean-exercises">2.5 Boolean Exercises</h3>
+
+      <p><strong>Exercise 6:</strong> Without running the code, predict the
+      output of each line:</p>
+
+      <pre><code>print(10 > 5 and 3 < 1)
+print(not False)
+print(bool("") or bool("hello"))
+print(0 == False)
+print("" == False)</code></pre>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>print(10 > 5 and 3 < 1)           # False  (True and False = False)
+print(not False)                   # True
+print(bool("") or bool("hello"))   # True   (False or True = True)
+print(0 == False)                  # True   (False is numerically 0)
+print("" == False)                 # False  ("" is falsy but not equal to False)</code></pre>
+        <p>The last two are subtle. <code>0 == False</code> is
+        <code>True</code> because Python's <code>bool</code> type is a
+        subclass of <code>int</code>, and <code>False</code> has a numeric
+        value of 0. However, <code>"" == False</code> is <code>False</code>
+        because a string and a boolean are different types and Python does
+        not implicitly convert between them in equality checks.</p>
+      </details>
+
+      <p><strong>Exercise 7:</strong> Write a boolean expression that checks
+      if a variable <code>score</code> is between 0 and 100 (inclusive) using
+      chained comparisons.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>score = 85
+is_valid = 0 <= score <= 100
+print(is_valid)   # True
+
+score = 150
+is_valid = 0 <= score <= 100
+print(is_valid)   # False</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  3. TYPE CONVERSION                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-conversion">3. Type Conversion</h2>
+
+      <p>
+        Type conversion (also called <em>type casting</em>) is the process of
+        changing a value from one data type to another. Python provides
+        built-in functions for this.
+      </p>
+
+      <!-- 3.1 Conversion Functions -->
+      <h3 id="conversion-functions">3.1 Conversion Functions</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Converts to</th>
+            <th>Example</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>int()</code></td>
+            <td>Integer</td>
+            <td><code>int("42")</code></td>
+            <td><code>42</code></td>
+          </tr>
+          <tr>
+            <td><code>float()</code></td>
+            <td>Float</td>
+            <td><code>float("3.14")</code></td>
+            <td><code>3.14</code></td>
+          </tr>
+          <tr>
+            <td><code>str()</code></td>
+            <td>String</td>
+            <td><code>str(42)</code></td>
+            <td><code>"42"</code></td>
+          </tr>
+          <tr>
+            <td><code>bool()</code></td>
+            <td>Boolean</td>
+            <td><code>bool(1)</code></td>
+            <td><code>True</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code># String to number
+age_str = "25"
+age = int(age_str)
+print(age + 5)         # 30  (numeric addition)
+
+price_str = "19.99"
+price = float(price_str)
+print(price * 2)       # 39.98
+
+# Number to string
+count = 42
+message = "There are " + str(count) + " items."
+print(message)         # There are 42 items.
+
+# Float to int (truncates — does NOT round!)
+print(int(3.7))    # 3   (not 4!)
+print(int(3.2))    # 3
+print(int(-2.8))   # -2  (truncates toward zero)
+
+# To round instead, use round()
+print(round(3.7))   # 4
+print(round(3.2))   # 3</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> <code>int()</code> truncates
+        decimals, it does <em>not</em> round. <code>int(3.9)</code> gives
+        <code>3</code>, not <code>4</code>. If you want rounding, use
+        <code>round()</code>.
+      </div>
+
+      <!-- 3.2 When You Need Conversion -->
+      <h3 id="when-convert">3.2 When and Why You Need Conversion</h3>
+
+      <p>
+        The most common scenario where you <em>must</em> convert types is
+        when working with user input. The <code>input()</code> function
+        <strong>always returns a string</strong>, even if the user types a
+        number.
+      </p>
+
+      <pre><code># input() always returns a string!
+age_str = input("Enter your age: ")   # User types: 25
+print(type(age_str))                   # &lt;class 'str'&gt;
+
+# This will NOT work as expected:
+# age_str + 5     # TypeError: can only concatenate str to str
+# age_str > 18    # This compares strings, not numbers!
+
+# Convert first:
+age = int(age_str)
+print(age + 5)      # 30
+print(age > 18)     # True</code></pre>
+
+      <pre><code># A complete example: simple calculator
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+result = num1 + num2
+print(f"{num1} + {num2} = {result}")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB difference:</strong> MATLAB's <code>input()</code>
+        function evaluates the expression by default and returns a number.
+        You need <code>input('prompt', 's')</code> to get a string. Python's
+        <code>input()</code> is the opposite &mdash; it
+        <em>always</em> returns a string, and you must convert explicitly.
+      </div>
+
+      <!-- 3.3 Handling Conversion Errors -->
+      <h3 id="conversion-errors">3.3 Handling Conversion Errors</h3>
+
+      <p>
+        Not every string can be converted to a number. Attempting an invalid
+        conversion raises a <code>ValueError</code>:
+      </p>
+
+      <pre><code># These will raise ValueError:
+# int("hello")       # ValueError: invalid literal for int()
+# int("3.14")        # ValueError: int() can't convert "3.14" directly
+# float("abc")       # ValueError: could not convert string to float
+
+# To convert "3.14" to an int, convert to float first:
+print(int(float("3.14")))   # 3
+
+# Safe conversion with try/except
+user_input = input("Enter a number: ")
+try:
+    number = float(user_input)
+    print(f"You entered: {number}")
+except ValueError:
+    print(f"'{user_input}' is not a valid number!")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Tip:</strong> <code>int("3.14")</code> fails because Python
+        refuses to silently lose the decimal part. You must be explicit:
+        <code>int(float("3.14"))</code> first converts to float, then
+        truncates to int.
+      </div>
+
+      <!-- 3.4 Checking Types -->
+      <h3 id="checking-types">3.4 Checking Types</h3>
+
+      <pre><code>x = 42
+print(type(x))              # &lt;class 'int'&gt;
+print(isinstance(x, int))   # True
+print(isinstance(x, str))   # False
+
+# isinstance() can check multiple types
+value = 3.14
+print(isinstance(value, (int, float)))   # True</code></pre>
+
+      <!-- 3.5 Type Conversion Summary -->
+      <h3 id="conversion-summary">3.5 Quick Reference: What Converts to What</h3>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>From</th>
+              <th><code>int()</code></th>
+              <th><code>float()</code></th>
+              <th><code>str()</code></th>
+              <th><code>bool()</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>42</code></td>
+              <td><code>42</code></td>
+              <td><code>42.0</code></td>
+              <td><code>"42"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>3.14</code></td>
+              <td><code>3</code> (truncated)</td>
+              <td><code>3.14</code></td>
+              <td><code>"3.14"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>"25"</code></td>
+              <td><code>25</code></td>
+              <td><code>25.0</code></td>
+              <td><code>"25"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>"3.14"</code></td>
+              <td>ValueError</td>
+              <td><code>3.14</code></td>
+              <td><code>"3.14"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>""</code></td>
+              <td>ValueError</td>
+              <td>ValueError</td>
+              <td><code>""</code></td>
+              <td><code>False</code></td>
+            </tr>
+            <tr>
+              <td><code>True</code></td>
+              <td><code>1</code></td>
+              <td><code>1.0</code></td>
+              <td><code>"True"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>False</code></td>
+              <td><code>0</code></td>
+              <td><code>0.0</code></td>
+              <td><code>"False"</code></td>
+              <td><code>False</code></td>
+            </tr>
+            <tr>
+              <td><code>0</code></td>
+              <td><code>0</code></td>
+              <td><code>0.0</code></td>
+              <td><code>"0"</code></td>
+              <td><code>False</code></td>
+            </tr>
+            <tr>
+              <td><code>None</code></td>
+              <td>TypeError</td>
+              <td>TypeError</td>
+              <td><code>"None"</code></td>
+              <td><code>False</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Type Conversion Exercises -->
+      <h3 id="conversion-exercises">3.6 Type Conversion Exercises</h3>
+
+      <p><strong>Exercise 8:</strong> A user inputs their birth year as a
+      string. Calculate their approximate age and print it using an
+      f-string.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>birth_year_str = "1995"   # pretend this came from input()
+birth_year = int(birth_year_str)
+age = 2026 - birth_year
+print(f"You are approximately {age} years old.")
+# You are approximately 31 years old.</code></pre>
+      </details>
+
+      <p><strong>Exercise 9:</strong> Without running the code, predict what
+      each of these produces (value or error):</p>
+
+      <pre><code>a = int(7.9)
+b = float("10")
+c = str(True)
+d = bool("0")
+e = int("")</code></pre>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>a = int(7.9)       # 7        (truncates, does not round)
+b = float("10")    # 10.0
+c = str(True)      # "True"
+d = bool("0")      # True     ("0" is a non-empty string!)
+e = int("")        # ValueError  (empty string cannot become an int)</code></pre>
+      </details>
+
+      <p><strong>Exercise 10:</strong> Write a small program that asks the
+      user for a temperature in Fahrenheit and converts it to Celsius.
+      Formula: <code>C = (F - 32) * 5/9</code>. Print the result formatted
+      to 1 decimal place.</p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code># fahrenheit_str = input("Enter temperature in Fahrenheit: ")
+fahrenheit_str = "98.6"   # example value
+fahrenheit = float(fahrenheit_str)
+celsius = (fahrenheit - 32) * 5 / 9
+print(f"{fahrenheit}°F = {celsius:.1f}°C")
+# 98.6°F = 37.0°C</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <ul>
+        <li>
+          <strong>Strings</strong> are created with single, double, or triple
+          quotes. They support indexing (<code>[0]</code>), slicing
+          (<code>[1:4]</code>), and dozens of methods like
+          <code>.upper()</code>, <code>.split()</code>, and
+          <code>.replace()</code>.
+        </li>
+        <li>
+          <strong>f-strings</strong> (<code>f"Hello {name}"</code>) are the
+          preferred way to embed values in strings. Learn them well &mdash;
+          you will use them constantly.
+        </li>
+        <li>
+          <strong>Strings are immutable</strong> &mdash; you cannot change
+          them in place. Methods return new strings.
+        </li>
+        <li>
+          <strong>Booleans</strong> are <code>True</code> or
+          <code>False</code> (capitalized!). Use <code>and</code>,
+          <code>or</code>, <code>not</code> for logical operations.
+        </li>
+        <li>
+          <strong>Truthy/falsy</strong>: <code>0</code>, <code>""</code>,
+          <code>[]</code>, <code>None</code> are falsy; everything else is
+          truthy.
+        </li>
+        <li>
+          <strong>Type conversion</strong>: Use <code>int()</code>,
+          <code>float()</code>, <code>str()</code>, <code>bool()</code> to
+          convert between types. Remember that <code>input()</code> always
+          returns a string.
+        </li>
+        <li>
+          <strong>Python uses 0-based indexing</strong>, unlike MATLAB's
+          1-based indexing. This is critical to remember.
+        </li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Strings and booleans are two of the
+        most commonly used data types in any program. Virtually every program
+        you write will display text, process user input, make decisions, or
+        format output. Mastering these fundamentals &mdash; especially
+        f-strings, slicing, and truthy/falsy values &mdash; will make every
+        future topic easier to learn.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-print-variables.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Print, Variables &amp; Numbers</span></a>
+        <a href="basics-lists-tuples.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Lists, Tuples &amp; Sets</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

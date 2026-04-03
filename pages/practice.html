@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice &amp; Learning Roadmap &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link active">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        Practice &amp; Learning Roadmap
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION H — PRACTICE & LEARNING ROADMAP                      -->
+      <!-- ============================================================ -->
+
+      <h1>Section H &mdash; Practice &amp; Learning Roadmap</h1>
+      <p class="page-subtitle">
+        Exercises, quizzes, debugging challenges, and a structured 30-day plan
+        to take you from zero to confident Python programmer.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">How to use this page</div>
+        <p>
+          Work through the exercises in order. Each one has a hidden solution
+          &mdash; try solving it yourself first, then click <strong>Show
+          Solution</strong> to compare. The quizzes and debugging exercises
+          reinforce the concepts. The 30-day roadmap at the bottom ties
+          everything together.
+        </p>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">On this page</div>
+        <ul>
+          <li><a href="#beginner-exercises">1. Beginner Exercises</a></li>
+          <li><a href="#quizzes">2. Small Quizzes</a></li>
+          <li><a href="#debugging">3. Debugging Exercises</a></li>
+          <li><a href="#learning-order">4. Recommended Learning Order</a></li>
+          <li><a href="#30-day-roadmap">5. 30-Day Learning Roadmap</a></li>
+          <li><a href="#advice-engineers">6. Advice for Engineers / MATLAB Users</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. BEGINNER EXERCISES                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="beginner-exercises">1. Beginner Exercises</h2>
+
+      <p>
+        These 15 exercises cover the fundamental building blocks. Each one
+        targets a specific skill. Try writing the code in a file or in the
+        Python REPL before checking the solution.
+      </p>
+
+      <!-- Exercise 1 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 1 &mdash; Print Your Name <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a program that prints <code>Hello, my name is [your name]!</code> to the console.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="cmt"># Exercise 1 — Print your name</span>
+name = <span class="str">"Alice"</span>
+<span class="fn">print</span>(<span class="str">f"Hello, my name is </span><span class="op">{</span>name<span class="op">}</span><span class="str">!"</span>)</code></pre>
+          <p>Output: <code>Hello, my name is Alice!</code></p>
+        </details>
+      </div>
+
+      <!-- Exercise 2 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 2 &mdash; Area of a Circle <span class="tag tag-beginner">Beginner</span></div>
+        <p>Ask the user for a radius (use <code>input()</code>), then calculate and print the area of a circle. Use <code>math.pi</code>.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">import</span> math
+
+radius = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">"Enter the radius: "</span>))
+area = math.pi * radius ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area = </span><span class="op">{</span>area<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 3 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 3 &mdash; Temperature Converter <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function <code>celsius_to_fahrenheit(c)</code> that converts Celsius to Fahrenheit. Formula: <code>F = C * 9/5 + 32</code>. Test it with a few values.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">celsius_to_fahrenheit</span>(c):
+    <span class="kw">return</span> c * <span class="num">9</span> / <span class="num">5</span> + <span class="num">32</span>
+
+<span class="cmt"># Test</span>
+<span class="fn">print</span>(celsius_to_fahrenheit(<span class="num">0</span>))    <span class="cmt"># 32.0</span>
+<span class="fn">print</span>(celsius_to_fahrenheit(<span class="num">100</span>))  <span class="cmt"># 212.0</span>
+<span class="fn">print</span>(celsius_to_fahrenheit(<span class="num">37</span>))   <span class="cmt"># 98.6</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 4 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 4 &mdash; Count Vowels <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function that takes a string and returns the number of vowels (a, e, i, o, u) in it. Ignore case.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">count_vowels</span>(text):
+    vowels = <span class="str">"aeiou"</span>
+    count = <span class="num">0</span>
+    <span class="kw">for</span> char <span class="kw">in</span> text.lower():
+        <span class="kw">if</span> char <span class="kw">in</span> vowels:
+            count += <span class="num">1</span>
+    <span class="kw">return</span> count
+
+<span class="fn">print</span>(count_vowels(<span class="str">"Hello World"</span>))  <span class="cmt"># 3</span>
+<span class="fn">print</span>(count_vowels(<span class="str">"Python"</span>))       <span class="cmt"># 1</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 5 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 5 &mdash; Reverse a String <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function that takes a string and returns it reversed. Do <em>not</em> use the built-in <code>reversed()</code> function &mdash; use slicing.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">reverse_string</span>(s):
+    <span class="kw">return</span> s[::<span class="num">-1</span>]
+
+<span class="fn">print</span>(reverse_string(<span class="str">"Python"</span>))   <span class="cmt"># nohtyP</span>
+<span class="fn">print</span>(reverse_string(<span class="str">"abcdef"</span>))   <span class="cmt"># fedcba</span></code></pre>
+          <div class="callout callout-info">
+            <div class="callout-title">How does <code>[::-1]</code> work?</div>
+            <p>
+              The slice <code>[start:stop:step]</code> with <code>step = -1</code>
+              walks backward through the string. Omitting <code>start</code> and
+              <code>stop</code> means "go from end to beginning."
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Exercise 6 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 6 &mdash; Find the Largest Number in a List <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function that takes a list of numbers and returns the largest one. Do not use <code>max()</code> &mdash; use a loop.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">find_largest</span>(numbers):
+    largest = numbers[<span class="num">0</span>]
+    <span class="kw">for</span> num <span class="kw">in</span> numbers[<span class="num">1</span>:]:
+        <span class="kw">if</span> num > largest:
+            largest = num
+    <span class="kw">return</span> largest
+
+<span class="fn">print</span>(find_largest([<span class="num">3</span>, <span class="num">7</span>, <span class="num">2</span>, <span class="num">9</span>, <span class="num">1</span>]))  <span class="cmt"># 9</span>
+<span class="fn">print</span>(find_largest([<span class="num">-5</span>, <span class="num">-1</span>, <span class="num">-8</span>]))    <span class="cmt"># -1</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 7 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 7 &mdash; Check Palindrome <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function that checks whether a given string is a palindrome (reads the same forward and backward). Ignore case and spaces.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">is_palindrome</span>(text):
+    cleaned = text.lower().replace(<span class="str">" "</span>, <span class="str">""</span>)
+    <span class="kw">return</span> cleaned == cleaned[::<span class="num">-1</span>]
+
+<span class="fn">print</span>(is_palindrome(<span class="str">"racecar"</span>))     <span class="cmt"># True</span>
+<span class="fn">print</span>(is_palindrome(<span class="str">"A man a plan a canal Panama"</span>))  <span class="cmt"># True</span>
+<span class="fn">print</span>(is_palindrome(<span class="str">"hello"</span>))       <span class="cmt"># False</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 8 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 8 &mdash; FizzBuzz <span class="tag tag-beginner">Beginner</span></div>
+        <p>
+          Print numbers from 1 to 30. For multiples of 3, print <code>"Fizz"</code>
+          instead. For multiples of 5, print <code>"Buzz"</code>. For multiples
+          of both, print <code>"FizzBuzz"</code>.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">31</span>):
+    <span class="kw">if</span> i % <span class="num">3</span> == <span class="num">0</span> <span class="kw">and</span> i % <span class="num">5</span> == <span class="num">0</span>:
+        <span class="fn">print</span>(<span class="str">"FizzBuzz"</span>)
+    <span class="kw">elif</span> i % <span class="num">3</span> == <span class="num">0</span>:
+        <span class="fn">print</span>(<span class="str">"Fizz"</span>)
+    <span class="kw">elif</span> i % <span class="num">5</span> == <span class="num">0</span>:
+        <span class="fn">print</span>(<span class="str">"Buzz"</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(i)</code></pre>
+          <div class="callout callout-why">
+            <div class="callout-title">Why check "both" first?</div>
+            <p>
+              If you check <code>% 3</code> first, a number like 15 would print
+              "Fizz" and never reach the "both" check. Always test the most
+              specific condition first.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Exercise 9 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 9 &mdash; Sum of Digits <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function that takes an integer and returns the sum of its digits. Example: <code>sum_digits(1234)</code> returns <code>10</code>.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">sum_digits</span>(n):
+    total = <span class="num">0</span>
+    <span class="kw">for</span> digit <span class="kw">in</span> <span class="fn">str</span>(<span class="fn">abs</span>(n)):
+        total += <span class="fn">int</span>(digit)
+    <span class="kw">return</span> total
+
+<span class="fn">print</span>(sum_digits(<span class="num">1234</span>))   <span class="cmt"># 10</span>
+<span class="fn">print</span>(sum_digits(<span class="num">9999</span>))   <span class="cmt"># 36</span>
+<span class="fn">print</span>(sum_digits(<span class="num">-42</span>))    <span class="cmt"># 6</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 10 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 10 &mdash; Factorial <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a function that computes the factorial of a non-negative integer using a loop (not recursion). <code>factorial(5)</code> should return <code>120</code>.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">factorial</span>(n):
+    result = <span class="num">1</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">2</span>, n + <span class="num">1</span>):
+        result *= i
+    <span class="kw">return</span> result
+
+<span class="fn">print</span>(factorial(<span class="num">5</span>))   <span class="cmt"># 120</span>
+<span class="fn">print</span>(factorial(<span class="num">0</span>))   <span class="cmt"># 1</span>
+<span class="fn">print</span>(factorial(<span class="num">10</span>))  <span class="cmt"># 3628800</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 11 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 11 &mdash; Multiplication Table <span class="tag tag-beginner">Beginner</span></div>
+        <p>Write a program that prints the multiplication table for a given number (1 through 10). Format: <code>7 x 1 = 7</code>, etc.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code>number = <span class="num">7</span>
+
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):
+    <span class="fn">print</span>(<span class="str">f"</span><span class="op">{</span>number<span class="op">}</span><span class="str"> x </span><span class="op">{</span>i<span class="op">}</span><span class="str"> = </span><span class="op">{</span>number * i<span class="op">}</span><span class="str">"</span>)</code></pre>
+          <p>Output:</p>
+<pre><code>7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+...
+7 x 10 = 70</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 12 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 12 &mdash; Read a File and Count Words <span class="tag tag-intermediate">Intermediate</span></div>
+        <p>Write a program that reads a text file and prints the total number of words in it. Create a small test file first.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="cmt"># First, create a test file</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"test.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> f:
+    f.write(<span class="str">"Hello world this is a test file\n"</span>)
+    f.write(<span class="str">"It has two lines of text\n"</span>)
+
+<span class="cmt"># Now read and count words</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"test.txt"</span>, <span class="str">"r"</span>) <span class="kw">as</span> f:
+    text = f.read()
+
+word_count = <span class="fn">len</span>(text.split())
+<span class="fn">print</span>(<span class="str">f"Word count: </span><span class="op">{</span>word_count<span class="op">}</span><span class="str">"</span>)  <span class="cmt"># 14</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 13 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 13 &mdash; List Comprehension Filter <span class="tag tag-intermediate">Intermediate</span></div>
+        <p>Given a list of numbers, use a list comprehension to create a new list containing only the even numbers.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code>numbers = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>, <span class="num">10</span>]
+evens = [n <span class="kw">for</span> n <span class="kw">in</span> numbers <span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>]
+<span class="fn">print</span>(evens)  <span class="cmt"># [2, 4, 6, 8, 10]</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 14 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 14 &mdash; Dictionary Word Counter <span class="tag tag-intermediate">Intermediate</span></div>
+        <p>Write a function that takes a string and returns a dictionary where each key is a word and each value is how many times that word appears.</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">word_counter</span>(text):
+    counts = {}
+    <span class="kw">for</span> word <span class="kw">in</span> text.lower().split():
+        <span class="kw">if</span> word <span class="kw">in</span> counts:
+            counts[word] += <span class="num">1</span>
+        <span class="kw">else</span>:
+            counts[word] = <span class="num">1</span>
+    <span class="kw">return</span> counts
+
+result = word_counter(<span class="str">"the cat sat on the mat the cat"</span>)
+<span class="fn">print</span>(result)
+<span class="cmt"># {'the': 3, 'cat': 2, 'sat': 1, 'on': 1, 'mat': 1}</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 15 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 15 &mdash; Simple Number Guessing Game <span class="tag tag-intermediate">Intermediate</span></div>
+        <p>Write a program that picks a random number between 1 and 20. The user gets 5 guesses. After each guess, tell them "Too high" or "Too low." If they guess correctly, print "You win!"</p>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">import</span> random
+
+secret = random.randint(<span class="num">1</span>, <span class="num">20</span>)
+attempts = <span class="num">5</span>
+
+<span class="fn">print</span>(<span class="str">"I'm thinking of a number between 1 and 20."</span>)
+
+<span class="kw">for</span> attempt <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, attempts + <span class="num">1</span>):
+    guess = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">f"Guess </span><span class="op">{</span>attempt<span class="op">}</span><span class="str">/</span><span class="op">{</span>attempts<span class="op">}</span><span class="str">: "</span>))
+
+    <span class="kw">if</span> guess == secret:
+        <span class="fn">print</span>(<span class="str">"You win!"</span>)
+        <span class="kw">break</span>
+    <span class="kw">elif</span> guess &lt; secret:
+        <span class="fn">print</span>(<span class="str">"Too low."</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(<span class="str">"Too high."</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">f"Out of guesses! The number was </span><span class="op">{</span>secret<span class="op">}</span><span class="str">."</span>)</code></pre>
+          <div class="callout callout-info">
+            <div class="callout-title">The for...else pattern</div>
+            <p>
+              The <code>else</code> block on a <code>for</code> loop runs only if
+              the loop completes <em>without</em> hitting <code>break</code>. This
+              is a uniquely Pythonic pattern &mdash; it does not exist in MATLAB
+              or most other languages.
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. SMALL QUIZZES                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="quizzes">2. Small Quizzes</h2>
+
+      <p>
+        Test your understanding of Python fundamentals. Pick your answer, then
+        click to reveal the correct one.
+      </p>
+
+      <!-- Quiz 1 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 1 &mdash; What does this print?</div>
+<pre><code>x = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="fn">print</span>(<span class="fn">len</span>(x))</code></pre>
+        <p>a) <code>[1, 2, 3]</code> &nbsp; b) <code>3</code> &nbsp; c) <code>6</code> &nbsp; d) Error</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>b) <code>3</code></strong> &mdash; <code>len()</code> returns the number of items in a list.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 2 &mdash; Which creates a dictionary?</div>
+        <p>a) <code>d = [1, 2, 3]</code> &nbsp; b) <code>d = (1, 2, 3)</code> &nbsp; c) <code>d = {"a": 1, "b": 2}</code> &nbsp; d) <code>d = {1, 2, 3}</code></p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>c) <code>d = {"a": 1, "b": 2}</code></strong> &mdash; Curly braces with key-value pairs create a dictionary. Option (d) creates a <em>set</em>.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 3 &mdash; What does this print?</div>
+<pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">3</span>):
+    <span class="fn">print</span>(i, end=<span class="str">" "</span>)</code></pre>
+        <p>a) <code>1 2 3</code> &nbsp; b) <code>0 1 2</code> &nbsp; c) <code>0 1 2 3</code> &nbsp; d) Error</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>b) <code>0 1 2</code></strong> &mdash; <code>range(3)</code> produces 0, 1, 2 (three values, starting from 0).</p>
+        </details>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 4 &mdash; What is the type?</div>
+<pre><code>x = <span class="str">"42"</span>
+<span class="fn">print</span>(<span class="fn">type</span>(x))</code></pre>
+        <p>a) <code>&lt;class 'int'&gt;</code> &nbsp; b) <code>&lt;class 'str'&gt;</code> &nbsp; c) <code>&lt;class 'float'&gt;</code> &nbsp; d) <code>&lt;class 'bool'&gt;</code></p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>b) <code>&lt;class 'str'&gt;</code></strong> &mdash; Anything inside quotes is a string, even if it looks like a number.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 5 &mdash; What does this return?</div>
+<pre><code><span class="str">"hello"</span>[<span class="num">1</span>:<span class="num">3</span>]</code></pre>
+        <p>a) <code>"hel"</code> &nbsp; b) <code>"el"</code> &nbsp; c) <code>"ell"</code> &nbsp; d) <code>"he"</code></p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>b) <code>"el"</code></strong> &mdash; Slicing is <code>[start:stop)</code> where stop is exclusive. Index 1 is 'e', index 2 is 'l'.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 6 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 6 &mdash; What happens here?</div>
+<pre><code>x = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+x.append([<span class="num">4</span>, <span class="num">5</span>])
+<span class="fn">print</span>(<span class="fn">len</span>(x))</code></pre>
+        <p>a) <code>3</code> &nbsp; b) <code>4</code> &nbsp; c) <code>5</code> &nbsp; d) Error</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>b) <code>4</code></strong> &mdash; <code>append()</code> adds the entire list <code>[4, 5]</code> as a single element. Result: <code>[1, 2, 3, [4, 5]]</code>. Use <code>extend()</code> if you want to add individual items.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 7 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 7 &mdash; Boolean logic</div>
+<pre><code><span class="fn">print</span>(<span class="kw">not</span> <span class="kw">True</span> <span class="kw">or</span> <span class="kw">True</span>)</code></pre>
+        <p>a) <code>True</code> &nbsp; b) <code>False</code> &nbsp; c) <code>None</code> &nbsp; d) Error</p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>a) <code>True</code></strong> &mdash; <code>not</code> binds tighter than <code>or</code>. So this is <code>(not True) or True</code> = <code>False or True</code> = <code>True</code>.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 8 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 8 &mdash; String methods</div>
+        <p>Which line correctly converts <code>"hello"</code> to <code>"HELLO"</code>?</p>
+        <p>
+          a) <code>"hello".upper()</code> &nbsp;
+          b) <code>upper("hello")</code> &nbsp;
+          c) <code>"hello".toUpperCase()</code> &nbsp;
+          d) <code>str.upper("hello")</code>
+        </p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>a) <code>"hello".upper()</code></strong> &mdash; In Python, <code>.upper()</code> is a string method called on the string itself. Option (c) is JavaScript syntax.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 9 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 9 &mdash; What does this print?</div>
+<pre><code>d = {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>}
+<span class="fn">print</span>(d.get(<span class="str">"c"</span>, <span class="num">0</span>))</code></pre>
+        <p>a) <code>None</code> &nbsp; b) <code>0</code> &nbsp; c) Error (KeyError) &nbsp; d) <code>"c"</code></p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>b) <code>0</code></strong> &mdash; <code>.get(key, default)</code> returns the default value when the key is not found, instead of raising a KeyError.</p>
+        </details>
+      </div>
+
+      <!-- Quiz 10 -->
+      <div class="exercise">
+        <div class="exercise-title">Quiz 10 &mdash; Mutability</div>
+        <p>Which of these is <strong>immutable</strong> in Python?</p>
+        <p>a) <code>list</code> &nbsp; b) <code>dict</code> &nbsp; c) <code>tuple</code> &nbsp; d) <code>set</code></p>
+        <details>
+          <summary>Show Answer</summary>
+          <p><strong>c) <code>tuple</code></strong> &mdash; Tuples cannot be changed after creation. Lists, dicts, and sets are all mutable.</p>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. DEBUGGING EXERCISES                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="debugging">3. Debugging Exercises</h2>
+
+      <p>
+        Each of these code snippets contains a bug. Read the code, predict what
+        will happen, then click to reveal the bug and the fix.
+      </p>
+
+      <!-- Debug 1 -->
+      <div class="exercise">
+        <div class="exercise-title">Debug 1 &mdash; Off-by-One Error <span class="tag tag-important">Common Bug</span></div>
+        <p>This code should print numbers 1 through 5, but something is wrong:</p>
+<pre><code><span class="cmt"># Bug: What's wrong here?</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">5</span>):
+    <span class="fn">print</span>(i)</code></pre>
+        <details>
+          <summary>Show Bug &amp; Fix</summary>
+          <p><strong>Bug:</strong> <code>range(1, 5)</code> produces 1, 2, 3, 4 &mdash; it stops <em>before</em> 5. This is an off-by-one error.</p>
+          <p><strong>Fix:</strong> Use <code>range(1, 6)</code> to include 5.</p>
+<pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>):
+    <span class="fn">print</span>(i)</code></pre>
+          <div class="callout callout-matlab">
+            <div class="callout-title">MATLAB comparison</div>
+            <p>In MATLAB, <code>1:5</code> includes 5. In Python, <code>range(1, 5)</code> does not. This trips up nearly every MATLAB user at first.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Debug 2 -->
+      <div class="exercise">
+        <div class="exercise-title">Debug 2 &mdash; Wrong Variable Name <span class="tag tag-important">Common Bug</span></div>
+        <p>This code should calculate the total, but crashes:</p>
+<pre><code>total_price = <span class="num">100</span>
+tax_rate = <span class="num">0.08</span>
+final = total_price + total_price * tax_rat   <span class="cmt"># NameError!</span>
+<span class="fn">print</span>(final)</code></pre>
+        <details>
+          <summary>Show Bug &amp; Fix</summary>
+          <p><strong>Bug:</strong> <code>tax_rat</code> is a typo &mdash; the variable is named <code>tax_rate</code>. Python is case-sensitive and does not auto-correct variable names.</p>
+          <p><strong>Fix:</strong></p>
+<pre><code>total_price = <span class="num">100</span>
+tax_rate = <span class="num">0.08</span>
+final = total_price + total_price * tax_rate  <span class="cmt"># Fixed!</span>
+<span class="fn">print</span>(final)  <span class="cmt"># 108.0</span></code></pre>
+        </details>
+      </div>
+
+      <!-- Debug 3 -->
+      <div class="exercise">
+        <div class="exercise-title">Debug 3 &mdash; Missing Colon <span class="tag tag-important">Common Bug</span></div>
+        <p>This function definition has a syntax error:</p>
+<pre><code><span class="kw">def</span> <span class="fn">greet</span>(name)
+    <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">!"</span>)
+
+greet(<span class="str">"Alice"</span>)</code></pre>
+        <details>
+          <summary>Show Bug &amp; Fix</summary>
+          <p><strong>Bug:</strong> Missing colon <code>:</code> at the end of the <code>def</code> line. Python requires a colon after <code>def</code>, <code>if</code>, <code>for</code>, <code>while</code>, <code>class</code>, etc.</p>
+          <p><strong>Fix:</strong></p>
+<pre><code><span class="kw">def</span> <span class="fn">greet</span>(name):       <span class="cmt"># Added the colon!</span>
+    <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">!"</span>)
+
+greet(<span class="str">"Alice"</span>)</code></pre>
+        </details>
+      </div>
+
+      <!-- Debug 4 -->
+      <div class="exercise">
+        <div class="exercise-title">Debug 4 &mdash; Wrong Indentation <span class="tag tag-important">Common Bug</span></div>
+        <p>This code should print both lines inside the <code>if</code>, but only the first one is conditional:</p>
+<pre><code>score = <span class="num">85</span>
+
+<span class="kw">if</span> score >= <span class="num">70</span>:
+    <span class="fn">print</span>(<span class="str">"You passed!"</span>)
+<span class="fn">print</span>(<span class="str">"Your score was above the threshold."</span>)   <span class="cmt"># Always prints!</span></code></pre>
+        <details>
+          <summary>Show Bug &amp; Fix</summary>
+          <p><strong>Bug:</strong> The second <code>print()</code> is not indented, so it runs regardless of the condition. In Python, indentation <em>is</em> the block structure.</p>
+          <p><strong>Fix:</strong> Indent both print statements to the same level:</p>
+<pre><code>score = <span class="num">85</span>
+
+<span class="kw">if</span> score >= <span class="num">70</span>:
+    <span class="fn">print</span>(<span class="str">"You passed!"</span>)
+    <span class="fn">print</span>(<span class="str">"Your score was above the threshold."</span>)  <span class="cmt"># Now conditional</span></code></pre>
+          <div class="callout callout-matlab">
+            <div class="callout-title">MATLAB comparison</div>
+            <p>In MATLAB, indentation is cosmetic &mdash; the <code>end</code> keyword defines blocks. In Python, indentation <em>is</em> the block delimiter. This is one of the biggest adjustments for MATLAB users.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Debug 5 -->
+      <div class="exercise">
+        <div class="exercise-title">Debug 5 &mdash; Type Error <span class="tag tag-important">Common Bug</span></div>
+        <p>This code asks for the user's age, then tries to do math with it:</p>
+<pre><code>age = <span class="fn">input</span>(<span class="str">"Enter your age: "</span>)
+years_until_100 = <span class="num">100</span> - age    <span class="cmt"># TypeError!</span>
+<span class="fn">print</span>(<span class="str">f"Years until 100: </span><span class="op">{</span>years_until_100<span class="op">}</span><span class="str">"</span>)</code></pre>
+        <details>
+          <summary>Show Bug &amp; Fix</summary>
+          <p><strong>Bug:</strong> <code>input()</code> always returns a <strong>string</strong>. You cannot subtract a string from an integer. Python does not auto-convert types.</p>
+          <p><strong>Fix:</strong> Convert the input to an integer with <code>int()</code>:</p>
+<pre><code>age = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter your age: "</span>))     <span class="cmt"># Convert to int</span>
+years_until_100 = <span class="num">100</span> - age
+<span class="fn">print</span>(<span class="str">f"Years until 100: </span><span class="op">{</span>years_until_100<span class="op">}</span><span class="str">"</span>)</code></pre>
+          <div class="callout callout-matlab">
+            <div class="callout-title">MATLAB comparison</div>
+            <p>MATLAB's <code>input()</code> returns a number by default. Python's <code>input()</code> always returns a string. You must explicitly convert with <code>int()</code> or <code>float()</code>.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. RECOMMENDED LEARNING ORDER                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="learning-order">4. Recommended Learning Order</h2>
+
+      <p>
+        If you are brand new to Python (even if you know MATLAB), follow this
+        order. Each step builds on the one before it.
+      </p>
+
+      <ol>
+        <li><strong>Install Python and set up your environment</strong> &mdash; Get Python, pick an editor (VS Code recommended), run your first <code>print("hello")</code>.</li>
+        <li><strong>Variables, numbers, and basic math</strong> &mdash; Learn <code>int</code>, <code>float</code>, assignment (<code>=</code>), arithmetic operators.</li>
+        <li><strong>Strings</strong> &mdash; Quotes, f-strings, common methods (<code>.upper()</code>, <code>.split()</code>, <code>.strip()</code>), slicing.</li>
+        <li><strong>Booleans and comparisons</strong> &mdash; <code>True</code>/<code>False</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>and</code>, <code>or</code>, <code>not</code>.</li>
+        <li><strong>Conditionals</strong> &mdash; <code>if</code> / <code>elif</code> / <code>else</code> blocks.</li>
+        <li><strong>Lists and tuples</strong> &mdash; Creating, indexing, slicing, <code>.append()</code>, <code>.pop()</code>, iterating.</li>
+        <li><strong>Loops</strong> &mdash; <code>for</code> loops with <code>range()</code>, <code>while</code> loops, <code>break</code>/<code>continue</code>.</li>
+        <li><strong>Dictionaries</strong> &mdash; Key-value pairs, <code>.get()</code>, <code>.items()</code>, <code>.keys()</code>, iterating.</li>
+        <li><strong>Functions</strong> &mdash; <code>def</code>, parameters, <code>return</code>, default arguments, scope.</li>
+        <li><strong>File I/O</strong> &mdash; Reading/writing files with <code>open()</code> and <code>with</code> statements.</li>
+        <li><strong>Modules and imports</strong> &mdash; <code>import math</code>, <code>from os import path</code>, installing packages with <code>pip</code>.</li>
+        <li><strong>Error handling</strong> &mdash; <code>try</code> / <code>except</code> / <code>finally</code>, common exception types.</li>
+        <li><strong>List comprehensions</strong> &mdash; Compact syntax for building lists from loops.</li>
+        <li><strong>Common patterns</strong> &mdash; Counting, filtering, mapping, accumulating, grouping.</li>
+        <li><strong>Mini projects</strong> &mdash; Build something real to solidify your skills.</li>
+      </ol>
+
+      <div class="callout callout-success">
+        <div class="callout-title">You don't need to learn everything at once</div>
+        <p>
+          Focus on steps 1&ndash;9 first. That is enough to write useful scripts.
+          Steps 10&ndash;15 deepen your skills and make your code more
+          professional. Come back to the later steps as you need them.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 30-DAY LEARNING ROADMAP                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="30-day-roadmap">5. 30-Day Learning Roadmap</h2>
+
+      <p>
+        A day-by-day plan assuming about 30&ndash;60 minutes of practice per
+        day. Adjust the pace to fit your schedule.
+      </p>
+
+      <h3>Week 1 &mdash; Setup &amp; Foundations</h3>
+
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Topic</th><th>Goal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Install Python &amp; VS Code</td><td>Run <code>print("Hello, World!")</code> successfully</td></tr>
+          <tr><td>2</td><td>Variables &amp; numbers</td><td>Create variables, do arithmetic, understand <code>int</code> vs <code>float</code></td></tr>
+          <tr><td>3</td><td>Strings</td><td>Practice f-strings, slicing, <code>.upper()</code>, <code>.split()</code></td></tr>
+          <tr><td>4</td><td>Booleans &amp; comparisons</td><td>Write comparison expressions, use <code>and</code>/<code>or</code>/<code>not</code></td></tr>
+          <tr><td>5</td><td>Input &amp; type conversion</td><td>Use <code>input()</code>, convert with <code>int()</code>/<code>float()</code></td></tr>
+          <tr><td>6</td><td>Conditionals</td><td>Write <code>if</code>/<code>elif</code>/<code>else</code> chains, solve 3 exercises</td></tr>
+          <tr><td>7</td><td>Review &amp; practice</td><td>Redo exercises from the week without looking at solutions</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Week 2 &mdash; Data Structures &amp; Control Flow</h3>
+
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Topic</th><th>Goal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8</td><td>Lists</td><td>Create lists, index, slice, <code>.append()</code>, <code>.pop()</code>, <code>len()</code></td></tr>
+          <tr><td>9</td><td>Tuples &amp; sets</td><td>Understand immutability, when to use tuples vs lists</td></tr>
+          <tr><td>10</td><td>Dictionaries</td><td>Create dicts, access values, <code>.get()</code>, loop over <code>.items()</code></td></tr>
+          <tr><td>11</td><td><code>for</code> loops</td><td>Loop over lists, strings, <code>range()</code>; use <code>enumerate()</code></td></tr>
+          <tr><td>12</td><td><code>while</code> loops</td><td>Write <code>while</code> loops, use <code>break</code>/<code>continue</code></td></tr>
+          <tr><td>13</td><td>Nested loops &amp; patterns</td><td>Nested iteration, building a multiplication table</td></tr>
+          <tr><td>14</td><td>Review &amp; practice</td><td>Solve FizzBuzz, vowel counter, palindrome checker</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Week 3 &mdash; Functions, Files &amp; Error Handling</h3>
+
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Topic</th><th>Goal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>15</td><td>Functions basics</td><td>Write functions with <code>def</code>, parameters, <code>return</code></td></tr>
+          <tr><td>16</td><td>Default args &amp; scope</td><td>Default parameter values, local vs global variables</td></tr>
+          <tr><td>17</td><td>File reading</td><td>Open files with <code>with</code>, read lines, <code>.read()</code>, <code>.readlines()</code></td></tr>
+          <tr><td>18</td><td>File writing</td><td>Write to files, append mode, CSV basics</td></tr>
+          <tr><td>19</td><td>Modules &amp; imports</td><td>Use <code>import</code>, <code>from ... import</code>, explore <code>math</code>, <code>os</code>, <code>random</code></td></tr>
+          <tr><td>20</td><td>Error handling</td><td>Use <code>try</code>/<code>except</code>, handle <code>ValueError</code>, <code>FileNotFoundError</code></td></tr>
+          <tr><td>21</td><td>Review &amp; practice</td><td>Write a function that reads a file and returns word counts</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Week 4 &mdash; Projects, Patterns &amp; Review</h3>
+
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Topic</th><th>Goal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>22</td><td>List comprehensions</td><td>Convert loops to comprehensions, filter and transform</td></tr>
+          <tr><td>23</td><td>Common patterns</td><td>Study accumulator, counter, filter, and map patterns</td></tr>
+          <tr><td>24</td><td>Mini project #1</td><td>Build a to-do list or contact book (console app)</td></tr>
+          <tr><td>25</td><td>Mini project #2</td><td>Build a file organizer or quiz game</td></tr>
+          <tr><td>26</td><td>MATLAB comparison</td><td>Review the MATLAB-to-Python translation table</td></tr>
+          <tr><td>27</td><td>Best practices</td><td>Read PEP 8 basics, naming conventions, code structure</td></tr>
+          <tr><td>28</td><td>Debugging practice</td><td>Work through debugging exercises, learn to read tracebacks</td></tr>
+          <tr><td>29</td><td>Full review</td><td>Redo your weakest exercises, review the cheat sheet</td></tr>
+          <tr><td>30</td><td>Capstone project</td><td>Build something you actually need (data parser, automation script, etc.)</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Consistency beats intensity</div>
+        <p>
+          30 minutes every day beats 4 hours on a weekend. Your brain needs time
+          to consolidate what you learn. If you miss a day, do not try to cram
+          &mdash; just pick up where you left off.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. ADVICE FOR ENGINEERS / MATLAB USERS                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="advice-engineers">6. Advice for Engineers / MATLAB Users</h2>
+
+      <p>
+        Transitioning from MATLAB to Python is easier than you think. You
+        already understand variables, loops, functions, and arrays. Here are
+        the key mindset shifts and practical tips.
+      </p>
+
+      <h3>Mindset Shifts</h3>
+
+      <ul>
+        <li>
+          <strong>Indexing starts at 0.</strong> This is the single biggest source
+          of bugs for MATLAB users. In MATLAB, <code>x(1)</code> is the first
+          element. In Python, <code>x[0]</code> is the first element. Train
+          yourself by always thinking "index = position minus one."
+        </li>
+        <li>
+          <strong>Indentation is syntax.</strong> In MATLAB, blocks end with
+          <code>end</code>. In Python, indentation defines blocks. Use 4 spaces
+          (never tabs). Your editor should handle this automatically.
+        </li>
+        <li>
+          <strong>Everything is an object.</strong> In Python, even numbers and
+          strings have methods. You will write <code>"hello".upper()</code>
+          instead of <code>upper('hello')</code>.
+        </li>
+        <li>
+          <strong>Parentheses vs brackets matter.</strong> <code>()</code> for
+          function calls and tuples, <code>[]</code> for lists and indexing,
+          <code>{}</code> for dicts and sets. MATLAB uses <code>()</code> for
+          everything.
+        </li>
+        <li>
+          <strong>Python is free and open-source.</strong> No license server, no
+          annual fees. The ecosystem is driven by community packages installed
+          with <code>pip</code>.
+        </li>
+      </ul>
+
+      <h3>Practical Tips</h3>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Use NumPy early</div>
+        <p>
+          If you do numerical work, install NumPy on day 1
+          (<code>pip install numpy</code>). NumPy arrays behave much more like
+          MATLAB matrices than plain Python lists. You can do element-wise
+          operations, matrix multiplication, and vectorized math just like you
+          are used to.
+        </p>
+      </div>
+
+      <ul>
+        <li>
+          <strong>Replace MATLAB's <code>fprintf</code> with f-strings:</strong>
+          <code>print(f"Value = {x:.2f}")</code> is cleaner and more readable.
+        </li>
+        <li>
+          <strong>Use <code>matplotlib</code> for plotting.</strong> The API
+          (<code>plt.plot</code>, <code>plt.xlabel</code>, <code>plt.show</code>)
+          is intentionally similar to MATLAB's plotting commands.
+        </li>
+        <li>
+          <strong>Learn <code>pandas</code> for tabular data.</strong> It replaces
+          MATLAB's table operations and is the standard for data analysis in Python.
+        </li>
+        <li>
+          <strong>Don't translate MATLAB code line-by-line.</strong> Python has
+          different idioms. For example, instead of a <code>for</code> loop to
+          build a list, use a list comprehension. Instead of checking
+          <code>isempty()</code>, check <code>if not my_list:</code>.
+        </li>
+        <li>
+          <strong>You do not need semicolons.</strong> In MATLAB, semicolons
+          suppress output. In Python, there is no automatic output to suppress
+          &mdash; only <code>print()</code> produces console output.
+        </li>
+      </ul>
+
+      <h3>Your MATLAB Skills That Transfer Directly</h3>
+
+      <table>
+        <thead>
+          <tr><th>Skill</th><th>In MATLAB</th><th>In Python</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Variables &amp; math</td><td><code>x = 5; y = x^2;</code></td><td><code>x = 5; y = x**2</code></td></tr>
+          <tr><td>Loops</td><td><code>for i = 1:10 ... end</code></td><td><code>for i in range(1, 11):</code></td></tr>
+          <tr><td>Conditionals</td><td><code>if x > 0 ... elseif ... end</code></td><td><code>if x > 0: ... elif ...:</code></td></tr>
+          <tr><td>Functions</td><td><code>function y = f(x)</code></td><td><code>def f(x): return y</code></td></tr>
+          <tr><td>Arrays/matrices</td><td><code>A = [1 2; 3 4]</code></td><td><code>A = np.array([[1,2],[3,4]])</code></td></tr>
+          <tr><td>Plotting</td><td><code>plot(x, y)</code></td><td><code>plt.plot(x, y)</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-success">
+        <div class="callout-title">You are not starting from zero</div>
+        <p>
+          As an engineer or MATLAB user, you already understand programming logic.
+          You are learning a new <em>syntax</em>, not a new way of thinking.
+          Most people with a MATLAB background become productive in Python within
+          2&ndash;4 weeks of consistent practice.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PREV / NEXT NAVIGATION                                       -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="projects.html" class="prev">
+          <span class="nav-label">&larr; Previous</span>
+          <span class="nav-title">Mini Projects</span>
+        </a>
+        <a href="best-practices.html" class="next">
+          <span class="nav-label">Next &rarr;</span>
+          <span class="nav-title">Best Practices</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

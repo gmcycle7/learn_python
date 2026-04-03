@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is Python? &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link active"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> What is Python?
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION A — WHAT IS PYTHON?                                  -->
+      <!-- ============================================================ -->
+
+      <h1>Section A &mdash; What is Python?</h1>
+
+      <p>
+        If you are coming from MATLAB or are completely new to programming,
+        this page will give you the big picture: what Python is, why it has
+        become one of the most popular programming languages in the world, and
+        whether it is the right tool for what you want to do.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> You already know how to think
+        algorithmically and work with matrices, functions, and scripts. Python
+        will feel familiar in many ways &mdash; variables, loops, functions,
+        plotting &mdash; but the syntax and ecosystem are different. Throughout
+        this guide we will point out MATLAB parallels so you can map your
+        existing knowledge to the Python world.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. WHAT PYTHON IS                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-python-is">1. What Python Is</h2>
+
+      <p>
+        <strong>Python</strong> is a <em>high-level, interpreted,
+        general-purpose</em> programming language. Let's unpack each of those
+        words:
+      </p>
+
+      <ul>
+        <li>
+          <strong>High-level</strong> &mdash; You write code that reads
+          almost like English. You do not need to manage memory addresses,
+          CPU registers, or other hardware details. The language takes care
+          of that for you (just like MATLAB does).
+        </li>
+        <li>
+          <strong>Interpreted</strong> &mdash; You can run your code
+          line by line without a separate compilation step. You type a
+          command, press Enter, and see the result immediately. This is
+          similar to the MATLAB command window.
+        </li>
+        <li>
+          <strong>General-purpose</strong> &mdash; Python is not tied to one
+          domain. You can use it for web apps, data analysis, automation,
+          machine learning, scientific computing, and much more. MATLAB, by
+          contrast, is primarily designed for numerical computing.
+        </li>
+      </ul>
+
+      <h3>A Brief History</h3>
+
+      <p>
+        Python was created by <strong>Guido van Rossum</strong>, a Dutch
+        programmer, and first released in 1991. He named it after the British
+        comedy group Monty Python, not the snake. Guido's goal was to make a
+        language that was <em>fun to use</em> and <em>easy to read</em>.
+        Today, Python is maintained by the Python Software Foundation and a
+        large open-source community. The current major version is
+        <strong>Python 3</strong> (Python 2 reached end-of-life in 2020).
+      </p>
+
+      <h3>Interpreted vs. Compiled &mdash; The Simple Explanation</h3>
+
+      <p>
+        Programming languages generally fall into two camps:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Compiled (C, C++, Rust)</th>
+            <th>Interpreted (Python, MATLAB, JavaScript)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>How it works</strong></td>
+            <td>Your source code is translated into machine code <em>before</em> you run it. A special program called a <em>compiler</em> does the translation.</td>
+            <td>Your source code is read and executed line by line at run time by an <em>interpreter</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Speed</strong></td>
+            <td>Generally faster at run time because the translation is already done.</td>
+            <td>Generally slower at run time because translation happens on the fly.</td>
+          </tr>
+          <tr>
+            <td><strong>Development speed</strong></td>
+            <td>Slower &mdash; you must compile every time you change something.</td>
+            <td>Faster &mdash; change a line, run it immediately.</td>
+          </tr>
+          <tr>
+            <td><strong>Error detection</strong></td>
+            <td>Many errors are caught at compile time, before the program runs.</td>
+            <td>Errors are typically caught at run time, when the problematic line executes.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>Think of it this way:</strong> A compiled language is like
+        translating an entire book from French to English before anyone reads
+        it. An interpreted language is like having a live interpreter
+        translating one sentence at a time as the audience listens.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. WHY PYTHON IS POPULAR                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="why-popular">2. Why Python is Popular</h2>
+
+      <p>
+        Python consistently ranks among the top 1&ndash;3 most popular
+        programming languages in every major survey (TIOBE Index, Stack
+        Overflow Developer Survey, GitHub Octoverse). Here is why:
+      </p>
+
+      <ol>
+        <li>
+          <strong>Readable, clean syntax</strong> &mdash; Python uses
+          indentation instead of curly braces, making code visually clean
+          and easy to follow.
+        </li>
+        <li>
+          <strong>Huge community</strong> &mdash; Millions of developers
+          means millions of tutorials, Stack Overflow answers, and
+          open-source packages.
+        </li>
+        <li>
+          <strong>Vast library ecosystem</strong> &mdash; Over 500,000
+          packages on <a href="https://pypi.org">PyPI</a> (the Python
+          Package Index). If you need to do something, there is almost
+          certainly a library for it.
+        </li>
+        <li>
+          <strong>Used across industry</strong> &mdash; Google, Netflix,
+          NASA, Instagram, Spotify, JPMorgan, and thousands of other
+          organisations rely on Python in production.
+        </li>
+        <li>
+          <strong>Free and open-source</strong> &mdash; No license fees,
+          ever. Compare that to MATLAB, which requires an expensive
+          commercial license.
+        </li>
+        <li>
+          <strong>Beginner-friendly</strong> &mdash; Universities worldwide
+          use Python as their introductory programming language.
+        </li>
+      </ol>
+
+      <h3>Hello World &mdash; Python vs. C vs. Java</h3>
+
+      <p>
+        The best way to see Python's readability advantage is to compare the
+        simplest possible program &mdash; printing "Hello, World!" &mdash; in
+        three languages:
+      </p>
+
+      <h4>Python</h4>
+      <pre><code>print("Hello, World!")</code></pre>
+
+      <p>That's it. One line.</p>
+
+      <h4>C</h4>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+
+      <h4>Java</h4>
+      <pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+
+      <p>
+        Python lets you focus on <em>what</em> you want to do rather than
+        boilerplate ceremony. For a beginner, this means you can start solving
+        real problems on day one.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you would write
+        <code>disp('Hello, World!')</code> or
+        <code>fprintf('Hello, World!\n')</code>. Python's
+        <code>print()</code> is essentially the same idea &mdash; one line,
+        one function call. You will feel right at home.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. WHAT PYTHON IS USED FOR                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="used-for">3. What Python is Used For</h2>
+
+      <p>
+        Python's versatility is one of its greatest strengths. Here are the
+        major areas where Python shines, with concrete examples:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>What You Can Do</th>
+            <th>Key Libraries / Tools</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Data Science &amp; Analytics</strong></td>
+            <td>Clean datasets, compute statistics, create visualisations, build dashboards</td>
+            <td>pandas, NumPy, Matplotlib, Seaborn, Plotly</td>
+          </tr>
+          <tr>
+            <td><strong>Machine Learning &amp; AI</strong></td>
+            <td>Train models for image recognition, natural language processing, recommendation systems</td>
+            <td>scikit-learn, TensorFlow, PyTorch, Keras</td>
+          </tr>
+          <tr>
+            <td><strong>Web Development</strong></td>
+            <td>Build websites and REST APIs (Instagram's back end runs on Python)</td>
+            <td>Django, Flask, FastAPI</td>
+          </tr>
+          <tr>
+            <td><strong>Automation &amp; Scripting</strong></td>
+            <td>Rename 10,000 files, scrape websites, send automated emails, generate reports</td>
+            <td>os, shutil, requests, Beautiful Soup, openpyxl</td>
+          </tr>
+          <tr>
+            <td><strong>Scientific Computing</strong></td>
+            <td>Solve differential equations, run simulations, process signals</td>
+            <td>SciPy, SymPy, NumPy</td>
+          </tr>
+          <tr>
+            <td><strong>Education</strong></td>
+            <td>Teach programming fundamentals, create interactive notebooks</td>
+            <td>Jupyter Notebook, Google Colab</td>
+          </tr>
+          <tr>
+            <td><strong>DevOps &amp; Cloud</strong></td>
+            <td>Automate server provisioning, manage cloud infrastructure, write CI/CD pipelines</td>
+            <td>Ansible, Boto3 (AWS), Fabric</td>
+          </tr>
+          <tr>
+            <td><strong>Game Prototyping</strong></td>
+            <td>Build 2D games and interactive simulations for rapid prototyping</td>
+            <td>Pygame, Arcade</td>
+          </tr>
+          <tr>
+            <td><strong>Desktop Applications</strong></td>
+            <td>Create cross-platform GUI tools</td>
+            <td>Tkinter, PyQt, Kivy</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> If you learn Python, you are not
+        learning a single-purpose tool. You are learning a language that can
+        follow you from data analysis to web development to automation to
+        machine learning &mdash; all with the same syntax and mental model.
+        With MATLAB, you are largely confined to numerical computing and
+        engineering simulation.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. STRENGTHS OF PYTHON                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="strengths">4. Strengths of Python</h2>
+
+      <ul>
+        <li>
+          <strong>Easy to learn</strong> &mdash; Python's syntax is minimal
+          and close to natural English. Most beginners can write useful
+          programs within hours.
+        </li>
+        <li>
+          <strong>Highly readable</strong> &mdash; Enforced indentation and
+          clean syntax make Python code easy to read months after you wrote
+          it (or when reading someone else's code).
+        </li>
+        <li>
+          <strong>Massive ecosystem</strong> &mdash; The package manager
+          <code>pip</code> gives you access to over half a million packages.
+          Need to read Excel files? <code>pip install openpyxl</code>. Need
+          to plot data? <code>pip install matplotlib</code>. It's that
+          simple.
+        </li>
+        <li>
+          <strong>Cross-platform</strong> &mdash; Write your code on
+          Windows, run it unchanged on macOS or Linux. MATLAB does this too,
+          but Python does it at zero cost.
+        </li>
+        <li>
+          <strong>Rapid development</strong> &mdash; No compile step means
+          you iterate fast. Python is ideal for prototyping ideas before
+          committing to a more complex implementation.
+        </li>
+        <li>
+          <strong>Great for prototyping</strong> &mdash; Write a proof of
+          concept in a fraction of the time it would take in C++ or Java.
+          Many companies prototype in Python and then optimize critical
+          sections later if needed.
+        </li>
+        <li>
+          <strong>Strong community support</strong> &mdash; Almost any
+          question you can think of has already been asked and answered on
+          Stack Overflow, Reddit, or Python community forums.
+        </li>
+        <li>
+          <strong>Excellent documentation</strong> &mdash; The official
+          Python docs, library docs, and community tutorials are
+          extensive and well-maintained.
+        </li>
+      </ul>
+
+      <h3>Example: Reading a CSV File</h3>
+
+      <p>
+        To illustrate how the ecosystem makes life easy, here is how you
+        read a CSV file and compute the average of a column &mdash; a task
+        that is common in data work:
+      </p>
+
+      <pre><code># Python — read CSV and compute average
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+average_score = df["score"].mean()
+print(f"Average score: {average_score:.2f}")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong>
+        <pre><code>% MATLAB — read CSV and compute average
+T = readtable('data.csv');
+averageScore = mean(T.score);
+fprintf('Average score: %.2f\n', averageScore);</code></pre>
+        <p>
+          The logic is nearly identical. The main differences: Python uses
+          <code>import</code> instead of relying on built-in toolboxes,
+          and it uses <code>f-strings</code> for formatted output instead
+          of <code>fprintf</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. WEAKNESSES OF PYTHON                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="weaknesses">5. Weaknesses of Python</h2>
+
+      <p>
+        No language is perfect. It is important to understand Python's
+        limitations so you can choose the right tool for each job:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Slower than compiled languages</strong> &mdash; Pure
+          Python code can be 10&ndash;100x slower than equivalent C or C++.
+          For most tasks (scripts, data analysis, web apps) this does not
+          matter. For performance-critical inner loops, you can call
+          optimized C libraries (NumPy does this internally) or use tools
+          like Cython.
+        </li>
+        <li>
+          <strong>The GIL (Global Interpreter Lock)</strong> &mdash;
+          CPython (the standard Python interpreter) has a lock that prevents
+          true multi-threaded parallelism for CPU-bound tasks. This means
+          a single Python process cannot fully utilise multiple CPU cores
+          for pure computation. Workarounds include the
+          <code>multiprocessing</code> module and libraries like Dask.
+        </li>
+        <li>
+          <strong>Not ideal for mobile apps</strong> &mdash; While
+          frameworks like Kivy and BeeWare exist, Python is not the
+          standard choice for building iOS or Android apps. Swift, Kotlin,
+          or cross-platform frameworks like Flutter are preferred.
+        </li>
+        <li>
+          <strong>Not ideal for low-level systems programming</strong>
+          &mdash; Writing an operating system kernel, a device driver, or
+          an embedded firmware in Python is impractical. C, C++, and Rust
+          are the go-to languages for that.
+        </li>
+        <li>
+          <strong>Runtime errors (no compile-time type checking)</strong>
+          &mdash; Because Python is dynamically typed, certain bugs
+          (like passing a string where a number is expected) are only
+          caught when the code runs. Tools like <code>mypy</code> and
+          type hints (introduced in Python 3.5+) help mitigate this,
+          but it is still not as strict as Java or C++.
+        </li>
+        <li>
+          <strong>Higher memory usage</strong> &mdash; Python objects carry
+          more overhead than their C equivalents. For most applications
+          this is not an issue, but it can matter with very large datasets
+          or memory-constrained environments.
+        </li>
+      </ul>
+
+      <div class="callout callout-info">
+        <strong>Perspective:</strong> These weaknesses rarely matter for
+        beginners or for the majority of real-world Python use cases. Python's
+        slower speed is offset by vastly faster development time. When
+        performance does matter, Python's ecosystem provides escape hatches
+        (NumPy, Cython, calling C extensions) that give you the best of
+        both worlds.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. HOW PYTHON COMPARES                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="comparison">6. How Python Compares to Other Languages</h2>
+
+      <p>
+        Here is a high-level comparison of Python with languages you may have
+        heard of or used. This is deliberately simplified &mdash; entire
+        books have been written comparing programming languages.
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Python</th>
+              <th>MATLAB</th>
+              <th>C</th>
+              <th>C++</th>
+              <th>Java</th>
+              <th>JavaScript</th>
+              <th>Bash</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ease of learning</strong></td>
+              <td>Very easy</td>
+              <td>Easy (for math)</td>
+              <td>Hard</td>
+              <td>Hard</td>
+              <td>Moderate</td>
+              <td>Moderate</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td><strong>Execution speed</strong></td>
+              <td>Slow</td>
+              <td>Moderate</td>
+              <td>Very fast</td>
+              <td>Very fast</td>
+              <td>Fast</td>
+              <td>Fast (V8)</td>
+              <td>Slow</td>
+            </tr>
+            <tr>
+              <td><strong>Ecosystem size</strong></td>
+              <td>Huge</td>
+              <td>Moderate (toolboxes)</td>
+              <td>Large</td>
+              <td>Large</td>
+              <td>Huge</td>
+              <td>Huge (npm)</td>
+              <td>Small</td>
+            </tr>
+            <tr>
+              <td><strong>Typical use cases</strong></td>
+              <td>Data science, web, automation, ML, scripting</td>
+              <td>Engineering, signal processing, control systems</td>
+              <td>OS kernels, embedded systems, drivers</td>
+              <td>Game engines, high-performance apps, systems</td>
+              <td>Enterprise apps, Android, large-scale systems</td>
+              <td>Web front-end, web back-end (Node.js)</td>
+              <td>Shell scripting, system administration</td>
+            </tr>
+            <tr>
+              <td><strong>Cost</strong></td>
+              <td>Free</td>
+              <td>Paid license ($$$)</td>
+              <td>Free</td>
+              <td>Free</td>
+              <td>Free</td>
+              <td>Free</td>
+              <td>Free</td>
+            </tr>
+            <tr>
+              <td><strong>Typing</strong></td>
+              <td>Dynamic</td>
+              <td>Dynamic</td>
+              <td>Static</td>
+              <td>Static</td>
+              <td>Static</td>
+              <td>Dynamic</td>
+              <td>Untyped</td>
+            </tr>
+            <tr>
+              <td><strong>Interactive REPL</strong></td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>No</td>
+              <td>No (JShell since Java 9)</td>
+              <td>Yes (Node.js)</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB vs. Python &mdash; the key trade-off:</strong>
+        MATLAB provides a polished, integrated environment for numerical work
+        right out of the box. Python requires assembling packages (NumPy,
+        SciPy, Matplotlib), but those packages are free, extremely capable,
+        and the broader Python ecosystem gives you far more flexibility
+        outside of pure numerical computing. If your work extends beyond
+        matrix math &mdash; say, building a web dashboard for your data or
+        automating a workflow &mdash; Python is the clear winner.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. WHEN TO CHOOSE PYTHON                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="when-python">7. When to Choose Python</h2>
+
+      <p>
+        Python is an excellent choice when:
+      </p>
+
+      <ul>
+        <li>
+          You want to <strong>learn programming for the first time</strong>
+          or add a general-purpose language to your skill set.
+        </li>
+        <li>
+          You need to <strong>analyse, clean, or visualise data</strong>
+          &mdash; Python with pandas and Matplotlib rivals or exceeds MATLAB
+          for most data tasks.
+        </li>
+        <li>
+          You want to <strong>automate repetitive tasks</strong> &mdash;
+          renaming files, processing spreadsheets, sending emails,
+          generating reports.
+        </li>
+        <li>
+          You are entering <strong>data science or machine learning</strong>
+          &mdash; Python is the dominant language in these fields.
+        </li>
+        <li>
+          You need to <strong>build a web application</strong> or REST API
+          &mdash; Django and Flask make this straightforward.
+        </li>
+        <li>
+          You want a <strong>free alternative to MATLAB</strong> for
+          scientific computing &mdash; NumPy + SciPy + Matplotlib covers
+          the vast majority of MATLAB's core functionality.
+        </li>
+        <li>
+          You need to <strong>prototype quickly</strong> before investing
+          time in a more complex implementation.
+        </li>
+        <li>
+          You want <strong>cross-platform compatibility</strong> &mdash;
+          write once, run on Windows, macOS, and Linux.
+        </li>
+        <li>
+          You need to <strong>glue together different systems</strong>
+          &mdash; Python excels as a "glue language" connecting databases,
+          APIs, file systems, and other tools.
+        </li>
+      </ul>
+
+      <h3>Example: Automating a Task</h3>
+
+      <p>
+        Suppose you have 500 text files and you need to find every file that
+        contains the word "error" and copy it to a separate folder. In
+        Python:
+      </p>
+
+      <pre><code>import os
+import shutil
+
+source = "logs/"
+destination = "error_logs/"
+os.makedirs(destination, exist_ok=True)
+
+for filename in os.listdir(source):
+    filepath = os.path.join(source, filename)
+    if filename.endswith(".txt"):
+        with open(filepath, "r") as f:
+            if "error" in f.read().lower():
+                shutil.copy(filepath, destination)
+                print(f"Copied: {filename}")</code></pre>
+
+      <p>
+        This script is readable even if you have never seen Python before.
+        It creates a folder, loops through files, checks for the word
+        "error", and copies matching files. Try writing this in C &mdash;
+        it would take significantly more code.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  8. WHEN NOT TO CHOOSE PYTHON                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="when-not-python">8. When NOT to Choose Python</h2>
+
+      <p>
+        Python is not the best choice for every scenario. Here are cases
+        where other languages shine:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Why Python Falls Short</th>
+            <th>Better Alternative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mobile app development</strong></td>
+            <td>Limited native support, poor performance on mobile devices</td>
+            <td>Swift (iOS), Kotlin (Android), Flutter/Dart, React Native</td>
+          </tr>
+          <tr>
+            <td><strong>High-performance computing (inner loops)</strong></td>
+            <td>Pure Python is too slow for tight numerical loops</td>
+            <td>C, C++, Rust, Fortran (or use NumPy/Cython within Python)</td>
+          </tr>
+          <tr>
+            <td><strong>Operating system kernels &amp; drivers</strong></td>
+            <td>No low-level memory control; relies on a runtime interpreter</td>
+            <td>C, Rust</td>
+          </tr>
+          <tr>
+            <td><strong>Real-time systems</strong></td>
+            <td>Garbage collection pauses and GIL make deterministic timing difficult</td>
+            <td>C, C++, Ada</td>
+          </tr>
+          <tr>
+            <td><strong>Browser front-end</strong></td>
+            <td>Browsers run JavaScript natively; Python requires transpilation</td>
+            <td>JavaScript, TypeScript</td>
+          </tr>
+          <tr>
+            <td><strong>AAA game development</strong></td>
+            <td>Not fast enough for game engines (rendering, physics)</td>
+            <td>C++, C# (Unity), Rust</td>
+          </tr>
+          <tr>
+            <td><strong>Large-scale enterprise systems</strong></td>
+            <td>Dynamic typing can be a liability in very large codebases with many developers</td>
+            <td>Java, C#, Go, TypeScript</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>Important nuance:</strong> "Not ideal" does not mean
+        "impossible." People have built mobile apps in Python (Kivy),
+        written high-performance code (NumPy, Cython), and created games
+        (Pygame). The point is that other languages are more naturally suited
+        to these tasks. Python remains an excellent choice for the vast
+        majority of programming needs you will encounter as a beginner.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <p>
+        Here is what you should take away from this page:
+      </p>
+
+      <ul>
+        <li>
+          Python is a <strong>high-level, interpreted, general-purpose</strong>
+          language created by Guido van Rossum in 1991.
+        </li>
+        <li>
+          It is popular because it is <strong>readable, free, versatile,
+          and backed by a massive community and ecosystem</strong>.
+        </li>
+        <li>
+          Python is used for <strong>data science, web development,
+          automation, machine learning, scientific computing</strong>, and
+          much more.
+        </li>
+        <li>
+          Its main weaknesses are <strong>execution speed and the GIL</strong>,
+          but these rarely matter in practice for most use cases.
+        </li>
+        <li>
+          Coming from MATLAB, you will find Python's syntax familiar and
+          its capabilities <strong>broader at zero cost</strong>.
+        </li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Understanding what Python is (and
+        is not) helps you set realistic expectations and make informed
+        decisions. You now know that Python is not the fastest language, but
+        it is one of the most productive. You know it cannot do everything,
+        but it can do most things well. This foundation will make the rest
+        of your learning journey smoother &mdash; you will understand
+        <em>why</em> Python works the way it does, not just <em>how</em>.
+      </div>
+
+      <p>
+        Ready to install Python and write your first script? Head to the
+        next section.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="../index.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Home</span></a>
+        <a href="getting-started.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Getting Started</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

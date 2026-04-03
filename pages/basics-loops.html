@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loops &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link active">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python Basics</a><span class="sep">&rsaquo;</span>
+        Loops
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C6 — LOOPS                                           -->
+      <!-- ============================================================ -->
+
+      <h1>Section C6 &mdash; Loops</h1>
+
+      <p>
+        Loops let you repeat a block of code many times without writing it
+        out over and over. Need to process every item in a list? Print the
+        numbers 1 through 100? Keep asking for input until the user types
+        "quit"? Loops handle all of that. Python has two kinds of loops:
+        <code>for</code> and <code>while</code>. This page covers both in
+        depth, along with the control keywords <code>break</code>,
+        <code>continue</code>, and <code>pass</code>.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> MATLAB uses
+        <code>for i = 1:10 ... end</code> and <code>while ... end</code>.
+        Python's loops are similar in logic, but the syntax differs:
+        (1)&nbsp;Python uses <code>for i in range(10):</code> with a
+        <strong>colon</strong> and <strong>indentation</strong> instead of
+        <code>end</code>, (2)&nbsp;<code>range()</code> is
+        <strong>0-based</strong> and <strong>exclusive</strong> of the stop
+        value, and (3)&nbsp;Python's <code>for</code> loop iterates over
+        <em>any</em> iterable, not just numeric ranges.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. THE for LOOP                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="for-loop">1. The <code>for</code> Loop</h2>
+
+      <p>
+        A <code>for</code> loop iterates over a <strong>sequence</strong>
+        (list, string, tuple, range, etc.) and runs the indented block once
+        for each item. The loop variable takes on the value of each item in
+        turn.
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>for variable in sequence:
+    # do something with variable</code></pre>
+
+      <p>Key rules:</p>
+      <ul>
+        <li>The line ends with a <strong>colon</strong>.</li>
+        <li>The body is <strong>indented</strong> (4 spaces).</li>
+        <li>There is no <code>end</code> keyword &mdash; the loop body ends when the indentation returns to the previous level.</li>
+      </ul>
+
+      <h3>Example 1 &mdash; Iterating over a list</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+
+# Output:
+# apple
+# banana
+# cherry</code></pre>
+
+      <p>
+        On each iteration, <code>fruit</code> takes the next value from the
+        list. First <code>"apple"</code>, then <code>"banana"</code>, then
+        <code>"cherry"</code>. When there are no more items, the loop ends.
+      </p>
+
+      <h3>Example 2 &mdash; Iterating over a string</h3>
+
+      <pre><code>word = "Python"
+
+for letter in word:
+    print(letter, end=" ")
+
+# Output: P y t h o n</code></pre>
+
+      <p>
+        Strings are sequences of characters, so you can loop through them
+        character by character.
+      </p>
+
+      <h3>Example 3 &mdash; Iterating over a dictionary</h3>
+
+      <pre><code>scores = {"Alice": 95, "Bob": 82, "Carol": 90}
+
+for name in scores:
+    print(f"{name}: {scores[name]}")
+
+# Output:
+# Alice: 95
+# Bob: 82
+# Carol: 90</code></pre>
+
+      <p>
+        By default, looping over a dictionary gives you the
+        <strong>keys</strong>. To get both keys and values, use
+        <code>.items()</code>:
+      </p>
+
+      <pre><code>for name, score in scores.items():
+    print(f"{name}: {score}")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  2. THE range() FUNCTION                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="range">2. The <code>range()</code> Function</h2>
+
+      <p>
+        When you need to loop a specific number of times or generate a
+        sequence of numbers, use <code>range()</code>. It does not create a
+        list in memory &mdash; it generates numbers one at a time, which is
+        memory-efficient even for huge ranges.
+      </p>
+
+      <h3>Three forms of <code>range()</code></h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Form</th>
+            <th>Meaning</th>
+            <th>Example</th>
+            <th>Produces</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>range(stop)</code></td>
+            <td>0 to stop&minus;1</td>
+            <td><code>range(5)</code></td>
+            <td>0, 1, 2, 3, 4</td>
+          </tr>
+          <tr>
+            <td><code>range(start, stop)</code></td>
+            <td>start to stop&minus;1</td>
+            <td><code>range(2, 6)</code></td>
+            <td>2, 3, 4, 5</td>
+          </tr>
+          <tr>
+            <td><code>range(start, stop, step)</code></td>
+            <td>start to stop&minus;1, stepping by step</td>
+            <td><code>range(0, 10, 2)</code></td>
+            <td>0, 2, 4, 6, 8</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>Critical detail:</strong> The stop value is
+        <strong>exclusive</strong> &mdash; the range goes up to but
+        <em>does not include</em> the stop value. This is different from
+        MATLAB, where <code>1:5</code> includes 5. In Python,
+        <code>range(1, 6)</code> gives you 1, 2, 3, 4, 5.
+      </div>
+
+      <h3>Example 4 &mdash; <code>range(n)</code></h3>
+
+      <pre><code>for i in range(5):
+    print(i, end=" ")
+
+# Output: 0 1 2 3 4</code></pre>
+
+      <p>Starts at 0, stops before 5. Five iterations total.</p>
+
+      <h3>Example 5 &mdash; <code>range(start, stop)</code></h3>
+
+      <pre><code>for i in range(1, 6):
+    print(i, end=" ")
+
+# Output: 1 2 3 4 5</code></pre>
+
+      <p>
+        If you want the numbers 1 through 5 (like MATLAB's
+        <code>1:5</code>), use <code>range(1, 6)</code>.
+      </p>
+
+      <h3>Example 6 &mdash; <code>range(start, stop, step)</code></h3>
+
+      <pre><code># Even numbers from 0 to 10
+for i in range(0, 11, 2):
+    print(i, end=" ")
+
+# Output: 0 2 4 6 8 10</code></pre>
+
+      <h3>Example 7 &mdash; Counting backwards</h3>
+
+      <pre><code>for i in range(5, 0, -1):
+    print(i, end=" ")
+
+# Output: 5 4 3 2 1</code></pre>
+
+      <p>
+        Use a negative step to count down. The start is 5, stop is 0
+        (exclusive), so it produces 5, 4, 3, 2, 1.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong>
+        <table>
+          <thead>
+            <tr><th>MATLAB</th><th>Python</th><th>Produces</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>1:5</code></td><td><code>range(1, 6)</code></td><td>1, 2, 3, 4, 5</td></tr>
+            <tr><td><code>0:2:10</code></td><td><code>range(0, 11, 2)</code></td><td>0, 2, 4, 6, 8, 10</td></tr>
+            <tr><td><code>5:-1:1</code></td><td><code>range(5, 0, -1)</code></td><td>5, 4, 3, 2, 1</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The key difference: MATLAB ranges are <strong>inclusive</strong> of
+          the end value. Python's <code>range()</code> is
+          <strong>exclusive</strong>. You need to add 1 to the stop value
+          when translating from MATLAB.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. THE while LOOP                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="while-loop">3. The <code>while</code> Loop</h2>
+
+      <p>
+        A <code>while</code> loop repeats a block of code as long as a
+        condition remains <code>True</code>. It checks the condition
+        <em>before</em> each iteration. If the condition is
+        <code>False</code> from the start, the body never runs.
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>while condition:
+    # do something
+    # (make sure the condition eventually becomes False!)</code></pre>
+
+      <h3>When to use <code>while</code> vs. <code>for</code></h3>
+
+      <ul>
+        <li>Use <code>for</code> when you know the number of iterations in advance or you are iterating over a collection.</li>
+        <li>Use <code>while</code> when you do not know how many iterations you need &mdash; the loop should keep running until a condition changes.</li>
+      </ul>
+
+      <h3>Example 8 &mdash; Basic countdown</h3>
+
+      <pre><code>count = 5
+
+while count > 0:
+    print(count, end=" ")
+    count -= 1
+
+print("Go!")
+# Output: 5 4 3 2 1 Go!</code></pre>
+
+      <p>
+        Each iteration, <code>count</code> decreases by 1. When
+        <code>count</code> reaches 0, the condition <code>count &gt; 0</code>
+        becomes <code>False</code> and the loop stops.
+      </p>
+
+      <h3>Example 9 &mdash; User input loop</h3>
+
+      <pre><code># Keep asking until the user types "quit"
+user_input = ""
+
+while user_input != "quit":
+    user_input = input("Enter a command (type 'quit' to exit): ")
+    print(f"You entered: {user_input}")
+
+print("Goodbye!")</code></pre>
+
+      <p>
+        This is a classic use case for <code>while</code> &mdash; you cannot
+        know in advance how many times the user will type something before
+        choosing to quit.
+      </p>
+
+      <h3>Example 10 &mdash; Summing until a threshold</h3>
+
+      <pre><code>total = 0
+number = 1
+
+while total < 100:
+    total += number
+    number += 1
+
+print(f"Reached {total} after adding numbers up to {number - 1}")
+# Output: Reached 105 after adding numbers up to 14</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> <code>while</code> loops give you
+        maximum flexibility. However, you must ensure the condition will
+        eventually become <code>False</code>. If it never does, you have an
+        <strong>infinite loop</strong> and your program will hang. Always
+        double-check that something inside the loop changes the condition.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. break                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="break">4. <code>break</code> &mdash; Exiting a Loop Early</h2>
+
+      <p>
+        The <code>break</code> statement immediately exits the nearest
+        enclosing loop, regardless of whether the loop's condition is still
+        <code>True</code> or there are more items to iterate over.
+      </p>
+
+      <h3>Example 11 &mdash; Finding the first match</h3>
+
+      <pre><code>numbers = [4, 7, 2, 9, 1, 8, 3]
+
+for num in numbers:
+    if num > 5:
+        print(f"First number greater than 5: {num}")
+        break
+
+# Output: First number greater than 5: 7</code></pre>
+
+      <p>
+        Without <code>break</code>, the loop would continue through all
+        items. With <code>break</code>, it stops as soon as it finds
+        <code>7</code>.
+      </p>
+
+      <h3>Example 12 &mdash; Breaking out of a <code>while</code> loop</h3>
+
+      <pre><code>while True:
+    password = input("Enter password: ")
+    if password == "secret":
+        print("Access granted!")
+        break
+    print("Wrong password. Try again.")</code></pre>
+
+      <p>
+        <code>while True:</code> creates an intentionally infinite loop.
+        The only way out is the <code>break</code> statement, which runs
+        when the correct password is entered. This is a common and
+        perfectly valid pattern.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  5. continue                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="continue">5. <code>continue</code> &mdash; Skipping to the Next Iteration</h2>
+
+      <p>
+        The <code>continue</code> statement skips the rest of the current
+        iteration and jumps to the next one. The loop itself does not end
+        &mdash; only the current pass is cut short.
+      </p>
+
+      <h3>Example 13 &mdash; Skip negative numbers</h3>
+
+      <pre><code>numbers = [3, -1, 4, -5, 9, -2, 6]
+
+for num in numbers:
+    if num < 0:
+        continue  # skip this iteration
+    print(num, end=" ")
+
+# Output: 3 4 9 6</code></pre>
+
+      <p>
+        When <code>num</code> is negative, <code>continue</code> causes the
+        loop to skip <code>print()</code> and move on to the next item.
+      </p>
+
+      <h3>Example 14 &mdash; Skip even numbers, process odds</h3>
+
+      <pre><code>for i in range(1, 11):
+    if i % 2 == 0:
+        continue
+    print(f"{i} is odd")
+
+# Output:
+# 1 is odd
+# 3 is odd
+# 5 is odd
+# 7 is odd
+# 9 is odd</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. pass                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="pass">6. <code>pass</code> &mdash; The Do-Nothing Placeholder</h2>
+
+      <p>
+        <code>pass</code> does absolutely nothing. It exists because Python
+        requires at least one statement in every indented block. If you want
+        an empty block (for example, as a placeholder while you are still
+        writing code), use <code>pass</code>.
+      </p>
+
+      <h3>Example 15 &mdash; Placeholder loop body</h3>
+
+      <pre><code>for i in range(10):
+    pass  # TODO: implement later</code></pre>
+
+      <p>
+        Without <code>pass</code>, Python would raise an
+        <code>IndentationError</code> because the <code>for</code> block
+        would be empty.
+      </p>
+
+      <h3>Example 16 &mdash; Ignoring specific values</h3>
+
+      <pre><code>for letter in "Hello World":
+    if letter == " ":
+        pass  # explicitly do nothing for spaces
+    else:
+        print(letter, end="")
+
+# Output: HelloWorld</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Tip:</strong> In the example above, you could also use
+        <code>continue</code> instead of <code>pass</code> (skipping the
+        rest of the iteration). The difference is subtle: <code>pass</code>
+        does nothing and falls through to the next statement in the block;
+        <code>continue</code> jumps to the next iteration. Here, either
+        works because <code>pass</code> is in the <code>if</code> branch
+        and the <code>else</code> handles the printing.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. NESTED LOOPS                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="nested-loops">7. Nested Loops</h2>
+
+      <p>
+        You can place one loop inside another. The inner loop runs completely
+        for each iteration of the outer loop. This is useful for working with
+        2D data (grids, matrices, tables).
+      </p>
+
+      <h3>Example 17 &mdash; Multiplication table</h3>
+
+      <pre><code>for i in range(1, 6):
+    for j in range(1, 6):
+        print(f"{i * j:4}", end="")
+    print()  # new line after each row
+
+# Output:
+#    1   2   3   4   5
+#    2   4   6   8  10
+#    3   6   9  12  15
+#    4   8  12  16  20
+#    5  10  15  20  25</code></pre>
+
+      <p>
+        The outer loop controls the rows (<code>i</code>), the inner loop
+        controls the columns (<code>j</code>). For each value of
+        <code>i</code>, the inner loop runs through all values of
+        <code>j</code>.
+      </p>
+
+      <h3>Example 18 &mdash; Finding pairs</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]
+sizes = ["S", "M", "L"]
+
+for color in colors:
+    for size in sizes:
+        print(f"{color}-{size}", end="  ")
+    print()
+
+# Output:
+# red-S  red-M  red-L
+# green-S  green-M  green-L
+# blue-S  blue-M  blue-L</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Performance note:</strong> Nested loops multiply. If the
+        outer loop runs <em>m</em> times and the inner loop runs <em>n</em>
+        times, the body executes <em>m &times; n</em> times. A
+        1000 &times; 1000 nested loop runs 1,000,000 iterations. Be mindful
+        of this when working with large datasets.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. LOOP + else                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="loop-else">8. Loop + <code>else</code> (Python-Specific Feature)</h2>
+
+      <p>
+        This is a feature unique to Python that surprises many programmers
+        coming from other languages. You can attach an <code>else</code>
+        block to a <code>for</code> or <code>while</code> loop. The
+        <code>else</code> block runs <strong>only if the loop completes
+        normally</strong> &mdash; that is, without hitting a
+        <code>break</code>.
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>for item in collection:
+    if some_condition:
+        break
+else:
+    # This runs ONLY if the loop finished without break</code></pre>
+
+      <h3>Example 19 &mdash; Searching with loop/else</h3>
+
+      <pre><code>numbers = [2, 4, 6, 8, 10]
+
+for num in numbers:
+    if num % 3 == 0:
+        print(f"Found a multiple of 3: {num}")
+        break
+else:
+    print("No multiples of 3 found.")
+
+# Output: Found a multiple of 3: 6</code></pre>
+
+      <pre><code># Now try with a list that has no multiples of 3
+numbers = [2, 4, 8, 10]
+
+for num in numbers:
+    if num % 3 == 0:
+        print(f"Found a multiple of 3: {num}")
+        break
+else:
+    print("No multiples of 3 found.")
+
+# Output: No multiples of 3 found.</code></pre>
+
+      <p>
+        In the second case, the loop finishes without hitting
+        <code>break</code>, so the <code>else</code> block runs. Think of it
+        as: "If I searched through everything and did not break out early,
+        then do this."
+      </p>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> The loop/else pattern replaces a
+        common pattern where you would use a flag variable like
+        <code>found = False</code> and then check it after the loop. It is
+        more Pythonic and eliminates the need for the extra variable.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. COMMON PATTERNS                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-patterns">9. Common Loop Patterns</h2>
+
+      <p>
+        Certain patterns appear again and again in real Python programs.
+        Recognizing them will help you write loops more quickly and
+        confidently.
+      </p>
+
+      <h3>Pattern 1: Accumulator (summing values)</h3>
+
+      <pre><code>numbers = [10, 20, 30, 40, 50]
+
+total = 0
+for num in numbers:
+    total += num
+
+print(f"Sum: {total}")
+# Output: Sum: 150</code></pre>
+
+      <p>
+        Start with a variable at 0 (the accumulator), then add to it on
+        each iteration. This is the most common loop pattern.
+      </p>
+
+      <h3>Pattern 2: Counting</h3>
+
+      <pre><code>words = ["apple", "banana", "avocado", "cherry", "apricot"]
+
+count = 0
+for word in words:
+    if word.startswith("a"):
+        count += 1
+
+print(f"Words starting with 'a': {count}")
+# Output: Words starting with 'a': 3</code></pre>
+
+      <h3>Pattern 3: Searching (finding the max)</h3>
+
+      <pre><code>temperatures = [22, 18, 31, 27, 15, 29]
+
+max_temp = temperatures[0]
+for temp in temperatures:
+    if temp > max_temp:
+        max_temp = temp
+
+print(f"Highest temperature: {max_temp}")
+# Output: Highest temperature: 31</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Built-in shortcut:</strong> Python has a built-in
+        <code>max()</code> function (<code>max(temperatures)</code>) and
+        <code>sum()</code> function (<code>sum(numbers)</code>) that do
+        these patterns in one line. But understanding the loop version is
+        essential &mdash; many real problems require customized versions of
+        these patterns.
+      </div>
+
+      <h3>Pattern 4: Building a new list</h3>
+
+      <pre><code>numbers = [1, 2, 3, 4, 5]
+
+squared = []
+for num in numbers:
+    squared.append(num ** 2)
+
+print(squared)
+# Output: [1, 4, 9, 16, 25]</code></pre>
+
+      <p>
+        Start with an empty list and <code>.append()</code> to it on each
+        iteration. (Later, you will learn <strong>list comprehensions</strong>,
+        which do this more concisely.)
+      </p>
+
+      <h3>Pattern 5: Enumerate (index + value)</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# Output:
+# 0: apple
+# 1: banana
+# 2: cherry</code></pre>
+
+      <p>
+        <code>enumerate()</code> gives you both the index and the value on
+        each iteration. This is much cleaner than manually tracking an index
+        variable.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  10. COMMON MISTAKES                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">10. Common Mistakes</h2>
+
+      <h3>Mistake 1: Infinite loops</h3>
+
+      <p>
+        If the condition of a <code>while</code> loop never becomes
+        <code>False</code>, the loop runs forever and your program hangs.
+      </p>
+
+      <pre><code># WRONG — infinite loop! count never changes
+count = 5
+while count > 0:
+    print(count)
+    # Forgot: count -= 1
+
+# CORRECT
+count = 5
+while count > 0:
+    print(count)
+    count -= 1</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Emergency exit:</strong> If your program gets stuck in an
+        infinite loop, press <code>Ctrl + C</code> in the terminal to
+        interrupt it.
+      </div>
+
+      <h3>Mistake 2: Off-by-one errors</h3>
+
+      <p>
+        Because <code>range()</code> is exclusive of the stop value, it is
+        easy to be off by one.
+      </p>
+
+      <pre><code># WRONG — prints 1 to 9, not 1 to 10
+for i in range(1, 10):
+    print(i, end=" ")
+# Output: 1 2 3 4 5 6 7 8 9
+
+# CORRECT — add 1 to the stop value
+for i in range(1, 11):
+    print(i, end=" ")
+# Output: 1 2 3 4 5 6 7 8 9 10</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB users beware:</strong> This is the most common gotcha.
+        MATLAB's <code>1:10</code> produces 1 through 10 (inclusive). Python's
+        <code>range(1, 10)</code> produces 1 through 9. You need
+        <code>range(1, 11)</code> to get the same result.
+      </div>
+
+      <h3>Mistake 3: Modifying a list while iterating over it</h3>
+
+      <pre><code># WRONG — modifying a list during iteration causes unpredictable behavior
+numbers = [1, 2, 3, 4, 5, 6]
+for num in numbers:
+    if num % 2 == 0:
+        numbers.remove(num)  # DON'T do this!
+print(numbers)
+# Output: [1, 3, 5] — looks right, but ONLY by luck. It can skip items.
+
+# CORRECT — iterate over a copy, or build a new list
+numbers = [1, 2, 3, 4, 5, 6]
+odds = [num for num in numbers if num % 2 != 0]
+print(odds)
+# Output: [1, 3, 5]
+
+# ALSO CORRECT — iterate over a copy using [:]
+numbers = [1, 2, 3, 4, 5, 6]
+for num in numbers[:]:   # numbers[:] creates a copy
+    if num % 2 == 0:
+        numbers.remove(num)
+print(numbers)
+# Output: [1, 3, 5]</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Modifying a list while iterating
+        over it is one of the most insidious bugs in Python. The loop's
+        internal counter gets out of sync with the changing list, causing
+        items to be skipped. Always iterate over a copy or build a new list.
+      </div>
+
+      <h3>Mistake 4: Forgetting the colon</h3>
+
+      <pre><code># WRONG
+for i in range(5)
+    print(i)
+
+# CORRECT
+for i in range(5):
+    print(i)</code></pre>
+
+      <h3>Mistake 5: Using the wrong variable name</h3>
+
+      <pre><code># WRONG — shadowing a variable by accident
+total = 100
+
+for total in range(5):  # Oops! 'total' is now the loop variable
+    print(total)
+
+print(total)  # Now total is 4, not 100!
+
+# BETTER — use a descriptive loop variable
+total = 100
+for i in range(5):
+    print(i)
+
+print(total)  # total is still 100</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  11. MATLAB vs PYTHON SIDE-BY-SIDE                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="matlab-comparison">11. MATLAB vs. Python &mdash; Loops Side by Side</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Loop 1 to 5</td>
+            <td><code>for i = 1:5<br>&nbsp;&nbsp;disp(i);<br>end</code></td>
+            <td><code>for i in range(1, 6):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+          </tr>
+          <tr>
+            <td>Loop 0 to 9</td>
+            <td><code>for i = 0:9<br>&nbsp;&nbsp;disp(i);<br>end</code></td>
+            <td><code>for i in range(10):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+          </tr>
+          <tr>
+            <td>Step by 2</td>
+            <td><code>for i = 0:2:10<br>&nbsp;&nbsp;disp(i);<br>end</code></td>
+            <td><code>for i in range(0, 11, 2):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+          </tr>
+          <tr>
+            <td>Iterate list</td>
+            <td><code>for i = 1:length(A)<br>&nbsp;&nbsp;disp(A(i));<br>end</code></td>
+            <td><code>for item in A:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(item)</code></td>
+          </tr>
+          <tr>
+            <td>while loop</td>
+            <td><code>while x &gt; 0<br>&nbsp;&nbsp;x = x - 1;<br>end</code></td>
+            <td><code>while x &gt; 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;x -= 1</code></td>
+          </tr>
+          <tr>
+            <td>Break</td>
+            <td><code>break;</code></td>
+            <td><code>break</code></td>
+          </tr>
+          <tr>
+            <td>Continue</td>
+            <td><code>continue;</code></td>
+            <td><code>continue</code></td>
+          </tr>
+          <tr>
+            <td>Block terminator</td>
+            <td><code>end</code></td>
+            <td>Indentation (no end keyword)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <strong>Key differences for MATLAB users:</strong>
+        <ul>
+          <li><strong>No <code>end</code> keyword.</strong> Python uses indentation to mark the loop body.</li>
+          <li><strong><code>range()</code> is 0-based and exclusive.</strong> <code>range(5)</code> gives 0,1,2,3,4 &mdash; not 1,2,3,4,5.</li>
+          <li><strong>Python iterates over items directly.</strong> Instead of indexing with <code>A(i)</code>, you write <code>for item in A:</code>. This is cleaner and less error-prone.</li>
+          <li><strong>No semicolons needed.</strong> Lines just end normally.</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  12. REAL-WORLD EXAMPLES                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="real-world">12. Real-World Examples</h2>
+
+      <h3>Example 20 &mdash; Calculate the average of a list</h3>
+
+      <pre><code>grades = [88, 92, 75, 90, 85, 78, 95]
+
+total = 0
+for grade in grades:
+    total += grade
+
+average = total / len(grades)
+print(f"Average grade: {average:.1f}")
+# Output: Average grade: 86.1</code></pre>
+
+      <h3>Example 21 &mdash; Find all prime numbers up to n</h3>
+
+      <pre><code>n = 30
+
+for num in range(2, n + 1):
+    is_prime = True
+    for divisor in range(2, int(num ** 0.5) + 1):
+        if num % divisor == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(num, end=" ")
+
+# Output: 2 3 5 7 11 13 17 19 23 29</code></pre>
+
+      <p>
+        This uses a nested loop: the outer loop checks each candidate
+        number, and the inner loop tests for divisors. <code>break</code>
+        exits the inner loop early once a divisor is found.
+      </p>
+
+      <h3>Example 22 &mdash; Reverse a string</h3>
+
+      <pre><code>original = "Python"
+reversed_str = ""
+
+for char in original:
+    reversed_str = char + reversed_str
+
+print(reversed_str)
+# Output: nohtyP</code></pre>
+
+      <h3>Example 23 &mdash; Count character frequencies</h3>
+
+      <pre><code>text = "hello world"
+freq = {}
+
+for char in text:
+    if char in freq:
+        freq[char] += 1
+    else:
+        freq[char] = 1
+
+for char, count in freq.items():
+    print(f"'{char}': {count}")
+
+# Output:
+# 'h': 1
+# 'e': 1
+# 'l': 3
+# 'o': 2
+# ' ': 1
+# 'w': 1
+# 'r': 1
+# 'd': 1</code></pre>
+
+      <h3>Example 24 &mdash; Flatten a 2D list</h3>
+
+      <pre><code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+flat = []
+for row in matrix:
+    for item in row:
+        flat.append(item)
+
+print(flat)
+# Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  13. EXERCISES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">13. Exercises</h2>
+
+      <div class="callout callout-info">
+        <strong>Practice makes permanent.</strong> Try each exercise yourself
+        before revealing the solution. Type the code out &mdash; do not copy
+        and paste.
+      </div>
+
+      <h3>Exercise 1: Sum of even numbers</h3>
+      <p>
+        Using a <code>for</code> loop and <code>range()</code>, calculate the
+        sum of all even numbers from 1 to 100 (inclusive).
+      </p>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>total = 0
+for i in range(2, 101, 2):
+    total += i
+
+print(f"Sum of even numbers from 1 to 100: {total}")
+# Output: Sum of even numbers from 1 to 100: 2550</code></pre>
+      </details>
+
+      <h3>Exercise 2: Factorial</h3>
+      <p>
+        Write a loop that computes the factorial of a number <code>n</code>.
+        For example, 5! = 5 &times; 4 &times; 3 &times; 2 &times; 1 = 120.
+      </p>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>n = 5
+factorial = 1
+
+for i in range(1, n + 1):
+    factorial *= i
+
+print(f"{n}! = {factorial}")
+# Output: 5! = 120</code></pre>
+      </details>
+
+      <h3>Exercise 3: FizzBuzz (1 to 20)</h3>
+      <p>
+        Loop through numbers 1 to 20. For each number:
+      </p>
+      <ul>
+        <li>If divisible by both 3 and 5, print "FizzBuzz"</li>
+        <li>If divisible by 3 only, print "Fizz"</li>
+        <li>If divisible by 5 only, print "Buzz"</li>
+        <li>Otherwise, print the number</li>
+      </ul>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>for i in range(1, 21):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+
+# Output:
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
+# 16
+# 17
+# Fizz
+# 19
+# Buzz</code></pre>
+      </details>
+
+      <h3>Exercise 4: Guess the number</h3>
+      <p>
+        Write a <code>while</code> loop that simulates a number guessing game.
+        The secret number is 7. Keep asking the user to guess. After each
+        guess, tell them "Too high", "Too low", or "Correct!". End the loop
+        when they guess correctly.
+      </p>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>secret = 7
+
+while True:
+    guess = int(input("Guess the number (1-10): "))
+
+    if guess < secret:
+        print("Too low!")
+    elif guess > secret:
+        print("Too high!")
+    else:
+        print("Correct! You got it!")
+        break</code></pre>
+      </details>
+
+      <h3>Exercise 5: Star triangle</h3>
+      <p>
+        Using nested loops, print this pattern:
+      </p>
+      <pre><code>*
+**
+***
+****
+*****</code></pre>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>for i in range(1, 6):
+    for j in range(i):
+        print("*", end="")
+    print()
+
+# Or more concisely:
+for i in range(1, 6):
+    print("*" * i)</code></pre>
+      </details>
+
+      <h3>Exercise 6: Find common elements</h3>
+      <p>
+        Given two lists, use loops to find and print the elements that appear
+        in both lists.
+      </p>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>list_a = [1, 2, 3, 4, 5, 6]
+list_b = [4, 5, 6, 7, 8, 9]
+
+common = []
+for item in list_a:
+    if item in list_b:
+        common.append(item)
+
+print(f"Common elements: {common}")
+# Output: Common elements: [4, 5, 6]
+
+# Note: for large lists, using sets is much faster:
+# common = list(set(list_a) & set(list_b))</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <ul>
+        <li><code>for</code> loops iterate over sequences (lists, strings, ranges, etc.).</li>
+        <li><code>range(stop)</code>, <code>range(start, stop)</code>, and <code>range(start, stop, step)</code> generate number sequences. The stop value is <strong>exclusive</strong>.</li>
+        <li><code>while</code> loops repeat as long as a condition is <code>True</code>. Make sure the condition eventually becomes <code>False</code>.</li>
+        <li><code>break</code> exits the loop immediately.</li>
+        <li><code>continue</code> skips to the next iteration.</li>
+        <li><code>pass</code> is a do-nothing placeholder.</li>
+        <li>Nested loops are loops inside loops &mdash; the inner loop runs fully for each outer iteration.</li>
+        <li>Loop + <code>else</code> is a Python-specific feature: the <code>else</code> block runs only when the loop finishes without <code>break</code>.</li>
+        <li>Common patterns: accumulator (summing), counting, searching, building a new list.</li>
+        <li>Common mistakes: infinite loops, off-by-one errors, modifying a list while iterating.</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>Loops are one of the most powerful tools in programming.</strong>
+        Combined with conditionals (from the previous page), you can now
+        write programs that make decisions <em>and</em> repeat actions &mdash;
+        which covers the vast majority of what programs do. Next up:
+        <strong>functions</strong> &mdash; the ability to package reusable
+        blocks of logic.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-conditionals.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Conditionals</span></a>
+        <a href="basics-functions.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Functions &amp; Lambda</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

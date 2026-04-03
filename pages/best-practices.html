@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Best Practices &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link active">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        Best Practices
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION I — PYTHON BEST PRACTICES                            -->
+      <!-- ============================================================ -->
+
+      <h1>Section I &mdash; Python Best Practices</h1>
+      <p class="page-subtitle">
+        Write clean, readable, and maintainable Python code from the start.
+        These guidelines will save you hours of debugging and make your code
+        a pleasure to revisit.
+      </p>
+
+      <div class="toc">
+        <div class="toc-title">On this page</div>
+        <ul>
+          <li><a href="#naming">1. Naming Conventions</a></li>
+          <li><a href="#structure">2. Code Structure</a></li>
+          <li><a href="#comments">3. Comments &amp; Docstrings</a></li>
+          <li><a href="#functions">4. When to Write Functions</a></li>
+          <li><a href="#splitting-files">5. When to Split Into Files</a></li>
+          <li><a href="#debugging">6. Debugging Tips</a></li>
+          <li><a href="#tracebacks">7. How to Read Traceback Errors</a></li>
+          <li><a href="#style-guide">8. Beginner-Friendly Style Guide (PEP 8)</a></li>
+          <li><a href="#anti-patterns">9. Common Anti-Patterns</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. NAMING CONVENTIONS                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="naming">1. Naming Conventions</h2>
+
+      <p>
+        Good names make code self-documenting. Python has strong conventions
+        defined in <a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a>.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>What</th><th>Convention</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Variables</td><td><code>snake_case</code></td><td><code>total_price</code>, <code>user_name</code></td></tr>
+          <tr><td>Functions</td><td><code>snake_case</code></td><td><code>calculate_area()</code>, <code>get_user_input()</code></td></tr>
+          <tr><td>Classes</td><td><code>PascalCase</code></td><td><code>DataProcessor</code>, <code>HttpClient</code></td></tr>
+          <tr><td>Constants</td><td><code>UPPER_SNAKE_CASE</code></td><td><code>MAX_RETRIES</code>, <code>PI</code></td></tr>
+          <tr><td>Modules/files</td><td><code>snake_case</code></td><td><code>data_utils.py</code>, <code>file_handler.py</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Good vs Bad Names</h3>
+
+<pre><code><span class="cmt"># Bad — vague, single-letter, or misleading</span>
+x = <span class="num">3.14</span>
+l = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]          <span class="cmt"># 'l' looks like '1' in many fonts</span>
+<span class="kw">def</span> <span class="fn">calc</span>(a, b):
+    <span class="kw">return</span> a * b
+
+<span class="cmt"># Good — clear, descriptive, intention-revealing</span>
+pi = <span class="num">3.14</span>
+scores = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="kw">def</span> <span class="fn">calculate_rectangle_area</span>(width, height):
+    <span class="kw">return</span> width * height</code></pre>
+
+      <div class="callout callout-info">
+        <div class="callout-title">When single letters are OK</div>
+        <p>
+          Loop counters (<code>i</code>, <code>j</code>, <code>k</code>),
+          coordinates (<code>x</code>, <code>y</code>, <code>z</code>), and
+          short math formulas where the variable meaning is obvious from context
+          are acceptable. Everywhere else, use descriptive names.
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB comparison</div>
+        <p>
+          MATLAB culture tends toward short variable names (<code>A</code>,
+          <code>b</code>, <code>idx</code>). Python culture strongly prefers
+          longer, descriptive names. <code>temperature_readings</code> is
+          better than <code>T</code> or <code>temps</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. CODE STRUCTURE                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="structure">2. Code Structure</h2>
+
+      <p>
+        A well-organized Python file follows a predictable layout. This makes
+        it easy for anyone (including future you) to find things quickly.
+      </p>
+
+<pre><code><span class="cmt">#!/usr/bin/env python3</span>
+<span class="str">"""Module docstring — one line describing what this file does."""</span>
+
+<span class="cmt"># === Standard library imports ===</span>
+<span class="kw">import</span> os
+<span class="kw">import</span> sys
+<span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+<span class="cmt"># === Third-party imports ===</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cmt"># === Local imports ===</span>
+<span class="kw">from</span> my_package <span class="kw">import</span> helpers
+
+<span class="cmt"># === Constants ===</span>
+MAX_RETRIES = <span class="num">3</span>
+DEFAULT_TIMEOUT = <span class="num">30</span>
+
+<span class="cmt"># === Functions / Classes ===</span>
+<span class="kw">def</span> <span class="fn">process_data</span>(filepath):
+    <span class="str">"""Read data from filepath and return processed results."""</span>
+    <span class="kw">with</span> <span class="fn">open</span>(filepath) <span class="kw">as</span> f:
+        data = f.read()
+    <span class="kw">return</span> data.strip()
+
+<span class="kw">def</span> <span class="fn">main</span>():
+    <span class="str">"""Entry point for the script."""</span>
+    result = process_data(<span class="str">"data.txt"</span>)
+    <span class="fn">print</span>(result)
+
+<span class="cmt"># === Main guard ===</span>
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    main()</code></pre>
+
+      <h3>The <code>__name__</code> Guard Explained</h3>
+
+      <p>
+        The <code>if __name__ == "__main__":</code> block runs only when you
+        execute the file directly (<code>python my_script.py</code>). It does
+        <strong>not</strong> run when the file is imported as a module. This
+        lets you reuse functions from the file without triggering the main code.
+      </p>
+
+<pre><code><span class="cmt"># Without the guard — this runs even when imported!</span>
+result = process_data(<span class="str">"data.txt"</span>)   <span class="cmt"># runs on import</span>
+
+<span class="cmt"># With the guard — only runs when executed directly</span>
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    result = process_data(<span class="str">"data.txt"</span>)   <span class="cmt"># safe</span></code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB comparison</div>
+        <p>
+          In MATLAB, each <code>.m</code> file is either a script or a function.
+          Python files can be both &mdash; the <code>__name__</code> guard is
+          how you control which behavior you get.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. COMMENTS & DOCSTRINGS                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="comments">3. Comments &amp; Docstrings</h2>
+
+      <p>
+        Comments explain <strong>why</strong>, not <em>what</em>. The code
+        itself should be readable enough to show what it does.
+      </p>
+
+      <h3>Bad Comments (state the obvious)</h3>
+
+<pre><code>x = x + <span class="num">1</span>  <span class="cmt"># increment x by 1</span>
+
+<span class="cmt"># loop through the list</span>
+<span class="kw">for</span> item <span class="kw">in</span> my_list:
+    <span class="fn">print</span>(item)  <span class="cmt"># print the item</span></code></pre>
+
+      <h3>Good Comments (explain why)</h3>
+
+<pre><code><span class="cmt"># Add 1 because the sensor reports 0-based channel numbers,</span>
+<span class="cmt"># but the display expects 1-based numbering</span>
+channel_display = channel_raw + <span class="num">1</span>
+
+<span class="cmt"># Skip the first row — it contains headers, not data</span>
+<span class="kw">for</span> row <span class="kw">in</span> rows[<span class="num">1</span>:]:
+    process(row)</code></pre>
+
+      <h3>Docstrings</h3>
+
+      <p>
+        Every function should have a <strong>docstring</strong> &mdash; a string
+        on the first line inside the function that describes what it does.
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">celsius_to_fahrenheit</span>(celsius):
+    <span class="str">"""Convert a temperature from Celsius to Fahrenheit.
+
+    Args:
+        celsius (float): Temperature in degrees Celsius.
+
+    Returns:
+        float: Temperature in degrees Fahrenheit.
+    """</span>
+    <span class="kw">return</span> celsius * <span class="num">9</span> / <span class="num">5</span> + <span class="num">32</span></code></pre>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Why docstrings matter</div>
+        <p>
+          Python's built-in <code>help()</code> function reads docstrings.
+          Typing <code>help(celsius_to_fahrenheit)</code> in the REPL will
+          display your docstring. IDEs like VS Code also show docstrings as
+          tooltips when you hover over a function call.
+        </p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise &mdash; Write a Docstring</div>
+        <p>Add a proper docstring to this function:</p>
+<pre><code><span class="kw">def</span> <span class="fn">count_words</span>(text):
+    <span class="kw">return</span> <span class="fn">len</span>(text.split())</code></pre>
+        <details>
+          <summary>Show Solution</summary>
+<pre><code><span class="kw">def</span> <span class="fn">count_words</span>(text):
+    <span class="str">"""Return the number of words in a text string.
+
+    Words are separated by whitespace. Leading/trailing
+    whitespace is ignored.
+
+    Args:
+        text (str): The input text to count words in.
+
+    Returns:
+        int: The number of whitespace-separated words.
+    """</span>
+    <span class="kw">return</span> <span class="fn">len</span>(text.split())</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. WHEN TO WRITE FUNCTIONS                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="functions">4. When to Write Functions</h2>
+
+      <p>
+        Functions are the fundamental unit of code reuse. Follow the
+        <strong>DRY principle</strong> (Don't Repeat Yourself).
+      </p>
+
+      <h3>Write a function when:</h3>
+
+      <ul>
+        <li><strong>You use the same code 2+ times.</strong> If you copy-paste, you should extract a function instead.</li>
+        <li><strong>A block of code does one clear thing.</strong> Give it a name that describes that thing.</li>
+        <li><strong>You want to test a piece of logic independently.</strong> Functions are easy to test; tangled scripts are not.</li>
+        <li><strong>The code is getting hard to follow.</strong> Breaking it into named functions makes the flow readable.</li>
+      </ul>
+
+      <h3>Before: repetitive code</h3>
+
+<pre><code><span class="cmt"># Calculating area in three different places</span>
+area1 = <span class="num">3.14159</span> * radius1 ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area 1: </span><span class="op">{</span>area1<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)
+
+area2 = <span class="num">3.14159</span> * radius2 ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area 2: </span><span class="op">{</span>area2<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)
+
+area3 = <span class="num">3.14159</span> * radius3 ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area 3: </span><span class="op">{</span>area3<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+
+      <h3>After: a function</h3>
+
+<pre><code><span class="kw">import</span> math
+
+<span class="kw">def</span> <span class="fn">circle_area</span>(radius):
+    <span class="str">"""Return the area of a circle with the given radius."""</span>
+    <span class="kw">return</span> math.pi * radius ** <span class="num">2</span>
+
+<span class="kw">for</span> r <span class="kw">in</span> [radius1, radius2, radius3]:
+    <span class="fn">print</span>(<span class="str">f"Area: </span><span class="op">{</span>circle_area(r)<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Keep functions short</div>
+        <p>
+          A good rule of thumb: if a function does not fit on your screen
+          (~20&ndash;30 lines), it is probably doing too much. Break it into
+          smaller helper functions.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. WHEN TO SPLIT INTO FILES                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="splitting-files">5. When to Split Into Files</h2>
+
+      <p>
+        As your project grows, a single <code>.py</code> file becomes hard to
+        navigate. Here is when and how to split.
+      </p>
+
+      <h3>Signs you should split:</h3>
+
+      <ul>
+        <li>Your file is longer than ~200&ndash;300 lines.</li>
+        <li>You have groups of functions that serve different purposes (e.g., file I/O functions vs math functions vs display functions).</li>
+        <li>You want to reuse some functions in other projects.</li>
+      </ul>
+
+      <h3>Example: splitting a project</h3>
+
+<pre><code><span class="cmt"># Before: one big file (main.py, 400+ lines)</span>
+<span class="cmt"># After: organized into modules</span>
+
+my_project/
+    main.py              <span class="cmt"># Entry point — calls functions from other files</span>
+    data_loader.py       <span class="cmt"># Functions for reading files and parsing data</span>
+    calculations.py      <span class="cmt"># Math and processing functions</span>
+    display.py           <span class="cmt"># Printing and formatting functions</span>
+    constants.py         <span class="cmt"># Shared constants (MAX_SIZE, FILE_PATH, etc.)</span></code></pre>
+
+      <h3>How to import from your own files:</h3>
+
+<pre><code><span class="cmt"># main.py</span>
+<span class="kw">from</span> data_loader <span class="kw">import</span> read_csv, parse_header
+<span class="kw">from</span> calculations <span class="kw">import</span> compute_average
+<span class="kw">from</span> display <span class="kw">import</span> print_report
+<span class="kw">from</span> constants <span class="kw">import</span> MAX_SIZE
+
+data = read_csv(<span class="str">"measurements.csv"</span>)
+avg = compute_average(data)
+print_report(avg)</code></pre>
+
+      <div class="callout callout-info">
+        <div class="callout-title">What is a package?</div>
+        <p>
+          A <strong>package</strong> is a folder containing an
+          <code>__init__.py</code> file (can be empty). It lets you organize
+          modules into subdirectories: <code>from my_package.utils import helper</code>.
+          You do not need packages for small projects &mdash; just separate
+          <code>.py</code> files in the same folder work fine.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. DEBUGGING TIPS                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="debugging">6. Debugging Tips</h2>
+
+      <p>
+        Every programmer spends time debugging. These techniques will help you
+        find and fix bugs faster.
+      </p>
+
+      <h3>6.1 &mdash; Print Debugging</h3>
+
+      <p>
+        The simplest and most common technique. Add <code>print()</code>
+        statements to see what your variables contain at each step.
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">process_scores</span>(scores):
+    total = <span class="num">0</span>
+    <span class="kw">for</span> i, score <span class="kw">in</span> <span class="fn">enumerate</span>(scores):
+        <span class="fn">print</span>(<span class="str">f"DEBUG: i=</span><span class="op">{</span>i<span class="op">}</span><span class="str">, score=</span><span class="op">{</span>score<span class="op">}</span><span class="str">, total=</span><span class="op">{</span>total<span class="op">}</span><span class="str">"</span>)  <span class="cmt"># temporary</span>
+        total += score
+    <span class="kw">return</span> total / <span class="fn">len</span>(scores)</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Remember to remove debug prints</div>
+        <p>
+          Always search for "DEBUG" or "TODO" before sharing your code. A
+          quick <code>Ctrl+F</code> for "DEBUG" in your editor catches
+          leftover print statements.
+        </p>
+      </div>
+
+      <h3>6.2 &mdash; Using <code>assert</code></h3>
+
+      <p>
+        <code>assert</code> statements verify that your assumptions are correct.
+        If the condition is <code>False</code>, Python raises an
+        <code>AssertionError</code>.
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">calculate_average</span>(numbers):
+    <span class="kw">assert</span> <span class="fn">len</span>(numbers) > <span class="num">0</span>, <span class="str">"Cannot average an empty list"</span>
+    <span class="kw">return</span> <span class="fn">sum</span>(numbers) / <span class="fn">len</span>(numbers)
+
+<span class="cmt"># This will work fine:</span>
+calculate_average([<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>])
+
+<span class="cmt"># This will raise AssertionError with your message:</span>
+calculate_average([])  <span class="cmt"># AssertionError: Cannot average an empty list</span></code></pre>
+
+      <h3>6.3 &mdash; Using <code>breakpoint()</code></h3>
+
+      <p>
+        Python 3.7+ has a built-in <code>breakpoint()</code> function that
+        drops you into an interactive debugger (pdb) right at that line.
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">mystery_bug</span>(data):
+    result = []
+    <span class="kw">for</span> item <span class="kw">in</span> data:
+        <span class="fn">breakpoint</span>()  <span class="cmt"># Execution pauses here — you can inspect variables</span>
+        result.append(item * <span class="num">2</span>)
+    <span class="kw">return</span> result</code></pre>
+
+      <p>
+        When execution pauses, you can type variable names to see their values,
+        <code>n</code> to go to the next line, <code>c</code> to continue, and
+        <code>q</code> to quit the debugger.
+      </p>
+
+      <h3>6.4 &mdash; Read the Error Message Carefully</h3>
+
+      <p>
+        Python error messages are unusually helpful. They tell you:
+      </p>
+
+      <ul>
+        <li>The <strong>type</strong> of error (<code>TypeError</code>, <code>ValueError</code>, <code>NameError</code>, etc.)</li>
+        <li>The exact <strong>line number</strong> where it occurred</li>
+        <li>A <strong>description</strong> of what went wrong</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Read the last line first</div>
+        <p>
+          The most important information is at the <strong>bottom</strong> of
+          the error message. Start there, then work your way up to find the
+          line in <em>your</em> code (not library code) that caused the error.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. HOW TO READ TRACEBACKS                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="tracebacks">7. How to Read Traceback Errors</h2>
+
+      <p>
+        A <strong>traceback</strong> is the full stack of function calls that
+        led to an error. Learning to read tracebacks is one of the most
+        valuable debugging skills you can develop.
+      </p>
+
+      <h3>Example: a real traceback</h3>
+
+<pre><code><span class="cmt"># The code</span>
+<span class="kw">def</span> <span class="fn">get_average</span>(numbers):
+    <span class="kw">return</span> <span class="fn">sum</span>(numbers) / <span class="fn">len</span>(numbers)
+
+<span class="kw">def</span> <span class="fn">process_file</span>(filename):
+    <span class="kw">with</span> <span class="fn">open</span>(filename) <span class="kw">as</span> f:
+        values = [<span class="fn">int</span>(line) <span class="kw">for</span> line <span class="kw">in</span> f]
+    <span class="kw">return</span> get_average(values)
+
+result = process_file(<span class="str">"data.txt"</span>)</code></pre>
+
+      <p>If <code>data.txt</code> contains a non-numeric line, you get:</p>
+
+<pre><code>Traceback (most recent call last):           <span class="cmt"># 1. Header</span>
+  File "main.py", line 9, in &lt;module&gt;        <span class="cmt"># 2. Top of the call stack</span>
+    result = process_file("data.txt")
+  File "main.py", line 6, in process_file    <span class="cmt"># 3. Deeper into the stack</span>
+    values = [int(line) for line in f]
+ValueError: invalid literal for int()        <span class="cmt"># 4. The actual error</span>
+  with base 10: 'hello\n'</code></pre>
+
+      <h3>How to read it (bottom-up):</h3>
+
+      <ol>
+        <li><strong>Line 4 (bottom) &mdash; The error type and message:</strong> <code>ValueError</code> tells you a value was wrong. The message says it tried to convert <code>'hello\n'</code> to an integer and failed.</li>
+        <li><strong>Line 3 &mdash; Where the error happened:</strong> File <code>main.py</code>, line 6, inside the function <code>process_file</code>. The culprit is the list comprehension <code>[int(line) for line in f]</code>.</li>
+        <li><strong>Line 2 &mdash; What called it:</strong> Line 9 called <code>process_file("data.txt")</code>.</li>
+        <li><strong>Line 1 &mdash; Just the header:</strong> "Traceback (most recent call last)" &mdash; always the same.</li>
+      </ol>
+
+      <div class="callout callout-info">
+        <div class="callout-title">The fix</div>
+        <p>
+          Add error handling or data validation. For example, wrap <code>int(line)</code>
+          in a <code>try</code>/<code>except</code> or filter out non-numeric
+          lines before converting.
+        </p>
+      </div>
+
+      <h3>Common error types at a glance</h3>
+
+      <table>
+        <thead>
+          <tr><th>Error Type</th><th>Meaning</th><th>Common Cause</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>SyntaxError</code></td><td>Code is not valid Python</td><td>Missing colon, unmatched parentheses, typo</td></tr>
+          <tr><td><code>NameError</code></td><td>Variable/function not found</td><td>Typo in name, forgot to define it</td></tr>
+          <tr><td><code>TypeError</code></td><td>Wrong type for an operation</td><td>Adding string + int, wrong number of args</td></tr>
+          <tr><td><code>ValueError</code></td><td>Right type, wrong value</td><td><code>int("hello")</code>, invalid conversion</td></tr>
+          <tr><td><code>IndexError</code></td><td>Index out of range</td><td>Accessing <code>list[10]</code> when list has 5 items</td></tr>
+          <tr><td><code>KeyError</code></td><td>Dict key not found</td><td><code>dict["missing_key"]</code></td></tr>
+          <tr><td><code>FileNotFoundError</code></td><td>File does not exist</td><td>Wrong path, typo in filename</td></tr>
+          <tr><td><code>AttributeError</code></td><td>Object has no such attribute</td><td>Calling <code>.append()</code> on a string</td></tr>
+          <tr><td><code>IndentationError</code></td><td>Inconsistent indentation</td><td>Mixed tabs and spaces</td></tr>
+        </tbody>
+      </table>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise &mdash; Read the Traceback</div>
+        <p>What is wrong with this code, and which line causes the error?</p>
+<pre><code><span class="kw">def</span> <span class="fn">get_initials</span>(names):
+    initials = []
+    <span class="kw">for</span> name <span class="kw">in</span> names:
+        initials.append(name[<span class="num">0</span>].upper())
+    <span class="kw">return</span> initials
+
+people = [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>, <span class="str">""</span>, <span class="str">"Diana"</span>]
+<span class="fn">print</span>(get_initials(people))</code></pre>
+        <details>
+          <summary>Show Answer</summary>
+          <p>
+            <strong>Error:</strong> <code>IndexError: string index out of range</code>
+            on the line <code>name[0].upper()</code> when <code>name</code> is
+            the empty string <code>""</code>. An empty string has no index 0.
+          </p>
+          <p><strong>Fix:</strong> Skip empty strings:</p>
+<pre><code><span class="kw">for</span> name <span class="kw">in</span> names:
+    <span class="kw">if</span> name:  <span class="cmt"># skip empty strings</span>
+        initials.append(name[<span class="num">0</span>].upper())</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. BEGINNER-FRIENDLY STYLE GUIDE (PEP 8)                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="style-guide">8. Beginner-Friendly Style Guide (PEP 8)</h2>
+
+      <p>
+        <a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a>
+        is Python's official style guide. Here are the rules that matter most
+        for beginners.
+      </p>
+
+      <h3>8.1 &mdash; Use 4 spaces for indentation</h3>
+
+<pre><code><span class="cmt"># Correct — 4 spaces</span>
+<span class="kw">def</span> <span class="fn">greet</span>(name):
+    <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">"</span>)
+
+<span class="cmt"># Wrong — 2 spaces (common in JavaScript, not in Python)</span>
+<span class="kw">def</span> <span class="fn">greet</span>(name):
+  <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">"</span>)</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Never mix tabs and spaces</div>
+        <p>
+          Configure your editor to insert 4 spaces when you press Tab. Mixing
+          tabs and spaces causes <code>IndentationError</code> or, worse,
+          invisible bugs. In VS Code, this is the default for Python files.
+        </p>
+      </div>
+
+      <h3>8.2 &mdash; Line length: aim for 79&ndash;99 characters</h3>
+
+      <p>
+        PEP 8 recommends 79 characters. Many teams allow up to 99 or 120. The
+        key is: if you have to scroll sideways, the line is too long.
+      </p>
+
+<pre><code><span class="cmt"># Too long — hard to read</span>
+result = some_function(argument_one, argument_two, argument_three, argument_four, argument_five)
+
+<span class="cmt"># Better — break it up</span>
+result = some_function(
+    argument_one,
+    argument_two,
+    argument_three,
+    argument_four,
+    argument_five,
+)</code></pre>
+
+      <h3>8.3 &mdash; Blank lines</h3>
+
+      <ul>
+        <li><strong>2 blank lines</strong> before and after top-level functions and classes.</li>
+        <li><strong>1 blank line</strong> between methods inside a class.</li>
+        <li>Use blank lines sparingly inside functions to separate logical sections.</li>
+      </ul>
+
+      <h3>8.4 &mdash; Import order</h3>
+
+      <p>Group imports in this order, with a blank line between each group:</p>
+
+      <ol>
+        <li>Standard library (<code>os</code>, <code>sys</code>, <code>math</code>)</li>
+        <li>Third-party packages (<code>numpy</code>, <code>pandas</code>, <code>requests</code>)</li>
+        <li>Your own modules (<code>from my_project import utils</code>)</li>
+      </ol>
+
+<pre><code><span class="kw">import</span> os
+<span class="kw">import</span> sys
+
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> requests
+
+<span class="kw">from</span> my_project <span class="kw">import</span> helpers</code></pre>
+
+      <h3>8.5 &mdash; Spaces around operators</h3>
+
+<pre><code><span class="cmt"># Good</span>
+x = <span class="num">5</span>
+y = x + <span class="num">3</span>
+result = (a + b) * (c - d)
+
+<span class="cmt"># Bad — too cramped</span>
+x=<span class="num">5</span>
+y=x+<span class="num">3</span>
+result=(a+b)*(c-d)</code></pre>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Let your tools help</div>
+        <p>
+          Install a linter/formatter like <strong>Ruff</strong> or
+          <strong>Black</strong>. They auto-format your code to follow PEP 8.
+          In VS Code, install the "Ruff" extension and enable "Format On Save."
+          You will never have to think about formatting again.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. COMMON ANTI-PATTERNS                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="anti-patterns">9. Common Anti-Patterns</h2>
+
+      <p>
+        Anti-patterns are code habits that <em>work</em> but cause problems
+        later. Learn to recognize and avoid them from the start.
+      </p>
+
+      <h3>9.1 &mdash; Mutable Default Arguments</h3>
+
+      <p>
+        This is one of the most infamous Python gotchas. Default mutable
+        arguments (like lists or dicts) are shared across all calls.
+      </p>
+
+<pre><code><span class="cmt"># WRONG — the default list is shared between calls!</span>
+<span class="kw">def</span> <span class="fn">add_item</span>(item, items=[]):
+    items.append(item)
+    <span class="kw">return</span> items
+
+<span class="fn">print</span>(add_item(<span class="str">"a"</span>))  <span class="cmt"># ['a']       — looks OK</span>
+<span class="fn">print</span>(add_item(<span class="str">"b"</span>))  <span class="cmt"># ['a', 'b']  — wait, where did 'a' come from?!</span></code></pre>
+
+<pre><code><span class="cmt"># CORRECT — use None as the default, create a new list inside</span>
+<span class="kw">def</span> <span class="fn">add_item</span>(item, items=<span class="kw">None</span>):
+    <span class="kw">if</span> items <span class="kw">is</span> <span class="kw">None</span>:
+        items = []
+    items.append(item)
+    <span class="kw">return</span> items
+
+<span class="fn">print</span>(add_item(<span class="str">"a"</span>))  <span class="cmt"># ['a']</span>
+<span class="fn">print</span>(add_item(<span class="str">"b"</span>))  <span class="cmt"># ['b']  — correct!</span></code></pre>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">This bug is hard to spot</div>
+        <p>
+          The function works correctly the first time. The bug only appears on
+          <em>subsequent</em> calls. Always use <code>None</code> as the default
+          for list, dict, or set parameters.
+        </p>
+      </div>
+
+      <h3>9.2 &mdash; Bare <code>except</code></h3>
+
+      <p>
+        A bare <code>except</code> catches <em>every</em> exception, including
+        keyboard interrupts and system exits. This hides bugs.
+      </p>
+
+<pre><code><span class="cmt"># WRONG — catches everything, hides the real problem</span>
+<span class="kw">try</span>:
+    result = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter a number: "</span>))
+<span class="kw">except</span>:
+    <span class="fn">print</span>(<span class="str">"Something went wrong"</span>)  <span class="cmt"># What went wrong? Who knows!</span></code></pre>
+
+<pre><code><span class="cmt"># CORRECT — catch the specific exception you expect</span>
+<span class="kw">try</span>:
+    result = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter a number: "</span>))
+<span class="kw">except</span> <span class="cls">ValueError</span>:
+    <span class="fn">print</span>(<span class="str">"That's not a valid number. Please try again."</span>)</code></pre>
+
+      <h3>9.3 &mdash; Using Global Variables</h3>
+
+      <p>
+        Global variables make code unpredictable because any function can
+        change them. Pass data through function parameters instead.
+      </p>
+
+<pre><code><span class="cmt"># WRONG — relying on a global variable</span>
+counter = <span class="num">0</span>
+
+<span class="kw">def</span> <span class="fn">increment</span>():
+    <span class="kw">global</span> counter
+    counter += <span class="num">1</span>
+
+increment()
+increment()
+<span class="fn">print</span>(counter)  <span class="cmt"># 2 — but who changed it? Hard to track.</span></code></pre>
+
+<pre><code><span class="cmt"># CORRECT — pass and return values explicitly</span>
+<span class="kw">def</span> <span class="fn">increment</span>(counter):
+    <span class="kw">return</span> counter + <span class="num">1</span>
+
+counter = <span class="num">0</span>
+counter = increment(counter)
+counter = increment(counter)
+<span class="fn">print</span>(counter)  <span class="cmt"># 2 — clear data flow</span></code></pre>
+
+      <h3>9.4 &mdash; Not Using <code>with</code> for Files</h3>
+
+      <p>
+        Opening files without <code>with</code> can leave files open if an
+        error occurs, consuming system resources.
+      </p>
+
+<pre><code><span class="cmt"># WRONG — file may stay open if an error occurs before close()</span>
+f = <span class="fn">open</span>(<span class="str">"data.txt"</span>)
+data = f.read()
+f.close()  <span class="cmt"># What if an error happens on the line above?</span></code></pre>
+
+<pre><code><span class="cmt"># CORRECT — 'with' guarantees the file is closed, even on error</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"data.txt"</span>) <span class="kw">as</span> f:
+    data = f.read()
+<span class="cmt"># File is automatically closed here</span></code></pre>
+
+      <h3>9.5 &mdash; Hardcoding Paths</h3>
+
+      <p>
+        Hardcoded paths break when your code runs on a different computer or
+        operating system.
+      </p>
+
+<pre><code><span class="cmt"># WRONG — works only on your machine</span>
+data = <span class="fn">open</span>(<span class="str">"C:/Users/alice/projects/data.txt"</span>)
+
+<span class="cmt"># CORRECT — use relative paths or pathlib</span>
+<span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+data_file = Path(__file__).parent / <span class="str">"data"</span> / <span class="str">"data.txt"</span>
+<span class="kw">with</span> <span class="fn">open</span>(data_file) <span class="kw">as</span> f:
+    data = f.read()</code></pre>
+
+      <h3>9.6 &mdash; Copy-Pasting Code</h3>
+
+      <p>
+        If you copy-paste a block of code and change a few values, you should
+        extract a function instead. Every copy is a future bug waiting to
+        happen &mdash; when you fix one copy, you will forget to fix the others.
+      </p>
+
+<pre><code><span class="cmt"># WRONG — three copies of nearly identical logic</span>
+<span class="fn">print</span>(<span class="str">f"Student: Alice, Grade: </span><span class="op">{</span><span class="num">85</span><span class="op">}</span><span class="str">, Status: </span><span class="op">{</span><span class="str">'Pass'</span> <span class="kw">if</span> <span class="num">85</span> >= <span class="num">60</span> <span class="kw">else</span> <span class="str">'Fail'</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Student: Bob, Grade: </span><span class="op">{</span><span class="num">55</span><span class="op">}</span><span class="str">, Status: </span><span class="op">{</span><span class="str">'Pass'</span> <span class="kw">if</span> <span class="num">55</span> >= <span class="num">60</span> <span class="kw">else</span> <span class="str">'Fail'</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Student: Carol, Grade: </span><span class="op">{</span><span class="num">72</span><span class="op">}</span><span class="str">, Status: </span><span class="op">{</span><span class="str">'Pass'</span> <span class="kw">if</span> <span class="num">72</span> >= <span class="num">60</span> <span class="kw">else</span> <span class="str">'Fail'</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+
+<pre><code><span class="cmt"># CORRECT — use a function and a loop</span>
+<span class="kw">def</span> <span class="fn">print_student_result</span>(name, grade, passing=<span class="num">60</span>):
+    status = <span class="str">"Pass"</span> <span class="kw">if</span> grade >= passing <span class="kw">else</span> <span class="str">"Fail"</span>
+    <span class="fn">print</span>(<span class="str">f"Student: </span><span class="op">{</span>name<span class="op">}</span><span class="str">, Grade: </span><span class="op">{</span>grade<span class="op">}</span><span class="str">, Status: </span><span class="op">{</span>status<span class="op">}</span><span class="str">"</span>)
+
+students = [(<span class="str">"Alice"</span>, <span class="num">85</span>), (<span class="str">"Bob"</span>, <span class="num">55</span>), (<span class="str">"Carol"</span>, <span class="num">72</span>)]
+<span class="kw">for</span> name, grade <span class="kw">in</span> students:
+    print_student_result(name, grade)</code></pre>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise &mdash; Spot the Anti-Patterns</div>
+        <p>How many anti-patterns can you find in this code?</p>
+<pre><code><span class="kw">import</span> os
+data = []
+<span class="kw">def</span> <span class="fn">load</span>():
+    <span class="kw">global</span> data
+    f = <span class="fn">open</span>(<span class="str">"C:/Users/bob/data.csv"</span>)
+    <span class="kw">try</span>:
+        data = f.readlines()
+    <span class="kw">except</span>:
+        <span class="fn">print</span>(<span class="str">"error"</span>)
+
+<span class="kw">def</span> <span class="fn">process</span>(items=[]):
+    <span class="kw">for</span> d <span class="kw">in</span> data:
+        items.append(d.strip())
+    <span class="kw">return</span> items</code></pre>
+        <details>
+          <summary>Show Answer</summary>
+          <p>There are <strong>5 anti-patterns</strong>:</p>
+          <ol>
+            <li><strong>Global variable</strong> &mdash; <code>global data</code> modifies module-level state.</li>
+            <li><strong>No <code>with</code> statement</strong> &mdash; file opened without <code>with</code> and never closed.</li>
+            <li><strong>Hardcoded path</strong> &mdash; <code>"C:/Users/bob/data.csv"</code> will not work on other machines.</li>
+            <li><strong>Bare except</strong> &mdash; catches all exceptions without specifying which ones.</li>
+            <li><strong>Mutable default argument</strong> &mdash; <code>items=[]</code> is shared across calls.</li>
+          </ol>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PREV / NEXT NAVIGATION                                       -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="practice.html" class="prev">
+          <span class="nav-label">&larr; Previous</span>
+          <span class="nav-title">Practice &amp; Roadmap</span>
+        </a>
+        <a href="common-errors.html" class="next">
+          <span class="nav-label">Next &rarr;</span>
+          <span class="nav-title">Common Errors</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

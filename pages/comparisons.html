@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python vs Other Languages &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link active"><span class="section-badge">F</span> Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ==================== Main Content ==================== -->
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+
+    <div class="content-wrapper">
+
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Language Comparisons
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION F — PYTHON VS OTHER LANGUAGES                       -->
+      <!-- ============================================================ -->
+
+      <h1>Section F &mdash; Python vs Other Languages</h1>
+      <p class="page-subtitle">
+        An honest, side-by-side look at how Python compares with MATLAB, C, C++, Java, JavaScript, and Bash &mdash;
+        so you can pick the right tool for every job.
+      </p>
+
+      <p>
+        No language is the best at everything. Python's superpower is <strong>readability and speed of
+        development</strong>, but it has real trade-offs in raw execution speed, mobile development, and
+        low-level hardware access. This page helps you understand those trade-offs by comparing Python
+        with six other languages you are likely to encounter.
+      </p>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">For MATLAB Users</div>
+        <p>
+          If you are coming from MATLAB, start with <a href="#python-vs-matlab">Section 1: Python vs MATLAB</a>.
+          The other comparisons are useful for understanding the broader landscape when colleagues or job
+          postings mention C++, Java, or JavaScript.
+        </p>
+      </div>
+
+      <!-- ===== Table of Contents ===== -->
+      <div class="toc">
+        <div class="toc-title">On This Page</div>
+        <ul>
+          <li><a href="#master-comparison">Master Comparison Table</a></li>
+          <li><a href="#python-vs-matlab">1. Python vs MATLAB</a></li>
+          <li><a href="#python-vs-c">2. Python vs C</a></li>
+          <li><a href="#python-vs-cpp">3. Python vs C++</a></li>
+          <li><a href="#python-vs-java">4. Python vs Java</a></li>
+          <li><a href="#python-vs-javascript">5. Python vs JavaScript</a></li>
+          <li><a href="#python-vs-bash">6. Python vs Bash</a></li>
+          <li><a href="#decision-flowchart">Which Language Should I Use?</a></li>
+          <li><a href="#practical-recommendations">Practical Recommendations</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  MASTER COMPARISON TABLE                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="master-comparison">Master Comparison Table</h2>
+
+      <p>
+        The table below gives you a bird's-eye view. Each cell rates the language from
+        <strong>Excellent</strong> to <strong>Poor</strong> for that criterion.
+        (No language wins everywhere &mdash; that is the whole point.)
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th>Python</th>
+              <th>MATLAB</th>
+              <th>C</th>
+              <th>C++</th>
+              <th>Java</th>
+              <th>JavaScript</th>
+              <th>Bash</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ease of Learning</strong></td>
+              <td>Excellent</td>
+              <td>Good</td>
+              <td>Hard</td>
+              <td>Hard</td>
+              <td>Moderate</td>
+              <td>Moderate</td>
+              <td>Moderate</td>
+            </tr>
+            <tr>
+              <td><strong>Readability</strong></td>
+              <td>Excellent</td>
+              <td>Good</td>
+              <td>Fair</td>
+              <td>Fair</td>
+              <td>Fair</td>
+              <td>Good</td>
+              <td>Poor</td>
+            </tr>
+            <tr>
+              <td><strong>Execution Speed</strong></td>
+              <td>Slow</td>
+              <td>Moderate</td>
+              <td>Excellent</td>
+              <td>Excellent</td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Slow</td>
+            </tr>
+            <tr>
+              <td><strong>Ecosystem / Libraries</strong></td>
+              <td>Excellent</td>
+              <td>Domain-specific</td>
+              <td>Fair</td>
+              <td>Good</td>
+              <td>Excellent</td>
+              <td>Excellent</td>
+              <td>Limited</td>
+            </tr>
+            <tr>
+              <td><strong>Scientific Computing</strong></td>
+              <td>Excellent</td>
+              <td>Excellent</td>
+              <td>Fair</td>
+              <td>Good</td>
+              <td>Fair</td>
+              <td>Poor</td>
+              <td>Poor</td>
+            </tr>
+            <tr>
+              <td><strong>Web Development</strong></td>
+              <td>Good</td>
+              <td>Poor</td>
+              <td>Poor</td>
+              <td>Fair</td>
+              <td>Excellent</td>
+              <td>Excellent</td>
+              <td>Poor</td>
+            </tr>
+            <tr>
+              <td><strong>Automation / Scripting</strong></td>
+              <td>Excellent</td>
+              <td>Fair</td>
+              <td>Poor</td>
+              <td>Poor</td>
+              <td>Fair</td>
+              <td>Good</td>
+              <td>Excellent</td>
+            </tr>
+            <tr>
+              <td><strong>GUI Applications</strong></td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Fair</td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Excellent</td>
+              <td>Poor</td>
+            </tr>
+            <tr>
+              <td><strong>Debugging</strong></td>
+              <td>Easy</td>
+              <td>Easy</td>
+              <td>Hard</td>
+              <td>Hard</td>
+              <td>Moderate</td>
+              <td>Moderate</td>
+              <td>Hard</td>
+            </tr>
+            <tr>
+              <td><strong>Cross-Platform</strong></td>
+              <td>Excellent</td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Excellent</td>
+              <td>Excellent</td>
+              <td>Unix only</td>
+            </tr>
+            <tr>
+              <td><strong>Cost</strong></td>
+              <td>Free</td>
+              <td>Expensive</td>
+              <td>Free</td>
+              <td>Free</td>
+              <td>Free</td>
+              <td>Free</td>
+              <td>Free</td>
+            </tr>
+            <tr>
+              <td><strong>Industry Adoption</strong></td>
+              <td>Very High</td>
+              <td>Academia / Eng.</td>
+              <td>Embedded / OS</td>
+              <td>Games / Systems</td>
+              <td>Enterprise</td>
+              <td>Web / Front-end</td>
+              <td>DevOps</td>
+            </tr>
+            <tr>
+              <td><strong>Error Handling</strong></td>
+              <td>Excellent</td>
+              <td>Good</td>
+              <td>Manual</td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Good</td>
+              <td>Poor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">How to Read This Table</div>
+        <p>
+          These ratings are broad generalizations intended for beginners deciding where to invest
+          their learning time. In expert hands, almost any language can be made to do almost anything.
+          The ratings reflect the <em>typical experience</em> a beginner will have when using each
+          language for that task.
+        </p>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  1. PYTHON VS MATLAB                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-matlab">1. Python vs MATLAB</h2>
+
+      <p>
+        This is the comparison that matters most if you are coming from an engineering or academic
+        background. MATLAB is a fantastic tool for matrix math and signal processing, but Python
+        offers a free, general-purpose alternative with an enormous ecosystem.
+      </p>
+
+      <h3>Summary Table</h3>
+      <table>
+        <thead>
+          <tr><th>Criterion</th><th>Python</th><th>MATLAB</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Cost</strong></td><td>Free and open-source</td><td>Expensive commercial license (toolboxes cost extra)</td></tr>
+          <tr><td><strong>Scope</strong></td><td>General-purpose &mdash; web, AI, automation, science</td><td>Domain-specific &mdash; engineering, math, simulation</td></tr>
+          <tr><td><strong>Speed</strong></td><td>Slower in pure loops; fast with NumPy vectorization</td><td>Fast for matrix operations; JIT compiler available</td></tr>
+          <tr><td><strong>Ecosystem</strong></td><td>400,000+ packages on PyPI</td><td>Curated toolboxes (expensive add-ons)</td></tr>
+          <tr><td><strong>Community</strong></td><td>Massive &mdash; Stack Overflow, GitHub, YouTube</td><td>Smaller &mdash; MATLAB Central, academic forums</td></tr>
+          <tr><td><strong>Industry Adoption</strong></td><td>Data science, tech, finance, startups, DevOps</td><td>Aerospace, automotive, university labs</td></tr>
+          <tr><td><strong>Indexing</strong></td><td>0-based (<code>a[0]</code> is the first element)</td><td>1-based (<code>a(1)</code> is the first element)</td></tr>
+          <tr><td><strong>IDE</strong></td><td>VS Code, PyCharm, Jupyter, many options</td><td>Built-in desktop IDE with debugger and variable browser</td></tr>
+          <tr><td><strong>Readability</strong></td><td>Excellent &mdash; English-like syntax</td><td>Good &mdash; can be concise but cryptic</td></tr>
+          <tr><td><strong>Debugging</strong></td><td>pdb, IDE debuggers, excellent tracebacks</td><td>Excellent built-in debugger with breakpoints</td></tr>
+          <tr><td><strong>Scientific Computing</strong></td><td>NumPy, SciPy, Matplotlib, pandas</td><td>Built-in matrix engine, Simulink</td></tr>
+          <tr><td><strong>Web Development</strong></td><td>Django, Flask, FastAPI</td><td>Not designed for web</td></tr>
+          <tr><td><strong>GUI</strong></td><td>Tkinter, PyQt, Kivy</td><td>App Designer, GUIDE</td></tr>
+          <tr><td><strong>Automation</strong></td><td>Excellent scripting language</td><td>Possible but awkward outside engineering tasks</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="cmt"># hello.py</span>
+<span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code><span class="cmt">% hello.m</span>
+<span class="fn">disp</span>(<span class="str">'Hello, World!'</span>)</code></pre>
+        </div>
+      </div>
+
+      <h3>Practical Task: Read a CSV and Compute a Column Mean</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+df = pd.<span class="fn">read_csv</span>(<span class="str">"data.csv"</span>)
+avg = df[<span class="str">"temperature"</span>].<span class="fn">mean</span>()
+<span class="fn">print</span>(<span class="str">f"Average: </span>{avg:.2f}<span class="str">"</span>)</code></pre>
+        </div>
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>T = <span class="fn">readtable</span>(<span class="str">'data.csv'</span>);
+avg = <span class="fn">mean</span>(T.temperature);
+<span class="fn">fprintf</span>(<span class="str">'Average: %.2f\n'</span>, avg);</code></pre>
+        </div>
+      </div>
+
+      <h3>When to Use Each</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Use Python When...</div>
+        <ul>
+          <li>You need a <strong>free</strong> tool with no license restrictions.</li>
+          <li>Your project extends beyond math &mdash; web apps, automation, APIs, databases.</li>
+          <li>You want access to cutting-edge machine learning and AI libraries.</li>
+          <li>You are collaborating with software engineers or data scientists.</li>
+          <li>You need to deploy scripts on servers, cloud, or shared systems.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Use MATLAB When...</div>
+        <ul>
+          <li>Your organization already has MATLAB licenses and an established workflow.</li>
+          <li>You need <strong>Simulink</strong> for system-level simulation and model-based design.</li>
+          <li>You work in a domain where MATLAB toolboxes (Control System, Signal Processing) are unmatched.</li>
+          <li>Rapid prototyping of matrix-heavy algorithms with the built-in IDE and variable browser.</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  2. PYTHON VS C                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-c">2. Python vs C</h2>
+
+      <p>
+        C is the grandfather of modern programming. It gives you direct access to memory and
+        blazing speed, but at the cost of manual memory management and a steeper learning curve.
+        Python sits at the opposite end of the spectrum: easy to write, slow to execute.
+      </p>
+
+      <h3>Summary Table</h3>
+      <table>
+        <thead>
+          <tr><th>Criterion</th><th>Python</th><th>C</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Speed</strong></td><td>Slow (interpreted, dynamic types)</td><td>Very fast (compiled to machine code)</td></tr>
+          <tr><td><strong>Ease of Learning</strong></td><td>Beginner-friendly</td><td>Steep &mdash; pointers, memory, headers</td></tr>
+          <tr><td><strong>Memory Management</strong></td><td>Automatic (garbage collected)</td><td>Manual (<code>malloc</code> / <code>free</code>)</td></tr>
+          <tr><td><strong>Type System</strong></td><td>Dynamic (types checked at runtime)</td><td>Static (types declared at compile time)</td></tr>
+          <tr><td><strong>Compilation</strong></td><td>Interpreted / bytecode</td><td>Compiled to native binary</td></tr>
+          <tr><td><strong>Use Cases</strong></td><td>Scripting, data science, web, AI</td><td>Operating systems, embedded, drivers, firmware</td></tr>
+          <tr><td><strong>Ecosystem</strong></td><td>Massive (PyPI)</td><td>Standard library only; many system-level libs</td></tr>
+          <tr><td><strong>Readability</strong></td><td>Very high</td><td>Low to moderate &mdash; pointer syntax, manual loops</td></tr>
+          <tr><td><strong>Debugging</strong></td><td>Easy tracebacks, simple debuggers</td><td>GDB, Valgrind &mdash; powerful but complex</td></tr>
+          <tr><td><strong>Automation</strong></td><td>Excellent</td><td>Not practical for scripting</td></tr>
+          <tr><td><strong>Scientific Computing</strong></td><td>Excellent via NumPy/SciPy</td><td>Possible but manual &mdash; no built-in matrix types</td></tr>
+          <tr><td><strong>Web Development</strong></td><td>Django, Flask, FastAPI</td><td>Rarely used for web</td></tr>
+          <tr><td><strong>GUI</strong></td><td>Tkinter, PyQt</td><td>GTK, raw Win32 API &mdash; low-level</td></tr>
+          <tr><td><strong>Scripting Suitability</strong></td><td>Excellent</td><td>Poor &mdash; requires compile step</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="fn">printf</span>(<span class="str">"Hello, World!\n"</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-why">
+        <div class="callout-title">Why Is Python's Version So Much Shorter?</div>
+        <p>
+          Python handles boilerplate for you. In C, you must include a header file, define a <code>main</code>
+          function, and explicitly return an exit code. Python just runs your statements top to bottom &mdash;
+          no ceremony required.
+        </p>
+      </div>
+
+      <h3>Practical Task: Sort a List of Integers</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>numbers = [<span class="num">42</span>, <span class="num">7</span>, <span class="num">13</span>, <span class="num">99</span>, <span class="num">1</span>]
+numbers.<span class="fn">sort</span>()
+<span class="fn">print</span>(numbers)
+<span class="cmt"># [1, 7, 13, 42, 99]</span></code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;stdlib.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">compare</span>(<span class="kw">const void</span> *a, <span class="kw">const void</span> *b) {
+    <span class="kw">return</span> (*(<span class="kw">int</span>*)a - *(<span class="kw">int</span>*)b);
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">int</span> nums[] = {<span class="num">42</span>, <span class="num">7</span>, <span class="num">13</span>, <span class="num">99</span>, <span class="num">1</span>};
+    <span class="kw">int</span> n = <span class="kw">sizeof</span>(nums)/<span class="kw">sizeof</span>(nums[<span class="num">0</span>]);
+    <span class="fn">qsort</span>(nums, n, <span class="kw">sizeof</span>(<span class="kw">int</span>), compare);
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++)
+        <span class="fn">printf</span>(<span class="str">"%d "</span>, nums[i]);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>When to Use Each</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Use Python When...</div>
+        <ul>
+          <li>Development speed matters more than execution speed.</li>
+          <li>You are writing scripts, prototypes, data analysis, or web services.</li>
+          <li>You want to avoid manual memory management entirely.</li>
+          <li>The task does not require direct hardware access.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Use C When...</div>
+        <ul>
+          <li>You are writing an operating system, device driver, or firmware.</li>
+          <li>Microsecond-level performance is non-negotiable (embedded systems, real-time).</li>
+          <li>You need direct memory control (<code>malloc</code>, pointers, memory-mapped I/O).</li>
+          <li>The target platform has very limited resources (microcontrollers).</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  3. PYTHON VS C++                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-cpp">3. Python vs C++</h2>
+
+      <p>
+        C++ adds object-oriented programming, templates, and the Standard Template Library (STL) on
+        top of C. It is the go-to language for game engines, high-frequency trading, and performance-critical
+        software. Python can call C++ code via libraries like <code>pybind11</code>, so the two often
+        work together.
+      </p>
+
+      <h3>Summary Table</h3>
+      <table>
+        <thead>
+          <tr><th>Criterion</th><th>Python</th><th>C++</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Speed</strong></td><td>Slow (interpreted)</td><td>Very fast (compiled, optimized)</td></tr>
+          <tr><td><strong>OOP</strong></td><td>Simple class syntax, duck typing</td><td>Full OOP with multiple inheritance, templates, RAII</td></tr>
+          <tr><td><strong>Complexity</strong></td><td>Low &mdash; learn in weeks</td><td>Very high &mdash; years to master</td></tr>
+          <tr><td><strong>Use Cases</strong></td><td>Data science, scripting, web, AI</td><td>Games, engines, HFT, browsers, databases</td></tr>
+          <tr><td><strong>Memory Management</strong></td><td>Automatic</td><td>Manual / smart pointers / RAII</td></tr>
+          <tr><td><strong>Ecosystem</strong></td><td>PyPI (400k+ packages)</td><td>Boost, Qt, Unreal Engine, vcpkg/Conan</td></tr>
+          <tr><td><strong>Readability</strong></td><td>Very high</td><td>Low &mdash; templates and header files are dense</td></tr>
+          <tr><td><strong>Debugging</strong></td><td>Simple tracebacks</td><td>GDB, LLDB, Visual Studio debugger</td></tr>
+          <tr><td><strong>Automation</strong></td><td>Excellent</td><td>Not practical &mdash; compile step required</td></tr>
+          <tr><td><strong>Scientific Computing</strong></td><td>NumPy, SciPy</td><td>Eigen, Armadillo, custom code</td></tr>
+          <tr><td><strong>GUI</strong></td><td>Tkinter, PyQt</td><td>Qt, wxWidgets, Dear ImGui</td></tr>
+          <tr><td><strong>Web Development</strong></td><td>Django, Flask</td><td>Uncommon (Crow, Drogon exist but niche)</td></tr>
+          <tr><td><strong>Scripting Suitability</strong></td><td>Excellent</td><td>Poor</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C++</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    std::cout <span class="op">&lt;&lt;</span> <span class="str">"Hello, World!"</span> <span class="op">&lt;&lt;</span> std::endl;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>Practical Task: Read Lines from a File into a List</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">with</span> <span class="fn">open</span>(<span class="str">"data.txt"</span>) <span class="kw">as</span> f:
+    lines = f.<span class="fn">readlines</span>()
+
+<span class="kw">for</span> line <span class="kw">in</span> lines:
+    <span class="fn">print</span>(line.<span class="fn">strip</span>())</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C++</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;fstream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;string&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;vector&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    std::ifstream file(<span class="str">"data.txt"</span>);
+    std::vector&lt;std::string&gt; lines;
+    std::string line;
+
+    <span class="kw">while</span> (std::<span class="fn">getline</span>(file, line)) {
+        lines.<span class="fn">push_back</span>(line);
+    }
+
+    <span class="kw">for</span> (<span class="kw">const auto</span>&amp; l : lines) {
+        std::cout <span class="op">&lt;&lt;</span> l <span class="op">&lt;&lt;</span> std::endl;
+    }
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>When to Use Each</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Use Python When...</div>
+        <ul>
+          <li>You want to prototype quickly and iterate fast.</li>
+          <li>Your bottleneck is developer time, not CPU time.</li>
+          <li>You are doing data analysis, machine learning, or automation.</li>
+          <li>You want to glue together existing C++ libraries with <code>pybind11</code>.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Use C++ When...</div>
+        <ul>
+          <li>You are building a game engine, physics engine, or real-time system.</li>
+          <li>Maximum performance is critical (nanosecond-level optimization).</li>
+          <li>You need fine-grained control over memory layout and hardware.</li>
+          <li>You are contributing to a large C++ codebase (browsers, databases, trading systems).</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  4. PYTHON VS JAVA                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-java">4. Python vs Java</h2>
+
+      <p>
+        Java powers enterprise backends, Android apps, and large-scale distributed systems. It is
+        more verbose than Python but offers strong type safety and excellent tooling. Many organizations
+        use both: Python for data science and scripting, Java for production services.
+      </p>
+
+      <h3>Summary Table</h3>
+      <table>
+        <thead>
+          <tr><th>Criterion</th><th>Python</th><th>Java</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Verbosity</strong></td><td>Low &mdash; minimal boilerplate</td><td>High &mdash; classes, types, getters/setters everywhere</td></tr>
+          <tr><td><strong>Type System</strong></td><td>Dynamic (optional type hints)</td><td>Static (all types declared at compile time)</td></tr>
+          <tr><td><strong>Runtime</strong></td><td>CPython interpreter / bytecode</td><td>JVM (compiled to bytecode, then JIT-compiled)</td></tr>
+          <tr><td><strong>Speed</strong></td><td>Slower</td><td>Faster (JIT compilation, static typing)</td></tr>
+          <tr><td><strong>Enterprise Use</strong></td><td>Growing (data, DevOps, ML)</td><td>Dominant (banking, insurance, telecom)</td></tr>
+          <tr><td><strong>Android</strong></td><td>Not native (Kivy exists but niche)</td><td>Primary language (alongside Kotlin)</td></tr>
+          <tr><td><strong>Ecosystem</strong></td><td>PyPI (pip)</td><td>Maven Central (Maven/Gradle)</td></tr>
+          <tr><td><strong>Learning Curve</strong></td><td>Gentle</td><td>Moderate &mdash; OOP concepts required early</td></tr>
+          <tr><td><strong>Readability</strong></td><td>Very high</td><td>Moderate &mdash; verbose but explicit</td></tr>
+          <tr><td><strong>Debugging</strong></td><td>Simple tracebacks, pdb</td><td>Excellent IDE debuggers (IntelliJ, Eclipse)</td></tr>
+          <tr><td><strong>Scientific Computing</strong></td><td>Excellent</td><td>Limited (ND4J, DL4J exist but less popular)</td></tr>
+          <tr><td><strong>Web Development</strong></td><td>Django, Flask, FastAPI</td><td>Spring Boot, Jakarta EE &mdash; enterprise-grade</td></tr>
+          <tr><td><strong>Automation</strong></td><td>Excellent</td><td>Possible but heavyweight for simple scripts</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Java</h4>
+<pre><code><span class="kw">public class</span> <span class="cls">HelloWorld</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        System.out.<span class="fn">println</span>(<span class="str">"Hello, World!"</span>);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-why">
+        <div class="callout-title">Why So Much Code in Java?</div>
+        <p>
+          Java requires every piece of code to live inside a class. You must declare a class, a
+          <code>public static void main</code> method, and specify types everywhere. Python lets you
+          write executable code at the top level without any ceremony. This verbosity trade-off gives
+          Java better tooling support and compile-time error checking, but it slows down quick scripting.
+        </p>
+      </div>
+
+      <h3>Practical Task: Filter Even Numbers from a List</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>numbers = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>]
+evens = [n <span class="kw">for</span> n <span class="kw">in</span> numbers <span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>]
+<span class="fn">print</span>(evens)
+<span class="cmt"># [2, 4, 6, 8]</span></code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Java</h4>
+<pre><code><span class="kw">import</span> java.util.*;
+<span class="kw">import</span> java.util.stream.*;
+
+<span class="kw">public class</span> <span class="cls">FilterEvens</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        List&lt;Integer&gt; numbers = Arrays.<span class="fn">asList</span>(
+            <span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>
+        );
+        List&lt;Integer&gt; evens = numbers.<span class="fn">stream</span>()
+            .<span class="fn">filter</span>(n <span class="op">-&gt;</span> n % <span class="num">2</span> == <span class="num">0</span>)
+            .<span class="fn">collect</span>(Collectors.<span class="fn">toList</span>());
+        System.out.<span class="fn">println</span>(evens);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>When to Use Each</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Use Python When...</div>
+        <ul>
+          <li>You want rapid prototyping and short scripts.</li>
+          <li>You are working on data science, ML, or scientific computing.</li>
+          <li>Minimal boilerplate matters to you.</li>
+          <li>You need a quick automation or glue script.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Use Java When...</div>
+        <ul>
+          <li>You are building a large-scale enterprise application (banking, ERP).</li>
+          <li>You need Android mobile development.</li>
+          <li>Your team relies on strong static typing and compile-time checks.</li>
+          <li>You need battle-tested concurrency and multithreading (Java's threading model is mature).</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  5. PYTHON VS JAVASCRIPT                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-javascript">5. Python vs JavaScript</h2>
+
+      <p>
+        JavaScript is the language of the web. Every browser runs it natively, making it essential
+        for front-end development. With Node.js, it also runs on servers. Python and JavaScript share
+        some syntax similarities but serve different primary domains.
+      </p>
+
+      <h3>Summary Table</h3>
+      <table>
+        <thead>
+          <tr><th>Criterion</th><th>Python</th><th>JavaScript</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Primary Domain</strong></td><td>Data science, AI, scripting, backend</td><td>Web (front-end and back-end via Node.js)</td></tr>
+          <tr><td><strong>Syntax</strong></td><td>Indentation-based, clean</td><td>Curly-brace, semicolons optional, flexible</td></tr>
+          <tr><td><strong>Async Model</strong></td><td><code>asyncio</code> (added later, less central)</td><td>Event loop is core &mdash; <code>async/await</code>, Promises</td></tr>
+          <tr><td><strong>Package Manager</strong></td><td>pip (PyPI: 400k+ packages)</td><td>npm (2M+ packages &mdash; largest registry)</td></tr>
+          <tr><td><strong>Speed</strong></td><td>Slower (CPython)</td><td>Faster (V8 JIT engine)</td></tr>
+          <tr><td><strong>Front-end</strong></td><td>Not possible natively</td><td>Essential &mdash; React, Vue, Angular</td></tr>
+          <tr><td><strong>Back-end</strong></td><td>Django, Flask, FastAPI</td><td>Express, Fastify, NestJS (Node.js)</td></tr>
+          <tr><td><strong>Use Cases</strong></td><td>Data, AI, automation, science</td><td>Websites, SPAs, mobile (React Native), desktop (Electron)</td></tr>
+          <tr><td><strong>Readability</strong></td><td>Very high</td><td>Good &mdash; but quirks like <code>==</code> vs <code>===</code></td></tr>
+          <tr><td><strong>Debugging</strong></td><td>pdb, IDE debuggers</td><td>Browser DevTools (excellent), Node debugger</td></tr>
+          <tr><td><strong>Scientific Computing</strong></td><td>Excellent</td><td>Poor &mdash; no mature equivalent of NumPy</td></tr>
+          <tr><td><strong>GUI</strong></td><td>Tkinter, PyQt</td><td>Electron, browser-based UIs</td></tr>
+          <tr><td><strong>Scripting Suitability</strong></td><td>Excellent</td><td>Good with Node.js; awkward for system tasks</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>JavaScript (Node.js)</h4>
+<pre><code>console.<span class="fn">log</span>(<span class="str">"Hello, World!"</span>);</code></pre>
+        </div>
+      </div>
+
+      <h3>Practical Task: Fetch Data from a Web API</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">import</span> requests
+
+resp = requests.<span class="fn">get</span>(<span class="str">"https://api.example.com/data"</span>)
+data = resp.<span class="fn">json</span>()
+<span class="fn">print</span>(data[<span class="str">"name"</span>])</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>JavaScript (Node.js)</h4>
+<pre><code><span class="kw">const</span> resp = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">"https://api.example.com/data"</span>);
+<span class="kw">const</span> data = <span class="kw">await</span> resp.<span class="fn">json</span>();
+console.<span class="fn">log</span>(data.name);</code></pre>
+        </div>
+      </div>
+
+      <h3>When to Use Each</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Use Python When...</div>
+        <ul>
+          <li>You are building data pipelines, ML models, or scientific workflows.</li>
+          <li>You need clean, readable automation scripts.</li>
+          <li>Your project is backend-only and does not involve a browser UI.</li>
+          <li>You want excellent library support for numerical computing.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Use JavaScript When...</div>
+        <ul>
+          <li>You are building anything that runs in a web browser.</li>
+          <li>You want a single language for both front-end and back-end (full-stack JS).</li>
+          <li>You are building a real-time application (chat, streaming, WebSockets).</li>
+          <li>You need a cross-platform desktop app (Electron) or mobile app (React Native).</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  6. PYTHON VS BASH                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-bash">6. Python vs Bash</h2>
+
+      <p>
+        Bash is the default shell on Linux and macOS. It is perfect for quick one-liners and
+        chaining Unix commands together. But once a script grows beyond a few dozen lines, Bash
+        becomes fragile and hard to maintain. That is where Python takes over.
+      </p>
+
+      <h3>Summary Table</h3>
+      <table>
+        <thead>
+          <tr><th>Criterion</th><th>Python</th><th>Bash</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Scripting</strong></td><td>Excellent for complex scripts</td><td>Excellent for short, file/process-oriented tasks</td></tr>
+          <tr><td><strong>Readability at Scale</strong></td><td>High &mdash; scales to thousands of lines</td><td>Degrades quickly past 50-100 lines</td></tr>
+          <tr><td><strong>Error Handling</strong></td><td><code>try/except</code> &mdash; structured and clear</td><td><code>set -e</code>, exit codes &mdash; fragile and easy to miss</td></tr>
+          <tr><td><strong>Cross-Platform</strong></td><td>Windows, macOS, Linux</td><td>Linux/macOS native; requires WSL or Git Bash on Windows</td></tr>
+          <tr><td><strong>Data Structures</strong></td><td>Lists, dicts, sets, classes</td><td>Strings, arrays (limited), associative arrays (Bash 4+)</td></tr>
+          <tr><td><strong>Running System Commands</strong></td><td><code>subprocess.run()</code></td><td>Native &mdash; every line can be a command</td></tr>
+          <tr><td><strong>Text Processing</strong></td><td>Built-in string methods, regex</td><td>grep, sed, awk &mdash; powerful but cryptic</td></tr>
+          <tr><td><strong>Speed</strong></td><td>Moderate</td><td>Fast for I/O piping; slow for logic and loops</td></tr>
+          <tr><td><strong>Learning Curve</strong></td><td>Gentle</td><td>Easy for basics; quoting/escaping rules are tricky</td></tr>
+          <tr><td><strong>Ecosystem</strong></td><td>400k+ packages</td><td>Unix utilities (coreutils, etc.)</td></tr>
+          <tr><td><strong>Debugging</strong></td><td>Tracebacks, pdb</td><td><code>set -x</code> &mdash; primitive</td></tr>
+          <tr><td><strong>Scientific Computing</strong></td><td>Excellent</td><td>Not applicable</td></tr>
+          <tr><td><strong>Web Development</strong></td><td>Django, Flask</td><td>Not applicable</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Bash</h4>
+<pre><code><span class="cmt">#!/bin/bash</span>
+<span class="fn">echo</span> <span class="str">"Hello, World!"</span></code></pre>
+        </div>
+      </div>
+
+      <h3>Practical Task: Find All .txt Files and Count Lines</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+total = <span class="num">0</span>
+<span class="kw">for</span> f <span class="kw">in</span> Path(<span class="str">"."</span>).<span class="fn">rglob</span>(<span class="str">"*.txt"</span>):
+    lines = f.<span class="fn">read_text</span>().<span class="fn">splitlines</span>()
+    <span class="fn">print</span>(<span class="str">f"</span>{f}: {<span class="fn">len</span>(lines)} lines<span class="str">"</span>)
+    total += <span class="fn">len</span>(lines)
+
+<span class="fn">print</span>(<span class="str">f"Total: </span>{total}<span class="str"> lines"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Bash</h4>
+<pre><code><span class="cmt">#!/bin/bash</span>
+total=<span class="num">0</span>
+<span class="kw">for</span> f <span class="kw">in</span> $(<span class="fn">find</span> . -name <span class="str">"*.txt"</span>); <span class="kw">do</span>
+    count=$(<span class="fn">wc</span> -l &lt; <span class="str">"$f"</span>)
+    <span class="fn">echo</span> <span class="str">"$f: $count lines"</span>
+    total=$(( total + count ))
+<span class="kw">done</span>
+<span class="fn">echo</span> <span class="str">"Total: $total lines"</span></code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">The 50-Line Rule</div>
+        <p>
+          A common rule of thumb: if your Bash script grows past about 50 lines, it is time to rewrite
+          it in Python. Python gives you proper error handling, data structures, and testability that
+          Bash simply cannot provide. On the other hand, a 3-line Bash pipeline chaining <code>grep</code>,
+          <code>sort</code>, and <code>uniq</code> is often more natural than the equivalent Python.
+        </p>
+      </div>
+
+      <h3>When to Use Each</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Use Python When...</div>
+        <ul>
+          <li>The script is more than a few dozen lines.</li>
+          <li>You need proper error handling, logging, and testability.</li>
+          <li>The script must run on Windows as well as Linux/macOS.</li>
+          <li>You are processing structured data (JSON, CSV, databases).</li>
+          <li>You need complex data structures (dictionaries, objects).</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Use Bash When...</div>
+        <ul>
+          <li>You are chaining a few Unix commands together in a pipeline.</li>
+          <li>The task is purely about files, directories, and processes.</li>
+          <li>You are writing a quick one-liner in the terminal.</li>
+          <li>You are writing a CI/CD pipeline step that just runs a few commands.</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  DECISION FLOWCHART                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="decision-flowchart">Which Language Should I Use?</h2>
+
+      <p>
+        Use this decision guide when you are starting a new project and wondering which language
+        to reach for. Follow the questions from top to bottom.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Decision Flowchart</div>
+
+        <p><strong>1. Does the code need to run in a web browser?</strong></p>
+        <ul>
+          <li><strong>Yes</strong> &rarr; Use <strong>JavaScript</strong> (front-end). You can pair it with Python on the backend.</li>
+          <li><strong>No</strong> &rarr; Continue to question 2.</li>
+        </ul>
+
+        <p><strong>2. Do you need maximum execution speed or direct hardware access?</strong></p>
+        <ul>
+          <li><strong>Yes, raw performance / embedded / OS-level</strong> &rarr; Use <strong>C</strong>.</li>
+          <li><strong>Yes, performance + OOP / game engine / HFT</strong> &rarr; Use <strong>C++</strong>.</li>
+          <li><strong>No</strong> &rarr; Continue to question 3.</li>
+        </ul>
+
+        <p><strong>3. Are you building a large enterprise application or Android app?</strong></p>
+        <ul>
+          <li><strong>Yes, enterprise backend / Android</strong> &rarr; Use <strong>Java</strong> (or Kotlin).</li>
+          <li><strong>No</strong> &rarr; Continue to question 4.</li>
+        </ul>
+
+        <p><strong>4. Is the task a quick shell one-liner or 5-line file/process script?</strong></p>
+        <ul>
+          <li><strong>Yes</strong> &rarr; Use <strong>Bash</strong>.</li>
+          <li><strong>No</strong> &rarr; Continue to question 5.</li>
+        </ul>
+
+        <p><strong>5. Are you doing Simulink modeling or using MATLAB-only toolboxes at your organization?</strong></p>
+        <ul>
+          <li><strong>Yes</strong> &rarr; Use <strong>MATLAB</strong>.</li>
+          <li><strong>No</strong> &rarr; Continue to question 6.</li>
+        </ul>
+
+        <p><strong>6. For everything else...</strong></p>
+        <ul>
+          <li><strong>Use Python.</strong> Data science, automation, scripting, web backends, APIs, machine learning,
+              scientific computing, file processing, prototyping &mdash; Python is the best general-purpose choice
+              for the vast majority of tasks.</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  PRACTICAL RECOMMENDATIONS                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="practical-recommendations">Practical Recommendations</h2>
+
+      <p>
+        After reading all six comparisons, here are the key takeaways for a beginner deciding where
+        to invest their learning time.
+      </p>
+
+      <h3>If You Are Just Starting Out</h3>
+      <ul>
+        <li><strong>Learn Python first.</strong> It has the gentlest learning curve and the broadest applicability.
+            Once you understand variables, loops, functions, and data structures in Python, picking up any other
+            language becomes much easier.</li>
+        <li><strong>Do not try to learn five languages at once.</strong> Get comfortable with one before branching out.</li>
+        <li><strong>Pick your second language based on your goals:</strong>
+          <ul>
+            <li>Web front-end &rarr; JavaScript</li>
+            <li>Systems / performance &rarr; C or C++</li>
+            <li>Enterprise / Android &rarr; Java</li>
+            <li>DevOps / sysadmin &rarr; Bash</li>
+            <li>Engineering / simulation &rarr; MATLAB (if your org provides it)</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>If You Are a MATLAB User Adding Python</h3>
+      <ul>
+        <li>You already know how to think algorithmically. Focus on learning Python's <strong>syntax differences</strong>
+            (0-based indexing, indentation, <code>def</code> instead of <code>function</code>).</li>
+        <li>Install NumPy, SciPy, and Matplotlib immediately &mdash; they are your MATLAB equivalents.</li>
+        <li>Use <a href="matlab-quick-translation.html">the Quick Translation Table</a> as a daily reference.</li>
+        <li>Keep MATLAB for Simulink and specialized toolboxes. Use Python for everything else.</li>
+      </ul>
+
+      <h3>Languages Work Together</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">The Real Secret</div>
+        <p>
+          In practice, you rarely use only one language. A typical modern project might use:
+        </p>
+        <ul>
+          <li><strong>Python</strong> for data processing and the backend API</li>
+          <li><strong>JavaScript</strong> for the web front-end</li>
+          <li><strong>C/C++</strong> for performance-critical libraries called from Python</li>
+          <li><strong>Bash</strong> for CI/CD scripts and deployment automation</li>
+          <li><strong>SQL</strong> for database queries</li>
+        </ul>
+        <p>
+          Knowing Python well is the best foundation because it connects to all of these. Python can call C
+          libraries (<code>ctypes</code>, <code>cffi</code>), run shell commands (<code>subprocess</code>),
+          serve web APIs (Flask), and query databases (SQLAlchemy). It is the universal glue language.
+        </p>
+      </div>
+
+      <h3>Summary Cheat Sheet</h3>
+      <table>
+        <thead>
+          <tr><th>I Want To...</th><th>Use...</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Analyze data or train an ML model</td><td><strong>Python</strong></td></tr>
+          <tr><td>Build a website front-end</td><td><strong>JavaScript</strong></td></tr>
+          <tr><td>Build a website back-end</td><td><strong>Python</strong> or <strong>JavaScript</strong> (Node.js)</td></tr>
+          <tr><td>Write a quick shell script</td><td><strong>Bash</strong> (under 50 lines) or <strong>Python</strong></td></tr>
+          <tr><td>Build a game engine</td><td><strong>C++</strong></td></tr>
+          <tr><td>Program a microcontroller</td><td><strong>C</strong></td></tr>
+          <tr><td>Build an Android app</td><td><strong>Java</strong> or Kotlin</td></tr>
+          <tr><td>Run a Simulink simulation</td><td><strong>MATLAB</strong></td></tr>
+          <tr><td>Automate file management on my computer</td><td><strong>Python</strong></td></tr>
+          <tr><td>Learn to code for the first time</td><td><strong>Python</strong></td></tr>
+        </tbody>
+      </table>
+
+      <!-- ===== Prev / Next ===== -->
+      <div class="page-nav">
+        <a href="matlab-quick-translation.html" class="prev">
+          <span class="nav-label">&larr; Previous</span>
+          <span class="nav-title">Quick Translation Table</span>
+        </a>
+        <a href="projects.html" class="next">
+          <span class="nav-label">Next &rarr;</span>
+          <span class="nav-title">Mini Projects</span>
+        </a>
+      </div>
+
+    </div><!-- /.content-wrapper -->
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

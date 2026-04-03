@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Built-ins &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link active">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python Basics</a><span class="sep">&rsaquo;</span>
+        More Built-ins
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C — MORE BUILT-INS                                   -->
+      <!-- ============================================================ -->
+
+      <h1>More Built-ins</h1>
+      <p class="page-subtitle">
+        Level up with essential built-in functions and techniques that every
+        Python programmer uses daily &mdash; from getting user input to
+        list comprehensions, slicing, sorting, and more.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> Many of the patterns on this page
+        &mdash; especially list comprehensions and <code>enumerate()</code> &mdash;
+        have no direct MATLAB equivalent. They are among the features that make
+        Python code especially clean and expressive. MATLAB's closest analog to
+        list comprehensions is <code>arrayfun()</code>, but Python's version is
+        far more readable and versatile.
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <div class="toc-title">On This Page</div>
+        <ul>
+          <li><a href="#input">1. input() &mdash; Getting User Input</a></li>
+          <li><a href="#errors">2. Common Error Messages</a></li>
+          <li><a href="#fstrings">3. f-strings in Depth</a></li>
+          <li><a href="#slicing">4. Slicing in Depth</a></li>
+          <li><a href="#list-comp">5. List Comprehensions</a></li>
+          <li><a href="#enumerate">6. enumerate()</a></li>
+          <li><a href="#zip">7. zip()</a></li>
+          <li><a href="#range">8. range() &mdash; Advanced Patterns</a></li>
+          <li><a href="#sorting">9. Sorting</a></li>
+          <li><a href="#map-filter">10. map() and filter()</a></li>
+          <li><a href="#exercises">Exercises</a></li>
+          <li><a href="#summary">Summary</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. INPUT                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="input">1. input() &mdash; Getting User Input</h2>
+
+      <p>
+        The <code>input()</code> function pauses your program, displays an
+        optional prompt, and waits for the user to type something and press
+        Enter. It <strong>always returns a string</strong>.
+      </p>
+
+      <pre><code>name = input("What is your name? ")
+print(f"Hello, {name}!")</code></pre>
+
+      <h3>Converting Input</h3>
+
+      <p>
+        Since <code>input()</code> always returns a string, you must convert
+        it if you need a number:
+      </p>
+
+      <pre><code>age_str = input("Enter your age: ")   # e.g. user types "25"
+age = int(age_str)                     # convert to integer
+print(f"Next year you will be {age + 1}.")
+
+# Or combine into one line:
+age = int(input("Enter your age: "))
+
+# For decimal numbers, use float():
+weight = float(input("Enter your weight in kg: "))</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> Forgetting to convert. If you skip the
+        conversion, arithmetic will fail or produce unexpected results:
+        <pre><code>num = input("Enter a number: ")   # user types "5"
+print(num + 10)                   # TypeError: can't add str and int
+print(num * 3)                    # "555" — string repetition, not 15!</code></pre>
+      </div>
+
+      <h3>Safe Input with Error Handling</h3>
+
+      <pre><code>while True:
+    try:
+        number = int(input("Enter an integer: "))
+        break                # exit loop if conversion succeeded
+    except ValueError:
+        print("That's not a valid integer. Try again.")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses
+        <code>input('prompt')</code> which returns a number by default, or
+        <code>input('prompt', 's')</code> for a string. Python's
+        <code>input()</code> always returns a string &mdash; you convert
+        explicitly, which is more predictable.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. COMMON ERROR MESSAGES                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="errors">2. Common Error Messages</h2>
+
+      <p>
+        Errors are not something to fear &mdash; they are Python telling you
+        exactly what went wrong. Learning to read error messages is one of the
+        most valuable skills you can develop. Here are the errors you will
+        encounter most often:
+      </p>
+
+      <h3>NameError</h3>
+
+      <p>
+        <strong>What it means:</strong> You used a variable or function name
+        that does not exist (usually a typo or forgetting to define it).
+      </p>
+
+      <pre><code>print(mesage)
+# NameError: name 'mesage' is not defined
+
+# Fix: check spelling
+message = "Hello"
+print(message)   # Hello</code></pre>
+
+      <h3>TypeError</h3>
+
+      <p>
+        <strong>What it means:</strong> You tried an operation on the wrong type,
+        or passed the wrong number of arguments.
+      </p>
+
+      <pre><code># Wrong types
+result = "5" + 3
+# TypeError: can only concatenate str (not "int") to str
+
+# Fix: convert types
+result = int("5") + 3   # 8
+
+# Wrong number of arguments
+def greet(name):
+    print(f"Hi, {name}")
+
+greet("Alice", "Bob")
+# TypeError: greet() takes 1 positional argument but 2 were given</code></pre>
+
+      <h3>ValueError</h3>
+
+      <p>
+        <strong>What it means:</strong> The type is correct, but the value is
+        not appropriate.
+      </p>
+
+      <pre><code>number = int("hello")
+# ValueError: invalid literal for int() with base 10: 'hello'
+
+# Fix: ensure the string contains a valid number
+number = int("42")   # 42</code></pre>
+
+      <h3>IndexError</h3>
+
+      <p>
+        <strong>What it means:</strong> You tried to access a list (or string)
+        index that does not exist.
+      </p>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+print(fruits[5])
+# IndexError: list index out of range
+
+# Fix: use a valid index (0, 1, or 2 for a 3-element list)
+print(fruits[2])   # cherry</code></pre>
+
+      <h3>KeyError</h3>
+
+      <p>
+        <strong>What it means:</strong> You tried to access a dictionary key
+        that does not exist.
+      </p>
+
+      <pre><code>person = {"name": "Alice", "age": 30}
+print(person["email"])
+# KeyError: 'email'
+
+# Fix: use .get() for safe access
+print(person.get("email", "not found"))   # not found</code></pre>
+
+      <h3>SyntaxError</h3>
+
+      <p>
+        <strong>What it means:</strong> Python cannot understand your code
+        because of a grammar mistake (missing colon, unmatched parenthesis,
+        etc.).
+      </p>
+
+      <pre><code># Missing colon
+if x > 5
+    print("big")
+# SyntaxError: expected ':'
+
+# Unmatched parenthesis
+print("Hello"
+# SyntaxError: unexpected EOF while parsing</code></pre>
+
+      <h3>IndentationError</h3>
+
+      <p>
+        <strong>What it means:</strong> Your indentation is inconsistent or
+        missing.
+      </p>
+
+      <pre><code>def greet():
+print("Hello")
+# IndentationError: expected an indented block
+
+# Fix: indent the body
+def greet():
+    print("Hello")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Pro tip:</strong> Always read the <em>last line</em> of an error
+        traceback first &mdash; it tells you the error type and message. Then
+        look at the line number to find where it happened. With practice, you
+        will fix most errors in seconds.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. F-STRINGS IN DEPTH                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="fstrings">3. f-strings in Depth</h2>
+
+      <p>
+        You have already seen basic f-strings (<code>f"Hello, {name}!"</code>).
+        Here we explore their full power.
+      </p>
+
+      <h3>Expressions Inside Braces</h3>
+
+      <p>
+        You can put <em>any</em> valid Python expression inside <code>{}</code>:
+      </p>
+
+      <pre><code>x = 10
+print(f"x squared is {x ** 2}")         # x squared is 100
+print(f"x is {'even' if x % 2 == 0 else 'odd'}")  # x is even
+print(f"Uppercase: {'hello'.upper()}")   # Uppercase: HELLO</code></pre>
+
+      <h3>Formatting Numbers</h3>
+
+      <pre><code>pi = 3.14159265
+
+# Fixed decimal places
+print(f"Pi: {pi:.2f}")        # Pi: 3.14
+print(f"Pi: {pi:.4f}")        # Pi: 3.1416
+
+# Thousands separator
+big = 1234567890
+print(f"Population: {big:,}")  # Population: 1,234,567,890
+
+# Percentage
+rate = 0.856
+print(f"Success: {rate:.1%}")  # Success: 85.6%
+
+# Scientific notation
+tiny = 0.000042
+print(f"Value: {tiny:.2e}")    # Value: 4.20e-05</code></pre>
+
+      <h3>Alignment and Width</h3>
+
+      <pre><code># Right-align in a field of width 10
+for item, price in [("Apple", 1.5), ("Banana", 0.75), ("Watermelon", 4.99)]:
+    print(f"{item:&lt;12} ${price:&gt;6.2f}")
+
+# Output:
+# Apple        $  1.50
+# Banana       $  0.75
+# Watermelon   $  4.99</code></pre>
+
+      <pre><code># Center alignment
+title = "Report"
+print(f"{title:*^30}")   # ************Report************</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Format</th>
+            <th>Meaning</th>
+            <th>Example</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>{x:.2f}</code></td>
+            <td>2 decimal places</td>
+            <td><code>f"{3.14159:.2f}"</code></td>
+            <td><code>3.14</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:,}</code></td>
+            <td>Thousands separator</td>
+            <td><code>f"{1000000:,}"</code></td>
+            <td><code>1,000,000</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:.1%}</code></td>
+            <td>Percentage</td>
+            <td><code>f"{0.85:.1%}"</code></td>
+            <td><code>85.0%</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:&gt;10}</code></td>
+            <td>Right-align, width 10</td>
+            <td><code>f"{'hi':&gt;10}"</code></td>
+            <td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hi</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:&lt;10}</code></td>
+            <td>Left-align, width 10</td>
+            <td><code>f"{'hi':&lt;10}"</code></td>
+            <td><code>hi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:^10}</code></td>
+            <td>Center, width 10</td>
+            <td><code>f"{'hi':^10}"</code></td>
+            <td><code>&nbsp;&nbsp;&nbsp;&nbsp;hi&nbsp;&nbsp;&nbsp;&nbsp;</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:0&gt;5}</code></td>
+            <td>Zero-pad, width 5</td>
+            <td><code>f"{42:0&gt;5}"</code></td>
+            <td><code>00042</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses
+        <code>fprintf('Pi is %.2f\n', pi)</code> with C-style format specifiers.
+        Python's f-strings put the variable and its format together inside the
+        string, which many find more readable: <code>f"Pi is {pi:.2f}"</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. SLICING IN DEPTH                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="slicing">4. Slicing in Depth</h2>
+
+      <p>
+        Slicing lets you extract a portion of a sequence (string, list, or
+        tuple) using the syntax <code>[start:stop:step]</code>.
+      </p>
+
+      <h3>Basic Slicing</h3>
+
+      <pre><code>letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+#  index:   0    1    2    3    4    5    6
+# neg idx: -7   -6   -5   -4   -3   -2   -1
+
+print(letters[1:4])     # ['b', 'c', 'd']  (index 1, 2, 3 — stop is excluded)
+print(letters[:3])       # ['a', 'b', 'c']  (from start to index 2)
+print(letters[4:])       # ['e', 'f', 'g']  (from index 4 to end)
+print(letters[:])        # ['a', 'b', 'c', 'd', 'e', 'f', 'g']  (full copy)</code></pre>
+
+      <h3>Negative Indices</h3>
+
+      <pre><code>print(letters[-3:])      # ['e', 'f', 'g']  (last 3 elements)
+print(letters[-4:-1])    # ['d', 'e', 'f']  (from -4 up to but not -1)
+print(letters[:-2])      # ['a', 'b', 'c', 'd', 'e']  (all except last 2)</code></pre>
+
+      <h3>Step Parameter</h3>
+
+      <pre><code>numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(numbers[::2])      # [0, 2, 4, 6, 8]   (every 2nd element)
+print(numbers[1::2])     # [1, 3, 5, 7, 9]   (odd-indexed elements)
+print(numbers[::3])      # [0, 3, 6, 9]      (every 3rd element)</code></pre>
+
+      <h3>Reversing with Slicing</h3>
+
+      <pre><code># Reverse a list
+print(numbers[::-1])     # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+# Reverse a string
+word = "Python"
+print(word[::-1])        # nohtyP
+
+# Check for palindrome
+text = "racecar"
+print(text == text[::-1])  # True</code></pre>
+
+      <h3>Slicing Strings</h3>
+
+      <pre><code>message = "Hello, World!"
+
+print(message[0:5])     # Hello
+print(message[7:])      # World!
+print(message[::-1])    # !dlroW ,olleH
+
+# Extract every other character
+print(message[::2])     # Hlo ol!</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses 1-based indexing
+        (<code>arr(1:3)</code> gets elements 1, 2, 3). Python uses 0-based
+        indexing and the stop value is <em>excluded</em> (<code>arr[0:3]</code>
+        gets elements at indices 0, 1, 2). MATLAB's <code>end</code> keyword
+        maps to Python's <code>-1</code> index. Reversing in MATLAB:
+        <code>flip(arr)</code> or <code>arr(end:-1:1)</code>; in Python:
+        <code>arr[::-1]</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. LIST COMPREHENSIONS                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="list-comp">5. List Comprehensions</h2>
+
+      <p>
+        A <strong>list comprehension</strong> is a concise way to create a new
+        list by transforming or filtering elements from an existing iterable.
+        It is one of Python's most loved features.
+      </p>
+
+      <h3>Basic Syntax</h3>
+
+      <pre><code># [expression for variable in iterable]
+
+squares = [x ** 2 for x in range(6)]
+print(squares)   # [0, 1, 4, 9, 16, 25]</code></pre>
+
+      <p>
+        This is equivalent to (but much shorter than):
+      </p>
+
+      <pre><code>squares = []
+for x in range(6):
+    squares.append(x ** 2)</code></pre>
+
+      <h3>With a Condition (Filtering)</h3>
+
+      <pre><code># [expression for variable in iterable if condition]
+
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)   # [0, 2, 4, 6, 8]
+
+# Filter strings by length
+words = ["cat", "elephant", "dog", "hippopotamus", "ant"]
+short_words = [w for w in words if len(w) <= 3]
+print(short_words)   # ['cat', 'dog', 'ant']</code></pre>
+
+      <h3>Transforming Data</h3>
+
+      <pre><code># Convert temperatures
+celsius = [0, 10, 20, 30, 40]
+fahrenheit = [c * 9/5 + 32 for c in celsius]
+print(fahrenheit)   # [32.0, 50.0, 68.0, 86.0, 104.0]
+
+# Clean a list of strings
+names = ["  Alice ", "BOB", " carol  "]
+clean = [name.strip().title() for name in names]
+print(clean)   # ['Alice', 'Bob', 'Carol']</code></pre>
+
+      <h3>Nested List Comprehensions</h3>
+
+      <pre><code># Flatten a 2D list
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flat = [num for row in matrix for num in row]
+print(flat)   # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Create a multiplication table
+table = [[i * j for j in range(1, 4)] for i in range(1, 4)]
+print(table)
+# [[1, 2, 3], [2, 4, 6], [3, 6, 9]]</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Keep it readable:</strong> If a list comprehension spans more
+        than one or two lines, or needs complex nested logic, switch to a
+        regular <code>for</code> loop. The goal is <em>clarity</em>, not
+        cleverness.
+        <pre><code># Too complex — hard to read
+result = [f(x) for x in data if g(x) > 0 for y in h(x) if y != z]
+
+# Better — use a regular loop
+result = []
+for x in data:
+    if g(x) > 0:
+        for y in h(x):
+            if y != z:
+                result.append(f(x))</code></pre>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB has no direct equivalent to
+        list comprehensions. The closest is <code>arrayfun()</code> or
+        vectorised operations like <code>x.^2</code>, but Python's list
+        comprehensions work with <em>any</em> data type (strings, objects,
+        nested structures), not just numerical arrays. This is one of Python's
+        most powerful features &mdash; take the time to get comfortable with it!
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. ENUMERATE                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="enumerate">6. enumerate()</h2>
+
+      <p>
+        <code>enumerate()</code> lets you loop over an iterable while also
+        getting the index of each element. It avoids the common pattern of
+        manually tracking a counter variable.
+      </p>
+
+      <h3>Without enumerate (the clunky way)</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+index = 0
+for fruit in fruits:
+    print(f"{index}: {fruit}")
+    index += 1</code></pre>
+
+      <h3>With enumerate (the Pythonic way)</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# 0: apple
+# 1: banana
+# 2: cherry</code></pre>
+
+      <h3>Custom Start Index</h3>
+
+      <pre><code>for rank, fruit in enumerate(fruits, start=1):
+    print(f"{rank}. {fruit}")
+
+# 1. apple
+# 2. banana
+# 3. cherry</code></pre>
+
+      <h3>Practical Example &mdash; Find the Position of a Value</h3>
+
+      <pre><code>scores = [85, 92, 78, 95, 88]
+
+for i, score in enumerate(scores):
+    if score >= 90:
+        print(f"Student {i} scored {score} (excellent!)")
+
+# Student 1 scored 92 (excellent!)
+# Student 3 scored 95 (excellent!)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Tip:</strong> Prefer <code>enumerate()</code> over
+        <code>range(len(...))</code>. It is cleaner, more readable, and
+        considered the "Pythonic" way to loop with an index.
+        <pre><code># Avoid this:
+for i in range(len(fruits)):
+    print(f"{i}: {fruits[i]}")
+
+# Prefer this:
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. ZIP                                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="zip">7. zip()</h2>
+
+      <p>
+        <code>zip()</code> combines two or more iterables element by element,
+        pairing up items at the same position:
+      </p>
+
+      <pre><code>names = ["Alice", "Bob", "Carol"]
+scores = [85, 92, 78]
+
+for name, score in zip(names, scores):
+    print(f"{name}: {score}")
+
+# Alice: 85
+# Bob: 92
+# Carol: 78</code></pre>
+
+      <h3>Zipping More Than Two Iterables</h3>
+
+      <pre><code>names = ["Alice", "Bob", "Carol"]
+scores = [85, 92, 78]
+grades = ["B+", "A", "C+"]
+
+for name, score, grade in zip(names, scores, grades):
+    print(f"{name}: {score} ({grade})")
+
+# Alice: 85 (B+)
+# Bob: 92 (A)
+# Carol: 78 (C+)</code></pre>
+
+      <h3>Uneven Lengths</h3>
+
+      <p>
+        <code>zip()</code> stops at the shortest iterable:
+      </p>
+
+      <pre><code>a = [1, 2, 3, 4, 5]
+b = ["x", "y", "z"]
+
+print(list(zip(a, b)))   # [(1, 'x'), (2, 'y'), (3, 'z')]
+# Elements 4 and 5 are silently dropped!</code></pre>
+
+      <h3>Creating a Dictionary from Two Lists</h3>
+
+      <pre><code>keys = ["name", "age", "city"]
+values = ["Alice", 30, "London"]
+
+person = dict(zip(keys, values))
+print(person)   # {'name': 'Alice', 'age': 30, 'city': 'London'}</code></pre>
+
+      <h3>Unzipping</h3>
+
+      <pre><code>pairs = [(1, "a"), (2, "b"), (3, "c")]
+numbers, letters = zip(*pairs)
+print(numbers)    # (1, 2, 3)
+print(letters)    # ('a', 'b', 'c')</code></pre>
+
+      <div class="callout callout-info">
+        <strong>The <code>*</code> operator:</strong> In <code>zip(*pairs)</code>,
+        the <code>*</code> unpacks the list of tuples into separate arguments:
+        <code>zip((1, "a"), (2, "b"), (3, "c"))</code>. This is a common Python
+        idiom for "transposing" data.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. RANGE — ADVANCED PATTERNS                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="range">8. range() &mdash; Advanced Patterns</h2>
+
+      <p>
+        You have used <code>range()</code> in loops. Here are some more
+        advanced patterns:
+      </p>
+
+      <h3>Counting Backwards</h3>
+
+      <pre><code>for i in range(5, 0, -1):
+    print(i, end=" ")
+# 5 4 3 2 1
+
+# Countdown
+for i in range(10, -1, -1):
+    print(i)   # 10, 9, 8, ... 1, 0</code></pre>
+
+      <h3>Custom Step Sizes</h3>
+
+      <pre><code># Every 5th number from 0 to 50
+fives = list(range(0, 51, 5))
+print(fives)   # [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+
+# Even numbers from 2 to 20
+evens = list(range(2, 21, 2))
+print(evens)   # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]</code></pre>
+
+      <h3>Using range() with len() (When You Need the Index)</h3>
+
+      <pre><code>colours = ["red", "green", "blue"]
+
+# Acceptable but not preferred:
+for i in range(len(colours)):
+    print(f"Index {i}: {colours[i]}")
+
+# Preferred — use enumerate() instead (see Section 6 above)</code></pre>
+
+      <h3>Converting range to a List</h3>
+
+      <pre><code># range() is lazy — it generates numbers on demand
+r = range(1, 1000000)   # uses almost no memory
+print(r[999999])         # 1000000  — instant access
+
+# Convert to list only when you need the actual list
+small_list = list(range(10))   # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB's colon operator
+        <code>1:5</code> creates the array <code>[1 2 3 4 5]</code> immediately.
+        Python's <code>range(1, 6)</code> is <em>lazy</em> &mdash; it does not
+        create the numbers until you ask for them. This makes Python much more
+        memory-efficient for large ranges. MATLAB's <code>1:2:10</code>
+        (step of 2) corresponds to Python's <code>range(1, 11, 2)</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. SORTING                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="sorting">9. Sorting</h2>
+
+      <p>
+        Python provides two ways to sort: the <code>sorted()</code> function
+        and the <code>.sort()</code> method.
+      </p>
+
+      <h3><code>sorted()</code> &mdash; Returns a New List</h3>
+
+      <pre><code>numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+ordered = sorted(numbers)
+print(ordered)    # [1, 1, 2, 3, 4, 5, 6, 9]
+print(numbers)    # [3, 1, 4, 1, 5, 9, 2, 6]  (original unchanged)</code></pre>
+
+      <h3><code>.sort()</code> &mdash; Modifies the List In-Place</h3>
+
+      <pre><code>numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+numbers.sort()
+print(numbers)    # [1, 1, 2, 3, 4, 5, 6, 9]  (original is modified)</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Key difference:</strong> <code>sorted()</code> returns a
+        <em>new</em> list and leaves the original untouched.
+        <code>.sort()</code> sorts in-place and returns <code>None</code>.
+        A common mistake:
+        <pre><code># Wrong!
+result = numbers.sort()    # result is None, not the sorted list
+
+# Right
+numbers.sort()             # sort in-place, then use numbers
+# Or
+result = sorted(numbers)   # create a new sorted list</code></pre>
+      </div>
+
+      <h3>Reverse Sorting</h3>
+
+      <pre><code>print(sorted(numbers, reverse=True))   # [9, 6, 5, 4, 3, 2, 1, 1]</code></pre>
+
+      <h3>Sorting with a <code>key</code> Function</h3>
+
+      <pre><code># Sort strings by length
+words = ["banana", "pie", "apple", "fig"]
+print(sorted(words, key=len))
+# ['pie', 'fig', 'apple', 'banana']
+
+# Sort case-insensitively
+mixed = ["banana", "Apple", "cherry"]
+print(sorted(mixed, key=str.lower))
+# ['Apple', 'banana', 'cherry']</code></pre>
+
+      <h3>Sorting Dictionaries</h3>
+
+      <pre><code>students = {"Alice": 88, "Bob": 95, "Carol": 72, "Dave": 91}
+
+# Sort by value (score), highest first
+ranked = sorted(students.items(), key=lambda item: item[1], reverse=True)
+for name, score in ranked:
+    print(f"{name}: {score}")
+
+# Bob: 95
+# Dave: 91
+# Alice: 88
+# Carol: 72</code></pre>
+
+      <h3>Sorting a List of Dictionaries</h3>
+
+      <pre><code>people = [
+    {"name": "Carol", "age": 28},
+    {"name": "Alice", "age": 35},
+    {"name": "Bob", "age": 22},
+]
+
+by_age = sorted(people, key=lambda p: p["age"])
+for person in by_age:
+    print(f"{person['name']}: {person['age']}")
+
+# Bob: 22
+# Carol: 28
+# Alice: 35</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  10. MAP AND FILTER                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="map-filter">10. map() and filter()</h2>
+
+      <p>
+        <code>map()</code> and <code>filter()</code> are built-in functions
+        that apply a function to every element of an iterable. They come from
+        the <em>functional programming</em> tradition.
+      </p>
+
+      <h3><code>map()</code> &mdash; Transform Every Element</h3>
+
+      <pre><code># Apply a function to every element
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)   # [1, 4, 9, 16, 25]
+
+# Convert a list of strings to integers
+str_numbers = ["10", "20", "30"]
+int_numbers = list(map(int, str_numbers))
+print(int_numbers)   # [10, 20, 30]</code></pre>
+
+      <h3><code>filter()</code> &mdash; Keep Elements That Pass a Test</h3>
+
+      <pre><code># Keep only positive numbers
+numbers = [-3, -1, 0, 2, 5, -4, 8]
+positives = list(filter(lambda x: x > 0, numbers))
+print(positives)   # [2, 5, 8]
+
+# Keep only non-empty strings
+data = ["hello", "", "world", "", "python"]
+non_empty = list(filter(None, data))
+print(non_empty)   # ['hello', 'world', 'python']</code></pre>
+
+      <h3>map/filter vs. List Comprehensions</h3>
+
+      <p>
+        In most cases, a list comprehension is more readable:
+      </p>
+
+      <pre><code># map + lambda
+squared = list(map(lambda x: x ** 2, numbers))
+
+# List comprehension (usually preferred)
+squared = [x ** 2 for x in numbers]
+
+# filter + lambda
+positives = list(filter(lambda x: x > 0, numbers))
+
+# List comprehension (usually preferred)
+positives = [x for x in numbers if x > 0]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>When to use map/filter:</strong> They are most useful when you
+        already have a named function (like <code>int</code>, <code>str</code>,
+        <code>len</code>) and do not need a lambda. For example,
+        <code>list(map(int, strings))</code> is arguably cleaner than
+        <code>[int(s) for s in strings]</code>. Otherwise, prefer list
+        comprehensions &mdash; they are more Pythonic and more readable.
+      </div>
+
+      <h3>Chaining map and filter</h3>
+
+      <pre><code># Get the squares of even numbers between 1 and 10
+result = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, range(1, 11))))
+print(result)   # [4, 16, 36, 64, 100]
+
+# Same thing with a list comprehension (much clearer!)
+result = [x ** 2 for x in range(1, 11) if x % 2 == 0]
+print(result)   # [4, 16, 36, 64, 100]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  EXERCISES                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">Exercises</h2>
+
+      <p>
+        Practice what you have learned. Try each exercise before looking at the
+        solution.
+      </p>
+
+      <!-- Exercise 1 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 1 &mdash; User Greeter</div>
+        <p>
+          Write a program that asks the user for their name and age, then
+          prints: <code>"Hello, [name]! You will be [age+1] next year."</code>
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>name = input("What is your name? ")
+age = int(input("How old are you? "))
+print(f"Hello, {name}! You will be {age + 1} next year.")</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 2 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 2 &mdash; f-string Formatting</div>
+        <p>
+          Given <code>price = 49.99</code> and <code>quantity = 1234</code>,
+          print: <code>"Total: $61,587.66"</code> (with comma separator and
+          2 decimal places).
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>price = 49.99
+quantity = 1234
+total = price * quantity
+print(f"Total: ${total:,.2f}")   # Total: $61,687.66</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 3 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 3 &mdash; Palindrome Checker</div>
+        <p>
+          Write a program that checks if a word is a palindrome using slicing.
+          Ignore case (convert to lowercase first).
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>word = input("Enter a word: ").lower()
+if word == word[::-1]:
+    print(f"'{word}' is a palindrome!")
+else:
+    print(f"'{word}' is not a palindrome.")</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 4 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 4 &mdash; Squares with List Comprehension</div>
+        <p>
+          Use a list comprehension to create a list of the squares of all odd
+          numbers from 1 to 20.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>odd_squares = [x ** 2 for x in range(1, 21) if x % 2 != 0]
+print(odd_squares)
+# [1, 9, 25, 49, 81, 121, 169, 225, 289, 361]</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 5 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 5 &mdash; enumerate() Practice</div>
+        <p>
+          Given <code>tasks = ["Buy groceries", "Clean house", "Write report", "Exercise"]</code>,
+          use <code>enumerate()</code> with <code>start=1</code> to print a
+          numbered task list.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>tasks = ["Buy groceries", "Clean house", "Write report", "Exercise"]
+
+for num, task in enumerate(tasks, start=1):
+    print(f"{num}. {task}")
+
+# 1. Buy groceries
+# 2. Clean house
+# 3. Write report
+# 4. Exercise</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 6 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 6 &mdash; zip() Dictionary</div>
+        <p>
+          Given two lists: <code>countries = ["Japan", "France", "Brazil"]</code>
+          and <code>capitals = ["Tokyo", "Paris", "Brasilia"]</code>, use
+          <code>zip()</code> to create a dictionary mapping countries to capitals.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>countries = ["Japan", "France", "Brazil"]
+capitals = ["Tokyo", "Paris", "Brasilia"]
+
+country_capitals = dict(zip(countries, capitals))
+print(country_capitals)
+# {'Japan': 'Tokyo', 'France': 'Paris', 'Brazil': 'Brasilia'}</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 7 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 7 &mdash; Sort by Last Character</div>
+        <p>
+          Sort the list <code>["hello", "world", "banana", "apple", "grape"]</code>
+          by the <strong>last character</strong> of each word.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>words = ["hello", "world", "banana", "apple", "grape"]
+result = sorted(words, key=lambda w: w[-1])
+print(result)   # ['banana', 'world', 'apple', 'grape', 'hello']
+# Sorted by last char: a, d, e, e, o</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 8 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 8 &mdash; Extract Every Third Element</div>
+        <p>
+          Given <code>data = list(range(1, 21))</code> (numbers 1 to 20), use
+          slicing to extract every third element starting from the second
+          element.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>data = list(range(1, 21))
+result = data[1::3]
+print(result)   # [2, 5, 8, 11, 14, 17, 20]</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 9 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 9 &mdash; Clean and Filter Data</div>
+        <p>
+          Given <code>raw = [" Alice ", "  ", "Bob", "", " Carol ", "  Dave"]</code>,
+          use a list comprehension to strip whitespace from each string and
+          keep only non-empty results.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>raw = [" Alice ", "  ", "Bob", "", " Carol ", "  Dave"]
+clean = [name.strip() for name in raw if name.strip()]
+print(clean)   # ['Alice', 'Bob', 'Carol', 'Dave']</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 10 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 10 &mdash; Combine Everything</div>
+        <p>
+          Given two lists of student names and scores, create a formatted report
+          that shows each student ranked by score (highest first), with their
+          rank number. Use <code>zip()</code>, <code>sorted()</code>, and
+          <code>enumerate()</code>.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>names = ["Alice", "Bob", "Carol", "Dave"]
+scores = [88, 95, 72, 91]
+
+# Combine, sort by score descending, enumerate with rank
+paired = zip(names, scores)
+ranked = sorted(paired, key=lambda x: x[1], reverse=True)
+
+print("Class Rankings:")
+print("-" * 25)
+for rank, (name, score) in enumerate(ranked, start=1):
+    print(f"  {rank}. {name:&lt;10} {score:&gt;3}")
+
+# Class Rankings:
+# -------------------------
+#   1. Bob         95
+#   2. Dave        91
+#   3. Alice       88
+#   4. Carol       72</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>What It Does</th>
+            <th>Quick Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>input()</code></td>
+            <td>Get user input (always a string)</td>
+            <td><code>name = input("Name? ")</code></td>
+          </tr>
+          <tr>
+            <td><strong>Error messages</strong></td>
+            <td>Read the last line of traceback first</td>
+            <td><code>NameError</code>, <code>TypeError</code>, etc.</td>
+          </tr>
+          <tr>
+            <td><strong>f-strings</strong></td>
+            <td>Formatted string literals</td>
+            <td><code>f"{pi:.2f}"</code> &rarr; <code>3.14</code></td>
+          </tr>
+          <tr>
+            <td><strong>Slicing</strong></td>
+            <td><code>[start:stop:step]</code></td>
+            <td><code>lst[::-1]</code> reverses</td>
+          </tr>
+          <tr>
+            <td><strong>List comprehension</strong></td>
+            <td>Build lists concisely</td>
+            <td><code>[x**2 for x in range(5)]</code></td>
+          </tr>
+          <tr>
+            <td><code>enumerate()</code></td>
+            <td>Loop with index</td>
+            <td><code>for i, v in enumerate(lst):</code></td>
+          </tr>
+          <tr>
+            <td><code>zip()</code></td>
+            <td>Combine iterables</td>
+            <td><code>for a, b in zip(x, y):</code></td>
+          </tr>
+          <tr>
+            <td><code>range()</code></td>
+            <td>Generate number sequences</td>
+            <td><code>range(0, 10, 2)</code></td>
+          </tr>
+          <tr>
+            <td><code>sorted()</code></td>
+            <td>Return new sorted list</td>
+            <td><code>sorted(lst, key=len)</code></td>
+          </tr>
+          <tr>
+            <td><code>map()</code> / <code>filter()</code></td>
+            <td>Transform / filter iterables</td>
+            <td><code>list(map(int, strings))</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> The tools on this page are the ones
+        you will use <em>every single day</em> as a Python programmer. List
+        comprehensions, <code>enumerate()</code>, <code>zip()</code>, and
+        slicing are what make Python code concise and elegant. Master these, and
+        you will write code that experienced Python developers will recognise as
+        clean and idiomatic.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-functions.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Functions &amp; Lambda</span></a>
+        <a href="basics-files-modules.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Files &amp; Modules</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

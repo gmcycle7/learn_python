@@ -1,0 +1,1127 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lists, Tuples &amp; Sets &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="stylesheet" href="../css/style.css"></head>
+<body>
+<button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+<aside class="sidebar"><div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> Learn Python</h2><p>Complete Beginner's Guide</p></div>
+  <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+<div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+<div class="nav-section"><div class="nav-section-title">A &mdash; What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+<div class="nav-section"><div class="nav-section-title">B &mdash; Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+<div class="nav-section"><div class="nav-section-title">C &mdash; Python Basics</div>
+<a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a><a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a><a href="basics-lists-tuples.html" class="nav-link active">Lists, Tuples &amp; Sets</a><a href="basics-dictionaries.html" class="nav-link">Dictionaries</a><a href="basics-conditionals.html" class="nav-link">Conditionals</a><a href="basics-loops.html" class="nav-link">Loops</a><a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a><a href="basics-more.html" class="nav-link">More Built-ins</a><a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a></div>
+<div class="nav-section"><div class="nav-section-title">D &mdash; Common Patterns</div><a href="common-patterns.html" class="nav-link">Common Patterns</a><a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a></div>
+<div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB to Python</div><a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a><a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a></div>
+<div class="nav-section"><div class="nav-section-title">F &mdash; Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+<div class="nav-section"><div class="nav-section-title">G &mdash; Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+<div class="nav-section"><div class="nav-section-title">H &mdash; Practice</div><a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a></div>
+<div class="nav-section"><div class="nav-section-title">I &mdash; Best Practices</div><a href="best-practices.html" class="nav-link">Best Practices</a><a href="common-errors.html" class="nav-link">Common Errors</a></div>
+<div class="nav-section"><div class="nav-section-title">J &mdash; Reference</div><a href="cheatsheet.html" class="nav-link">Cheat Sheet</a><a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a></div>
+<div class="nav-section"><div class="nav-section-title">K &mdash; More Topics</div><a href="oop.html" class="nav-link">Object-Oriented Programming</a><a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a></div>
+</nav></aside>
+<main class="main-content"><div class="progress-bar"><div class="progress-fill"></div></div>
+<div class="content-wrapper">
+<div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Lists, Tuples &amp; Sets</div>
+
+<!-- ============================================================ -->
+<!--  SECTION: LISTS, TUPLES & SETS                               -->
+<!-- ============================================================ -->
+
+<h1>Lists, Tuples &amp; Sets</h1>
+
+<p>
+  In Python, <strong>lists</strong>, <strong>tuples</strong>, and
+  <strong>sets</strong> are the three core collection types you will use
+  every day. They each store multiple values, but they differ in
+  mutability, ordering, and whether they allow duplicates. This page
+  covers all three in depth, starting with the most important one:
+  <strong>lists</strong>.
+</p>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB users:</strong> A Python <strong>list</strong> is
+  roughly equivalent to a MATLAB <em>cell array</em> &mdash; it can hold
+  mixed types and is accessed with square brackets. However, the biggest
+  difference is that <strong>Python uses 0-based indexing</strong> while
+  MATLAB uses 1-based indexing. This page will remind you of this
+  repeatedly because it is the single most common source of bugs when
+  switching from MATLAB to Python.
+</div>
+
+<!-- ============================================================ -->
+<!--  1. LISTS                                                     -->
+<!-- ============================================================ -->
+
+<h2 id="lists">1. Lists &mdash; Python's Workhorse Collection</h2>
+
+<p>
+  A <strong>list</strong> is an <em>ordered, mutable</em> collection of
+  items. "Ordered" means the items stay in the order you put them in.
+  "Mutable" means you can change, add, or remove items after creating
+  the list. Lists are the most commonly used data structure in Python.
+</p>
+
+<!-- 1.1 Creating Lists -->
+<h3 id="creating-lists">1.1 Creating Lists</h3>
+
+<p>
+  You create a list by placing comma-separated values inside square
+  brackets <code>[]</code>.
+</p>
+
+<pre><code># Creating lists
+fruits = ["apple", "banana", "cherry"]
+numbers = [10, 20, 30, 40, 50]
+mixed = [1, "hello", 3.14, True]       # Lists can hold mixed types!
+empty = []                              # An empty list
+
+print(fruits)   # ['apple', 'banana', 'cherry']
+print(mixed)    # [1, 'hello', 3.14, True]
+print(empty)    # []</code></pre>
+
+<p>
+  You can also create a list from other iterables using the
+  <code>list()</code> constructor:
+</p>
+
+<pre><code># list() constructor
+letters = list("hello")    # ['h', 'e', 'l', 'l', 'o']
+nums = list(range(5))      # [0, 1, 2, 3, 4]
+print(letters)
+print(nums)</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> In MATLAB, arrays hold only one
+  type (all doubles, all chars, etc.). To hold mixed types you need a
+  <em>cell array</em> with curly braces: <code>c = {1, 'hello', 3.14}</code>.
+  In Python, a plain list already handles mixed types &mdash; no special
+  syntax needed.
+</div>
+
+<!-- 1.2 Accessing Elements -->
+<h3 id="indexing">1.2 Accessing Elements (0-Based Indexing)</h3>
+
+<p>
+  You access individual elements using square brackets and an
+  <strong>index</strong>. Python indices start at <strong>0</strong>,
+  not 1.
+</p>
+
+<pre><code>fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+
+print(fruits[0])   # apple      (first element)
+print(fruits[1])   # banana     (second element)
+print(fruits[4])   # elderberry (fifth element, index 4)</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Critical difference from MATLAB!</strong> In MATLAB,
+  <code>fruits{1}</code> gives you the first element. In Python,
+  <code>fruits[0]</code> gives you the first element. The last element
+  of a 5-item list is at index <strong>4</strong>, not 5. This
+  "off-by-one" shift is the number one source of bugs when transitioning
+  from MATLAB to Python.
+</div>
+
+<p>
+  Here is a visual to help remember:
+</p>
+
+<pre><code>#  Element:     "apple"  "banana"  "cherry"  "date"  "elderberry"
+#  Index:          0        1         2        3          4
+#  Neg index:     -5       -4        -3       -2         -1</code></pre>
+
+<!-- 1.3 Negative Indexing -->
+<h3 id="negative-indexing">1.3 Negative Indexing</h3>
+
+<p>
+  Python supports <strong>negative indices</strong> that count from
+  the end of the list. <code>-1</code> is the last element,
+  <code>-2</code> is second-to-last, and so on.
+</p>
+
+<pre><code>fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+
+print(fruits[-1])   # elderberry (last element)
+print(fruits[-2])   # date       (second-to-last)
+print(fruits[-5])   # apple      (first element, same as fruits[0])</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> MATLAB uses
+  <code>fruits{end}</code> for the last element and
+  <code>fruits{end-1}</code> for the second-to-last. Python's
+  <code>fruits[-1]</code> and <code>fruits[-2]</code> serve the same
+  purpose but are more concise.
+</div>
+
+<!-- 1.4 Slicing -->
+<h3 id="slicing">1.4 Slicing Lists</h3>
+
+<p>
+  <strong>Slicing</strong> lets you extract a sub-list. The syntax is
+  <code>list[start:stop]</code>, where <code>start</code> is inclusive
+  and <code>stop</code> is <em>exclusive</em>.
+</p>
+
+<pre><code>nums = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+print(nums[2:5])    # [20, 30, 40]   (index 2, 3, 4 &mdash; NOT 5)
+print(nums[:4])     # [0, 10, 20, 30]  (from start to index 3)
+print(nums[6:])     # [60, 70, 80, 90] (from index 6 to end)
+print(nums[:])      # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90] (full copy)
+print(nums[::2])    # [0, 20, 40, 60, 80] (every 2nd element)
+print(nums[::-1])   # [90, 80, 70, 60, 50, 40, 30, 20, 10, 0] (reversed)</code></pre>
+
+<p>
+  The full syntax is <code>list[start:stop:step]</code>:
+</p>
+
+<ul>
+  <li><code>start</code> &mdash; index where the slice begins (default: beginning)</li>
+  <li><code>stop</code> &mdash; index where the slice ends, <strong>exclusive</strong> (default: end)</li>
+  <li><code>step</code> &mdash; how many indices to skip (default: 1)</li>
+</ul>
+
+<div class="callout callout-warning">
+  <strong>Common mistake:</strong> Forgetting that the <code>stop</code>
+  index is <em>exclusive</em>. <code>nums[2:5]</code> gives you elements
+  at indices 2, 3, and 4 &mdash; <strong>not</strong> index 5. This is
+  different from MATLAB where <code>nums(3:5)</code> includes all three
+  elements (indices 3, 4, and 5 in MATLAB's 1-based world).
+</div>
+
+<!-- 1.5 Modifying Elements -->
+<h3 id="modifying-elements">1.5 Modifying Elements</h3>
+
+<p>
+  Lists are mutable, so you can change any element by assigning to its
+  index:
+</p>
+
+<pre><code>colors = ["red", "green", "blue"]
+
+colors[1] = "yellow"
+print(colors)   # ['red', 'yellow', 'blue']
+
+# You can also replace a slice
+colors[0:2] = ["pink", "purple"]
+print(colors)   # ['pink', 'purple', 'blue']</code></pre>
+
+<!-- 1.6 List Methods -->
+<h3 id="list-methods">1.6 List Methods</h3>
+
+<p>
+  Lists come with many built-in methods. Here is every important one,
+  with examples:
+</p>
+
+<h4><code>.append(item)</code> &mdash; Add one item to the end</h4>
+
+<pre><code>animals = ["cat", "dog"]
+animals.append("fish")
+print(animals)   # ['cat', 'dog', 'fish']</code></pre>
+
+<h4><code>.extend(iterable)</code> &mdash; Add multiple items to the end</h4>
+
+<pre><code>animals = ["cat", "dog"]
+animals.extend(["fish", "bird"])
+print(animals)   # ['cat', 'dog', 'fish', 'bird']
+
+# Difference from append:
+animals2 = ["cat", "dog"]
+animals2.append(["fish", "bird"])       # Adds the LIST as a single element!
+print(animals2)  # ['cat', 'dog', ['fish', 'bird']]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Common mistake:</strong> Using <code>.append()</code> when you
+  mean <code>.extend()</code>. If you append a list, it becomes a nested
+  list inside the original. Use <code>.extend()</code> to add each
+  element individually.
+</div>
+
+<h4><code>.insert(index, item)</code> &mdash; Insert at a specific position</h4>
+
+<pre><code>fruits = ["apple", "cherry"]
+fruits.insert(1, "banana")       # Insert "banana" at index 1
+print(fruits)   # ['apple', 'banana', 'cherry']</code></pre>
+
+<h4><code>.remove(item)</code> &mdash; Remove the first occurrence of a value</h4>
+
+<pre><code>nums = [10, 20, 30, 20, 40]
+nums.remove(20)               # Removes the FIRST 20 only
+print(nums)   # [10, 30, 20, 40]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Caution:</strong> If the value is not in the list,
+  <code>.remove()</code> raises a <code>ValueError</code>. Always check
+  with <code>if value in list</code> before removing, or use a
+  <code>try/except</code> block.
+</div>
+
+<h4><code>.pop(index)</code> &mdash; Remove and return an item by index</h4>
+
+<pre><code>letters = ["a", "b", "c", "d"]
+
+last = letters.pop()        # Removes and returns the last item
+print(last)      # d
+print(letters)   # ['a', 'b', 'c']
+
+second = letters.pop(1)     # Removes and returns item at index 1
+print(second)    # b
+print(letters)   # ['a', 'c']</code></pre>
+
+<h4><code>.clear()</code> &mdash; Remove all items</h4>
+
+<pre><code>data = [1, 2, 3, 4, 5]
+data.clear()
+print(data)   # []</code></pre>
+
+<h4><code>.index(item)</code> &mdash; Find the index of the first occurrence</h4>
+
+<pre><code>colors = ["red", "green", "blue", "green"]
+print(colors.index("green"))   # 1  (first occurrence)
+# colors.index("purple")       # ValueError! Not in list</code></pre>
+
+<h4><code>.count(item)</code> &mdash; Count occurrences of a value</h4>
+
+<pre><code>grades = ["A", "B", "A", "C", "A", "B"]
+print(grades.count("A"))   # 3
+print(grades.count("D"))   # 0</code></pre>
+
+<h4><code>.sort()</code> &mdash; Sort the list in place</h4>
+
+<pre><code>nums = [30, 10, 50, 20, 40]
+nums.sort()
+print(nums)   # [10, 20, 30, 40, 50]
+
+nums.sort(reverse=True)
+print(nums)   # [50, 40, 30, 20, 10]
+
+# Sort strings alphabetically
+words = ["banana", "apple", "cherry"]
+words.sort()
+print(words)  # ['apple', 'banana', 'cherry']</code></pre>
+
+<div class="callout callout-info">
+  <strong>sort() vs sorted():</strong> <code>.sort()</code> modifies the
+  list in place and returns <code>None</code>. The built-in function
+  <code>sorted(list)</code> returns a <em>new</em> sorted list and
+  leaves the original unchanged. Use <code>sorted()</code> when you need
+  to keep the original order.
+</div>
+
+<h4><code>.reverse()</code> &mdash; Reverse the list in place</h4>
+
+<pre><code>nums = [1, 2, 3, 4, 5]
+nums.reverse()
+print(nums)   # [5, 4, 3, 2, 1]</code></pre>
+
+<h4><code>.copy()</code> &mdash; Create a shallow copy</h4>
+
+<pre><code>original = [1, 2, 3]
+duplicate = original.copy()
+duplicate.append(4)
+
+print(original)    # [1, 2, 3]       (unchanged)
+print(duplicate)   # [1, 2, 3, 4]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Common mistake &mdash; aliasing vs. copying:</strong> If you
+  write <code>b = a</code> (without <code>.copy()</code>), both
+  variables point to the <em>same</em> list. Changing one changes the
+  other!
+  <pre><code>a = [1, 2, 3]
+b = a              # b is NOT a copy &mdash; it is the same list
+b.append(4)
+print(a)           # [1, 2, 3, 4]  &mdash; a changed too!</code></pre>
+  Always use <code>.copy()</code> or slicing (<code>b = a[:]</code>) to
+  create an independent copy.
+</div>
+
+<!-- 1.7 len() -->
+<h3 id="len">1.7 len() &mdash; Getting the Length of a List</h3>
+
+<pre><code>fruits = ["apple", "banana", "cherry"]
+print(len(fruits))   # 3
+
+empty = []
+print(len(empty))    # 0</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> <code>len(fruits)</code> in Python
+  is equivalent to <code>length(fruits)</code> or
+  <code>numel(fruits)</code> in MATLAB.
+</div>
+
+<!-- 1.8 Membership -->
+<h3 id="membership">1.8 Checking Membership with <code>in</code></h3>
+
+<p>
+  The <code>in</code> keyword checks whether an item exists in a list.
+  It returns <code>True</code> or <code>False</code>.
+</p>
+
+<pre><code>fruits = ["apple", "banana", "cherry"]
+
+print("banana" in fruits)      # True
+print("grape" in fruits)       # False
+print("grape" not in fruits)   # True
+
+# Common pattern: check before acting
+if "apple" in fruits:
+    print("We have apples!")   # We have apples!</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> In MATLAB you would use
+  <code>ismember('banana', fruits)</code> or
+  <code>any(strcmp(fruits, 'banana'))</code>. Python's
+  <code>"banana" in fruits</code> is more concise and readable.
+</div>
+
+<!-- 1.9 Nested Lists -->
+<h3 id="nested-lists">1.9 Nested Lists (Lists of Lists)</h3>
+
+<p>
+  Lists can contain other lists. This is how you represent matrices,
+  grids, and tables of data in plain Python (before learning NumPy).
+</p>
+
+<pre><code># A 3x3 matrix as a list of lists
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(matrix[0])       # [1, 2, 3]  (first row)
+print(matrix[1][2])    # 6          (second row, third column)
+print(matrix[2][0])    # 7          (third row, first column)</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> In MATLAB,
+  <code>matrix(2, 3)</code> gives you row 2, column 3 (value 6). In
+  Python, <code>matrix[1][2]</code> gives you the same value &mdash;
+  remembering that indices start at 0. For serious matrix work, use
+  <strong>NumPy</strong>, which gives you <code>matrix[1, 2]</code>
+  syntax just like MATLAB (but still 0-indexed).
+</div>
+
+<!-- 1.10 Concatenation and Repetition -->
+<h3 id="concat-repeat">1.10 List Concatenation and Repetition</h3>
+
+<pre><code># Concatenation with +
+list_a = [1, 2, 3]
+list_b = [4, 5, 6]
+combined = list_a + list_b
+print(combined)   # [1, 2, 3, 4, 5, 6]
+
+# Repetition with *
+zeros = [0] * 5
+print(zeros)      # [0, 0, 0, 0, 0]
+
+pattern = [1, 2] * 3
+print(pattern)    # [1, 2, 1, 2, 1, 2]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Gotcha with repetition and mutable objects:</strong> Be
+  careful when repeating lists that contain mutable objects (like other
+  lists).
+  <pre><code># Danger! All three inner lists are the SAME object
+grid = [[0] * 3] * 3
+grid[0][0] = 1
+print(grid)   # [[1, 0, 0], [1, 0, 0], [1, 0, 0]]  &mdash; all rows changed!
+
+# Safe way: use a list comprehension
+grid = [[0] * 3 for _ in range(3)]
+grid[0][0] = 1
+print(grid)   # [[1, 0, 0], [0, 0, 0], [0, 0, 0]]  &mdash; only first row changed</code></pre>
+</div>
+
+<!-- 1.11 Common Mistake: Index Out of Range -->
+<h3 id="index-error">1.11 Common Mistake: Index Out of Range</h3>
+
+<pre><code>fruits = ["apple", "banana", "cherry"]   # indices 0, 1, 2
+
+# This will crash:
+# print(fruits[3])   # IndexError: list index out of range
+
+# Remember: last valid index = len(list) - 1
+print(fruits[len(fruits) - 1])   # cherry
+print(fruits[-1])                # cherry (easier way)</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Common mistake:</strong> A list with 3 elements has indices
+  0, 1, and 2. Accessing index 3 raises an
+  <code>IndexError</code>. This is especially easy to trip over if you
+  are used to MATLAB where a 3-element array has indices 1, 2, and 3.
+</div>
+
+<!-- 1.12 List Exercises -->
+<h3 id="list-exercises">1.12 Exercises: Lists</h3>
+
+<div class="callout callout-info">
+  <strong>Exercise 1:</strong> Create a list of 5 cities you want to
+  visit. Print the first city, the last city, and the middle city.
+  Then sort the list alphabetically and print the result.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>cities = ["Tokyo", "Paris", "Sydney", "Cairo", "Lima"]
+
+print(cities[0])     # Tokyo  (first)
+print(cities[-1])    # Lima   (last)
+print(cities[2])     # Sydney (middle)
+
+cities.sort()
+print(cities)        # ['Cairo', 'Lima', 'Paris', 'Sydney', 'Tokyo']</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>Exercise 2:</strong> Start with
+  <code>nums = [5, 3, 8, 1, 9, 2, 7]</code>. Remove the value 8,
+  append the value 6, sort the list, then print the list and its
+  length.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>nums = [5, 3, 8, 1, 9, 2, 7]
+
+nums.remove(8)
+nums.append(6)
+nums.sort()
+print(nums)        # [1, 2, 3, 5, 6, 7, 9]
+print(len(nums))   # 7</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>Exercise 3:</strong> Given <code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>,
+  print the value 6 (row 2, column 3) using Python indexing. Then
+  print the entire second row.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+print(matrix[1][2])   # 6   (row index 1, column index 2)
+print(matrix[1])      # [4, 5, 6]</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>Exercise 4:</strong> Create a list
+  <code>scores = [85, 92, 78, 90, 88]</code>. Using slicing, print
+  the first 3 scores, the last 2 scores, and every other score.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>scores = [85, 92, 78, 90, 88]
+
+print(scores[:3])    # [85, 92, 78]   (first 3)
+print(scores[-2:])   # [90, 88]       (last 2)
+print(scores[::2])   # [85, 78, 88]   (every other)</code></pre>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  2. TUPLES                                                    -->
+<!-- ============================================================ -->
+
+<h2 id="tuples">2. Tuples &mdash; Immutable Sequences</h2>
+
+<p>
+  A <strong>tuple</strong> is like a list, but
+  <strong>immutable</strong> &mdash; once created, you cannot change,
+  add, or remove its elements. Tuples use parentheses <code>()</code>
+  instead of square brackets <code>[]</code>.
+</p>
+
+<!-- 2.1 Creating Tuples -->
+<h3 id="creating-tuples">2.1 Creating Tuples</h3>
+
+<pre><code># Creating tuples
+point = (3, 4)
+colors = ("red", "green", "blue")
+mixed = (1, "hello", 3.14)
+empty = ()
+
+print(point)    # (3, 4)
+print(colors)   # ('red', 'green', 'blue')
+
+# Accessing elements works the same as lists
+print(colors[0])    # red
+print(colors[-1])   # blue
+print(colors[1:])   # ('green', 'blue')</code></pre>
+
+<h4>The Single-Element Tuple Gotcha</h4>
+
+<div class="callout callout-warning">
+  <strong>Gotcha!</strong> To create a tuple with <strong>one
+  element</strong>, you need a trailing comma. Without it, Python sees
+  just a value in parentheses (a grouping expression), not a tuple.
+  <pre><code># WRONG &mdash; this is just an integer, not a tuple
+not_a_tuple = (42)
+print(type(not_a_tuple))   # &lt;class 'int'&gt;
+
+# CORRECT &mdash; trailing comma makes it a tuple
+a_tuple = (42,)
+print(type(a_tuple))       # &lt;class 'tuple'&gt;
+print(a_tuple)             # (42,)</code></pre>
+  This catches many beginners off guard. Always include the trailing
+  comma for single-element tuples.
+</div>
+
+<!-- 2.2 Tuples Are Immutable -->
+<h3 id="tuples-immutable">2.2 Tuples Are Immutable</h3>
+
+<p>
+  The key difference between a tuple and a list: you
+  <strong>cannot</strong> modify a tuple after creation.
+</p>
+
+<pre><code>point = (3, 4)
+
+# These will all raise errors:
+# point[0] = 10        # TypeError: 'tuple' object does not support item assignment
+# point.append(5)      # AttributeError: 'tuple' object has no attribute 'append'
+# del point[0]         # TypeError: 'tuple' object doesn't support item deletion</code></pre>
+
+<p>
+  If you need to "change" a tuple, you must create a new one:
+</p>
+
+<pre><code>point = (3, 4)
+new_point = (10,) + point[1:]    # Replace first element
+print(new_point)   # (10, 4)</code></pre>
+
+<!-- 2.3 When to Use Tuples vs Lists -->
+<h3 id="tuples-vs-lists">2.3 When to Use Tuples vs. Lists</h3>
+
+<p>Use a <strong>tuple</strong> when:</p>
+<ul>
+  <li>The data should <strong>not change</strong> &mdash; coordinates, RGB colors, database records, configuration constants.</li>
+  <li>You want to use the collection as a <strong>dictionary key</strong> (lists cannot be dictionary keys because they are mutable).</li>
+  <li>You are returning <strong>multiple values from a function</strong> (Python convention).</li>
+  <li>You want to signal to other programmers: "this data is fixed."</li>
+</ul>
+
+<p>Use a <strong>list</strong> when:</p>
+<ul>
+  <li>You need to <strong>add, remove, or change</strong> items.</li>
+  <li>The collection represents data that <strong>grows or shrinks</strong> over time.</li>
+  <li>You do not know the size in advance.</li>
+</ul>
+
+<div class="callout callout-info">
+  <strong>Performance note:</strong> Tuples are slightly faster than
+  lists and use less memory. For small collections that never change,
+  prefer tuples. For everything else, lists are the way to go.
+</div>
+
+<!-- 2.4 Tuple Unpacking -->
+<h3 id="tuple-unpacking">2.4 Tuple Unpacking</h3>
+
+<p>
+  <strong>Tuple unpacking</strong> (also called "destructuring") lets
+  you assign each element of a tuple to a separate variable in one
+  line:
+</p>
+
+<pre><code># Basic unpacking
+point = (3, 4)
+x, y = point
+print(x)   # 3
+print(y)   # 4
+
+# Unpacking with more elements
+name, age, city = ("Alice", 30, "Paris")
+print(name)   # Alice
+print(age)    # 30
+print(city)   # Paris
+
+# Swapping variables &mdash; a classic Python trick
+a = 10
+b = 20
+a, b = b, a          # Swap using tuple unpacking
+print(a, b)          # 20 10</code></pre>
+
+<div class="callout callout-info">
+  <strong>The * operator in unpacking:</strong> You can use
+  <code>*</code> to capture "the rest" of the elements:
+  <pre><code>first, *rest = [1, 2, 3, 4, 5]
+print(first)   # 1
+print(rest)    # [2, 3, 4, 5]
+
+first, *middle, last = [1, 2, 3, 4, 5]
+print(first)    # 1
+print(middle)   # [2, 3, 4]
+print(last)     # 5</code></pre>
+</div>
+
+<!-- 2.5 Returning Multiple Values -->
+<h3 id="tuple-return">2.5 Common Use: Returning Multiple Values from Functions</h3>
+
+<p>
+  In Python, functions often return multiple values as a tuple:
+</p>
+
+<pre><code>def min_max(numbers):
+    return min(numbers), max(numbers)    # Returns a tuple
+
+result = min_max([4, 1, 7, 2, 9])
+print(result)        # (1, 9)
+
+# Or unpack directly:
+lo, hi = min_max([4, 1, 7, 2, 9])
+print(lo)            # 1
+print(hi)            # 9</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> MATLAB also supports multiple
+  return values: <code>[lo, hi] = min_max(nums)</code>. Python does the
+  same thing via tuple unpacking &mdash; the syntax is just slightly
+  different (no square brackets on the left side).
+</div>
+
+<!-- 2.6 Tuple Exercises -->
+<h3 id="tuple-exercises">2.6 Exercises: Tuples</h3>
+
+<div class="callout callout-info">
+  <strong>Exercise 5:</strong> Create a tuple representing an RGB color
+  <code>(255, 128, 0)</code>. Unpack it into variables
+  <code>r</code>, <code>g</code>, <code>b</code> and print each one.
+  Then try to change <code>r</code> to 200 inside the tuple &mdash;
+  what happens?
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>color = (255, 128, 0)
+r, g, b = color
+print(r, g, b)   # 255 128 0
+
+# Trying to modify the tuple:
+# color[0] = 200   # TypeError: 'tuple' object does not support item assignment
+
+# You would need to create a new tuple:
+color = (200, g, b)
+print(color)   # (200, 128, 0)</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>Exercise 6:</strong> Write a function
+  <code>circle_stats(radius)</code> that returns both the area and
+  circumference of a circle as a tuple. Call it and unpack the
+  results.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>import math
+
+def circle_stats(radius):
+    area = math.pi * radius ** 2
+    circumference = 2 * math.pi * radius
+    return area, circumference
+
+a, c = circle_stats(5)
+print(f"Area: {a:.2f}")            # Area: 78.54
+print(f"Circumference: {c:.2f}")   # Circumference: 31.42</code></pre>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  3. SETS                                                      -->
+<!-- ============================================================ -->
+
+<h2 id="sets">3. Sets &mdash; Unordered Collections of Unique Elements</h2>
+
+<p>
+  A <strong>set</strong> is an <em>unordered, mutable</em> collection
+  of <strong>unique</strong> elements. Sets automatically remove
+  duplicates and do not maintain insertion order. They are ideal for
+  membership testing and mathematical set operations (union,
+  intersection, difference).
+</p>
+
+<!-- 3.1 Creating Sets -->
+<h3 id="creating-sets">3.1 Creating Sets</h3>
+
+<pre><code># Creating sets with curly braces
+fruits = {"apple", "banana", "cherry"}
+print(fruits)   # {'cherry', 'apple', 'banana'}  (order may vary!)
+
+# Duplicates are automatically removed
+nums = {1, 2, 2, 3, 3, 3, 4}
+print(nums)     # {1, 2, 3, 4}
+
+# Creating a set from a list (great for removing duplicates!)
+names = ["Alice", "Bob", "Alice", "Charlie", "Bob"]
+unique_names = set(names)
+print(unique_names)   # {'Alice', 'Bob', 'Charlie'}</code></pre>
+
+<div class="callout callout-warning">
+  <strong>Critical gotcha &mdash; empty set:</strong> An empty set is
+  created with <code>set()</code>, <strong>not</strong>
+  <code>{}</code>. Curly braces with nothing inside create an empty
+  <strong>dictionary</strong>, not a set!
+  <pre><code># WRONG &mdash; this creates an empty dictionary
+not_a_set = {}
+print(type(not_a_set))   # &lt;class 'dict'&gt;
+
+# CORRECT &mdash; this creates an empty set
+empty_set = set()
+print(type(empty_set))   # &lt;class 'set'&gt;</code></pre>
+</div>
+
+<!-- 3.2 Adding and Removing Elements -->
+<h3 id="set-add-remove">3.2 Adding and Removing Elements</h3>
+
+<pre><code>colors = {"red", "green", "blue"}
+
+# Adding elements
+colors.add("yellow")
+print(colors)   # {'red', 'green', 'blue', 'yellow'}
+
+colors.add("red")          # Already exists &mdash; no effect, no error
+print(colors)              # {'red', 'green', 'blue', 'yellow'}
+
+# Removing elements
+colors.remove("green")     # Raises KeyError if not found
+print(colors)              # {'red', 'blue', 'yellow'}
+
+colors.discard("purple")   # No error if not found (safer)
+print(colors)              # {'red', 'blue', 'yellow'}
+
+# Pop a random element
+item = colors.pop()
+print(f"Removed: {item}")  # Removed: (some element, order is undefined)</code></pre>
+
+<div class="callout callout-info">
+  <strong>Tip:</strong> Use <code>.discard()</code> instead of
+  <code>.remove()</code> when you are not sure if the element exists.
+  <code>.discard()</code> silently does nothing if the element is
+  missing, while <code>.remove()</code> raises a <code>KeyError</code>.
+</div>
+
+<!-- 3.3 Set Operations -->
+<h3 id="set-operations">3.3 Set Operations: Union, Intersection, Difference</h3>
+
+<p>
+  Sets support all the standard mathematical set operations:
+</p>
+
+<pre><code>a = {1, 2, 3, 4, 5}
+b = {4, 5, 6, 7, 8}
+
+# Union &mdash; all elements from both sets
+print(a | b)            # {1, 2, 3, 4, 5, 6, 7, 8}
+print(a.union(b))       # same thing
+
+# Intersection &mdash; elements common to both sets
+print(a &amp; b)            # {4, 5}
+print(a.intersection(b))  # same thing
+
+# Difference &mdash; elements in a but NOT in b
+print(a - b)            # {1, 2, 3}
+print(a.difference(b))  # same thing
+
+# Symmetric difference &mdash; elements in either, but NOT both
+print(a ^ b)                      # {1, 2, 3, 6, 7, 8}
+print(a.symmetric_difference(b))  # same thing</code></pre>
+
+<pre><code># Practical example: find common and unique skills
+python_devs = {"Alice", "Bob", "Charlie", "Diana"}
+java_devs   = {"Charlie", "Diana", "Eve", "Frank"}
+
+both = python_devs &amp; java_devs
+print(f"Know both: {both}")            # {'Charlie', 'Diana'}
+
+only_python = python_devs - java_devs
+print(f"Only Python: {only_python}")   # {'Alice', 'Bob'}
+
+all_devs = python_devs | java_devs
+print(f"All devs: {all_devs}")         # {'Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'}</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB comparison:</strong> MATLAB has
+  <code>union(A, B)</code>, <code>intersect(A, B)</code>, and
+  <code>setdiff(A, B)</code> functions. Python uses the same concepts
+  but offers operator shortcuts (<code>|</code>, <code>&amp;</code>,
+  <code>-</code>) as well as method calls.
+</div>
+
+<!-- 3.4 When to Use Sets -->
+<h3 id="when-sets">3.4 When to Use Sets</h3>
+
+<p>Sets are the best choice when you need to:</p>
+
+<ul>
+  <li><strong>Remove duplicates</strong> from a collection:
+    <pre><code>data = [1, 2, 2, 3, 3, 3, 4]
+unique = list(set(data))    # [1, 2, 3, 4] (order may vary)
+print(unique)</code></pre>
+  </li>
+  <li><strong>Fast membership testing</strong> &mdash; checking
+    <code>x in my_set</code> is <em>much</em> faster than
+    <code>x in my_list</code> for large collections (O(1) vs. O(n)):
+    <pre><code># Checking if a user is in a set of allowed users
+allowed = {"admin", "editor", "viewer"}
+user = "editor"
+if user in allowed:
+    print("Access granted")</code></pre>
+  </li>
+  <li><strong>Finding common or unique elements</strong> between
+    collections using set operations (union, intersection, difference).
+  </li>
+</ul>
+
+
+<!-- 3.5 Set Exercises -->
+<h3 id="set-exercises">3.5 Exercises: Sets</h3>
+
+<div class="callout callout-info">
+  <strong>Exercise 7:</strong> Given
+  <code>nums = [1, 5, 2, 1, 3, 5, 4, 2, 3, 1]</code>, use a set to
+  find how many unique numbers there are and print them.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>nums = [1, 5, 2, 1, 3, 5, 4, 2, 3, 1]
+unique = set(nums)
+print(f"Unique numbers: {unique}")
+print(f"Count: {len(unique)}")
+# Unique numbers: {1, 2, 3, 4, 5}
+# Count: 5</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>Exercise 8:</strong> You have two lists of students:
+  <code>math_class = ["Alice", "Bob", "Charlie", "Diana"]</code> and
+  <code>science_class = ["Charlie", "Diana", "Eve", "Frank"]</code>.
+  Using sets, find: (a) students in both classes, (b) students only in
+  math, (c) all students combined.
+  <details>
+    <summary>Show solution</summary>
+    <pre><code>math_class = {"Alice", "Bob", "Charlie", "Diana"}
+science_class = {"Charlie", "Diana", "Eve", "Frank"}
+
+both = math_class &amp; science_class
+print(f"Both classes: {both}")          # {'Charlie', 'Diana'}
+
+only_math = math_class - science_class
+print(f"Only math: {only_math}")        # {'Alice', 'Bob'}
+
+all_students = math_class | science_class
+print(f"All students: {all_students}")  # {'Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'}</code></pre>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  4. COMPARISON TABLE                                          -->
+<!-- ============================================================ -->
+
+<h2 id="comparison">4. Comparison: List vs. Tuple vs. Set</h2>
+
+<p>
+  Here is a quick-reference table summarizing the key differences:
+</p>
+
+<div style="overflow-x: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>List</th>
+        <th>Tuple</th>
+        <th>Set</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Syntax</strong></td>
+        <td><code>[1, 2, 3]</code></td>
+        <td><code>(1, 2, 3)</code></td>
+        <td><code>{1, 2, 3}</code></td>
+      </tr>
+      <tr>
+        <td><strong>Mutable?</strong></td>
+        <td>Yes &mdash; can change, add, remove</td>
+        <td>No &mdash; immutable after creation</td>
+        <td>Yes &mdash; can add and remove</td>
+      </tr>
+      <tr>
+        <td><strong>Ordered?</strong></td>
+        <td>Yes &mdash; maintains insertion order</td>
+        <td>Yes &mdash; maintains insertion order</td>
+        <td>No &mdash; unordered</td>
+      </tr>
+      <tr>
+        <td><strong>Allows duplicates?</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No &mdash; all elements unique</td>
+      </tr>
+      <tr>
+        <td><strong>Indexing?</strong></td>
+        <td>Yes &mdash; <code>my_list[0]</code></td>
+        <td>Yes &mdash; <code>my_tuple[0]</code></td>
+        <td>No &mdash; cannot access by index</td>
+      </tr>
+      <tr>
+        <td><strong>Slicing?</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>Can be dict key?</strong></td>
+        <td>No (mutable)</td>
+        <td>Yes (immutable)</td>
+        <td>No (mutable)</td>
+      </tr>
+      <tr>
+        <td><strong>Membership test speed</strong></td>
+        <td>Slow for large lists (O(n))</td>
+        <td>Slow for large tuples (O(n))</td>
+        <td>Fast (O(1))</td>
+      </tr>
+      <tr>
+        <td><strong>Empty creation</strong></td>
+        <td><code>[]</code> or <code>list()</code></td>
+        <td><code>()</code> or <code>tuple()</code></td>
+        <td><code>set()</code> (not <code>{}</code>!)</td>
+      </tr>
+      <tr>
+        <td><strong>Common use case</strong></td>
+        <td>General-purpose collection</td>
+        <td>Fixed data, function returns, dict keys</td>
+        <td>Unique elements, fast lookups, set math</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<pre><code># Quick demo showing all three
+my_list  = [1, 2, 2, 3]     # ordered, mutable, allows duplicates
+my_tuple = (1, 2, 2, 3)     # ordered, immutable, allows duplicates
+my_set   = {1, 2, 2, 3}     # unordered, mutable, NO duplicates
+
+print(my_list)    # [1, 2, 2, 3]
+print(my_tuple)   # (1, 2, 2, 3)
+print(my_set)     # {1, 2, 3}  &mdash; duplicate 2 removed!
+
+print(len(my_list))    # 4
+print(len(my_tuple))   # 4
+print(len(my_set))     # 3  &mdash; only unique elements counted</code></pre>
+
+
+<!-- ============================================================ -->
+<!--  5. CONVERTING BETWEEN TYPES                                  -->
+<!-- ============================================================ -->
+
+<h2 id="converting">5. Converting Between Lists, Tuples, and Sets</h2>
+
+<p>
+  You can freely convert between these collection types using their
+  constructors:
+</p>
+
+<pre><code># Start with a list
+my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5]
+
+# List to tuple
+my_tuple = tuple(my_list)
+print(my_tuple)   # (3, 1, 4, 1, 5, 9, 2, 6, 5)
+
+# List to set (removes duplicates)
+my_set = set(my_list)
+print(my_set)     # {1, 2, 3, 4, 5, 6, 9}
+
+# Set back to list (now without duplicates)
+unique_list = list(my_set)
+print(unique_list)   # [1, 2, 3, 4, 5, 6, 9] (order may vary)
+
+# Tuple to list
+editable = list(my_tuple)
+editable.append(99)
+print(editable)   # [3, 1, 4, 1, 5, 9, 2, 6, 5, 99]</code></pre>
+
+<div class="callout callout-info">
+  <strong>Common pattern &mdash; remove duplicates while preserving order:</strong>
+  Converting to a set and back loses order. If you need to preserve
+  the original order while removing duplicates:
+  <pre><code>data = [3, 1, 4, 1, 5, 9, 2, 6, 5]
+seen = set()
+unique_ordered = []
+for item in data:
+    if item not in seen:
+        seen.add(item)
+        unique_ordered.append(item)
+print(unique_ordered)   # [3, 1, 4, 5, 9, 2, 6]</code></pre>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  6. SUMMARY                                                   -->
+<!-- ============================================================ -->
+
+<h2 id="summary">6. Summary</h2>
+
+<ul>
+  <li>
+    <strong>Lists</strong> (<code>[]</code>) are ordered, mutable
+    collections. Use them as your default go-to data structure.
+    They support indexing, slicing, and a rich set of methods
+    (<code>.append()</code>, <code>.sort()</code>,
+    <code>.pop()</code>, etc.).
+  </li>
+  <li>
+    <strong>Tuples</strong> (<code>()</code>) are ordered, immutable
+    collections. Use them for fixed data, function return values,
+    and as dictionary keys. Remember the trailing comma for
+    single-element tuples.
+  </li>
+  <li>
+    <strong>Sets</strong> (<code>{}</code>) are unordered collections
+    of unique elements. Use them when you need to eliminate duplicates
+    or perform fast membership tests. Remember:
+    <code>set()</code> for empty sets, not <code>{}</code>.
+  </li>
+  <li>
+    Python uses <strong>0-based indexing</strong>. The first element
+    is at index 0, not 1. Coming from MATLAB, this will require
+    conscious adjustment.
+  </li>
+  <li>
+    Use <code>in</code> for membership checks, <code>len()</code>
+    for length, and slice syntax
+    <code>[start:stop:step]</code> for extracting sub-sequences.
+  </li>
+</ul>
+
+<div class="callout callout-matlab">
+  <strong>Key takeaway for MATLAB users:</strong> Python lists replace
+  both MATLAB's numeric arrays (for general-purpose data) and cell
+  arrays (for mixed types). The main adjustments are: (1) 0-based
+  indexing, (2) square brackets instead of parentheses for indexing,
+  and (3) methods like <code>.append()</code> instead of
+  <code>end+1</code> tricks. For numerical work with matrices, you
+  will later use <strong>NumPy arrays</strong>, which feel much more
+  like MATLAB arrays.
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE NAVIGATION                                              -->
+<!-- ============================================================ -->
+
+<div class="page-nav">
+<a href="basics-strings-booleans.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Strings &amp; Booleans</span></a>
+<a href="basics-dictionaries.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Dictionaries</span></a>
+</div></div></main>
+<script src="../js/main.js"></script></body></html>

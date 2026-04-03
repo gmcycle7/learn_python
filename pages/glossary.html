@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Glossary — Learn Python</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+  <div class="progress-bar"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> Learn Python</h2><p>Complete Beginner's Guide</p></div>
+    <div class="sidebar-search"><span class="search-icon">&#128269;</span><input type="text" placeholder="Search pages..." aria-label="Search"><div class="search-results"></div></div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-section"><div class="nav-section-title">A — What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+      <div class="nav-section"><div class="nav-section-title">B — Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+      <div class="nav-section"><div class="nav-section-title">C — Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a><a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a><a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a><a href="basics-dictionaries.html" class="nav-link">Dictionaries</a><a href="basics-conditionals.html" class="nav-link">Conditionals</a><a href="basics-loops.html" class="nav-link">Loops</a><a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a><a href="basics-more.html" class="nav-link">More Built-ins</a><a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a></div>
+      <div class="nav-section"><div class="nav-section-title">D — Common Patterns</div><a href="common-patterns.html" class="nav-link">Common Patterns</a><a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a></div>
+      <div class="nav-section"><div class="nav-section-title">E — MATLAB to Python</div><a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a><a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a></div>
+      <div class="nav-section"><div class="nav-section-title">F — Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+      <div class="nav-section"><div class="nav-section-title">G — Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+      <div class="nav-section"><div class="nav-section-title">H — Practice</div><a href="practice.html" class="nav-link">Practice &amp; Roadmap</a><a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a></div>
+      <div class="nav-section"><div class="nav-section-title">I — Best Practices</div><a href="best-practices.html" class="nav-link">Best Practices</a><a href="common-errors.html" class="nav-link">Common Errors</a></div>
+      <div class="nav-section"><div class="nav-section-title">J — Reference</div><a href="cheatsheet.html" class="nav-link">Cheat Sheet</a><a href="python-for-automation.html" class="nav-link">Python for Automation</a><a href="glossary.html" class="nav-link">Glossary</a></div>
+      <div class="nav-section"><div class="nav-section-title">K — More Topics</div><a href="oop.html" class="nav-link">Object-Oriented Programming</a><a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a></div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="content-header">
+      <h1>Python Glossary</h1>
+      <p class="subtitle">An A-Z reference of essential Python terms every beginner should know.</p>
+    </div>
+
+    <div class="glossary-nav">
+      <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#J">J</a><a href="#K">K</a><a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a><a href="#P">P</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a><a href="#V">V</a><a href="#W">W</a><a href="#Z">Z</a>
+    </div>
+
+    <!-- A -->
+    <div id="A" class="glossary-letter">A</div>
+    <dl class="glossary-list">
+      <dt>Argument</dt>
+      <dd>A value passed to a function when calling it. In <code>print("hello")</code>, <code>"hello"</code> is the argument.</dd>
+
+      <dt>Assignment</dt>
+      <dd>Storing a value in a variable using the <code>=</code> operator. Example: <code>x = 10</code> assigns the integer 10 to the variable <code>x</code>.</dd>
+
+      <dt><code>assert</code></dt>
+      <dd>A debugging statement that tests a condition and raises <code>AssertionError</code> if it is false. Example: <code>assert len(my_list) &gt; 0</code> ensures the list is not empty.</dd>
+
+      <dt>Attribute</dt>
+      <dd>A value or function associated with an object, accessed with dot notation. In <code>my_list.append(5)</code>, <code>append</code> is an attribute (specifically a method) of the list object.</dd>
+    </dl>
+
+    <!-- B -->
+    <div id="B" class="glossary-letter">B</div>
+    <dl class="glossary-list">
+      <dt>Boolean</dt>
+      <dd>A data type with only two possible values: <code>True</code> or <code>False</code>. Used in conditions and comparisons, e.g. <code>is_active = True</code>.</dd>
+
+      <dt><code>break</code></dt>
+      <dd>A statement that immediately exits the innermost loop. Example: <code>for n in range(100): if n == 5: break</code> stops the loop when <code>n</code> reaches 5.</dd>
+
+      <dt>Built-in</dt>
+      <dd>A function or type that is always available in Python without needing an import. Examples include <code>print()</code>, <code>len()</code>, <code>int()</code>, and <code>list()</code>.</dd>
+
+      <dt>Byte</dt>
+      <dd>A unit of data. Python has a <code>bytes</code> type for sequences of bytes, often used when reading binary files or working with network data. Created with <code>b"hello"</code>.</dd>
+    </dl>
+
+    <!-- C -->
+    <div id="C" class="glossary-letter">C</div>
+    <dl class="glossary-list">
+      <dt>Class</dt>
+      <dd>A blueprint for creating objects. Defined with the <code>class</code> keyword. Example: <code>class Dog: pass</code> defines a simple class named <code>Dog</code>.</dd>
+
+      <dt>Comment</dt>
+      <dd>Text in your code that Python ignores, used to explain what the code does. Single-line comments start with <code>#</code>. Example: <code># This is a comment</code>.</dd>
+
+      <dt>Comprehension</dt>
+      <dd>A concise way to create lists, sets, or dictionaries. Example: <code>[x * 2 for x in range(5)]</code> produces <code>[0, 2, 4, 6, 8]</code>.</dd>
+
+      <dt>Concatenation</dt>
+      <dd>Joining two sequences together. For strings: <code>"Hello" + " World"</code> gives <code>"Hello World"</code>. For lists: <code>[1, 2] + [3, 4]</code> gives <code>[1, 2, 3, 4]</code>.</dd>
+
+      <dt>Conditional</dt>
+      <dd>A statement that runs code only when a condition is true. Python uses <code>if</code>, <code>elif</code>, and <code>else</code> for conditional logic.</dd>
+
+      <dt>Constructor</dt>
+      <dd>The special method <code>__init__</code> that runs automatically when a new object is created from a class. Example: <code>def __init__(self, name): self.name = name</code>.</dd>
+
+      <dt><code>continue</code></dt>
+      <dd>A statement that skips the rest of the current loop iteration and moves to the next one. Example: <code>for n in range(5): if n == 2: continue</code> skips the iteration when <code>n</code> is 2.</dd>
+
+      <dt>CSV</dt>
+      <dd>Comma-Separated Values, a plain-text file format for tabular data. Python's built-in <code>csv</code> module lets you read and write CSV files easily with <code>import csv</code>.</dd>
+    </dl>
+
+    <!-- D -->
+    <div id="D" class="glossary-letter">D</div>
+    <dl class="glossary-list">
+      <dt>Data type</dt>
+      <dd>The category of a value that determines what operations can be performed on it. Common types include <code>int</code>, <code>float</code>, <code>str</code>, <code>list</code>, <code>dict</code>, and <code>bool</code>.</dd>
+
+      <dt>Decorator</dt>
+      <dd>A function that modifies the behavior of another function. Applied with the <code>@</code> symbol above a function definition. Example: <code>@staticmethod</code> before a method makes it a static method.</dd>
+
+      <dt><code>def</code></dt>
+      <dd>The keyword used to define a function. Example: <code>def greet(name): return f"Hello, {name}"</code>.</dd>
+
+      <dt>Default parameter</dt>
+      <dd>A function parameter with a pre-assigned value that is used when no argument is provided. Example: <code>def greet(name="World")</code> uses <code>"World"</code> if no name is given.</dd>
+
+      <dt>Dictionary</dt>
+      <dd>A built-in data structure that stores key-value pairs. Created with curly braces: <code>{"name": "Alice", "age": 30}</code>. Access values by key: <code>d["name"]</code>.</dd>
+
+      <dt>Docstring</dt>
+      <dd>A string placed as the first statement in a function, class, or module to document it. Written with triple quotes: <code>"""This function does X."""</code>. Accessible via <code>help()</code>.</dd>
+
+      <dt>Dynamic typing</dt>
+      <dd>Python's approach where variables do not have fixed types. You can write <code>x = 5</code> then <code>x = "hello"</code> and Python will not complain -- the type changes at runtime.</dd>
+    </dl>
+
+    <!-- E -->
+    <div id="E" class="glossary-letter">E</div>
+    <dl class="glossary-list">
+      <dt>Element</dt>
+      <dd>A single item within a collection such as a list, tuple, or set. In <code>[10, 20, 30]</code>, <code>20</code> is an element at index 1.</dd>
+
+      <dt><code>elif</code></dt>
+      <dd>Short for "else if." Used after an <code>if</code> block to check another condition. Example: <code>elif x &gt; 0:</code>.</dd>
+
+      <dt><code>else</code></dt>
+      <dd>A clause that runs when the preceding <code>if</code> (and all <code>elif</code>) conditions are false. Example: <code>else: print("No match")</code>.</dd>
+
+      <dt>Encapsulation</dt>
+      <dd>An object-oriented principle of bundling data and methods together inside a class, and restricting direct access to some internals. In Python, a leading underscore (e.g. <code>_private</code>) signals an attribute is internal.</dd>
+
+      <dt><code>enumerate()</code></dt>
+      <dd>A built-in that adds an index counter to an iterable. Example: <code>for i, val in enumerate(["a", "b"])</code> gives pairs <code>(0, "a")</code> and <code>(1, "b")</code>.</dd>
+
+      <dt>Exception</dt>
+      <dd>An error that occurs during program execution. Common exceptions include <code>ValueError</code>, <code>TypeError</code>, and <code>IndexError</code>. Handle them with <code>try/except</code>.</dd>
+
+      <dt>Expression</dt>
+      <dd>A piece of code that evaluates to a value. Examples: <code>3 + 4</code>, <code>len("hi")</code>, and <code>x &gt; 5</code> are all expressions.</dd>
+    </dl>
+
+    <!-- F -->
+    <div id="F" class="glossary-letter">F</div>
+    <dl class="glossary-list">
+      <dt>f-string</dt>
+      <dd>A formatted string literal (Python 3.6+) that lets you embed expressions inside curly braces. Example: <code>f"Hello, {name}!"</code> inserts the value of <code>name</code> into the string.</dd>
+
+      <dt><code>False</code></dt>
+      <dd>One of the two Boolean values. Equivalent to <code>0</code> in numeric contexts. Values like <code>0</code>, <code>""</code>, <code>[]</code>, and <code>None</code> are all "falsy."</dd>
+
+      <dt><code>filter()</code></dt>
+      <dd>A built-in that returns elements from an iterable for which a function returns <code>True</code>. Example: <code>list(filter(lambda x: x &gt; 0, [-1, 2, 3]))</code> gives <code>[2, 3]</code>.</dd>
+
+      <dt><code>finally</code></dt>
+      <dd>A block in a <code>try/except</code> statement that always executes, whether or not an exception occurred. Often used for cleanup like closing files.</dd>
+
+      <dt>Float</dt>
+      <dd>A number with a decimal point. Example: <code>3.14</code>. Created with <code>float("3.14")</code> or by writing a decimal literal directly.</dd>
+
+      <dt><code>for</code> loop</dt>
+      <dd>A loop that iterates over each item in a sequence. Example: <code>for fruit in ["apple", "banana"]: print(fruit)</code>.</dd>
+
+      <dt>Function</dt>
+      <dd>A reusable block of code defined with <code>def</code> that performs a specific task. Call it by name with parentheses: <code>greet("Alice")</code>.</dd>
+    </dl>
+
+    <!-- G -->
+    <div id="G" class="glossary-letter">G</div>
+    <dl class="glossary-list">
+      <dt>Generator</dt>
+      <dd>A function that uses <code>yield</code> instead of <code>return</code> to produce a sequence of values lazily (one at a time). Example: <code>def count(): yield 1; yield 2</code>.</dd>
+
+      <dt><code>global</code></dt>
+      <dd>A keyword that lets a function modify a variable defined at the module level. Example: <code>global counter</code> inside a function allows it to change the outer <code>counter</code> variable.</dd>
+
+      <dt>Global variable</dt>
+      <dd>A variable defined at the top level of a script or module, accessible from anywhere in that file. Use sparingly -- prefer passing values as function arguments.</dd>
+    </dl>
+
+    <!-- H -->
+    <div id="H" class="glossary-letter">H</div>
+    <dl class="glossary-list">
+      <dt>Hash</dt>
+      <dd>A fixed-size numeric value computed from an object, used for fast lookups in dictionaries and sets. Only immutable types like <code>str</code>, <code>int</code>, and <code>tuple</code> are hashable.</dd>
+
+      <dt><code>help()</code></dt>
+      <dd>A built-in function that displays documentation for any object. Type <code>help(print)</code> in the interpreter to see how <code>print()</code> works.</dd>
+    </dl>
+
+    <!-- I -->
+    <div id="I" class="glossary-letter">I</div>
+    <dl class="glossary-list">
+      <dt>IDE</dt>
+      <dd>Integrated Development Environment -- a software application for writing code, with features like syntax highlighting, debugging, and autocomplete. Popular Python IDEs include VS Code and PyCharm.</dd>
+
+      <dt><code>if</code></dt>
+      <dd>The keyword that starts a conditional statement. The indented block runs only when the condition is true. Example: <code>if x &gt; 0: print("positive")</code>.</dd>
+
+      <dt>Immutable</dt>
+      <dd>An object whose value cannot be changed after creation. Strings, integers, floats, and tuples are immutable in Python. Example: you cannot do <code>"hello"[0] = "H"</code>.</dd>
+
+      <dt>Import</dt>
+      <dd>The <code>import</code> statement loads a module so you can use its functions and classes. Example: <code>import math</code> then <code>math.sqrt(16)</code>.</dd>
+
+      <dt>Index</dt>
+      <dd>The position of an element in a sequence, starting from 0. In <code>["a", "b", "c"]</code>, the index of <code>"b"</code> is <code>1</code>. Negative indices count from the end: <code>-1</code> is the last item.</dd>
+
+      <dt>Inheritance</dt>
+      <dd>An OOP mechanism where a class (child) inherits attributes and methods from another class (parent). Example: <code>class Cat(Animal):</code> means <code>Cat</code> inherits from <code>Animal</code>.</dd>
+
+      <dt><code>input()</code></dt>
+      <dd>A built-in function that reads a line of text from the user. Example: <code>name = input("Enter your name: ")</code>. Always returns a string.</dd>
+
+      <dt>Instance</dt>
+      <dd>A specific object created from a class. If <code>Dog</code> is a class, then <code>my_dog = Dog("Rex")</code> creates an instance of <code>Dog</code>.</dd>
+
+      <dt>Integer</dt>
+      <dd>A whole number without a decimal point, such as <code>42</code> or <code>-7</code>. Python integers have unlimited precision.</dd>
+
+      <dt>Interpreter</dt>
+      <dd>The program that reads and executes Python code line by line. You can run it interactively by typing <code>python</code> in a terminal, or use it to run scripts like <code>python script.py</code>.</dd>
+
+      <dt>Iterable</dt>
+      <dd>Any object you can loop over with a <code>for</code> loop. Lists, tuples, strings, dictionaries, sets, and generators are all iterables.</dd>
+
+      <dt>Iterator</dt>
+      <dd>An object that produces the next value in a sequence when you call <code>next()</code> on it. Created from an iterable with <code>iter()</code>. Example: <code>it = iter([1, 2]); next(it)</code> gives <code>1</code>.</dd>
+    </dl>
+
+    <!-- J -->
+    <div id="J" class="glossary-letter">J</div>
+    <dl class="glossary-list">
+      <dt>JSON</dt>
+      <dd>JavaScript Object Notation -- a lightweight text format for storing and exchanging data. Python's <code>json</code> module handles it: <code>json.loads('{"key": "value"}')</code> parses JSON into a dictionary.</dd>
+
+      <dt><code>join()</code></dt>
+      <dd>A string method that combines a list of strings into one, using the string as a separator. Example: <code>", ".join(["a", "b", "c"])</code> gives <code>"a, b, c"</code>.</dd>
+    </dl>
+
+    <!-- K -->
+    <div id="K" class="glossary-letter">K</div>
+    <dl class="glossary-list">
+      <dt>Key</dt>
+      <dd>The identifier used to access a value in a dictionary. In <code>{"name": "Alice"}</code>, <code>"name"</code> is the key. Keys must be immutable (strings, numbers, tuples).</dd>
+
+      <dt>Keyword</dt>
+      <dd>A reserved word in Python that has special meaning and cannot be used as a variable name. Examples: <code>if</code>, <code>for</code>, <code>def</code>, <code>class</code>, <code>return</code>, <code>import</code>.</dd>
+
+      <dt>Keyword argument</dt>
+      <dd>An argument passed to a function by name. Example: <code>print("hi", end="")</code> -- here <code>end=""</code> is a keyword argument.</dd>
+    </dl>
+
+    <!-- L -->
+    <div id="L" class="glossary-letter">L</div>
+    <dl class="glossary-list">
+      <dt>Lambda</dt>
+      <dd>An anonymous (unnamed) function defined in a single expression using the <code>lambda</code> keyword. Example: <code>square = lambda x: x ** 2</code> then <code>square(4)</code> gives <code>16</code>.</dd>
+
+      <dt><code>len()</code></dt>
+      <dd>A built-in function that returns the number of items in an object. Example: <code>len([1, 2, 3])</code> gives <code>3</code>; <code>len("hello")</code> gives <code>5</code>.</dd>
+
+      <dt>Library</dt>
+      <dd>A collection of modules and packages that provide pre-written functionality. Examples: the Python standard library, NumPy, Pandas, and Requests.</dd>
+
+      <dt>List</dt>
+      <dd>An ordered, mutable collection of items created with square brackets. Example: <code>fruits = ["apple", "banana", "cherry"]</code>. Access items by index: <code>fruits[0]</code>.</dd>
+
+      <dt>List comprehension</dt>
+      <dd>A compact syntax for creating lists. Example: <code>[x ** 2 for x in range(5)]</code> gives <code>[0, 1, 4, 9, 16]</code>. Can include conditions: <code>[x for x in range(10) if x % 2 == 0]</code>.</dd>
+
+      <dt>Local variable</dt>
+      <dd>A variable defined inside a function, accessible only within that function. It is created when the function runs and destroyed when it finishes.</dd>
+
+      <dt>Loop</dt>
+      <dd>A control structure that repeats a block of code. Python has two types: <code>for</code> loops (iterate over sequences) and <code>while</code> loops (repeat while a condition is true).</dd>
+    </dl>
+
+    <!-- M -->
+    <div id="M" class="glossary-letter">M</div>
+    <dl class="glossary-list">
+      <dt><code>map()</code></dt>
+      <dd>A built-in that applies a function to every item in an iterable. Example: <code>list(map(str, [1, 2, 3]))</code> gives <code>["1", "2", "3"]</code>.</dd>
+
+      <dt>Method</dt>
+      <dd>A function that belongs to an object and is called using dot notation. Example: <code>"hello".upper()</code> calls the <code>upper</code> method on the string <code>"hello"</code>, returning <code>"HELLO"</code>.</dd>
+
+      <dt>Module</dt>
+      <dd>A single Python file (<code>.py</code>) containing functions, classes, and variables that can be imported. Example: <code>import math</code> imports the <code>math</code> module.</dd>
+
+      <dt>Mutable</dt>
+      <dd>An object whose value can be changed after creation. Lists, dictionaries, and sets are mutable. Example: <code>my_list[0] = 99</code> changes the first element in place.</dd>
+    </dl>
+
+    <!-- N -->
+    <div id="N" class="glossary-letter">N</div>
+    <dl class="glossary-list">
+      <dt><code>None</code></dt>
+      <dd>Python's null value, representing the absence of a value. Functions that do not explicitly return anything return <code>None</code>. Test for it with <code>if x is None:</code>.</dd>
+
+      <dt>NumPy</dt>
+      <dd>A popular third-party library for numerical computing with powerful array operations. Installed with <code>pip install numpy</code>. Example: <code>import numpy as np; np.array([1, 2, 3])</code>.</dd>
+    </dl>
+
+    <!-- O -->
+    <div id="O" class="glossary-letter">O</div>
+    <dl class="glossary-list">
+      <dt>Object</dt>
+      <dd>Everything in Python is an object -- a piece of data with a type, value, and associated methods. Integers, strings, lists, functions, and classes are all objects.</dd>
+
+      <dt><code>open()</code></dt>
+      <dd>A built-in function to open a file and return a file object. Example: <code>with open("data.txt", "r") as f: content = f.read()</code>.</dd>
+
+      <dt>Operator</dt>
+      <dd>A symbol that performs an operation on values. Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>. Comparison: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>. Logical: <code>and</code>, <code>or</code>, <code>not</code>.</dd>
+    </dl>
+
+    <!-- P -->
+    <div id="P" class="glossary-letter">P</div>
+    <dl class="glossary-list">
+      <dt>Package</dt>
+      <dd>A directory of Python modules organized with an <code>__init__.py</code> file. Packages let you structure large projects. Example: <code>import mypackage.mymodule</code>.</dd>
+
+      <dt>Pandas</dt>
+      <dd>A powerful third-party library for data analysis and manipulation, built on top of NumPy. Install with <code>pip install pandas</code>. Its key data structure is the <code>DataFrame</code>.</dd>
+
+      <dt>Parameter</dt>
+      <dd>A variable listed in a function definition that receives a value when the function is called. In <code>def greet(name):</code>, <code>name</code> is the parameter. Compare with argument (the actual value passed).</dd>
+
+      <dt><code>pass</code></dt>
+      <dd>A statement that does nothing. Used as a placeholder when a block of code is required syntactically but you have nothing to write yet. Example: <code>def todo(): pass</code>.</dd>
+
+      <dt>PEP 8</dt>
+      <dd>The official Python style guide. It recommends conventions like 4-space indentation, <code>snake_case</code> for variables and functions, and <code>PascalCase</code> for class names.</dd>
+
+      <dt>pip</dt>
+      <dd>Python's package installer. Use it to install third-party libraries from PyPI. Example: <code>pip install requests</code> installs the Requests library.</dd>
+
+      <dt><code>print()</code></dt>
+      <dd>A built-in function that displays output to the console. Example: <code>print("Hello, World!")</code>. Accepts multiple arguments: <code>print("a", "b", sep="-")</code> outputs <code>a-b</code>.</dd>
+
+      <dt>Property</dt>
+      <dd>A way to define getter and setter methods on a class attribute using the <code>@property</code> decorator. Lets you access a method as if it were a simple attribute.</dd>
+
+      <dt>Python</dt>
+      <dd>A high-level, interpreted, general-purpose programming language created by Guido van Rossum. Known for its readable syntax, large standard library, and broad community support.</dd>
+    </dl>
+
+    <!-- R -->
+    <div id="R" class="glossary-letter">R</div>
+    <dl class="glossary-list">
+      <dt><code>range()</code></dt>
+      <dd>A built-in that generates a sequence of numbers. Example: <code>range(5)</code> produces <code>0, 1, 2, 3, 4</code>. Often used in <code>for</code> loops: <code>for i in range(3):</code>.</dd>
+
+      <dt>Recursion</dt>
+      <dd>When a function calls itself to solve a problem by breaking it into smaller sub-problems. Example: <code>def factorial(n): return 1 if n == 0 else n * factorial(n - 1)</code>.</dd>
+
+      <dt>REPL</dt>
+      <dd>Read-Eval-Print Loop -- the interactive Python shell where you type expressions and see results immediately. Start it by running <code>python</code> in a terminal.</dd>
+
+      <dt><code>return</code></dt>
+      <dd>A statement that exits a function and sends a value back to the caller. Example: <code>def add(a, b): return a + b</code>. A function without <code>return</code> implicitly returns <code>None</code>.</dd>
+    </dl>
+
+    <!-- S -->
+    <div id="S" class="glossary-letter">S</div>
+    <dl class="glossary-list">
+      <dt>Scope</dt>
+      <dd>The region of code where a variable is accessible. Python uses the LEGB rule: Local, Enclosing, Global, Built-in. A variable defined inside a function has local scope.</dd>
+
+      <dt><code>self</code></dt>
+      <dd>The conventional name for the first parameter of an instance method in a class. It refers to the current object. Example: <code>def greet(self): print(self.name)</code>.</dd>
+
+      <dt>Set</dt>
+      <dd>An unordered collection of unique elements, created with curly braces or <code>set()</code>. Example: <code>{1, 2, 3}</code>. Useful for removing duplicates and set operations like union and intersection.</dd>
+
+      <dt>Slice</dt>
+      <dd>A way to extract a portion of a sequence using <code>[start:stop:step]</code> syntax. Example: <code>"Python"[0:3]</code> gives <code>"Pyt"</code>; <code>[1, 2, 3, 4][::2]</code> gives <code>[1, 3]</code>.</dd>
+
+      <dt><code>sorted()</code></dt>
+      <dd>A built-in that returns a new sorted list from any iterable. Example: <code>sorted([3, 1, 2])</code> gives <code>[1, 2, 3]</code>. Use <code>reverse=True</code> for descending order.</dd>
+
+      <dt>Standard library</dt>
+      <dd>The collection of modules included with every Python installation. Covers file I/O, math, JSON, CSV, regular expressions, networking, and much more -- no <code>pip install</code> needed.</dd>
+
+      <dt>String</dt>
+      <dd>A sequence of characters enclosed in quotes. Example: <code>"Hello"</code> or <code>'Hello'</code>. Strings are immutable. Use triple quotes for multi-line strings: <code>"""line 1\nline 2"""</code>.</dd>
+
+      <dt><code>super()</code></dt>
+      <dd>A built-in function used inside a child class to call a method from the parent class. Example: <code>super().__init__(name)</code> calls the parent's constructor.</dd>
+    </dl>
+
+    <!-- T -->
+    <div id="T" class="glossary-letter">T</div>
+    <dl class="glossary-list">
+      <dt>Traceback</dt>
+      <dd>The error report Python displays when an exception occurs. It shows the chain of function calls that led to the error, with the most recent call last. Read from the bottom up to find the cause.</dd>
+
+      <dt><code>True</code></dt>
+      <dd>One of the two Boolean values. Equivalent to <code>1</code> in numeric contexts. Non-empty strings, non-zero numbers, and non-empty collections are all "truthy."</dd>
+
+      <dt><code>try/except</code></dt>
+      <dd>A statement for handling exceptions. Code in the <code>try</code> block is attempted; if an error occurs, the <code>except</code> block runs instead. Example: <code>try: int("abc") except ValueError: print("Not a number")</code>.</dd>
+
+      <dt>Tuple</dt>
+      <dd>An ordered, immutable sequence created with parentheses. Example: <code>point = (3, 4)</code>. Like a list you cannot modify. Access items by index: <code>point[0]</code>.</dd>
+
+      <dt>Type</dt>
+      <dd>The category of a value. Check with <code>type()</code>: <code>type(42)</code> returns <code>&lt;class 'int'&gt;</code>. Common types: <code>int</code>, <code>float</code>, <code>str</code>, <code>list</code>, <code>dict</code>, <code>bool</code>.</dd>
+
+      <dt>Type conversion</dt>
+      <dd>Changing a value from one type to another. Example: <code>int("5")</code> converts the string <code>"5"</code> to the integer <code>5</code>. Also called type casting. Common conversions: <code>str()</code>, <code>int()</code>, <code>float()</code>, <code>list()</code>.</dd>
+    </dl>
+
+    <!-- V -->
+    <div id="V" class="glossary-letter">V</div>
+    <dl class="glossary-list">
+      <dt>Variable</dt>
+      <dd>A named reference to a value stored in memory. Created by assignment: <code>age = 25</code>. Variable names should be descriptive and follow <code>snake_case</code> convention.</dd>
+
+      <dt><code>venv</code></dt>
+      <dd>A built-in module for creating virtual environments. Usage: <code>python -m venv myenv</code> creates an isolated environment in the <code>myenv</code> folder.</dd>
+
+      <dt>Virtual environment</dt>
+      <dd>An isolated Python installation that has its own set of packages, separate from the system Python. Prevents version conflicts between projects. Created with <code>python -m venv myenv</code> and activated before use.</dd>
+    </dl>
+
+    <!-- W -->
+    <div id="W" class="glossary-letter">W</div>
+    <dl class="glossary-list">
+      <dt><code>while</code> loop</dt>
+      <dd>A loop that repeats a block of code as long as a condition remains true. Example: <code>while count &lt; 10: count += 1</code>. Be careful to avoid infinite loops.</dd>
+
+      <dt><code>with</code> statement</dt>
+      <dd>A context manager that ensures resources are properly set up and cleaned up. Most commonly used with files: <code>with open("file.txt") as f:</code> automatically closes the file when the block ends.</dd>
+    </dl>
+
+    <!-- Z -->
+    <div id="Z" class="glossary-letter">Z</div>
+    <dl class="glossary-list">
+      <dt>Zero-based indexing</dt>
+      <dd>Python's convention where the first element of a sequence is at index <code>0</code>, the second at <code>1</code>, and so on. Example: in <code>["a", "b", "c"]</code>, <code>"a"</code> is at index <code>0</code>.</dd>
+
+      <dt><code>zip()</code></dt>
+      <dd>A built-in that combines multiple iterables element by element into tuples. Example: <code>list(zip([1, 2], ["a", "b"]))</code> gives <code>[(1, "a"), (2, "b")]</code>. Useful for iterating over two lists in parallel.</dd>
+    </dl>
+
+    <div class="page-nav">
+      <a href="cheatsheet.html" class="prev-link">&larr; Cheat Sheet</a>
+      <a href="oop.html" class="next-link">Object-Oriented Programming &rarr;</a>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

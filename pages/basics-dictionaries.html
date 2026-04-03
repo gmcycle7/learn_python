@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionaries &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link active">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Dictionaries
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  DICTIONARIES                                                 -->
+      <!-- ============================================================ -->
+
+      <h1>Dictionaries</h1>
+
+      <p>
+        Dictionaries are one of the most powerful and frequently used data
+        structures in Python. If lists let you store ordered sequences of
+        values, dictionaries let you store <strong>key-value pairs</strong>
+        &mdash; connecting a label (the key) to a piece of data (the value).
+        Once you understand dictionaries, you will see them everywhere:
+        configuration files, JSON data, function keyword arguments, and more.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB has
+        <code>containers.Map</code>, which works similarly &mdash; you store
+        values indexed by keys rather than by numeric position. However,
+        <code>containers.Map</code> is relatively niche in MATLAB code.
+        In Python, dictionaries (<code>dict</code>) are absolutely central
+        to the language. They are used everywhere &mdash; for JSON data,
+        function <code>**kwargs</code>, class attributes under the hood,
+        module namespaces, and much more. Mastering dictionaries is essential.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. WHAT IS A DICTIONARY?                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-is-a-dictionary">1. What is a Dictionary?</h2>
+
+      <p>
+        Think of a real-world dictionary: you look up a <strong>word</strong>
+        (the key) and find its <strong>definition</strong> (the value). A
+        Python dictionary works the same way &mdash; every entry is a
+        <em>key-value pair</em>, and you use the key to retrieve the
+        corresponding value.
+      </p>
+
+      <h3>Creating a Dictionary with <code>{}</code></h3>
+
+      <p>
+        The most common way to create a dictionary is with curly braces,
+        using colons to separate keys from values:
+      </p>
+
+      <pre><code># A simple dictionary: English word -> Spanish translation
+english_to_spanish = {
+    "hello": "hola",
+    "goodbye": "adi&oacute;s",
+    "please": "por favor",
+    "thank you": "gracias"
+}
+
+print(english_to_spanish)
+# {'hello': 'hola', 'goodbye': 'adi&oacute;s', 'please': 'por favor', 'thank you': 'gracias'}</code></pre>
+
+      <h3>Creating a Dictionary with <code>dict()</code></h3>
+
+      <p>
+        You can also create a dictionary using the built-in
+        <code>dict()</code> constructor. This works well when your keys
+        are simple strings that look like valid Python variable names:
+      </p>
+
+      <pre><code># Using dict() with keyword arguments
+person = dict(name="Alice", age=30, city="London")
+print(person)
+# {'name': 'Alice', 'age': 30, 'city': 'London'}
+
+# Using dict() with a list of tuples
+pairs = [("x", 10), ("y", 20), ("z", 30)]
+coordinates = dict(pairs)
+print(coordinates)
+# {'x': 10, 'y': 20, 'z': 30}</code></pre>
+
+      <h3>Empty Dictionary</h3>
+
+      <pre><code># Two ways to create an empty dictionary
+empty1 = {}
+empty2 = dict()
+
+print(type(empty1))  # &lt;class 'dict'&gt;
+print(len(empty1))   # 0</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Watch out:</strong> <code>{}</code> creates an empty
+        <em>dictionary</em>, not an empty set. To create an empty set,
+        you must use <code>set()</code>. This is a common source of
+        confusion for beginners.
+      </div>
+
+      <h3>Key Rules: Keys Must Be Immutable</h3>
+
+      <p>
+        Dictionary keys must be <strong>immutable</strong> (unchangeable)
+        types. This means you can use:
+      </p>
+
+      <ul>
+        <li><strong>Strings</strong> &mdash; the most common key type</li>
+        <li><strong>Numbers</strong> (int, float) &mdash; perfectly valid</li>
+        <li><strong>Tuples</strong> &mdash; only if they contain immutable elements</li>
+        <li><strong>Booleans</strong> &mdash; technically valid but rarely useful</li>
+      </ul>
+
+      <p>You <strong>cannot</strong> use lists, dictionaries, or sets as keys
+        because they are mutable:</p>
+
+      <pre><code># Valid keys
+valid = {
+    "name": "Alice",       # string key
+    42: "the answer",      # integer key
+    3.14: "pi",            # float key
+    (1, 2): "coordinates"  # tuple key
+}
+
+# Invalid key - this will raise a TypeError
+# bad = {[1, 2]: "a list as key"}  # TypeError: unhashable type: 'list'</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why must keys be immutable?</strong> Python uses a technique
+        called <em>hashing</em> to look up keys quickly. A hash is a
+        fixed-size number computed from the key's value. If the key could
+        change after being added (like a list that gets an item appended),
+        its hash would change too, and Python would no longer be able to
+        find it. Immutable types guarantee that the hash stays the same.
+      </div>
+
+      <p>
+        Values, on the other hand, can be <strong>anything</strong> &mdash;
+        strings, numbers, lists, other dictionaries, functions, objects, etc.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  2. ACCESSING VALUES                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="accessing-values">2. Accessing Values</h2>
+
+      <p>
+        There are two main ways to get a value out of a dictionary: bracket
+        notation and the <code>.get()</code> method. Choosing the right one
+        depends on whether you expect the key to always be present.
+      </p>
+
+      <h3>Bracket Notation: <code>dict[key]</code></h3>
+
+      <p>
+        Use square brackets with the key to retrieve a value. If the key
+        does not exist, Python raises a <code>KeyError</code>:
+      </p>
+
+      <pre><code>student = {"name": "Bob", "grade": "A", "age": 21}
+
+print(student["name"])   # Bob
+print(student["grade"])  # A
+
+# Trying to access a key that doesn't exist:
+# print(student["email"])  # KeyError: 'email'</code></pre>
+
+      <h3>The <code>.get()</code> Method: Safe Access</h3>
+
+      <p>
+        The <code>.get()</code> method returns <code>None</code> if the key
+        is missing, instead of crashing your program:
+      </p>
+
+      <pre><code>student = {"name": "Bob", "grade": "A", "age": 21}
+
+# .get() returns None if the key doesn't exist
+print(student.get("email"))       # None
+print(student.get("name"))        # Bob
+
+# You can provide a default value as the second argument
+print(student.get("email", "N/A"))    # N/A
+print(student.get("grade", "N/A"))    # A  (key exists, so default is ignored)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>When to use which:</strong>
+        <ul>
+          <li>Use <code>dict[key]</code> when you are <strong>certain</strong>
+            the key exists, or when a missing key indicates a bug that should
+            crash loudly.</li>
+          <li>Use <code>dict.get(key)</code> when the key <strong>might</strong>
+            be missing and you want to handle that gracefully.</li>
+          <li>Use <code>dict.get(key, default)</code> when you want a
+            <strong>fallback value</strong> for missing keys.</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. MODIFYING DICTIONARIES                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="modifying-dictionaries">3. Modifying Dictionaries</h2>
+
+      <p>
+        Dictionaries are <strong>mutable</strong> &mdash; you can add,
+        change, and remove key-value pairs after creation.
+      </p>
+
+      <h3>Adding and Updating Values</h3>
+
+      <pre><code>student = {"name": "Bob", "age": 21}
+
+# Add a new key-value pair
+student["email"] = "bob@example.com"
+print(student)
+# {'name': 'Bob', 'age': 21, 'email': 'bob@example.com'}
+
+# Update an existing value
+student["age"] = 22
+print(student)
+# {'name': 'Bob', 'age': 22, 'email': 'bob@example.com'}</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Note:</strong> The syntax for adding and updating is the
+        same &mdash; <code>dict[key] = value</code>. If the key already
+        exists, the old value is replaced. If it does not exist, a new
+        entry is created.
+      </div>
+
+      <h3>The <code>.update()</code> Method</h3>
+
+      <p>
+        Use <code>.update()</code> to merge another dictionary (or an
+        iterable of key-value pairs) into an existing dictionary. Existing
+        keys are overwritten; new keys are added:
+      </p>
+
+      <pre><code>student = {"name": "Bob", "age": 21}
+
+# Update with another dictionary
+student.update({"age": 22, "grade": "A", "email": "bob@example.com"})
+print(student)
+# {'name': 'Bob', 'age': 22, 'grade': 'A', 'email': 'bob@example.com'}
+
+# Update with keyword arguments
+student.update(city="New York", age=23)
+print(student)
+# {'name': 'Bob', 'age': 23, 'grade': 'A', 'email': 'bob@example.com', 'city': 'New York'}</code></pre>
+
+      <h3>Removing Entries</h3>
+
+      <p>
+        Python offers several ways to remove key-value pairs from a
+        dictionary:
+      </p>
+
+      <pre><code>student = {"name": "Bob", "age": 22, "grade": "A", "email": "bob@example.com"}
+
+# del — removes a specific key (raises KeyError if missing)
+del student["email"]
+print(student)
+# {'name': 'Bob', 'age': 22, 'grade': 'A'}
+
+# .pop(key) — removes and returns the value (raises KeyError if missing)
+grade = student.pop("grade")
+print(grade)     # A
+print(student)   # {'name': 'Bob', 'age': 22}
+
+# .pop(key, default) — returns default instead of raising KeyError
+missing = student.pop("phone", "not found")
+print(missing)   # not found
+
+# .popitem() — removes and returns the last inserted key-value pair
+student["city"] = "London"
+student["year"] = 3
+last = student.popitem()
+print(last)      # ('year', 3)
+print(student)   # {'name': 'Bob', 'age': 22, 'city': 'London'}
+
+# .clear() — removes ALL entries
+student.clear()
+print(student)   # {}</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> Using <code>del dict[key]</code>
+        without checking if the key exists first. If the key is missing,
+        you get a <code>KeyError</code>. Either check with
+        <code>if key in dict</code> first, or use
+        <code>dict.pop(key, None)</code> for safe removal.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. DICTIONARY METHODS                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="dictionary-methods">4. Dictionary Methods</h2>
+
+      <h3><code>.keys()</code>, <code>.values()</code>, and <code>.items()</code></h3>
+
+      <p>
+        These three methods give you different views of a dictionary's
+        contents:
+      </p>
+
+      <pre><code>fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+
+# .keys() — all keys
+print(fruit_colors.keys())
+# dict_keys(['apple', 'banana', 'grape'])
+
+# .values() — all values
+print(fruit_colors.values())
+# dict_values(['red', 'yellow', 'purple'])
+
+# .items() — all key-value pairs as tuples
+print(fruit_colors.items())
+# dict_items([('apple', 'red'), ('banana', 'yellow'), ('grape', 'purple')])
+
+# Convert to a list if needed
+keys_list = list(fruit_colors.keys())
+print(keys_list)  # ['apple', 'banana', 'grape']</code></pre>
+
+      <div class="callout callout-info">
+        <strong>These are views, not copies.</strong> The objects returned
+        by <code>.keys()</code>, <code>.values()</code>, and
+        <code>.items()</code> are <em>views</em> that reflect changes made
+        to the dictionary. If you add a key to the dictionary, the view
+        will automatically include it.
+      </div>
+
+      <h3><code>.copy()</code> &mdash; Shallow Copy</h3>
+
+      <pre><code>original = {"a": 1, "b": 2, "c": 3}
+duplicate = original.copy()
+
+duplicate["d"] = 4
+print(original)   # {'a': 1, 'b': 2, 'c': 3}  (unchanged)
+print(duplicate)  # {'a': 1, 'b': 2, 'c': 3, 'd': 4}</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Shallow copy warning:</strong> <code>.copy()</code> creates
+        a <em>shallow</em> copy. If your dictionary contains mutable values
+        (like lists or other dictionaries), those inner objects are
+        <strong>shared</strong>, not duplicated. Use
+        <code>import copy; copy.deepcopy(dict)</code> if you need a fully
+        independent copy.
+      </div>
+
+      <h3>Checking if a Key Exists with <code>in</code></h3>
+
+      <pre><code>student = {"name": "Bob", "age": 22}
+
+print("name" in student)     # True
+print("email" in student)    # False
+print("Bob" in student)      # False — "in" checks KEYS, not values
+
+# Common pattern: check before accessing
+if "email" in student:
+    print(student["email"])
+else:
+    print("No email on file")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB with
+        <code>containers.Map</code>, you use <code>isKey(map, key)</code>
+        to check if a key exists. In Python, the <code>in</code> keyword
+        reads more naturally: <code>if key in dict</code>.
+      </div>
+
+      <h3><code>len()</code> &mdash; Number of Key-Value Pairs</h3>
+
+      <pre><code>student = {"name": "Bob", "age": 22, "grade": "A"}
+print(len(student))  # 3</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. LOOPING OVER DICTIONARIES                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="looping">5. Looping Over Dictionaries</h2>
+
+      <p>
+        You will frequently need to iterate over dictionaries. Python gives
+        you several clean ways to do this.
+      </p>
+
+      <h3>Loop Over Keys (Default)</h3>
+
+      <pre><code>fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+
+# By default, iterating over a dict gives you the keys
+for fruit in fruit_colors:
+    print(fruit)
+
+# Output:
+# apple
+# banana
+# grape</code></pre>
+
+      <h3>Loop Over Keys and Values Together</h3>
+
+      <pre><code>fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+
+# .items() gives you both key and value
+for fruit, color in fruit_colors.items():
+    print(f"The {fruit} is {color}")
+
+# Output:
+# The apple is red
+# The banana is yellow
+# The grape is purple</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why <code>.items()</code> is the most common pattern:</strong>
+        Most of the time when you loop over a dictionary, you need both the
+        key and the value. Using <code>for key, value in dict.items()</code>
+        is cleaner and more efficient than looping over keys and then using
+        <code>dict[key]</code> to get each value.
+      </div>
+
+      <h3>Loop Over Values Only</h3>
+
+      <pre><code>scores = {"Alice": 95, "Bob": 87, "Charlie": 92}
+
+# If you only care about the values
+for score in scores.values():
+    print(score)
+
+# Output:
+# 95
+# 87
+# 92
+
+# Useful for calculations
+total = sum(scores.values())
+average = total / len(scores)
+print(f"Average score: {average:.1f}")  # Average score: 91.3</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. NESTED DICTIONARIES                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="nested-dictionaries">6. Nested Dictionaries</h2>
+
+      <p>
+        Dictionary values can be anything &mdash; including other
+        dictionaries. This is called <strong>nesting</strong> and is
+        extremely common in real-world data (think JSON).
+      </p>
+
+      <h3>Dictionaries Inside Dictionaries</h3>
+
+      <pre><code># Student records — each student is a nested dictionary
+students = {
+    "alice": {
+        "full_name": "Alice Johnson",
+        "age": 22,
+        "grades": {"math": 95, "physics": 88, "cs": 92}
+    },
+    "bob": {
+        "full_name": "Bob Smith",
+        "age": 21,
+        "grades": {"math": 78, "physics": 85, "cs": 90}
+    }
+}</code></pre>
+
+      <h3>Accessing Nested Values</h3>
+
+      <pre><code># Chain square brackets to drill into nested dictionaries
+print(students["alice"]["full_name"])           # Alice Johnson
+print(students["bob"]["grades"]["physics"])     # 85
+
+# Safer approach with .get() for deeply nested data
+math_grade = students.get("charlie", {}).get("grades", {}).get("math", "N/A")
+print(math_grade)  # N/A  (charlie doesn't exist)</code></pre>
+
+      <h3>Real-World Example: Configuration File</h3>
+
+      <pre><code># Application configuration (similar to what you'd find in a JSON config)
+config = {
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "name": "myapp_db",
+        "credentials": {
+            "user": "admin",
+            "password": "secret123"
+        }
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "/var/log/myapp.log",
+        "max_size_mb": 50
+    },
+    "features": {
+        "dark_mode": True,
+        "notifications": False
+    }
+}
+
+# Access deeply nested values
+db_host = config["database"]["host"]
+log_level = config["logging"]["level"]
+print(f"Connecting to {db_host}, log level: {log_level}")
+# Connecting to localhost, log level: INFO</code></pre>
+
+      <div class="callout callout-info">
+        <strong>JSON and dictionaries:</strong> JSON (JavaScript Object
+        Notation) is the most common data format for web APIs. When you
+        load JSON data in Python using <code>import json</code>, it
+        becomes a dictionary (or a list of dictionaries). This is one of
+        the reasons dictionaries are so important to learn.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. DICTIONARY COMPREHENSIONS                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="dict-comprehensions">7. Dictionary Comprehensions</h2>
+
+      <p>
+        Just like list comprehensions, Python supports
+        <strong>dictionary comprehensions</strong> &mdash; a concise way
+        to create dictionaries from iterables.
+      </p>
+
+      <h3>Basic Syntax</h3>
+
+      <pre><code># Syntax: {key_expr: value_expr for item in iterable}
+
+# Create a dictionary of squares
+squares = {n: n ** 2 for n in range(1, 6)}
+print(squares)
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
+
+      <h3>Practical Examples</h3>
+
+      <pre><code># Convert a list of words to a word-length dictionary
+words = ["hello", "world", "python", "code"]
+word_lengths = {word: len(word) for word in words}
+print(word_lengths)
+# {'hello': 5, 'world': 5, 'python': 6, 'code': 4}
+
+# Filter: only include items that meet a condition
+scores = {"Alice": 95, "Bob": 67, "Charlie": 82, "Diana": 91}
+high_scores = {name: score for name, score in scores.items() if score >= 85}
+print(high_scores)
+# {'Alice': 95, 'Diana': 91}
+
+# Swap keys and values
+original = {"a": 1, "b": 2, "c": 3}
+swapped = {v: k for k, v in original.items()}
+print(swapped)
+# {1: 'a', 2: 'b', 3: 'c'}
+
+# Transform values: convert Celsius to Fahrenheit
+celsius = {"London": 15, "Paris": 18, "Tokyo": 22, "Sydney": 25}
+fahrenheit = {city: round(temp * 9/5 + 32, 1) for city, temp in celsius.items()}
+print(fahrenheit)
+# {'London': 59.0, 'Paris': 64.4, 'Tokyo': 71.6, 'Sydney': 77.0}</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB does not have dictionary
+        comprehensions. You would typically use a loop with
+        <code>containers.Map</code> or build a struct field by field.
+        Python comprehensions let you build an entire dictionary in a
+        single, readable expression.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. COMMON USE CASES                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-use-cases">8. Common Use Cases</h2>
+
+      <p>
+        Here are four patterns that come up again and again in real Python
+        code. Mastering these will make you a more effective programmer.
+      </p>
+
+      <h3>Counting Occurrences</h3>
+
+      <p>
+        One of the most common uses for a dictionary is counting how many
+        times each item appears in a sequence:
+      </p>
+
+      <pre><code># Count character frequency in a string
+text = "mississippi"
+freq = {}
+for char in text:
+    freq[char] = freq.get(char, 0) + 1
+
+print(freq)
+# {'m': 1, 'i': 4, 's': 4, 'p': 2}
+
+# Or use the built-in collections.Counter (shortcut!)
+from collections import Counter
+freq2 = Counter(text)
+print(freq2)
+# Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why <code>freq.get(char, 0) + 1</code> works:</strong>
+        If the character is not yet in the dictionary,
+        <code>.get(char, 0)</code> returns <code>0</code>. We add
+        <code>1</code> to it, so the first occurrence of any character
+        starts at <code>1</code>. On subsequent encounters, the current
+        count is retrieved and incremented. This is a clean alternative to
+        checking <code>if char in freq</code> first.
+      </div>
+
+      <h3>Grouping Data</h3>
+
+      <pre><code># Group students by their grade
+students = [
+    ("Alice", "A"), ("Bob", "B"), ("Charlie", "A"),
+    ("Diana", "B"), ("Eve", "A"), ("Frank", "C")
+]
+
+groups = {}
+for name, grade in students:
+    if grade not in groups:
+        groups[grade] = []
+    groups[grade].append(name)
+
+print(groups)
+# {'A': ['Alice', 'Charlie', 'Eve'], 'B': ['Bob', 'Diana'], 'C': ['Frank']}
+
+# Cleaner version with .setdefault()
+groups2 = {}
+for name, grade in students:
+    groups2.setdefault(grade, []).append(name)
+
+print(groups2)
+# {'A': ['Alice', 'Charlie', 'Eve'], 'B': ['Bob', 'Diana'], 'C': ['Frank']}</code></pre>
+
+      <h3>Looking Up Values (Replacing Long if/elif Chains)</h3>
+
+      <pre><code># Instead of this:
+def get_day_name_ugly(day_num):
+    if day_num == 1:
+        return "Monday"
+    elif day_num == 2:
+        return "Tuesday"
+    elif day_num == 3:
+        return "Wednesday"
+    # ... etc.
+
+# Use a dictionary lookup:
+day_names = {
+    1: "Monday", 2: "Tuesday", 3: "Wednesday",
+    4: "Thursday", 5: "Friday", 6: "Saturday", 7: "Sunday"
+}
+
+def get_day_name(day_num):
+    return day_names.get(day_num, "Invalid day")
+
+print(get_day_name(3))  # Wednesday
+print(get_day_name(9))  # Invalid day</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Performance note:</strong> Dictionary lookups are
+        <strong>O(1)</strong> on average &mdash; constant time regardless
+        of how many keys the dictionary has. A long chain of
+        <code>if/elif</code> statements is <strong>O(n)</strong> &mdash; it
+        gets slower as you add more cases. For large lookup tables, a
+        dictionary is both cleaner and faster.
+      </div>
+
+      <h3>Configuration Storage</h3>
+
+      <pre><code># A common pattern: using a dictionary to store settings
+default_settings = {
+    "theme": "light",
+    "font_size": 14,
+    "auto_save": True,
+    "language": "en",
+    "max_retries": 3
+}
+
+# User overrides some settings
+user_settings = {
+    "theme": "dark",
+    "font_size": 16
+}
+
+# Merge: user settings override defaults
+final_settings = {**default_settings, **user_settings}
+print(final_settings)
+# {'theme': 'dark', 'font_size': 16, 'auto_save': True, 'language': 'en', 'max_retries': 3}</code></pre>
+
+      <div class="callout callout-info">
+        <strong>The <code>**</code> unpacking operator:</strong> The
+        <code>{**dict1, **dict2}</code> syntax creates a new dictionary
+        by unpacking both dictionaries. If they share keys, the second
+        dictionary's values win. This is a clean, Pythonic way to merge
+        dictionaries. In Python 3.9+, you can also use the
+        <code>|</code> operator: <code>dict1 | dict2</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  COMMON MISTAKES                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mistake</th>
+            <th>What Happens</th>
+            <th>Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>dict[missing_key]</code></td>
+            <td><code>KeyError</code></td>
+            <td>Use <code>dict.get(key)</code> or check with <code>in</code></td>
+          </tr>
+          <tr>
+            <td>Using a list as a key</td>
+            <td><code>TypeError: unhashable type</code></td>
+            <td>Convert to a tuple first: <code>tuple(my_list)</code></td>
+          </tr>
+          <tr>
+            <td><code>{}</code> for an empty set</td>
+            <td>Creates an empty dict instead</td>
+            <td>Use <code>set()</code> for an empty set</td>
+          </tr>
+          <tr>
+            <td>Modifying a dict while looping over it</td>
+            <td><code>RuntimeError: dictionary changed size during iteration</code></td>
+            <td>Loop over a copy: <code>for k in list(dict.keys()):</code></td>
+          </tr>
+          <tr>
+            <td>Assuming dictionaries are ordered in older Python</td>
+            <td>Insertion order is only guaranteed in Python 3.7+</td>
+            <td>Use Python 3.7+ (or <code>collections.OrderedDict</code>)</td>
+          </tr>
+          <tr>
+            <td>Checking <code>value in dict</code></td>
+            <td>Checks keys, not values</td>
+            <td>Use <code>value in dict.values()</code> to check values</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  QUICK REFERENCE TABLE                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="quick-reference">Quick Reference</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Syntax</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Create</td>
+            <td><code>d = {"a": 1, "b": 2}</code></td>
+            <td>Most common approach</td>
+          </tr>
+          <tr>
+            <td>Access</td>
+            <td><code>d["a"]</code></td>
+            <td>KeyError if missing</td>
+          </tr>
+          <tr>
+            <td>Safe access</td>
+            <td><code>d.get("a", default)</code></td>
+            <td>Returns default if missing</td>
+          </tr>
+          <tr>
+            <td>Add / update</td>
+            <td><code>d["c"] = 3</code></td>
+            <td>Adds or overwrites</td>
+          </tr>
+          <tr>
+            <td>Merge</td>
+            <td><code>d.update(other)</code></td>
+            <td>Modifies d in place</td>
+          </tr>
+          <tr>
+            <td>Delete</td>
+            <td><code>del d["a"]</code></td>
+            <td>KeyError if missing</td>
+          </tr>
+          <tr>
+            <td>Safe delete</td>
+            <td><code>d.pop("a", None)</code></td>
+            <td>Returns None if missing</td>
+          </tr>
+          <tr>
+            <td>Check key</td>
+            <td><code>"a" in d</code></td>
+            <td>Returns True/False</td>
+          </tr>
+          <tr>
+            <td>All keys</td>
+            <td><code>d.keys()</code></td>
+            <td>Returns a view object</td>
+          </tr>
+          <tr>
+            <td>All values</td>
+            <td><code>d.values()</code></td>
+            <td>Returns a view object</td>
+          </tr>
+          <tr>
+            <td>All pairs</td>
+            <td><code>d.items()</code></td>
+            <td>Returns (key, value) tuples</td>
+          </tr>
+          <tr>
+            <td>Length</td>
+            <td><code>len(d)</code></td>
+            <td>Number of key-value pairs</td>
+          </tr>
+          <tr>
+            <td>Copy</td>
+            <td><code>d.copy()</code></td>
+            <td>Shallow copy</td>
+          </tr>
+          <tr>
+            <td>Clear</td>
+            <td><code>d.clear()</code></td>
+            <td>Removes all entries</td>
+          </tr>
+          <tr>
+            <td>Comprehension</td>
+            <td><code>{k: v for k, v in ...}</code></td>
+            <td>Create from iterable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  EXERCISES                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">Exercises</h2>
+
+      <p>
+        Test your understanding with these exercises. Try to solve each one
+        on your own before revealing the solution.
+      </p>
+
+      <!-- Exercise 1 -->
+      <h3>Exercise 1: Build a Phone Book</h3>
+      <p>
+        Create a dictionary called <code>phone_book</code> with at least
+        three name-to-phone-number entries. Then print a specific person's
+        number, add a new entry, and delete one entry.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>phone_book = {
+    "Alice": "555-1234",
+    "Bob": "555-5678",
+    "Charlie": "555-9012"
+}
+
+# Print Bob's number
+print(phone_book["Bob"])  # 555-5678
+
+# Add a new entry
+phone_book["Diana"] = "555-3456"
+
+# Delete Charlie
+del phone_book["Charlie"]
+
+print(phone_book)
+# {'Alice': '555-1234', 'Bob': '555-5678', 'Diana': '555-3456'}</code></pre>
+      </details>
+
+      <!-- Exercise 2 -->
+      <h3>Exercise 2: Word Frequency Counter</h3>
+      <p>
+        Given the string <code>"the cat sat on the mat the cat"</code>,
+        write code that counts how many times each word appears.
+        Store the result in a dictionary.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>sentence = "the cat sat on the mat the cat"
+words = sentence.split()
+
+word_count = {}
+for word in words:
+    word_count[word] = word_count.get(word, 0) + 1
+
+print(word_count)
+# {'the': 3, 'cat': 2, 'sat': 1, 'on': 1, 'mat': 1}</code></pre>
+      </details>
+
+      <!-- Exercise 3 -->
+      <h3>Exercise 3: Invert a Dictionary</h3>
+      <p>
+        Write code that takes the dictionary
+        <code>{"a": 1, "b": 2, "c": 3}</code> and creates a new dictionary
+        where the keys and values are swapped:
+        <code>{1: "a", 2: "b", 3: "c"}</code>.
+        Use a dictionary comprehension.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>original = {"a": 1, "b": 2, "c": 3}
+inverted = {v: k for k, v in original.items()}
+print(inverted)
+# {1: 'a', 2: 'b', 3: 'c'}</code></pre>
+      </details>
+
+      <!-- Exercise 4 -->
+      <h3>Exercise 4: Merge Two Dictionaries</h3>
+      <p>
+        You have two dictionaries:
+      </p>
+      <pre><code>defaults = {"color": "blue", "size": 10, "visible": True}
+overrides = {"color": "red", "border": 2}</code></pre>
+      <p>
+        Create a new dictionary that contains all keys from both, where
+        <code>overrides</code> takes priority over <code>defaults</code>
+        for shared keys.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>defaults = {"color": "blue", "size": 10, "visible": True}
+overrides = {"color": "red", "border": 2}
+
+# Method 1: ** unpacking
+merged = {**defaults, **overrides}
+print(merged)
+# {'color': 'red', 'size': 10, 'visible': True, 'border': 2}
+
+# Method 2: .update() (modifies defaults in place)
+defaults_copy = defaults.copy()
+defaults_copy.update(overrides)
+print(defaults_copy)
+# {'color': 'red', 'size': 10, 'visible': True, 'border': 2}
+
+# Method 3: | operator (Python 3.9+)
+# merged = defaults | overrides</code></pre>
+      </details>
+
+      <!-- Exercise 5 -->
+      <h3>Exercise 5: Student Grade Averages</h3>
+      <p>
+        Given the following nested dictionary of student grades, compute
+        and print each student's average grade:
+      </p>
+      <pre><code>students = {
+    "Alice": {"math": 90, "science": 85, "english": 92},
+    "Bob": {"math": 78, "science": 82, "english": 88},
+    "Charlie": {"math": 95, "science": 91, "english": 87}
+}</code></pre>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>students = {
+    "Alice": {"math": 90, "science": 85, "english": 92},
+    "Bob": {"math": 78, "science": 82, "english": 88},
+    "Charlie": {"math": 95, "science": 91, "english": 87}
+}
+
+for name, grades in students.items():
+    avg = sum(grades.values()) / len(grades)
+    print(f"{name}: average = {avg:.1f}")
+
+# Output:
+# Alice: average = 89.0
+# Bob: average = 82.7
+# Charlie: average = 91.0</code></pre>
+      </details>
+
+      <!-- Exercise 6 -->
+      <h3>Exercise 6: Group by First Letter</h3>
+      <p>
+        Given a list of words, group them by their first letter into a
+        dictionary. For example, <code>["apple", "banana", "avocado",
+        "blueberry", "cherry", "apricot"]</code> should produce:
+      </p>
+      <pre><code>{"a": ["apple", "avocado", "apricot"], "b": ["banana", "blueberry"], "c": ["cherry"]}</code></pre>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>words = ["apple", "banana", "avocado", "blueberry", "cherry", "apricot"]
+
+groups = {}
+for word in words:
+    first_letter = word[0]
+    groups.setdefault(first_letter, []).append(word)
+
+print(groups)
+# {'a': ['apple', 'avocado', 'apricot'], 'b': ['banana', 'blueberry'], 'c': ['cherry']}
+
+# Alternative using a regular if check:
+groups2 = {}
+for word in words:
+    letter = word[0]
+    if letter not in groups2:
+        groups2[letter] = []
+    groups2[letter].append(word)</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <ul>
+        <li>
+          A dictionary stores <strong>key-value pairs</strong>. Keys must
+          be immutable; values can be anything.
+        </li>
+        <li>
+          Use <code>dict[key]</code> when you are sure the key exists;
+          use <code>dict.get(key, default)</code> for safe access.
+        </li>
+        <li>
+          <code>.keys()</code>, <code>.values()</code>, and
+          <code>.items()</code> give you views of the dictionary's contents.
+        </li>
+        <li>
+          The most common loop pattern is
+          <code>for key, value in dict.items()</code>.
+        </li>
+        <li>
+          Dictionaries can be <strong>nested</strong> &mdash; values can
+          be other dictionaries, lists, etc.
+        </li>
+        <li>
+          <strong>Dictionary comprehensions</strong> let you build
+          dictionaries concisely from iterables.
+        </li>
+        <li>
+          Common patterns include <strong>counting, grouping, lookups,
+          and configuration storage</strong>.
+        </li>
+        <li>
+          Dictionaries are central to Python &mdash; they power JSON
+          handling, function keyword arguments, and much of the language
+          internals.
+        </li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Dictionaries are arguably the
+        most important data structure in Python after lists. You will use
+        them daily whether you are parsing API responses, building
+        configuration objects, counting items, or organizing data. The
+        patterns you learned here &mdash; especially counting with
+        <code>.get()</code>, grouping with <code>.setdefault()</code>,
+        and comprehensions &mdash; will appear in nearly every Python
+        project you work on.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-lists-tuples.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Lists, Tuples &amp; Sets</span></a>
+        <a href="basics-conditionals.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Conditionals</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

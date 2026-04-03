@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Projects &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link active">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Mini Projects
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION G — MINI PROJECTS                                    -->
+      <!-- ============================================================ -->
+
+      <h1>Section G &mdash; Mini Projects</h1>
+
+      <p>
+        This is where theory meets practice. Each project below is a
+        <strong>complete, runnable Python script</strong> that you can copy,
+        save to a <code>.py</code> file, and execute immediately. The projects
+        are ordered roughly by complexity &mdash; start with Project 1 and
+        work your way through.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> These projects are the Python
+        equivalent of the small scripts you might write in MATLAB to automate
+        a task, analyse data, or generate a plot. You will see familiar
+        concepts &mdash; functions, loops, file I/O, plotting &mdash; but
+        expressed in Python syntax. Each project includes notes that map the
+        Python approach back to MATLAB equivalents where helpful.
+      </div>
+
+      <div class="callout callout-tip">
+        <strong>How to use this page:</strong>
+        <ol>
+          <li>Read the <em>Goal</em> to understand what the project does.</li>
+          <li>Study the <em>Concepts Used</em> tags to see which skills are practised.</li>
+          <li>Read through the <em>Complete Code</em> &mdash; every line is commented.</li>
+          <li>Follow the <em>Block-by-Block Explanation</em> to understand the logic.</li>
+          <li>Run it on your machine using the <em>How to Run</em> instructions.</li>
+          <li>Try the <em>Modify &amp; Extend</em> suggestions to make it your own.</li>
+        </ol>
+      </div>
+
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#project-1">Simple Calculator</a></li>
+        <li><a href="#project-2">File Organizer</a></li>
+        <li><a href="#project-3">CSV Analyzer</a></li>
+        <li><a href="#project-4">Simple Plot Generator</a></li>
+        <li><a href="#project-5">Log Parser</a></li>
+        <li><a href="#project-6">Batch File Renamer</a></li>
+        <li><a href="#project-7">Folder Report Generator</a></li>
+        <li><a href="#project-8">Simple Numerical Analysis</a></li>
+        <li><a href="#project-9">Command Line Utility</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 1 — SIMPLE CALCULATOR                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-1">Project 1: Simple Calculator</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Build an interactive calculator that asks the user for two numbers and
+        an arithmetic operation (<code>+</code>, <code>-</code>,
+        <code>*</code>, <code>/</code>), performs the calculation, and prints
+        the result. The program handles invalid input gracefully instead of
+        crashing.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">functions</span>
+        <span class="tag">conditionals</span>
+        <span class="tag">input()</span>
+        <span class="tag">try / except</span>
+        <span class="tag">while loop</span>
+        <span class="tag">f-strings</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# simple_calculator.py — Interactive arithmetic calculator
+# ============================================================
+
+def add(a, b):
+    """Return the sum of a and b."""
+    return a + b
+
+def subtract(a, b):
+    """Return the difference of a and b."""
+    return a - b
+
+def multiply(a, b):
+    """Return the product of a and b."""
+    return a * b
+
+def divide(a, b):
+    """Return the quotient of a divided by b.
+    Raises ValueError if b is zero."""
+    if b == 0:
+        raise ValueError("Cannot divide by zero!")
+    return a / b
+
+def get_number(prompt):
+    """Ask the user for a number. Keep asking until valid input is given."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("  Invalid input. Please enter a numeric value.")
+
+def main():
+    """Main loop — runs the calculator until the user quits."""
+    print("=" * 40)
+    print("  Simple Python Calculator")
+    print("=" * 40)
+
+    # Map operator symbols to functions
+    operations = {
+        "+": add,
+        "-": subtract,
+        "*": multiply,
+        "/": divide,
+    }
+
+    while True:
+        # --- Get the first number ---
+        num1 = get_number("\nEnter the first number: ")
+
+        # --- Get the operator ---
+        print("Choose an operation: +, -, *, /")
+        op = input("Enter operator: ").strip()
+
+        if op not in operations:
+            print(f"  Unknown operator '{op}'. Try again.")
+            continue  # restart the loop
+
+        # --- Get the second number ---
+        num2 = get_number("Enter the second number: ")
+
+        # --- Perform the calculation ---
+        try:
+            result = operations[op](num1, num2)
+            print(f"\n  Result: {num1} {op} {num2} = {result}")
+        except ValueError as e:
+            print(f"\n  Error: {e}")
+
+        # --- Ask whether to continue ---
+        again = input("\nAnother calculation? (y/n): ").strip().lower()
+        if again != "y":
+            print("Goodbye!")
+            break
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. Arithmetic functions (lines 5&ndash;22)</h4>
+      <p>
+        Each operation is wrapped in its own function (<code>add</code>,
+        <code>subtract</code>, <code>multiply</code>, <code>divide</code>).
+        This is cleaner than putting all the logic inside one big
+        <code>if/elif</code> chain and makes each operation independently
+        testable. The <code>divide</code> function explicitly checks for
+        division by zero and raises a <code>ValueError</code> with a clear
+        message.
+      </p>
+
+      <h4>2. Input helper &mdash; <code>get_number()</code> (lines 24&ndash;29)</h4>
+      <p>
+        This function uses a <code>while True</code> loop combined with
+        <code>try/except</code>. If the user types something that cannot be
+        converted to a <code>float</code> (for example <code>"abc"</code>),
+        the <code>ValueError</code> is caught and the user is prompted again.
+        The loop only exits when a valid number is returned.
+      </p>
+
+      <h4>3. Operation dispatch dictionary (lines 39&ndash;44)</h4>
+      <p>
+        Instead of writing <code>if op == "+": ...</code> for each operator,
+        we store the functions in a dictionary keyed by the operator string.
+        This is a common Python pattern &mdash; <em>dispatch tables</em>
+        &mdash; that replaces verbose conditional chains.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you might use a
+        <code>switch</code> statement. Python has no <code>switch</code>
+        (though Python 3.10+ has <code>match/case</code>). The dictionary
+        dispatch pattern is the idiomatic Python approach and is both concise
+        and extensible.
+      </div>
+
+      <h4>4. Main loop (lines 47&ndash;68)</h4>
+      <p>
+        The <code>while True</code> loop keeps the calculator running until
+        the user types something other than <code>y</code>. Inside the loop
+        we collect input, look up the operation, call it with the two numbers,
+        and print the result. The <code>try/except</code> around the
+        calculation call catches the division-by-zero error.
+      </p>
+
+      <h4>5. Entry-point guard (line 70)</h4>
+      <p>
+        <code>if __name__ == "__main__":</code> ensures <code>main()</code>
+        runs only when the script is executed directly, not when it is
+        imported as a module. This is a Python best practice you will see in
+        every well-structured script.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># Save the code as simple_calculator.py, then:
+python simple_calculator.py
+</code></pre>
+      <p>
+        The program will prompt you interactively in the terminal. Enter
+        numbers and an operator when asked.
+      </p>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add more operations: exponentiation (<code>**</code>), modulus (<code>%</code>), integer division (<code>//</code>).</li>
+        <li>Add a history list that stores past calculations and prints them on request.</li>
+        <li>Support expressions like <code>"3 + 5"</code> entered on a single line (use <code>str.split()</code>).</li>
+        <li>Write results to a log file so you have a record of all calculations.</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 2 — FILE ORGANIZER                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-2">Project 2: File Organizer</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Automatically sort the files in a folder into subfolders based on
+        their file extension. For example, <code>.txt</code> files move into a
+        <code>TextFiles</code> folder, <code>.jpg</code> and <code>.png</code>
+        files move into an <code>Images</code> folder, and so on. Files whose
+        extensions are not in the mapping go into a <code>Misc</code> folder.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">os</span>
+        <span class="tag">shutil</span>
+        <span class="tag">pathlib</span>
+        <span class="tag">dictionaries</span>
+        <span class="tag">loops</span>
+        <span class="tag">conditionals</span>
+        <span class="tag">file I/O</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# file_organizer.py — Sort files in a folder by extension
+# ============================================================
+
+import os
+import shutil
+from pathlib import Path
+
+# ----- Configuration -----
+# Map each extension (lowercase) to a target subfolder name.
+# Add or remove entries to match your needs.
+EXTENSION_MAP = {
+    # Documents
+    ".txt":  "TextFiles",
+    ".pdf":  "Documents",
+    ".docx": "Documents",
+    ".xlsx": "Spreadsheets",
+    ".csv":  "Spreadsheets",
+    # Images
+    ".jpg":  "Images",
+    ".jpeg": "Images",
+    ".png":  "Images",
+    ".gif":  "Images",
+    ".bmp":  "Images",
+    # Code / scripts
+    ".py":   "PythonScripts",
+    ".m":    "MatlabFiles",
+    ".js":   "Code",
+    ".html": "Code",
+    ".css":  "Code",
+    # Data
+    ".json": "Data",
+    ".xml":  "Data",
+    # Archives
+    ".zip":  "Archives",
+    ".tar":  "Archives",
+    ".gz":   "Archives",
+}
+
+# Fallback folder for extensions not listed above
+DEFAULT_FOLDER = "Misc"
+
+
+def organize(folder_path):
+    """Move every file in *folder_path* into a subfolder by extension.
+
+    Parameters
+    ----------
+    folder_path : str or Path
+        The directory whose files you want to organize.
+    """
+    source = Path(folder_path)
+
+    # Safety check — make sure the path exists and is a directory
+    if not source.is_dir():
+        print(f"Error: '{source}' is not a valid directory.")
+        return
+
+    moved_count = 0  # track how many files we move
+
+    # Iterate over every item in the folder
+    for item in source.iterdir():
+        # Skip directories — we only want to move files
+        if item.is_dir():
+            continue
+
+        # Get the file extension in lowercase (e.g. ".TXT" -> ".txt")
+        ext = item.suffix.lower()
+
+        # Look up the target folder; fall back to DEFAULT_FOLDER
+        target_name = EXTENSION_MAP.get(ext, DEFAULT_FOLDER)
+
+        # Build the full path for the destination subfolder
+        target_dir = source / target_name
+
+        # Create the subfolder if it doesn't exist yet
+        target_dir.mkdir(exist_ok=True)
+
+        # Build the destination file path
+        destination = target_dir / item.name
+
+        # Handle name collisions: if a file with the same name already
+        # exists in the target folder, add a numeric suffix.
+        counter = 1
+        while destination.exists():
+            stem = item.stem        # filename without extension
+            destination = target_dir / f"{stem}_{counter}{ext}"
+            counter += 1
+
+        # Move the file
+        shutil.move(str(item), str(destination))
+        print(f"  Moved: {item.name}  ->  {target_name}/")
+        moved_count += 1
+
+    # Summary
+    print(f"\nDone! Moved {moved_count} file(s).")
+
+
+if __name__ == "__main__":
+    # Ask the user which folder to organize
+    folder = input("Enter the path of the folder to organize: ").strip()
+
+    # If the user presses Enter with no input, use the current directory
+    if not folder:
+        folder = "."
+
+    print(f"\nOrganizing files in: {Path(folder).resolve()}\n")
+    organize(folder)
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. Imports (lines 5&ndash;7)</h4>
+      <p>
+        <code>os</code> provides basic OS interaction, <code>shutil</code>
+        provides the <code>move()</code> function for moving files across
+        directories, and <code>pathlib.Path</code> gives us an
+        object-oriented way to manipulate file paths (much cleaner than
+        joining strings with <code>os.path.join</code>).
+      </p>
+
+      <h4>2. Extension mapping dictionary (lines 12&ndash;39)</h4>
+      <p>
+        A dictionary maps lowercase extensions to folder names. Using a
+        dictionary makes the mapping easy to read and modify. The
+        <code>.get(ext, DEFAULT_FOLDER)</code> call on line 72 returns the
+        mapped folder or <code>"Misc"</code> if the extension is unknown.
+      </p>
+
+      <h4>3. The <code>organize()</code> function (lines 43&ndash;92)</h4>
+      <p>
+        This is the core logic. <code>source.iterdir()</code> yields every
+        entry in the directory. We skip subdirectories, look up each file's
+        extension, create the target subfolder with
+        <code>mkdir(exist_ok=True)</code> (which does not error if it already
+        exists), handle name collisions with a <code>while</code> loop, and
+        finally call <code>shutil.move()</code>.
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>Tip:</strong> The <code>exist_ok=True</code> parameter on
+        <code>mkdir()</code> is the Python equivalent of "create if not
+        exists." Without it, calling <code>mkdir()</code> on an existing
+        directory would raise a <code>FileExistsError</code>.
+      </div>
+
+      <h4>4. Entry point (lines 95&ndash;103)</h4>
+      <p>
+        Prompts the user for a folder path, defaults to the current directory
+        if nothing is entered, and calls <code>organize()</code>.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you might use
+        <code>dir()</code> to list files and <code>movefile()</code> to move
+        them. Python's <code>pathlib</code> is similar to MATLAB's
+        <code>fullfile()</code> for building paths, but it also provides
+        <code>.suffix</code>, <code>.stem</code>, and <code>.name</code>
+        as convenient properties.
+      </div>
+
+      <h3>How to Run</h3>
+<pre><code># Save as file_organizer.py, then:
+python file_organizer.py
+
+# When prompted, enter a folder path (e.g., C:\Users\you\Downloads)
+# or press Enter to organize the current directory.
+</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Warning:</strong> This script <em>moves</em> files. Test it on
+        a folder with copies of files first, not on your only copy of
+        important data.
+      </div>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add a <code>--dry-run</code> flag that prints what <em>would</em> happen without actually moving files.</li>
+        <li>Add a <code>--undo</code> feature by writing a log of moves that can be reversed.</li>
+        <li>Make the extension map configurable via a JSON file.</li>
+        <li>Add recursive organization (organize files inside subfolders too).</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 3 — CSV ANALYZER                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-3">Project 3: CSV Analyzer</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Read a CSV file, identify numeric columns, and calculate basic
+        statistics for each one: count, mean, minimum, and maximum. Print a
+        clean summary table to the terminal. This project uses only the
+        standard library &mdash; no pandas or numpy required.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">csv module</span>
+        <span class="tag">file I/O</span>
+        <span class="tag">dictionaries</span>
+        <span class="tag">lists</span>
+        <span class="tag">math (basic)</span>
+        <span class="tag">string formatting</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# csv_analyzer.py — Read a CSV and compute basic statistics
+# ============================================================
+
+import csv
+import sys
+
+
+def read_csv(filepath):
+    """Read a CSV file and return (headers, rows).
+
+    Parameters
+    ----------
+    filepath : str
+        Path to the CSV file.
+
+    Returns
+    -------
+    headers : list of str
+        Column names from the first row.
+    rows : list of list of str
+        All data rows (each row is a list of string values).
+    """
+    with open(filepath, newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        headers = next(reader)          # first row = column names
+        rows = [row for row in reader]   # remaining rows = data
+    return headers, rows
+
+
+def is_numeric(value):
+    """Return True if *value* can be converted to a float."""
+    try:
+        float(value)
+        return True
+    except (ValueError, TypeError):
+        return False
+
+
+def compute_stats(values):
+    """Given a list of floats, return a dict with count, mean, min, max.
+
+    Parameters
+    ----------
+    values : list of float
+
+    Returns
+    -------
+    dict with keys: 'count', 'mean', 'min', 'max'
+    """
+    n = len(values)
+    if n == 0:
+        return {"count": 0, "mean": None, "min": None, "max": None}
+
+    total = sum(values)
+    return {
+        "count": n,
+        "mean": total / n,
+        "min": min(values),
+        "max": max(values),
+    }
+
+
+def analyze(filepath):
+    """Read the CSV at *filepath* and print statistics for numeric columns."""
+    headers, rows = read_csv(filepath)
+
+    # For each column, collect numeric values
+    # Key: column index, Value: list of floats
+    numeric_data = {}
+
+    for col_idx, header in enumerate(headers):
+        col_values = []
+        for row in rows:
+            # Some rows may have fewer columns; skip gracefully
+            if col_idx < len(row) and is_numeric(row[col_idx]):
+                col_values.append(float(row[col_idx]))
+        # Only keep columns that have at least one numeric value
+        if col_values:
+            numeric_data[col_idx] = col_values
+
+    if not numeric_data:
+        print("No numeric columns found in the CSV.")
+        return
+
+    # ----- Print the report -----
+    print(f"\nFile: {filepath}")
+    print(f"Total rows (excluding header): {len(rows)}")
+    print(f"Total columns: {len(headers)}")
+    print(f"Numeric columns found: {len(numeric_data)}\n")
+
+    # Table header
+    print(f"{'Column':<20} {'Count':>8} {'Mean':>12} {'Min':>12} {'Max':>12}")
+    print("-" * 66)
+
+    for col_idx, values in numeric_data.items():
+        stats = compute_stats(values)
+        name = headers[col_idx]
+        print(
+            f"{name:<20} "
+            f"{stats['count']:>8} "
+            f"{stats['mean']:>12.4f} "
+            f"{stats['min']:>12.4f} "
+            f"{stats['max']:>12.4f}"
+        )
+
+    print()
+
+
+if __name__ == "__main__":
+    # Accept file path from command line or prompt for it
+    if len(sys.argv) > 1:
+        csv_path = sys.argv[1]
+    else:
+        csv_path = input("Enter the path to the CSV file: ").strip()
+
+    analyze(csv_path)
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. <code>read_csv()</code> (lines 9&ndash;30)</h4>
+      <p>
+        Opens the CSV file using Python's built-in <code>csv.reader</code>.
+        The first row is consumed separately with <code>next(reader)</code> to
+        get column headers. The remaining rows are collected into a list of
+        lists using a list comprehension.
+      </p>
+
+      <h4>2. <code>is_numeric()</code> (lines 33&ndash;39)</h4>
+      <p>
+        A small helper that tries to convert a value to <code>float</code>.
+        If the conversion fails, the value is not numeric. This is the
+        standard Python "ask forgiveness, not permission" (EAFP) pattern.
+      </p>
+
+      <h4>3. <code>compute_stats()</code> (lines 42&ndash;60)</h4>
+      <p>
+        Takes a list of floats and returns count, mean, min, and max as a
+        dictionary. Uses the built-in <code>sum()</code>, <code>min()</code>,
+        and <code>max()</code> functions. No external libraries needed.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you would call
+        <code>mean()</code>, <code>min()</code>, <code>max()</code>, and
+        <code>numel()</code> directly on a column vector. Python's built-in
+        functions work on any iterable (lists, tuples, etc.) rather than
+        requiring arrays.
+      </div>
+
+      <h4>4. <code>analyze()</code> (lines 63&ndash;101)</h4>
+      <p>
+        The main analysis function. It reads the CSV, loops through each
+        column to collect numeric values, computes stats for each numeric
+        column, and prints a formatted table using f-string alignment
+        specifiers like <code>&lt;20</code> (left-align, 20 chars) and
+        <code>&gt;12.4f</code> (right-align, 12 chars, 4 decimal places).
+      </p>
+
+      <h4>5. Entry point (lines 104&ndash;109)</h4>
+      <p>
+        Accepts the CSV path as a command-line argument or prompts for it
+        interactively if no argument is given.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># Create a test CSV file first:
+# data.csv:
+#   Name,Age,Score,City
+#   Alice,30,88.5,NYC
+#   Bob,25,92.3,LA
+#   Charlie,35,76.1,Chicago
+
+# Then run:
+python csv_analyzer.py data.csv
+
+# Or run without arguments and enter the path when prompted:
+python csv_analyzer.py
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add standard deviation and median to the statistics.</li>
+        <li>Write the summary to an output CSV or text file.</li>
+        <li>Add support for different delimiters (tabs, semicolons) via a command-line flag.</li>
+        <li>Handle missing values (empty cells) by counting them separately.</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 4 — SIMPLE PLOT GENERATOR                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-4">Project 4: Simple Plot Generator</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Generate sample data and create two publication-ready charts:
+        a <strong>line plot</strong> showing a trend over time, and a
+        <strong>bar chart</strong> comparing categories. Save both plots to
+        image files using <code>savefig()</code>.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">matplotlib</span>
+        <span class="tag">lists</span>
+        <span class="tag">list comprehensions</span>
+        <span class="tag">math module</span>
+        <span class="tag">savefig()</span>
+        <span class="tag">subplots</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# plot_generator.py — Create a line plot and bar chart
+# ============================================================
+
+import math
+import matplotlib.pyplot as plt
+
+
+def generate_line_plot(filename="line_plot.png"):
+    """Create and save a line plot of a sine-based signal.
+
+    This simulates plotting experimental data over time — a very
+    common task for anyone coming from MATLAB.
+    """
+    # --- Generate data ---
+    # 100 evenly spaced x values from 0 to 4*pi
+    num_points = 100
+    x = [i * (4 * math.pi) / (num_points - 1) for i in range(num_points)]
+
+    # Two signals: a sine wave and a damped sine wave
+    y_sine    = [math.sin(xi) for xi in x]
+    y_damped  = [math.exp(-0.2 * xi) * math.sin(xi) for xi in x]
+
+    # --- Create the plot ---
+    fig, ax = plt.subplots(figsize=(8, 4))
+
+    ax.plot(x, y_sine,   label="sin(x)",                  color="steelblue", linewidth=2)
+    ax.plot(x, y_damped, label="exp(-0.2x) * sin(x)",     color="tomato",    linewidth=2, linestyle="--")
+
+    # --- Labels and styling ---
+    ax.set_title("Line Plot: Sine Waves", fontsize=14, fontweight="bold")
+    ax.set_xlabel("x (radians)")
+    ax.set_ylabel("Amplitude")
+    ax.legend(loc="upper right")
+    ax.grid(True, alpha=0.3)
+
+    # --- Save to file ---
+    fig.tight_layout()
+    fig.savefig(filename, dpi=150)
+    print(f"  Line plot saved to: {filename}")
+    plt.close(fig)  # free memory
+
+
+def generate_bar_chart(filename="bar_chart.png"):
+    """Create and save a bar chart comparing programming languages."""
+
+    # --- Data ---
+    languages   = ["Python", "JavaScript", "Java", "C++", "MATLAB", "R"]
+    popularity  = [30, 22, 18, 12, 8, 6]        # percentage (fictional)
+    colors      = ["#3776AB", "#F7DF1E", "#ED8B00", "#00599C", "#EF6C00", "#276DC3"]
+
+    # --- Create the plot ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    bars = ax.bar(languages, popularity, color=colors, edgecolor="white", linewidth=0.8)
+
+    # Add value labels on top of each bar
+    for bar, val in zip(bars, popularity):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,   # x position: center of bar
+            bar.get_height() + 0.5,                # y position: just above bar
+            f"{val}%",                              # label text
+            ha="center", va="bottom", fontsize=10, fontweight="bold"
+        )
+
+    # --- Labels and styling ---
+    ax.set_title("Bar Chart: Language Popularity", fontsize=14, fontweight="bold")
+    ax.set_ylabel("Popularity (%)")
+    ax.set_ylim(0, 35)          # leave room for labels above bars
+    ax.grid(axis="y", alpha=0.3)
+
+    # --- Save to file ---
+    fig.tight_layout()
+    fig.savefig(filename, dpi=150)
+    print(f"  Bar chart saved to: {filename}")
+    plt.close(fig)
+
+
+def main():
+    """Generate both plots."""
+    print("Generating plots...\n")
+    generate_line_plot()
+    generate_bar_chart()
+    print("\nAll plots generated successfully.")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. Data generation (lines 17&ndash;22)</h4>
+      <p>
+        We create 100 x-values from 0 to 4&pi; using a list comprehension
+        and compute two y-series: a plain sine wave and a damped sine wave.
+        This approach uses only the standard <code>math</code> module. If you
+        have numpy installed, you could use <code>numpy.linspace()</code> and
+        vectorized operations instead.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> This is the Python equivalent of
+        <code>x = linspace(0, 4*pi, 100); y = sin(x);</code> followed by
+        <code>plot(x, y)</code>. In Python with matplotlib, the workflow is
+        nearly identical: generate data, call <code>ax.plot()</code>, set
+        labels, save or show.
+      </div>
+
+      <h4>2. Creating the figure (line 25)</h4>
+      <p>
+        <code>plt.subplots()</code> returns a <code>Figure</code> and an
+        <code>Axes</code> object. This is the "object-oriented" matplotlib
+        API, which is recommended over the simpler <code>plt.plot()</code>
+        style because it gives you full control over each subplot.
+      </p>
+
+      <h4>3. Styling and saving (lines 31&ndash;40)</h4>
+      <p>
+        We set the title, axis labels, legend, and grid. Then
+        <code>fig.tight_layout()</code> adjusts spacing so nothing is
+        clipped, and <code>fig.savefig()</code> writes the plot to a PNG file
+        at 150 DPI. Finally <code>plt.close(fig)</code> frees memory.
+      </p>
+
+      <h4>4. Bar chart with value labels (lines 57&ndash;64)</h4>
+      <p>
+        After creating the bars, we loop over them to place text labels above
+        each bar using <code>ax.text()</code>. The <code>zip(bars,
+        popularity)</code> pairs each bar object with its value, making it
+        easy to position the label.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># Install matplotlib first (one-time):
+pip install matplotlib
+
+# Then run:
+python plot_generator.py
+
+# Two image files will be created in the current directory:
+#   line_plot.png
+#   bar_chart.png
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Read data from a CSV file instead of generating it in code.</li>
+        <li>Add a scatter plot or histogram as a third chart.</li>
+        <li>Create a multi-panel figure with all charts in one image using <code>plt.subplots(1, 3)</code>.</li>
+        <li>Accept the output filename and DPI as command-line arguments.</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 5 — LOG PARSER                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-5">Project 5: Log Parser</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Read a log file, extract all lines that contain error messages, count
+        how many times each unique error occurs, and write a summary report
+        to a new file. This is the kind of text-processing task Python
+        excels at.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">file I/O</span>
+        <span class="tag">string methods</span>
+        <span class="tag">dictionaries</span>
+        <span class="tag">sorting</span>
+        <span class="tag">loops</span>
+        <span class="tag">f-strings</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# log_parser.py — Parse a log file and summarize errors
+# ============================================================
+
+import sys
+from datetime import datetime
+
+
+def parse_log(filepath):
+    """Read a log file and extract error lines.
+
+    Assumes each log line has the format:
+        [TIMESTAMP] LEVEL: message
+    For example:
+        [2025-01-15 10:23:45] ERROR: Connection timed out
+
+    Returns
+    -------
+    error_lines : list of str
+        The full text of each error line.
+    error_counts : dict
+        Maps each unique error message to its occurrence count.
+    total_lines : int
+        Total number of lines in the file.
+    """
+    error_lines = []
+    error_counts = {}
+    total_lines = 0
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        for line in f:
+            total_lines += 1
+            stripped = line.strip()
+
+            # Check if this line contains an ERROR-level message
+            if "ERROR" in stripped.upper():
+                error_lines.append(stripped)
+
+                # Extract the message part (after "ERROR:")
+                # If "ERROR:" exists, take everything after it; otherwise use the full line
+                if "ERROR:" in stripped:
+                    msg = stripped.split("ERROR:", 1)[1].strip()
+                elif "error:" in stripped:
+                    msg = stripped.split("error:", 1)[1].strip()
+                else:
+                    msg = stripped  # fallback: use whole line
+
+                # Count occurrences of this exact message
+                error_counts[msg] = error_counts.get(msg, 0) + 1
+
+    return error_lines, error_counts, total_lines
+
+
+def write_report(error_lines, error_counts, total_lines, log_path, report_path):
+    """Write an error summary report to *report_path*.
+
+    Parameters
+    ----------
+    error_lines : list of str
+    error_counts : dict
+    total_lines : int
+    log_path : str
+    report_path : str
+    """
+    # Sort errors by count, highest first
+    sorted_errors = sorted(error_counts.items(), key=lambda x: x[1], reverse=True)
+
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write("=" * 60 + "\n")
+        f.write("  LOG ERROR SUMMARY REPORT\n")
+        f.write(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("=" * 60 + "\n\n")
+
+        f.write(f"Source log file: {log_path}\n")
+        f.write(f"Total lines in log: {total_lines}\n")
+        f.write(f"Total error lines:  {len(error_lines)}\n")
+        f.write(f"Unique errors:      {len(error_counts)}\n\n")
+
+        # --- Error frequency table ---
+        f.write("-" * 60 + "\n")
+        f.write(f"{'Count':>6}  {'Error Message'}\n")
+        f.write("-" * 60 + "\n")
+        for msg, count in sorted_errors:
+            f.write(f"{count:>6}  {msg}\n")
+        f.write("-" * 60 + "\n\n")
+
+        # --- Full error lines ---
+        f.write("FULL ERROR LINES:\n\n")
+        for i, line in enumerate(error_lines, start=1):
+            f.write(f"  [{i}] {line}\n")
+        f.write("\n" + "=" * 60 + "\n")
+        f.write("  END OF REPORT\n")
+        f.write("=" * 60 + "\n")
+
+
+def main():
+    """Parse the log file and generate the report."""
+    # Get file paths
+    if len(sys.argv) > 1:
+        log_path = sys.argv[1]
+    else:
+        log_path = input("Enter path to the log file: ").strip()
+
+    report_path = log_path.rsplit(".", 1)[0] + "_error_report.txt"
+
+    print(f"Parsing: {log_path}")
+    error_lines, error_counts, total_lines = parse_log(log_path)
+
+    if not error_lines:
+        print("No errors found in the log file.")
+        return
+
+    # Write the report
+    write_report(error_lines, error_counts, total_lines, log_path, report_path)
+
+    # Print a quick summary to the terminal as well
+    print(f"\nTotal lines:  {total_lines}")
+    print(f"Error lines:  {len(error_lines)}")
+    print(f"Unique errors: {len(error_counts)}")
+    print(f"\nTop errors:")
+    for msg, count in sorted(error_counts.items(), key=lambda x: x[1], reverse=True)[:5]:
+        print(f"  {count:>4}x  {msg}")
+    print(f"\nFull report written to: {report_path}")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. <code>parse_log()</code> (lines 9&ndash;51)</h4>
+      <p>
+        Reads the file line by line (memory-efficient even for huge files).
+        For each line, it checks whether the uppercase version contains
+        <code>"ERROR"</code>. If so, it extracts the message portion after
+        <code>"ERROR:"</code> and counts occurrences using the dictionary
+        pattern <code>dict.get(key, 0) + 1</code>.
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>Tip:</strong> The <code>.get(key, default)</code> method is
+        how you safely access a dictionary key that may not exist yet. It
+        returns the default value (here <code>0</code>) instead of raising a
+        <code>KeyError</code>. An alternative is
+        <code>collections.Counter</code>, which handles counting
+        automatically.
+      </div>
+
+      <h4>2. <code>write_report()</code> (lines 54&ndash;94)</h4>
+      <p>
+        Writes a structured text report. The errors are sorted by count
+        (highest first) using <code>sorted()</code> with a <code>key</code>
+        function. The report includes a frequency table and the full text of
+        every error line.
+      </p>
+
+      <h4>3. <code>main()</code> (lines 97&ndash;119)</h4>
+      <p>
+        Handles input (command-line argument or interactive prompt),
+        calls the parser, writes the report, and also prints a quick summary
+        to the terminal showing the top 5 most frequent errors.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># First, create a sample log file (sample.log):
+#   [2025-01-15 10:00:01] INFO: Server started
+#   [2025-01-15 10:00:05] ERROR: Connection timed out
+#   [2025-01-15 10:00:08] INFO: Request processed
+#   [2025-01-15 10:00:12] ERROR: File not found
+#   [2025-01-15 10:00:15] ERROR: Connection timed out
+#   [2025-01-15 10:00:20] WARNING: Disk space low
+#   [2025-01-15 10:00:25] ERROR: Authentication failed
+#   [2025-01-15 10:00:30] ERROR: Connection timed out
+
+# Run:
+python log_parser.py sample.log
+
+# Output file: sample_error_report.txt
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add support for WARNING and CRITICAL levels in addition to ERROR.</li>
+        <li>Extract and parse timestamps to show when errors peaked.</li>
+        <li>Output the report as HTML or CSV instead of plain text.</li>
+        <li>Use regular expressions (<code>re</code> module) for more flexible pattern matching.</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 6 — BATCH FILE RENAMER                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-6">Project 6: Batch File Renamer</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Rename all files in a folder according to a pattern: add a prefix,
+        sequential numbering, and optionally the current date. For example,
+        rename <code>photo.jpg</code> to
+        <code>vacation_001_2025-01-15_photo.jpg</code>.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">os</span>
+        <span class="tag">pathlib</span>
+        <span class="tag">datetime</span>
+        <span class="tag">f-strings</span>
+        <span class="tag">enumerate()</span>
+        <span class="tag">sorting</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# batch_renamer.py — Rename files with prefix, number, and date
+# ============================================================
+
+import os
+from pathlib import Path
+from datetime import datetime
+
+
+def preview_renames(folder_path, prefix="file", include_date=True, start_num=1,
+                    num_digits=3, extensions=None):
+    """Build a list of (old_name, new_name) pairs WITHOUT renaming.
+
+    Parameters
+    ----------
+    folder_path : str or Path
+        The directory containing files to rename.
+    prefix : str
+        String to prepend to each filename.
+    include_date : bool
+        Whether to include today's date in the new name.
+    start_num : int
+        Starting number for the sequential counter.
+    num_digits : int
+        Zero-pad the counter to this many digits (e.g. 3 -> 001, 002).
+    extensions : set or None
+        If provided, only rename files with these extensions (e.g. {".jpg", ".png"}).
+        If None, rename all files.
+
+    Returns
+    -------
+    rename_pairs : list of (Path, Path)
+        Each tuple is (old_path, new_path).
+    """
+    source = Path(folder_path)
+    if not source.is_dir():
+        print(f"Error: '{source}' is not a valid directory.")
+        return []
+
+    # Get the date string (e.g. "2025-01-15")
+    date_str = datetime.now().strftime("%Y-%m-%d") if include_date else ""
+
+    # Collect and sort files (sorted by name for consistent ordering)
+    files = sorted(
+        [f for f in source.iterdir() if f.is_file()],
+        key=lambda f: f.name.lower()
+    )
+
+    # Filter by extension if specified
+    if extensions:
+        extensions = {ext.lower() for ext in extensions}
+        files = [f for f in files if f.suffix.lower() in extensions]
+
+    rename_pairs = []
+    for i, filepath in enumerate(files, start=start_num):
+        # Build the new filename
+        number_part = str(i).zfill(num_digits)     # e.g. "001"
+
+        if include_date:
+            new_name = f"{prefix}_{number_part}_{date_str}{filepath.suffix}"
+        else:
+            new_name = f"{prefix}_{number_part}{filepath.suffix}"
+
+        new_path = filepath.parent / new_name
+        rename_pairs.append((filepath, new_path))
+
+    return rename_pairs
+
+
+def execute_renames(rename_pairs):
+    """Perform the actual file renames.
+
+    Parameters
+    ----------
+    rename_pairs : list of (Path, Path)
+    """
+    for old_path, new_path in rename_pairs:
+        # Safety: don't overwrite existing files
+        if new_path.exists():
+            print(f"  SKIP (already exists): {new_path.name}")
+            continue
+        os.rename(str(old_path), str(new_path))
+        print(f"  Renamed: {old_path.name}  ->  {new_path.name}")
+
+
+def main():
+    """Interactive batch file renamer."""
+    print("=" * 50)
+    print("  Batch File Renamer")
+    print("=" * 50)
+
+    folder = input("\nFolder to rename files in: ").strip() or "."
+    prefix = input("Prefix for new filenames [file]: ").strip() or "file"
+
+    date_choice = input("Include date in filename? (y/n) [y]: ").strip().lower()
+    include_date = date_choice != "n"
+
+    ext_input = input("Filter by extensions (comma-separated, e.g. .jpg,.png) or Enter for all: ").strip()
+    extensions = None
+    if ext_input:
+        extensions = {e.strip() for e in ext_input.split(",")}
+
+    # Generate the preview
+    rename_pairs = preview_renames(folder, prefix, include_date, extensions=extensions)
+
+    if not rename_pairs:
+        print("\nNo files to rename.")
+        return
+
+    # Show preview
+    print(f"\n--- Preview ({len(rename_pairs)} files) ---\n")
+    for old_path, new_path in rename_pairs:
+        print(f"  {old_path.name}  ->  {new_path.name}")
+
+    # Confirm
+    confirm = input(f"\nProceed with renaming {len(rename_pairs)} files? (y/n): ").strip().lower()
+    if confirm == "y":
+        print()
+        execute_renames(rename_pairs)
+        print(f"\nDone! Renamed {len(rename_pairs)} file(s).")
+    else:
+        print("Cancelled. No files were renamed.")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. <code>preview_renames()</code> (lines 11&ndash;68)</h4>
+      <p>
+        This function builds a list of <code>(old_path, new_path)</code>
+        tuples <strong>without actually renaming anything</strong>. This
+        separation of "planning" from "execution" is an important design
+        pattern &mdash; it lets you show a preview and ask for confirmation
+        before making changes.
+      </p>
+      <p>
+        Files are sorted alphabetically for consistent numbering. The
+        <code>zfill()</code> method pads the number with leading zeros
+        (e.g., <code>"1".zfill(3)</code> gives <code>"001"</code>).
+      </p>
+
+      <h4>2. <code>execute_renames()</code> (lines 71&ndash;81)</h4>
+      <p>
+        Loops over the planned renames and calls <code>os.rename()</code> for
+        each one. It skips any file where the destination already exists to
+        prevent accidental data loss.
+      </p>
+
+      <h4>3. Interactive <code>main()</code> (lines 84&ndash;119)</h4>
+      <p>
+        Collects settings from the user (folder, prefix, whether to include
+        the date, which extensions to filter), generates a preview, displays
+        it, and asks for confirmation before executing.
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>Tip:</strong> The "preview then confirm" pattern is a best
+        practice for any script that modifies files. It prevents accidents
+        and builds trust with users of your tool.
+      </div>
+
+      <h3>How to Run</h3>
+<pre><code># Save as batch_renamer.py, then:
+python batch_renamer.py
+
+# Follow the interactive prompts.
+# Example output:
+#   report.txt   ->  meeting_001_2025-01-15.txt
+#   notes.txt    ->  meeting_002_2025-01-15.txt
+#   slides.pdf   ->  meeting_003_2025-01-15.pdf
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add an undo feature by writing the old-to-new mapping to a JSON file.</li>
+        <li>Support different naming patterns (e.g., date first, custom separators).</li>
+        <li>Add a <code>--dry-run</code> command-line flag using <code>argparse</code>.</li>
+        <li>Let the user choose the sort order (by name, date modified, size).</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 7 — FOLDER REPORT GENERATOR                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-7">Project 7: Folder Report Generator</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Scan an entire directory tree (including all subdirectories) and
+        produce a report showing: total number of files, total size, file
+        counts and sizes grouped by extension, and the largest files. This
+        is useful for understanding what is taking up disk space.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">os.walk()</span>
+        <span class="tag">pathlib</span>
+        <span class="tag">dictionaries</span>
+        <span class="tag">sorting</span>
+        <span class="tag">string formatting</span>
+        <span class="tag">functions</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# folder_report.py — Scan a directory tree and generate a report
+# ============================================================
+
+import os
+import sys
+from pathlib import Path
+from datetime import datetime
+
+
+def format_size(size_bytes):
+    """Convert a size in bytes to a human-readable string.
+
+    Examples: 1024 -> '1.00 KB', 1048576 -> '1.00 MB'
+    """
+    for unit in ["B", "KB", "MB", "GB", "TB"]:
+        if size_bytes < 1024:
+            return f"{size_bytes:.2f} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.2f} PB"
+
+
+def scan_directory(root_path):
+    """Walk a directory tree and collect file information.
+
+    Parameters
+    ----------
+    root_path : str or Path
+        The top-level directory to scan.
+
+    Returns
+    -------
+    file_list : list of dict
+        Each dict has keys: 'path', 'name', 'ext', 'size'.
+    dir_count : int
+        Number of subdirectories found.
+    """
+    root = Path(root_path)
+    file_list = []
+    dir_count = 0
+
+    for dirpath, dirnames, filenames in os.walk(root):
+        dir_count += len(dirnames)
+
+        for fname in filenames:
+            full_path = Path(dirpath) / fname
+            try:
+                size = full_path.stat().st_size
+            except (OSError, PermissionError):
+                # Skip files we can't access
+                continue
+
+            ext = full_path.suffix.lower() if full_path.suffix else "(no extension)"
+
+            file_list.append({
+                "path": str(full_path),
+                "name": fname,
+                "ext": ext,
+                "size": size,
+            })
+
+    return file_list, dir_count
+
+
+def generate_report(root_path, file_list, dir_count, top_n=10):
+    """Generate and print a formatted report.
+
+    Parameters
+    ----------
+    root_path : str
+    file_list : list of dict
+    dir_count : int
+    top_n : int
+        Number of largest files to show.
+    """
+    total_size = sum(f["size"] for f in file_list)
+    total_files = len(file_list)
+
+    # --- Group by extension ---
+    ext_stats = {}  # ext -> {"count": int, "size": int}
+    for f in file_list:
+        ext = f["ext"]
+        if ext not in ext_stats:
+            ext_stats[ext] = {"count": 0, "size": 0}
+        ext_stats[ext]["count"] += 1
+        ext_stats[ext]["size"] += f["size"]
+
+    # Sort extensions by total size (descending)
+    sorted_exts = sorted(ext_stats.items(), key=lambda x: x[1]["size"], reverse=True)
+
+    # --- Largest files ---
+    largest_files = sorted(file_list, key=lambda x: x["size"], reverse=True)[:top_n]
+
+    # --- Build the report string ---
+    lines = []
+    lines.append("=" * 70)
+    lines.append("  FOLDER REPORT")
+    lines.append(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    lines.append("=" * 70)
+    lines.append("")
+    lines.append(f"  Root directory:   {root_path}")
+    lines.append(f"  Total files:      {total_files:,}")
+    lines.append(f"  Total folders:    {dir_count:,}")
+    lines.append(f"  Total size:       {format_size(total_size)}")
+    lines.append("")
+
+    # --- Extension breakdown ---
+    lines.append("-" * 70)
+    lines.append(f"  {'Extension':<18} {'Files':>8} {'Total Size':>14} {'% of Total':>12}")
+    lines.append("-" * 70)
+    for ext, stats in sorted_exts:
+        pct = (stats["size"] / total_size * 100) if total_size > 0 else 0
+        lines.append(
+            f"  {ext:<18} {stats['count']:>8,} {format_size(stats['size']):>14} {pct:>11.1f}%"
+        )
+    lines.append("-" * 70)
+    lines.append("")
+
+    # --- Largest files ---
+    lines.append(f"  TOP {top_n} LARGEST FILES:")
+    lines.append("")
+    for i, f in enumerate(largest_files, start=1):
+        lines.append(f"  {i:>3}. {format_size(f['size']):>10}  {f['path']}")
+    lines.append("")
+    lines.append("=" * 70)
+
+    report = "\n".join(lines)
+    return report
+
+
+def main():
+    """Scan a directory and print / save the report."""
+    if len(sys.argv) > 1:
+        root_path = sys.argv[1]
+    else:
+        root_path = input("Enter directory to scan: ").strip() or "."
+
+    root_path = str(Path(root_path).resolve())
+    print(f"\nScanning: {root_path}\n")
+
+    file_list, dir_count = scan_directory(root_path)
+
+    if not file_list:
+        print("No files found.")
+        return
+
+    report = generate_report(root_path, file_list, dir_count)
+
+    # Print to terminal
+    print(report)
+
+    # Save to file
+    report_file = "folder_report.txt"
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(report)
+    print(f"\nReport saved to: {report_file}")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. <code>format_size()</code> (lines 10&ndash;17)</h4>
+      <p>
+        A utility function that converts raw byte counts into human-readable
+        strings like <code>"3.45 MB"</code>. It divides by 1024 repeatedly,
+        stepping through units (B, KB, MB, GB, TB) until the number is
+        less than 1024.
+      </p>
+
+      <h4>2. <code>scan_directory()</code> (lines 20&ndash;58)</h4>
+      <p>
+        Uses <code>os.walk()</code>, which recursively traverses a directory
+        tree. For each file it records the path, name, extension, and size.
+        The <code>try/except</code> block handles permission errors
+        gracefully &mdash; some system files may not be accessible.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> The closest MATLAB equivalent is
+        <code>dir('**/*')</code> with recursive search, or writing a custom
+        function that calls <code>dir()</code> on each subfolder. Python's
+        <code>os.walk()</code> is specifically designed for this pattern and
+        handles the recursion for you.
+      </div>
+
+      <h4>3. <code>generate_report()</code> (lines 61&ndash;119)</h4>
+      <p>
+        Groups files by extension using a dictionary, sorts by total size,
+        and identifies the largest files. The report is built as a list of
+        strings (one per line) and then joined with <code>"\n"</code>. This
+        is more efficient than string concatenation.
+      </p>
+
+      <h4>4. <code>main()</code> (lines 122&ndash;143)</h4>
+      <p>
+        Gets the directory from command-line arguments or interactive input,
+        runs the scan, prints the report, and also saves it to a text file.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># Scan the current directory:
+python folder_report.py .
+
+# Scan a specific directory:
+python folder_report.py C:\Users\you\Documents
+
+# Or run without arguments and enter the path interactively:
+python folder_report.py
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add a depth limit to control how many levels deep the scan goes.</li>
+        <li>Output the report as a CSV or HTML file.</li>
+        <li>Add a bar chart showing size by extension using matplotlib.</li>
+        <li>Show file age (most recently modified, oldest files).</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 8 — SIMPLE NUMERICAL ANALYSIS                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-8">Project 8: Simple Numerical Analysis</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Generate a synthetic dataset with noise, calculate descriptive
+        statistics, fit a straight line (linear regression) using basic math,
+        and plot the data along with the fitted line. This project is
+        especially relevant for MATLAB users who are accustomed to data
+        analysis and curve fitting.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">random module</span>
+        <span class="tag">math module</span>
+        <span class="tag">matplotlib</span>
+        <span class="tag">statistics</span>
+        <span class="tag">linear regression</span>
+        <span class="tag">list comprehensions</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# numerical_analysis.py — Generate data, compute stats, fit line, plot
+# ============================================================
+# This script uses only the standard library + matplotlib.
+# (It does NOT require numpy, though numpy would simplify much of this.)
+
+import math
+import random
+import matplotlib.pyplot as plt
+
+
+# ----- Data Generation -----
+
+def generate_data(n=50, slope=2.5, intercept=10, noise_level=5.0, seed=42):
+    """Generate n data points along a line with Gaussian noise.
+
+    y = slope * x + intercept + noise
+
+    Parameters
+    ----------
+    n : int            Number of data points.
+    slope : float      True slope of the line.
+    intercept : float  True y-intercept.
+    noise_level : float  Standard deviation of the added noise.
+    seed : int         Random seed for reproducibility.
+
+    Returns
+    -------
+    x_data : list of float
+    y_data : list of float
+    """
+    random.seed(seed)
+    x_data = [i * 1.0 for i in range(n)]
+    y_data = [slope * x + intercept + random.gauss(0, noise_level) for x in x_data]
+    return x_data, y_data
+
+
+# ----- Statistics -----
+
+def calc_mean(values):
+    """Return the arithmetic mean of a list of numbers."""
+    return sum(values) / len(values)
+
+
+def calc_std(values):
+    """Return the sample standard deviation."""
+    mean = calc_mean(values)
+    variance = sum((v - mean) ** 2 for v in values) / (len(values) - 1)
+    return math.sqrt(variance)
+
+
+def calc_median(values):
+    """Return the median of a list of numbers."""
+    s = sorted(values)
+    n = len(s)
+    mid = n // 2
+    if n % 2 == 0:
+        return (s[mid - 1] + s[mid]) / 2
+    else:
+        return s[mid]
+
+
+def print_stats(label, values):
+    """Print a summary of descriptive statistics."""
+    print(f"\n  Statistics for {label}:")
+    print(f"    Count:    {len(values)}")
+    print(f"    Mean:     {calc_mean(values):.4f}")
+    print(f"    Median:   {calc_median(values):.4f}")
+    print(f"    Std Dev:  {calc_std(values):.4f}")
+    print(f"    Min:      {min(values):.4f}")
+    print(f"    Max:      {max(values):.4f}")
+
+
+# ----- Linear Regression (least squares) -----
+
+def linear_fit(x, y):
+    """Fit a line y = mx + b using the least-squares method.
+
+    This implements the closed-form solution:
+        m = (n * sum(x*y) - sum(x) * sum(y)) / (n * sum(x^2) - (sum(x))^2)
+        b = mean(y) - m * mean(x)
+
+    Parameters
+    ----------
+    x : list of float
+    y : list of float
+
+    Returns
+    -------
+    m : float   slope
+    b : float   intercept
+    r_squared : float   coefficient of determination (R^2)
+    """
+    n = len(x)
+    sum_x   = sum(x)
+    sum_y   = sum(y)
+    sum_xy  = sum(xi * yi for xi, yi in zip(x, y))
+    sum_x2  = sum(xi ** 2 for xi in x)
+    sum_y2  = sum(yi ** 2 for yi in y)
+
+    # Slope
+    denom = n * sum_x2 - sum_x ** 2
+    m = (n * sum_xy - sum_x * sum_y) / denom
+
+    # Intercept
+    b = (sum_y - m * sum_x) / n
+
+    # R-squared
+    ss_res = sum((yi - (m * xi + b)) ** 2 for xi, yi in zip(x, y))
+    ss_tot = sum((yi - calc_mean(y)) ** 2 for yi in y)
+    r_squared = 1 - ss_res / ss_tot if ss_tot != 0 else 0
+
+    return m, b, r_squared
+
+
+# ----- Plotting -----
+
+def plot_results(x, y, m, b, r_squared, filename="numerical_analysis.png"):
+    """Plot the data points and the fitted line, and save to file."""
+    # Compute the fitted line values
+    y_fit = [m * xi + b for xi in x]
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    # Scatter plot of the raw data
+    ax.scatter(x, y, color="steelblue", alpha=0.6, s=30, label="Data points")
+
+    # Fitted line
+    ax.plot(x, y_fit, color="tomato", linewidth=2,
+            label=f"Fit: y = {m:.2f}x + {b:.2f} (R² = {r_squared:.4f})")
+
+    ax.set_title("Numerical Analysis: Linear Fit", fontsize=14, fontweight="bold")
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+
+    fig.tight_layout()
+    fig.savefig(filename, dpi=150)
+    print(f"\n  Plot saved to: {filename}")
+    plt.close(fig)
+
+
+# ----- Main -----
+
+def main():
+    """Run the full analysis pipeline."""
+    print("=" * 50)
+    print("  Simple Numerical Analysis")
+    print("=" * 50)
+
+    # Step 1: Generate data
+    x, y = generate_data(n=50, slope=2.5, intercept=10, noise_level=5.0)
+    print(f"\nGenerated {len(x)} data points.")
+
+    # Step 2: Descriptive statistics
+    print_stats("x", x)
+    print_stats("y", y)
+
+    # Step 3: Linear regression
+    m, b, r_sq = linear_fit(x, y)
+    print(f"\n  Linear Fit Results:")
+    print(f"    Slope (m):     {m:.4f}   (true value: 2.5)")
+    print(f"    Intercept (b): {b:.4f}   (true value: 10.0)")
+    print(f"    R-squared:     {r_sq:.4f}")
+
+    # Step 4: Plot
+    plot_results(x, y, m, b, r_sq)
+    print("\nAnalysis complete.")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. Data generation (lines 14&ndash;36)</h4>
+      <p>
+        Creates <code>n</code> data points along the line
+        <code>y = 2.5x + 10</code> with Gaussian noise added. Setting
+        <code>random.seed(42)</code> ensures the results are reproducible
+        every time you run the script.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you would write
+        <code>x = 0:49; y = 2.5*x + 10 + 5*randn(size(x));</code>. The
+        Python version does the same thing but uses a list comprehension
+        instead of vectorized operations. If you install numpy, you can write
+        nearly identical code: <code>x = np.arange(50); y = 2.5*x + 10 + 5*np.random.randn(50)</code>.
+      </div>
+
+      <h4>2. Statistics functions (lines 41&ndash;72)</h4>
+      <p>
+        We implement mean, sample standard deviation, and median from scratch
+        to show the underlying math. In production code you would use the
+        <code>statistics</code> module or numpy, but implementing them
+        yourself is educational.
+      </p>
+
+      <h4>3. Linear regression (lines 77&ndash;113)</h4>
+      <p>
+        Implements the ordinary least squares (OLS) closed-form solution.
+        This is the same formula behind MATLAB's <code>polyfit(x, y, 1)</code>.
+        We also compute R-squared to measure the goodness of fit. The formula
+        uses basic sums that can be computed in a single pass through the data.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong>
+        <code>p = polyfit(x, y, 1); m = p(1); b = p(2);</code> &mdash;
+        one line in MATLAB. In Python with numpy:
+        <code>m, b = np.polyfit(x, y, 1)</code>. Our from-scratch version
+        shows you exactly what those functions do internally.
+      </div>
+
+      <h4>4. Plotting and main (lines 118&ndash;157)</h4>
+      <p>
+        The plot shows the raw data as a scatter plot and the fitted line as
+        a red line, with the equation and R-squared displayed in the legend.
+        The <code>main()</code> function orchestrates the full pipeline:
+        generate, analyze, fit, plot.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># Install matplotlib first (one-time):
+pip install matplotlib
+
+# Then run:
+python numerical_analysis.py
+
+# Output: statistics printed to terminal + numerical_analysis.png saved
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Read data from a CSV file instead of generating it.</li>
+        <li>Add polynomial fitting (degree 2, 3) and compare fits.</li>
+        <li>Add residual plots (difference between data and fitted values).</li>
+        <li>Use numpy for vectorized operations and compare the code simplicity.</li>
+        <li>Add a histogram of the residuals to check for normality.</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 9 — COMMAND LINE UTILITY                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-9">Project 9: Command Line Utility</h2>
+
+      <h3>Goal</h3>
+      <p>
+        Build a CLI tool that counts words, lines, and characters in one or
+        more text files &mdash; similar to the Unix <code>wc</code> command.
+        Uses <code>argparse</code> for proper argument parsing with help
+        text, flags, and multiple file support.
+      </p>
+
+      <h3>Concepts Used</h3>
+      <p>
+        <span class="tag">argparse</span>
+        <span class="tag">sys</span>
+        <span class="tag">file I/O</span>
+        <span class="tag">dictionaries</span>
+        <span class="tag">functions</span>
+        <span class="tag">string methods</span>
+        <span class="tag">command-line tools</span>
+      </p>
+
+      <h3>Complete Code</h3>
+<pre><code># ============================================================
+# wordcount.py — A CLI word/line/character counter for text files
+# ============================================================
+# Usage:
+#   python wordcount.py file1.txt file2.txt
+#   python wordcount.py *.txt --sort words --top 5
+#   python wordcount.py myfile.txt --no-total
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def count_file(filepath):
+    """Count lines, words, and characters in a single file.
+
+    Parameters
+    ----------
+    filepath : str or Path
+        Path to the text file.
+
+    Returns
+    -------
+    dict with keys: 'lines', 'words', 'chars', 'file'
+    Returns None if the file cannot be read.
+    """
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"  Error: File not found: {filepath}", file=sys.stderr)
+        return None
+    except PermissionError:
+        print(f"  Error: Permission denied: {filepath}", file=sys.stderr)
+        return None
+    except UnicodeDecodeError:
+        print(f"  Error: Cannot read (not a text file?): {filepath}", file=sys.stderr)
+        return None
+
+    lines = content.count("\n")
+    words = len(content.split())
+    chars = len(content)
+
+    return {
+        "lines": lines,
+        "words": words,
+        "chars": chars,
+        "file": str(filepath),
+    }
+
+
+def print_results(results, show_total=True, sort_by=None, top_n=None):
+    """Print a formatted table of word-count results.
+
+    Parameters
+    ----------
+    results : list of dict
+        Each dict from count_file().
+    show_total : bool
+        Whether to print a total row at the bottom.
+    sort_by : str or None
+        Sort results by 'lines', 'words', or 'chars' (descending).
+    top_n : int or None
+        Show only the top N files (after sorting).
+    """
+    if not results:
+        print("No results to display.")
+        return
+
+    # Optional sorting
+    if sort_by and sort_by in ("lines", "words", "chars"):
+        results = sorted(results, key=lambda r: r[sort_by], reverse=True)
+
+    # Optional top-N filtering
+    if top_n is not None and top_n > 0:
+        results = results[:top_n]
+
+    # Print header
+    print(f"\n{'Lines':>10} {'Words':>10} {'Chars':>10}  {'File'}")
+    print("-" * 50)
+
+    # Print each file's counts
+    total_lines = 0
+    total_words = 0
+    total_chars = 0
+
+    for r in results:
+        print(f"{r['lines']:>10,} {r['words']:>10,} {r['chars']:>10,}  {r['file']}")
+        total_lines += r["lines"]
+        total_words += r["words"]
+        total_chars += r["chars"]
+
+    # Print total (only if more than one file and show_total is True)
+    if show_total and len(results) > 1:
+        print("-" * 50)
+        print(f"{total_lines:>10,} {total_words:>10,} {total_chars:>10,}  TOTAL")
+
+    print()
+
+
+def build_parser():
+    """Create and return the argument parser."""
+    parser = argparse.ArgumentParser(
+        description="Count lines, words, and characters in text files.",
+        epilog="Example: python wordcount.py report.txt notes.txt --sort words",
+    )
+
+    # Positional arguments: one or more file paths
+    parser.add_argument(
+        "files",
+        nargs="+",
+        help="One or more text files to analyze.",
+    )
+
+    # Optional flags
+    parser.add_argument(
+        "--sort",
+        choices=["lines", "words", "chars"],
+        default=None,
+        help="Sort results by the specified metric (descending).",
+    )
+
+    parser.add_argument(
+        "--top",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Show only the top N files (requires --sort).",
+    )
+
+    parser.add_argument(
+        "--no-total",
+        action="store_true",
+        help="Do not show the total row.",
+    )
+
+    return parser
+
+
+def main():
+    """Parse arguments and run the word counter."""
+    parser = build_parser()
+    args = parser.parse_args()
+
+    # Count each file
+    results = []
+    for filepath in args.files:
+        result = count_file(filepath)
+        if result is not None:
+            results.append(result)
+
+    if not results:
+        print("No valid files to analyze.", file=sys.stderr)
+        sys.exit(1)
+
+    # Display results
+    print_results(
+        results,
+        show_total=not args.no_total,
+        sort_by=args.sort,
+        top_n=args.top,
+    )
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>Block-by-Block Explanation</h3>
+
+      <h4>1. <code>count_file()</code> (lines 14&ndash;49)</h4>
+      <p>
+        Reads a single file and computes three metrics: line count (number of
+        newline characters), word count (using <code>str.split()</code>, which
+        splits on any whitespace), and character count
+        (<code>len(content)</code>). The function handles three common errors
+        gracefully: file not found, permission denied, and non-text files.
+      </p>
+
+      <h4>2. <code>print_results()</code> (lines 52&ndash;90)</h4>
+      <p>
+        Formats and prints a table of results. Supports optional sorting by
+        any metric and an optional top-N filter. The format specifiers
+        <code>&gt;10,</code> right-align numbers in a 10-character field with
+        comma separators for thousands.
+      </p>
+
+      <h4>3. <code>build_parser()</code> (lines 93&ndash;129)</h4>
+      <p>
+        This is where <code>argparse</code> shines. We define:
+      </p>
+      <ul>
+        <li><code>files</code> &mdash; a positional argument that accepts one or more file paths (<code>nargs="+"</code>).</li>
+        <li><code>--sort</code> &mdash; an optional flag with restricted choices.</li>
+        <li><code>--top N</code> &mdash; an optional integer flag.</li>
+        <li><code>--no-total</code> &mdash; a boolean flag (present = True, absent = False).</li>
+      </ul>
+      <p>
+        Running <code>python wordcount.py --help</code> automatically
+        generates a help message from these definitions.
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>Tip:</strong> <code>argparse</code> is the standard-library
+        way to build CLI tools in Python. For simple scripts,
+        <code>sys.argv</code> works fine, but for anything with flags,
+        optional arguments, or help text, <code>argparse</code> is the right
+        choice. There are also third-party alternatives like <code>click</code>
+        and <code>typer</code> that offer even more convenience.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB scripts do not have a
+        built-in argument parser like <code>argparse</code>. MATLAB users
+        typically pass arguments via function parameters or use
+        <code>inputParser</code>. The Python approach makes it easy to build
+        scripts that behave like proper command-line tools.
+      </div>
+
+      <h4>4. <code>main()</code> (lines 132&ndash;153)</h4>
+      <p>
+        Parses arguments, counts each file, filters out failures, and
+        passes the results to the printer. Exits with status code 1 if
+        no valid files were processed.
+      </p>
+
+      <h3>How to Run</h3>
+<pre><code># Basic usage — count a single file:
+python wordcount.py myfile.txt
+
+# Multiple files:
+python wordcount.py file1.txt file2.txt file3.txt
+
+# Sort by word count and show top 3:
+python wordcount.py *.txt --sort words --top 3
+
+# Without total row:
+python wordcount.py report.txt notes.txt --no-total
+
+# See help:
+python wordcount.py --help
+</code></pre>
+
+      <h3>Modify &amp; Extend</h3>
+      <ul>
+        <li>Add a <code>--unique-words</code> flag that counts distinct words using a <code>set</code>.</li>
+        <li>Add a <code>--output csv</code> flag that writes results as a CSV file.</li>
+        <li>Support reading from standard input (<code>stdin</code>) when no files are given.</li>
+        <li>Add a <code>--exclude</code> flag that skips certain file patterns (e.g., <code>--exclude "*.log"</code>).</li>
+        <li>Add a progress bar for large numbers of files using <code>tqdm</code>.</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <p>
+        Congratulations on working through these nine projects. Here is a
+        recap of what each one teaches:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Project</th>
+            <th>Key Skills</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Simple Calculator</td>
+            <td>Functions, input, error handling, dispatch dictionaries</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>File Organizer</td>
+            <td>pathlib, shutil, dictionaries, file system operations</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>CSV Analyzer</td>
+            <td>csv module, file I/O, basic statistics, string formatting</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Plot Generator</td>
+            <td>matplotlib, subplots, savefig, data visualization</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Log Parser</td>
+            <td>String methods, dictionaries for counting, file I/O</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Batch File Renamer</td>
+            <td>pathlib, datetime, preview-confirm pattern, enumerate</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Folder Report Generator</td>
+            <td>os.walk, file metadata, formatted reports</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Numerical Analysis</td>
+            <td>Statistics, linear regression, matplotlib, list comprehensions</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>CLI Utility</td>
+            <td>argparse, sys, building reusable command-line tools</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-tip">
+        <strong>What to do next:</strong> Pick the project closest to your
+        real work and modify it. The best way to learn programming is to
+        solve a problem you actually care about. Once you can modify these
+        projects confidently, you are ready to build your own from scratch.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>For MATLAB users:</strong> If you have worked through these
+        projects, you now know how to do in Python most of what you
+        previously did in MATLAB: reading data files, computing statistics,
+        fitting curves, creating plots, and automating file tasks. The syntax
+        is different, but the patterns are the same. You are well on your
+        way to being productive in Python.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="comparisons.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Language Comparisons</span></a>
+        <a href="practice.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Practice &amp; Roadmap</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

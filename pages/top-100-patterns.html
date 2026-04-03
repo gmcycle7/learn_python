@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 100 Python Patterns &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link active">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; Practice</div><a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a></div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">&rsaquo;</span> <a href="common-patterns.html">Common Patterns</a><span class="sep">&rsaquo;</span> Top 100 Patterns</div>
+
+      <!-- ============================================================ -->
+      <!--  TOP 100 PYTHON PATTERNS — QUICK REFERENCE                    -->
+      <!-- ============================================================ -->
+
+      <h1>Top 100 Python Patterns</h1>
+
+      <p class="section-intro">
+        A quick-reference list of the 100 most common Python patterns and
+        snippets that beginners reach for every day. Each entry has a short
+        title, a concise code example, and a one-line explanation. Bookmark
+        this page &mdash; you will come back to it often.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB users:</strong> Many of these patterns have direct MATLAB
+        equivalents. Where Python differs significantly (zero-based indexing,
+        <code>None</code> instead of <code>[]</code>, etc.) the explanation
+        calls it out.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  TABLE OF CONTENTS                                            -->
+      <!-- ============================================================ -->
+
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#printing">Printing &amp; Output</a> (1&ndash;8)</li>
+        <li><a href="#variables">Variables &amp; Types</a> (9&ndash;16)</li>
+        <li><a href="#strings">Strings</a> (17&ndash;30)</li>
+        <li><a href="#lists">Lists</a> (31&ndash;46)</li>
+        <li><a href="#dicts">Dictionaries</a> (47&ndash;58)</li>
+        <li><a href="#loops">Loops</a> (59&ndash;68)</li>
+        <li><a href="#functions">Functions</a> (69&ndash;76)</li>
+        <li><a href="#files">Files</a> (77&ndash;86)</li>
+        <li><a href="#errors">Error Handling</a> (87&ndash;90)</li>
+        <li><a href="#oneliners">Useful One-liners</a> (91&ndash;100)</li>
+      </ul>
+
+      <!-- ============================================================ -->
+      <!--  PRINTING & OUTPUT  (1-8)                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="printing">Printing &amp; Output (1&ndash;8)</h2>
+
+      <h3>1. Print a string</h3>
+      <pre><code>print("Hello, world!")</code></pre>
+      <p>Prints text to the console.</p>
+
+      <h3>2. Print a variable</h3>
+      <pre><code>name = "Alice"
+print(name)</code></pre>
+      <p>Prints the current value of a variable.</p>
+
+      <h3>3. Print multiple values</h3>
+      <pre><code>print("x =", 10, "y =", 20)</code></pre>
+      <p>Passes multiple arguments to <code>print()</code>; they are separated by spaces by default.</p>
+
+      <h3>4. Print with a custom separator</h3>
+      <pre><code>print("a", "b", "c", sep="-")  # a-b-c</code></pre>
+      <p>The <code>sep</code> parameter controls what goes between each value.</p>
+
+      <h3>5. Print without a trailing newline</h3>
+      <pre><code>print("loading", end="... ")
+print("done!")</code></pre>
+      <p>The <code>end</code> parameter replaces the default newline at the end of each <code>print()</code>.</p>
+
+      <h3>6. Print a formatted number</h3>
+      <pre><code>pi = 3.14159265
+print(f"Pi is approximately {pi:.2f}")  # Pi is approximately 3.14</code></pre>
+      <p>Uses an f-string with a format specifier to control decimal places.</p>
+
+      <h3>7. Print to a file</h3>
+      <pre><code>with open("log.txt", "w") as f:
+    print("Log entry 1", file=f)</code></pre>
+      <p>The <code>file</code> parameter redirects output to a file instead of the console.</p>
+
+      <h3>8. Pretty-print complex data</h3>
+      <pre><code>from pprint import pprint
+data = {"name": "Alice", "scores": [90, 85, 92], "active": True}
+pprint(data)</code></pre>
+      <p>Formats nested structures with indentation so they are easier to read.</p>
+
+      <!-- ============================================================ -->
+      <!--  VARIABLES & TYPES  (9-16)                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="variables">Variables &amp; Types (9&ndash;16)</h2>
+
+      <h3>9. Assign a variable</h3>
+      <pre><code>x = 42</code></pre>
+      <p>Variables are created the moment you assign a value &mdash; no declaration needed.</p>
+
+      <h3>10. Multiple assignment</h3>
+      <pre><code>a, b, c = 1, 2, 3</code></pre>
+      <p>Assigns several variables in a single line (tuple unpacking).</p>
+
+      <h3>11. Swap two variables</h3>
+      <pre><code>a, b = b, a</code></pre>
+      <p>Swaps values without a temporary variable. In MATLAB you would need a temp variable or <code>deal()</code>.</p>
+
+      <h3>12. Check the type of a variable</h3>
+      <pre><code>print(type(42))       # &lt;class 'int'&gt;
+print(type("hello"))  # &lt;class 'str'&gt;</code></pre>
+      <p>Returns the type of any object. Similar to MATLAB's <code>class()</code>.</p>
+
+      <h3>13. Convert to int</h3>
+      <pre><code>num = int("42")    # from string
+num = int(3.99)    # from float (truncates to 3)</code></pre>
+      <p>Converts a value to an integer; floats are truncated, not rounded.</p>
+
+      <h3>14. Convert to string</h3>
+      <pre><code>s = str(100)   # "100"
+s = str(3.14)  # "3.14"</code></pre>
+      <p>Converts any value to its string representation.</p>
+
+      <h3>15. Check if a value is None</h3>
+      <pre><code>result = None
+if result is None:
+    print("No result yet")</code></pre>
+      <p>Use <code>is None</code> (not <code>== None</code>) to test for Python's null value.</p>
+
+      <h3>16. Compare types with isinstance</h3>
+      <pre><code>if isinstance(x, int):
+    print("x is an integer")</code></pre>
+      <p>Preferred over <code>type(x) == int</code> because it also handles subclasses.</p>
+
+      <!-- ============================================================ -->
+      <!--  STRINGS  (17-30)                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="strings">Strings (17&ndash;30)</h2>
+
+      <h3>17. Concatenate strings</h3>
+      <pre><code>greeting = "Hello" + " " + "World"</code></pre>
+      <p>Joins strings together with the <code>+</code> operator.</p>
+
+      <h3>18. f-string interpolation</h3>
+      <pre><code>name = "Alice"
+age = 30
+print(f"{name} is {age} years old")</code></pre>
+      <p>Embeds expressions directly inside a string literal. The most readable formatting method.</p>
+
+      <h3>19. Uppercase and lowercase</h3>
+      <pre><code>"hello".upper()   # "HELLO"
+"HELLO".lower()   # "hello"</code></pre>
+      <p>Returns a new string converted to upper or lower case.</p>
+
+      <h3>20. Strip whitespace</h3>
+      <pre><code>"  hello  ".strip()   # "hello"
+"  hello  ".lstrip()  # "hello  "
+"  hello  ".rstrip()  # "  hello"</code></pre>
+      <p>Removes leading and/or trailing whitespace (or specified characters).</p>
+
+      <h3>21. Split a string into a list</h3>
+      <pre><code>"a,b,c".split(",")  # ["a", "b", "c"]</code></pre>
+      <p>Splits on the given delimiter and returns a list of substrings.</p>
+
+      <h3>22. Join a list into a string</h3>
+      <pre><code>", ".join(["a", "b", "c"])  # "a, b, c"</code></pre>
+      <p>The inverse of <code>split()</code> &mdash; glues list elements together with a separator.</p>
+
+      <h3>23. Replace a substring</h3>
+      <pre><code>"hello world".replace("world", "Python")  # "hello Python"</code></pre>
+      <p>Returns a new string with all occurrences of the old substring replaced.</p>
+
+      <h3>24. Check if a string contains a substring</h3>
+      <pre><code>if "error" in "file not found error":
+    print("Found it!")</code></pre>
+      <p>The <code>in</code> operator tests for membership. Similar to MATLAB's <code>contains()</code>.</p>
+
+      <h3>25. Check starts/ends with</h3>
+      <pre><code>"report.pdf".endswith(".pdf")    # True
+"report.pdf".startswith("rep")  # True</code></pre>
+      <p>Useful for checking file extensions, prefixes, or protocol strings.</p>
+
+      <h3>26. Count occurrences in a string</h3>
+      <pre><code>"banana".count("a")  # 3</code></pre>
+      <p>Returns the number of non-overlapping occurrences of a substring.</p>
+
+      <h3>27. Find the index of a substring</h3>
+      <pre><code>"hello".find("ll")   # 2
+"hello".find("xyz")  # -1 (not found)</code></pre>
+      <p>Returns the first index where the substring starts, or <code>-1</code> if not found.</p>
+
+      <h3>28. Slice a string</h3>
+      <pre><code>s = "Python"
+s[0:3]   # "Pyt"  (index 0 up to but not including 3)
+s[-3:]   # "hon"  (last 3 characters)</code></pre>
+      <p>Extract a portion with <code>[start:stop]</code>. Remember: Python uses zero-based indexing.</p>
+
+      <h3>29. Reverse a string</h3>
+      <pre><code>"hello"[::-1]  # "olleh"</code></pre>
+      <p>The slice <code>[::-1]</code> steps backward through the entire sequence.</p>
+
+      <h3>30. Multiline string</h3>
+      <pre><code>text = """Line one
+Line two
+Line three"""</code></pre>
+      <p>Triple quotes let you write strings that span multiple lines without escape characters.</p>
+
+      <!-- ============================================================ -->
+      <!--  LISTS  (31-46)                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="lists">Lists (31&ndash;46)</h2>
+
+      <h3>31. Create a list</h3>
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+nums = [1, 2, 3, 4, 5]</code></pre>
+      <p>Lists are ordered, mutable sequences &mdash; Python's workhorse data structure.</p>
+
+      <h3>32. Append to a list</h3>
+      <pre><code>fruits.append("date")</code></pre>
+      <p>Adds an element to the end. Modifies the list in place.</p>
+
+      <h3>33. Insert at a specific position</h3>
+      <pre><code>fruits.insert(1, "blueberry")  # insert at index 1</code></pre>
+      <p>Shifts existing elements to the right to make room.</p>
+
+      <h3>34. Remove by value</h3>
+      <pre><code>fruits.remove("banana")  # removes the first occurrence</code></pre>
+      <p>Raises <code>ValueError</code> if the item is not in the list.</p>
+
+      <h3>35. Pop (remove by index)</h3>
+      <pre><code>last = fruits.pop()     # removes and returns the last item
+second = fruits.pop(1)  # removes and returns item at index 1</code></pre>
+      <p>Returns the removed element so you can use it.</p>
+
+      <h3>36. Sort a list</h3>
+      <pre><code>nums = [3, 1, 4, 1, 5]
+nums.sort()               # in-place: [1, 1, 3, 4, 5]
+sorted_nums = sorted(nums)  # returns a new sorted list</code></pre>
+      <p><code>.sort()</code> modifies in place; <code>sorted()</code> returns a new list.</p>
+
+      <h3>37. Reverse a list</h3>
+      <pre><code>nums.reverse()           # in-place
+reversed_nums = nums[::-1]  # returns a new list</code></pre>
+      <p>Two approaches: in-place method or slice trick.</p>
+
+      <h3>38. Slice a list</h3>
+      <pre><code>nums = [10, 20, 30, 40, 50]
+nums[1:4]   # [20, 30, 40]
+nums[::2]   # [10, 30, 50]  (every other element)</code></pre>
+      <p>Works exactly like string slicing: <code>[start:stop:step]</code>.</p>
+
+      <h3>39. Find the index of an element</h3>
+      <pre><code>["a", "b", "c"].index("b")  # 1</code></pre>
+      <p>Returns the index of the first occurrence. Raises <code>ValueError</code> if not found.</p>
+
+      <h3>40. Check if an item is in a list</h3>
+      <pre><code>if "apple" in fruits:
+    print("Found it!")</code></pre>
+      <p>The <code>in</code> operator works on any sequence (lists, tuples, strings, sets).</p>
+
+      <h3>41. Get the length of a list</h3>
+      <pre><code>print(len(fruits))  # number of elements</code></pre>
+      <p>The built-in <code>len()</code> works on strings, lists, dicts, sets, and more.</p>
+
+      <h3>42. Flatten a nested list</h3>
+      <pre><code>nested = [[1, 2], [3, 4], [5, 6]]
+flat = [item for sublist in nested for item in sublist]
+# [1, 2, 3, 4, 5, 6]</code></pre>
+      <p>A double list comprehension that unpacks one level of nesting.</p>
+
+      <h3>43. Get unique elements</h3>
+      <pre><code>unique = list(set([1, 2, 2, 3, 3, 3]))  # [1, 2, 3]</code></pre>
+      <p>Converting to a set removes duplicates; convert back to a list if you need one. Order is not guaranteed.</p>
+
+      <h3>44. List comprehension</h3>
+      <pre><code>squares = [x**2 for x in range(10)]
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+      <p>A concise way to create lists by transforming each element of an iterable.</p>
+
+      <h3>45. Filter a list with a comprehension</h3>
+      <pre><code>evens = [x for x in range(20) if x % 2 == 0]</code></pre>
+      <p>Adds an <code>if</code> clause to keep only elements that pass the condition.</p>
+
+      <h3>46. Combine (concatenate) lists</h3>
+      <pre><code>a = [1, 2]
+b = [3, 4]
+combined = a + b        # [1, 2, 3, 4]
+a.extend(b)             # a is now [1, 2, 3, 4] (in-place)</code></pre>
+      <p>Use <code>+</code> for a new list or <code>.extend()</code> to modify in place.</p>
+
+      <!-- ============================================================ -->
+      <!--  DICTIONARIES  (47-58)                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="dicts">Dictionaries (47&ndash;58)</h2>
+
+      <h3>47. Create a dictionary</h3>
+      <pre><code>person = {"name": "Alice", "age": 30, "city": "London"}</code></pre>
+      <p>Key-value pairs enclosed in curly braces. Similar to MATLAB's <code>containers.Map</code>.</p>
+
+      <h3>48. Access a value by key</h3>
+      <pre><code>print(person["name"])  # "Alice"</code></pre>
+      <p>Raises <code>KeyError</code> if the key does not exist.</p>
+
+      <h3>49. Get with a default value</h3>
+      <pre><code>person.get("email", "N/A")  # "N/A" (key not found)</code></pre>
+      <p>Returns the default instead of raising an error when the key is missing.</p>
+
+      <h3>50. Add or update a key</h3>
+      <pre><code>person["email"] = "alice@example.com"  # add new
+person["age"] = 31                     # update existing</code></pre>
+      <p>Assignment creates the key if it does not exist, or overwrites it if it does.</p>
+
+      <h3>51. Delete a key</h3>
+      <pre><code>del person["city"]
+# or
+removed = person.pop("city", None)  # returns the value (or None)</code></pre>
+      <p><code>del</code> raises <code>KeyError</code> if missing; <code>.pop()</code> with a default does not.</p>
+
+      <h3>52. Check if a key exists</h3>
+      <pre><code>if "name" in person:
+    print("Key exists")</code></pre>
+      <p>The <code>in</code> operator checks keys (not values) by default.</p>
+
+      <h3>53. Loop through keys</h3>
+      <pre><code>for key in person:
+    print(key)</code></pre>
+      <p>Iterating over a dict yields its keys.</p>
+
+      <h3>54. Loop through values</h3>
+      <pre><code>for value in person.values():
+    print(value)</code></pre>
+      <p>Use <code>.values()</code> when you only need the values.</p>
+
+      <h3>55. Loop through key-value pairs</h3>
+      <pre><code>for key, value in person.items():
+    print(f"{key}: {value}")</code></pre>
+      <p>The most common way to iterate over a dictionary.</p>
+
+      <h3>56. Merge two dictionaries</h3>
+      <pre><code>defaults = {"color": "red", "size": 10}
+overrides = {"size": 20, "weight": 5}
+merged = {**defaults, **overrides}
+# {"color": "red", "size": 20, "weight": 5}</code></pre>
+      <p>The <code>**</code> unpacking merges dicts; later values win on duplicate keys.</p>
+
+      <h3>57. Dictionary comprehension</h3>
+      <pre><code>squares = {x: x**2 for x in range(6)}
+# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
+      <p>Creates a dictionary in one expression, similar to list comprehension.</p>
+
+      <h3>58. Sort a dictionary by value</h3>
+      <pre><code>scores = {"Alice": 90, "Bob": 75, "Charlie": 88}
+sorted_scores = dict(sorted(scores.items(), key=lambda item: item[1]))</code></pre>
+      <p>Returns a new dict ordered by values. Add <code>reverse=True</code> for descending.</p>
+
+      <!-- ============================================================ -->
+      <!--  LOOPS  (59-68)                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="loops">Loops (59&ndash;68)</h2>
+
+      <h3>59. For loop over a list</h3>
+      <pre><code>for fruit in ["apple", "banana", "cherry"]:
+    print(fruit)</code></pre>
+      <p>Iterates directly over elements &mdash; no index variable needed.</p>
+
+      <h3>60. While loop</h3>
+      <pre><code>count = 0
+while count &lt; 5:
+    print(count)
+    count += 1</code></pre>
+      <p>Repeats as long as the condition is <code>True</code>.</p>
+
+      <h3>61. Loop with range</h3>
+      <pre><code>for i in range(5):       # 0, 1, 2, 3, 4
+    print(i)
+for i in range(2, 10, 3):  # 2, 5, 8
+    print(i)</code></pre>
+      <p><code>range(start, stop, step)</code> generates integers. Like MATLAB's <code>start:step:stop</code> but the stop value is excluded.</p>
+
+      <h3>62. Enumerate (index + value)</h3>
+      <pre><code>for i, fruit in enumerate(["apple", "banana", "cherry"]):
+    print(f"{i}: {fruit}")</code></pre>
+      <p>Gives you both the index and the value in each iteration. Avoids manual counter variables.</p>
+
+      <h3>63. Zip (loop over two lists in parallel)</h3>
+      <pre><code>names = ["Alice", "Bob"]
+scores = [90, 85]
+for name, score in zip(names, scores):
+    print(f"{name}: {score}")</code></pre>
+      <p>Pairs up elements from two (or more) iterables. Stops at the shortest one.</p>
+
+      <h3>64. Nested loops</h3>
+      <pre><code>for i in range(3):
+    for j in range(3):
+        print(f"({i},{j})", end=" ")
+    print()</code></pre>
+      <p>An inner loop runs completely for each iteration of the outer loop.</p>
+
+      <h3>65. Break out of a loop</h3>
+      <pre><code>for n in range(100):
+    if n * n &gt; 50:
+        print(f"First square above 50: {n * n}")
+        break</code></pre>
+      <p><code>break</code> exits the innermost loop immediately.</p>
+
+      <h3>66. Skip an iteration with continue</h3>
+      <pre><code>for n in range(10):
+    if n % 2 == 0:
+        continue
+    print(n)  # prints odd numbers only</code></pre>
+      <p><code>continue</code> jumps to the next iteration, skipping the rest of the loop body.</p>
+
+      <h3>67. Loop with else</h3>
+      <pre><code>for n in range(2, 10):
+    if n == 4:
+        break
+else:
+    print("Loop completed without break")</code></pre>
+      <p>The <code>else</code> block runs only if the loop finished without hitting <code>break</code>.</p>
+
+      <h3>68. Loop in reverse</h3>
+      <pre><code>for i in reversed(range(5)):  # 4, 3, 2, 1, 0
+    print(i)</code></pre>
+      <p><code>reversed()</code> iterates in reverse without creating a new list.</p>
+
+      <!-- ============================================================ -->
+      <!--  FUNCTIONS  (69-76)                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="functions">Functions (69&ndash;76)</h2>
+
+      <h3>69. Define a function</h3>
+      <pre><code>def greet(name):
+    print(f"Hello, {name}!")</code></pre>
+      <p>Functions are defined with <code>def</code>. Indented body, no <code>end</code> keyword needed.</p>
+
+      <h3>70. Return a value</h3>
+      <pre><code>def add(a, b):
+    return a + b
+
+result = add(3, 4)  # 7</code></pre>
+      <p>Use <code>return</code> to send a value back to the caller.</p>
+
+      <h3>71. Default arguments</h3>
+      <pre><code>def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")            # Hello, Alice!
+greet("Alice", "Hi")      # Hi, Alice!</code></pre>
+      <p>Parameters with defaults are optional when calling the function.</p>
+
+      <h3>72. *args (variable positional arguments)</h3>
+      <pre><code>def total(*args):
+    return sum(args)
+
+total(1, 2, 3, 4)  # 10</code></pre>
+      <p>Collects any number of positional arguments into a tuple.</p>
+
+      <h3>73. **kwargs (variable keyword arguments)</h3>
+      <pre><code>def show_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+show_info(name="Alice", age=30)</code></pre>
+      <p>Collects any number of keyword arguments into a dictionary.</p>
+
+      <h3>74. Lambda (anonymous function)</h3>
+      <pre><code>square = lambda x: x ** 2
+print(square(5))  # 25</code></pre>
+      <p>A one-line throwaway function, often used with <code>sort()</code>, <code>map()</code>, or <code>filter()</code>.</p>
+
+      <h3>75. Map</h3>
+      <pre><code>nums = [1, 2, 3, 4]
+doubled = list(map(lambda x: x * 2, nums))  # [2, 4, 6, 8]</code></pre>
+      <p>Applies a function to every element. A list comprehension often does the same thing more readably.</p>
+
+      <h3>76. Filter</h3>
+      <pre><code>nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))  # [2, 4, 6]</code></pre>
+      <p>Keeps only elements for which the function returns <code>True</code>.</p>
+
+      <!-- ============================================================ -->
+      <!--  FILES  (77-86)                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="files">Files (77&ndash;86)</h2>
+
+      <h3>77. Read an entire file</h3>
+      <pre><code>with open("data.txt", "r") as f:
+    content = f.read()</code></pre>
+      <p>Opens the file, reads all content into a string, and auto-closes the file.</p>
+
+      <h3>78. Read file line by line</h3>
+      <pre><code>with open("data.txt", "r") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+      <p>Memory-efficient &mdash; reads one line at a time instead of loading the whole file.</p>
+
+      <h3>79. Write to a file</h3>
+      <pre><code>with open("output.txt", "w") as f:
+    f.write("Hello, file!\n")</code></pre>
+      <p>Mode <code>"w"</code> creates the file or overwrites it if it already exists.</p>
+
+      <h3>80. Append to a file</h3>
+      <pre><code>with open("log.txt", "a") as f:
+    f.write("New log entry\n")</code></pre>
+      <p>Mode <code>"a"</code> adds to the end without erasing existing content.</p>
+
+      <h3>81. Check if a file exists</h3>
+      <pre><code>import os
+if os.path.exists("data.txt"):
+    print("File found")</code></pre>
+      <p>Prevents errors when trying to open a file that may not be there.</p>
+
+      <h3>82. Get file size</h3>
+      <pre><code>import os
+size = os.path.getsize("data.txt")  # size in bytes</code></pre>
+      <p>Returns the file size in bytes. Divide by 1024 for KB, by 1048576 for MB.</p>
+
+      <h3>83. List files in a directory</h3>
+      <pre><code>import os
+files = os.listdir(".")  # current directory
+print(files)</code></pre>
+      <p>Returns a list of filenames (not full paths) in the given directory.</p>
+
+      <h3>84. Create a directory</h3>
+      <pre><code>import os
+os.makedirs("output/reports", exist_ok=True)</code></pre>
+      <p>Creates the directory and any missing parent directories. <code>exist_ok=True</code> avoids errors if it already exists.</p>
+
+      <h3>85. Delete a file</h3>
+      <pre><code>import os
+os.remove("temp.txt")</code></pre>
+      <p>Permanently deletes the file. Raises <code>FileNotFoundError</code> if it does not exist.</p>
+
+      <h3>86. Copy a file</h3>
+      <pre><code>import shutil
+shutil.copy("source.txt", "backup.txt")</code></pre>
+      <p>Copies file content and permissions. Use <code>shutil.copy2()</code> to also preserve metadata.</p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR HANDLING  (87-90)                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="errors">Error Handling (87&ndash;90)</h2>
+
+      <h3>87. Basic try / except</h3>
+      <pre><code>try:
+    result = 10 / 0
+except:
+    print("Something went wrong")</code></pre>
+      <p>Catches any exception and prevents the program from crashing.</p>
+
+      <h3>88. Catch a specific exception</h3>
+      <pre><code>try:
+    num = int("abc")
+except ValueError as e:
+    print(f"Invalid input: {e}")</code></pre>
+      <p>Catches only the specified error type; other exceptions still propagate.</p>
+
+      <h3>89. Finally (cleanup code)</h3>
+      <pre><code>try:
+    f = open("data.txt")
+    data = f.read()
+finally:
+    f.close()</code></pre>
+      <p>The <code>finally</code> block always runs, whether or not an exception occurred. (Prefer <code>with</code> statements for files.)</p>
+
+      <h3>90. Raise an exception</h3>
+      <pre><code>def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b</code></pre>
+      <p>Use <code>raise</code> to signal an error condition explicitly.</p>
+
+      <!-- ============================================================ -->
+      <!--  USEFUL ONE-LINERS  (91-100)                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="oneliners">Useful One-liners (91&ndash;100)</h2>
+
+      <h3>91. Flatten a nested list</h3>
+      <pre><code>flat = [x for sub in [[1,2],[3,4],[5]] for x in sub]
+# [1, 2, 3, 4, 5]</code></pre>
+      <p>Double comprehension that unpacks one level of nesting into a flat list.</p>
+
+      <h3>92. Count items with Counter</h3>
+      <pre><code>from collections import Counter
+counts = Counter(["a", "b", "a", "c", "a", "b"])
+# Counter({'a': 3, 'b': 2, 'c': 1})</code></pre>
+      <p>Tallies occurrences of each element. Great for frequency analysis.</p>
+
+      <h3>93. Sort a dict by value</h3>
+      <pre><code>d = {"x": 3, "y": 1, "z": 2}
+sorted_d = dict(sorted(d.items(), key=lambda kv: kv[1]))
+# {"y": 1, "z": 2, "x": 3}</code></pre>
+      <p>Returns a new dict ordered by ascending values.</p>
+
+      <h3>94. Transpose a matrix (list of lists)</h3>
+      <pre><code>matrix = [[1,2,3],[4,5,6],[7,8,9]]
+transposed = list(zip(*matrix))
+# [(1,4,7), (2,5,8), (3,6,9)]</code></pre>
+      <p>The <code>*</code> unpacks rows and <code>zip()</code> recombines them column-wise. Like MATLAB's <code>.'</code> operator.</p>
+
+      <h3>95. Unique elements preserving order</h3>
+      <pre><code>items = [3, 1, 2, 3, 1, 4]
+unique = list(dict.fromkeys(items))  # [3, 1, 2, 4]</code></pre>
+      <p>Uses the fact that dict keys are unique and insertion-ordered (Python 3.7+).</p>
+
+      <h3>96. Split a list into chunks</h3>
+      <pre><code>data = list(range(10))
+chunks = [data[i:i+3] for i in range(0, len(data), 3)]
+# [[0,1,2], [3,4,5], [6,7,8], [9]]</code></pre>
+      <p>Slices the list into groups of <em>n</em> elements each.</p>
+
+      <h3>97. Find max/min with a key function</h3>
+      <pre><code>words = ["apple", "hi", "banana", "ok"]
+longest = max(words, key=len)   # "banana"
+shortest = min(words, key=len)  # "hi"</code></pre>
+      <p>The <code>key</code> parameter controls what value is compared.</p>
+
+      <h3>98. Merge dictionaries (Python 3.9+)</h3>
+      <pre><code>a = {"x": 1}
+b = {"y": 2, "x": 10}
+merged = a | b  # {"x": 10, "y": 2}</code></pre>
+      <p>The <code>|</code> operator merges dicts; right-hand side wins on duplicate keys.</p>
+
+      <h3>99. Conditional (ternary) expression</h3>
+      <pre><code>status = "even" if 10 % 2 == 0 else "odd"</code></pre>
+      <p>A one-line if/else that returns a value. Useful for concise assignments.</p>
+
+      <h3>100. defaultdict (auto-initialize missing keys)</h3>
+      <pre><code>from collections import defaultdict
+counts = defaultdict(int)
+for ch in "hello":
+    counts[ch] += 1
+# defaultdict(&lt;class 'int'&gt;, {'h':1, 'e':1, 'l':2, 'o':1})</code></pre>
+      <p>Automatically assigns a default value (here <code>0</code>) when a new key is accessed, avoiding <code>KeyError</code>.</p>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="common-patterns.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Common Patterns</span></a>
+        <a href="matlab-to-python.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">MATLAB to Python</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>
