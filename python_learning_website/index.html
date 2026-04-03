@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Python — A Complete Beginner's Guide</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Mobile sidebar toggle -->
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>A Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+
+      <!-- Home -->
+      <div class="nav-section">
+        <a href="index.html" class="nav-link active">
+          <span class="section-badge">&#8962;</span> Home
+        </a>
+      </div>
+
+      <!-- Section A -->
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="pages/what-is-python.html" class="nav-link">
+          <span class="section-badge">A</span> What is Python?
+        </a>
+      </div>
+
+      <!-- Section B -->
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="pages/getting-started.html" class="nav-link">
+          <span class="section-badge">B</span> Getting Started
+        </a>
+      </div>
+
+      <!-- Section C -->
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="pages/basics-print-variables.html" class="nav-link">
+          <span class="section-badge">C1</span> Print, Variables, Numbers
+        </a>
+        <a href="pages/basics-strings-booleans.html" class="nav-link">
+          <span class="section-badge">C2</span> Strings, Booleans, Types
+        </a>
+        <a href="pages/basics-lists-tuples.html" class="nav-link">
+          <span class="section-badge">C3</span> Lists, Tuples, Sets
+        </a>
+        <a href="pages/basics-dictionaries.html" class="nav-link">
+          <span class="section-badge">C4</span> Dictionaries
+        </a>
+        <a href="pages/basics-conditionals.html" class="nav-link">
+          <span class="section-badge">C5</span> if / elif / else
+        </a>
+        <a href="pages/basics-loops.html" class="nav-link">
+          <span class="section-badge">C6</span> Loops
+        </a>
+        <a href="pages/basics-functions.html" class="nav-link">
+          <span class="section-badge">C7</span> Functions
+        </a>
+        <a href="pages/basics-more.html" class="nav-link">
+          <span class="section-badge">C8</span> More Built-ins
+        </a>
+        <a href="pages/basics-files-modules.html" class="nav-link">
+          <span class="section-badge">C9</span> Files &amp; Modules
+        </a>
+      </div>
+
+      <!-- Section D -->
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="pages/common-patterns.html" class="nav-link">
+          <span class="section-badge">D1</span> Common Patterns
+        </a>
+        <a href="pages/top-100-patterns.html" class="nav-link">
+          <span class="section-badge">D2</span> Top 100 Patterns
+        </a>
+      </div>
+
+      <!-- Section E -->
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="pages/matlab-to-python.html" class="nav-link">
+          <span class="section-badge">E1</span> MATLAB to Python
+        </a>
+        <a href="pages/matlab-quick-translation.html" class="nav-link">
+          <span class="section-badge">E2</span> Quick Translation Guide
+        </a>
+      </div>
+
+      <!-- Section F -->
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Language Comparisons</div>
+        <a href="pages/comparisons.html" class="nav-link">
+          <span class="section-badge">F</span> Comparisons
+        </a>
+      </div>
+
+      <!-- Section G -->
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Mini Projects</div>
+        <a href="pages/projects.html" class="nav-link">
+          <span class="section-badge">G</span> Mini Projects
+        </a>
+      </div>
+
+      <!-- Section H -->
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="pages/practice.html" class="nav-link">
+          <span class="section-badge">H</span> Practice Problems
+        </a>
+        <a href="pages/interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+
+      <!-- Section I -->
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="pages/best-practices.html" class="nav-link">
+          <span class="section-badge">I1</span> Best Practices
+        </a>
+        <a href="pages/common-errors.html" class="nav-link">
+          <span class="section-badge">I2</span> Common Errors
+        </a>
+      </div>
+
+      <!-- Section J -->
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Appendix</div>
+        <a href="pages/cheatsheet.html" class="nav-link">
+          <span class="section-badge">J</span> Cheat Sheet
+        </a>
+        <a href="pages/glossary.html" class="nav-link">Glossary</a>
+      </div>
+
+      <!-- Bonus -->
+      <div class="nav-section">
+        <div class="nav-section-title">Bonus</div>
+        <a href="pages/python-for-automation.html" class="nav-link">
+          <span class="section-badge">+</span> Python for Automation
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="pages/oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="pages/numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ==================== Main Content ==================== -->
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+
+    <div class="content-wrapper">
+
+      <!-- Welcome Header -->
+      <h1>Learn Python &mdash; A Complete Beginner's Guide</h1>
+      <p class="page-subtitle">A hands-on, example-driven website for learning Python from scratch</p>
+
+      <p>
+        Welcome! This website is a structured, self-paced course designed for absolute beginners
+        who want to learn Python the right way &mdash; by reading clear explanations and studying
+        real examples. Whether you have never written a line of code or you are coming from a
+        <strong>MATLAB background</strong> and want to pick up Python quickly, every section is
+        written with you in mind. No prior programming knowledge is assumed; every concept is
+        introduced from the ground up.
+      </p>
+
+      <p>
+        Each page is packed with annotated code snippets you can copy and run yourself.
+        Concepts build on one another in a logical order, but you are free to jump to any
+        topic that interests you using the sidebar navigation.
+      </p>
+
+      <hr>
+
+      <!-- ===== Section Cards ===== -->
+
+      <!-- Section A -->
+      <h2>Section A &mdash; What is Python</h2>
+      <div class="card-grid">
+        <a href="pages/what-is-python.html" class="card">
+          <div class="card-badge">Section A</div>
+          <h3>What is Python?</h3>
+          <p>
+            Discover why Python is one of the most popular programming languages in the world.
+            Learn about its history, design philosophy, and the wide range of fields where it
+            is used &mdash; from data science and machine learning to web development and automation.
+          </p>
+        </a>
+      </div>
+
+      <!-- Section B -->
+      <h2>Section B &mdash; Getting Started</h2>
+      <div class="card-grid">
+        <a href="pages/getting-started.html" class="card">
+          <div class="card-badge">Section B</div>
+          <h3>Getting Started</h3>
+          <p>
+            Install Python, set up your development environment, and run your very first script.
+            Covers choosing an editor (VS Code, PyCharm, Jupyter), using the terminal, and
+            understanding how Python files are structured.
+          </p>
+        </a>
+      </div>
+
+      <!-- Section C -->
+      <h2>Section C &mdash; Python Basics</h2>
+      <p>The core of the course. These nine pages walk you through every fundamental concept in Python, one topic at a time.</p>
+      <div class="card-grid">
+
+        <a href="pages/basics-print-variables.html" class="card">
+          <div class="card-badge">Section C1</div>
+          <h3>Print, Comments, Variables, Numbers</h3>
+          <p>
+            Start with <code>print()</code>, learn how comments work, create variables, and
+            explore Python's numeric types &mdash; integers, floats, and basic arithmetic operators.
+          </p>
+        </a>
+
+        <a href="pages/basics-strings-booleans.html" class="card">
+          <div class="card-badge">Section C2</div>
+          <h3>Strings, Booleans, Type Conversion</h3>
+          <p>
+            Work with text using strings, understand Boolean logic (<code>True</code> /
+            <code>False</code>), and learn how to convert between types with
+            <code>int()</code>, <code>str()</code>, and <code>float()</code>.
+          </p>
+        </a>
+
+        <a href="pages/basics-lists-tuples.html" class="card">
+          <div class="card-badge">Section C3</div>
+          <h3>Lists, Tuples, Sets</h3>
+          <p>
+            Store collections of data with lists, understand immutable tuples, and use sets
+            for fast membership testing. Learn indexing, slicing, and common collection methods.
+          </p>
+        </a>
+
+        <a href="pages/basics-dictionaries.html" class="card">
+          <div class="card-badge">Section C4</div>
+          <h3>Dictionaries</h3>
+          <p>
+            Master Python's key-value data structure. Create, access, update, and loop through
+            dictionaries &mdash; one of the most powerful and frequently used types in Python.
+          </p>
+        </a>
+
+        <a href="pages/basics-conditionals.html" class="card">
+          <div class="card-badge">Section C5</div>
+          <h3>if / elif / else</h3>
+          <p>
+            Control the flow of your programs with conditional statements. Learn comparison
+            operators, logical operators (<code>and</code>, <code>or</code>, <code>not</code>),
+            and how to write clean, readable branching logic.
+          </p>
+        </a>
+
+        <a href="pages/basics-loops.html" class="card">
+          <div class="card-badge">Section C6</div>
+          <h3>for, while, break, continue, pass</h3>
+          <p>
+            Repeat actions with <code>for</code> and <code>while</code> loops. Learn how to
+            iterate over lists, strings, and ranges, and control loop execution with
+            <code>break</code>, <code>continue</code>, and <code>pass</code>.
+          </p>
+        </a>
+
+        <a href="pages/basics-functions.html" class="card">
+          <div class="card-badge">Section C7</div>
+          <h3>Functions, Return, Scope, Lambda</h3>
+          <p>
+            Write reusable code with functions. Understand parameters, return values, variable
+            scope, default arguments, <code>*args</code> / <code>**kwargs</code>, and
+            one-line <code>lambda</code> expressions.
+          </p>
+        </a>
+
+        <a href="pages/basics-more.html" class="card">
+          <div class="card-badge">Section C8</div>
+          <h3>More Built-ins &amp; Techniques</h3>
+          <p>
+            Level up with <code>input()</code>, error handling basics, f-strings, slicing,
+            list comprehensions, <code>enumerate()</code>, <code>zip()</code>,
+            <code>range()</code>, sorting, and <code>map()</code> / <code>filter()</code>.
+          </p>
+        </a>
+
+        <a href="pages/basics-files-modules.html" class="card">
+          <div class="card-badge">Section C9</div>
+          <h3>File I/O, try/except, Importing Modules</h3>
+          <p>
+            Read and write files, handle errors gracefully with <code>try</code> /
+            <code>except</code>, and learn how to import and use Python's rich standard
+            library and third-party packages.
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section D -->
+      <h2>Section D &mdash; Common Patterns</h2>
+      <div class="card-grid">
+
+        <a href="pages/common-patterns.html" class="card">
+          <div class="card-badge">Section D1</div>
+          <h3>Common Patterns</h3>
+          <p>
+            Explore recurring code patterns that show up in real Python programs &mdash;
+            accumulator loops, dictionary counting, nested iteration, guard clauses,
+            and more. Recognizing these patterns accelerates your learning.
+          </p>
+        </a>
+
+        <a href="pages/top-100-patterns.html" class="card">
+          <div class="card-badge">Section D2</div>
+          <h3>Top 100 Patterns</h3>
+          <p>
+            A curated reference of 100 bite-sized Python patterns you will use again and
+            again. Each one is a self-contained example you can copy, adapt, and combine
+            in your own projects.
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section E -->
+      <h2>Section E &mdash; MATLAB to Python</h2>
+      <div class="card-grid">
+
+        <a href="pages/matlab-to-python.html" class="card">
+          <div class="card-badge">Section E1</div>
+          <h3>MATLAB to Python</h3>
+          <p>
+            A dedicated guide for MATLAB users transitioning to Python. Covers the
+            philosophical differences, equivalent workflows, and the libraries
+            (NumPy, SciPy, Matplotlib) that replace MATLAB's built-in toolboxes.
+          </p>
+        </a>
+
+        <a href="pages/matlab-quick-translation.html" class="card">
+          <div class="card-badge">Section E2</div>
+          <h3>Quick Translation Guide</h3>
+          <p>
+            Side-by-side MATLAB vs. Python code for dozens of common operations &mdash;
+            arrays, plotting, linear algebra, file I/O, and more. Keep this page open
+            as a quick reference while you code.
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section F -->
+      <h2>Section F &mdash; Language Comparisons</h2>
+      <div class="card-grid">
+        <a href="pages/comparisons.html" class="card">
+          <div class="card-badge">Section F</div>
+          <h3>Language Comparisons</h3>
+          <p>
+            See how Python stacks up against other popular languages like JavaScript, C++,
+            Java, and R. Understand Python's trade-offs in terms of speed, syntax simplicity,
+            and ecosystem strength.
+          </p>
+        </a>
+      </div>
+
+      <!-- Section G -->
+      <h2>Section G &mdash; Mini Projects</h2>
+      <div class="card-grid">
+        <a href="pages/projects.html" class="card">
+          <div class="card-badge">Section G</div>
+          <h3>Mini Projects</h3>
+          <p>
+            Put your skills to work with guided mini projects: a number guessing game,
+            a to-do list app, a file organizer, a web scraper, and more. Each project
+            reinforces multiple concepts from the basics sections.
+          </p>
+        </a>
+      </div>
+
+      <!-- Section H -->
+      <h2>Section H &mdash; Practice</h2>
+      <div class="card-grid">
+        <a href="pages/practice.html" class="card">
+          <div class="card-badge">Section H</div>
+          <h3>Practice Problems</h3>
+          <p>
+            Sharpen your skills with dozens of practice exercises organized by difficulty.
+            Each problem includes hints and a full solution so you can check your work
+            and learn from alternative approaches.
+          </p>
+        </a>
+      </div>
+
+      <!-- Section I -->
+      <h2>Section I &mdash; Best Practices</h2>
+      <div class="card-grid">
+
+        <a href="pages/best-practices.html" class="card">
+          <div class="card-badge">Section I1</div>
+          <h3>Best Practices</h3>
+          <p>
+            Write Python code that is clean, readable, and maintainable. Covers PEP 8 style,
+            meaningful naming, DRY principles, virtual environments, project structure,
+            and habits that distinguish beginners from professionals.
+          </p>
+        </a>
+
+        <a href="pages/common-errors.html" class="card">
+          <div class="card-badge">Section I2</div>
+          <h3>Common Errors</h3>
+          <p>
+            A field guide to the error messages you will encounter most often &mdash;
+            <code>SyntaxError</code>, <code>IndentationError</code>,
+            <code>TypeError</code>, <code>KeyError</code>, and more &mdash; with
+            explanations and fixes for each.
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section J -->
+      <h2>Section J &mdash; Appendix</h2>
+      <div class="card-grid">
+        <a href="pages/cheatsheet.html" class="card">
+          <div class="card-badge">Section J</div>
+          <h3>Cheat Sheet</h3>
+          <p>
+            A printable, at-a-glance reference covering Python's syntax, data types,
+            operators, string methods, list methods, dictionary methods, common modules,
+            and frequently used one-liners.
+          </p>
+        </a>
+      </div>
+
+      <!-- Bonus -->
+      <h2>Bonus</h2>
+      <div class="card-grid">
+        <a href="pages/python-for-automation.html" class="card">
+          <div class="card-badge">Bonus</div>
+          <h3>Python for Automation</h3>
+          <p>
+            Discover how Python can save you hours of repetitive work. Learn to automate
+            file management, spreadsheet processing, email sending, web scraping, and
+            scheduled tasks with real-world scripts you can use immediately.
+          </p>
+        </a>
+      </div>
+
+      <hr>
+
+      <!-- ===== Where to Start ===== -->
+      <h2 id="where-to-start">Where to Start</h2>
+      <p>
+        If you are brand new to programming, we recommend following the sections in order.
+        Here is a suggested reading path:
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Recommended Reading Order</div>
+        <ol>
+          <li><strong><a href="pages/what-is-python.html">What is Python?</a></strong> &mdash; Understand what you are learning and why it matters.</li>
+          <li><strong><a href="pages/getting-started.html">Getting Started</a></strong> &mdash; Install Python and set up your editor so you can follow along.</li>
+          <li><strong><a href="pages/basics-print-variables.html">Print, Variables, Numbers</a></strong> &mdash; Write and run your first real code.</li>
+          <li><strong><a href="pages/basics-strings-booleans.html">Strings, Booleans, Types</a></strong> &mdash; Work with text and True/False values.</li>
+          <li><strong><a href="pages/basics-lists-tuples.html">Lists, Tuples, Sets</a></strong> &mdash; Store and organize data.</li>
+          <li><strong><a href="pages/basics-dictionaries.html">Dictionaries</a></strong> &mdash; Map keys to values.</li>
+          <li><strong><a href="pages/basics-conditionals.html">Conditionals</a></strong> &mdash; Make decisions in code.</li>
+          <li><strong><a href="pages/basics-loops.html">Loops</a></strong> &mdash; Repeat actions efficiently.</li>
+          <li><strong><a href="pages/basics-functions.html">Functions</a></strong> &mdash; Write reusable blocks of logic.</li>
+          <li><strong><a href="pages/basics-more.html">More Built-ins</a></strong> &mdash; Round out your toolkit with essential techniques.</li>
+          <li><strong><a href="pages/basics-files-modules.html">Files &amp; Modules</a></strong> &mdash; Read files and use libraries.</li>
+          <li><strong><a href="pages/common-patterns.html">Common Patterns</a></strong> &mdash; Recognize and apply recurring idioms.</li>
+          <li><strong><a href="pages/practice.html">Practice</a></strong> &mdash; Solidify everything with hands-on exercises.</li>
+          <li><strong><a href="pages/projects.html">Mini Projects</a></strong> &mdash; Build something real.</li>
+        </ol>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Coming from MATLAB?</div>
+        <p>
+          If you already know MATLAB, start with
+          <strong><a href="pages/matlab-to-python.html">MATLAB to Python</a></strong> for
+          a conceptual overview, then use the
+          <strong><a href="pages/matlab-quick-translation.html">Quick Translation Guide</a></strong>
+          as a side-by-side reference while you work through the basics. You will find that
+          many MATLAB concepts map directly to Python &mdash; the syntax is just different.
+        </p>
+      </div>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Tip: Learn by Doing</div>
+        <p>
+          Do not just read the examples &mdash; type them out yourself, run them, change them,
+          and break them on purpose. The fastest way to learn a programming language is to
+          write code every single day, even if it is just a few lines.
+        </p>
+      </div>
+
+      <hr>
+
+      <p class="text-muted text-center" style="margin-top: 2rem; font-size: 0.85rem;">
+        Built with care for beginners. Happy coding!
+      </p>
+
+    </div><!-- /.content-wrapper -->
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

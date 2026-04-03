@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print, Variables &amp; Numbers — Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+  <aside class="sidebar">
+    <div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> Learn Python</h2><p>Complete Beginner's Guide</p></div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-section"><div class="nav-section-title">A — What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+      <div class="nav-section"><div class="nav-section-title">B — Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+      <div class="nav-section"><div class="nav-section-title">C — Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D — Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a><a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E — MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a><a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F — Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+      <div class="nav-section"><div class="nav-section-title">G — Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+      <div class="nav-section"><div class="nav-section-title">H — Practice</div><a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a></div>
+      <div class="nav-section"><div class="nav-section-title">I — Best Practices</div><a href="best-practices.html" class="nav-link">Best Practices</a><a href="common-errors.html" class="nav-link">Common Errors</a></div>
+      <div class="nav-section"><div class="nav-section-title">J — Reference</div><a href="cheatsheet.html" class="nav-link">Cheat Sheet</a><a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">&rsaquo;</span><a href="basics-print-variables.html">Python Basics</a><span class="sep">&rsaquo;</span> Print, Variables &amp; Numbers</div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C — Print, Comments, Variables & Numbers            -->
+      <!-- ============================================================ -->
+
+      <h1>Print, Comments, Variables &amp; Numbers</h1>
+
+      <p>This is the very first "real Python" page. By the end you will be able to display output on the screen, leave notes in your code, store values in variables, and do arithmetic. These four skills form the foundation of every Python program you will ever write.</p>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Every programming language needs a way to show results, remember values, and crunch numbers. Master these basics and everything that follows&mdash;strings, lists, functions&mdash;will feel like natural extensions.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. THE print() FUNCTION                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="print">1. The <code>print()</code> Function</h2>
+
+      <p><code>print()</code> is Python's built-in function for displaying output to the screen (the "console" or "terminal"). It is the single most useful debugging and learning tool you have. Whenever you are unsure what a value is, just <code>print()</code> it.</p>
+
+      <div class="callout callout-info">
+        <strong>How it works:</strong> You call <code>print()</code> by writing the word <code>print</code> followed by parentheses. Inside those parentheses you place whatever you want to display. Python converts it to text and writes it to the console, followed by a newline character (so the next output appears on a new line).
+      </div>
+
+      <h3>1.1 Basic Printing</h3>
+
+      <p>The simplest use: pass a string (text inside quotes) to <code>print()</code>.</p>
+
+      <pre><code># Example 1 — Print a simple string
+print("Hello, world!")
+# Output: Hello, world!
+
+# Example 2 — Single quotes work too
+print('Python is fun!')
+# Output: Python is fun!
+
+# Example 3 — Print a number directly
+print(42)
+# Output: 42</code></pre>
+
+      <h3>1.2 Printing Multiple Values</h3>
+
+      <p>You can pass several values to <code>print()</code> separated by commas. Python will print them all on one line, separated by a space by default.</p>
+
+      <pre><code># Example 4 — Multiple values
+print("The answer is", 42)
+# Output: The answer is 42
+
+# Example 5 — Mix types freely
+print("Pi is approximately", 3.14159, "and e is approximately", 2.71828)
+# Output: Pi is approximately 3.14159 and e is approximately 2.71828</code></pre>
+
+      <h3>1.3 The <code>sep</code> Parameter</h3>
+
+      <p>The <code>sep</code> (separator) parameter controls what goes <em>between</em> each value. The default is a single space (<code>" "</code>).</p>
+
+      <pre><code># Example 6 — Custom separator
+print("2026", "03", "31", sep="-")
+# Output: 2026-03-31
+
+# Example 7 — No separator
+print("P", "y", "t", "h", "o", "n", sep="")
+# Output: Python
+
+# Example 8 — Tab separator
+print("Name", "Age", "City", sep="\t")
+# Output: Name    Age    City</code></pre>
+
+      <h3>1.4 The <code>end</code> Parameter</h3>
+
+      <p>By default <code>print()</code> finishes with a newline character (<code>\n</code>), so the next <code>print()</code> appears on the next line. The <code>end</code> parameter lets you change that.</p>
+
+      <pre><code># Example 9 — Printing on the same line
+print("Loading", end="")
+print("...", end="")
+print(" Done!")
+# Output: Loading... Done!
+
+# Example 10 — End with a custom string
+print("Item 1", end=" | ")
+print("Item 2", end=" | ")
+print("Item 3")
+# Output: Item 1 | Item 2 | Item 3</code></pre>
+
+      <h3>1.5 Printing Variables</h3>
+
+      <p>You will almost always print the contents of variables rather than hard-coded text. Simply put the variable name inside <code>print()</code>&mdash;no quotes around it.</p>
+
+      <pre><code># Example 11 — Printing a variable
+name = "Alice"
+age = 30
+print(name)          # Output: Alice
+print(age)           # Output: 30
+print(name, "is", age, "years old.")
+# Output: Alice is 30 years old.</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; Forgetting parentheses:</strong><br>
+        In Python 2, <code>print</code> was a <em>statement</em> and you could write <code>print "hello"</code>. In Python 3, <code>print()</code> is a <em>function</em> and the parentheses are <strong>required</strong>. If you see old tutorials or Stack Overflow answers using <code>print "hello"</code>, know that this will cause a <code>SyntaxError</code> in Python 3.
+        <pre><code># WRONG in Python 3:
+print "hello"   # SyntaxError: Missing parentheses in call to 'print'
+
+# CORRECT:
+print("hello")</code></pre>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB Note:</strong> <code>print()</code> is similar to MATLAB's <code>disp()</code> for simple output and <code>fprintf()</code> for formatted output. The key difference: Python's <code>print()</code> automatically adds a newline at the end (like <code>disp()</code>), while MATLAB's <code>fprintf()</code> does not unless you add <code>\n</code> yourself. In Python, if you want formatted output, look into <strong>f-strings</strong> (covered in the Strings page), which replace <code>fprintf</code>-style formatting.
+        <pre><code>% MATLAB
+disp('Hello, world!')
+fprintf('The answer is %d\n', 42)
+
+# Python equivalent
+print('Hello, world!')
+print(f'The answer is {42}')</code></pre>
+      </div>
+
+      <!-- Exercise: print -->
+      <div class="exercise">
+        <h4>Exercise 1 &mdash; Practice with <code>print()</code></h4>
+        <p>Write a Python script that prints the following output exactly (including the dashes):</p>
+        <pre><code>Name: Alice
+Age: 30
+City: New York
+----------
+Alice | 30 | New York</code></pre>
+        <p><em>Hint: use <code>sep</code> for the last line.</em></p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>name = "Alice"
+age = 30
+city = "New York"
+
+print("Name:", name)
+print("Age:", age)
+print("City:", city)
+print("----------")
+print(name, age, city, sep=" | ")</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  2. COMMENTS                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="comments">2. Comments</h2>
+
+      <p>Comments are notes you leave in your code for yourself (or for other humans reading it). Python completely ignores comments when running your program&mdash;they exist only to make the code easier to understand.</p>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Code is read far more often than it is written. A well-placed comment can save you (or a colleague) hours of confusion when you revisit code weeks or months later.
+      </div>
+
+      <h3>2.1 Single-Line Comments with <code>#</code></h3>
+
+      <p>Everything after a <code>#</code> on a line is a comment. Python ignores it.</p>
+
+      <pre><code># This is a comment — Python skips this entire line
+print("Hello")  # This comment is after code — Python runs the print, ignores the rest
+
+# You can use comments to temporarily disable code:
+# print("This line will NOT run")</code></pre>
+
+      <h3>2.2 Multi-Line Comments with Triple Quotes</h3>
+
+      <p>Python does not have a dedicated multi-line comment syntax (like <code>/* ... */</code> in C). However, you can use triple-quoted strings (<code>"""..."""</code> or <code>'''...'''</code>) as a stand-in. If a triple-quoted string is not assigned to a variable, Python evaluates it and then discards it&mdash;effectively making it a comment.</p>
+
+      <pre><code>"""
+This is a multi-line comment (technically a string literal).
+Python evaluates it but discards the result,
+so it behaves like a comment.
+"""
+
+'''
+You can also use single triple-quotes.
+This is useful for longer explanations.
+'''</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Docstrings:</strong> When a triple-quoted string appears as the very first statement inside a function, class, or module, it becomes a <strong>docstring</strong>&mdash;a special kind of documentation that Python stores and makes accessible via the <code>help()</code> function. You will learn about docstrings in detail on the Functions page.
+        <pre><code>def greet(name):
+    """Return a greeting string for the given name."""
+    return f"Hello, {name}!"
+
+help(greet)
+# Shows: Return a greeting string for the given name.</code></pre>
+      </div>
+
+      <h3>2.3 When to Use Comments</h3>
+
+      <ul>
+        <li><strong>Explain "why," not "what."</strong> Good: <code># Convert to meters because the sensor returns millimeters</code>. Bad: <code># Divide x by 1000</code> (the code already says that).</li>
+        <li><strong>Mark TODOs:</strong> <code># TODO: handle the case where the file is empty</code>.</li>
+        <li><strong>Disable code temporarily</strong> during debugging (called "commenting out").</li>
+        <li><strong>Section headers</strong> in long scripts: <code># --- Data Loading ---</code>.</li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; Over-commenting:</strong> Do not comment every single line. If your variable is called <code>total_price</code>, you do not need a comment saying <code># the total price</code>. Use clear variable names and save comments for non-obvious logic.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB Note:</strong> MATLAB uses <code>%</code> for single-line comments and <code>%{ ... %}</code> for block comments. In Python, use <code>#</code> for single lines and <code>"""..."""</code> for multi-line blocks. The mapping is straightforward:
+        <pre><code>% MATLAB single-line comment
+%{
+  MATLAB block comment
+%}
+
+# Python single-line comment
+"""
+Python multi-line comment
+(or docstring if inside a function/class)
+"""</code></pre>
+      </div>
+
+      <!-- Exercise: comments -->
+      <div class="exercise">
+        <h4>Exercise 2 &mdash; Practice with Comments</h4>
+        <p>Take the following code and add comments to explain what each section does. Also add a multi-line docstring at the very top describing the script's purpose.</p>
+        <pre><code>x = 10
+y = 20
+total = x + y
+print(total)
+average = total / 2
+print(average)</code></pre>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>"""
+Simple arithmetic script.
+Calculates the total and average of two numbers.
+"""
+
+# Define two input values
+x = 10
+y = 20
+
+# Calculate and display the total
+total = x + y
+print(total)       # Output: 30
+
+# Calculate and display the average
+average = total / 2
+print(average)     # Output: 15.0</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  3. VARIABLES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="variables">3. Variables</h2>
+
+      <h3>3.1 What Is a Variable?</h3>
+
+      <p>A variable is a <strong>name</strong> that refers to a <strong>value</strong> stored in your computer's memory. Think of it as a labeled box: the label is the variable name, and the contents of the box is the value. You can put something in the box, look at what is inside, replace it with something else, or use it in calculations.</p>
+
+      <div class="callout callout-info">
+        <strong>Plain English:</strong> A variable is just a way to give a name to a piece of data so you can use it later. Instead of writing <code>3.14159</code> everywhere, you write <code>pi = 3.14159</code> once and then use the name <code>pi</code> wherever you need it.
+      </div>
+
+      <h3>3.2 Assignment with <code>=</code></h3>
+
+      <p>You create (or update) a variable using the <code>=</code> operator. The name goes on the left; the value goes on the right.</p>
+
+      <pre><code># Example 12 — Creating variables
+message = "Hello, Python!"
+count = 5
+temperature = 98.6
+
+print(message)        # Output: Hello, Python!
+print(count)          # Output: 5
+print(temperature)    # Output: 98.6</code></pre>
+
+      <p>You can <strong>reassign</strong> a variable at any time&mdash;the old value is simply replaced.</p>
+
+      <pre><code># Example 13 — Reassignment
+x = 10
+print(x)   # Output: 10
+
+x = 20
+print(x)   # Output: 20
+
+x = x + 5  # Use the current value of x (20) to compute a new value (25)
+print(x)   # Output: 25</code></pre>
+
+      <h3>3.3 Naming Rules and Conventions</h3>
+
+      <p>Python has strict <strong>rules</strong> (break them and you get an error) and community <strong>conventions</strong> (break them and your code is harder to read).</p>
+
+      <table>
+        <thead>
+          <tr><th>Rule / Convention</th><th>Example</th><th>Explanation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Must start with a letter or underscore</td><td><code>name</code>, <code>_private</code></td><td>Cannot start with a digit</td></tr>
+          <tr><td>Can contain letters, digits, underscores</td><td><code>score_1</code>, <code>total2</code></td><td>No spaces, hyphens, or special characters</td></tr>
+          <tr><td>Case-sensitive</td><td><code>Name</code> &ne; <code>name</code> &ne; <code>NAME</code></td><td>These are three different variables</td></tr>
+          <tr><td><em>Convention:</em> use <code>snake_case</code></td><td><code>total_price</code>, <code>user_name</code></td><td>Lowercase words separated by underscores</td></tr>
+          <tr><td><em>Convention:</em> UPPER_CASE for constants</td><td><code>MAX_RETRIES = 5</code></td><td>Signals "do not change this value"</td></tr>
+          <tr><td>Do not use reserved words</td><td>Avoid <code>print</code>, <code>list</code>, <code>type</code></td><td>These have special meaning in Python</td></tr>
+        </tbody>
+      </table>
+
+      <pre><code># Good variable names
+student_name = "Bob"
+max_score = 100
+is_active = True
+_internal_counter = 0
+
+# Legal but not recommended (not snake_case)
+studentName = "Bob"   # This is camelCase — common in JavaScript, not Python
+StudentName = "Bob"   # This is PascalCase — reserved for class names in Python</code></pre>
+
+      <h3>3.4 Dynamic Typing</h3>
+
+      <p>In Python, you <strong>do not declare</strong> a variable's type. Python figures it out automatically based on the value you assign. This is called <strong>dynamic typing</strong>.</p>
+
+      <pre><code># Example 14 — Dynamic typing
+x = 10          # x is an integer
+print(type(x))  # Output: &lt;class 'int'&gt;
+
+x = "hello"     # Now x is a string — no error!
+print(type(x))  # Output: &lt;class 'str'&gt;
+
+x = 3.14        # Now x is a float
+print(type(x))  # Output: &lt;class 'float'&gt;</code></pre>
+
+      <div class="callout callout-info">
+        <strong>The <code>type()</code> function:</strong> You can check what type a variable holds at any point by calling <code>type(variable_name)</code>. This is extremely useful for debugging. You will use it often as you learn.
+      </div>
+
+      <h3>3.5 Multiple Assignment</h3>
+
+      <p>Python lets you assign multiple variables in a single line. This is a convenient shorthand.</p>
+
+      <pre><code># Example 15 — Multiple assignment on one line
+x, y, z = 1, 2, 3
+print(x, y, z)   # Output: 1 2 3
+
+# Assign the same value to multiple variables
+a = b = c = 0
+print(a, b, c)   # Output: 0 0 0
+
+# Swap two variables without a temporary variable
+x, y = 10, 20
+print(x, y)       # Output: 10 20
+x, y = y, x       # Swap!
+print(x, y)       # Output: 20 10</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> The variable swap trick (<code>x, y = y, x</code>) is something Python makes beautifully simple. In most other languages (including MATLAB), you need a temporary variable to swap two values. In Python it is one line.
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; Using reserved words:</strong> Python has about 35 <strong>keywords</strong> (like <code>if</code>, <code>for</code>, <code>while</code>, <code>True</code>, <code>False</code>, <code>None</code>, <code>class</code>, <code>return</code>) that you cannot use as variable names. You will get a <code>SyntaxError</code>.
+        <pre><code># WRONG — 'class' is a reserved keyword
+class = "Biology 101"   # SyntaxError: invalid syntax
+
+# FIX — use a slightly different name
+course_class = "Biology 101"</code></pre>
+        Additionally, avoid <strong>shadowing</strong> built-in names like <code>print</code>, <code>list</code>, <code>type</code>, <code>sum</code>, <code>max</code>, etc. It will not cause an immediate error, but it will break those functions for the rest of your code.
+        <pre><code># BAD — shadows the built-in list() function
+list = [1, 2, 3]
+# Now list() no longer works as expected!
+
+# FIX — use a descriptive name
+my_list = [1, 2, 3]</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; Starting with a number:</strong>
+        <pre><code># WRONG
+2nd_place = "Silver"   # SyntaxError: invalid syntax
+
+# FIX
+second_place = "Silver"
+place_2 = "Silver"</code></pre>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB Note:</strong> Variable creation in MATLAB and Python is very similar&mdash;both use <code>=</code> and neither requires a type declaration. The main differences:
+        <ul>
+          <li>MATLAB convention is <code>camelCase</code>; Python convention is <code>snake_case</code>.</li>
+          <li>MATLAB uses <code>;</code> at the end of a line to suppress output; Python does not print assignment results automatically (there is nothing to suppress).</li>
+          <li>Python variables are <strong>case-sensitive</strong>. MATLAB variables are also case-sensitive, so this is the same.</li>
+          <li>MATLAB's <code>who</code>/<code>whos</code> commands have no direct equivalent in Python, but you can use <code>dir()</code> or <code>type()</code> to inspect variables.</li>
+        </ul>
+        <pre><code>% MATLAB
+studentName = 'Alice';   % camelCase, semicolon to suppress output
+x = 10;
+
+# Python
+student_name = "Alice"   # snake_case, no semicolons needed
+x = 10</code></pre>
+      </div>
+
+      <!-- Exercise: variables -->
+      <div class="exercise">
+        <h4>Exercise 3 &mdash; Practice with Variables</h4>
+        <ol>
+          <li>Create variables for your first name, last name, and age.</li>
+          <li>Print them in a sentence like: <code>Alice Smith is 30 years old.</code></li>
+          <li>Swap your first and last name using the one-line swap technique, then print the result.</li>
+          <li>Use <code>type()</code> to print the type of each variable.</li>
+        </ol>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code># Step 1: Create variables
+first_name = "Alice"
+last_name = "Smith"
+age = 30
+
+# Step 2: Print a sentence
+print(first_name, last_name, "is", age, "years old.")
+# Output: Alice Smith is 30 years old.
+
+# Step 3: Swap first and last name
+first_name, last_name = last_name, first_name
+print("After swap:", first_name, last_name)
+# Output: After swap: Smith Alice
+
+# Step 4: Check types
+print(type(first_name))   # &lt;class 'str'&gt;
+print(type(last_name))    # &lt;class 'str'&gt;
+print(type(age))          # &lt;class 'int'&gt;</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  4. NUMBERS (int and float)                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="numbers">4. Numbers: Integers and Floats</h2>
+
+      <p>Python has two main numeric types you will use daily:</p>
+      <ul>
+        <li><strong><code>int</code></strong> (integer) &mdash; whole numbers with no decimal point: <code>0</code>, <code>42</code>, <code>-7</code>, <code>1000000</code></li>
+        <li><strong><code>float</code></strong> (floating-point) &mdash; numbers with a decimal point: <code>3.14</code>, <code>-0.001</code>, <code>2.0</code></li>
+      </ul>
+
+      <pre><code># Example 16 — int vs float
+a = 10       # int
+b = 10.0     # float (the .0 makes it a float)
+c = -3       # int
+d = 0.5      # float
+
+print(type(a))  # &lt;class 'int'&gt;
+print(type(b))  # &lt;class 'float'&gt;</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Key difference:</strong> <code>10</code> is an <code>int</code> and <code>10.0</code> is a <code>float</code>. They are <em>equal</em> in value (<code>10 == 10.0</code> is <code>True</code>), but they are different <em>types</em>. This rarely causes problems, but it is good to be aware of.
+      </div>
+
+      <h3>4.1 Arithmetic Operators</h3>
+
+      <p>Python supports all the arithmetic you would expect, plus a few extras.</p>
+
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>+</code></td><td>Addition</td><td><code>10 + 3</code></td><td><code>13</code></td></tr>
+          <tr><td><code>-</code></td><td>Subtraction</td><td><code>10 - 3</code></td><td><code>7</code></td></tr>
+          <tr><td><code>*</code></td><td>Multiplication</td><td><code>10 * 3</code></td><td><code>30</code></td></tr>
+          <tr><td><code>/</code></td><td>Division (true)</td><td><code>10 / 3</code></td><td><code>3.3333...</code></td></tr>
+          <tr><td><code>//</code></td><td>Floor division</td><td><code>10 // 3</code></td><td><code>3</code></td></tr>
+          <tr><td><code>%</code></td><td>Modulo (remainder)</td><td><code>10 % 3</code></td><td><code>1</code></td></tr>
+          <tr><td><code>**</code></td><td>Exponentiation</td><td><code>10 ** 3</code></td><td><code>1000</code></td></tr>
+        </tbody>
+      </table>
+
+      <pre><code># Example 17 — All arithmetic operators
+a = 17
+b = 5
+
+print("a + b  =", a + b)     # 22
+print("a - b  =", a - b)     # 12
+print("a * b  =", a * b)     # 85
+print("a / b  =", a / b)     # 3.4
+print("a // b =", a // b)    # 3    (floor division — rounds down)
+print("a % b  =", a % b)     # 2    (remainder of 17 / 5)
+print("a ** b =", a ** b)    # 1419857  (17 to the power of 5)</code></pre>
+
+      <h3>4.2 Integer Division vs Float Division</h3>
+
+      <p>This is one of the most important things to understand:</p>
+      <ul>
+        <li><code>/</code> (single slash) always returns a <strong>float</strong>, even if the result is a whole number.</li>
+        <li><code>//</code> (double slash) returns the result rounded <strong>down to the nearest integer</strong> (floor division).</li>
+      </ul>
+
+      <pre><code># Example 18 — Division comparison
+print(10 / 2)     # 5.0   (float, even though 10 divides evenly by 2)
+print(10 // 2)    # 5     (int)
+
+print(7 / 2)      # 3.5   (float)
+print(7 // 2)     # 3     (int — rounds DOWN, not to nearest)
+
+print(-7 / 2)     # -3.5  (float)
+print(-7 // 2)    # -4    (rounds DOWN toward negative infinity, not toward zero!)</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; Division surprise:</strong> In Python 3, <code>/</code> <strong>always</strong> returns a float. This surprises people coming from C, Java, or Python 2 where dividing two integers gives an integer.
+        <pre><code>print(10 / 5)    # 2.0, NOT 2
+print(type(10 / 5))  # &lt;class 'float'&gt;</code></pre>
+        If you want an integer result, use <code>//</code>. Also watch out: <code>//</code> rounds toward <em>negative infinity</em>, not toward zero. So <code>-7 // 2</code> is <code>-4</code>, not <code>-3</code>.
+      </div>
+
+      <h3>4.3 Order of Operations (Precedence)</h3>
+
+      <p>Python follows the standard mathematical order of operations, often remembered as <strong>PEMDAS</strong>:</p>
+
+      <ol>
+        <li><strong>P</strong>arentheses <code>()</code></li>
+        <li><strong>E</strong>xponentiation <code>**</code></li>
+        <li><strong>M</strong>ultiplication <code>*</code>, <strong>D</strong>ivision <code>/</code>, floor division <code>//</code>, modulo <code>%</code> (left to right)</li>
+        <li><strong>A</strong>ddition <code>+</code>, <strong>S</strong>ubtraction <code>-</code> (left to right)</li>
+      </ol>
+
+      <pre><code># Example 19 — Order of operations
+print(2 + 3 * 4)        # 14  (multiplication first: 3*4=12, then 2+12=14)
+print((2 + 3) * 4)      # 20  (parentheses first: 2+3=5, then 5*4=20)
+print(2 ** 3 ** 2)       # 512 (right-to-left for **: 3**2=9, then 2**9=512)
+print(10 - 2 * 3 + 1)   # 5   (2*3=6, then 10-6+1=5)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Tip:</strong> When in doubt, use parentheses. They make your intent clear and prevent bugs. <code>(a + b) * c</code> is instantly readable; <code>a + b * c</code> requires you to remember precedence rules.
+      </div>
+
+      <h3>4.4 Common Built-in Math Functions</h3>
+
+      <p>Python provides several math functions that do not require any <code>import</code>.</p>
+
+      <pre><code># Example 20 — Built-in math functions
+print(abs(-42))          # 42    (absolute value)
+print(abs(3.7))          # 3.7
+
+print(round(3.14159))    # 3     (round to nearest integer)
+print(round(3.14159, 2)) # 3.14  (round to 2 decimal places)
+print(round(2.5))        # 2     (banker's rounding — rounds to nearest EVEN number)
+print(round(3.5))        # 4
+
+print(min(4, 7, 2, 9))   # 2     (smallest value)
+print(max(4, 7, 2, 9))   # 9     (largest value)
+
+print(pow(2, 10))        # 1024  (same as 2 ** 10)</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; Banker's rounding:</strong> Python's <code>round()</code> uses "round half to even" (banker's rounding). This means <code>round(0.5)</code> is <code>0</code>, <code>round(1.5)</code> is <code>2</code>, <code>round(2.5)</code> is <code>2</code>, <code>round(3.5)</code> is <code>4</code>. This is statistically unbiased but surprises most beginners. If you need traditional "round half up" behavior, you will need a different approach (e.g., <code>math.floor(x + 0.5)</code>).
+      </div>
+
+      <h3>4.5 The <code>math</code> Module</h3>
+
+      <p>For more advanced math, Python provides the <code>math</code> module. You must <strong>import</strong> it before use.</p>
+
+      <pre><code># Example 21 — The math module
+import math
+
+# Square root
+print(math.sqrt(144))     # 12.0
+print(math.sqrt(2))       # 1.4142135623730951
+
+# Constants
+print(math.pi)            # 3.141592653589793
+print(math.e)             # 2.718281828459045
+
+# Ceiling and floor
+print(math.ceil(4.2))     # 5   (round UP to nearest integer)
+print(math.floor(4.8))    # 4   (round DOWN to nearest integer)
+print(math.ceil(-4.2))    # -4  (toward positive infinity)
+print(math.floor(-4.8))   # -5  (toward negative infinity)
+
+# Logarithms
+print(math.log(100, 10))  # 2.0  (log base 10 of 100)
+print(math.log(math.e))   # 1.0  (natural log of e)
+
+# Trigonometry (arguments in radians)
+print(math.sin(math.pi / 2))  # 1.0
+print(math.cos(0))            # 1.0
+
+# Convert degrees to radians and back
+print(math.radians(180))      # 3.141592653589793
+print(math.degrees(math.pi))  # 180.0</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB Note:</strong> MATLAB treats <em>all</em> numbers as <code>double</code> (64-bit floating point) by default. Python distinguishes between <code>int</code> and <code>float</code>. This means:
+        <ul>
+          <li>In MATLAB, <code>x = 10</code> creates a double. In Python, <code>x = 10</code> creates an <code>int</code> and <code>x = 10.0</code> creates a <code>float</code>.</li>
+          <li>MATLAB math functions (<code>sqrt</code>, <code>sin</code>, <code>abs</code>, etc.) are available directly. In Python, you need <code>import math</code> first for most of them (<code>abs()</code>, <code>round()</code>, <code>min()</code>, <code>max()</code> are built-in, but <code>sqrt()</code>, <code>sin()</code>, <code>cos()</code> are in the <code>math</code> module).</li>
+          <li>MATLAB uses <code>^</code> for exponentiation; Python uses <code>**</code>.</li>
+          <li>MATLAB's <code>mod(a, b)</code> is Python's <code>a % b</code>.</li>
+        </ul>
+        <pre><code>% MATLAB
+x = sqrt(144);        % 12 (double)
+y = 10 ^ 3;           % 1000
+r = mod(17, 5);       % 2
+
+# Python
+import math
+x = math.sqrt(144)    # 12.0 (float)
+y = 10 ** 3           # 1000 (int)
+r = 17 % 5            # 2 (int)</code></pre>
+      </div>
+
+      <h3>4.6 Type Checking and Conversion</h3>
+
+      <p>You can check a value's type with <code>type()</code> and convert between types using <code>int()</code>, <code>float()</code>, and <code>str()</code>.</p>
+
+      <pre><code># Example 22 — Type checking
+x = 42
+print(type(x))         # &lt;class 'int'&gt;
+print(isinstance(x, int))   # True
+print(isinstance(x, float)) # False</code></pre>
+
+      <pre><code># Example 23 — Type conversion
+# float to int (truncates — does NOT round)
+print(int(3.9))        # 3
+print(int(-3.9))       # -3
+
+# int to float
+print(float(42))       # 42.0
+
+# string to number
+print(int("100"))      # 100
+print(float("3.14"))   # 3.14
+
+# number to string
+print(str(42))         # "42"
+print(str(3.14))       # "3.14"</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common Mistake &mdash; <code>int()</code> truncates, it does not round:</strong>
+        <pre><code>print(int(9.99))    # 9, NOT 10
+print(int(-2.7))    # -2, NOT -3
+
+# If you want rounding, use round() first:
+print(round(9.99))  # 10
+print(int(round(9.99)))  # 10</code></pre>
+      </div>
+
+      <h3>4.7 Augmented Assignment Operators</h3>
+
+      <p>Python provides shorthand for updating a variable with an arithmetic operation:</p>
+
+      <pre><code># Example 24 — Augmented assignment
+x = 10
+
+x += 5    # Same as: x = x + 5   → x is now 15
+x -= 3    # Same as: x = x - 3   → x is now 12
+x *= 2    # Same as: x = x * 2   → x is now 24
+x /= 4    # Same as: x = x / 4   → x is now 6.0 (float!)
+x //= 2   # Same as: x = x // 2  → x is now 3.0
+x **= 3   # Same as: x = x ** 3  → x is now 27.0
+x %= 5    # Same as: x = x % 5   → x is now 2.0
+
+print(x)  # 2.0</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Note:</strong> Once <code>/=</code> is used, the variable becomes a <code>float</code> and stays a <code>float</code> for all subsequent operations, even <code>//=</code>. If you started with <code>x = 10</code> (int) and did <code>x /= 2</code>, <code>x</code> is now <code>5.0</code> (float), not <code>5</code> (int).
+      </div>
+
+      <h3>4.8 Large Numbers and Underscores</h3>
+
+      <p>Python handles arbitrarily large integers (no overflow!) and lets you use underscores as visual separators in numbers.</p>
+
+      <pre><code># Example 25 — Large numbers and underscores
+big = 1_000_000_000     # Much easier to read than 1000000000
+print(big)               # 1000000000
+
+# Python ints have unlimited size
+huge = 2 ** 100
+print(huge)              # 1267650600228229401496703205376
+
+# Underscores work in floats too
+speed_of_light = 299_792_458.0   # meters per second
+print(speed_of_light)            # 299792458.0</code></pre>
+
+      <!-- Exercise: numbers -->
+      <div class="exercise">
+        <h4>Exercise 4 &mdash; Arithmetic Practice</h4>
+        <p>A rectangle has a width of <code>7.5</code> and a height of <code>12.3</code>. Write a Python script that:</p>
+        <ol>
+          <li>Stores the width and height in variables.</li>
+          <li>Calculates and prints the <strong>area</strong> (width &times; height).</li>
+          <li>Calculates and prints the <strong>perimeter</strong> (2 &times; (width + height)).</li>
+          <li>Calculates and prints the <strong>diagonal</strong> using the Pythagorean theorem (use <code>math.sqrt()</code>).</li>
+          <li>Rounds each result to 2 decimal places.</li>
+        </ol>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import math
+
+# Step 1: Store dimensions
+width = 7.5
+height = 12.3
+
+# Step 2: Area
+area = width * height
+print("Area:", round(area, 2))         # 92.25
+
+# Step 3: Perimeter
+perimeter = 2 * (width + height)
+print("Perimeter:", round(perimeter, 2))  # 39.6
+
+# Step 4: Diagonal (Pythagorean theorem)
+diagonal = math.sqrt(width ** 2 + height ** 2)
+print("Diagonal:", round(diagonal, 2))   # 14.41</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <h4>Exercise 5 &mdash; Temperature Converter</h4>
+        <p>Write a script that converts a temperature from Fahrenheit to Celsius using the formula:</p>
+        <p><code>celsius = (fahrenheit - 32) * 5 / 9</code></p>
+        <ol>
+          <li>Store <code>98.6</code> (normal body temperature) in a variable called <code>fahrenheit</code>.</li>
+          <li>Calculate the Celsius equivalent and store it in a variable called <code>celsius</code>.</li>
+          <li>Print the result rounded to 1 decimal place.</li>
+          <li>Print the types of both variables.</li>
+        </ol>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code># Temperature conversion
+fahrenheit = 98.6
+celsius = (fahrenheit - 32) * 5 / 9
+
+print("Fahrenheit:", fahrenheit)
+print("Celsius:", round(celsius, 1))      # 37.0
+
+print("Type of fahrenheit:", type(fahrenheit))  # &lt;class 'float'&gt;
+print("Type of celsius:", type(celsius))        # &lt;class 'float'&gt;</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <h4>Exercise 6 &mdash; Floor Division and Modulo</h4>
+        <p>You have <strong>157 minutes</strong> of video to watch. Write a script that:</p>
+        <ol>
+          <li>Uses floor division (<code>//</code>) to find how many <strong>complete hours</strong> that is.</li>
+          <li>Uses modulo (<code>%</code>) to find the <strong>remaining minutes</strong>.</li>
+          <li>Prints the result as: <code>157 minutes = 2 hours and 37 minutes</code></li>
+        </ol>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>total_minutes = 157
+
+hours = total_minutes // 60
+remaining = total_minutes % 60
+
+print(total_minutes, "minutes =", hours, "hours and", remaining, "minutes")
+# Output: 157 minutes = 2 hours and 37 minutes</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <table>
+        <thead>
+          <tr><th>Concept</th><th>Syntax</th><th>Key Takeaway</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>print()</code></td><td><code>print(value, ...)</code></td><td>Use <code>sep</code> and <code>end</code> to control formatting</td></tr>
+          <tr><td>Comments</td><td><code># single line</code> or <code>"""multi-line"""</code></td><td>Explain <em>why</em>, not <em>what</em></td></tr>
+          <tr><td>Variables</td><td><code>name = value</code></td><td>Use <code>snake_case</code>; Python is dynamically typed</td></tr>
+          <tr><td>int &amp; float</td><td><code>42</code> vs <code>42.0</code></td><td><code>/</code> always returns float; use <code>//</code> for integer division</td></tr>
+          <tr><td>Arithmetic</td><td><code>+ - * / // % **</code></td><td>Parentheses override precedence</td></tr>
+          <tr><td>math module</td><td><code>import math</code></td><td>Provides <code>sqrt</code>, <code>pi</code>, <code>ceil</code>, <code>floor</code>, trig functions, etc.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>What's next?</strong> Now that you can print output, leave comments, store values in variables, and do math, the next page covers <strong>Strings and Booleans</strong>&mdash;two more fundamental data types that unlock text manipulation and logical decisions.
+      </div>
+
+      <div class="page-nav">
+        <a href="getting-started.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Getting Started</span></a>
+        <a href="basics-strings-booleans.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Strings &amp; Booleans</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

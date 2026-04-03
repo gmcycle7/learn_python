@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions &amp; Lambda &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link active">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python Basics</a><span class="sep">&rsaquo;</span>
+        Functions &amp; Lambda
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C — FUNCTIONS & LAMBDA                              -->
+      <!-- ============================================================ -->
+
+      <h1>Functions &amp; Lambda</h1>
+      <p class="page-subtitle">
+        Organise your code into reusable blocks. Learn how to define functions,
+        pass arguments, return values, and use anonymous lambda expressions.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> In MATLAB, functions typically
+        live in their own <code>.m</code> files (or at the end of a script since
+        R2016b). Python is far more flexible &mdash; you can define a function
+        <em>anywhere</em> in your script, and you can put as many functions as
+        you like in a single file. MATLAB uses the <code>function</code> keyword;
+        Python uses <code>def</code>. Return values are explicit in Python
+        (you write <code>return</code>), whereas MATLAB assigns to output
+        variables declared in the function signature.
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <div class="toc-title">On This Page</div>
+        <ul>
+          <li><a href="#defining-functions">1. Defining Functions</a></li>
+          <li><a href="#parameters-arguments">2. Parameters and Arguments</a></li>
+          <li><a href="#return-values">3. Return Values</a></li>
+          <li><a href="#scope">4. Scope &mdash; Local vs. Global</a></li>
+          <li><a href="#docstrings">5. Docstrings</a></li>
+          <li><a href="#lambda">6. Lambda Functions</a></li>
+          <li><a href="#first-class">7. Functions as First-Class Objects</a></li>
+          <li><a href="#args-kwargs">8. *args and **kwargs</a></li>
+          <li><a href="#exercises">Exercises</a></li>
+          <li><a href="#summary">Summary</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. DEFINING FUNCTIONS                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="defining-functions">1. Defining Functions</h2>
+
+      <p>
+        A <strong>function</strong> is a named block of code that performs a
+        specific task. You <em>define</em> it once, then <em>call</em> it as
+        many times as you need. This avoids repeating the same code and makes
+        your programs easier to read, test, and maintain.
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>def function_name(parameters):
+    """Optional docstring."""
+    # body — indented code
+    return value  # optional</code></pre>
+
+      <ul>
+        <li><code>def</code> &mdash; the keyword that starts every function definition.</li>
+        <li><strong>function_name</strong> &mdash; use <code>snake_case</code> (lowercase with underscores). Descriptive names are best: <code>calculate_area</code>, not <code>ca</code>.</li>
+        <li><strong>parentheses</strong> &mdash; hold the parameters (inputs). Empty <code>()</code> if no inputs.</li>
+        <li><strong>colon</strong> &mdash; required at the end of the <code>def</code> line.</li>
+        <li><strong>indented body</strong> &mdash; everything inside the function must be indented (usually 4 spaces).</li>
+      </ul>
+
+      <h3>Example 1 &mdash; A Simple Function</h3>
+
+      <pre><code># Define the function
+def greet():
+    print("Hello, welcome to Python!")
+
+# Call it
+greet()          # Hello, welcome to Python!
+greet()          # Hello, welcome to Python!</code></pre>
+
+      <h3>Example 2 &mdash; Function with a Parameter</h3>
+
+      <pre><code>def greet_user(name):
+    print(f"Hello, {name}! Welcome to Python.")
+
+greet_user("Alice")   # Hello, Alice! Welcome to Python.
+greet_user("Bob")     # Hello, Bob! Welcome to Python.</code></pre>
+
+      <h3>Example 3 &mdash; Function that Calculates</h3>
+
+      <pre><code>def circle_area(radius):
+    pi = 3.14159
+    area = pi * radius ** 2
+    return area
+
+result = circle_area(5)
+print(result)   # 78.53975</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong>
+        <pre><code>% MATLAB — function in its own file circle_area.m
+function area = circle_area(radius)
+    area = pi * radius^2;
+end</code></pre>
+        <p>
+          In MATLAB you would save this in a file called
+          <code>circle_area.m</code>. In Python, the function sits right in
+          your script alongside other code. No special file required.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> Forgetting the colon at the end of the
+        <code>def</code> line, or forgetting to indent the body. Both will cause
+        a <code>SyntaxError</code>.
+        <pre><code># Wrong — missing colon
+def greet()
+    print("Hi")    # SyntaxError!
+
+# Wrong — no indentation
+def greet():
+print("Hi")        # IndentationError!</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. PARAMETERS AND ARGUMENTS                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="parameters-arguments">2. Parameters and Arguments</h2>
+
+      <p>
+        The terms <strong>parameter</strong> and <strong>argument</strong> are
+        often used interchangeably, but there is a subtle difference:
+      </p>
+
+      <ul>
+        <li><strong>Parameter</strong> &mdash; the variable name in the function definition (the placeholder).</li>
+        <li><strong>Argument</strong> &mdash; the actual value you pass when calling the function.</li>
+      </ul>
+
+      <pre><code>def add(a, b):      # a and b are parameters
+    return a + b
+
+result = add(3, 5)  # 3 and 5 are arguments</code></pre>
+
+      <h3>Positional Arguments</h3>
+
+      <p>
+        By default, arguments are matched to parameters by <strong>position</strong>
+        (left to right):
+      </p>
+
+      <pre><code>def describe_pet(animal, name):
+    print(f"I have a {animal} named {name}.")
+
+describe_pet("cat", "Whiskers")   # I have a cat named Whiskers.
+describe_pet("Whiskers", "cat")   # I have a Whiskers named cat.  (Wrong!)</code></pre>
+
+      <div class="callout callout-danger">
+        <strong>Watch out:</strong> Order matters with positional arguments!
+        Swapping them gives a logically wrong (but syntactically valid) result.
+      </div>
+
+      <h3>Keyword Arguments</h3>
+
+      <p>
+        You can specify arguments by name, which makes the order irrelevant:
+      </p>
+
+      <pre><code>describe_pet(name="Whiskers", animal="cat")
+# I have a cat named Whiskers.  (Correct regardless of order)</code></pre>
+
+      <h3>Default Values</h3>
+
+      <p>
+        You can give parameters a default value. If the caller does not provide
+        that argument, the default is used:
+      </p>
+
+      <pre><code>def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")               # Hello, Alice!
+greet("Alice", "Good morning")  # Good morning, Alice!</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Rule:</strong> Parameters with default values must come
+        <em>after</em> parameters without defaults.
+        <pre><code># Wrong — default before non-default
+def greet(greeting="Hello", name):   # SyntaxError!
+    print(f"{greeting}, {name}!")</code></pre>
+      </div>
+
+      <h3>Example &mdash; Combining Positional, Keyword, and Defaults</h3>
+
+      <pre><code>def create_profile(name, age, city="Unknown", hobby="coding"):
+    print(f"{name}, age {age}, from {city}, enjoys {hobby}.")
+
+create_profile("Alice", 30)
+# Alice, age 30, from Unknown, enjoys coding.
+
+create_profile("Bob", 25, city="London")
+# Bob, age 25, from London, enjoys coding.
+
+create_profile("Carol", 28, hobby="painting", city="Tokyo")
+# Carol, age 28, from Tokyo, enjoys painting.</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. RETURN VALUES                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="return-values">3. Return Values</h2>
+
+      <p>
+        The <code>return</code> statement sends a result back to the caller.
+        Without <code>return</code>, a function returns <code>None</code>.
+      </p>
+
+      <h3>Returning a Single Value</h3>
+
+      <pre><code>def square(n):
+    return n ** 2
+
+result = square(7)
+print(result)   # 49</code></pre>
+
+      <h3>Returning Multiple Values (Tuple Unpacking)</h3>
+
+      <p>
+        Python can return multiple values separated by commas. Under the hood
+        this returns a <strong>tuple</strong>, which you can unpack into
+        separate variables:
+      </p>
+
+      <pre><code>def min_max(numbers):
+    return min(numbers), max(numbers)
+
+low, high = min_max([4, 1, 8, 3])
+print(low)    # 1
+print(high)   # 8</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses bracket syntax for
+        multiple outputs: <code>[low, high] = minmax(data)</code>. Python
+        uses tuple unpacking, which feels very similar.
+      </div>
+
+      <h3>Returning None</h3>
+
+      <p>
+        If a function has no <code>return</code> statement (or uses
+        <code>return</code> without a value), it returns <code>None</code>:
+      </p>
+
+      <pre><code>def say_hello(name):
+    print(f"Hello, {name}!")
+    # no return statement
+
+result = say_hello("Alice")   # Hello, Alice!
+print(result)                  # None</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> Confusing <code>print()</code> with
+        <code>return</code>. <code>print()</code> displays text on screen but
+        does <em>not</em> send a value back to the caller. <code>return</code>
+        sends a value back but does <em>not</em> display anything.
+        <pre><code>def bad_add(a, b):
+    print(a + b)       # displays 8, but returns None
+
+def good_add(a, b):
+    return a + b       # returns 8, caller decides what to do
+
+x = bad_add(3, 5)     # prints 8, but x is None!
+y = good_add(3, 5)    # y is 8</code></pre>
+      </div>
+
+      <h3>Early Return</h3>
+
+      <p>
+        You can use <code>return</code> to exit a function early:
+      </p>
+
+      <pre><code>def divide(a, b):
+    if b == 0:
+        return "Error: division by zero"
+    return a / b
+
+print(divide(10, 3))   # 3.3333333333333335
+print(divide(10, 0))   # Error: division by zero</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. SCOPE                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="scope">4. Scope &mdash; Local vs. Global</h2>
+
+      <p>
+        <strong>Scope</strong> determines where a variable can be seen and used.
+        In Python, every function creates its own <em>local scope</em>.
+      </p>
+
+      <h3>Local Variables</h3>
+
+      <p>
+        Variables created inside a function exist <em>only</em> inside that
+        function:
+      </p>
+
+      <pre><code>def my_function():
+    secret = 42        # local variable
+    print(secret)
+
+my_function()           # 42
+print(secret)           # NameError: name 'secret' is not defined</code></pre>
+
+      <h3>Global Variables</h3>
+
+      <p>
+        Variables created outside any function are <strong>global</strong> &mdash;
+        they can be <em>read</em> inside functions, but not modified without
+        the <code>global</code> keyword:
+      </p>
+
+      <pre><code>greeting = "Hello"     # global
+
+def say_hi():
+    print(greeting)    # reading global — OK
+
+say_hi()               # Hello</code></pre>
+
+      <pre><code>counter = 0
+
+def increment():
+    counter = counter + 1   # Error! Python thinks counter is local
+                            # because you're assigning to it
+
+increment()   # UnboundLocalError</code></pre>
+
+      <h3>The <code>global</code> Keyword (Use Sparingly!)</h3>
+
+      <pre><code>counter = 0
+
+def increment():
+    global counter         # tells Python: use the global variable
+    counter = counter + 1
+
+increment()
+increment()
+print(counter)   # 2</code></pre>
+
+      <div class="callout callout-danger">
+        <strong>Best practice:</strong> Avoid using <code>global</code> in most
+        cases. It makes code harder to understand, test, and debug because any
+        function could secretly change a variable. Instead, pass values as
+        arguments and return results:
+        <pre><code># Better approach — no global keyword needed
+def increment(counter):
+    return counter + 1
+
+count = 0
+count = increment(count)   # 1
+count = increment(count)   # 2</code></pre>
+      </div>
+
+      <h3>The LEGB Rule (Simplified)</h3>
+
+      <p>
+        When Python encounters a variable name, it searches for it in this
+        order:
+      </p>
+
+      <ol>
+        <li><strong>L</strong>ocal &mdash; inside the current function.</li>
+        <li><strong>E</strong>nclosing &mdash; inside any enclosing (outer) function (for nested functions).</li>
+        <li><strong>G</strong>lobal &mdash; at the module (file) level.</li>
+        <li><strong>B</strong>uilt-in &mdash; Python's built-in names (<code>print</code>, <code>len</code>, etc.).</li>
+      </ol>
+
+      <pre><code>x = "global"
+
+def outer():
+    x = "enclosing"
+
+    def inner():
+        x = "local"
+        print(x)       # local
+
+    inner()
+    print(x)           # enclosing
+
+outer()
+print(x)               # global</code></pre>
+
+      <div class="callout callout-info">
+        <strong>As a beginner:</strong> You mostly need to remember two things:
+        (1) variables inside a function are local, and (2) if Python cannot find
+        a variable locally, it looks outward. The full LEGB rule will become
+        important when you start writing nested functions.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. DOCSTRINGS                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="docstrings">5. Docstrings</h2>
+
+      <p>
+        A <strong>docstring</strong> is a string literal that appears as the
+        first statement in a function. It documents what the function does.
+        Use triple quotes (<code>"""..."""</code>) for docstrings:
+      </p>
+
+      <pre><code>def celsius_to_fahrenheit(celsius):
+    """Convert a temperature from Celsius to Fahrenheit.
+
+    Args:
+        celsius: Temperature in degrees Celsius.
+
+    Returns:
+        Temperature in degrees Fahrenheit.
+    """
+    return celsius * 9 / 5 + 32</code></pre>
+
+      <h3>Why Bother?</h3>
+
+      <ul>
+        <li>You (or someone else) can read the docstring months later to understand what the function does.</li>
+        <li>The built-in <code>help()</code> function displays docstrings automatically:</li>
+      </ul>
+
+      <pre><code>help(celsius_to_fahrenheit)
+
+# Output:
+# Help on function celsius_to_fahrenheit in module __main__:
+#
+# celsius_to_fahrenheit(celsius)
+#     Convert a temperature from Celsius to Fahrenheit.
+#     ...
+</code></pre>
+
+      <h3>Accessing the Docstring Directly</h3>
+
+      <pre><code>print(celsius_to_fahrenheit.__doc__)
+# Convert a temperature from Celsius to Fahrenheit.
+# ...</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB, you write help text as
+        comments at the top of a function file. Python uses a dedicated
+        docstring (a real string, not a comment), which tools can parse
+        automatically. The idea is the same: document your functions!
+      </div>
+
+      <h3>Example &mdash; Good Docstring Habits</h3>
+
+      <pre><code>def calculate_bmi(weight_kg, height_m):
+    """Calculate Body Mass Index (BMI).
+
+    Args:
+        weight_kg: Weight in kilograms.
+        height_m: Height in metres.
+
+    Returns:
+        BMI as a float.
+
+    Example:
+        >>> calculate_bmi(70, 1.75)
+        22.857142857142858
+    """
+    return weight_kg / height_m ** 2</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. LAMBDA FUNCTIONS                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="lambda">6. Lambda Functions</h2>
+
+      <p>
+        A <strong>lambda</strong> is a small anonymous function (a function
+        without a name). It is defined in a single line using the
+        <code>lambda</code> keyword:
+      </p>
+
+      <pre><code># Syntax: lambda parameters: expression
+
+double = lambda x: x * 2
+print(double(5))    # 10
+
+add = lambda a, b: a + b
+print(add(3, 7))    # 10</code></pre>
+
+      <h3>How Lambda Compares to <code>def</code></h3>
+
+      <pre><code># Regular function
+def square(x):
+    return x ** 2
+
+# Lambda equivalent
+square = lambda x: x ** 2
+
+# Both work the same way
+print(square(4))   # 16</code></pre>
+
+      <h3>When to Use Lambda</h3>
+
+      <p>
+        Lambdas are most useful as short, throwaway functions passed to
+        other functions like <code>sorted()</code>, <code>map()</code>, or
+        <code>filter()</code>:
+      </p>
+
+      <pre><code># Sort a list of tuples by the second element
+pairs = [(1, "b"), (3, "a"), (2, "c")]
+sorted_pairs = sorted(pairs, key=lambda x: x[1])
+print(sorted_pairs)   # [(3, 'a'), (1, 'b'), (2, 'c')]</code></pre>
+
+      <pre><code># Use with map() to double every number
+numbers = [1, 2, 3, 4, 5]
+doubled = list(map(lambda x: x * 2, numbers))
+print(doubled)   # [2, 4, 6, 8, 10]</code></pre>
+
+      <pre><code># Use with filter() to keep only even numbers
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)   # [2, 4]</code></pre>
+
+      <h3>When NOT to Use Lambda</h3>
+
+      <div class="callout callout-danger">
+        <strong>Avoid lambda when:</strong>
+        <ul>
+          <li>The logic is complex or spans more than one expression &mdash; use a regular <code>def</code> function instead.</li>
+          <li>You need to reuse the function multiple times &mdash; give it a proper name with <code>def</code>.</li>
+          <li>You need a docstring &mdash; lambdas cannot have docstrings.</li>
+          <li>Readability suffers &mdash; if you have to squint to understand it, use <code>def</code>.</li>
+        </ul>
+        <pre><code># Bad — too complex for a lambda
+process = lambda x: x.strip().lower().replace(" ", "_") if isinstance(x, str) else str(x)
+
+# Better — use def
+def process(x):
+    """Clean a value for use as a key."""
+    if isinstance(x, str):
+        return x.strip().lower().replace(" ", "_")
+    return str(x)</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. FUNCTIONS AS FIRST-CLASS OBJECTS                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="first-class">7. Functions as First-Class Objects</h2>
+
+      <p>
+        In Python, functions are <strong>first-class objects</strong>. This
+        means you can:
+      </p>
+
+      <ul>
+        <li>Assign a function to a variable.</li>
+        <li>Pass a function as an argument to another function.</li>
+        <li>Return a function from another function.</li>
+      </ul>
+
+      <h3>Assigning Functions to Variables</h3>
+
+      <pre><code>def shout(text):
+    return text.upper() + "!"
+
+yell = shout              # yell now refers to the same function
+print(yell("hello"))      # HELLO!</code></pre>
+
+      <h3>Passing Functions as Arguments</h3>
+
+      <pre><code>def apply_twice(func, value):
+    """Apply a function to a value two times."""
+    return func(func(value))
+
+def add_three(x):
+    return x + 3
+
+result = apply_twice(add_three, 10)
+print(result)   # 16  (10 + 3 = 13, then 13 + 3 = 16)</code></pre>
+
+      <h3>A Practical Example &mdash; Custom Sorting</h3>
+
+      <pre><code>students = [
+    {"name": "Alice", "grade": 88},
+    {"name": "Bob", "grade": 95},
+    {"name": "Carol", "grade": 72},
+]
+
+def get_grade(student):
+    return student["grade"]
+
+# Pass the function as the sorting key
+ranked = sorted(students, key=get_grade, reverse=True)
+for s in ranked:
+    print(f"{s['name']}: {s['grade']}")
+# Bob: 95
+# Alice: 88
+# Carol: 72</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Key insight:</strong> When you pass a function as an argument,
+        you write the function name <em>without</em> parentheses:
+        <code>key=get_grade</code>, not <code>key=get_grade()</code>.
+        Parentheses would <em>call</em> the function immediately, which is not
+        what you want here.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. *args AND **kwargs                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="args-kwargs">8. *args and **kwargs</h2>
+
+      <p>
+        Sometimes you want a function that accepts <em>any number</em> of
+        arguments. Python provides two special syntaxes for this.
+      </p>
+
+      <h3><code>*args</code> &mdash; Variable Positional Arguments</h3>
+
+      <p>
+        The <code>*args</code> parameter collects extra positional arguments
+        into a <strong>tuple</strong>:
+      </p>
+
+      <pre><code>def add_all(*args):
+    """Add any number of values together."""
+    print(f"Received: {args}")     # args is a tuple
+    return sum(args)
+
+print(add_all(1, 2))           # Received: (1, 2) → 3
+print(add_all(1, 2, 3, 4, 5)) # Received: (1, 2, 3, 4, 5) → 15</code></pre>
+
+      <h3>Example &mdash; Flexible Greeting</h3>
+
+      <pre><code>def greet_all(*names):
+    for name in names:
+        print(f"Hello, {name}!")
+
+greet_all("Alice", "Bob", "Carol")
+# Hello, Alice!
+# Hello, Bob!
+# Hello, Carol!</code></pre>
+
+      <h3><code>**kwargs</code> &mdash; Variable Keyword Arguments</h3>
+
+      <p>
+        The <code>**kwargs</code> parameter collects extra keyword arguments
+        into a <strong>dictionary</strong>:
+      </p>
+
+      <pre><code>def build_profile(name, **kwargs):
+    """Build a user profile dictionary."""
+    profile = {"name": name}
+    profile.update(kwargs)
+    return profile
+
+user = build_profile("Alice", age=30, city="London", job="engineer")
+print(user)
+# {'name': 'Alice', 'age': 30, 'city': 'London', 'job': 'engineer'}</code></pre>
+
+      <h3>Combining *args and **kwargs</h3>
+
+      <pre><code>def super_function(*args, **kwargs):
+    print(f"Positional: {args}")
+    print(f"Keyword:    {kwargs}")
+
+super_function(1, 2, 3, name="Alice", age=30)
+# Positional: (1, 2, 3)
+# Keyword:    {'name': 'Alice', 'age': 30}</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Naming convention:</strong> The names <code>args</code> and
+        <code>kwargs</code> are just convention. You could use <code>*values</code>
+        and <code>**options</code> &mdash; what matters is the <code>*</code>
+        and <code>**</code> prefix. However, sticking with <code>args</code>
+        and <code>kwargs</code> is strongly recommended because every Python
+        developer recognises them instantly.
+      </div>
+
+      <h3>Parameter Order Rule</h3>
+
+      <p>
+        When combining all parameter types, they must appear in this order:
+      </p>
+
+      <pre><code>def example(pos1, pos2, default="x", *args, **kwargs):
+    pass
+
+# 1. Regular positional parameters
+# 2. Parameters with default values
+# 3. *args
+# 4. **kwargs</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses <code>varargin</code>
+        for variable-length input arguments and <code>nargin</code> to check how
+        many arguments were passed. Python's <code>*args</code> and
+        <code>**kwargs</code> are more elegant and explicit &mdash; you can
+        iterate over them directly without checking argument counts.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  EXERCISES                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">Exercises</h2>
+
+      <p>
+        Practice what you have learned. Try each exercise on your own before
+        revealing the solution.
+      </p>
+
+      <!-- Exercise 1 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 1 &mdash; Rectangle Area</div>
+        <p>
+          Write a function <code>rectangle_area(width, height)</code> that
+          returns the area of a rectangle. Test it with a few different values.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def rectangle_area(width, height):
+    """Return the area of a rectangle."""
+    return width * height
+
+print(rectangle_area(5, 3))    # 15
+print(rectangle_area(10, 2))   # 20
+print(rectangle_area(7.5, 4))  # 30.0</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 2 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 2 &mdash; Temperature Converter</div>
+        <p>
+          Write a function <code>f_to_c(fahrenheit)</code> that converts
+          Fahrenheit to Celsius using the formula:
+          <code>C = (F - 32) * 5/9</code>. Return the result rounded to 2
+          decimal places.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def f_to_c(fahrenheit):
+    """Convert Fahrenheit to Celsius."""
+    celsius = (fahrenheit - 32) * 5 / 9
+    return round(celsius, 2)
+
+print(f_to_c(32))    # 0.0
+print(f_to_c(212))   # 100.0
+print(f_to_c(98.6))  # 37.0</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 3 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 3 &mdash; Default Greeting</div>
+        <p>
+          Write a function <code>greet(name, greeting="Hello")</code> that
+          prints <code>"{greeting}, {name}!"</code>. Call it with and without
+          the <code>greeting</code> argument.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def greet(name, greeting="Hello"):
+    """Print a personalised greeting."""
+    print(f"{greeting}, {name}!")
+
+greet("Alice")                # Hello, Alice!
+greet("Bob", "Good morning")  # Good morning, Bob!</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 4 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 4 &mdash; Return Multiple Values</div>
+        <p>
+          Write a function <code>stats(numbers)</code> that receives a list
+          of numbers and returns three values: the minimum, maximum, and
+          average. Unpack them into separate variables.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def stats(numbers):
+    """Return min, max, and average of a list."""
+    minimum = min(numbers)
+    maximum = max(numbers)
+    average = sum(numbers) / len(numbers)
+    return minimum, maximum, average
+
+low, high, avg = stats([4, 8, 15, 16, 23, 42])
+print(f"Min: {low}, Max: {high}, Avg: {avg:.2f}")
+# Min: 4, Max: 42, Avg: 18.00</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 5 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 5 &mdash; Lambda Sort</div>
+        <p>
+          Given the list <code>words = ["banana", "pie", "Washington", "a"]</code>,
+          use <code>sorted()</code> with a lambda to sort the words by their
+          <strong>length</strong> (shortest first).
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>words = ["banana", "pie", "Washington", "a"]
+by_length = sorted(words, key=lambda w: len(w))
+print(by_length)   # ['a', 'pie', 'banana', 'Washington']</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 6 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 6 &mdash; *args Sum</div>
+        <p>
+          Write a function <code>multiply_all(*args)</code> that multiplies
+          all the arguments together and returns the result. If no arguments
+          are given, return <code>1</code>.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def multiply_all(*args):
+    """Multiply all arguments together."""
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+print(multiply_all(2, 3, 4))    # 24
+print(multiply_all(5, 10))      # 50
+print(multiply_all())            # 1</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 7 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 7 &mdash; **kwargs Profile Builder</div>
+        <p>
+          Write a function <code>make_profile(name, **kwargs)</code> that
+          builds and returns a dictionary. The dictionary should always have a
+          <code>"name"</code> key, plus any extra keyword arguments passed in.
+          Test it by creating a profile with <code>age</code>, <code>city</code>,
+          and <code>hobby</code>.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def make_profile(name, **kwargs):
+    """Build a profile dictionary from keyword arguments."""
+    profile = {"name": name}
+    for key, value in kwargs.items():
+        profile[key] = value
+    return profile
+
+p = make_profile("Alice", age=30, city="London", hobby="chess")
+print(p)
+# {'name': 'Alice', 'age': 30, 'city': 'London', 'hobby': 'chess'}</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 8 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 8 &mdash; Docstring Practice</div>
+        <p>
+          Write a function <code>is_even(n)</code> that returns <code>True</code>
+          if <code>n</code> is even, <code>False</code> otherwise. Add a proper
+          docstring with Args, Returns, and an Example section. Then call
+          <code>help(is_even)</code> to verify the docstring displays correctly.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def is_even(n):
+    """Check whether a number is even.
+
+    Args:
+        n: An integer to check.
+
+    Returns:
+        True if n is even, False otherwise.
+
+    Example:
+        >>> is_even(4)
+        True
+        >>> is_even(7)
+        False
+    """
+    return n % 2 == 0
+
+print(is_even(4))    # True
+print(is_even(7))    # False
+help(is_even)</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 9 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 9 &mdash; Pass a Function</div>
+        <p>
+          Write a function <code>apply_to_list(func, lst)</code> that applies
+          a given function to every element in a list and returns the new list.
+          Test it by passing a function that triples a number.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>def apply_to_list(func, lst):
+    """Apply func to every element and return a new list."""
+    return [func(item) for item in lst]
+
+def triple(x):
+    return x * 3
+
+numbers = [1, 2, 3, 4, 5]
+result = apply_to_list(triple, numbers)
+print(result)   # [3, 6, 9, 12, 15]
+
+# Also works with a lambda:
+result2 = apply_to_list(lambda x: x ** 2, numbers)
+print(result2)  # [1, 4, 9, 16, 25]</code></pre>
+        </details>
+      </div>
+
+      <!-- Exercise 10 -->
+      <div class="exercise">
+        <div class="exercise-title">Exercise 10 &mdash; Scope Challenge</div>
+        <p>
+          Without running the code, predict what this prints. Then run it to
+          check your answer:
+        </p>
+        <pre><code>x = 10
+
+def outer():
+    x = 20
+    def inner():
+        x = 30
+        print("inner:", x)
+    inner()
+    print("outer:", x)
+
+outer()
+print("global:", x)</code></pre>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code># Output:
+# inner: 30
+# outer: 20
+# global: 10
+
+# Each function has its own local x.
+# The global x is never modified.</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Syntax / Key Point</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Define a function</strong></td>
+            <td><code>def name(params): body</code></td>
+          </tr>
+          <tr>
+            <td><strong>Positional args</strong></td>
+            <td>Matched by order: <code>func(a, b)</code></td>
+          </tr>
+          <tr>
+            <td><strong>Keyword args</strong></td>
+            <td>Matched by name: <code>func(name="Alice")</code></td>
+          </tr>
+          <tr>
+            <td><strong>Default values</strong></td>
+            <td><code>def f(x, y=10):</code></td>
+          </tr>
+          <tr>
+            <td><strong>Return values</strong></td>
+            <td><code>return value</code> (or multiple: <code>return a, b</code>)</td>
+          </tr>
+          <tr>
+            <td><strong>Scope</strong></td>
+            <td>LEGB: Local > Enclosing > Global > Built-in</td>
+          </tr>
+          <tr>
+            <td><strong>Docstrings</strong></td>
+            <td>Triple-quoted string as first line of function body</td>
+          </tr>
+          <tr>
+            <td><strong>Lambda</strong></td>
+            <td><code>lambda x: expression</code> &mdash; for short, one-time functions</td>
+          </tr>
+          <tr>
+            <td><strong>First-class functions</strong></td>
+            <td>Pass functions as arguments, assign to variables</td>
+          </tr>
+          <tr>
+            <td><strong>*args</strong></td>
+            <td>Collects extra positional args into a tuple</td>
+          </tr>
+          <tr>
+            <td><strong>**kwargs</strong></td>
+            <td>Collects extra keyword args into a dict</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Functions are the fundamental building
+        block of well-organised code. Once you are comfortable defining and
+        calling functions, you can break any complex problem into small,
+        manageable, testable pieces. Every serious Python program you write will
+        be built on functions.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-loops.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Loops</span></a>
+        <a href="basics-more.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">More Built-ins</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

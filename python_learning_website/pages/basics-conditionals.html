@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditionals &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link active">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python Basics</a><span class="sep">&rsaquo;</span>
+        Conditionals
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C5 — CONDITIONALS                                    -->
+      <!-- ============================================================ -->
+
+      <h1>Section C5 &mdash; Conditionals (if / elif / else)</h1>
+
+      <p>
+        Every useful program needs to make decisions. Should you display an
+        error message? Is the user old enough? Did the sensor reading exceed a
+        threshold? In Python, you make decisions with <strong>conditional
+        statements</strong> &mdash; <code>if</code>, <code>elif</code>, and
+        <code>else</code>. This page covers everything you need to know about
+        branching logic in Python.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> You already know
+        <code>if&nbsp;...&nbsp;elseif&nbsp;...&nbsp;else&nbsp;...&nbsp;end</code>.
+        Python's version is almost identical in logic, but the syntax differs
+        in three important ways: (1)&nbsp;Python uses <strong>elif</strong>
+        instead of <code>elseif</code>, (2)&nbsp;every condition line ends
+        with a <strong>colon</strong>, and (3)&nbsp;there is <strong>no
+        <code>end</code> keyword</strong> &mdash; Python uses indentation
+        alone to define blocks.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. THE if STATEMENT                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="if-statement">1. The <code>if</code> Statement</h2>
+
+      <p>
+        The simplest conditional is a plain <code>if</code>. It runs a block
+        of code <em>only</em> when a condition is <code>True</code>.
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>if condition:
+    # This block runs only when condition is True
+    do_something()</code></pre>
+
+      <p>Key rules:</p>
+      <ul>
+        <li>The line must end with a <strong>colon</strong> (<code>:</code>).</li>
+        <li>The indented block below is the body. Python uses <strong>indentation</strong> (typically 4 spaces) to define which lines belong to the <code>if</code>.</li>
+        <li>The condition is any expression that evaluates to <code>True</code> or <code>False</code>.</li>
+      </ul>
+
+      <h3>Example 1 &mdash; Basic <code>if</code></h3>
+
+      <pre><code>temperature = 35
+
+if temperature > 30:
+    print("It's hot outside!")
+
+# Output: It's hot outside!</code></pre>
+
+      <p>
+        Because <code>temperature</code> is 35, the condition
+        <code>35 &gt; 30</code> is <code>True</code>, so the indented
+        <code>print()</code> line executes.
+      </p>
+
+      <h3>Example 2 &mdash; Nothing happens when False</h3>
+
+      <pre><code>temperature = 20
+
+if temperature > 30:
+    print("It's hot outside!")
+
+print("Done checking.")
+# Output: Done checking.</code></pre>
+
+      <p>
+        The condition is <code>False</code>, so the indented line is skipped
+        entirely. The program continues with the next unindented line.
+      </p>
+
+      <div class="callout callout-info">
+        <strong>Indentation is not optional.</strong> In most languages,
+        indentation is just a style choice. In Python, it is part of the
+        syntax. If you indent incorrectly, Python raises an
+        <code>IndentationError</code>. Always use <strong>4 spaces</strong>
+        per level (your editor can do this automatically).
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. if / else                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="if-else">2. <code>if</code> / <code>else</code></h2>
+
+      <p>
+        Often you want to do one thing when a condition is true and a
+        <em>different</em> thing when it is false. That is what
+        <code>else</code> is for.
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>if condition:
+    # runs when True
+else:
+    # runs when False</code></pre>
+
+      <h3>Example 3 &mdash; Pass or fail</h3>
+
+      <pre><code>score = 72
+
+if score >= 60:
+    print("You passed!")
+else:
+    print("You failed. Try again.")
+
+# Output: You passed!</code></pre>
+
+      <h3>Example 4 &mdash; Even or odd</h3>
+
+      <pre><code>number = 7
+
+if number % 2 == 0:
+    print(f"{number} is even")
+else:
+    print(f"{number} is odd")
+
+# Output: 7 is odd</code></pre>
+
+      <p>
+        The modulo operator <code>%</code> gives the remainder after division.
+        If <code>number % 2</code> equals 0, the number is even; otherwise it
+        is odd.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  3. elif                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="elif">3. <code>elif</code> &mdash; Multiple Conditions</h2>
+
+      <p>
+        When you have more than two branches, use <code>elif</code> (short for
+        "else if"). Python checks each condition from top to bottom and runs
+        the <em>first</em> block whose condition is <code>True</code>. If
+        none match, the <code>else</code> block runs (if present).
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>if condition_1:
+    # runs if condition_1 is True
+elif condition_2:
+    # runs if condition_1 is False AND condition_2 is True
+elif condition_3:
+    # runs if both above are False AND condition_3 is True
+else:
+    # runs if ALL conditions above are False</code></pre>
+
+      <p>
+        You can have as many <code>elif</code> branches as you need. The
+        <code>else</code> at the end is optional but recommended as a
+        catch-all.
+      </p>
+
+      <h3>Example 5 &mdash; Letter grades</h3>
+
+      <pre><code>score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+
+print(f"Score: {score}, Grade: {grade}")
+# Output: Score: 85, Grade: B</code></pre>
+
+      <p>
+        Python tests each condition in order. <code>85 &gt;= 90</code> is
+        <code>False</code>, so it moves on. <code>85 &gt;= 80</code> is
+        <code>True</code>, so <code>grade</code> is set to <code>"B"</code>
+        and all remaining branches are skipped.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong>
+        <pre><code>% MATLAB
+if score >= 90
+    grade = 'A';
+elseif score >= 80
+    grade = 'B';
+elseif score >= 70
+    grade = 'C';
+elseif score >= 60
+    grade = 'D';
+else
+    grade = 'F';
+end</code></pre>
+        <p>
+          Notice MATLAB uses <code>elseif</code> (one word) and requires
+          <code>end</code>. Python uses <code>elif</code> and uses
+          indentation instead of <code>end</code>. The logic is identical.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. NESTED if STATEMENTS                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="nested-if">4. Nested <code>if</code> Statements</h2>
+
+      <p>
+        You can place an <code>if</code> statement inside another
+        <code>if</code> statement. This is called <strong>nesting</strong>.
+        The inner <code>if</code> only runs when the outer condition is
+        already <code>True</code>.
+      </p>
+
+      <h3>Example 6 &mdash; Nested check</h3>
+
+      <pre><code>age = 25
+has_ticket = True
+
+if age >= 18:
+    if has_ticket:
+        print("Welcome to the concert!")
+    else:
+        print("You need a ticket.")
+else:
+    print("Sorry, you must be 18 or older.")
+
+# Output: Welcome to the concert!</code></pre>
+
+      <p>
+        Each level of nesting adds another 4 spaces of indentation. While
+        nesting works, deeply nested code (3+ levels) becomes hard to read.
+        In practice, you can often simplify nested conditions by combining
+        them with <code>and</code> (see below).
+      </p>
+
+      <h3>Example 7 &mdash; Flattened version using <code>and</code></h3>
+
+      <pre><code>age = 25
+has_ticket = True
+
+if age >= 18 and has_ticket:
+    print("Welcome to the concert!")
+elif age < 18:
+    print("Sorry, you must be 18 or older.")
+else:
+    print("You need a ticket.")</code></pre>
+
+      <p>
+        This is cleaner and easier to read. Prefer flattening when possible.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  5. COMBINING CONDITIONS                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="combining-conditions">5. Combining Conditions with <code>and</code>, <code>or</code>, <code>not</code></h2>
+
+      <p>
+        Python provides three <strong>logical operators</strong> for combining
+        conditions:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operator</th>
+            <th>Meaning</th>
+            <th>True when&hellip;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>and</code></td>
+            <td>Both must be true</td>
+            <td><code>A and B</code> &rarr; True only if A is True <em>and</em> B is True</td>
+          </tr>
+          <tr>
+            <td><code>or</code></td>
+            <td>At least one must be true</td>
+            <td><code>A or B</code> &rarr; True if A is True <em>or</em> B is True (or both)</td>
+          </tr>
+          <tr>
+            <td><code>not</code></td>
+            <td>Reverses the truth value</td>
+            <td><code>not A</code> &rarr; True if A is False</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Example 8 &mdash; Using <code>and</code></h3>
+
+      <pre><code>username = "admin"
+password = "secret123"
+
+if username == "admin" and password == "secret123":
+    print("Login successful!")
+else:
+    print("Invalid credentials.")
+
+# Output: Login successful!</code></pre>
+
+      <p>Both conditions must be <code>True</code> for the combined expression to be <code>True</code>.</p>
+
+      <h3>Example 9 &mdash; Using <code>or</code></h3>
+
+      <pre><code>day = "Saturday"
+
+if day == "Saturday" or day == "Sunday":
+    print("It's the weekend!")
+else:
+    print("It's a weekday.")
+
+# Output: It's the weekend!</code></pre>
+
+      <h3>Example 10 &mdash; Using <code>not</code></h3>
+
+      <pre><code>is_raining = False
+
+if not is_raining:
+    print("No umbrella needed.")
+
+# Output: No umbrella needed.</code></pre>
+
+      <p>
+        <code>not</code> flips <code>False</code> to <code>True</code>, so
+        the block runs.
+      </p>
+
+      <h3>Example 11 &mdash; Combining multiple operators</h3>
+
+      <pre><code>temperature = 22
+is_sunny = True
+
+if temperature > 20 and temperature < 35 and is_sunny:
+    print("Perfect day for a walk!")
+
+# Output: Perfect day for a walk!</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Operator precedence:</strong> <code>not</code> is evaluated
+        first, then <code>and</code>, then <code>or</code>. When in doubt,
+        use parentheses to make your intent clear:
+        <code>if (a or b) and c:</code>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses <code>&amp;&amp;</code>
+        for logical AND and <code>||</code> for logical OR. Python spells
+        them out as English words: <code>and</code> and <code>or</code>.
+        MATLAB's <code>~</code> (tilde for NOT) becomes <code>not</code> in
+        Python.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. COMPARISON OPERATORS                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="comparison-operators">6. Comparison Operators Reference</h2>
+
+      <p>
+        Conditions rely on comparison operators. Here is the complete list:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operator</th>
+            <th>Meaning</th>
+            <th>Example</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>==</code></td><td>Equal to</td><td><code>5 == 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>!=</code></td><td>Not equal to</td><td><code>5 != 3</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&gt;</code></td><td>Greater than</td><td><code>5 &gt; 3</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&lt;</code></td><td>Less than</td><td><code>3 &lt; 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&gt;=</code></td><td>Greater than or equal to</td><td><code>5 &gt;= 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&lt;=</code></td><td>Less than or equal to</td><td><code>3 &lt;= 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>in</code></td><td>Membership test</td><td><code>"a" in "cat"</code></td><td><code>True</code></td></tr>
+          <tr><td><code>not in</code></td><td>Negated membership</td><td><code>"x" not in "cat"</code></td><td><code>True</code></td></tr>
+          <tr><td><code>is</code></td><td>Identity (same object)</td><td><code>x is None</code></td><td>depends</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>Chained comparisons:</strong> Python lets you chain
+        comparisons naturally. Instead of writing
+        <code>x &gt; 0 and x &lt; 100</code>, you can write
+        <code>0 &lt; x &lt; 100</code>. This reads just like math notation
+        and is perfectly valid Python.
+      </div>
+
+      <h3>Example 12 &mdash; Chained comparison</h3>
+
+      <pre><code>age = 25
+
+if 18 <= age <= 65:
+    print("Working age")
+
+# Output: Working age</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  7. TERNARY EXPRESSIONS                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="ternary">7. Ternary Expressions (Inline <code>if</code>/<code>else</code>)</h2>
+
+      <p>
+        Sometimes you want to assign a value based on a condition in a single
+        line. Python has a concise syntax for this called a
+        <strong>ternary expression</strong> (also called a conditional
+        expression).
+      </p>
+
+      <h3>Syntax</h3>
+
+      <pre><code>value = a if condition else b</code></pre>
+
+      <p>
+        This reads as: "Set <code>value</code> to <code>a</code> if the
+        condition is true; otherwise, set it to <code>b</code>."
+      </p>
+
+      <h3>Example 13 &mdash; Simple ternary</h3>
+
+      <pre><code>age = 20
+
+status = "adult" if age >= 18 else "minor"
+print(status)
+# Output: adult</code></pre>
+
+      <h3>Example 14 &mdash; Ternary in a print statement</h3>
+
+      <pre><code>score = 45
+
+print("Pass" if score >= 50 else "Fail")
+# Output: Fail</code></pre>
+
+      <h3>Example 15 &mdash; Ternary for choosing a value</h3>
+
+      <pre><code>x = -7
+
+absolute_value = x if x >= 0 else -x
+print(absolute_value)
+# Output: 7</code></pre>
+
+      <div class="callout callout-info">
+        <strong>When to use ternaries:</strong> They are great for simple,
+        one-line assignments. If the logic is complex or involves multiple
+        branches, use a full <code>if</code>/<code>elif</code>/<code>else</code>
+        block instead. Readability always wins over cleverness.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB note:</strong> MATLAB does not have a built-in ternary
+        operator. The closest equivalent is a one-line <code>if</code> or
+        using indexing tricks. Python's ternary syntax is cleaner and more
+        readable.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. TRUTHINESS AND FALSINESS                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="truthiness">8. Truthiness and Falsiness</h2>
+
+      <p>
+        In Python, you do not always need an explicit comparison. Every value
+        has an inherent <strong>truthiness</strong>. When you write
+        <code>if x:</code>, Python evaluates whether <code>x</code> is
+        "truthy" or "falsy."
+      </p>
+
+      <h3>Falsy values (evaluate to <code>False</code>)</h3>
+
+      <table>
+        <thead>
+          <tr><th>Value</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>False</code></td><td>bool</td></tr>
+          <tr><td><code>None</code></td><td>NoneType</td></tr>
+          <tr><td><code>0</code></td><td>int</td></tr>
+          <tr><td><code>0.0</code></td><td>float</td></tr>
+          <tr><td><code>""</code> (empty string)</td><td>str</td></tr>
+          <tr><td><code>[]</code> (empty list)</td><td>list</td></tr>
+          <tr><td><code>{}</code> (empty dict)</td><td>dict</td></tr>
+          <tr><td><code>()</code> (empty tuple)</td><td>tuple</td></tr>
+          <tr><td><code>set()</code> (empty set)</td><td>set</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Everything else is truthy.</strong> Non-zero numbers, non-empty strings, non-empty collections &mdash; all truthy.</p>
+
+      <h3>Example 16 &mdash; Checking for an empty list</h3>
+
+      <pre><code>shopping_list = []
+
+if shopping_list:
+    print("Let's go shopping!")
+else:
+    print("Nothing to buy.")
+
+# Output: Nothing to buy.</code></pre>
+
+      <p>
+        An empty list is falsy, so <code>if shopping_list:</code> evaluates
+        to <code>False</code>. This is the Pythonic way to check whether a
+        collection has items &mdash; you do not need to write
+        <code>if len(shopping_list) &gt; 0:</code>.
+      </p>
+
+      <h3>Example 17 &mdash; Checking for a non-empty string</h3>
+
+      <pre><code>user_input = "hello"
+
+if user_input:
+    print(f"You typed: {user_input}")
+else:
+    print("You didn't type anything.")
+
+# Output: You typed: hello</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> Understanding truthiness is
+        essential for writing clean, idiomatic Python. Instead of verbose
+        comparisons like <code>if name != "":</code> or
+        <code>if count != 0:</code>, experienced Python programmers write
+        <code>if name:</code> and <code>if count:</code>. It is shorter,
+        cleaner, and considered best practice.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. COMMON MISTAKES                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">9. Common Mistakes</h2>
+
+      <p>
+        Conditionals are simple in concept, but beginners often trip on a few
+        predictable pitfalls. Here are the most common ones and how to fix
+        them.
+      </p>
+
+      <h3>Mistake 1: Using <code>=</code> instead of <code>==</code></h3>
+
+      <p>
+        The single equals sign <code>=</code> is for <strong>assignment</strong>
+        (storing a value). The double equals sign <code>==</code> is for
+        <strong>comparison</strong> (checking equality). Mixing them up is one
+        of the most common beginner errors.
+      </p>
+
+      <pre><code># WRONG — this is assignment, not comparison
+x = 10
+if x = 10:       # SyntaxError!
+    print("ten")
+
+# CORRECT — use == for comparison
+x = 10
+if x == 10:
+    print("ten")  # Output: ten</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Good news:</strong> Unlike C or JavaScript, Python will raise
+        a <code>SyntaxError</code> if you accidentally use <code>=</code>
+        inside an <code>if</code>. The error message will point you to the
+        problem.
+      </div>
+
+      <h3>Mistake 2: Forgetting the colon</h3>
+
+      <pre><code># WRONG — missing colon at the end
+if score > 90
+    print("A+")
+
+# CORRECT
+if score > 90:
+    print("A+")</code></pre>
+
+      <p>
+        Every <code>if</code>, <code>elif</code>, and <code>else</code> line
+        must end with a colon. Forgetting it produces a
+        <code>SyntaxError</code>.
+      </p>
+
+      <h3>Mistake 3: Wrong indentation</h3>
+
+      <pre><code># WRONG — inconsistent indentation
+if temperature > 30:
+    print("Hot")
+      print("Drink water")   # IndentationError!
+
+# CORRECT — both lines have the same indentation
+if temperature > 30:
+    print("Hot")
+    print("Drink water")</code></pre>
+
+      <p>
+        All lines in the same block must have <em>exactly</em> the same
+        indentation. Mixing tabs and spaces is a recipe for trouble &mdash;
+        configure your editor to insert 4 spaces when you press Tab.
+      </p>
+
+      <h3>Mistake 4: Writing <code>elif</code> as <code>else if</code></h3>
+
+      <pre><code># WRONG — Python does not use "else if"
+if x > 0:
+    print("positive")
+else if x < 0:       # SyntaxError!
+    print("negative")
+
+# CORRECT — use elif (one word)
+if x > 0:
+    print("positive")
+elif x < 0:
+    print("negative")</code></pre>
+
+      <h3>Mistake 5: Checking multiple values incorrectly</h3>
+
+      <pre><code># WRONG — does not do what you think
+color = "red"
+if color == "red" or "blue":   # Always True!
+    print("Match")
+
+# WHY? Python reads this as: (color == "red") or ("blue")
+# The string "blue" is truthy, so the whole expression is always True.
+
+# CORRECT
+if color == "red" or color == "blue":
+    print("Match")
+
+# EVEN BETTER — use the 'in' operator
+if color in ("red", "blue"):
+    print("Match")</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> The <code>color == "red" or "blue"</code>
+        bug is extremely common among beginners. It looks logical in English
+        ("if color equals red or blue") but Python interprets it differently.
+        Always use <code>in</code> for checking membership in a set of
+        values.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. MATLAB vs PYTHON SIDE-BY-SIDE                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="matlab-comparison">10. MATLAB vs. Python &mdash; Conditionals Side by Side</h2>
+
+      <p>
+        If you are coming from MATLAB, this comparison will help you see how
+        the syntax maps across.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Basic if</td>
+            <td><code>if x &gt; 0<br>&nbsp;&nbsp;disp('positive');<br>end</code></td>
+            <td><code>if x &gt; 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('positive')</code></td>
+          </tr>
+          <tr>
+            <td>else</td>
+            <td><code>else<br>&nbsp;&nbsp;disp('not positive');<br>end</code></td>
+            <td><code>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('not positive')</code></td>
+          </tr>
+          <tr>
+            <td>Else-if keyword</td>
+            <td><code>elseif</code></td>
+            <td><code>elif</code></td>
+          </tr>
+          <tr>
+            <td>Block terminator</td>
+            <td><code>end</code></td>
+            <td>Indentation (no end keyword)</td>
+          </tr>
+          <tr>
+            <td>Logical AND</td>
+            <td><code>&amp;&amp;</code></td>
+            <td><code>and</code></td>
+          </tr>
+          <tr>
+            <td>Logical OR</td>
+            <td><code>||</code></td>
+            <td><code>or</code></td>
+          </tr>
+          <tr>
+            <td>Logical NOT</td>
+            <td><code>~</code></td>
+            <td><code>not</code></td>
+          </tr>
+          <tr>
+            <td>Equality check</td>
+            <td><code>==</code></td>
+            <td><code>==</code></td>
+          </tr>
+          <tr>
+            <td>Not equal</td>
+            <td><code>~=</code></td>
+            <td><code>!=</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <strong>Key takeaway for MATLAB users:</strong> Drop the
+        <code>end</code>, add a colon, use <code>elif</code> instead of
+        <code>elseif</code>, and spell out your logical operators as English
+        words (<code>and</code>, <code>or</code>, <code>not</code>). Not-equal
+        is <code>!=</code> in Python, not <code>~=</code>. Everything else
+        works the same way logically.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  11. REAL-WORLD EXAMPLES                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="real-world">11. Real-World Examples</h2>
+
+      <h3>Example 18 &mdash; Simple calculator</h3>
+
+      <pre><code>a = 10
+b = 3
+operator = "+"
+
+if operator == "+":
+    result = a + b
+elif operator == "-":
+    result = a - b
+elif operator == "*":
+    result = a * b
+elif operator == "/":
+    if b != 0:
+        result = a / b
+    else:
+        result = "Error: division by zero"
+else:
+    result = "Unknown operator"
+
+print(f"{a} {operator} {b} = {result}")
+# Output: 10 + 3 = 13</code></pre>
+
+      <h3>Example 19 &mdash; Leap year checker</h3>
+
+      <pre><code>year = 2024
+
+if year % 400 == 0:
+    is_leap = True
+elif year % 100 == 0:
+    is_leap = False
+elif year % 4 == 0:
+    is_leap = True
+else:
+    is_leap = False
+
+print(f"{year} is a leap year: {is_leap}")
+# Output: 2024 is a leap year: True</code></pre>
+
+      <h3>Example 20 &mdash; FizzBuzz (classic programming exercise)</h3>
+
+      <pre><code>n = 15
+
+if n % 3 == 0 and n % 5 == 0:
+    print("FizzBuzz")
+elif n % 3 == 0:
+    print("Fizz")
+elif n % 5 == 0:
+    print("Buzz")
+else:
+    print(n)
+
+# Output: FizzBuzz</code></pre>
+
+      <p>
+        Note: the order matters. The combined check (<code>n % 3 == 0 and
+        n % 5 == 0</code>) must come first. If you checked for
+        <code>n % 3 == 0</code> first, it would print "Fizz" and skip the
+        FizzBuzz case entirely.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  12. EXERCISES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">12. Exercises</h2>
+
+      <div class="callout callout-info">
+        <strong>Practice makes permanent.</strong> Try these exercises
+        yourself before looking at the solutions. Type the code out rather
+        than copying and pasting &mdash; the muscle memory helps.
+      </div>
+
+      <h3>Exercise 1: Age group classifier</h3>
+      <p>
+        Write a program that takes an <code>age</code> variable and prints
+        which age group the person belongs to:
+      </p>
+      <ul>
+        <li>0&ndash;12: "Child"</li>
+        <li>13&ndash;17: "Teenager"</li>
+        <li>18&ndash;64: "Adult"</li>
+        <li>65+: "Senior"</li>
+      </ul>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>age = 30
+
+if age < 0:
+    print("Invalid age")
+elif age <= 12:
+    print("Child")
+elif age <= 17:
+    print("Teenager")
+elif age <= 64:
+    print("Adult")
+else:
+    print("Senior")
+
+# Output: Adult</code></pre>
+      </details>
+
+      <h3>Exercise 2: Temperature advisor</h3>
+      <p>
+        Given a <code>temp</code> in Celsius, print advice:
+      </p>
+      <ul>
+        <li>Below 0: "Freezing! Stay inside."</li>
+        <li>0&ndash;15: "Cold. Wear a jacket."</li>
+        <li>16&ndash;25: "Nice weather. Enjoy!"</li>
+        <li>26&ndash;35: "Warm. Stay hydrated."</li>
+        <li>Above 35: "Dangerously hot!"</li>
+      </ul>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>temp = 22
+
+if temp < 0:
+    print("Freezing! Stay inside.")
+elif temp <= 15:
+    print("Cold. Wear a jacket.")
+elif temp <= 25:
+    print("Nice weather. Enjoy!")
+elif temp <= 35:
+    print("Warm. Stay hydrated.")
+else:
+    print("Dangerously hot!")
+
+# Output: Nice weather. Enjoy!</code></pre>
+      </details>
+
+      <h3>Exercise 3: Password strength checker</h3>
+      <p>
+        Given a <code>password</code> string, check its strength:
+      </p>
+      <ul>
+        <li>Fewer than 6 characters: "Weak"</li>
+        <li>6&ndash;11 characters: "Medium"</li>
+        <li>12 or more characters: "Strong"</li>
+        <li>Bonus: if the password contains at least one digit, add " (has number)" to the output.</li>
+      </ul>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>password = "hello2world"
+
+length = len(password)
+has_digit = any(char.isdigit() for char in password)
+
+if length < 6:
+    strength = "Weak"
+elif length < 12:
+    strength = "Medium"
+else:
+    strength = "Strong"
+
+if has_digit:
+    strength += " (has number)"
+
+print(f"Password strength: {strength}")
+# Output: Password strength: Medium (has number)</code></pre>
+      </details>
+
+      <h3>Exercise 4: Ternary practice</h3>
+      <p>
+        Rewrite this code as a single line using a ternary expression:
+      </p>
+      <pre><code>x = 42
+if x % 2 == 0:
+    parity = "even"
+else:
+    parity = "odd"</code></pre>
+
+      <details>
+        <summary>Show solution</summary>
+        <pre><code>x = 42
+parity = "even" if x % 2 == 0 else "odd"
+print(parity)  # Output: even</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <ul>
+        <li><code>if</code> checks a condition; the indented block runs only when it is <code>True</code>.</li>
+        <li><code>elif</code> (not <code>elseif</code>!) provides additional branches.</li>
+        <li><code>else</code> is the catch-all that runs when no condition matched.</li>
+        <li>Every condition line ends with a <strong>colon</strong>.</li>
+        <li><strong>Indentation</strong> defines the block &mdash; there is no <code>end</code> keyword.</li>
+        <li>Use <code>and</code>, <code>or</code>, and <code>not</code> to combine conditions.</li>
+        <li>Ternary syntax: <code>value = a if condition else b</code>.</li>
+        <li>Python values have inherent truthiness &mdash; empty collections and zero are falsy.</li>
+        <li>Use <code>==</code> for comparison, not <code>=</code>. Always end with a colon. Indent consistently.</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>You now have the power of decision-making in your programs!</strong>
+        Combined with the data types you have already learned (numbers,
+        strings, lists, dictionaries), conditionals let you write programs
+        that respond intelligently to different inputs. Next up:
+        <strong>loops</strong> &mdash; the ability to repeat actions.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-dictionaries.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Dictionaries</span></a>
+        <a href="basics-loops.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Loops</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

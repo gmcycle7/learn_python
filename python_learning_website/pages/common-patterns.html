@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common Python Patterns &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link active">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> Common Patterns
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION D — COMMON PYTHON PATTERNS                          -->
+      <!-- ============================================================ -->
+
+      <h1>Section D &mdash; Common Python Patterns</h1>
+
+      <p>
+        This is one of the most practical pages in the entire guide. It covers
+        the <strong>20 most common patterns</strong> you will use in everyday
+        Python programming. Each pattern includes an explanation of what it does,
+        when to use it, multiple code examples, and common pitfalls to avoid.
+      </p>
+
+      <p>
+        Bookmark this page &mdash; you will come back to it often as you write
+        your own scripts and projects.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> Many of these patterns have
+        direct MATLAB equivalents. Where applicable, we will point out what the
+        MATLAB equivalent looks like so you can map your existing knowledge to
+        Python. The biggest difference you will notice is that Python relies on
+        <code>import</code> statements to bring in functionality, whereas MATLAB
+        has most things available by default.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  TABLE OF CONTENTS                                            -->
+      <!-- ============================================================ -->
+
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#printing-formatting">Printing and Formatting</a></li>
+        <li><a href="#checking-types">Checking Types</a></li>
+        <li><a href="#looping-lists">Looping Over Lists</a></li>
+        <li><a href="#reading-text-files">Reading Text Files</a></li>
+        <li><a href="#reading-csv">Reading CSV Files</a></li>
+        <li><a href="#writing-files">Writing Files</a></li>
+        <li><a href="#path-handling">Path Handling</a></li>
+        <li><a href="#creating-folders">Creating Folders</a></li>
+        <li><a href="#checking-file-existence">Checking File Existence</a></li>
+        <li><a href="#command-line-args">Command Line Arguments</a></li>
+        <li><a href="#running-shell-commands">Running Shell Commands</a></li>
+        <li><a href="#math-operations">Math Operations</a></li>
+        <li><a href="#random-numbers">Random Numbers</a></li>
+        <li><a href="#simple-plotting">Simple Plotting</a></li>
+        <li><a href="#working-with-dates">Working with Dates</a></li>
+        <li><a href="#json-reading-writing">JSON Reading/Writing</a></li>
+        <li><a href="#copying-files">Copying Files</a></li>
+        <li><a href="#glob-file-matching">Glob File Matching</a></li>
+        <li><a href="#regex-basics">Regex Basics</a></li>
+        <li><a href="#useful-builtins">Useful Built-in Functions</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  1. PRINTING AND FORMATTING                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="printing-formatting">1. Printing and Formatting</h2>
+
+      <p>
+        <strong>What it does:</strong> Displays output to the console. Python's
+        <code>print()</code> function is your primary debugging and output tool.
+        F-strings (formatted string literals) let you embed variables and
+        expressions directly inside strings with precise control over formatting.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Every single Python script you write.
+        Printing is how you verify your code is doing what you expect.
+      </p>
+
+      <h3>Basic print variations</h3>
+
+      <pre><code># Print a simple string
+print("Hello, World!")
+
+# Print multiple values (separated by spaces by default)
+name = "Alice"
+age = 30
+print("Name:", name, "Age:", age)   # Name: Alice Age: 30
+
+# Change the separator
+print("2025", "03", "15", sep="-")  # 2025-03-15
+
+# Change the end character (default is newline)
+print("Loading", end="...")
+print("Done!")                       # Loading...Done!
+
+# Print an empty line
+print()</code></pre>
+
+      <h3>F-string formatting (Python 3.6+)</h3>
+
+      <pre><code>name = "Alice"
+score = 95.678
+items = 42
+
+# Basic variable insertion
+print(f"Hello, {name}!")                    # Hello, Alice!
+
+# Expressions inside braces
+print(f"Next year you will be {age + 1}")   # Next year you will be 31
+
+# Decimal places
+print(f"Score: {score:.2f}")                # Score: 95.68
+
+# Padding and alignment
+print(f"{'Left':<15}|{'Center':^15}|{'Right':>15}")
+# Left           |    Center     |          Right
+
+# Thousands separator
+big_number = 1234567890
+print(f"{big_number:,}")                    # 1,234,567,890
+
+# Percentage
+ratio = 0.856
+print(f"Accuracy: {ratio:.1%}")             # Accuracy: 85.6%
+
+# Zero-padding
+day = 5
+print(f"Day {day:03d}")                     # Day 005</code></pre>
+
+      <h3>Number formatting summary</h3>
+
+      <pre><code>pi = 3.141592653589793
+
+print(f"{pi:.4f}")       # 3.1416       — 4 decimal places
+print(f"{pi:.2e}")       # 3.14e+00     — scientific notation
+print(f"{1024:>10d}")    #       1024   — right-aligned, width 10
+print(f"{1024:010d}")    # 0000001024   — zero-padded, width 10
+print(f"{255:#x}")       # 0xff         — hexadecimal with prefix
+print(f"{255:#b}")       # 0b11111111   — binary with prefix</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB you use
+        <code>fprintf('Score: %.2f\n', score)</code> or
+        <code>sprintf</code>. Python's f-strings are more readable because the
+        variable name appears right where the value will be inserted, instead of
+        being listed separately at the end.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Do not forget the <code>f</code> prefix
+        before the opening quote. Writing <code>print("{name}")</code> will
+        literally print <code>{name}</code> instead of the variable's value. You
+        need <code>print(f"{name}")</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. CHECKING TYPES                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="checking-types">2. Checking Types</h2>
+
+      <p>
+        <strong>What it does:</strong> Lets you inspect or verify the data type
+        of a variable at runtime. Python is dynamically typed, so a variable
+        can hold any type of value &mdash; checking its type helps you write
+        robust code.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> When processing user input, reading
+        data from files, writing functions that accept multiple types, or
+        debugging unexpected behavior.
+      </p>
+
+      <h3>Using type()</h3>
+
+      <pre><code>x = 42
+print(type(x))          # &lt;class 'int'&gt;
+
+y = 3.14
+print(type(y))          # &lt;class 'float'&gt;
+
+name = "Alice"
+print(type(name))       # &lt;class 'str'&gt;
+
+items = [1, 2, 3]
+print(type(items))      # &lt;class 'list'&gt;
+
+# Comparing types directly
+if type(x) == int:
+    print("x is an integer")</code></pre>
+
+      <h3>Using isinstance() (preferred)</h3>
+
+      <pre><code># isinstance() is preferred because it handles inheritance
+x = 42
+print(isinstance(x, int))        # True
+print(isinstance(x, float))      # False
+
+# Check against multiple types at once
+value = 3.14
+if isinstance(value, (int, float)):
+    print("It's a number!")       # It's a number!
+
+# Works with strings, lists, dicts, etc.
+data = {"key": "value"}
+print(isinstance(data, dict))     # True
+print(isinstance(data, list))     # False</code></pre>
+
+      <h3>Common type checks in practice</h3>
+
+      <pre><code>def process_input(value):
+    """Handle different input types gracefully."""
+    if isinstance(value, str):
+        return value.strip().lower()
+    elif isinstance(value, (int, float)):
+        return round(value, 2)
+    elif isinstance(value, list):
+        return len(value)
+    else:
+        return str(value)
+
+print(process_input("  Hello  "))  # hello
+print(process_input(3.14159))      # 3.14
+print(process_input([1, 2, 3]))    # 3</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Best practice:</strong> Prefer <code>isinstance()</code> over
+        <code>type() ==</code> comparisons. The <code>isinstance()</code>
+        function respects inheritance, so <code>isinstance(True, int)</code>
+        returns <code>True</code> (because <code>bool</code> is a subclass of
+        <code>int</code> in Python), while <code>type(True) == int</code>
+        returns <code>False</code>.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> In Python, <code>True</code> and
+        <code>False</code> are instances of <code>bool</code>, which is a
+        subclass of <code>int</code>. This means <code>isinstance(True, int)</code>
+        is <code>True</code>. If you need to distinguish booleans from integers,
+        check for <code>bool</code> first:
+        <code>isinstance(value, bool)</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. LOOPING OVER LISTS                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="looping-lists">3. Looping Over Lists</h2>
+
+      <p>
+        <strong>What it does:</strong> Iterates through each element in a list
+        (or any iterable). This is one of the most fundamental patterns in
+        Python and you will use it constantly.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Whenever you need to process, filter,
+        transform, or inspect each item in a collection.
+      </p>
+
+      <h3>Basic for loop</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+# apple
+# banana
+# cherry</code></pre>
+
+      <h3>Loop with index using enumerate()</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]
+
+for index, color in enumerate(colors):
+    print(f"{index}: {color}")
+# 0: red
+# 1: green
+# 2: blue
+
+# Start counting from 1
+for i, color in enumerate(colors, start=1):
+    print(f"Color #{i}: {color}")
+# Color #1: red
+# Color #2: green
+# Color #3: blue</code></pre>
+
+      <h3>Looping in reverse</h3>
+
+      <pre><code>numbers = [10, 20, 30, 40, 50]
+
+for n in reversed(numbers):
+    print(n)
+# 50, 40, 30, 20, 10
+
+# Alternative: slice with step -1
+for n in numbers[::-1]:
+    print(n)</code></pre>
+
+      <h3>Looping in sorted order</h3>
+
+      <pre><code>scores = [88, 45, 92, 67, 73]
+
+# Ascending
+for s in sorted(scores):
+    print(s)                    # 45, 67, 73, 88, 92
+
+# Descending
+for s in sorted(scores, reverse=True):
+    print(s)                    # 92, 88, 73, 67, 45
+
+# Sort strings case-insensitively
+names = ["Charlie", "alice", "Bob"]
+for name in sorted(names, key=str.lower):
+    print(name)                 # alice, Bob, Charlie</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB you write
+        <code>for i = 1:length(arr)</code> and access elements with
+        <code>arr(i)</code>. Python's <code>for item in list</code> is simpler
+        because you get the element directly &mdash; no index variable needed.
+        When you do need the index, <code>enumerate()</code> is cleaner than
+        managing a counter manually.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Do not modify a list while iterating
+        over it. This leads to skipped elements or infinite loops. Instead,
+        create a new list or iterate over a copy:
+        <code>for item in my_list[:]:</code> (the <code>[:]</code> creates a
+        shallow copy).
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. READING TEXT FILES                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-text-files">4. Reading Text Files</h2>
+
+      <p>
+        <strong>What it does:</strong> Opens a text file and reads its contents
+        into your program. The <code>with</code> statement ensures the file is
+        properly closed after reading, even if an error occurs.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Reading configuration files, log files,
+        data files, or any text-based input.
+      </p>
+
+      <h3>Read line by line (memory-efficient)</h3>
+
+      <pre><code># Best for large files — reads one line at a time
+with open("data.txt", "r") as f:
+    for line in f:
+        print(line.strip())    # .strip() removes trailing newline</code></pre>
+
+      <h3>Read all lines into a list</h3>
+
+      <pre><code>with open("data.txt", "r") as f:
+    lines = f.readlines()      # List of strings, each ending with '\n'
+
+# Clean version — strip whitespace from each line
+with open("data.txt", "r") as f:
+    lines = [line.strip() for line in f]
+
+print(f"File has {len(lines)} lines")
+print(f"First line: {lines[0]}")</code></pre>
+
+      <h3>Read entire file as a single string</h3>
+
+      <pre><code>with open("data.txt", "r") as f:
+    content = f.read()
+
+print(f"File length: {len(content)} characters")
+
+# Check if a word appears in the file
+if "error" in content.lower():
+    print("Found 'error' in the file!")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB you use
+        <code>fid = fopen('data.txt'); ... fclose(fid);</code>. Python's
+        <code>with open()</code> is safer because it automatically closes
+        the file &mdash; you cannot forget to call <code>fclose</code>.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Each line read from a file includes a
+        trailing newline character (<code>\n</code>). Always call
+        <code>.strip()</code> or <code>.rstrip('\n')</code> to remove it.
+        Otherwise, comparisons like <code>if line == "hello"</code> will fail
+        because the line is actually <code>"hello\n"</code>.
+      </div>
+
+      <div class="callout callout-info">
+        <strong>Encoding tip:</strong> If you get a <code>UnicodeDecodeError</code>,
+        specify the encoding explicitly:
+        <code>open("data.txt", "r", encoding="utf-8")</code>. On Windows,
+        the default encoding may not be UTF-8.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. READING CSV FILES                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-csv">5. Reading CSV Files</h2>
+
+      <p>
+        <strong>What it does:</strong> Parses comma-separated value (CSV) files,
+        which are one of the most common data exchange formats. Python's built-in
+        <code>csv</code> module handles quoting, escaping, and different
+        delimiters.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Whenever you need to read tabular data
+        from a CSV file. For more advanced work (filtering, grouping,
+        statistics), consider <code>pandas</code> instead.
+      </p>
+
+      <h3>Using csv.reader (access columns by index)</h3>
+
+      <pre><code>import csv
+
+with open("scores.csv", "r") as f:
+    reader = csv.reader(f)
+    header = next(reader)       # Read the header row
+    print("Columns:", header)   # e.g., ['name', 'score', 'grade']
+
+    for row in reader:
+        name = row[0]
+        score = int(row[1])
+        print(f"{name}: {score}")</code></pre>
+
+      <h3>Using csv.DictReader (access columns by name)</h3>
+
+      <pre><code>import csv
+
+with open("scores.csv", "r") as f:
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        # Each row is a dictionary: {'name': 'Alice', 'score': '95', ...}
+        name = row["name"]
+        score = int(row["score"])
+        print(f"{name}: {score}")
+
+# DictReader is better when:
+#   - Your CSV has a header row
+#   - You want readable code (row["name"] vs row[0])
+#   - Column order might change</code></pre>
+
+      <h3>Reading with a different delimiter</h3>
+
+      <pre><code>import csv
+
+# Tab-separated file
+with open("data.tsv", "r") as f:
+    reader = csv.reader(f, delimiter="\t")
+    for row in reader:
+        print(row)</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB you use
+        <code>readtable('scores.csv')</code> or <code>csvread()</code>.
+        Python's <code>csv</code> module is more manual but gives you full
+        control. For a MATLAB-like experience, use
+        <code>pandas.read_csv()</code>.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> All values from the <code>csv</code>
+        module come in as <strong>strings</strong>. You must explicitly convert
+        numbers: <code>int(row["score"])</code> or
+        <code>float(row["temperature"])</code>. Forgetting this leads to bugs
+        when you try to do arithmetic on strings.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. WRITING FILES                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="writing-files">6. Writing Files</h2>
+
+      <p>
+        <strong>What it does:</strong> Creates or overwrites a file with your
+        data. Python can write plain text files, CSV files, and more.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Saving results, generating reports,
+        exporting data, creating log files.
+      </p>
+
+      <h3>Writing a text file</h3>
+
+      <pre><code># "w" mode creates the file or OVERWRITES if it exists
+with open("output.txt", "w") as f:
+    f.write("First line\n")
+    f.write("Second line\n")
+    f.write(f"The answer is {42}\n")</code></pre>
+
+      <h3>Appending to a file</h3>
+
+      <pre><code># "a" mode adds to the end of an existing file
+with open("log.txt", "a") as f:
+    f.write("New log entry: operation completed\n")</code></pre>
+
+      <h3>Writing a CSV file</h3>
+
+      <pre><code>import csv
+
+data = [
+    ["name", "score", "grade"],
+    ["Alice", 95, "A"],
+    ["Bob", 82, "B"],
+    ["Charlie", 91, "A"],
+]
+
+with open("results.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(data)       # Write all rows at once
+
+# Or write row by row
+with open("results.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["name", "score", "grade"])    # Header
+    writer.writerow(["Alice", 95, "A"])
+    writer.writerow(["Bob", 82, "B"])</code></pre>
+
+      <h3>Writing a CSV with DictWriter</h3>
+
+      <pre><code>import csv
+
+students = [
+    {"name": "Alice", "score": 95, "grade": "A"},
+    {"name": "Bob", "score": 82, "grade": "B"},
+]
+
+with open("results.csv", "w", newline="") as f:
+    writer = csv.DictWriter(f, fieldnames=["name", "score", "grade"])
+    writer.writeheader()
+    writer.writerows(students)</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Using <code>"w"</code> mode will
+        <strong>silently overwrite</strong> an existing file with no warning.
+        If you want to add to an existing file, use <code>"a"</code> (append)
+        mode. If you want to prevent accidental overwrites, check if the file
+        exists first with <code>os.path.exists()</code>.
+      </div>
+
+      <div class="callout callout-info">
+        <strong>Windows note:</strong> Always pass <code>newline=""</code> when
+        opening CSV files for writing on Windows. Without it, you may get blank
+        lines between each row because Windows adds extra <code>\r</code>
+        characters.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. PATH HANDLING                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="path-handling">7. Path Handling</h2>
+
+      <p>
+        <strong>What it does:</strong> Constructs and manipulates file paths in
+        a way that works across operating systems (Windows uses backslashes,
+        macOS/Linux use forward slashes). Python provides two approaches:
+        the older <code>os.path</code> module and the modern
+        <code>pathlib</code> module.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Any time you work with file paths in
+        scripts that might run on different operating systems, or when you need
+        to extract parts of a file path (directory, filename, extension).
+      </p>
+
+      <h3>os.path approach (traditional)</h3>
+
+      <pre><code>import os
+
+# Join path components (uses correct separator for your OS)
+path = os.path.join("data", "2025", "results.csv")
+print(path)         # data/2025/results.csv  (or data\2025\results.csv on Windows)
+
+# Get parts of a path
+print(os.path.dirname(path))     # data/2025
+print(os.path.basename(path))    # results.csv
+print(os.path.splitext(path))    # ('data/2025/results', '.csv')
+
+# Get the file extension
+_, ext = os.path.splitext("report.pdf")
+print(ext)                        # .pdf
+
+# Get the absolute path
+print(os.path.abspath("data.txt"))
+
+# Get the current working directory
+print(os.getcwd())</code></pre>
+
+      <h3>pathlib approach (modern, recommended)</h3>
+
+      <pre><code>from pathlib import Path
+
+# Create a path object
+path = Path("data") / "2025" / "results.csv"
+print(path)              # data/2025/results.csv
+
+# Get parts of the path
+print(path.parent)       # data/2025
+print(path.name)         # results.csv
+print(path.stem)         # results
+print(path.suffix)       # .csv
+
+# Change extension
+new_path = path.with_suffix(".json")
+print(new_path)          # data/2025/results.json
+
+# Get absolute path
+print(path.resolve())
+
+# Get current working directory
+print(Path.cwd())
+
+# Get home directory
+print(Path.home())</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Recommendation:</strong> Use <code>pathlib</code> for new code.
+        It is more readable, more powerful, and more Pythonic. The
+        <code>/</code> operator for joining paths is especially elegant compared
+        to <code>os.path.join()</code>.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> MATLAB's <code>fullfile()</code>
+        function is similar to <code>os.path.join()</code>. For example,
+        <code>fullfile('data', '2025', 'results.csv')</code>. Python's
+        <code>pathlib</code> goes further by providing an object-oriented
+        interface with methods for every path operation.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. CREATING FOLDERS                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="creating-folders">8. Creating Folders</h2>
+
+      <p>
+        <strong>What it does:</strong> Creates directories on disk. Python can
+        create single directories or entire directory trees (nested folders).
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Before writing output files to a
+        specific directory, organizing data into folders, setting up project
+        structures.
+      </p>
+
+      <h3>Using os.makedirs</h3>
+
+      <pre><code>import os
+
+# Create a single directory
+os.makedirs("output")
+
+# Create nested directories (like mkdir -p)
+os.makedirs("output/2025/march")
+
+# IMPORTANT: use exist_ok=True to avoid error if folder already exists
+os.makedirs("output/2025/march", exist_ok=True)</code></pre>
+
+      <h3>Using pathlib</h3>
+
+      <pre><code>from pathlib import Path
+
+# Create a single directory
+Path("output").mkdir(exist_ok=True)
+
+# Create nested directories
+Path("output/2025/march").mkdir(parents=True, exist_ok=True)</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Without <code>exist_ok=True</code>,
+        calling <code>makedirs()</code> or <code>mkdir()</code> on an existing
+        directory raises a <code>FileExistsError</code>. Always include
+        <code>exist_ok=True</code> unless you specifically want the error.
+        Similarly, <code>pathlib.mkdir()</code> requires
+        <code>parents=True</code> to create intermediate directories &mdash;
+        without it, creating <code>"a/b/c"</code> fails if <code>"a/b"</code>
+        does not exist.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> MATLAB's <code>mkdir('output')</code>
+        does not raise an error if the folder exists, so it behaves like
+        Python's <code>exist_ok=True</code> by default.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. CHECKING FILE EXISTENCE                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="checking-file-existence">9. Checking File Existence</h2>
+
+      <p>
+        <strong>What it does:</strong> Tests whether a file or directory exists
+        on disk before you try to read, write, or delete it.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Before reading files (to give a helpful
+        error message), before writing (to avoid overwriting), or to
+        conditionally process files.
+      </p>
+
+      <h3>Using os.path</h3>
+
+      <pre><code>import os
+
+# Check if a file or directory exists
+print(os.path.exists("data.txt"))       # True or False
+
+# Check specifically for a file (not a directory)
+print(os.path.isfile("data.txt"))       # True if it's a file
+
+# Check specifically for a directory
+print(os.path.isdir("output"))          # True if it's a directory
+
+# Practical example
+filename = "config.json"
+if not os.path.isfile(filename):
+    print(f"Error: {filename} not found!")
+else:
+    with open(filename) as f:
+        config = f.read()</code></pre>
+
+      <h3>Using pathlib</h3>
+
+      <pre><code>from pathlib import Path
+
+path = Path("data.txt")
+
+print(path.exists())       # True or False
+print(path.is_file())      # True if it's a file
+print(path.is_dir())       # True if it's a directory
+
+# Practical example
+config_path = Path("config.json")
+if not config_path.is_file():
+    print(f"Error: {config_path} not found!")
+else:
+    content = config_path.read_text()</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Tip:</strong> <code>pathlib.Path</code> objects have a convenient
+        <code>.read_text()</code> method that reads an entire file in one call
+        without needing a <code>with</code> block. Similarly,
+        <code>.write_text("content")</code> writes to a file. These are great
+        for simple read/write operations.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall (TOCTOU race):</strong> There is a subtle issue
+        with checking existence and then operating on the file &mdash; another
+        process could create or delete the file between your check and your
+        action. For critical code, it is sometimes better to use
+        <code>try/except</code> instead:
+        <pre><code>try:
+    with open("data.txt") as f:
+        content = f.read()
+except FileNotFoundError:
+    print("File not found!")</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. COMMAND LINE ARGUMENTS                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="command-line-args">10. Command Line Arguments</h2>
+
+      <p>
+        <strong>What it does:</strong> Lets your script accept inputs from the
+        command line, making it flexible and reusable without editing the code
+        each time.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> When writing scripts that process
+        different files, accept configuration options, or need to be called
+        from other scripts or shell commands.
+      </p>
+
+      <h3>Using sys.argv (simple approach)</h3>
+
+      <pre><code>import sys
+
+# sys.argv is a list of strings
+# sys.argv[0] is the script name
+# sys.argv[1], sys.argv[2], ... are the arguments
+
+# Example: python myscript.py input.txt output.txt
+print(f"Script name: {sys.argv[0]}")
+print(f"Arguments: {sys.argv[1:]}")
+
+# Practical example: process a file given as argument
+if len(sys.argv) &lt; 2:
+    print("Usage: python myscript.py &lt;filename&gt;")
+    sys.exit(1)
+
+filename = sys.argv[1]
+print(f"Processing {filename}...")</code></pre>
+
+      <h3>Basic argument parsing with defaults</h3>
+
+      <pre><code>import sys
+
+# python analyze.py data.csv --verbose
+args = sys.argv[1:]
+
+# Extract filename (required)
+if not args:
+    print("Error: Please provide a filename")
+    sys.exit(1)
+
+filename = args[0]
+verbose = "--verbose" in args
+
+if verbose:
+    print(f"Verbose mode enabled")
+print(f"Reading {filename}...")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>For complex argument parsing:</strong> Use Python's built-in
+        <code>argparse</code> module, which provides help messages, type
+        conversion, required/optional flags, and subcommands. For simple
+        scripts with 1-2 arguments, <code>sys.argv</code> is sufficient.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> All values in <code>sys.argv</code>
+        are <strong>strings</strong>. If you need a number, you must convert
+        it: <code>count = int(sys.argv[1])</code>. Forgetting this is a
+        frequent source of bugs.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  11. RUNNING SHELL COMMANDS                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="running-shell-commands">11. Running Shell Commands</h2>
+
+      <p>
+        <strong>What it does:</strong> Executes operating system commands from
+        within your Python script, letting you automate tasks that involve
+        external tools.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Running system utilities (ping, git,
+        ffmpeg), checking disk space, automating workflows that combine Python
+        logic with command-line tools.
+      </p>
+
+      <h3>Basic command execution</h3>
+
+      <pre><code>import subprocess
+
+# Run a command and wait for it to finish
+result = subprocess.run(["echo", "Hello from Python"])
+print(f"Return code: {result.returncode}")  # 0 means success</code></pre>
+
+      <h3>Capturing output</h3>
+
+      <pre><code>import subprocess
+
+# Capture the command's output as a string
+result = subprocess.run(
+    ["python", "--version"],
+    capture_output=True,
+    text=True              # Return strings instead of bytes
+)
+print(f"stdout: {result.stdout.strip()}")    # e.g., Python 3.11.5
+print(f"stderr: {result.stderr.strip()}")
+print(f"Return code: {result.returncode}")</code></pre>
+
+      <h3>Checking for errors</h3>
+
+      <pre><code>import subprocess
+
+try:
+    result = subprocess.run(
+        ["git", "status"],
+        capture_output=True,
+        text=True,
+        check=True         # Raises exception if command fails
+    )
+    print(result.stdout)
+except subprocess.CalledProcessError as e:
+    print(f"Command failed with code {e.returncode}")
+    print(f"Error output: {e.stderr}")</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Never use <code>shell=True</code> with
+        user-provided input &mdash; it creates a security vulnerability called
+        <em>shell injection</em>. Pass commands as a list of strings:
+        <code>["git", "log", "--oneline"]</code> instead of
+        <code>"git log --oneline"</code>.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB you use
+        <code>system('git status')</code> or <code>[status, output] =
+        system('git status')</code>. Python's <code>subprocess.run()</code>
+        gives you more control over input, output, error handling, and
+        timeouts.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  12. MATH OPERATIONS                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="math-operations">12. Math Operations</h2>
+
+      <p>
+        <strong>What it does:</strong> Provides mathematical functions beyond
+        basic arithmetic. Python's <code>math</code> module covers
+        trigonometry, logarithms, rounding, constants, and more. The
+        <code>statistics</code> module provides mean, median, and standard
+        deviation.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Scientific calculations, data analysis,
+        geometry, unit conversions, anywhere you need precise math.
+      </p>
+
+      <h3>Common math operations</h3>
+
+      <pre><code>import math
+
+# Constants
+print(math.pi)           # 3.141592653589793
+print(math.e)            # 2.718281828459045
+print(math.inf)          # inf (infinity)
+
+# Rounding
+print(math.ceil(4.2))    # 5  (round up)
+print(math.floor(4.8))   # 4  (round down)
+print(round(4.5))        # 4  (built-in, rounds to even)
+print(round(3.14159, 2)) # 3.14
+
+# Powers and roots
+print(math.sqrt(144))    # 12.0
+print(math.pow(2, 10))   # 1024.0
+print(2 ** 10)           # 1024   (built-in operator, returns int)
+
+# Logarithms
+print(math.log(100))     # 4.605  (natural log, ln)
+print(math.log10(100))   # 2.0    (log base 10)
+print(math.log2(1024))   # 10.0   (log base 2)
+
+# Trigonometry (radians)
+print(math.sin(math.pi / 2))   # 1.0
+print(math.cos(0))              # 1.0
+print(math.degrees(math.pi))    # 180.0
+print(math.radians(180))        # 3.14159...</code></pre>
+
+      <h3>Statistics</h3>
+
+      <pre><code>import statistics
+
+data = [4, 8, 6, 5, 3, 7, 9, 2]
+
+print(statistics.mean(data))      # 5.5
+print(statistics.median(data))    # 5.5
+print(statistics.stdev(data))     # 2.449...
+print(statistics.variance(data))  # 6.0
+
+# Also available as built-in functions for simple cases
+print(sum(data))         # 44
+print(min(data))         # 2
+print(max(data))         # 9
+print(len(data))         # 8</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB, functions like
+        <code>sqrt</code>, <code>sin</code>, <code>log</code>, and
+        <code>mean</code> are available without importing anything. In Python,
+        you need <code>import math</code> for math functions and
+        <code>import statistics</code> for statistical functions. The function
+        names and behavior are very similar.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  13. RANDOM NUMBERS                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="random-numbers">13. Random Numbers</h2>
+
+      <p>
+        <strong>What it does:</strong> Generates pseudo-random numbers for
+        simulations, testing, games, random sampling, and shuffling data.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Monte Carlo simulations, randomized
+        testing, shuffling data, selecting random samples, generating test data.
+      </p>
+
+      <h3>Common random operations</h3>
+
+      <pre><code>import random
+
+# Random integer in range [a, b] (inclusive on both ends)
+print(random.randint(1, 10))       # e.g., 7
+
+# Random float in [0.0, 1.0)
+print(random.random())             # e.g., 0.5488135039
+
+# Random float in a range
+print(random.uniform(1.0, 10.0))   # e.g., 6.723
+
+# Random choice from a list
+colors = ["red", "green", "blue", "yellow"]
+print(random.choice(colors))       # e.g., "blue"
+
+# Multiple random choices (with replacement)
+print(random.choices(colors, k=3)) # e.g., ['red', 'blue', 'red']
+
+# Random sample (without replacement)
+print(random.sample(colors, k=2))  # e.g., ['green', 'yellow']
+
+# Shuffle a list in place
+deck = list(range(1, 53))
+random.shuffle(deck)
+print(deck[:5])                    # e.g., [37, 12, 49, 3, 21]</code></pre>
+
+      <h3>Reproducible results with seeds</h3>
+
+      <pre><code>import random
+
+# Set a seed for reproducibility
+random.seed(42)
+print(random.randint(1, 100))   # Always 82 with seed 42
+print(random.randint(1, 100))   # Always 15 with seed 42
+
+# Reset the seed to get the same sequence again
+random.seed(42)
+print(random.randint(1, 100))   # 82 again</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> MATLAB's <code>rand()</code>,
+        <code>randi()</code>, and <code>randn()</code> map to Python's
+        <code>random.random()</code>, <code>random.randint()</code>, and
+        <code>random.gauss()</code>. MATLAB's <code>rng(42)</code> for seeding
+        becomes <code>random.seed(42)</code>.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> Python's <code>random</code> module is
+        not suitable for security-sensitive tasks (e.g., generating passwords or
+        tokens). Use the <code>secrets</code> module instead:
+        <code>secrets.token_hex(16)</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  14. SIMPLE PLOTTING                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="simple-plotting">14. Simple Plotting</h2>
+
+      <p>
+        <strong>What it does:</strong> Creates charts and graphs from your data
+        using <code>matplotlib</code>, Python's most popular plotting library.
+        It produces publication-quality figures and works similarly to MATLAB's
+        plotting functions.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Visualizing data, creating reports,
+        exploring datasets, saving figures for presentations.
+      </p>
+
+      <div class="callout callout-info">
+        <strong>Installation:</strong> Matplotlib is not part of Python's
+        standard library. Install it with: <code>pip install matplotlib</code>
+      </div>
+
+      <h3>Line plot</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 7, 11, 16]
+
+plt.plot(x, y, marker="o", label="Growth")
+plt.xlabel("Time (days)")
+plt.ylabel("Value")
+plt.title("Simple Line Plot")
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+
+      <h3>Scatter plot</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+heights = [160, 165, 170, 175, 180, 185, 190]
+weights = [55, 62, 68, 73, 80, 85, 92]
+
+plt.scatter(heights, weights, color="blue", alpha=0.7)
+plt.xlabel("Height (cm)")
+plt.ylabel("Weight (kg)")
+plt.title("Height vs Weight")
+plt.grid(True)
+plt.show()</code></pre>
+
+      <h3>Bar chart</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+languages = ["Python", "JavaScript", "Java", "C++", "Go"]
+popularity = [30, 25, 20, 15, 10]
+
+plt.bar(languages, popularity, color="steelblue")
+plt.xlabel("Language")
+plt.ylabel("Popularity (%)")
+plt.title("Programming Language Popularity")
+plt.show()</code></pre>
+
+      <h3>Saving a figure to a file</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+
+plt.plot(x, y)
+plt.title("Squares")
+
+# Save as PNG (also supports PDF, SVG, JPG)
+plt.savefig("squares.png", dpi=150, bbox_inches="tight")
+print("Figure saved!")
+plt.close()     # Close to free memory (important in scripts)</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> The <code>matplotlib.pyplot</code>
+        interface was <em>designed</em> to mimic MATLAB's plotting functions.
+        MATLAB's <code>plot(x, y)</code> becomes
+        <code>plt.plot(x, y)</code>. MATLAB's <code>xlabel()</code>,
+        <code>ylabel()</code>, <code>title()</code>, <code>legend()</code>,
+        and <code>grid on</code> all have nearly identical Python counterparts.
+        If you know MATLAB plotting, you already know matplotlib.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> If you call <code>plt.show()</code> in
+        a script (not a notebook), it opens an interactive window and blocks
+        execution until you close it. In non-interactive scripts, use
+        <code>plt.savefig()</code> instead. Also, always call
+        <code>plt.close()</code> after saving to avoid memory leaks when
+        creating many figures in a loop.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  15. WORKING WITH DATES                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="working-with-dates">15. Working with Dates</h2>
+
+      <p>
+        <strong>What it does:</strong> Creates, formats, and manipulates dates
+        and times. Python's <code>datetime</code> module handles everything
+        from getting the current time to calculating durations.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Timestamping log entries, calculating
+        deadlines, parsing date strings from files, scheduling tasks, comparing
+        dates.
+      </p>
+
+      <h3>Getting the current date and time</h3>
+
+      <pre><code>from datetime import datetime, date, timedelta
+
+now = datetime.now()
+print(now)                         # 2025-03-15 14:30:22.123456
+print(now.year, now.month, now.day)  # 2025 3 15
+print(now.hour, now.minute)         # 14 30
+
+today = date.today()
+print(today)                       # 2025-03-15</code></pre>
+
+      <h3>Formatting dates as strings</h3>
+
+      <pre><code>from datetime import datetime
+
+now = datetime.now()
+
+# Custom format with strftime
+print(now.strftime("%Y-%m-%d"))           # 2025-03-15
+print(now.strftime("%B %d, %Y"))          # March 15, 2025
+print(now.strftime("%I:%M %p"))           # 02:30 PM
+print(now.strftime("%Y%m%d_%H%M%S"))      # 20250315_143022 (good for filenames)</code></pre>
+
+      <h3>Parsing dates from strings</h3>
+
+      <pre><code>from datetime import datetime
+
+date_str = "2025-03-15"
+dt = datetime.strptime(date_str, "%Y-%m-%d")
+print(dt)                # 2025-03-15 00:00:00
+
+# Another format
+date_str2 = "15/03/2025 14:30"
+dt2 = datetime.strptime(date_str2, "%d/%m/%Y %H:%M")
+print(dt2)               # 2025-03-15 14:30:00</code></pre>
+
+      <h3>Date arithmetic with timedelta</h3>
+
+      <pre><code>from datetime import datetime, timedelta
+
+today = datetime.now()
+
+# Add or subtract days
+tomorrow = today + timedelta(days=1)
+last_week = today - timedelta(weeks=1)
+print(f"Tomorrow: {tomorrow.strftime('%Y-%m-%d')}")
+print(f"Last week: {last_week.strftime('%Y-%m-%d')}")
+
+# Calculate difference between dates
+start = datetime(2025, 1, 1)
+end = datetime(2025, 12, 31)
+diff = end - start
+print(f"Days in 2025: {diff.days}")      # 364</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> <code>strftime</code> (f for format)
+        converts a datetime <em>to</em> a string. <code>strptime</code>
+        (p for parse) converts a string <em>to</em> a datetime. Mixing these
+        up is a common mistake. Remember: <strong>f = format (out),
+        p = parse (in)</strong>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  16. JSON READING/WRITING                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="json-reading-writing">16. JSON Reading/Writing</h2>
+
+      <p>
+        <strong>What it does:</strong> Reads and writes JSON (JavaScript Object
+        Notation), a lightweight data format used everywhere &mdash; APIs, config
+        files, data storage, and communication between systems.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Saving structured data, reading API
+        responses, creating config files, exchanging data between programs.
+      </p>
+
+      <h3>Reading JSON from a file</h3>
+
+      <pre><code>import json
+
+# json.load() reads from a FILE object
+with open("config.json", "r") as f:
+    config = json.load(f)
+
+print(config)                        # A Python dict
+print(config["database"]["host"])    # Access nested values</code></pre>
+
+      <h3>Writing JSON to a file</h3>
+
+      <pre><code>import json
+
+data = {
+    "name": "Alice",
+    "scores": [95, 88, 92],
+    "active": True,
+    "address": None
+}
+
+# json.dump() writes to a FILE object
+with open("output.json", "w") as f:
+    json.dump(data, f, indent=2)     # indent=2 for pretty printing</code></pre>
+
+      <h3>Working with JSON strings</h3>
+
+      <pre><code>import json
+
+# Parse a JSON string into a Python object
+json_string = '{"name": "Bob", "age": 25}'
+data = json.loads(json_string)        # Note: loadS (with 's' for string)
+print(data["name"])                   # Bob
+
+# Convert a Python object to a JSON string
+person = {"name": "Charlie", "scores": [90, 85]}
+json_output = json.dumps(person, indent=2)  # Note: dumpS
+print(json_output)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>The four JSON functions:</strong>
+        <ul>
+          <li><code>json.load(file)</code> &mdash; read JSON from a <strong>file</strong></li>
+          <li><code>json.loads(string)</code> &mdash; read JSON from a <strong>string</strong></li>
+          <li><code>json.dump(data, file)</code> &mdash; write JSON to a <strong>file</strong></li>
+          <li><code>json.dumps(data)</code> &mdash; write JSON to a <strong>string</strong></li>
+        </ul>
+        The <code>s</code> at the end stands for "string."
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> JSON requires double quotes for strings.
+        Python dictionaries can use single quotes, but when you write JSON, the
+        <code>json</code> module handles this automatically. Also, JSON has
+        <code>null</code> (not <code>None</code>), <code>true</code>/<code>false</code>
+        (not <code>True</code>/<code>False</code>) &mdash; the module handles
+        these conversions for you.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  17. COPYING FILES                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="copying-files">17. Copying Files</h2>
+
+      <p>
+        <strong>What it does:</strong> Copies files and directories from one
+        location to another. Python's <code>shutil</code> (shell utilities)
+        module provides high-level file operations.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Creating backups, organizing files,
+        deploying output, duplicating templates.
+      </p>
+
+      <h3>Copy a single file</h3>
+
+      <pre><code>import shutil
+
+# Copy file (preserves permissions)
+shutil.copy("report.pdf", "backup/report.pdf")
+
+# Copy file with metadata (timestamps, permissions)
+shutil.copy2("report.pdf", "backup/report.pdf")
+
+# If destination is a directory, the filename is preserved
+shutil.copy("report.pdf", "backup/")   # Creates backup/report.pdf</code></pre>
+
+      <h3>Copy an entire directory</h3>
+
+      <pre><code>import shutil
+
+# Copy a directory and all its contents
+shutil.copytree("project/", "project_backup/")
+
+# Python 3.8+: copy into an existing directory
+shutil.copytree("source/", "destination/", dirs_exist_ok=True)</code></pre>
+
+      <h3>Move and rename files</h3>
+
+      <pre><code>import shutil
+
+# Move a file (also works for renaming)
+shutil.move("old_name.txt", "new_name.txt")
+
+# Move a file to a different directory
+shutil.move("report.pdf", "archive/report.pdf")</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> <code>shutil.copytree()</code> will
+        fail if the destination directory already exists (before Python 3.8).
+        Use <code>dirs_exist_ok=True</code> (Python 3.8+) or delete the
+        destination first with <code>shutil.rmtree()</code>. Be very careful
+        with <code>rmtree()</code> &mdash; it permanently deletes an entire
+        directory tree with no recycle bin.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  18. GLOB FILE MATCHING                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="glob-file-matching">18. Glob File Matching</h2>
+
+      <p>
+        <strong>What it does:</strong> Finds files that match a pattern using
+        wildcards. This is like using <code>*.txt</code> in a file manager
+        or terminal.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Processing all files of a certain type,
+        batch operations, finding files in nested directories.
+      </p>
+
+      <h3>Using the glob module</h3>
+
+      <pre><code>import glob
+
+# Find all .txt files in current directory
+txt_files = glob.glob("*.txt")
+print(txt_files)   # ['notes.txt', 'data.txt', 'readme.txt']
+
+# Find all .csv files in a specific directory
+csv_files = glob.glob("data/*.csv")
+
+# Find files recursively (all subdirectories)
+all_py = glob.glob("**/*.py", recursive=True)
+print(f"Found {len(all_py)} Python files")
+
+# Multiple patterns: find images
+import itertools
+images = list(itertools.chain(
+    glob.glob("photos/*.jpg"),
+    glob.glob("photos/*.png"),
+))</code></pre>
+
+      <h3>Using pathlib.glob (recommended)</h3>
+
+      <pre><code>from pathlib import Path
+
+# Find all .txt files in a directory
+data_dir = Path("data")
+for txt_file in data_dir.glob("*.txt"):
+    print(txt_file.name)
+
+# Recursive search with **
+project = Path(".")
+for py_file in project.rglob("*.py"):    # rglob = recursive glob
+    print(py_file)
+
+# Practical example: process all CSV files
+for csv_file in Path("data").glob("*.csv"):
+    print(f"Processing {csv_file.name}...")
+    content = csv_file.read_text()
+    line_count = len(content.splitlines())
+    print(f"  {line_count} lines")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> MATLAB's <code>dir('*.txt')</code>
+        function is similar to <code>glob.glob('*.txt')</code>. Python's
+        <code>pathlib.rglob()</code> is like MATLAB's
+        <code>dir('**/*.txt')</code> for recursive search.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> <code>glob.glob()</code> returns an
+        <strong>unsorted</strong> list. If you need files in alphabetical or
+        date order, sort the result: <code>sorted(glob.glob("*.txt"))</code>.
+        Also, do not forget <code>recursive=True</code> when using
+        <code>**</code> with <code>glob.glob()</code> &mdash; without it, the
+        <code>**</code> pattern is treated literally.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  19. REGEX BASICS                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="regex-basics">19. Regex Basics</h2>
+
+      <p>
+        <strong>What it does:</strong> Regular expressions (regex) let you
+        search for, match, and manipulate text using patterns. Python's
+        <code>re</code> module provides full regex support.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Validating input (emails, phone
+        numbers), extracting data from unstructured text, find-and-replace
+        operations, parsing log files.
+      </p>
+
+      <h3>Searching for a pattern</h3>
+
+      <pre><code>import re
+
+text = "My phone number is 555-123-4567"
+
+# re.search() finds the first match
+match = re.search(r"\d{3}-\d{3}-\d{4}", text)
+if match:
+    print(f"Found: {match.group()}")   # Found: 555-123-4567
+
+# re.search() returns None if no match
+result = re.search(r"\d{3}-\d{3}-\d{4}", "No phone here")
+if result is None:
+    print("No phone number found")</code></pre>
+
+      <h3>Finding all matches</h3>
+
+      <pre><code>import re
+
+text = "Scores: 95, 87, 92, 78, 100"
+
+# Find all numbers
+numbers = re.findall(r"\d+", text)
+print(numbers)   # ['95', '87', '92', '78', '100']
+
+# Convert to integers
+numbers = [int(n) for n in re.findall(r"\d+", text)]
+print(numbers)   # [95, 87, 92, 78, 100]
+
+# Find all email-like patterns
+text2 = "Contact alice@example.com or bob@test.org"
+emails = re.findall(r"[\w.+-]+@[\w-]+\.[\w.-]+", text2)
+print(emails)    # ['alice@example.com', 'bob@test.org']</code></pre>
+
+      <h3>Search and replace</h3>
+
+      <pre><code>import re
+
+text = "Today is 03/15/2025"
+
+# Replace date format: MM/DD/YYYY -> YYYY-MM-DD
+result = re.sub(r"(\d{2})/(\d{2})/(\d{4})", r"\3-\1-\2", text)
+print(result)    # Today is 2025-03-15
+
+# Remove extra whitespace
+messy = "Too   many     spaces    here"
+clean = re.sub(r"\s+", " ", messy)
+print(clean)     # Too many spaces here
+
+# Case-insensitive replacement
+text2 = "Hello WORLD, hello world, HELLO World"
+result2 = re.sub(r"hello", "hi", text2, flags=re.IGNORECASE)
+print(result2)   # hi WORLD, hi world, hi World</code></pre>
+
+      <h3>Common regex patterns</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pattern</th>
+            <th>Matches</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>\d</code></td>
+            <td>Any digit (0-9)</td>
+            <td><code>\d+</code> matches <code>"123"</code></td>
+          </tr>
+          <tr>
+            <td><code>\w</code></td>
+            <td>Word character (letter, digit, underscore)</td>
+            <td><code>\w+</code> matches <code>"hello_42"</code></td>
+          </tr>
+          <tr>
+            <td><code>\s</code></td>
+            <td>Whitespace (space, tab, newline)</td>
+            <td><code>\s+</code> matches <code>"  \t"</code></td>
+          </tr>
+          <tr>
+            <td><code>.</code></td>
+            <td>Any character except newline</td>
+            <td><code>a.c</code> matches <code>"abc"</code>, <code>"a1c"</code></td>
+          </tr>
+          <tr>
+            <td><code>^</code></td>
+            <td>Start of string</td>
+            <td><code>^Hello</code> matches <code>"Hello world"</code></td>
+          </tr>
+          <tr>
+            <td><code>$</code></td>
+            <td>End of string</td>
+            <td><code>world$</code> matches <code>"Hello world"</code></td>
+          </tr>
+          <tr>
+            <td><code>*</code></td>
+            <td>0 or more repetitions</td>
+            <td><code>ab*c</code> matches <code>"ac"</code>, <code>"abc"</code>, <code>"abbc"</code></td>
+          </tr>
+          <tr>
+            <td><code>+</code></td>
+            <td>1 or more repetitions</td>
+            <td><code>ab+c</code> matches <code>"abc"</code>, <code>"abbc"</code></td>
+          </tr>
+          <tr>
+            <td><code>?</code></td>
+            <td>0 or 1 repetition</td>
+            <td><code>colou?r</code> matches <code>"color"</code>, <code>"colour"</code></td>
+          </tr>
+          <tr>
+            <td><code>{n}</code></td>
+            <td>Exactly n repetitions</td>
+            <td><code>\d{4}</code> matches <code>"2025"</code></td>
+          </tr>
+          <tr>
+            <td><code>[abc]</code></td>
+            <td>Any one of the listed characters</td>
+            <td><code>[aeiou]</code> matches any vowel</td>
+          </tr>
+          <tr>
+            <td><code>(group)</code></td>
+            <td>Capture group</td>
+            <td><code>(\d+)-(\d+)</code> captures <code>"12"</code> and <code>"34"</code> from <code>"12-34"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>Raw strings:</strong> Always use <code>r"..."</code> (raw strings)
+        for regex patterns. Without the <code>r</code> prefix, Python interprets
+        backslashes as escape characters, so <code>"\d"</code> is not the same
+        as <code>r"\d"</code>. The raw string prevents this confusion.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> MATLAB uses <code>regexp()</code>,
+        <code>regexpi()</code>, and <code>regexprep()</code>. Python uses
+        <code>re.search()</code>, <code>re.findall()</code>, and
+        <code>re.sub()</code>. The regex pattern syntax is nearly identical
+        between the two languages.
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>Common pitfall:</strong> <code>re.match()</code> only matches at
+        the <strong>start</strong> of the string, while
+        <code>re.search()</code> finds a match <strong>anywhere</strong> in the
+        string. Beginners often use <code>re.match()</code> and wonder why
+        their pattern does not match text in the middle of a string. Use
+        <code>re.search()</code> unless you specifically need start-of-string
+        matching.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  20. USEFUL BUILT-IN FUNCTIONS                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="useful-builtins">20. Useful Built-in Functions</h2>
+
+      <p>
+        <strong>What it does:</strong> Python provides a rich set of built-in
+        functions that require no imports. These are some of the most useful
+        ones for everyday programming.
+      </p>
+
+      <p>
+        <strong>When to use it:</strong> Constantly. These functions replace
+        many patterns that would otherwise require loops or helper functions.
+      </p>
+
+      <h3>any() and all()</h3>
+
+      <pre><code># any() — True if ANY element is truthy
+numbers = [0, 0, 0, 5, 0]
+print(any(numbers))           # True (because 5 is truthy)
+
+# all() — True if ALL elements are truthy
+scores = [85, 90, 78, 92]
+print(all(s >= 70 for s in scores))    # True (all passing)
+print(all(s >= 80 for s in scores))    # False (78 < 80)
+
+# Practical: check if any file exists
+from pathlib import Path
+files = ["data.csv", "config.json", "readme.txt"]
+if any(Path(f).exists() for f in files):
+    print("At least one file exists!")</code></pre>
+
+      <h3>sum(), min(), max(), abs()</h3>
+
+      <pre><code>numbers = [4, 8, 2, 9, 1, 7]
+
+print(sum(numbers))          # 31
+print(min(numbers))          # 1
+print(max(numbers))          # 9
+print(abs(-42))              # 42
+
+# sum with a start value
+print(sum(numbers, 100))     # 131
+
+# min/max with a key function
+words = ["banana", "apple", "cherry"]
+print(min(words))                       # apple (alphabetical)
+print(max(words, key=len))              # banana (longest)
+
+# min/max with dictionaries
+students = [
+    {"name": "Alice", "score": 95},
+    {"name": "Bob", "score": 82},
+    {"name": "Charlie", "score": 91},
+]
+best = max(students, key=lambda s: s["score"])
+print(f"Top student: {best['name']}")   # Alice</code></pre>
+
+      <h3>len() and sorted()</h3>
+
+      <pre><code># len() — count elements
+print(len([1, 2, 3]))           # 3
+print(len("Hello"))              # 5
+print(len({"a": 1, "b": 2}))    # 2
+
+# sorted() — return a new sorted list (original unchanged)
+data = [3, 1, 4, 1, 5, 9, 2, 6]
+print(sorted(data))              # [1, 1, 2, 3, 4, 5, 6, 9]
+print(sorted(data, reverse=True))  # [9, 6, 5, 4, 3, 2, 1, 1]
+
+# Sort by custom criteria
+names = ["Charlie", "alice", "Bob"]
+print(sorted(names, key=str.lower))   # ['alice', 'Bob', 'Charlie']</code></pre>
+
+      <h3>reversed() and zip()</h3>
+
+      <pre><code># reversed() — iterate in reverse order
+for i in reversed(range(5)):
+    print(i)                # 4, 3, 2, 1, 0
+
+# zip() — combine multiple iterables element by element
+names = ["Alice", "Bob", "Charlie"]
+scores = [95, 82, 91]
+grades = ["A", "B", "A"]
+
+for name, score, grade in zip(names, scores, grades):
+    print(f"{name}: {score} ({grade})")
+# Alice: 95 (A)
+# Bob: 82 (B)
+# Charlie: 91 (A)
+
+# Create a dictionary from two lists
+name_to_score = dict(zip(names, scores))
+print(name_to_score)   # {'Alice': 95, 'Bob': 82, 'Charlie': 91}</code></pre>
+
+      <h3>enumerate()</h3>
+
+      <pre><code># enumerate() — loop with an automatic counter
+fruits = ["apple", "banana", "cherry"]
+
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")
+# 0: apple
+# 1: banana
+# 2: cherry
+
+# Start counting from 1
+for i, fruit in enumerate(fruits, start=1):
+    print(f"Fruit #{i}: {fruit}")</code></pre>
+
+      <h3>map() and filter()</h3>
+
+      <pre><code># map() — apply a function to every element
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)               # [1, 4, 9, 16, 25]
+
+# Same thing with a list comprehension (usually preferred)
+squared = [x ** 2 for x in numbers]
+
+# filter() — keep elements that satisfy a condition
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)                 # [2, 4, 6, 8, 10]
+
+# Same thing with a list comprehension (usually preferred)
+evens = [x for x in numbers if x % 2 == 0]
+
+# Practical: convert list of strings to integers
+string_numbers = ["10", "20", "30", "40"]
+integers = list(map(int, string_numbers))
+print(integers)              # [10, 20, 30, 40]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>List comprehensions vs. map/filter:</strong> In Python, list
+        comprehensions are generally preferred over <code>map()</code> and
+        <code>filter()</code> because they are more readable. However,
+        <code>map()</code> is useful when you want to apply an existing
+        function (like <code>int</code> or <code>str</code>) to every element
+        &mdash; <code>list(map(int, strings))</code> is clean and concise.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> MATLAB's <code>cellfun()</code> and
+        <code>arrayfun()</code> are similar to Python's <code>map()</code>.
+        MATLAB's <code>sort()</code> is like <code>sorted()</code>.
+        Python's <code>zip()</code> has no direct MATLAB equivalent &mdash;
+        in MATLAB, you typically work with matrix rows/columns instead of
+        zipping separate arrays.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <p>
+        This page covered the <strong>20 most common patterns</strong> in
+        everyday Python programming:
+      </p>
+
+      <ol>
+        <li><strong>Printing and Formatting</strong> &mdash; <code>print()</code>, f-strings, number formatting</li>
+        <li><strong>Checking Types</strong> &mdash; <code>type()</code>, <code>isinstance()</code></li>
+        <li><strong>Looping Over Lists</strong> &mdash; <code>for</code>, <code>enumerate()</code>, <code>reversed()</code>, <code>sorted()</code></li>
+        <li><strong>Reading Text Files</strong> &mdash; <code>with open()</code>, line by line, <code>.strip()</code></li>
+        <li><strong>Reading CSV Files</strong> &mdash; <code>csv.reader</code>, <code>csv.DictReader</code></li>
+        <li><strong>Writing Files</strong> &mdash; text, CSV, append mode</li>
+        <li><strong>Path Handling</strong> &mdash; <code>os.path</code>, <code>pathlib.Path</code></li>
+        <li><strong>Creating Folders</strong> &mdash; <code>os.makedirs()</code>, <code>pathlib.mkdir()</code></li>
+        <li><strong>Checking File Existence</strong> &mdash; <code>os.path.exists()</code>, <code>Path.exists()</code></li>
+        <li><strong>Command Line Arguments</strong> &mdash; <code>sys.argv</code></li>
+        <li><strong>Running Shell Commands</strong> &mdash; <code>subprocess.run()</code></li>
+        <li><strong>Math Operations</strong> &mdash; <code>math</code> module, <code>statistics</code> module</li>
+        <li><strong>Random Numbers</strong> &mdash; <code>random</code> module, seeds</li>
+        <li><strong>Simple Plotting</strong> &mdash; <code>matplotlib</code> basics</li>
+        <li><strong>Working with Dates</strong> &mdash; <code>datetime</code>, <code>timedelta</code></li>
+        <li><strong>JSON Reading/Writing</strong> &mdash; <code>json.load</code>, <code>json.dump</code>, <code>json.loads</code>, <code>json.dumps</code></li>
+        <li><strong>Copying Files</strong> &mdash; <code>shutil.copy</code>, <code>shutil.copytree</code></li>
+        <li><strong>Glob File Matching</strong> &mdash; <code>glob.glob</code>, <code>pathlib.rglob</code></li>
+        <li><strong>Regex Basics</strong> &mdash; <code>re.search</code>, <code>re.findall</code>, <code>re.sub</code></li>
+        <li><strong>Useful Built-in Functions</strong> &mdash; <code>any</code>, <code>all</code>, <code>sum</code>, <code>min</code>, <code>max</code>, <code>zip</code>, <code>enumerate</code>, <code>map</code>, <code>filter</code></li>
+      </ol>
+
+      <div class="callout callout-why">
+        <strong>Why this matters:</strong> These 20 patterns cover the vast
+        majority of what you will write in everyday Python. Master them and you
+        will be able to tackle most practical programming tasks with confidence.
+        Come back to this page as a reference whenever you need a quick
+        reminder of the syntax.
+      </div>
+
+      <p>
+        Ready for even more patterns? The next page presents the
+        <strong>Top 100 Patterns</strong> &mdash; a comprehensive quick-reference
+        of the most useful Python code snippets.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-files-modules.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Files &amp; Modules</span></a>
+        <a href="top-100-patterns.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Top 100 Patterns</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

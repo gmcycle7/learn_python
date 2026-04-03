@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Files &amp; Modules &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link active">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> <a href="basics-print-variables.html">Python Basics</a><span class="sep">&rsaquo;</span> Files &amp; Modules
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  FILES & MODULES                                              -->
+      <!-- ============================================================ -->
+
+      <h1>Files &amp; Modules</h1>
+
+      <p>
+        This page covers two essential skills: working with files on disk
+        (reading and writing data) and organising your code with modules and
+        imports. We also cover <strong>try / except</strong> for error
+        handling &mdash; because dealing with files is one of the most common
+        places where things can go wrong. By the end of this page you will
+        be able to read and write text files, handle errors gracefully, and
+        structure your Python projects using modules.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>Note for MATLAB users:</strong> MATLAB uses
+        <code>fopen</code>, <code>fread</code>, <code>fprintf</code>, and
+        <code>fclose</code> for file I/O. Python's approach is similar in
+        spirit but uses different syntax &mdash; and the <code>with</code>
+        statement eliminates the need to remember to call <code>fclose</code>.
+        For modules, MATLAB relies on <code>addpath</code> and placing
+        functions in separate <code>.m</code> files. Python uses
+        <code>import</code>, which is more explicit and powerful.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. READING FILES                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-files">1. Reading Files</h2>
+
+      <h3>The open() Function and File Modes</h3>
+
+      <p>
+        Python's built-in <code>open()</code> function is the gateway to
+        file operations. It returns a <em>file object</em> that you use to
+        read from or write to the file. The second argument is the
+        <strong>mode</strong>:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mode</th>
+            <th>Description</th>
+            <th>File must exist?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>"r"</code></td>
+            <td>Read (default). Opens file for reading.</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>"w"</code></td>
+            <td>Write. Creates file or <strong>overwrites</strong> existing content.</td>
+            <td>No (creates it)</td>
+          </tr>
+          <tr>
+            <td><code>"a"</code></td>
+            <td>Append. Writes to end of file without erasing existing content.</td>
+            <td>No (creates it)</td>
+          </tr>
+          <tr>
+            <td><code>"r+"</code></td>
+            <td>Read and write. File must already exist.</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Reading the Entire File with .read()</h3>
+
+      <pre><code># Read the entire file into a single string
+with open("data.txt", "r") as f:
+    content = f.read()
+
+print(content)</code></pre>
+
+      <p>
+        The <code>.read()</code> method returns the entire file as one string.
+        This is fine for small files, but be careful with very large files
+        &mdash; they will consume a lot of memory.
+      </p>
+
+      <h3>Reading Line by Line</h3>
+
+      <p>
+        Python gives you several ways to read files line by line:
+      </p>
+
+      <pre><code># Method 1: .readline() — reads one line at a time
+with open("data.txt", "r") as f:
+    first_line = f.readline()   # reads line 1
+    second_line = f.readline()  # reads line 2
+    print(first_line.strip())   # .strip() removes the trailing newline
+    print(second_line.strip())</code></pre>
+
+      <pre><code># Method 2: .readlines() — returns a list of all lines
+with open("data.txt", "r") as f:
+    lines = f.readlines()       # e.g. ["line 1\n", "line 2\n", "line 3\n"]
+
+for line in lines:
+    print(line.strip())</code></pre>
+
+      <pre><code># Method 3 (BEST): iterate the file object directly
+with open("data.txt", "r") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Best practice:</strong> Method 3 (iterating directly) is the
+        most Pythonic and memory-efficient approach. It reads one line at a
+        time without loading the entire file into memory, making it safe for
+        files of any size.
+      </div>
+
+      <h3>The with Statement (Context Manager)</h3>
+
+      <p>
+        You should <strong>always</strong> use the <code>with</code> statement
+        when working with files. It guarantees that the file is properly
+        closed when the block ends, even if an error occurs:
+      </p>
+
+      <pre><code># GOOD — with statement (file closes automatically)
+with open("data.txt", "r") as f:
+    content = f.read()
+# f is now closed — no need to call f.close()
+
+# BAD — manual open/close (easy to forget, error-prone)
+f = open("data.txt", "r")
+content = f.read()
+f.close()  # What if an error happens before this line?</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Common mistake:</strong> Forgetting to close files. If you
+        open many files without closing them, you can run out of file handles
+        and your program will crash. The <code>with</code> statement prevents
+        this entirely. <strong>Always use <code>with</code>.</strong>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you write
+        <code>fid = fopen('data.txt', 'r')</code> and must remember to call
+        <code>fclose(fid)</code> when done. Python's <code>with</code>
+        statement is like an automatic <code>fclose</code> &mdash; it
+        handles cleanup for you, even if your code throws an error.
+      </div>
+
+      <h3>Encoding</h3>
+
+      <p>
+        By default, Python uses your system's default encoding. To be
+        explicit (and avoid surprises across platforms), specify the encoding:
+      </p>
+
+      <pre><code># Specify encoding explicitly — recommended for portability
+with open("data.txt", "r", encoding="utf-8") as f:
+    content = f.read()</code></pre>
+
+      <p>
+        This is especially important when dealing with files that contain
+        non-ASCII characters (accented letters, CJK characters, emoji, etc.).
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  2. WRITING FILES                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="writing-files">2. Writing Files</h2>
+
+      <h3>Writing with "w" Mode (Overwrites!)</h3>
+
+      <pre><code># Write mode — creates a new file or OVERWRITES existing content
+with open("output.txt", "w") as f:
+    f.write("Hello, World!\n")
+    f.write("This is line 2.\n")</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Warning:</strong> Opening a file with <code>"w"</code> mode
+        <strong>erases all existing content</strong> the moment the file is
+        opened. If the file contained important data, it is gone. Always
+        double-check the filename and mode before running your script.
+      </div>
+
+      <h3>Appending with "a" Mode</h3>
+
+      <pre><code># Append mode — adds to the end without erasing
+with open("log.txt", "a") as f:
+    f.write("New log entry: everything is fine.\n")</code></pre>
+
+      <p>
+        Append mode is ideal for log files, running records, or any situation
+        where you want to add data without destroying what is already there.
+      </p>
+
+      <h3>.write() vs .writelines()</h3>
+
+      <pre><code># .write() takes a single string
+with open("output.txt", "w") as f:
+    f.write("Line 1\n")
+    f.write("Line 2\n")
+
+# .writelines() takes a list of strings (does NOT add newlines!)
+lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
+with open("output.txt", "w") as f:
+    f.writelines(lines)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Note:</strong> <code>.writelines()</code> does
+        <strong>not</strong> automatically add newline characters between
+        items. You must include <code>\n</code> in each string yourself.
+      </div>
+
+      <h3>Writing Formatted Data</h3>
+
+      <pre><code># Writing formatted output to a file
+students = [
+    ("Alice", 92),
+    ("Bob", 85),
+    ("Charlie", 78),
+]
+
+with open("grades.txt", "w") as f:
+    f.write("Name        Grade\n")
+    f.write("-" * 20 + "\n")
+    for name, grade in students:
+        f.write(f"{name:<12}{grade}\n")
+
+# grades.txt will contain:
+# Name        Grade
+# --------------------
+# Alice       92
+# Bob         85
+# Charlie     78</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB you would use
+        <code>fprintf(fid, '%s %d\n', name, grade)</code>. Python's
+        f-strings (<code>f"..."</code>) serve the same purpose and are often
+        more readable. The <code>&lt;</code> in <code>{name:&lt;12}</code>
+        means left-align in a 12-character field &mdash; similar to MATLAB's
+        <code>%-12s</code>.
+      </div>
+
+      <h3>A Complete Read-Process-Write Example</h3>
+
+      <pre><code># Read numbers from a file, compute stats, write results
+with open("numbers.txt", "r") as f:
+    numbers = [float(line.strip()) for line in f if line.strip()]
+
+total = sum(numbers)
+average = total / len(numbers)
+maximum = max(numbers)
+minimum = min(numbers)
+
+with open("stats.txt", "w") as f:
+    f.write(f"Count:   {len(numbers)}\n")
+    f.write(f"Sum:     {total:.2f}\n")
+    f.write(f"Average: {average:.2f}\n")
+    f.write(f"Max:     {maximum:.2f}\n")
+    f.write(f"Min:     {minimum:.2f}\n")
+
+print("Statistics written to stats.txt")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. TRY / EXCEPT                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="try-except">3. try / except &mdash; Error Handling</h2>
+
+      <h3>Why Error Handling Matters</h3>
+
+      <p>
+        When your code interacts with the outside world &mdash; reading files,
+        getting user input, connecting to networks &mdash; things can go
+        wrong. The file might not exist. The user might type letters when you
+        expect a number. The network might be down. Without error handling,
+        your program crashes with an ugly traceback. With error handling, you
+        can respond gracefully.
+      </p>
+
+      <h3>Basic try / except Syntax</h3>
+
+      <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")</code></pre>
+
+      <p>Output:</p>
+      <pre><code>Cannot divide by zero!</code></pre>
+
+      <p>
+        The code inside <code>try</code> runs normally. If an exception
+        occurs, Python jumps to the matching <code>except</code> block
+        instead of crashing.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB uses
+        <code>try / catch</code>. Python uses <code>try / except</code>.
+        The concept is identical &mdash; only the keyword differs:
+        <pre><code>% MATLAB
+try
+    result = 10 / 0;
+catch ME
+    disp(ME.message);
+end</code></pre>
+        <pre><code># Python
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    print(e)</code></pre>
+      </div>
+
+      <h3>Catching Specific Exceptions</h3>
+
+      <p>
+        Always catch <strong>specific</strong> exceptions rather than a bare
+        <code>except:</code>. This prevents you from accidentally hiding
+        bugs:
+      </p>
+
+      <pre><code># GOOD — catch specific exceptions
+try:
+    with open("config.txt", "r") as f:
+        data = f.read()
+except FileNotFoundError:
+    print("config.txt not found. Using defaults.")
+
+# BAD — bare except catches EVERYTHING (including typos and bugs!)
+try:
+    with open("config.txt", "r") as f:
+        data = f.read()
+except:          # Don't do this!
+    print("Something went wrong.")</code></pre>
+
+      <h3>Multiple except Blocks</h3>
+
+      <pre><code>try:
+    value = int(input("Enter a number: "))
+    result = 100 / value
+    print(f"100 / {value} = {result}")
+except ValueError:
+    print("That's not a valid number!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"Unexpected error: {e}")</code></pre>
+
+      <p>
+        Python checks each <code>except</code> block from top to bottom and
+        runs the first one that matches. Put more specific exceptions first,
+        and more general ones last.
+      </p>
+
+      <h3>The else and finally Clauses</h3>
+
+      <pre><code>try:
+    with open("data.txt", "r") as f:
+        content = f.read()
+except FileNotFoundError:
+    print("File not found!")
+else:
+    # Runs ONLY if no exception occurred
+    print(f"File has {len(content)} characters.")
+finally:
+    # Runs ALWAYS, whether or not an exception occurred
+    print("File operation attempted.")</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Clause</th>
+            <th>When it runs</th>
+            <th>Typical use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>try</code></td>
+            <td>Always (this is the code you are "trying")</td>
+            <td>The risky operation</td>
+          </tr>
+          <tr>
+            <td><code>except</code></td>
+            <td>Only if an exception occurs in <code>try</code></td>
+            <td>Handle the error</td>
+          </tr>
+          <tr>
+            <td><code>else</code></td>
+            <td>Only if <strong>no</strong> exception occurred</td>
+            <td>Process the result on success</td>
+          </tr>
+          <tr>
+            <td><code>finally</code></td>
+            <td>Always, no matter what</td>
+            <td>Cleanup (close connections, etc.)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Common Exceptions to Know</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Exception</th>
+            <th>When it happens</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>FileNotFoundError</code></td>
+            <td>File does not exist</td>
+            <td><code>open("nope.txt")</code></td>
+          </tr>
+          <tr>
+            <td><code>ValueError</code></td>
+            <td>Wrong type of value</td>
+            <td><code>int("hello")</code></td>
+          </tr>
+          <tr>
+            <td><code>TypeError</code></td>
+            <td>Wrong type for operation</td>
+            <td><code>"2" + 2</code></td>
+          </tr>
+          <tr>
+            <td><code>ZeroDivisionError</code></td>
+            <td>Division by zero</td>
+            <td><code>10 / 0</code></td>
+          </tr>
+          <tr>
+            <td><code>IndexError</code></td>
+            <td>List index out of range</td>
+            <td><code>[1, 2, 3][5]</code></td>
+          </tr>
+          <tr>
+            <td><code>KeyError</code></td>
+            <td>Dictionary key not found</td>
+            <td><code>{"a": 1}["b"]</code></td>
+          </tr>
+          <tr>
+            <td><code>PermissionError</code></td>
+            <td>No permission to access file</td>
+            <td>Opening a system-protected file</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>When to Use try / except (Don't Overuse It)</h3>
+
+      <p>
+        Error handling is powerful, but don't wrap <em>every</em> line of
+        code in try / except. Use it when:
+      </p>
+
+      <ul>
+        <li>You are doing <strong>file I/O</strong> (files may not exist, disks may be full)</li>
+        <li>You are <strong>parsing user input</strong> (users type unexpected things)</li>
+        <li>You are <strong>making network requests</strong> (connections can fail)</li>
+        <li>You are <strong>converting data types</strong> (<code>int()</code>, <code>float()</code> can fail)</li>
+      </ul>
+
+      <p>
+        Don't use try / except to hide bugs. If your code has a logic error,
+        fix the code rather than catching the exception and ignoring it.
+      </p>
+
+      <h3>Practical Example: Safe File Reader</h3>
+
+      <pre><code>def read_file_safely(filename):
+    """Read a file and return its content, or None if it fails."""
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        print(f"Error: '{filename}' not found.")
+        return None
+    except PermissionError:
+        print(f"Error: No permission to read '{filename}'.")
+        return None
+    except UnicodeDecodeError:
+        print(f"Error: '{filename}' contains invalid UTF-8.")
+        return None
+
+# Usage
+content = read_file_safely("config.txt")
+if content is not None:
+    print(f"Read {len(content)} characters.")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. IMPORTING MODULES                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="importing-modules">4. Importing Modules</h2>
+
+      <h3>What is a Module?</h3>
+
+      <p>
+        A <strong>module</strong> is simply a <code>.py</code> file that
+        contains Python code &mdash; functions, classes, variables, or
+        runnable statements. Python comes with a large
+        <strong>standard library</strong> of modules, and you can install
+        thousands more from the internet. Modules let you reuse code without
+        copying and pasting.
+      </p>
+
+      <h3>Three Ways to Import</h3>
+
+      <pre><code># Way 1: import the entire module
+import math
+print(math.sqrt(16))    # 4.0
+print(math.pi)          # 3.141592653589793
+
+# Way 2: import specific items
+from math import sqrt, pi
+print(sqrt(16))         # 4.0
+print(pi)               # 3.141592653589793
+
+# Way 3: import with an alias
+import numpy as np      # common convention
+arr = np.array([1, 2, 3])
+print(arr * 2)          # [2 4 6]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Which style should you use?</strong>
+        <ul>
+          <li><code>import module</code> &mdash; Best for clarity. You always see where each function comes from.</li>
+          <li><code>from module import name</code> &mdash; Good when you use a function many times and typing the module prefix gets tedious.</li>
+          <li><code>import module as alias</code> &mdash; Use well-known aliases: <code>np</code> for numpy, <code>pd</code> for pandas, <code>plt</code> for matplotlib.pyplot.</li>
+        </ul>
+        <p>Avoid <code>from module import *</code> &mdash; it dumps everything into your namespace and can cause name collisions.</p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB, all functions on the
+        path are automatically available &mdash; there is no
+        <code>import</code> step. You use <code>addpath</code> to add
+        directories. In Python, you must explicitly import what you need.
+        This is more verbose but prevents name collisions and makes
+        dependencies clear.
+        <pre><code>% MATLAB — functions are available if on the path
+addpath('my_tools/');
+result = my_function(42);
+
+# Python — you must import explicitly
+from my_tools import my_function
+result = my_function(42)</code></pre>
+      </div>
+
+      <h3>Common Standard Library Modules</h3>
+
+      <p>
+        These modules come built-in with Python &mdash; no installation
+        required:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Purpose</th>
+            <th>Quick Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>os</code></td>
+            <td>Operating system operations (files, paths, dirs)</td>
+            <td><code>os.listdir(".")</code></td>
+          </tr>
+          <tr>
+            <td><code>sys</code></td>
+            <td>System-specific parameters and functions</td>
+            <td><code>sys.argv</code> (command-line args)</td>
+          </tr>
+          <tr>
+            <td><code>math</code></td>
+            <td>Mathematical functions</td>
+            <td><code>math.sqrt(2)</code>, <code>math.log(10)</code></td>
+          </tr>
+          <tr>
+            <td><code>random</code></td>
+            <td>Random number generation</td>
+            <td><code>random.randint(1, 100)</code></td>
+          </tr>
+          <tr>
+            <td><code>datetime</code></td>
+            <td>Date and time manipulation</td>
+            <td><code>datetime.datetime.now()</code></td>
+          </tr>
+          <tr>
+            <td><code>json</code></td>
+            <td>Read/write JSON files</td>
+            <td><code>json.loads('{"a": 1}')</code></td>
+          </tr>
+          <tr>
+            <td><code>csv</code></td>
+            <td>Read/write CSV files</td>
+            <td><code>csv.reader(open("f.csv"))</code></td>
+          </tr>
+          <tr>
+            <td><code>pathlib</code></td>
+            <td>Object-oriented file paths (modern style)</td>
+            <td><code>Path("data") / "file.txt"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code># Quick examples of standard library modules
+import os
+print(os.getcwd())              # current working directory
+print(os.listdir("."))          # list files in current directory
+
+import random
+print(random.randint(1, 6))     # simulate a dice roll
+print(random.choice(["A", "B", "C"]))  # pick a random item
+
+import datetime
+now = datetime.datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M"))  # e.g. "2026-03-31 14:30"
+
+import json
+data = {"name": "Alice", "score": 95}
+json_string = json.dumps(data, indent=2)
+print(json_string)
+
+from pathlib import Path
+p = Path("data") / "results" / "output.txt"
+print(p)  # data/results/output.txt (cross-platform!)</code></pre>
+
+      <h3>Installing Third-Party Modules with pip</h3>
+
+      <p>
+        The standard library is extensive, but Python's real power comes from
+        the hundreds of thousands of third-party packages. You install them
+        with <code>pip</code> (Python's package manager):
+      </p>
+
+      <pre><code># In your terminal (not inside Python):
+pip install requests       # HTTP library
+pip install pandas         # data analysis
+pip install matplotlib     # plotting
+pip install numpy          # numerical computing
+pip install flask          # web framework</code></pre>
+
+      <pre><code># Then in your Python code:
+import requests
+response = requests.get("https://api.github.com")
+print(response.status_code)   # 200
+print(response.json())        # parsed JSON data</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> Python's <code>pip</code> is
+        similar to MATLAB's Add-On Explorer or the
+        <code>matlab.addons.install()</code> function, but pip has access
+        to over 500,000 free packages. MATLAB toolboxes are powerful but
+        expensive &mdash; each one requires a separate license. Python
+        packages are free and community-maintained.
+      </div>
+
+      <h3>What Does <code>__name__ == "__main__"</code> Mean?</h3>
+
+      <p>
+        You will often see this pattern at the bottom of Python scripts:
+      </p>
+
+      <pre><code># my_script.py
+
+def greet(name):
+    return f"Hello, {name}!"
+
+def main():
+    print(greet("World"))
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+      <p>
+        Here is what is happening:
+      </p>
+
+      <ul>
+        <li>
+          Every Python file has a built-in variable called
+          <code>__name__</code>.
+        </li>
+        <li>
+          When you <strong>run</strong> a file directly (e.g.,
+          <code>python my_script.py</code>), Python sets
+          <code>__name__</code> to <code>"__main__"</code>.
+        </li>
+        <li>
+          When you <strong>import</strong> a file as a module (e.g.,
+          <code>import my_script</code>), Python sets
+          <code>__name__</code> to the module's name
+          (<code>"my_script"</code>).
+        </li>
+      </ul>
+
+      <p>
+        The <code>if __name__ == "__main__":</code> guard means: "Only run
+        this code if I am being executed directly, not imported." This lets
+        the same file work as both a reusable module and a standalone script.
+      </p>
+
+      <pre><code># Without the guard, importing would print "Hello, World!"
+# unintentionally. The guard prevents that.
+
+# Run directly:    python my_script.py  → prints "Hello, World!"
+# Import it:       import my_script     → nothing happens (good!)</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. CREATING YOUR OWN MODULES                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="own-modules">5. Creating Your Own Modules</h2>
+
+      <h3>Any .py File is a Module</h3>
+
+      <p>
+        Creating a module is as simple as saving a <code>.py</code> file.
+        Suppose you create a file called <code>helpers.py</code>:
+      </p>
+
+      <pre><code># helpers.py — your custom module
+
+def celsius_to_fahrenheit(c):
+    """Convert Celsius to Fahrenheit."""
+    return c * 9 / 5 + 32
+
+def fahrenheit_to_celsius(f):
+    """Convert Fahrenheit to Celsius."""
+    return (f - 32) * 5 / 9
+
+PI = 3.14159265358979</code></pre>
+
+      <p>
+        Now in another file in the same directory, you can import and use it:
+      </p>
+
+      <pre><code># main.py — uses the helpers module
+
+from helpers import celsius_to_fahrenheit, PI
+
+temp_f = celsius_to_fahrenheit(100)
+print(f"100 C = {temp_f} F")     # 100 C = 212.0 F
+print(f"PI = {PI}")              # PI = 3.14159265358979</code></pre>
+
+      <pre><code># Or import the entire module
+import helpers
+
+temp_c = helpers.fahrenheit_to_celsius(72)
+print(f"72 F = {temp_c:.1f} C")  # 72 F = 22.2 C</code></pre>
+
+      <h3>The __name__ Guard in Your Own Modules</h3>
+
+      <p>
+        Add the guard to make your module both importable and runnable:
+      </p>
+
+      <pre><code># helpers.py — with a __name__ guard
+
+def celsius_to_fahrenheit(c):
+    return c * 9 / 5 + 32
+
+def fahrenheit_to_celsius(f):
+    return (f - 32) * 5 / 9
+
+if __name__ == "__main__":
+    # This only runs when you execute: python helpers.py
+    # It does NOT run when someone does: import helpers
+    print("Running tests...")
+    assert celsius_to_fahrenheit(0) == 32
+    assert celsius_to_fahrenheit(100) == 212
+    assert fahrenheit_to_celsius(32) == 0
+    print("All tests passed!")</code></pre>
+
+      <p>
+        This is a common pattern: put test code or demo code inside the
+        <code>__name__</code> guard, and keep the rest of the file clean
+        for importing.
+      </p>
+
+      <h3>Organising a Small Project</h3>
+
+      <p>
+        Here is how a typical small Python project might be structured:
+      </p>
+
+      <pre><code>my_project/
+    main.py          # entry point — run this
+    helpers.py       # utility functions
+    file_io.py       # file reading/writing functions
+    data/
+        input.txt
+        output.txt</code></pre>
+
+      <pre><code># main.py
+from helpers import celsius_to_fahrenheit
+from file_io import read_temperatures, write_results
+
+temperatures = read_temperatures("data/input.txt")
+converted = [celsius_to_fahrenheit(t) for t in temperatures]
+write_results("data/output.txt", converted)
+print("Done!")</code></pre>
+
+      <pre><code># file_io.py
+def read_temperatures(filename):
+    """Read a file of temperatures (one per line) and return as list of floats."""
+    with open(filename, "r") as f:
+        return [float(line.strip()) for line in f if line.strip()]
+
+def write_results(filename, temperatures):
+    """Write temperatures to a file, one per line."""
+    with open(filename, "w") as f:
+        for temp in temperatures:
+            f.write(f"{temp:.1f}\n")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> In MATLAB, each public function
+        lives in its own <code>.m</code> file (e.g.,
+        <code>celsius_to_fahrenheit.m</code>). In Python, you can put
+        <em>many</em> functions in a single <code>.py</code> file and import
+        just the ones you need. This gives you more flexibility in how you
+        organise your code.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PUTTING IT ALL TOGETHER                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="putting-together">Putting It All Together</h2>
+
+      <p>
+        Here is a complete example that combines file reading, error handling,
+        modules, and writing output:
+      </p>
+
+      <pre><code># analyze_scores.py — a complete mini-program
+
+import os
+from datetime import datetime
+
+def load_scores(filename):
+    """Load student scores from a file. Each line: 'Name,Score'"""
+    scores = {}
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            for line_num, line in enumerate(f, start=1):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    name, score = line.split(",")
+                    scores[name.strip()] = float(score.strip())
+                except ValueError:
+                    print(f"Warning: skipping malformed line {line_num}: '{line}'")
+    except FileNotFoundError:
+        print(f"Error: '{filename}' not found.")
+    return scores
+
+def compute_stats(scores):
+    """Compute basic statistics from a dict of scores."""
+    if not scores:
+        return None
+    values = list(scores.values())
+    return {
+        "count": len(values),
+        "average": sum(values) / len(values),
+        "highest": max(values),
+        "lowest": min(values),
+        "top_student": max(scores, key=scores.get),
+    }
+
+def write_report(filename, stats):
+    """Write a statistics report to a file."""
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(f"Report generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
+        f.write("=" * 40 + "\n")
+        f.write(f"Students:     {stats['count']}\n")
+        f.write(f"Average:      {stats['average']:.1f}\n")
+        f.write(f"Highest:      {stats['highest']:.1f}\n")
+        f.write(f"Lowest:       {stats['lowest']:.1f}\n")
+        f.write(f"Top student:  {stats['top_student']}\n")
+    print(f"Report written to '{filename}'.")
+
+if __name__ == "__main__":
+    scores = load_scores("scores.csv")
+    if scores:
+        stats = compute_stats(scores)
+        write_report("report.txt", stats)
+    else:
+        print("No scores to analyse.")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY TABLE                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Python Syntax</th>
+            <th>Key Point</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Open / read file</td>
+            <td><code>with open("f.txt") as f:</code></td>
+            <td>Always use <code>with</code></td>
+          </tr>
+          <tr>
+            <td>Read all content</td>
+            <td><code>f.read()</code></td>
+            <td>Returns a single string</td>
+          </tr>
+          <tr>
+            <td>Read lines</td>
+            <td><code>for line in f:</code></td>
+            <td>Most memory-efficient</td>
+          </tr>
+          <tr>
+            <td>Write (overwrite)</td>
+            <td><code>open("f.txt", "w")</code></td>
+            <td>Erases existing content!</td>
+          </tr>
+          <tr>
+            <td>Append</td>
+            <td><code>open("f.txt", "a")</code></td>
+            <td>Adds to end of file</td>
+          </tr>
+          <tr>
+            <td>Error handling</td>
+            <td><code>try: ... except: ...</code></td>
+            <td>Catch specific exceptions</td>
+          </tr>
+          <tr>
+            <td>Import module</td>
+            <td><code>import math</code></td>
+            <td>Use <code>math.sqrt()</code></td>
+          </tr>
+          <tr>
+            <td>Import item</td>
+            <td><code>from math import sqrt</code></td>
+            <td>Use <code>sqrt()</code> directly</td>
+          </tr>
+          <tr>
+            <td>Alias</td>
+            <td><code>import numpy as np</code></td>
+            <td>Common convention</td>
+          </tr>
+          <tr>
+            <td>Install package</td>
+            <td><code>pip install name</code></td>
+            <td>In terminal, not Python</td>
+          </tr>
+          <tr>
+            <td>Main guard</td>
+            <td><code>if __name__ == "__main__":</code></td>
+            <td>Run only when executed directly</td>
+          </tr>
+          <tr>
+            <td>Create module</td>
+            <td>Any <code>.py</code> file</td>
+            <td>Import with filename (no <code>.py</code>)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  EXERCISES                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">Exercises</h2>
+
+      <p>
+        Practice what you have learned. Try each exercise on your own before
+        looking at the solution.
+      </p>
+
+      <h3>Exercise 1: Read and Count</h3>
+      <p>
+        Write a program that reads a text file and prints the number of
+        lines, words, and characters.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>def count_file_stats(filename):
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+        return
+
+    lines = content.split("\n")
+    words = content.split()
+    characters = len(content)
+
+    print(f"Lines:      {len(lines)}")
+    print(f"Words:      {len(words)}")
+    print(f"Characters: {characters}")
+
+count_file_stats("sample.txt")</code></pre>
+      </details>
+
+      <h3>Exercise 2: Write a Multiplication Table</h3>
+      <p>
+        Write a program that generates a multiplication table (1 through 10)
+        and saves it to a file called <code>multiplication.txt</code>.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>with open("multiplication.txt", "w") as f:
+    for i in range(1, 11):
+        row = "  ".join(f"{i * j:4d}" for j in range(1, 11))
+        f.write(row + "\n")
+
+print("Multiplication table written to multiplication.txt")</code></pre>
+      </details>
+
+      <h3>Exercise 3: Safe Number Input</h3>
+      <p>
+        Write a function <code>get_number()</code> that keeps asking the user
+        for a number until they type a valid one. Use try / except.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>def get_number(prompt="Enter a number: "):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+# Usage
+num = get_number()
+print(f"You entered: {num}")</code></pre>
+      </details>
+
+      <h3>Exercise 4: Log File Appender</h3>
+      <p>
+        Write a function that appends a timestamped log entry to a file.
+        Each call should add one line like
+        <code>2026-03-31 14:30:00 - Your message here</code>.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>from datetime import datetime
+
+def log_message(filename, message):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write(f"{timestamp} - {message}\n")
+
+# Usage
+log_message("app.log", "Application started")
+log_message("app.log", "Processing data...")
+log_message("app.log", "Done")</code></pre>
+      </details>
+
+      <h3>Exercise 5: Create a Utility Module</h3>
+      <p>
+        Create a module called <code>text_utils.py</code> with these
+        functions: <code>word_count(text)</code>,
+        <code>char_count(text)</code>, and
+        <code>reverse_words(text)</code>. Then write a
+        <code>main.py</code> that imports and uses them.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code># text_utils.py
+
+def word_count(text):
+    """Return the number of words in text."""
+    return len(text.split())
+
+def char_count(text):
+    """Return the number of non-space characters in text."""
+    return sum(1 for c in text if c != " ")
+
+def reverse_words(text):
+    """Reverse the order of words in text."""
+    return " ".join(text.split()[::-1])
+
+if __name__ == "__main__":
+    sample = "Hello beautiful world"
+    print(f"Words: {word_count(sample)}")
+    print(f"Chars: {char_count(sample)}")
+    print(f"Reversed: {reverse_words(sample)}")</code></pre>
+        <pre><code># main.py
+
+from text_utils import word_count, char_count, reverse_words
+
+text = "Python is a great programming language"
+print(f"Words: {word_count(text)}")           # 6
+print(f"Characters: {char_count(text)}")      # 32
+print(f"Reversed: {reverse_words(text)}")     # language programming great a is Python</code></pre>
+      </details>
+
+      <h3>Exercise 6: File Copier with Error Handling</h3>
+      <p>
+        Write a function <code>copy_file(source, destination)</code> that
+        copies the content of one text file to another. Handle errors for
+        missing source file and permission problems.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>def copy_file(source, destination):
+    """Copy text content from source to destination."""
+    try:
+        with open(source, "r", encoding="utf-8") as src:
+            content = src.read()
+    except FileNotFoundError:
+        print(f"Error: source file '{source}' not found.")
+        return False
+    except PermissionError:
+        print(f"Error: no permission to read '{source}'.")
+        return False
+
+    try:
+        with open(destination, "w", encoding="utf-8") as dst:
+            dst.write(content)
+    except PermissionError:
+        print(f"Error: no permission to write to '{destination}'.")
+        return False
+
+    print(f"Copied '{source}' to '{destination}' ({len(content)} characters).")
+    return True
+
+# Usage
+copy_file("original.txt", "backup.txt")</code></pre>
+      </details>
+
+      <h3>Exercise 7: CSV Reader and Averager</h3>
+      <p>
+        Write a program that reads a CSV file where each line has a
+        student name and a grade (e.g., <code>Alice,92</code>), computes
+        the class average, and writes a summary to a new file.
+      </p>
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>def process_grades(input_file, output_file):
+    students = []
+
+    try:
+        with open(input_file, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    name, grade = line.split(",")
+                    students.append((name.strip(), float(grade.strip())))
+                except ValueError:
+                    print(f"Skipping invalid line: '{line}'")
+    except FileNotFoundError:
+        print(f"File '{input_file}' not found.")
+        return
+
+    if not students:
+        print("No valid student data found.")
+        return
+
+    grades = [g for _, g in students]
+    average = sum(grades) / len(grades)
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("Student Grade Report\n")
+        f.write("=" * 30 + "\n")
+        for name, grade in sorted(students, key=lambda x: x[1], reverse=True):
+            status = "PASS" if grade >= 60 else "FAIL"
+            f.write(f"{name:<15} {grade:6.1f}  {status}\n")
+        f.write("=" * 30 + "\n")
+        f.write(f"Class average: {average:.1f}\n")
+        f.write(f"Highest: {max(grades):.1f}\n")
+        f.write(f"Lowest:  {min(grades):.1f}\n")
+
+    print(f"Report written to '{output_file}'.")
+
+process_grades("students.csv", "grade_report.txt")</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-more.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">More Built-ins</span></a>
+        <a href="common-patterns.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Common Patterns</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

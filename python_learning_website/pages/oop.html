@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object-Oriented Programming &mdash; Learn Python</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" placeholder="Search pages..." aria-label="Search">
+      <div class="search-results"></div>
+    </div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link active">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        <a href="cheatsheet.html">More Topics</a><span class="sep">&rsaquo;</span>
+        Object-Oriented Programming
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  OBJECT-ORIENTED PROGRAMMING                                  -->
+      <!-- ============================================================ -->
+
+      <h1>Object-Oriented Programming (OOP)</h1>
+
+      <p>
+        Object-Oriented Programming is one of the most important concepts in
+        modern software development. This page will take you from zero to
+        confident &mdash; you will learn how to design your own classes, create
+        objects, use inheritance, and write clean, reusable code. Every concept
+        is explained in plain English with plenty of examples.
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>For MATLAB users:</strong> MATLAB has supported OOP since
+        R2008a with <code>classdef</code>. Python's OOP is more deeply
+        integrated into the language &mdash; in fact, <em>everything</em> in
+        Python is an object (even numbers and functions). If you have written
+        MATLAB classes before, many concepts will be familiar, but the syntax
+        and conventions are quite different. We will highlight the differences
+        throughout this page.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  TABLE OF CONTENTS                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="contents">Table of Contents</h2>
+
+      <ol>
+        <li><a href="#what-is-oop">What is OOP?</a></li>
+        <li><a href="#classes-objects">Classes and Objects</a></li>
+        <li><a href="#methods">Methods</a></li>
+        <li><a href="#attributes">Attributes: Instance vs Class</a></li>
+        <li><a href="#init">The __init__ Constructor</a></li>
+        <li><a href="#str-repr">__str__ and __repr__</a></li>
+        <li><a href="#inheritance">Inheritance</a></li>
+        <li><a href="#encapsulation">Encapsulation</a></li>
+        <li><a href="#classmethod-staticmethod">Class Methods and Static Methods</a></li>
+        <li><a href="#dunder-methods">Magic / Dunder Methods</a></li>
+        <li><a href="#composition">Composition vs Inheritance</a></li>
+        <li><a href="#practical-examples">Practical Examples</a></li>
+        <li><a href="#common-mistakes">Common Mistakes</a></li>
+        <li><a href="#matlab-comparison">MATLAB Comparison</a></li>
+        <li><a href="#exercises">Exercises</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  1. WHAT IS OOP?                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-is-oop">1. What is OOP?</h2>
+
+      <p>
+        Imagine you are building a car factory. Before you can build a car, you
+        need a <strong>blueprint</strong> that describes what every car should
+        have: an engine, four wheels, a colour, a speed. The blueprint itself is
+        not a car &mdash; it is the <em>plan</em> for making cars. Once you
+        have the blueprint, you can stamp out as many individual cars as you
+        want, each with its own colour and speed.
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">The Blueprint Analogy</div>
+        <div class="flowchart">
+          <div class="flow-node" style="background: var(--primary); color: white;">Blueprint (Class): defines colour, speed, drive()</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">my_car = Car("red", 0) &mdash; an actual object</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">your_car = Car("blue", 0) &mdash; another object</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">race_car = Car("yellow", 0) &mdash; yet another object</div>
+        </div>
+      </div>
+
+      <p>In programming:</p>
+      <ul>
+        <li>A <strong>class</strong> is the blueprint.</li>
+        <li>An <strong>object</strong> (also called an <strong>instance</strong>) is a specific car built from that blueprint.</li>
+        <li><strong>Attributes</strong> are the data stored in each object (colour, speed).</li>
+        <li><strong>Methods</strong> are the actions an object can perform (drive, brake).</li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>Why use OOP?</strong> OOP helps you organize code by grouping
+        related data and behaviour together. Instead of having loose variables
+        and functions scattered everywhere, you bundle them into neat packages
+        (classes). This makes code easier to understand, reuse, and maintain
+        &mdash; especially as projects grow larger.
+      </div>
+
+      <h3>OOP in One Sentence</h3>
+      <p>
+        OOP is a way of writing programs where you define <strong>classes</strong>
+        (blueprints) that bundle <strong>data</strong> (attributes) and
+        <strong>behaviour</strong> (methods) together, and then create
+        <strong>objects</strong> (instances) from those classes.
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Four Pillars of OOP</div>
+        <div class="concept-map">
+          <div class="concept-node primary">Encapsulation</div>
+          <div class="concept-node primary">Abstraction</div>
+          <div class="concept-node primary">Inheritance</div>
+          <div class="concept-node primary">Polymorphism</div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. CLASSES AND OBJECTS                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="classes-objects">2. Classes and Objects</h2>
+
+      <h3>Your First Class</h3>
+
+      <p>
+        Here is the simplest possible class. It does nothing yet, but it
+        demonstrates the syntax:
+      </p>
+
+      <pre><code># Define a class with the 'class' keyword
+class Dog:
+    pass   # 'pass' means "do nothing" — a placeholder
+
+# Create an object (instance) of the class
+my_dog = Dog()
+print(type(my_dog))   # &lt;class '__main__.Dog'&gt;</code></pre>
+
+      <h3>A Class with Data</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name      # instance attribute
+        self.breed = breed    # instance attribute
+        self.age = age        # instance attribute
+
+# Create two different dogs
+rex = Dog("Rex", "German Shepherd", 5)
+luna = Dog("Luna", "Labrador", 3)
+
+print(rex.name)    # Rex
+print(luna.breed)  # Labrador
+print(luna.age)    # 3</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Key points:</strong>
+        <ul>
+          <li><code>class Dog:</code> defines a new class called <code>Dog</code>. Class names use CamelCase by convention.</li>
+          <li><code>__init__</code> is a special method that runs automatically when you create an object.</li>
+          <li><code>self</code> refers to the specific object being created &mdash; think of it as "this particular dog."</li>
+          <li><code>self.name = name</code> stores the <code>name</code> argument as an attribute on the object.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> In MATLAB, you would write:
+        <pre><code>classdef Dog
+    properties
+        Name
+        Breed
+        Age
+    end
+    methods
+        function obj = Dog(name, breed, age)
+            obj.Name = name;
+            obj.Breed = breed;
+            obj.Age = age;
+        end
+    end
+end</code></pre>
+        Notice that Python does not require separate <code>properties</code> and
+        <code>methods</code> blocks. Attributes are created dynamically in
+        <code>__init__</code>. Also, Python uses <code>self</code> where MATLAB
+        uses <code>obj</code>.
+      </div>
+
+      <h3>Accessing and Modifying Attributes</h3>
+
+      <pre><code>rex = Dog("Rex", "German Shepherd", 5)
+
+# Access attributes with dot notation
+print(f"{rex.name} is a {rex.breed}, age {rex.age}")
+# Rex is a German Shepherd, age 5
+
+# Modify attributes directly
+rex.age = 6
+print(f"{rex.name} is now {rex.age} years old")
+# Rex is now 6 years old
+
+# You can even add new attributes on the fly (though this is unusual)
+rex.favourite_toy = "ball"
+print(rex.favourite_toy)   # ball</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. METHODS                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="methods">3. Methods</h2>
+
+      <p>
+        A <strong>method</strong> is simply a function that lives inside a class.
+        The first parameter is always <code>self</code>, which gives the method
+        access to the object's attributes.
+      </p>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+        self.tricks = []
+
+    def bark(self):
+        """Make the dog bark."""
+        return f"{self.name} says: Woof!"
+
+    def learn_trick(self, trick):
+        """Teach the dog a new trick."""
+        self.tricks.append(trick)
+
+    def show_tricks(self):
+        """Display all learned tricks."""
+        if self.tricks:
+            return f"{self.name} knows: {', '.join(self.tricks)}"
+        return f"{self.name} hasn't learned any tricks yet."
+
+# Using methods
+rex = Dog("Rex", "German Shepherd", 5)
+print(rex.bark())              # Rex says: Woof!
+
+rex.learn_trick("sit")
+rex.learn_trick("shake")
+print(rex.show_tricks())       # Rex knows: sit, shake</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Don't forget <code>self</code>!</strong> Every instance method
+        must have <code>self</code> as its first parameter. If you forget it,
+        Python will raise a <code>TypeError</code> when you try to call the
+        method. We will cover this more in the
+        <a href="#common-mistakes">Common Mistakes</a> section.
+      </div>
+
+      <h3>Methods That Return Values vs. Methods That Modify State</h3>
+
+      <pre><code>class Counter:
+    def __init__(self):
+        self.count = 0
+
+    def increment(self):
+        """Modify the object's state (no return needed)."""
+        self.count += 1
+
+    def get_count(self):
+        """Return a value without changing state."""
+        return self.count
+
+    def reset(self):
+        """Modify state AND return the old value."""
+        old = self.count
+        self.count = 0
+        return old
+
+c = Counter()
+c.increment()
+c.increment()
+c.increment()
+print(c.get_count())   # 3
+
+old_value = c.reset()
+print(f"Was {old_value}, now {c.get_count()}")  # Was 3, now 0</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. ATTRIBUTES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="attributes">4. Attributes: Instance vs Class</h2>
+
+      <p>
+        There are two kinds of attributes in Python classes:
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Instance Attributes vs Class Attributes</div>
+        <div class="concept-map">
+          <div class="concept-node primary">Class Attribute: shared by ALL instances</div>
+          <div class="concept-node secondary">Instance Attribute: unique to EACH instance</div>
+        </div>
+      </div>
+
+      <h3>Instance Attributes</h3>
+      <p>
+        Defined inside <code>__init__</code> using <code>self.name = value</code>.
+        Each object gets its own copy.
+      </p>
+
+      <pre><code>class Student:
+    def __init__(self, name, grade):
+        self.name = name      # instance attribute — unique per student
+        self.grade = grade    # instance attribute — unique per student
+
+alice = Student("Alice", 90)
+bob = Student("Bob", 85)
+print(alice.grade)   # 90
+print(bob.grade)     # 85  — different from Alice's</code></pre>
+
+      <h3>Class Attributes</h3>
+      <p>
+        Defined directly in the class body (outside any method). Shared by all
+        instances.
+      </p>
+
+      <pre><code>class Student:
+    school = "Python Academy"   # class attribute — shared by all
+
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+alice = Student("Alice", 90)
+bob = Student("Bob", 85)
+
+print(alice.school)   # Python Academy
+print(bob.school)     # Python Academy  — same for both
+
+# Change the class attribute and it affects all instances
+Student.school = "Advanced Python Academy"
+print(alice.school)   # Advanced Python Academy
+print(bob.school)     # Advanced Python Academy</code></pre>
+
+      <div class="callout callout-info">
+        <strong>When to use which?</strong>
+        <ul>
+          <li>Use <strong>instance attributes</strong> for data that varies between objects (name, age, score).</li>
+          <li>Use <strong>class attributes</strong> for data shared by all objects (species for all dogs, a counter of how many objects exist).</li>
+        </ul>
+      </div>
+
+      <h3>Common Use: Counting Instances</h3>
+
+      <pre><code>class Player:
+    total_players = 0   # class attribute
+
+    def __init__(self, name):
+        self.name = name
+        Player.total_players += 1   # modify the CLASS attribute
+
+p1 = Player("Alice")
+p2 = Player("Bob")
+p3 = Player("Charlie")
+print(Player.total_players)   # 3</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. __init__ (CONSTRUCTOR)                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="init">5. The __init__ Constructor</h2>
+
+      <p>
+        The <code>__init__</code> method (often called the
+        <strong>constructor</strong>) is called automatically every time you
+        create a new object. It is where you set up the initial state of the
+        object.
+      </p>
+
+      <h3>Basic Constructor</h3>
+
+      <pre><code>class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+r = Rectangle(5, 3)
+print(r.area())   # 15</code></pre>
+
+      <h3>Constructor with Default Values</h3>
+
+      <pre><code>class Rectangle:
+    def __init__(self, width=1, height=1):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+r1 = Rectangle()          # uses defaults: 1 x 1
+r2 = Rectangle(5)         # width=5, height defaults to 1
+r3 = Rectangle(5, 3)      # width=5, height=3
+
+print(r1.area())   # 1
+print(r2.area())   # 5
+print(r3.area())   # 15</code></pre>
+
+      <h3>Constructor with Validation</h3>
+
+      <pre><code>class Rectangle:
+    def __init__(self, width, height):
+        if width &lt;= 0 or height &lt;= 0:
+            raise ValueError("Width and height must be positive numbers")
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+# This works fine
+r = Rectangle(5, 3)
+
+# This raises an error
+try:
+    bad = Rectangle(-1, 5)
+except ValueError as e:
+    print(e)   # Width and height must be positive numbers</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why validate in __init__?</strong> By checking inputs early, you
+        catch mistakes the moment an object is created, rather than getting
+        mysterious errors later when you try to use it. This is called
+        "failing fast" and it makes debugging much easier.
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB note:</strong> In MATLAB, the constructor is a method
+        with the same name as the class:
+        <pre><code>function obj = Rectangle(width, height)
+    obj.Width = width;
+    obj.Height = height;
+end</code></pre>
+        In Python, the constructor is always called <code>__init__</code>,
+        regardless of the class name.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. __str__ AND __repr__                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="str-repr">6. __str__ and __repr__</h2>
+
+      <p>
+        By default, printing an object gives you something unhelpful like
+        <code>&lt;__main__.Dog object at 0x7f3c...&gt;</code>. You can fix
+        this by defining <code>__str__</code> and <code>__repr__</code>.
+      </p>
+
+      <h3>Without __str__</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+rex = Dog("Rex", "German Shepherd")
+print(rex)   # &lt;__main__.Dog object at 0x7f3c...&gt;  — not helpful!</code></pre>
+
+      <h3>With __str__</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def __str__(self):
+        return f"{self.name} ({self.breed})"
+
+rex = Dog("Rex", "German Shepherd")
+print(rex)         # Rex (German Shepherd)  — much better!
+print(str(rex))    # Rex (German Shepherd)</code></pre>
+
+      <h3>__str__ vs __repr__</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def __str__(self):
+        """Human-friendly string (for end users)."""
+        return f"{self.name} ({self.breed})"
+
+    def __repr__(self):
+        """Developer-friendly string (for debugging)."""
+        return f"Dog(name='{self.name}', breed='{self.breed}')"
+
+rex = Dog("Rex", "German Shepherd")
+
+# __str__ is used by print() and str()
+print(rex)          # Rex (German Shepherd)
+
+# __repr__ is used in the REPL and inside containers
+print(repr(rex))    # Dog(name='Rex', breed='German Shepherd')
+print([rex])        # [Dog(name='Rex', breed='German Shepherd')]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Rule of thumb:</strong>
+        <ul>
+          <li><code>__str__</code> should return a nice, human-readable string. Think "what would I show a user?"</li>
+          <li><code>__repr__</code> should return an unambiguous string, ideally one that could recreate the object. Think "what would I want to see in a debugger?"</li>
+          <li>If you only define one, define <code>__repr__</code> &mdash; Python will use it as a fallback for <code>__str__</code>.</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. INHERITANCE                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="inheritance">7. Inheritance</h2>
+
+      <p>
+        <strong>Inheritance</strong> lets you create a new class based on an
+        existing class. The new class (child) automatically gets all the
+        attributes and methods of the existing class (parent), and can add
+        new ones or override existing ones.
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Inheritance Hierarchy</div>
+        <div class="flowchart">
+          <div class="flow-node" style="background: var(--primary); color: white;">Animal (parent class)</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">Dog (child class)</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #f8f8f8;">GuideDog (grandchild class)</div>
+        </div>
+      </div>
+
+      <h3>Basic Inheritance</h3>
+
+      <pre><code>class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+    def speak(self):
+        return f"{self.name} says {self.sound}!"
+
+    def __str__(self):
+        return f"Animal: {self.name}"
+
+
+class Dog(Animal):     # Dog inherits from Animal
+    def fetch(self, item):
+        return f"{self.name} fetches the {item}!"
+
+
+class Cat(Animal):     # Cat inherits from Animal
+    def purr(self):
+        return f"{self.name} purrs..."
+
+# Dogs and Cats get all Animal methods automatically
+rex = Dog("Rex", "Woof")
+whiskers = Cat("Whiskers", "Meow")
+
+print(rex.speak())       # Rex says Woof!
+print(rex.fetch("ball")) # Rex fetches the ball!
+
+print(whiskers.speak())  # Whiskers says Meow!
+print(whiskers.purr())   # Whiskers purrs...</code></pre>
+
+      <h3>Using super() to Extend the Parent</h3>
+
+      <p>
+        Often the child class needs to do everything the parent does <em>plus
+        a bit more</em>. Use <code>super()</code> to call the parent's method:
+      </p>
+
+      <pre><code>class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        super().__init__(name, sound)   # call Animal's __init__
+        self.breed = breed              # add Dog-specific attribute
+
+rex = Dog("Rex", "Woof", "German Shepherd")
+print(rex.name)    # Rex       — from Animal
+print(rex.breed)   # German Shepherd  — from Dog</code></pre>
+
+      <div class="callout callout-why">
+        <strong>Why use super()?</strong> Without <code>super()</code>, you
+        would have to duplicate all the parent's initialization code. Using
+        <code>super()</code> means the parent class does its own setup, and
+        the child class only adds what is different. This keeps your code
+        DRY (Don't Repeat Yourself).
+      </div>
+
+      <h3>Overriding Methods</h3>
+
+      <pre><code>class Animal:
+    def speak(self):
+        return "..."
+
+class Dog(Animal):
+    def speak(self):       # Override the parent's speak()
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):       # Override the parent's speak()
+        return "Meow!"
+
+# Polymorphism: same method name, different behaviour
+animals = [Dog(), Cat(), Dog()]
+for animal in animals:
+    print(animal.speak())
+# Woof!
+# Meow!
+# Woof!</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Polymorphism</strong> means "many forms." When different classes
+        have a method with the same name, Python calls the right version based
+        on the object's type. This lets you write generic code that works with
+        any object that has the expected method.
+      </div>
+
+      <h3>Checking Inheritance</h3>
+
+      <pre><code>rex = Dog("Rex", "Woof", "German Shepherd")
+
+print(isinstance(rex, Dog))      # True
+print(isinstance(rex, Animal))   # True  — Dog IS an Animal
+print(isinstance(rex, Cat))      # False
+
+print(issubclass(Dog, Animal))   # True
+print(issubclass(Cat, Animal))   # True
+print(issubclass(Dog, Cat))      # False</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB equivalent:</strong> Inheritance in MATLAB uses the
+        <code>&lt;</code> operator:
+        <pre><code>classdef Dog &lt; Animal
+    ...
+end</code></pre>
+        In Python, you put the parent class in parentheses:
+        <code>class Dog(Animal):</code>. MATLAB uses <code>obj@Animal(args)</code>
+        to call the parent constructor; Python uses
+        <code>super().__init__(args)</code>.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. ENCAPSULATION                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="encapsulation">8. Encapsulation</h2>
+
+      <p>
+        <strong>Encapsulation</strong> means hiding the internal details of an
+        object and controlling access through a clean interface. Python uses
+        naming conventions rather than strict access control.
+      </p>
+
+      <h3>Public, Protected, and Private (by Convention)</h3>
+
+      <pre><code>class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner          # public — anyone can access
+        self._bank_name = "PyBank"  # "protected" — convention: don't touch
+        self.__balance = balance    # "private" — name-mangled by Python
+
+    def deposit(self, amount):
+        if amount &gt; 0:
+            self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount("Alice", 1000)
+
+# Public: works fine
+print(account.owner)         # Alice
+
+# Protected: works, but by convention you shouldn't access it directly
+print(account._bank_name)    # PyBank
+
+# Private: Python "mangles" the name, so this fails
+try:
+    print(account.__balance)
+except AttributeError as e:
+    print(e)  # 'BankAccount' object has no attribute '__balance'
+
+# You CAN still access it (Python doesn't truly enforce privacy)
+print(account._BankAccount__balance)   # 1000 — but don't do this!
+
+# Use the public interface instead
+print(account.get_balance())   # 1000</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Python's privacy is by convention, not enforcement.</strong>
+        Unlike Java or C++, Python does not have true private attributes.
+        The double-underscore prefix triggers "name mangling" (the attribute
+        gets renamed to <code>_ClassName__attr</code>), which makes accidental
+        access harder but not impossible. The philosophy is:
+        "We are all consenting adults here."
+      </div>
+
+      <h3>The @property Decorator</h3>
+
+      <p>
+        The <code>@property</code> decorator lets you define methods that
+        behave like attributes. This gives you the clean syntax of attribute
+        access with the power of validation in a method.
+      </p>
+
+      <pre><code>class Temperature:
+    def __init__(self, celsius=0):
+        self._celsius = celsius   # store the internal value
+
+    @property
+    def celsius(self):
+        """Get the temperature in Celsius."""
+        return self._celsius
+
+    @celsius.setter
+    def celsius(self, value):
+        """Set the temperature in Celsius with validation."""
+        if value &lt; -273.15:
+            raise ValueError("Temperature below absolute zero is impossible!")
+        self._celsius = value
+
+    @property
+    def fahrenheit(self):
+        """Get the temperature in Fahrenheit (read-only)."""
+        return self._celsius * 9/5 + 32
+
+# Usage — looks like simple attribute access
+temp = Temperature(25)
+print(temp.celsius)      # 25
+print(temp.fahrenheit)   # 77.0
+
+temp.celsius = 100       # calls the setter — validation runs
+print(temp.fahrenheit)   # 212.0
+
+# Validation catches bad values
+try:
+    temp.celsius = -300
+except ValueError as e:
+    print(e)   # Temperature below absolute zero is impossible!
+
+# fahrenheit is read-only (no setter defined)
+try:
+    temp.fahrenheit = 100
+except AttributeError:
+    print("Can't set fahrenheit directly!")
+# Can't set fahrenheit directly!</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB comparison:</strong> MATLAB's
+        <code>properties (Access = private)</code> and
+        <code>methods (get.PropName, set.PropName)</code> serve the same
+        purpose as Python's <code>@property</code>. The key difference is
+        that MATLAB enforces access control at the language level, while
+        Python relies on convention.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. CLASS METHODS AND STATIC METHODS                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="classmethod-staticmethod">9. Class Methods and Static Methods</h2>
+
+      <p>
+        Beyond regular instance methods (which take <code>self</code>), Python
+        has two other kinds of methods: <strong>class methods</strong> and
+        <strong>static methods</strong>.
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">Three Kinds of Methods</div>
+        <div class="concept-map">
+          <div class="concept-node primary">Instance method: def foo(self)</div>
+          <div class="concept-node secondary">Class method: @classmethod def foo(cls)</div>
+          <div class="concept-node accent">Static method: @staticmethod def foo()</div>
+        </div>
+      </div>
+
+      <h3>@classmethod</h3>
+
+      <p>
+        A class method receives the <strong>class</strong> as its first argument
+        (conventionally called <code>cls</code>) instead of an instance. It can
+        access and modify class-level attributes, and it is commonly used as an
+        <strong>alternative constructor</strong>.
+      </p>
+
+      <pre><code>class Date:
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+    @classmethod
+    def from_string(cls, date_string):
+        """Alternative constructor: create a Date from 'YYYY-MM-DD'."""
+        year, month, day = map(int, date_string.split("-"))
+        return cls(year, month, day)   # cls is the Date class itself
+
+    @classmethod
+    def today(cls):
+        """Alternative constructor: create a Date for today."""
+        import datetime
+        t = datetime.date.today()
+        return cls(t.year, t.month, t.day)
+
+    def __str__(self):
+        return f"{self.year}-{self.month:02d}-{self.day:02d}"
+
+# Standard constructor
+d1 = Date(2025, 6, 15)
+print(d1)   # 2025-06-15
+
+# Alternative constructor from string
+d2 = Date.from_string("2025-12-25")
+print(d2)   # 2025-12-25
+
+# Alternative constructor for today
+d3 = Date.today()
+print(d3)   # (today's date)</code></pre>
+
+      <h3>@staticmethod</h3>
+
+      <p>
+        A static method does not receive <code>self</code> or <code>cls</code>.
+        It is basically a regular function that lives inside the class for
+        organizational purposes.
+      </p>
+
+      <pre><code>class MathHelper:
+    @staticmethod
+    def is_even(n):
+        return n % 2 == 0
+
+    @staticmethod
+    def factorial(n):
+        if n &lt;= 1:
+            return 1
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+
+# Call without creating an instance
+print(MathHelper.is_even(4))     # True
+print(MathHelper.factorial(5))   # 120</code></pre>
+
+      <div class="callout callout-info">
+        <strong>When to use which?</strong>
+        <ul>
+          <li><strong>Instance method</strong> (default): needs access to the specific object (<code>self</code>). Use for most methods.</li>
+          <li><strong>@classmethod</strong>: needs access to the class itself (<code>cls</code>). Use for alternative constructors and class-level operations.</li>
+          <li><strong>@staticmethod</strong>: does not need access to the class or instance at all. Use for utility functions that logically belong with the class.</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. MAGIC / DUNDER METHODS                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="dunder-methods">10. Magic / Dunder Methods</h2>
+
+      <p>
+        "Dunder" stands for <strong>d</strong>ouble <strong>under</strong>score.
+        These special methods (like <code>__init__</code>, <code>__str__</code>)
+        let your objects integrate with Python's built-in operations. You have
+        already seen <code>__init__</code>, <code>__str__</code>, and
+        <code>__repr__</code>. Here are more:
+      </p>
+
+      <h3>__len__ &mdash; Make Your Object Work with len()</h3>
+
+      <pre><code>class Playlist:
+    def __init__(self, name):
+        self.name = name
+        self.songs = []
+
+    def add(self, song):
+        self.songs.append(song)
+
+    def __len__(self):
+        return len(self.songs)
+
+p = Playlist("Road Trip")
+p.add("Bohemian Rhapsody")
+p.add("Hotel California")
+print(len(p))   # 2</code></pre>
+
+      <h3>__eq__ and __lt__ &mdash; Comparison Operators</h3>
+
+      <pre><code>class Student:
+    def __init__(self, name, gpa):
+        self.name = name
+        self.gpa = gpa
+
+    def __eq__(self, other):
+        """Equal if same name and GPA."""
+        return self.name == other.name and self.gpa == other.gpa
+
+    def __lt__(self, other):
+        """Less than based on GPA."""
+        return self.gpa &lt; other.gpa
+
+    def __repr__(self):
+        return f"Student('{self.name}', {self.gpa})"
+
+a = Student("Alice", 3.8)
+b = Student("Bob", 3.5)
+c = Student("Alice", 3.8)
+
+print(a == c)    # True
+print(a == b)    # False
+print(b &lt; a)     # True  (3.5 &lt; 3.8)
+
+# Now sorted() works automatically!
+students = [a, b, c]
+print(sorted(students))
+# [Student('Bob', 3.5), Student('Alice', 3.8), Student('Alice', 3.8)]</code></pre>
+
+      <h3>__add__ &mdash; The + Operator</h3>
+
+      <pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        """Allow v1 + v2."""
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+
+v1 = Vector(1, 2)
+v2 = Vector(3, 4)
+v3 = v1 + v2      # calls v1.__add__(v2)
+print(v3)          # Vector(4, 6)</code></pre>
+
+      <h3>__getitem__ &mdash; Square Bracket Access</h3>
+
+      <pre><code>class Deck:
+    def __init__(self):
+        suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+        ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
+        self.cards = [f"{r} of {s}" for s in suits for r in ranks]
+
+    def __getitem__(self, index):
+        return self.cards[index]
+
+    def __len__(self):
+        return len(self.cards)
+
+deck = Deck()
+print(deck[0])     # 2 of Hearts
+print(deck[-1])    # A of Spades
+print(len(deck))   # 52
+
+# Slicing works too!
+print(deck[:3])    # ['2 of Hearts', '3 of Hearts', '4 of Hearts']
+
+# And iteration!
+for card in deck[:5]:
+    print(card)</code></pre>
+
+      <h3>Complete Dunder Method Reference</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Triggered by</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>__init__(self, ...)</code></td><td><code>MyClass()</code></td><td>Initialize a new object</td></tr>
+          <tr><td><code>__str__(self)</code></td><td><code>str(obj)</code>, <code>print(obj)</code></td><td>Human-readable string</td></tr>
+          <tr><td><code>__repr__(self)</code></td><td><code>repr(obj)</code>, REPL</td><td>Developer-friendly string</td></tr>
+          <tr><td><code>__len__(self)</code></td><td><code>len(obj)</code></td><td>Length of object</td></tr>
+          <tr><td><code>__eq__(self, other)</code></td><td><code>obj == other</code></td><td>Equality check</td></tr>
+          <tr><td><code>__lt__(self, other)</code></td><td><code>obj &lt; other</code></td><td>Less-than comparison</td></tr>
+          <tr><td><code>__le__(self, other)</code></td><td><code>obj &lt;= other</code></td><td>Less-than-or-equal</td></tr>
+          <tr><td><code>__gt__(self, other)</code></td><td><code>obj &gt; other</code></td><td>Greater-than</td></tr>
+          <tr><td><code>__add__(self, other)</code></td><td><code>obj + other</code></td><td>Addition</td></tr>
+          <tr><td><code>__sub__(self, other)</code></td><td><code>obj - other</code></td><td>Subtraction</td></tr>
+          <tr><td><code>__mul__(self, other)</code></td><td><code>obj * other</code></td><td>Multiplication</td></tr>
+          <tr><td><code>__getitem__(self, key)</code></td><td><code>obj[key]</code></td><td>Square bracket access</td></tr>
+          <tr><td><code>__setitem__(self, key, val)</code></td><td><code>obj[key] = val</code></td><td>Square bracket assignment</td></tr>
+          <tr><td><code>__contains__(self, item)</code></td><td><code>item in obj</code></td><td>Membership test</td></tr>
+          <tr><td><code>__iter__(self)</code></td><td><code>for x in obj</code></td><td>Make object iterable</td></tr>
+          <tr><td><code>__bool__(self)</code></td><td><code>if obj:</code></td><td>Truth value</td></tr>
+          <tr><td><code>__call__(self, ...)</code></td><td><code>obj()</code></td><td>Make object callable</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>Why learn dunder methods?</strong> They are the secret to making
+        your classes feel "Pythonic." When your objects work with <code>len()</code>,
+        <code>print()</code>, <code>sorted()</code>, <code>for</code> loops,
+        and operators, they become a natural part of the language. Other
+        programmers can use your classes without learning a special API.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  11. COMPOSITION VS INHERITANCE                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="composition">11. Composition vs Inheritance</h2>
+
+      <p>
+        There are two main ways to combine classes:
+      </p>
+
+      <ul>
+        <li><strong>Inheritance</strong> ("is-a"): A Dog <em>is an</em> Animal.</li>
+        <li><strong>Composition</strong> ("has-a"): A Car <em>has an</em> Engine.</li>
+      </ul>
+
+      <div class="diagram">
+        <div class="diagram-title">Inheritance vs Composition</div>
+        <div class="flowchart">
+          <div class="flow-node" style="background: var(--primary); color: white;">Inheritance: Dog IS-A Animal</div>
+          <div class="flow-arrow-text">Dog extends Animal &mdash; gets all its methods</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">Composition: Car HAS-A Engine</div>
+          <div class="flow-arrow-text">Car stores an Engine object as an attribute</div>
+        </div>
+      </div>
+
+      <h3>Composition Example</h3>
+
+      <pre><code>class Engine:
+    def __init__(self, horsepower):
+        self.horsepower = horsepower
+        self.running = False
+
+    def start(self):
+        self.running = True
+        return f"Engine started ({self.horsepower} HP)"
+
+    def stop(self):
+        self.running = False
+        return "Engine stopped"
+
+
+class Car:
+    def __init__(self, make, model, horsepower):
+        self.make = make
+        self.model = model
+        self.engine = Engine(horsepower)   # composition: Car HAS-A Engine
+
+    def start(self):
+        return f"{self.make} {self.model}: {self.engine.start()}"
+
+    def stop(self):
+        return f"{self.make} {self.model}: {self.engine.stop()}"
+
+car = Car("Toyota", "Camry", 200)
+print(car.start())   # Toyota Camry: Engine started (200 HP)
+print(car.stop())    # Toyota Camry: Engine stopped</code></pre>
+
+      <h3>When to Use Which?</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Use Inheritance When</th>
+            <th>Use Composition When</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>There is a clear "is-a" relationship</td><td>There is a "has-a" or "uses-a" relationship</td></tr>
+          <tr><td>The child truly is a specialized version of the parent</td><td>You want to combine capabilities from multiple classes</td></tr>
+          <tr><td>You want polymorphism (same interface, different behaviour)</td><td>You want flexibility to swap components at runtime</td></tr>
+          <tr><td>Example: Dog is an Animal, Square is a Shape</td><td>Example: Car has an Engine, Team has Players</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <strong>Favour composition over inheritance.</strong> This is a
+        widely-accepted principle in software design. Inheritance creates tight
+        coupling between parent and child. Changes in the parent can break the
+        child. Composition is more flexible: you can swap out components,
+        combine objects freely, and keep classes small and focused. Use
+        inheritance only when the "is-a" relationship is truly natural.
+      </div>
+
+      <h3>A More Realistic Example: Building a Computer</h3>
+
+      <pre><code>class CPU:
+    def __init__(self, model, cores):
+        self.model = model
+        self.cores = cores
+
+class RAM:
+    def __init__(self, size_gb):
+        self.size_gb = size_gb
+
+class Storage:
+    def __init__(self, size_gb, ssd=True):
+        self.size_gb = size_gb
+        self.ssd = ssd
+
+class Computer:
+    """A computer is COMPOSED of CPU, RAM, and Storage."""
+    def __init__(self, cpu, ram, storage):
+        self.cpu = cpu          # has-a CPU
+        self.ram = ram          # has-a RAM
+        self.storage = storage  # has-a Storage
+
+    def specs(self):
+        ssd_label = "SSD" if self.storage.ssd else "HDD"
+        return (f"CPU: {self.cpu.model} ({self.cpu.cores} cores), "
+                f"RAM: {self.ram.size_gb}GB, "
+                f"Storage: {self.storage.size_gb}GB {ssd_label}")
+
+# Build a computer by composing parts
+my_pc = Computer(
+    cpu=CPU("Ryzen 7", 8),
+    ram=RAM(32),
+    storage=Storage(1000, ssd=True)
+)
+print(my_pc.specs())
+# CPU: Ryzen 7 (8 cores), RAM: 32GB, Storage: 1000GB SSD</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  12. PRACTICAL EXAMPLES                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="practical-examples">12. Practical Examples</h2>
+
+      <!-- 12.1 Student Grade Tracker -->
+      <h3 id="student-tracker">12.1 Student Grade Tracker</h3>
+
+      <pre><code>class Student:
+    """Track a student's grades and compute statistics."""
+
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        self.grades = {}   # subject -> list of grades
+
+    def add_grade(self, subject, grade):
+        """Add a grade for a subject."""
+        if not 0 &lt;= grade &lt;= 100:
+            raise ValueError(f"Grade must be 0-100, got {grade}")
+        if subject not in self.grades:
+            self.grades[subject] = []
+        self.grades[subject].append(grade)
+
+    def average(self, subject=None):
+        """
+        Average for one subject, or overall average if no subject given.
+        """
+        if subject:
+            if subject not in self.grades:
+                return 0.0
+            grades = self.grades[subject]
+        else:
+            grades = [g for subj_grades in self.grades.values()
+                        for g in subj_grades]
+        if not grades:
+            return 0.0
+        return sum(grades) / len(grades)
+
+    def highest_subject(self):
+        """Return the subject with the highest average."""
+        if not self.grades:
+            return None
+        return max(self.grades, key=lambda s: self.average(s))
+
+    def report(self):
+        """Print a grade report."""
+        lines = [f"--- Report for {self.name} ({self.student_id}) ---"]
+        for subject, grades in self.grades.items():
+            avg = self.average(subject)
+            lines.append(f"  {subject}: {grades} -> avg {avg:.1f}")
+        lines.append(f"  Overall average: {self.average():.1f}")
+        best = self.highest_subject()
+        if best:
+            lines.append(f"  Best subject: {best}")
+        return "\n".join(lines)
+
+    def __str__(self):
+        return f"Student({self.name}, avg={self.average():.1f})"
+
+    def __repr__(self):
+        return f"Student('{self.name}', '{self.student_id}')"
+
+# Usage
+alice = Student("Alice", "S001")
+alice.add_grade("Math", 92)
+alice.add_grade("Math", 88)
+alice.add_grade("Science", 95)
+alice.add_grade("English", 87)
+
+print(alice.report())
+# --- Report for Alice (S001) ---
+#   Math: [92, 88] -> avg 90.0
+#   Science: [95] -> avg 95.0
+#   English: [87] -> avg 87.0
+#   Overall average: 90.5
+#   Best subject: Science
+
+print(alice)   # Student(Alice, avg=90.5)</code></pre>
+
+      <!-- 12.2 Bank Account -->
+      <h3 id="bank-account">12.2 Bank Account</h3>
+
+      <pre><code>class BankAccount:
+    """A simple bank account with deposit, withdraw, and transfer."""
+
+    _next_id = 1000   # class attribute for auto-incrementing IDs
+
+    def __init__(self, owner, balance=0):
+        if balance &lt; 0:
+            raise ValueError("Initial balance cannot be negative")
+        self.owner = owner
+        self._balance = balance
+        self._account_id = BankAccount._next_id
+        BankAccount._next_id += 1
+        self._transactions = []
+
+    @property
+    def balance(self):
+        return self._balance
+
+    @property
+    def account_id(self):
+        return self._account_id
+
+    def deposit(self, amount):
+        """Add money to the account."""
+        if amount &lt;= 0:
+            raise ValueError("Deposit amount must be positive")
+        self._balance += amount
+        self._transactions.append(f"+${amount:.2f}")
+        return self
+
+    def withdraw(self, amount):
+        """Remove money from the account."""
+        if amount &lt;= 0:
+            raise ValueError("Withdrawal amount must be positive")
+        if amount &gt; self._balance:
+            raise ValueError(f"Insufficient funds (balance: ${self._balance:.2f})")
+        self._balance -= amount
+        self._transactions.append(f"-${amount:.2f}")
+        return self
+
+    def transfer(self, other, amount):
+        """Transfer money to another account."""
+        self.withdraw(amount)
+        other.deposit(amount)
+        self._transactions.append(f"Transfer -${amount:.2f} to #{other.account_id}")
+        other._transactions.append(f"Transfer +${amount:.2f} from #{self.account_id}")
+        return self
+
+    def statement(self):
+        """Return a mini statement."""
+        lines = [f"Account #{self._account_id} ({self.owner})"]
+        for t in self._transactions[-5:]:   # last 5 transactions
+            lines.append(f"  {t}")
+        lines.append(f"  Balance: ${self._balance:.2f}")
+        return "\n".join(lines)
+
+    def __str__(self):
+        return f"Account #{self._account_id} ({self.owner}): ${self._balance:.2f}"
+
+    def __repr__(self):
+        return f"BankAccount('{self.owner}', {self._balance})"
+
+# Usage
+alice = BankAccount("Alice", 1000)
+bob = BankAccount("Bob", 500)
+
+alice.deposit(250)
+alice.withdraw(100)
+alice.transfer(bob, 200)
+
+print(alice.statement())
+# Account #1000 (Alice)
+#   +$250.00
+#   -$100.00
+#   -$200.00
+#   Transfer -$200.00 to #1001
+#   Balance: $950.00
+
+print(bob.statement())
+# Account #1001 (Bob)
+#   +$200.00
+#   Transfer +$200.00 from #1000
+#   Balance: $700.00</code></pre>
+
+      <!-- 12.3 Playlist / Music Library -->
+      <h3 id="playlist">12.3 Playlist / Music Library</h3>
+
+      <pre><code>class Song:
+    """Represents a single song."""
+
+    def __init__(self, title, artist, duration_sec):
+        self.title = title
+        self.artist = artist
+        self.duration_sec = duration_sec
+
+    @property
+    def duration_str(self):
+        """Duration as 'M:SS' string."""
+        mins = self.duration_sec // 60
+        secs = self.duration_sec % 60
+        return f"{mins}:{secs:02d}"
+
+    def __str__(self):
+        return f"{self.artist} - {self.title} ({self.duration_str})"
+
+    def __repr__(self):
+        return f"Song('{self.title}', '{self.artist}', {self.duration_sec})"
+
+    def __eq__(self, other):
+        return (self.title == other.title and
+                self.artist == other.artist)
+
+
+class Playlist:
+    """A named collection of songs with playback features."""
+
+    def __init__(self, name):
+        self.name = name
+        self._songs = []
+
+    def add(self, song):
+        """Add a song to the playlist."""
+        self._songs.append(song)
+
+    def remove(self, song):
+        """Remove a song from the playlist."""
+        self._songs.remove(song)
+
+    @property
+    def total_duration(self):
+        """Total duration of all songs in seconds."""
+        return sum(s.duration_sec for s in self._songs)
+
+    @property
+    def total_duration_str(self):
+        """Total duration as 'H:MM:SS' string."""
+        total = self.total_duration
+        hours = total // 3600
+        mins = (total % 3600) // 60
+        secs = total % 60
+        if hours &gt; 0:
+            return f"{hours}:{mins:02d}:{secs:02d}"
+        return f"{mins}:{secs:02d}"
+
+    def search(self, query):
+        """Search songs by title or artist."""
+        query = query.lower()
+        return [s for s in self._songs
+                if query in s.title.lower() or query in s.artist.lower()]
+
+    def __len__(self):
+        return len(self._songs)
+
+    def __getitem__(self, index):
+        return self._songs[index]
+
+    def __contains__(self, song):
+        return song in self._songs
+
+    def __str__(self):
+        lines = [f"Playlist: {self.name} ({len(self)} songs, {self.total_duration_str})"]
+        for i, song in enumerate(self._songs, 1):
+            lines.append(f"  {i}. {song}")
+        return "\n".join(lines)
+
+# Usage
+s1 = Song("Bohemian Rhapsody", "Queen", 355)
+s2 = Song("Hotel California", "Eagles", 391)
+s3 = Song("Stairway to Heaven", "Led Zeppelin", 482)
+s4 = Song("Imagine", "John Lennon", 187)
+
+road_trip = Playlist("Road Trip")
+road_trip.add(s1)
+road_trip.add(s2)
+road_trip.add(s3)
+road_trip.add(s4)
+
+print(road_trip)
+# Playlist: Road Trip (4 songs, 23:35)
+#   1. Queen - Bohemian Rhapsody (5:55)
+#   2. Eagles - Hotel California (6:31)
+#   3. Led Zeppelin - Stairway to Heaven (8:02)
+#   4. John Lennon - Imagine (3:07)
+
+print(len(road_trip))        # 4
+print(road_trip[0])          # Queen - Bohemian Rhapsody (5:55)
+print(s1 in road_trip)       # True
+print(road_trip.search("queen"))   # [Song('Bohemian Rhapsody', 'Queen', 355)]</code></pre>
+
+      <!-- 12.4 File Processor -->
+      <h3 id="file-processor">12.4 File Processor</h3>
+
+      <pre><code>from pathlib import Path
+
+
+class FileProcessor:
+    """Process text files: read, analyze, and transform."""
+
+    def __init__(self, filepath):
+        self.filepath = Path(filepath)
+        self._content = None
+        self._lines = None
+
+    def read(self):
+        """Read the file contents."""
+        self._content = self.filepath.read_text(encoding="utf-8")
+        self._lines = self._content.splitlines()
+        return self
+
+    @property
+    def content(self):
+        if self._content is None:
+            self.read()
+        return self._content
+
+    @property
+    def lines(self):
+        if self._lines is None:
+            self.read()
+        return self._lines
+
+    def line_count(self):
+        return len(self.lines)
+
+    def word_count(self):
+        return sum(len(line.split()) for line in self.lines)
+
+    def char_count(self, include_spaces=True):
+        if include_spaces:
+            return len(self.content)
+        return len(self.content.replace(" ", ""))
+
+    def find_lines(self, keyword):
+        """Return lines containing the keyword."""
+        keyword = keyword.lower()
+        return [(i+1, line) for i, line in enumerate(self.lines)
+                if keyword in line.lower()]
+
+    def stats(self):
+        """Return a summary of file statistics."""
+        return {
+            "file": str(self.filepath),
+            "lines": self.line_count(),
+            "words": self.word_count(),
+            "chars": self.char_count(),
+        }
+
+    def write(self, filepath=None):
+        """Write content to a file (default: overwrite original)."""
+        target = Path(filepath) if filepath else self.filepath
+        target.write_text(self._content, encoding="utf-8")
+        return self
+
+    def __str__(self):
+        s = self.stats()
+        return f"FileProcessor({s['file']}): {s['lines']} lines, {s['words']} words"
+
+    def __repr__(self):
+        return f"FileProcessor('{self.filepath}')"
+
+# Usage example (assuming a file exists):
+# fp = FileProcessor("myfile.txt")
+# fp.read()
+# print(fp.stats())
+# matches = fp.find_lines("error")
+# for line_num, text in matches:
+#     print(f"  Line {line_num}: {text}")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Design pattern:</strong> Notice how the <code>FileProcessor</code>
+        methods return <code>self</code>. This enables <strong>method chaining</strong>:
+        <code>fp.read().write("backup.txt")</code>. This is a common and useful
+        pattern in Python.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  13. COMMON MISTAKES                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">13. Common Mistakes</h2>
+
+      <h3>Mistake 1: Forgetting <code>self</code></h3>
+
+      <pre><code># WRONG — missing self as first parameter
+class Dog:
+    def __init__(name):        # BUG: no self!
+        name = name
+
+# When you try to create a Dog:
+# TypeError: Dog.__init__() takes 1 positional argument but 2 were given
+# Python passes the instance as the first argument automatically.
+# If you don't have 'self' to catch it, the arguments don't line up.
+
+# CORRECT
+class Dog:
+    def __init__(self, name):   # self is the first parameter
+        self.name = name</code></pre>
+
+      <h3>Mistake 2: Forgetting <code>self.</code> When Assigning Attributes</h3>
+
+      <pre><code># WRONG — creates a local variable, not an attribute
+class Dog:
+    def __init__(self, name):
+        name = name    # BUG: this just assigns to a local variable!
+
+rex = Dog("Rex")
+print(rex.name)   # AttributeError: 'Dog' object has no attribute 'name'
+
+# CORRECT
+class Dog:
+    def __init__(self, name):
+        self.name = name   # stores it on the object</code></pre>
+
+      <h3>Mistake 3: Mutable Default Class Attribute</h3>
+
+      <div class="callout callout-warning">
+        <strong>This is one of the most common Python gotchas!</strong>
+        If you use a mutable object (like a list) as a class attribute, all
+        instances share the <em>same</em> list.
+      </div>
+
+      <pre><code># WRONG — all dogs share the same tricks list!
+class Dog:
+    tricks = []          # class attribute: shared by ALL instances
+
+    def __init__(self, name):
+        self.name = name
+
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
+
+rex = Dog("Rex")
+luna = Dog("Luna")
+
+rex.learn_trick("sit")
+print(luna.tricks)   # ['sit']  — Luna knows Rex's trick?!
+
+# CORRECT — create the list in __init__ so each dog gets its own
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []     # instance attribute: unique per dog
+
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
+
+rex = Dog("Rex")
+luna = Dog("Luna")
+
+rex.learn_trick("sit")
+print(luna.tricks)   # []  — Luna has her own empty list</code></pre>
+
+      <h3>Mistake 4: Overusing Inheritance</h3>
+
+      <pre><code># QUESTIONABLE — is a Stack really a list?
+class Stack(list):
+    def push(self, item):
+        self.append(item)
+
+# This "works" but exposes ALL list methods:
+s = Stack()
+s.push(1)
+s.push(2)
+s.insert(0, 99)   # Wait — stacks shouldn't allow insert!
+
+# BETTER — use composition
+class Stack:
+    def __init__(self):
+        self._items = []    # has-a list, rather than is-a list
+
+    def push(self, item):
+        self._items.append(item)
+
+    def pop(self):
+        if not self._items:
+            raise IndexError("pop from empty stack")
+        return self._items.pop()
+
+    def peek(self):
+        if not self._items:
+            raise IndexError("peek at empty stack")
+        return self._items[-1]
+
+    def __len__(self):
+        return len(self._items)
+
+    def __bool__(self):
+        return len(self._items) &gt; 0</code></pre>
+
+      <h3>Mistake 5: Not Using <code>super()</code> in Child Classes</h3>
+
+      <pre><code># WRONG — duplicates parent code and loses future changes
+class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        self.name = name      # BUG: duplicating parent code
+        self.sound = sound    # If Animal adds validation, Dog won't get it
+        self.breed = breed
+
+# CORRECT — let the parent handle its own setup
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        super().__init__(name, sound)   # delegate to parent
+        self.breed = breed</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  14. MATLAB COMPARISON                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="matlab-comparison">14. MATLAB Comparison</h2>
+
+      <p>
+        If you have used MATLAB's OOP features, this section maps the concepts
+        you already know to Python's syntax. If you have not used MATLAB
+        classes before, feel free to skip this section.
+      </p>
+
+      <h3>Side-by-Side: Class Definition</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Class keyword</td>
+            <td><code>classdef ClassName</code></td>
+            <td><code>class ClassName:</code></td>
+          </tr>
+          <tr>
+            <td>Properties</td>
+            <td><code>properties</code> block</td>
+            <td>Set in <code>__init__</code> with <code>self.x</code></td>
+          </tr>
+          <tr>
+            <td>Constructor</td>
+            <td><code>function obj = ClassName(args)</code></td>
+            <td><code>def __init__(self, args):</code></td>
+          </tr>
+          <tr>
+            <td>Methods</td>
+            <td><code>function result = myMethod(obj, args)</code></td>
+            <td><code>def my_method(self, args):</code></td>
+          </tr>
+          <tr>
+            <td>Self reference</td>
+            <td><code>obj</code> (any name, convention)</td>
+            <td><code>self</code> (convention, always first param)</td>
+          </tr>
+          <tr>
+            <td>Inheritance</td>
+            <td><code>classdef Child &lt; Parent</code></td>
+            <td><code>class Child(Parent):</code></td>
+          </tr>
+          <tr>
+            <td>Call parent</td>
+            <td><code>obj@Parent(args)</code></td>
+            <td><code>super().__init__(args)</code></td>
+          </tr>
+          <tr>
+            <td>Private</td>
+            <td><code>properties (Access = private)</code></td>
+            <td><code>self.__attr</code> (name mangling)</td>
+          </tr>
+          <tr>
+            <td>Static method</td>
+            <td><code>methods (Static)</code></td>
+            <td><code>@staticmethod</code></td>
+          </tr>
+          <tr>
+            <td>File structure</td>
+            <td>One class per file (classdef in .m)</td>
+            <td>Multiple classes per file allowed</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Handle vs Value Semantics</h3>
+
+      <div class="callout callout-matlab">
+        <strong>This is the biggest conceptual difference.</strong> MATLAB has
+        two kinds of classes:
+        <ul>
+          <li><strong>Value classes</strong> (default): assigning or passing an object creates a copy.</li>
+          <li><strong>Handle classes</strong> (<code>classdef MyClass &lt; handle</code>): assigning or passing shares a reference.</li>
+        </ul>
+        <strong>In Python, ALL objects use reference semantics</strong> (like
+        MATLAB handle classes). Assigning an object to a new variable does NOT
+        create a copy &mdash; both variables point to the same object.
+      </div>
+
+      <pre><code># Python: reference semantics (like MATLAB handle classes)
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p1 = Point(1, 2)
+p2 = p1            # p2 points to the SAME object
+p2.x = 99
+print(p1.x)        # 99 — p1 was affected!
+
+# To create an actual copy:
+import copy
+p3 = copy.copy(p1)     # shallow copy
+p3.x = 42
+print(p1.x)            # 99 — p1 NOT affected this time</code></pre>
+
+      <h3>Complete Class: MATLAB vs Python</h3>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB version:</strong>
+        <pre><code>classdef Circle
+    properties
+        Radius
+    end
+    properties (Dependent)
+        Area
+        Circumference
+    end
+    methods
+        function obj = Circle(radius)
+            obj.Radius = radius;
+        end
+        function a = get.Area(obj)
+            a = pi * obj.Radius^2;
+        end
+        function c = get.Circumference(obj)
+            c = 2 * pi * obj.Radius;
+        end
+        function disp(obj)
+            fprintf('Circle(r=%.2f, area=%.2f)\n', obj.Radius, obj.Area);
+        end
+    end
+    methods (Static)
+        function c = unit_circle()
+            c = Circle(1);
+        end
+    end
+end</code></pre>
+      </div>
+
+      <p><strong>Python equivalent:</strong></p>
+
+      <pre><code>import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    @property
+    def circumference(self):
+        return 2 * math.pi * self.radius
+
+    @staticmethod
+    def unit_circle():
+        return Circle(1)
+
+    def __str__(self):
+        return f"Circle(r={self.radius:.2f}, area={self.area:.2f})"
+
+    def __repr__(self):
+        return f"Circle({self.radius})"
+
+c = Circle(5)
+print(c)                 # Circle(r=5.00, area=78.54)
+print(c.area)            # 78.53981633974483
+print(c.circumference)   # 31.41592653589793
+
+unit = Circle.unit_circle()
+print(unit)              # Circle(r=1.00, area=3.14)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Key differences to note:</strong>
+        <ul>
+          <li>Python does not need a separate file per class. You can define multiple classes in one <code>.py</code> file.</li>
+          <li>Python uses <code>@property</code> for computed attributes; MATLAB uses <code>Dependent</code> properties with <code>get.*</code> methods.</li>
+          <li>MATLAB uses <code>disp()</code> for display; Python uses <code>__str__</code> and <code>__repr__</code>.</li>
+          <li>Python's <code>math.pi</code> replaces MATLAB's built-in <code>pi</code>.</li>
+          <li>Python uses <code>**</code> for exponentiation; MATLAB uses <code>^</code>.</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  15. EXERCISES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">15. Exercises</h2>
+
+      <p>
+        Practice is the best way to learn OOP. Try these exercises, then check
+        the solutions.
+      </p>
+
+      <!-- Exercise 1 -->
+      <h3>Exercise 1: Book Class</h3>
+      <p>
+        Create a <code>Book</code> class with attributes <code>title</code>,
+        <code>author</code>, and <code>pages</code>. Add a
+        <code>__str__</code> method and a <code>is_long()</code> method that
+        returns <code>True</code> if the book has more than 300 pages.
+      </p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def is_long(self):
+        return self.pages &gt; 300
+
+    def __str__(self):
+        return f"'{self.title}' by {self.author} ({self.pages} pages)"
+
+b1 = Book("Python Crash Course", "Eric Matthes", 544)
+b2 = Book("The Little Prince", "Saint-Exupery", 96)
+
+print(b1)              # 'Python Crash Course' by Eric Matthes (544 pages)
+print(b1.is_long())    # True
+print(b2.is_long())    # False</code></pre>
+      </details>
+
+      <!-- Exercise 2 -->
+      <h3>Exercise 2: Rectangle with Comparison</h3>
+      <p>
+        Create a <code>Rectangle</code> class with <code>width</code> and
+        <code>height</code>. Implement <code>area()</code>,
+        <code>perimeter()</code>, <code>__eq__</code> (equal if same area),
+        and <code>__lt__</code> (less than by area). Test with
+        <code>sorted()</code>.
+      </p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __lt__(self, other):
+        return self.area() &lt; other.area()
+
+    def __repr__(self):
+        return f"Rectangle({self.width}, {self.height})"
+
+r1 = Rectangle(3, 4)    # area = 12
+r2 = Rectangle(2, 6)    # area = 12
+r3 = Rectangle(5, 5)    # area = 25
+
+print(r1 == r2)              # True  (same area)
+print(r1 &lt; r3)               # True  (12 &lt; 25)
+print(sorted([r3, r1, r2]))  # [Rectangle(3, 4), Rectangle(2, 6), Rectangle(5, 5)]</code></pre>
+      </details>
+
+      <!-- Exercise 3 -->
+      <h3>Exercise 3: Inventory System with Inheritance</h3>
+      <p>
+        Create a base class <code>Item</code> with <code>name</code> and
+        <code>price</code>. Create two child classes:
+        <code>DigitalItem</code> (adds <code>file_size_mb</code>) and
+        <code>PhysicalItem</code> (adds <code>weight_kg</code> and a
+        <code>shipping_cost()</code> method that returns
+        <code>weight_kg * 2.5</code>).
+      </p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>class Item:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name}: ${self.price:.2f}"
+
+class DigitalItem(Item):
+    def __init__(self, name, price, file_size_mb):
+        super().__init__(name, price)
+        self.file_size_mb = file_size_mb
+
+    def __str__(self):
+        return f"{self.name}: ${self.price:.2f} ({self.file_size_mb}MB)"
+
+class PhysicalItem(Item):
+    def __init__(self, name, price, weight_kg):
+        super().__init__(name, price)
+        self.weight_kg = weight_kg
+
+    def shipping_cost(self):
+        return self.weight_kg * 2.5
+
+    def total_cost(self):
+        return self.price + self.shipping_cost()
+
+    def __str__(self):
+        return (f"{self.name}: ${self.price:.2f} "
+                f"(+${self.shipping_cost():.2f} shipping)")
+
+ebook = DigitalItem("Python Guide", 29.99, 15)
+book = PhysicalItem("Python Textbook", 49.99, 0.8)
+
+print(ebook)   # Python Guide: $29.99 (15MB)
+print(book)    # Python Textbook: $49.99 (+$2.00 shipping)
+print(f"Total: ${book.total_cost():.2f}")   # Total: $51.99</code></pre>
+      </details>
+
+      <!-- Exercise 4 -->
+      <h3>Exercise 4: Temperature Converter Class</h3>
+      <p>
+        Create a <code>Temperature</code> class that stores the value in
+        Celsius internally. Add <code>@property</code> for
+        <code>fahrenheit</code> and <code>kelvin</code> (both with getters
+        and setters). Add <code>@classmethod</code> factory methods:
+        <code>from_fahrenheit(f)</code> and <code>from_kelvin(k)</code>.
+      </p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>class Temperature:
+    def __init__(self, celsius):
+        self.celsius = celsius   # uses the setter for validation
+
+    @property
+    def celsius(self):
+        return self._celsius
+
+    @celsius.setter
+    def celsius(self, value):
+        if value &lt; -273.15:
+            raise ValueError("Below absolute zero!")
+        self._celsius = value
+
+    @property
+    def fahrenheit(self):
+        return self._celsius * 9/5 + 32
+
+    @fahrenheit.setter
+    def fahrenheit(self, value):
+        self.celsius = (value - 32) * 5/9
+
+    @property
+    def kelvin(self):
+        return self._celsius + 273.15
+
+    @kelvin.setter
+    def kelvin(self, value):
+        self.celsius = value - 273.15
+
+    @classmethod
+    def from_fahrenheit(cls, f):
+        return cls((f - 32) * 5/9)
+
+    @classmethod
+    def from_kelvin(cls, k):
+        return cls(k - 273.15)
+
+    def __str__(self):
+        return f"{self._celsius:.1f}C / {self.fahrenheit:.1f}F / {self.kelvin:.1f}K"
+
+t1 = Temperature(100)
+print(t1)   # 100.0C / 212.0F / 373.1K
+
+t2 = Temperature.from_fahrenheit(32)
+print(t2)   # 0.0C / 32.0F / 273.1K
+
+t3 = Temperature.from_kelvin(0)
+print(t3)   # -273.1C / -459.7F / 0.0K</code></pre>
+      </details>
+
+      <!-- Exercise 5 -->
+      <h3>Exercise 5: Linked List</h3>
+      <p>
+        Implement a simple <code>LinkedList</code> class with a
+        <code>Node</code> inner class. Support <code>append()</code>,
+        <code>__len__</code>, <code>__str__</code>, and
+        <code>__contains__</code>.
+      </p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>class LinkedList:
+    class Node:
+        def __init__(self, data):
+            self.data = data
+            self.next = None
+
+    def __init__(self):
+        self._head = None
+        self._size = 0
+
+    def append(self, data):
+        new_node = LinkedList.Node(data)
+        if self._head is None:
+            self._head = new_node
+        else:
+            current = self._head
+            while current.next:
+                current = current.next
+            current.next = new_node
+        self._size += 1
+
+    def __len__(self):
+        return self._size
+
+    def __contains__(self, data):
+        current = self._head
+        while current:
+            if current.data == data:
+                return True
+            current = current.next
+        return False
+
+    def __str__(self):
+        items = []
+        current = self._head
+        while current:
+            items.append(str(current.data))
+            current = current.next
+        return " -> ".join(items) + " -> None"
+
+ll = LinkedList()
+ll.append(10)
+ll.append(20)
+ll.append(30)
+
+print(ll)           # 10 -> 20 -> 30 -> None
+print(len(ll))      # 3
+print(20 in ll)     # True
+print(99 in ll)     # False</code></pre>
+      </details>
+
+      <!-- Exercise 6 -->
+      <h3>Exercise 6: Shape Hierarchy with Polymorphism</h3>
+      <p>
+        Create a base class <code>Shape</code> with an abstract
+        <code>area()</code> method. Implement <code>Circle</code>,
+        <code>Rectangle</code>, and <code>Triangle</code> subclasses. Write
+        a function that takes a list of shapes and prints each shape's area.
+      </p>
+
+      <details>
+        <summary>Show Solution</summary>
+        <pre><code>import math
+
+class Shape:
+    def area(self):
+        raise NotImplementedError("Subclasses must implement area()")
+
+    def __str__(self):
+        return f"{type(self).__name__}: area = {self.area():.2f}"
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+
+def print_areas(shapes):
+    """Polymorphism in action: works with ANY Shape subclass."""
+    for shape in shapes:
+        print(shape)
+
+shapes = [Circle(5), Rectangle(4, 6), Triangle(3, 8)]
+print_areas(shapes)
+# Circle: area = 78.54
+# Rectangle: area = 24.00
+# Triangle: area = 12.00</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  16. SUMMARY                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">16. Summary</h2>
+
+      <div class="diagram">
+        <div class="diagram-title">OOP Concepts at a Glance</div>
+        <div class="concept-map">
+          <div class="concept-node primary">Class</div>
+          <div class="concept-node primary">Object</div>
+          <div class="concept-node secondary">__init__</div>
+          <div class="concept-node secondary">self</div>
+          <div class="concept-node secondary">Attributes</div>
+          <div class="concept-node secondary">Methods</div>
+          <div class="concept-node accent">Inheritance</div>
+          <div class="concept-node accent">Composition</div>
+          <div class="concept-node accent">Encapsulation</div>
+          <div class="concept-node accent">Polymorphism</div>
+        </div>
+      </div>
+
+      <ul>
+        <li>A <strong>class</strong> is a blueprint; an <strong>object</strong> is a specific instance of that blueprint.</li>
+        <li><code>__init__</code> initializes new objects. Always use <code>self</code> to set attributes.</li>
+        <li><strong>Instance attributes</strong> are unique per object; <strong>class attributes</strong> are shared by all instances.</li>
+        <li>Define <code>__str__</code> and <code>__repr__</code> to make your objects printable and debuggable.</li>
+        <li>Use <strong>inheritance</strong> for "is-a" relationships and <code>super()</code> to call parent methods.</li>
+        <li>Use <strong>composition</strong> for "has-a" relationships &mdash; prefer it over inheritance when in doubt.</li>
+        <li><strong>Encapsulation</strong> in Python is by convention: <code>_protected</code>, <code>__private</code>, and <code>@property</code> for controlled access.</li>
+        <li><code>@classmethod</code> for alternative constructors; <code>@staticmethod</code> for utility functions.</li>
+        <li><strong>Dunder methods</strong> make your objects work with Python's built-in functions and operators.</li>
+        <li>Avoid common mistakes: always include <code>self</code>, don't use mutable class attributes, prefer composition over inheritance.</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>Congratulations!</strong> You now have a solid foundation in
+        Object-Oriented Programming. These concepts will serve you well in
+        every Python project you build. Practice by creating your own classes
+        for problems you encounter in your work &mdash; the more you use OOP,
+        the more natural it becomes.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="python-for-automation.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Python for Automation</span></a>
+        <a href="numpy-pandas.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">NumPy &amp; Pandas</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

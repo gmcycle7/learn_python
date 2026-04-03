@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started — Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">Home</div><a href="../index.html" class="nav-link">Home</a></div>
+      <div class="nav-section"><div class="nav-section-title">A — What is Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a></div>
+      <div class="nav-section"><div class="nav-section-title">B — Getting Started</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a></div>
+      <div class="nav-section"><div class="nav-section-title">C — Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D — Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E — MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F — Comparisons</div><a href="comparisons.html" class="nav-link">Language Comparisons</a></div>
+      <div class="nav-section"><div class="nav-section-title">G — Projects</div><a href="projects.html" class="nav-link">Mini Projects</a></div>
+      <div class="nav-section"><div class="nav-section-title">H — Practice</div><a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a></div>
+      <div class="nav-section"><div class="nav-section-title">I — Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J — Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span> Getting Started</div>
+
+      <!-- ============================================================ -->
+      <!-- SECTION B — GETTING STARTED WITH PYTHON                      -->
+      <!-- ============================================================ -->
+
+      <h1>Section B — Getting Started with Python</h1>
+      <p class="section-intro">
+        Before you can write a single line of Python, you need Python installed on your machine and a basic understanding of how to run code. This section walks you through every step — installing Python, verifying the installation, running code interactively and from files, managing virtual environments, and installing third-party packages. By the end, you will have a fully working Python development setup.
+      </p>
+
+      <div class="callout callout-matlab">
+        <h4>Note for MATLAB Users</h4>
+        <p>
+          In MATLAB, everything comes bundled: you install MATLAB and you immediately have an editor, a command window, a path manager, and every toolbox you purchased. Python is different. Python itself is just the language interpreter. You choose your own editor (VS Code, PyCharm, etc.), manage packages separately with <code>pip</code>, and organize project dependencies with virtual environments. This flexibility is powerful, but it means there are a few setup steps before you start coding. Don't worry — once you do it once, it becomes second nature.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 1. HOW TO INSTALL PYTHON                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="install-python">1. How to Install Python</h2>
+
+      <p>
+        Python is free and open-source. The official distribution is available at
+        <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>.
+        Always download the latest stable release (Python 3.12 or newer as of this writing). <strong>Do not install Python 2</strong> — it reached end-of-life in January 2020.
+      </p>
+
+      <!-- Windows -->
+      <h3 id="install-windows">Windows</h3>
+      <ol>
+        <li>Go to <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>.</li>
+        <li>Click the large yellow <strong>"Download Python 3.x.x"</strong> button. This downloads the Windows installer (<code>.exe</code> file).</li>
+        <li>Run the downloaded installer. You will see a window titled <em>"Install Python 3.x.x"</em> with two checkboxes at the bottom.</li>
+        <li>
+          <strong>CRITICAL:</strong> Check the box that says <strong>"Add python.exe to PATH"</strong> before clicking anything else. This checkbox is at the very bottom of the installer window and is <em>unchecked by default</em>.
+        </li>
+        <li>Click <strong>"Install Now"</strong> (the recommended option). The installer will show a progress bar.</li>
+        <li>When you see <em>"Setup was successful"</em>, click <strong>Close</strong>.</li>
+        <li>Open a <strong>new</strong> Command Prompt or PowerShell window (existing windows won't see the new PATH) and type <code>python --version</code> to verify.</li>
+      </ol>
+
+      <div class="callout callout-warning">
+        <h4>Warning — "Add to PATH" on Windows</h4>
+        <p>
+          If you forget to check <strong>"Add python.exe to PATH"</strong>, Windows will not recognize the <code>python</code> command in your terminal. You would need to either re-run the installer and select <em>Modify</em> to add it, or manually add Python's install directory (e.g., <code>C:\Users\YourName\AppData\Local\Programs\Python\Python312\</code>) to your system's PATH environment variable. Save yourself the headache — always check that box.
+        </p>
+      </div>
+
+      <!-- macOS -->
+      <h3 id="install-macos">macOS</h3>
+      <ol>
+        <li>Go to <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>.</li>
+        <li>Click the <strong>"Download Python 3.x.x"</strong> button. This downloads a <code>.pkg</code> installer.</li>
+        <li>Open the <code>.pkg</code> file. You will see a standard macOS installer wizard. Click <strong>Continue</strong> through the introduction, license agreement (click <strong>Agree</strong>), and destination selection.</li>
+        <li>Click <strong>Install</strong>. You may be asked for your administrator password.</li>
+        <li>When the installer finishes, it opens a Finder window showing the Python folder. You can close this.</li>
+        <li>Open <strong>Terminal</strong> (found in Applications &gt; Utilities) and type <code>python3 --version</code> to verify.</li>
+      </ol>
+
+      <p>
+        <strong>Note:</strong> macOS may come with an older system Python (Python 2 on older versions, or a stub that prompts you to install developer tools). Always use the <code>python3</code> command on macOS to ensure you are running Python 3.
+      </p>
+
+      <p><strong>Alternative with Homebrew:</strong></p>
+      <pre><code class="language-bash"># Install Homebrew first if you don't have it:
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Then install Python:
+brew install python</code></pre>
+
+      <!-- Linux -->
+      <h3 id="install-linux">Linux</h3>
+      <p>Most Linux distributions come with Python 3 pre-installed. Check first:</p>
+      <pre><code class="language-bash">python3 --version</code></pre>
+      <p>If Python 3 is not installed, or you want a newer version, use your distribution's package manager:</p>
+
+      <pre><code class="language-bash"># Ubuntu / Debian
+sudo apt update
+sudo apt install python3 python3-pip python3-venv
+
+# Fedora
+sudo dnf install python3 python3-pip
+
+# Arch Linux
+sudo pacman -S python python-pip</code></pre>
+
+      <div class="callout callout-tip">
+        <h4>Tip — Which Python Version?</h4>
+        <p>
+          Always install the latest stable Python 3 release. As of this writing, Python 3.12+ is recommended. Avoid Python 3.6 or older, as many modern libraries have dropped support for them. You can check which versions are currently supported at <a href="https://devguide.python.org/versions/" target="_blank" rel="noopener">devguide.python.org/versions</a>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 2. HOW TO CHECK PYTHON VERSION                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="check-version">2. How to Check Your Python Version</h2>
+
+      <p>
+        After installation, open a terminal (Command Prompt or PowerShell on Windows, Terminal on macOS/Linux) and run one of the following commands:
+      </p>
+
+      <pre><code class="language-bash"># Check the Python version
+python --version
+# Output: Python 3.12.4
+
+# On macOS/Linux you may need to use python3
+python3 --version
+# Output: Python 3.12.4</code></pre>
+
+      <p>
+        If you get an error like <code>'python' is not recognized as an internal or external command</code> on Windows, Python is not on your PATH. Revisit the installation step above.
+      </p>
+
+      <h3>Find Where Python Is Installed</h3>
+
+      <pre><code class="language-bash"># Windows — find the Python executable location
+where python
+# Output: C:\Users\YourName\AppData\Local\Programs\Python\Python312\python.exe
+
+# macOS / Linux — find the Python executable location
+which python3
+# Output: /usr/local/bin/python3</code></pre>
+
+      <p>
+        These commands are useful for debugging when you have multiple Python versions installed and want to confirm which one your terminal is using.
+      </p>
+
+      <h3>Check pip Version Too</h3>
+
+      <pre><code class="language-bash"># Check pip version
+pip --version
+# Output: pip 24.0 from ...site-packages/pip (python 3.12)
+
+# Or on macOS/Linux
+pip3 --version</code></pre>
+
+      <!-- ============================================================ -->
+      <!-- 3. HOW TO RUN PYTHON FROM THE TERMINAL                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="run-interactive">3. How to Run Python from the Terminal (Interactive Mode)</h2>
+
+      <p>
+        Python has a built-in interactive interpreter, often called the <strong>REPL</strong> (Read-Eval-Print Loop). This is similar to the MATLAB Command Window — you type an expression, press Enter, and immediately see the result.
+      </p>
+
+      <h3>Starting the Interactive Interpreter</h3>
+
+      <pre><code class="language-bash"># Start interactive Python
+python
+
+# Or on macOS/Linux
+python3</code></pre>
+
+      <p>You will see something like this:</p>
+
+      <pre><code class="language-text">Python 3.12.4 (main, Jun  7 2024, 00:00:00) [GCC 14.1.1] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;</code></pre>
+
+      <p>
+        The <code>&gt;&gt;&gt;</code> prompt means Python is waiting for your input. Try typing some expressions:
+      </p>
+
+      <pre><code class="language-python">&gt;&gt;&gt; 2 + 3
+5
+&gt;&gt;&gt; "Hello, " + "World!"
+'Hello, World!'
+&gt;&gt;&gt; 10 / 3
+3.3333333333333335
+&gt;&gt;&gt; 2 ** 10
+1024
+&gt;&gt;&gt; type(42)
+&lt;class 'int'&gt;
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.sqrt(144)
+12.0
+&gt;&gt;&gt; [x ** 2 for x in range(5)]
+[0, 1, 4, 9, 16]</code></pre>
+
+      <h3>Exiting the Interactive Interpreter</h3>
+
+      <p>There are several ways to exit:</p>
+
+      <pre><code class="language-python">&gt;&gt;&gt; exit()       # Built-in function — works everywhere
+&gt;&gt;&gt; quit()       # Also works everywhere
+# Or use a keyboard shortcut:
+# Ctrl+Z then Enter  (Windows)
+# Ctrl+D             (macOS / Linux)</code></pre>
+
+      <div class="callout callout-info">
+        <h4>Interactive Mode vs. Scripts</h4>
+        <p>
+          The interactive interpreter is great for quick experiments and testing small snippets, much like MATLAB's Command Window. However, for anything beyond a few lines, you should write your code in a <code>.py</code> file (a "script") and run it from the terminal. We cover this next.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 4. HOW TO RUN A .py FILE                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="run-script">4. How to Run a <code>.py</code> File</h2>
+
+      <p>
+        Real Python development happens in <code>.py</code> files — plain text files containing Python code. Here is the complete workflow:
+      </p>
+
+      <h3>Step 1: Create a Python File</h3>
+
+      <p>
+        Open any text editor (VS Code, Notepad++, Sublime Text, or even plain Notepad) and type the following:
+      </p>
+
+      <pre><code class="language-python"># hello.py — My first Python script
+
+name = "World"
+print(f"Hello, {name}!")
+print("Welcome to Python.")
+print(f"2 + 3 = {2 + 3}")</code></pre>
+
+      <p>
+        Save this file as <code>hello.py</code> in a folder you can easily navigate to (e.g., <code>C:\Users\YourName\projects\hello.py</code> on Windows or <code>~/projects/hello.py</code> on macOS/Linux).
+      </p>
+
+      <div class="callout callout-warning">
+        <h4>Warning — File Extension Matters</h4>
+        <p>
+          Make sure the file is saved with the <code>.py</code> extension, not <code>.py.txt</code>. If you are using Windows Notepad, select <strong>"All Files (*.*)"</strong> in the "Save as type" dropdown, then type the filename as <code>hello.py</code>. Better yet, use a proper code editor like <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> (free).
+        </p>
+      </div>
+
+      <h3>Step 2: Navigate to the File's Folder</h3>
+
+      <pre><code class="language-bash"># Windows
+cd C:\Users\YourName\projects
+
+# macOS / Linux
+cd ~/projects</code></pre>
+
+      <h3>Step 3: Run the Script</h3>
+
+      <pre><code class="language-bash"># Windows
+python hello.py
+
+# macOS / Linux
+python3 hello.py</code></pre>
+
+      <p>You should see this output:</p>
+
+      <pre><code class="language-text">Hello, World!
+Welcome to Python.
+2 + 3 = 5</code></pre>
+
+      <h3>The Workflow Summary</h3>
+      <ol>
+        <li><strong>Edit</strong> your <code>.py</code> file in a text editor.</li>
+        <li><strong>Save</strong> the file.</li>
+        <li><strong>Switch</strong> to your terminal.</li>
+        <li><strong>Run</strong> with <code>python filename.py</code>.</li>
+        <li><strong>Read</strong> the output (or error messages).</li>
+        <li><strong>Repeat</strong> — go back to step 1 and make changes.</li>
+      </ol>
+
+      <p>
+        This edit-save-run cycle is the fundamental Python workflow. Editors like VS Code let you run scripts with a single keypress, but under the hood, it is still doing the same thing.
+      </p>
+
+      <!-- ============================================================ -->
+      <!-- 5. VIRTUAL ENVIRONMENTS                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="virtual-environments">5. How to Use Virtual Environments</h2>
+
+      <div class="callout callout-important">
+        <h4>Why This Matters</h4>
+        <p>
+          Imagine you have two projects: Project A needs <code>numpy 1.24</code> and Project B needs <code>numpy 1.26</code>. If you install packages globally (system-wide), you can only have one version of <code>numpy</code> at a time, and switching between projects becomes a nightmare. <strong>Virtual environments solve this problem.</strong> Each project gets its own isolated folder of packages, so Project A and Project B can each have exactly the versions they need, without any conflicts.
+        </p>
+        <p>
+          Think of a virtual environment as giving each project its own private copy of Python and its packages. It is one of the most important habits to develop as a Python programmer. <strong>Always use a virtual environment for every project.</strong>
+        </p>
+      </div>
+
+      <h3>Creating a Virtual Environment</h3>
+
+      <p>
+        Python 3 includes the <code>venv</code> module out of the box (no installation needed). Navigate to your project folder and run:
+      </p>
+
+      <pre><code class="language-bash"># Create a virtual environment named "myenv"
+python -m venv myenv
+
+# Or on macOS/Linux
+python3 -m venv myenv</code></pre>
+
+      <p>
+        This creates a new folder called <code>myenv</code> inside your project directory. This folder contains a copy of the Python interpreter, a <code>pip</code> executable, and a <code>site-packages</code> directory where installed packages will go. You typically name it <code>venv</code>, <code>.venv</code>, or <code>env</code> — any name works.
+      </p>
+
+      <h3>Activating the Virtual Environment</h3>
+
+      <p>
+        Creating the environment is not enough — you must <strong>activate</strong> it so that your terminal uses the environment's Python and pip instead of the global ones.
+      </p>
+
+      <pre><code class="language-bash"># Windows (Command Prompt)
+myenv\Scripts\activate
+
+# Windows (PowerShell)
+myenv\Scripts\Activate.ps1
+
+# Windows (Git Bash)
+source myenv/Scripts/activate
+
+# macOS / Linux
+source myenv/bin/activate</code></pre>
+
+      <p>
+        When the environment is active, you will see the environment name in parentheses at the beginning of your terminal prompt:
+      </p>
+
+      <pre><code class="language-text">(myenv) C:\Users\YourName\projects&gt;
+(myenv) user@machine:~/projects$</code></pre>
+
+      <p>
+        While the environment is active, <code>python</code> and <code>pip</code> refer to the versions inside the virtual environment — not the global ones.
+      </p>
+
+      <h3>Deactivating the Virtual Environment</h3>
+
+      <pre><code class="language-bash"># Works on all platforms — just type:
+deactivate</code></pre>
+
+      <p>
+        The <code>(myenv)</code> prefix disappears, and your terminal goes back to using the global Python.
+      </p>
+
+      <h3>Complete Virtual Environment Workflow</h3>
+
+      <pre><code class="language-bash"># 1. Create a project folder
+mkdir my_project
+cd my_project
+
+# 2. Create a virtual environment
+python -m venv venv
+
+# 3. Activate it
+# Windows:   venv\Scripts\activate
+# Mac/Linux: source venv/bin/activate
+
+# 4. Install packages (they go into the venv only)
+pip install numpy requests
+
+# 5. Do your work...
+python my_script.py
+
+# 6. When done, deactivate
+deactivate</code></pre>
+
+      <div class="callout callout-warning">
+        <h4>Warning — Don't Commit Your venv Folder</h4>
+        <p>
+          The virtual environment folder (<code>venv/</code>, <code>myenv/</code>, etc.) can be hundreds of megabytes and is specific to your operating system. <strong>Never</strong> add it to version control (Git). Instead, add it to your <code>.gitignore</code> file. Others can recreate the environment using your <code>requirements.txt</code> (covered in the next section).
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <h4>MATLAB Comparison</h4>
+        <p>
+          MATLAB does not have virtual environments. When you install a toolbox, it is available to every MATLAB project on your machine. This is simpler but can cause version conflicts. Python's virtual environment system gives you fine-grained control over dependencies per project — a major advantage for reproducibility and collaboration.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 6. INSTALLING PACKAGES WITH PIP                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="pip">6. How to Install Packages with pip</h2>
+
+      <p>
+        Python's standard library is extensive, but the real power of the ecosystem comes from <strong>third-party packages</strong> — libraries written by the community and published on <a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a> (the Python Package Index). There are over 500,000 packages available. You install them using <code>pip</code>, Python's package installer.
+      </p>
+
+      <h3>Installing a Package</h3>
+
+      <pre><code class="language-bash"># Make sure your virtual environment is active first!
+
+# Install a single package
+pip install numpy
+
+# Install a specific version
+pip install numpy==1.26.4
+
+# Install multiple packages at once
+pip install numpy requests matplotlib pandas</code></pre>
+
+      <p>
+        pip will download the package from PyPI and install it (along with any dependencies it needs). You will see output showing the download progress and a success message like <code>Successfully installed numpy-1.26.4</code>.
+      </p>
+
+      <h3>Listing Installed Packages</h3>
+
+      <pre><code class="language-bash"># See all installed packages and their versions
+pip list
+
+# Example output:
+# Package    Version
+# ---------- -------
+# numpy      1.26.4
+# pip        24.0
+# requests   2.31.0
+# setuptools 69.5.1</code></pre>
+
+      <h3>Freezing Dependencies to requirements.txt</h3>
+
+      <pre><code class="language-bash"># Export exact versions of all installed packages
+pip freeze &gt; requirements.txt
+
+# View the file
+cat requirements.txt
+# Output:
+# certifi==2024.2.2
+# charset-normalizer==3.3.2
+# numpy==1.26.4
+# requests==2.31.0
+# urllib3==2.2.1</code></pre>
+
+      <p>
+        The <code>requirements.txt</code> file is a plain text list of packages with pinned versions. Share this file with collaborators or include it in your Git repository so anyone can recreate your exact environment:
+      </p>
+
+      <pre><code class="language-bash"># Someone else (or you on a new machine) can install everything with:
+pip install -r requirements.txt</code></pre>
+
+      <h3>Upgrading and Uninstalling Packages</h3>
+
+      <pre><code class="language-bash"># Upgrade a package to the latest version
+pip install --upgrade numpy
+
+# Upgrade pip itself
+pip install --upgrade pip
+
+# Uninstall a package
+pip uninstall requests</code></pre>
+
+      <h3>Searching for Packages</h3>
+
+      <p>
+        To find packages, browse <a href="https://pypi.org/" target="_blank" rel="noopener">pypi.org</a> directly in your web browser. Some popular packages you will encounter as a MATLAB user transitioning to Python:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Package</th><th>Purpose</th><th>MATLAB Equivalent</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>numpy</code></td><td>Numerical arrays and math</td><td>Core MATLAB arrays</td></tr>
+          <tr><td><code>scipy</code></td><td>Scientific computing (optimization, integration, etc.)</td><td>MATLAB built-in functions</td></tr>
+          <tr><td><code>matplotlib</code></td><td>Plotting and visualization</td><td>MATLAB plot functions</td></tr>
+          <tr><td><code>pandas</code></td><td>Data tables and analysis</td><td>MATLAB tables</td></tr>
+          <tr><td><code>sympy</code></td><td>Symbolic math</td><td>Symbolic Math Toolbox</td></tr>
+          <tr><td><code>scikit-learn</code></td><td>Machine learning</td><td>Statistics and ML Toolbox</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!-- 7. COMMON BEGINNER MISTAKES IN SETUP                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">7. Common Beginner Mistakes in Setup</h2>
+
+      <p>
+        Almost every Python beginner hits one or more of these issues. Read through them now so you can avoid hours of frustration later.
+      </p>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 1 — Not Adding Python to PATH (Windows)</h4>
+        <p>
+          <strong>Symptom:</strong> You type <code>python</code> in the terminal and get <code>'python' is not recognized as an internal or external command'</code>.
+        </p>
+        <p>
+          <strong>Fix:</strong> Re-run the Python installer, choose <em>Modify</em>, and make sure the PATH option is checked. Alternatively, use the full path to python.exe (e.g., <code>C:\Users\YourName\AppData\Local\Programs\Python\Python312\python.exe</code>), but this is tedious.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 2 — Using the Wrong Python Version</h4>
+        <p>
+          <strong>Symptom:</strong> Code that uses modern features (f-strings, walrus operator, match statements) throws <code>SyntaxError</code>.
+        </p>
+        <p>
+          <strong>Fix:</strong> Run <code>python --version</code> to check. If you see Python 2.x, you need to install Python 3 and use the <code>python3</code> command. If you see Python 3.6 or older, upgrade to a current version.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 3 — Mixing pip and pip3</h4>
+        <p>
+          <strong>Symptom:</strong> You install a package with <code>pip install numpy</code> but when you run your script with <code>python3</code>, you get <code>ModuleNotFoundError: No module named 'numpy'</code>.
+        </p>
+        <p>
+          <strong>Fix:</strong> <code>pip</code> might be linked to Python 2 on some systems while <code>pip3</code> is linked to Python 3. The safest way to install packages is: <code>python3 -m pip install numpy</code>. This guarantees the package is installed for the same Python that you run.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 4 — Installing Packages Globally Instead of in a Virtual Environment</h4>
+        <p>
+          <strong>Symptom:</strong> Package version conflicts between projects. System Python breaks after a bad install. Permission errors (<code>ERROR: Could not install packages due to an EnvironmentError</code>).
+        </p>
+        <p>
+          <strong>Fix:</strong> Always create and activate a virtual environment before running <code>pip install</code>. Check that your prompt shows <code>(venv)</code> before installing.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 5 — Forgetting to Activate the Virtual Environment</h4>
+        <p>
+          <strong>Symptom:</strong> You created a virtual environment, installed packages into it, but your script cannot find them.
+        </p>
+        <p>
+          <strong>Fix:</strong> Make sure you see <code>(venv)</code> or <code>(myenv)</code> in your terminal prompt. If not, run the activate command again. You must activate the environment <strong>every time</strong> you open a new terminal window.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 6 — Running python Instead of python3 on macOS/Linux</h4>
+        <p>
+          <strong>Symptom:</strong> On some macOS/Linux systems, <code>python</code> points to Python 2 (or does not exist), while <code>python3</code> is the correct command.
+        </p>
+        <p>
+          <strong>Fix:</strong> Always use <code>python3</code> and <code>pip3</code> on macOS/Linux unless you are inside a virtual environment (where <code>python</code> is always correct).
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>Mistake 7 — Editing Code but Running the Old Version</h4>
+        <p>
+          <strong>Symptom:</strong> You change your code but the output does not change.
+        </p>
+        <p>
+          <strong>Fix:</strong> Make sure you <strong>saved the file</strong> before running it again. This is a surprisingly common oversight, especially for MATLAB users who are accustomed to the editor auto-saving before running.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 8. COMMAND/TOOL COMPARISON TABLE                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="command-comparison">8. Difference Between python, python3, pip, pip3, venv, and conda</h2>
+
+      <p>
+        These terms can be confusing when you are just starting out. Here is a clear comparison:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Command / Tool</th>
+            <th>What It Is</th>
+            <th>When to Use It</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>python</code></td>
+            <td>The Python interpreter</td>
+            <td>Running scripts, starting the REPL</td>
+            <td>On Windows, this is typically Python 3. On macOS/Linux, this <em>may</em> point to Python 2 on older systems, or may not exist at all.</td>
+          </tr>
+          <tr>
+            <td><code>python3</code></td>
+            <td>The Python 3 interpreter (explicit)</td>
+            <td>Running scripts on macOS/Linux</td>
+            <td>Always refers to Python 3. Use this on macOS/Linux to be safe. Inside a virtual environment, <code>python</code> and <code>python3</code> are the same.</td>
+          </tr>
+          <tr>
+            <td><code>pip</code></td>
+            <td>Python package installer</td>
+            <td>Installing third-party packages</td>
+            <td>May be linked to Python 2 on some systems. Safest usage: <code>python -m pip install ...</code></td>
+          </tr>
+          <tr>
+            <td><code>pip3</code></td>
+            <td>Package installer for Python 3 (explicit)</td>
+            <td>Installing packages on macOS/Linux</td>
+            <td>Guarantees packages install for Python 3. Inside a venv, <code>pip</code> and <code>pip3</code> are equivalent.</td>
+          </tr>
+          <tr>
+            <td><code>venv</code></td>
+            <td>Python's built-in virtual environment module</td>
+            <td>Creating isolated project environments</td>
+            <td>Included with Python 3.3+. Lightweight, no extra installation needed. Usage: <code>python -m venv myenv</code></td>
+          </tr>
+          <tr>
+            <td><code>conda</code></td>
+            <td>Third-party package and environment manager (from Anaconda/Miniconda)</td>
+            <td>Data science projects, managing complex dependencies</td>
+            <td>Manages both Python packages <em>and</em> non-Python dependencies (e.g., C libraries). Heavier than venv. Popular in data science. You do <strong>not</strong> need conda to start learning Python — <code>venv</code> + <code>pip</code> is sufficient.</td>
+          </tr>
+          <tr>
+            <td><code>virtualenv</code></td>
+            <td>Third-party virtual environment tool</td>
+            <td>Older projects or when you need extra features</td>
+            <td>Predates <code>venv</code>. Faster environment creation, supports older Python. For most beginners, the built-in <code>venv</code> is all you need.</td>
+          </tr>
+          <tr>
+            <td><code>pyenv</code></td>
+            <td>Tool for managing multiple Python versions</td>
+            <td>When you need several Python versions side by side</td>
+            <td>Not a package manager — it manages <em>Python itself</em>. Useful for developers who work on projects requiring different Python versions. macOS/Linux only (there is a Windows port called <code>pyenv-win</code>).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-tip">
+        <h4>Recommended Setup for Beginners</h4>
+        <p>
+          Don't overcomplicate things. For your first few months with Python, all you need is:
+        </p>
+        <ul>
+          <li><strong>Python 3</strong> installed from python.org</li>
+          <li><strong>venv</strong> for virtual environments (built-in, no installation needed)</li>
+          <li><strong>pip</strong> for installing packages (comes with Python)</li>
+          <li><strong>VS Code</strong> as your text editor (free, with excellent Python support)</li>
+        </ul>
+        <p>You can explore conda, pyenv, and other tools later when you have a specific need for them.</p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- QUICK REFERENCE                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="quick-reference">Quick Reference: Essential Commands</h2>
+
+      <p>Bookmark this section. These are the commands you will use every day:</p>
+
+      <table>
+        <thead>
+          <tr><th>Task</th><th>Command</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Check Python version</td><td><code>python --version</code></td></tr>
+          <tr><td>Start interactive Python</td><td><code>python</code></td></tr>
+          <tr><td>Run a script</td><td><code>python myscript.py</code></td></tr>
+          <tr><td>Create a virtual environment</td><td><code>python -m venv venv</code></td></tr>
+          <tr><td>Activate venv (Windows CMD)</td><td><code>venv\Scripts\activate</code></td></tr>
+          <tr><td>Activate venv (macOS/Linux)</td><td><code>source venv/bin/activate</code></td></tr>
+          <tr><td>Deactivate venv</td><td><code>deactivate</code></td></tr>
+          <tr><td>Install a package</td><td><code>pip install package_name</code></td></tr>
+          <tr><td>Install from requirements</td><td><code>pip install -r requirements.txt</code></td></tr>
+          <tr><td>List installed packages</td><td><code>pip list</code></td></tr>
+          <tr><td>Export dependencies</td><td><code>pip freeze &gt; requirements.txt</code></td></tr>
+          <tr><td>Upgrade a package</td><td><code>pip install --upgrade package_name</code></td></tr>
+          <tr><td>Exit interactive Python</td><td><code>exit()</code> or Ctrl+D / Ctrl+Z</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!-- SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <p>In this section you learned how to:</p>
+
+      <ul>
+        <li><strong>Install Python</strong> on Windows, macOS, and Linux (and why the "Add to PATH" checkbox matters on Windows).</li>
+        <li><strong>Verify your installation</strong> with <code>python --version</code> and <code>where</code>/<code>which</code>.</li>
+        <li><strong>Use the interactive interpreter</strong> for quick experiments and how to exit it.</li>
+        <li><strong>Write and run <code>.py</code> files</strong> using the edit-save-run workflow.</li>
+        <li><strong>Create virtual environments</strong> with <code>venv</code> to isolate project dependencies.</li>
+        <li><strong>Install packages</strong> with <code>pip</code> and manage dependencies with <code>requirements.txt</code>.</li>
+        <li><strong>Avoid common setup mistakes</strong> that trip up most beginners.</li>
+        <li><strong>Distinguish between</strong> <code>python</code>, <code>python3</code>, <code>pip</code>, <code>pip3</code>, <code>venv</code>, and <code>conda</code>.</li>
+      </ul>
+
+      <p>
+        You now have everything you need to start writing Python code. In the next section, we dive into the language itself — starting with <code>print()</code>, variables, and numbers.
+      </p>
+
+      <!-- ============================================================ -->
+      <!-- PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="what-is-python.html" class="prev"><span class="nav-label">← Previous</span><span class="nav-title">What is Python?</span></a>
+        <a href="basics-print-variables.html" class="next"><span class="nav-label">Next →</span><span class="nav-title">Print, Variables &amp; Numbers</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

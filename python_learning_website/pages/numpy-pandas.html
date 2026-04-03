@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NumPy &amp; Pandas Basics &mdash; Learn Python</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" placeholder="Search pages..." aria-label="Search">
+      <div class="search-results"></div>
+    </div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link active">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> NumPy &amp; Pandas Basics
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION K — NUMPY & PANDAS BASICS                           -->
+      <!-- ============================================================ -->
+
+      <h1>Section K &mdash; NumPy &amp; Pandas Basics</h1>
+      <p class="page-subtitle">
+        NumPy is Python's answer to MATLAB's matrix engine. Pandas is the
+        go-to library for tabular data analysis. If you are coming from
+        MATLAB, these two libraries will feel the most familiar &mdash; and
+        together they replace most of what MATLAB does out of the box.
+      </p>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Why This Page Is Critical for MATLAB Users</div>
+        <p>
+          In MATLAB, numerical arrays and matrix operations are built into the
+          language. In Python, <strong>they are not</strong>. You need
+          <code>import numpy</code> to get MATLAB-like array behavior. Without
+          NumPy, Python has no native matrix type, no element-wise operations on
+          arrays, and no linear algebra functions. Think of NumPy as the
+          <strong>MATLAB engine inside Python</strong>.
+        </p>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <div class="toc-title">On This Page</div>
+        <ul>
+          <li><strong>Part 1: NumPy</strong>
+            <ul>
+              <li><a href="#what-is-numpy">1. What is NumPy?</a></li>
+              <li><a href="#creating-arrays">2. Creating Arrays</a></li>
+              <li><a href="#array-properties">3. Array Properties</a></li>
+              <li><a href="#indexing-slicing">4. Indexing &amp; Slicing</a></li>
+              <li><a href="#array-operations">5. Array Operations</a></li>
+              <li><a href="#math-functions">6. Math Functions</a></li>
+              <li><a href="#linear-algebra">7. Linear Algebra</a></li>
+              <li><a href="#reshaping-stacking">8. Reshaping &amp; Stacking</a></li>
+              <li><a href="#matlab-numpy-table">9. MATLAB vs NumPy Translation Table</a></li>
+            </ul>
+          </li>
+          <li><strong>Part 2: Pandas</strong>
+            <ul>
+              <li><a href="#what-is-pandas">10. What is Pandas?</a></li>
+              <li><a href="#creating-dataframes">11. Creating DataFrames</a></li>
+              <li><a href="#exploring-data">12. Exploring Data</a></li>
+              <li><a href="#selecting-data">13. Selecting Data</a></li>
+              <li><a href="#modifying-data">14. Modifying Data</a></li>
+              <li><a href="#grouping-aggregation">15. Grouping &amp; Aggregation</a></li>
+              <li><a href="#reading-writing">16. Reading &amp; Writing Files</a></li>
+              <li><a href="#plotting-pandas">17. Simple Plotting with Pandas</a></li>
+              <li><a href="#common-operations">18. Common Operations</a></li>
+            </ul>
+          </li>
+          <li><a href="#exercises">Exercises</a></li>
+          <li><a href="#summary">Summary</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PART 1: NUMPY                                               -->
+      <!-- ============================================================ -->
+
+      <h2 style="margin-top:2.5rem; border-bottom:3px solid var(--primary); padding-bottom:.5rem;">
+        Part 1 &mdash; NumPy (The MATLAB Replacement)
+      </h2>
+
+      <!-- ============================================================ -->
+      <!--  1. WHAT IS NUMPY                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-is-numpy">1. What is NumPy?</h2>
+
+      <p>
+        <strong>NumPy</strong> (Numerical Python) is the fundamental library
+        for numerical computing in Python. It provides:
+      </p>
+
+      <ul>
+        <li><strong>N-dimensional arrays</strong> (<code>ndarray</code>) &mdash; fast, memory-efficient, typed arrays</li>
+        <li><strong>Element-wise operations</strong> &mdash; just like MATLAB's <code>.*</code>, <code>./</code>, etc.</li>
+        <li><strong>Broadcasting</strong> &mdash; automatic size expansion for compatible shapes</li>
+        <li><strong>Linear algebra, FFT, random numbers</strong> &mdash; the core scientific toolkit</li>
+        <li><strong>C-level speed</strong> &mdash; loops happen in optimized C code, not slow Python loops</li>
+      </ul>
+
+      <h3>Installation</h3>
+
+      <pre><code># Install NumPy (run once in your terminal)
+pip install numpy
+
+# Then in your Python code:
+import numpy as np     # The universal convention — always use 'np'</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB comparison</div>
+        <p>
+          In MATLAB, you just type <code>A = [1 2 3]</code> and it works &mdash;
+          arrays are built-in. In Python, you must first <code>import numpy as np</code>,
+          then use <code>A = np.array([1, 2, 3])</code>. This one extra line is
+          the "cost" of Python being a general-purpose language. Everything else
+          behaves similarly.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. CREATING ARRAYS                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="creating-arrays">2. Creating Arrays</h2>
+
+      <p>
+        NumPy arrays are the workhorse data structure. Here are all the
+        common ways to create them &mdash; each with the MATLAB equivalent
+        in comments.
+      </p>
+
+      <pre><code>import numpy as np
+
+# From a Python list  (MATLAB: a = [1, 2, 3])
+a = np.array([1, 2, 3])
+print(a)            # [1 2 3]
+
+# 2D array / matrix  (MATLAB: A = [1 2; 3 4])
+A = np.array([[1, 2],
+              [3, 4]])
+print(A)
+# [[1 2]
+#  [3 4]]
+
+# Zeros  (MATLAB: zeros(3, 4))
+z = np.zeros((3, 4))          # Note: tuple (3, 4), not two args
+
+# Ones  (MATLAB: ones(2, 3))
+o = np.ones((2, 3))
+
+# Identity matrix  (MATLAB: eye(4))
+I = np.eye(4)
+
+# Range of values  (MATLAB: 0:2:10)
+r = np.arange(0, 11, 2)       # [0, 2, 4, 6, 8, 10]
+
+# Evenly spaced values  (MATLAB: linspace(0, 1, 5))
+ls = np.linspace(0, 1, 5)     # [0.  0.25 0.5  0.75 1. ]
+
+# Random values  (MATLAB: rand(3, 3))
+R = np.random.rand(3, 3)      # 3x3 uniform random [0, 1)
+
+# Random integers  (MATLAB: randi(10, 2, 3))
+ri = np.random.randint(1, 11, size=(2, 3))  # Random ints 1-10
+
+# Empty (uninitialized)  (MATLAB: N/A)
+e = np.empty((2, 2))          # Fast, but values are garbage
+
+# Full (fill with a value)  (MATLAB: repmat(7, 3, 3) or 7*ones(3,3))
+f = np.full((3, 3), 7)        # 3x3 filled with 7</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Watch out: tuple for shape!</div>
+        <p>
+          MATLAB: <code>zeros(3, 4)</code> uses two separate arguments.<br>
+          NumPy: <code>np.zeros((3, 4))</code> uses a <strong>single tuple</strong>
+          <code>(3, 4)</code>. Forgetting the double parentheses is the #1
+          beginner mistake.
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB: Everything is at least 2D</div>
+        <p>
+          In MATLAB, <code>[1 2 3]</code> is a 1&times;3 matrix. In NumPy,
+          <code>np.array([1, 2, 3])</code> is a <strong>1D</strong> array
+          with shape <code>(3,)</code> &mdash; it has no row/column distinction.
+          This is intentional and more flexible, but can surprise MATLAB users.
+          If you need a row or column vector, use <code>reshape</code>:
+          <code>a.reshape(1, 3)</code> for a row, <code>a.reshape(3, 1)</code>
+          for a column.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. ARRAY PROPERTIES                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="array-properties">3. Array Properties</h2>
+
+      <pre><code>import numpy as np
+
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+print(A.shape)     # (2, 3)   — MATLAB: size(A)
+print(A.ndim)      # 2        — MATLAB: ndims(A)
+print(A.size)      # 6        — MATLAB: numel(A)
+print(A.dtype)     # int64    — MATLAB: class(A)
+print(len(A))      # 2        — number of rows (first dimension)</code></pre>
+
+      <h3>Reshaping</h3>
+
+      <pre><code># Reshape 1D to 2D  (MATLAB: reshape(a, 2, 3))
+a = np.arange(6)           # [0 1 2 3 4 5]
+b = a.reshape(2, 3)
+print(b)
+# [[0 1 2]
+#  [3 4 5]]
+
+# Use -1 to auto-calculate one dimension
+c = a.reshape(3, -1)       # (3, 2) — NumPy figures out the 2
+print(c)
+# [[0 1]
+#  [2 3]
+#  [4 5]]
+
+# Changing dtype
+d = np.array([1, 2, 3], dtype=np.float64)
+print(d.dtype)              # float64</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB size() vs NumPy .shape</div>
+        <p>
+          MATLAB: <code>size(A)</code> returns <code>[2 3]</code>.<br>
+          NumPy: <code>A.shape</code> returns <code>(2, 3)</code> &mdash; a
+          <strong>tuple</strong>, not an array. Access dimensions with
+          <code>A.shape[0]</code> (rows) and <code>A.shape[1]</code> (cols).
+          There is no <code>size(A, 1)</code>; use <code>A.shape[0]</code>
+          instead.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. INDEXING & SLICING                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="indexing-slicing">4. Indexing &amp; Slicing</h2>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">Critical: 0-based indexing!</div>
+        <p>
+          MATLAB uses <strong>1-based</strong> indexing. Python and NumPy use
+          <strong>0-based</strong> indexing. The first element is at index
+          <code>0</code>, not <code>1</code>. This single difference causes
+          more bugs for MATLAB converts than anything else. Be vigilant!
+        </p>
+      </div>
+
+      <pre><code>import numpy as np
+
+a = np.array([10, 20, 30, 40, 50])
+
+# Basic indexing (0-based!)
+print(a[0])        # 10    — MATLAB: a(1)
+print(a[2])        # 30    — MATLAB: a(3)
+print(a[-1])       # 50    — MATLAB: a(end)
+print(a[-2])       # 40    — MATLAB: a(end-1)
+
+# Slicing [start:stop:step] — stop is EXCLUSIVE
+print(a[1:4])      # [20 30 40]   — MATLAB: a(2:4) gets same values
+print(a[:3])       # [10 20 30]   — first 3 elements
+print(a[2:])       # [30 40 50]   — from index 2 onward
+print(a[::2])      # [10 30 50]   — every other element</code></pre>
+
+      <h3>2D Indexing</h3>
+
+      <pre><code>A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+# Single element  (MATLAB: A(1, 2) = 2)
+print(A[0, 1])     # 2  — row 0, col 1
+
+# Entire row  (MATLAB: A(2, :))
+print(A[1, :])     # [4 5 6]
+
+# Entire column  (MATLAB: A(:, 3))
+print(A[:, 2])     # [3 6 9]
+
+# Sub-matrix  (MATLAB: A(1:2, 2:3))
+print(A[0:2, 1:3])
+# [[2 3]
+#  [5 6]]</code></pre>
+
+      <h3>Fancy Indexing (no MATLAB equivalent)</h3>
+
+      <pre><code># Index with a list of positions
+a = np.array([10, 20, 30, 40, 50])
+print(a[[0, 2, 4]])    # [10 30 50]  — pick specific indices
+
+# Boolean indexing (MATLAB: a(a > 25))
+mask = a > 25
+print(mask)             # [False False  True  True  True]
+print(a[mask])          # [30 40 50]
+print(a[a > 25])        # [30 40 50]  — shorthand, same result</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB's end vs Python's -1</div>
+        <p>
+          MATLAB: <code>a(end)</code>, <code>a(end-1)</code><br>
+          Python: <code>a[-1]</code>, <code>a[-2]</code><br>
+          MATLAB: <code>a(2:end)</code><br>
+          Python: <code>a[1:]</code> &mdash; no <code>end</code> keyword needed,
+          just leave the stop empty.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Slicing returns a VIEW, not a copy!</div>
+        <p>
+          In NumPy, <code>b = a[1:4]</code> creates a <strong>view</strong>
+          of the same memory. If you modify <code>b</code>, you modify
+          <code>a</code> too! In MATLAB, slicing always copies. To get a
+          copy in NumPy, use <code>b = a[1:4].copy()</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. ARRAY OPERATIONS                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="array-operations">5. Array Operations</h2>
+
+      <p>
+        In MATLAB, you use <code>.*</code> for element-wise and <code>*</code>
+        for matrix multiplication. In NumPy, <code>*</code> is
+        <strong>always element-wise</strong> and <code>@</code> is matrix
+        multiplication. This is simpler and less error-prone.
+      </p>
+
+      <pre><code>import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# Element-wise arithmetic (MATLAB: .* ./ .^ etc.)
+print(a + b)       # [5 7 9]
+print(a - b)       # [-3 -3 -3]
+print(a * b)       # [ 4 10 18]     — element-wise (like MATLAB .*)
+print(a / b)       # [0.25 0.4  0.5]
+print(a ** 2)      # [1 4 9]        — element-wise power (MATLAB: a.^2)
+
+# Scalar operations (broadcasting)
+print(a * 10)      # [10 20 30]
+print(a + 100)     # [101 102 103]
+
+# Comparison operators return boolean arrays
+print(a > 2)       # [False False  True]
+print(a == 2)      # [False  True False]
+print(a != 2)      # [ True False  True]</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">The dot disappears in NumPy</div>
+        <p>
+          <strong>MATLAB:</strong> <code>.*</code> (element-wise), <code>*</code> (matrix multiply)<br>
+          <strong>NumPy:</strong> <code>*</code> (element-wise), <code>@</code> (matrix multiply)<br>
+          No more forgetting the dot! In NumPy, <code>*</code> always means
+          element-wise, so the most common operation is the default.
+        </p>
+      </div>
+
+      <h3>Broadcasting</h3>
+
+      <p>
+        Broadcasting lets NumPy perform operations on arrays of different
+        shapes without explicit replication. MATLAB added implicit expansion
+        in R2016b; NumPy has had it from the beginning.
+      </p>
+
+      <pre><code>A = np.array([[1, 2, 3],
+              [4, 5, 6]])     # shape (2, 3)
+
+row = np.array([10, 20, 30])  # shape (3,)
+
+# Add row to every row of A (no repmat needed!)
+print(A + row)
+# [[11 22 33]
+#  [14 25 36]]
+
+col = np.array([[100],
+                [200]])       # shape (2, 1)
+
+# Add column to every column of A
+print(A + col)
+# [[101 102 103]
+#  [204 205 206]]</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">No more repmat!</div>
+        <p>
+          MATLAB (pre-R2016b): <code>A + repmat(row, 2, 1)</code><br>
+          MATLAB (R2016b+): <code>A + row</code> (implicit expansion)<br>
+          NumPy: <code>A + row</code> (broadcasting &mdash; always worked this way)<br>
+          NumPy's broadcasting rules: dimensions are compared from right to
+          left; they are compatible if they are equal or one of them is 1.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. MATH FUNCTIONS                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="math-functions">6. Math Functions</h2>
+
+      <pre><code>import numpy as np
+
+a = np.array([1, 2, 3, 4, 5])
+
+# Aggregation functions
+print(np.sum(a))       # 15    — MATLAB: sum(a)
+print(np.mean(a))      # 3.0   — MATLAB: mean(a)
+print(np.std(a))       # 1.414 — MATLAB: std(a)  (note: default ddof differs!)
+print(np.min(a))       # 1     — MATLAB: min(a)
+print(np.max(a))       # 5     — MATLAB: max(a)
+print(np.argmin(a))    # 0     — index of min (MATLAB: [~, idx] = min(a))
+print(np.argmax(a))    # 4     — index of max
+
+# Also available as methods
+print(a.sum())         # 15
+print(a.mean())        # 3.0
+
+# Math functions
+print(np.sqrt(a))      # [1.   1.41 1.73 2.   2.24]
+print(np.sin(a))       # sin of each element
+print(np.cos(a))       # cos of each element
+print(np.exp(a))       # e^x for each element
+print(np.log(a))       # natural log (MATLAB: log(a))
+print(np.log10(a))     # base-10 log (MATLAB: log10(a))
+print(np.abs(a))       # absolute value</code></pre>
+
+      <h3>The axis Parameter</h3>
+
+      <p>
+        For 2D arrays, you often want to sum across rows or columns.
+        The <code>axis</code> parameter controls this.
+      </p>
+
+      <pre><code>A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+print(np.sum(A))           # 21  — sum of ALL elements
+
+print(np.sum(A, axis=0))   # [5 7 9]  — sum down each column
+                           # MATLAB: sum(A, 1) or just sum(A)
+
+print(np.sum(A, axis=1))   # [ 6 15]  — sum across each row
+                           # MATLAB: sum(A, 2)
+
+print(np.mean(A, axis=0))  # [2.5 3.5 4.5] — column means
+print(np.mean(A, axis=1))  # [2.  5.]      — row means</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">axis=0 vs axis=1</div>
+        <p>
+          This is confusing at first. Think of it as: <code>axis=0</code>
+          means "collapse rows" (operate <strong>down</strong> columns),
+          <code>axis=1</code> means "collapse columns" (operate
+          <strong>across</strong> rows).<br><br>
+          MATLAB: <code>sum(A, 1)</code> = sum down columns,
+          <code>sum(A, 2)</code> = sum across rows.<br>
+          NumPy: <code>np.sum(A, axis=0)</code> = sum down columns,
+          <code>np.sum(A, axis=1)</code> = sum across rows.<br>
+          Same concept, but MATLAB uses 1/2 while NumPy uses 0/1.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">std() default differs!</div>
+        <p>
+          MATLAB's <code>std()</code> uses <strong>N-1</strong> (sample std)
+          by default. NumPy's <code>np.std()</code> uses <strong>N</strong>
+          (population std) by default. To match MATLAB, use
+          <code>np.std(a, ddof=1)</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. LINEAR ALGEBRA                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="linear-algebra">7. Linear Algebra</h2>
+
+      <p>
+        Linear algebra is where MATLAB users will feel most at home.
+        NumPy's <code>linalg</code> submodule has all the essentials.
+      </p>
+
+      <pre><code>import numpy as np
+
+A = np.array([[1, 2],
+              [3, 4]])
+b = np.array([5, 6])
+
+# Matrix multiplication  (MATLAB: A * B)
+B = np.array([[5, 6],
+              [7, 8]])
+print(A @ B)               # The @ operator (Python 3.5+)
+# [[19 22]
+#  [43 50]]
+print(np.dot(A, B))        # Equivalent to @
+
+# Transpose  (MATLAB: A')
+print(A.T)
+# [[1 3]
+#  [2 4]]
+
+# Determinant  (MATLAB: det(A))
+print(np.linalg.det(A))   # -2.0
+
+# Inverse  (MATLAB: inv(A))
+print(np.linalg.inv(A))
+# [[-2.   1. ]
+#  [ 1.5 -0.5]]
+
+# Solve linear system Ax = b  (MATLAB: A\b)
+x = np.linalg.solve(A, b)
+print(x)                   # [-4.   4.5]
+
+# Eigenvalues and eigenvectors  (MATLAB: [V, D] = eig(A))
+eigenvalues, eigenvectors = np.linalg.eig(A)
+print(eigenvalues)         # [-0.372  5.372]
+print(eigenvectors)        # columns are eigenvectors
+
+# Matrix rank  (MATLAB: rank(A))
+print(np.linalg.matrix_rank(A))   # 2
+
+# Norm  (MATLAB: norm(A))
+print(np.linalg.norm(A))          # Frobenius norm by default</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB's backslash \ operator</div>
+        <p>
+          MATLAB: <code>x = A\b</code> solves the system <code>Ax = b</code>.<br>
+          NumPy: <code>x = np.linalg.solve(A, b)</code> &mdash; more verbose but
+          equally efficient. For least-squares solutions (overdetermined systems),
+          use <code>np.linalg.lstsq(A, b, rcond=None)</code> instead of
+          MATLAB's backslash.
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">eig() returns values differently</div>
+        <p>
+          MATLAB: <code>[V, D] = eig(A)</code> &mdash; <code>D</code> is a
+          diagonal matrix of eigenvalues.<br>
+          NumPy: <code>vals, vecs = np.linalg.eig(A)</code> &mdash;
+          <code>vals</code> is a 1D array of eigenvalues (not a diagonal
+          matrix). Convert with <code>np.diag(vals)</code> if needed.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. RESHAPING & STACKING                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="reshaping-stacking">8. Reshaping &amp; Stacking</h2>
+
+      <pre><code>import numpy as np
+
+a = np.array([1, 2, 3, 4, 5, 6])
+
+# reshape — change dimensions without changing data
+b = a.reshape(2, 3)
+print(b)
+# [[1 2 3]
+#  [4 5 6]]
+
+# ravel / flatten — convert to 1D
+print(b.ravel())             # [1 2 3 4 5 6]  — returns a view
+print(b.flatten())           # [1 2 3 4 5 6]  — returns a copy
+
+# Transpose
+print(b.T)
+# [[1 4]
+#  [2 5]
+#  [3 6]]
+
+# Concatenate  (MATLAB: [A, B] or [A; B])
+x = np.array([1, 2, 3])
+y = np.array([4, 5, 6])
+print(np.concatenate([x, y]))     # [1 2 3 4 5 6]
+
+# vstack — stack vertically  (MATLAB: [A; B])
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6]])
+print(np.vstack([A, B]))
+# [[1 2]
+#  [3 4]
+#  [5 6]]
+
+# hstack — stack horizontally  (MATLAB: [A, B])
+C = np.array([[7], [8]])
+print(np.hstack([A, C]))
+# [[1 2 7]
+#  [3 4 8]]
+
+# column_stack — useful for building matrices from 1D arrays
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+print(np.column_stack([a, b]))
+# [[1 4]
+#  [2 5]
+#  [3 6]]</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB concatenation vs NumPy</div>
+        <p>
+          MATLAB: <code>[A, B]</code> (horizontal), <code>[A; B]</code> (vertical).<br>
+          NumPy: <code>np.hstack([A, B])</code> (horizontal),
+          <code>np.vstack([A, B])</code> (vertical).<br>
+          The NumPy syntax is more verbose but also more explicit about what
+          is happening.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. MATLAB vs NUMPY TRANSLATION TABLE                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="matlab-numpy-table">9. MATLAB vs NumPy Translation Table</h2>
+
+      <p>
+        This is the reference table you will use most often. Bookmark it,
+        print it, or keep it open in a tab. It covers 35+ common operations.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:8%">#</th>
+            <th style="width:28%">Operation</th>
+            <th style="width:30%">MATLAB</th>
+            <th style="width:34%">NumPy (Python)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Create row vector</td>
+            <td><code>a = [1 2 3]</code></td>
+            <td><code>a = np.array([1, 2, 3])</code></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Create column vector</td>
+            <td><code>a = [1; 2; 3]</code></td>
+            <td><code>a = np.array([[1],[2],[3]])</code></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Create matrix</td>
+            <td><code>A = [1 2; 3 4]</code></td>
+            <td><code>A = np.array([[1,2],[3,4]])</code></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Zeros matrix</td>
+            <td><code>zeros(3, 4)</code></td>
+            <td><code>np.zeros((3, 4))</code></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Ones matrix</td>
+            <td><code>ones(3, 4)</code></td>
+            <td><code>np.ones((3, 4))</code></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Identity matrix</td>
+            <td><code>eye(4)</code></td>
+            <td><code>np.eye(4)</code></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Range (step)</td>
+            <td><code>0:2:10</code></td>
+            <td><code>np.arange(0, 12, 2)</code></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Linearly spaced</td>
+            <td><code>linspace(0, 1, 5)</code></td>
+            <td><code>np.linspace(0, 1, 5)</code></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Random (uniform)</td>
+            <td><code>rand(3, 3)</code></td>
+            <td><code>np.random.rand(3, 3)</code></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Random (normal)</td>
+            <td><code>randn(3, 3)</code></td>
+            <td><code>np.random.randn(3, 3)</code></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Size / shape</td>
+            <td><code>size(A)</code></td>
+            <td><code>A.shape</code></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Number of rows</td>
+            <td><code>size(A, 1)</code></td>
+            <td><code>A.shape[0]</code></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Number of elements</td>
+            <td><code>numel(A)</code></td>
+            <td><code>A.size</code></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Number of dimensions</td>
+            <td><code>ndims(A)</code></td>
+            <td><code>A.ndim</code></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Transpose</td>
+            <td><code>A'</code></td>
+            <td><code>A.T</code></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Conjugate transpose</td>
+            <td><code>A'</code></td>
+            <td><code>A.conj().T</code></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Element-wise multiply</td>
+            <td><code>A .* B</code></td>
+            <td><code>A * B</code></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Matrix multiply</td>
+            <td><code>A * B</code></td>
+            <td><code>A @ B</code></td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Element-wise power</td>
+            <td><code>A .^ 2</code></td>
+            <td><code>A ** 2</code></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Matrix power</td>
+            <td><code>A ^ 2</code></td>
+            <td><code>np.linalg.matrix_power(A,2)</code></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>Element-wise divide</td>
+            <td><code>A ./ B</code></td>
+            <td><code>A / B</code></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>Inverse</td>
+            <td><code>inv(A)</code></td>
+            <td><code>np.linalg.inv(A)</code></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>Determinant</td>
+            <td><code>det(A)</code></td>
+            <td><code>np.linalg.det(A)</code></td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>Eigenvalues</td>
+            <td><code>[V, D] = eig(A)</code></td>
+            <td><code>vals, vecs = np.linalg.eig(A)</code></td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>Solve Ax=b</td>
+            <td><code>A \ b</code></td>
+            <td><code>np.linalg.solve(A, b)</code></td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>Rank</td>
+            <td><code>rank(A)</code></td>
+            <td><code>np.linalg.matrix_rank(A)</code></td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>Sum all</td>
+            <td><code>sum(A(:))</code></td>
+            <td><code>np.sum(A)</code></td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>Sum columns</td>
+            <td><code>sum(A)</code> or <code>sum(A,1)</code></td>
+            <td><code>np.sum(A, axis=0)</code></td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>Sum rows</td>
+            <td><code>sum(A, 2)</code></td>
+            <td><code>np.sum(A, axis=1)</code></td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>Mean</td>
+            <td><code>mean(A)</code></td>
+            <td><code>np.mean(A)</code></td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>Std (sample)</td>
+            <td><code>std(A)</code></td>
+            <td><code>np.std(A, ddof=1)</code></td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>Max of array</td>
+            <td><code>max(A(:))</code></td>
+            <td><code>np.max(A)</code></td>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>Dot product</td>
+            <td><code>dot(a, b)</code></td>
+            <td><code>np.dot(a, b)</code></td>
+          </tr>
+          <tr>
+            <td>34</td>
+            <td>Cross product</td>
+            <td><code>cross(a, b)</code></td>
+            <td><code>np.cross(a, b)</code></td>
+          </tr>
+          <tr>
+            <td>35</td>
+            <td>Horizontal concat</td>
+            <td><code>[A, B]</code></td>
+            <td><code>np.hstack([A, B])</code></td>
+          </tr>
+          <tr>
+            <td>36</td>
+            <td>Vertical concat</td>
+            <td><code>[A; B]</code></td>
+            <td><code>np.vstack([A, B])</code></td>
+          </tr>
+          <tr>
+            <td>37</td>
+            <td>Flatten to 1D</td>
+            <td><code>A(:)</code></td>
+            <td><code>A.ravel()</code></td>
+          </tr>
+          <tr>
+            <td>38</td>
+            <td>Reshape</td>
+            <td><code>reshape(A, 2, 3)</code></td>
+            <td><code>A.reshape(2, 3)</code></td>
+          </tr>
+          <tr>
+            <td>39</td>
+            <td>Find nonzero</td>
+            <td><code>find(A)</code></td>
+            <td><code>np.nonzero(A)</code></td>
+          </tr>
+          <tr>
+            <td>40</td>
+            <td>Sort</td>
+            <td><code>sort(A)</code></td>
+            <td><code>np.sort(A)</code></td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>Diagonal</td>
+            <td><code>diag(A)</code></td>
+            <td><code>np.diag(A)</code></td>
+          </tr>
+          <tr>
+            <td>42</td>
+            <td>Repmat</td>
+            <td><code>repmat(A, 2, 3)</code></td>
+            <td><code>np.tile(A, (2, 3))</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Print this table!</div>
+        <p>
+          Seriously &mdash; if you are transitioning from MATLAB, keep this
+          table handy for the first few weeks. After that, the NumPy syntax
+          will feel natural. Most operations are <em>shorter</em> in NumPy
+          than in MATLAB once you get used to them.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PART 2: PANDAS                                              -->
+      <!-- ============================================================ -->
+
+      <h2 style="margin-top:3rem; border-bottom:3px solid var(--primary); padding-bottom:.5rem;">
+        Part 2 &mdash; Pandas (Data Analysis)
+      </h2>
+
+      <!-- ============================================================ -->
+      <!--  10. WHAT IS PANDAS                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-is-pandas">10. What is Pandas?</h2>
+
+      <p>
+        <strong>Pandas</strong> is the standard Python library for working
+        with <strong>tabular data</strong> &mdash; think spreadsheets, CSV
+        files, or SQL tables. It provides two main data structures:
+      </p>
+
+      <ul>
+        <li><strong>Series</strong> &mdash; a single column of data (like a labeled 1D array)</li>
+        <li><strong>DataFrame</strong> &mdash; a 2D table with labeled rows and columns (like an Excel sheet)</li>
+      </ul>
+
+      <h3>Installation</h3>
+
+      <pre><code># Install Pandas
+pip install pandas
+
+# In your code:
+import pandas as pd    # The universal convention — always use 'pd'</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB equivalent: tables</div>
+        <p>
+          MATLAB introduced the <code>table</code> data type in R2013b.
+          Pandas DataFrames are similar but far more powerful. If you have
+          used MATLAB tables, Pandas will feel familiar. If you have been
+          using cell arrays or structs to hold mixed data, Pandas is a
+          massive upgrade.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  11. CREATING DATAFRAMES                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="creating-dataframes">11. Creating DataFrames</h2>
+
+      <pre><code>import pandas as pd
+
+# From a dictionary (most common)
+data = {
+    'Name':   ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age':    [25, 30, 35, 28],
+    'Score':  [85.5, 92.0, 78.3, 95.1],
+    'Passed': [True, True, False, True]
+}
+df = pd.DataFrame(data)
+print(df)
+#       Name  Age  Score  Passed
+# 0    Alice   25   85.5    True
+# 1      Bob   30   92.0    True
+# 2  Charlie   35   78.3   False
+# 3    Diana   28   95.1    True
+
+# From a list of lists
+data2 = [['Alice', 25], ['Bob', 30], ['Charlie', 35]]
+df2 = pd.DataFrame(data2, columns=['Name', 'Age'])
+
+# From a NumPy array
+import numpy as np
+arr = np.random.rand(4, 3)
+df3 = pd.DataFrame(arr, columns=['X', 'Y', 'Z'])
+
+# From a CSV file (most common in practice)
+# df = pd.read_csv('data.csv')</code></pre>
+
+      <h3>Series (a single column)</h3>
+
+      <pre><code># A Series is like a labeled 1D array
+ages = pd.Series([25, 30, 35, 28], name='Age')
+print(ages)
+# 0    25
+# 1    30
+# 2    35
+# 3    28
+# Name: Age, dtype: int64
+
+# Each column of a DataFrame is a Series
+print(type(df['Age']))    # &lt;class 'pandas.core.series.Series'&gt;</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  12. EXPLORING DATA                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="exploring-data">12. Exploring Data</h2>
+
+      <p>
+        When you first load data, you always want to inspect it. Here are
+        the essential commands to run first:
+      </p>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':   ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'Age':    [25, 30, 35, 28, 22],
+    'Score':  [85.5, 92.0, 78.3, 95.1, 88.0],
+    'Grade':  ['B', 'A', 'C', 'A', 'B']
+})
+
+# First 5 rows (or specify n)
+print(df.head())         # First 5 rows
+print(df.head(3))        # First 3 rows
+
+# Last 5 rows
+print(df.tail())
+
+# Shape: (rows, columns)
+print(df.shape)          # (5, 4)
+
+# Column names
+print(df.columns)        # Index(['Name', 'Age', 'Score', 'Grade'], ...)
+
+# Data types of each column
+print(df.dtypes)
+# Name      object
+# Age        int64
+# Score    float64
+# Grade     object
+
+# Concise summary
+df.info()
+# Tells you: column count, non-null counts, dtypes, memory usage
+
+# Statistical summary of numeric columns
+print(df.describe())
+#             Age      Score
+# count   5.0000    5.00000
+# mean   28.0000   87.78000
+# std     4.8477    6.35688
+# min    22.0000   78.30000
+# 25%    25.0000   85.50000
+# 50%    28.0000   88.00000
+# 75%    30.0000   92.00000
+# max    35.0000   95.10000</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB comparison</div>
+        <p>
+          MATLAB: <code>head(T)</code>, <code>summary(T)</code>,
+          <code>height(T)</code>, <code>width(T)</code><br>
+          Pandas: <code>df.head()</code>, <code>df.describe()</code>,
+          <code>df.shape[0]</code>, <code>df.shape[1]</code><br>
+          Very similar! The Pandas versions are just slightly different syntax.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  13. SELECTING DATA                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="selecting-data">13. Selecting Data</h2>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age':   [25, 30, 35, 28],
+    'Score': [85.5, 92.0, 78.3, 95.1]
+})
+
+# === Select a single column ===
+print(df['Name'])              # Returns a Series
+print(df.Name)                 # Dot notation (same thing, but avoid if
+                               # column name has spaces or conflicts)
+
+# === Select multiple columns ===
+print(df[['Name', 'Score']])   # Note double brackets [[...]]
+
+# === Select rows by position: .iloc[] (integer location) ===
+print(df.iloc[0])              # First row (as Series)
+print(df.iloc[0:2])            # First 2 rows (as DataFrame)
+print(df.iloc[0, 1])           # Row 0, Column 1 → 25
+
+# === Select rows by label: .loc[] ===
+print(df.loc[0])               # Row with index label 0
+print(df.loc[0:2])             # Rows 0, 1, AND 2 (inclusive!)
+print(df.loc[0, 'Name'])       # Row 0, column 'Name' → 'Alice'
+
+# === Boolean filtering (the most useful!) ===
+# People older than 27
+print(df[df['Age'] > 27])
+#       Name  Age  Score
+# 1      Bob   30   92.0
+# 2  Charlie   35   78.3
+# 3    Diana   28   95.1
+
+# Combine conditions with & (and) or | (or)
+print(df[(df['Age'] > 25) & (df['Score'] > 90)])
+#     Name  Age  Score
+# 1    Bob   30   92.0
+# 3  Diana   28   95.1</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">iloc vs loc: the key difference</div>
+        <p>
+          <code>.iloc[]</code> uses <strong>integer positions</strong>
+          (0, 1, 2...) and the end is <strong>exclusive</strong>
+          (like Python slicing).<br>
+          <code>.loc[]</code> uses <strong>index labels</strong> and the end
+          is <strong>inclusive</strong>.<br>
+          When your index is the default 0,1,2... they look similar, but they
+          behave differently with custom indices.
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB table indexing</div>
+        <p>
+          MATLAB: <code>T.Name</code>, <code>T(1:3, :)</code>,
+          <code>T(T.Age > 27, :)</code><br>
+          Pandas: <code>df['Name']</code>, <code>df.iloc[0:3]</code>,
+          <code>df[df['Age'] > 27]</code><br>
+          The boolean filtering syntax is almost identical!
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  14. MODIFYING DATA                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="modifying-data">14. Modifying Data</h2>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Alice', 'Bob', 'Charlie'],
+    'Age':   [25, 30, 35],
+    'Score': [85.5, 92.0, 78.3]
+})
+
+# === Add a new column ===
+df['Grade'] = ['B', 'A', 'C']
+df['Pass']  = df['Score'] >= 80     # Computed column
+
+# === Modify existing column ===
+df['Age'] = df['Age'] + 1           # Everyone gets a year older
+
+# === Drop a column ===
+df = df.drop(columns=['Pass'])      # Returns new DataFrame
+# or: df.drop('Pass', axis=1, inplace=True)
+
+# === Rename columns ===
+df = df.rename(columns={'Score': 'TestScore', 'Name': 'Student'})
+
+# === Handle missing data ===
+import numpy as np
+df.loc[1, 'TestScore'] = np.nan    # Introduce a missing value
+
+print(df.isna().sum())             # Count NaNs per column
+df['TestScore'] = df['TestScore'].fillna(0)        # Replace NaN with 0
+# or: df['TestScore'] = df['TestScore'].fillna(df['TestScore'].mean())
+
+# === Drop rows with NaN ===
+# df = df.dropna()                 # Drop any row with NaN
+# df = df.dropna(subset=['Score']) # Only check specific column
+
+# === Reset index after dropping rows ===
+# df = df.reset_index(drop=True)</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB comparison</div>
+        <p>
+          MATLAB: <code>T.NewCol = [...]</code> to add a column,
+          <code>T(:, 'ColName') = []</code> to remove.<br>
+          Pandas: <code>df['NewCol'] = [...]</code> to add,
+          <code>df.drop(columns=['ColName'])</code> to remove.<br>
+          In Pandas, most operations return a new DataFrame by default
+          (immutable style). Use <code>inplace=True</code> to modify in place,
+          but the Pandas community increasingly recommends just reassigning:
+          <code>df = df.drop(...)</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  15. GROUPING & AGGREGATION                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="grouping-aggregation">15. Grouping &amp; Aggregation</h2>
+
+      <p>
+        Grouping is one of Pandas' most powerful features. It works like
+        SQL's <code>GROUP BY</code> or a pivot table in Excel.
+      </p>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Department': ['Engineering', 'Engineering', 'Marketing',
+                   'Marketing', 'Engineering', 'Marketing'],
+    'Name':       ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'],
+    'Salary':     [75000, 82000, 65000, 70000, 90000, 68000],
+    'Years':      [3, 5, 2, 7, 10, 4]
+})
+
+# Group by department and compute mean salary
+print(df.groupby('Department')['Salary'].mean())
+# Department
+# Engineering    82333.333
+# Marketing      67666.667
+
+# Multiple aggregations at once
+print(df.groupby('Department')['Salary'].agg(['mean', 'min', 'max', 'count']))
+#                    mean    min    max  count
+# Department
+# Engineering  82333.333  75000  90000      3
+# Marketing    67666.667  65000  70000      3
+
+# Aggregate different columns differently
+result = df.groupby('Department').agg({
+    'Salary': ['mean', 'sum'],
+    'Years':  'mean'
+})
+print(result)
+
+# Group by and get size (count)
+print(df.groupby('Department').size())</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB equivalent</div>
+        <p>
+          MATLAB: <code>grpstats(T, 'Department', {'mean','min','max'}, 'DataVars', 'Salary')</code><br>
+          Or: <code>groupsummary(T, 'Department', 'mean', 'Salary')</code> (R2018a+)<br>
+          Pandas: <code>df.groupby('Department')['Salary'].agg(['mean','min','max'])</code><br>
+          The Pandas syntax is more concise and flexible.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  16. READING & WRITING FILES                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-writing">16. Reading &amp; Writing Files</h2>
+
+      <pre><code>import pandas as pd
+
+# === Read CSV ===
+df = pd.read_csv('data.csv')                # Basic
+df = pd.read_csv('data.csv', sep=';')       # Semicolon-separated
+df = pd.read_csv('data.csv', header=None)   # No header row
+df = pd.read_csv('data.csv', index_col=0)   # Use first column as index
+df = pd.read_csv('data.csv', usecols=['Name', 'Age'])  # Only load some columns
+df = pd.read_csv('data.csv', nrows=100)     # Only first 100 rows
+
+# === Write CSV ===
+df.to_csv('output.csv', index=False)        # Don't write the index column
+
+# === Read Excel ===
+df = pd.read_excel('data.xlsx')             # Requires openpyxl
+df = pd.read_excel('data.xlsx', sheet_name='Sheet2')
+
+# === Write Excel ===
+df.to_excel('output.xlsx', index=False)     # Requires openpyxl
+
+# === Read from clipboard (great for quick work!) ===
+# Copy a table from Excel or a website, then:
+# df = pd.read_clipboard()
+
+# === Read JSON ===
+# df = pd.read_json('data.json')
+
+# === Read SQL (requires connection) ===
+# import sqlite3
+# conn = sqlite3.connect('database.db')
+# df = pd.read_sql('SELECT * FROM users', conn)</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB comparison</div>
+        <p>
+          MATLAB: <code>readtable('data.csv')</code>,
+          <code>writetable(T, 'output.csv')</code>,
+          <code>readtable('data.xlsx')</code><br>
+          Pandas: <code>pd.read_csv('data.csv')</code>,
+          <code>df.to_csv('output.csv')</code>,
+          <code>pd.read_excel('data.xlsx')</code><br>
+          Almost identical! Pandas supports more formats out of the box
+          (JSON, SQL, HDF5, Parquet, etc.).
+        </p>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Installing Excel support</div>
+        <p>
+          To read/write <code>.xlsx</code> files, you need the
+          <code>openpyxl</code> library: <code>pip install openpyxl</code>.
+          For older <code>.xls</code> files, use <code>pip install xlrd</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  17. SIMPLE PLOTTING WITH PANDAS                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="plotting-pandas">17. Simple Plotting with Pandas</h2>
+
+      <p>
+        Pandas has built-in plotting that uses Matplotlib under the hood.
+        It is great for quick visualizations without writing a lot of code.
+      </p>
+
+      <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    'Month':    ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    'Sales':    [100, 120, 90, 140, 160],
+    'Expenses': [80, 85, 95, 100, 110]
+})
+
+# === Line plot ===
+df.plot(x='Month', y='Sales', kind='line', title='Monthly Sales')
+plt.show()
+
+# === Bar chart ===
+df.plot(x='Month', y=['Sales', 'Expenses'], kind='bar', title='Sales vs Expenses')
+plt.show()
+
+# === Histogram ===
+df['Sales'].hist(bins=5, title='Sales Distribution')
+# or: df['Sales'].plot(kind='hist', bins=5)
+plt.show()
+
+# === Scatter plot ===
+df.plot(x='Sales', y='Expenses', kind='scatter', title='Sales vs Expenses')
+# or: df.plot.scatter(x='Sales', y='Expenses')
+plt.show()
+
+# === Box plot ===
+df[['Sales', 'Expenses']].plot(kind='box', title='Distribution')
+plt.show()
+
+# === Pie chart ===
+df.set_index('Month')['Sales'].plot(kind='pie', title='Sales by Month')
+plt.show()</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB plotting comparison</div>
+        <p>
+          MATLAB: <code>plot(x, y)</code>, <code>bar(x, y)</code>,
+          <code>histogram(x)</code>, <code>scatter(x, y)</code><br>
+          Pandas: <code>df.plot(x=..., y=..., kind='line')</code>,
+          <code>kind='bar'</code>, <code>.hist()</code>,
+          <code>kind='scatter'</code><br>
+          The Pandas approach is column-name-driven rather than variable-driven.
+          For publication-quality plots, you will eventually learn
+          <code>matplotlib.pyplot</code> directly, which is very similar to
+          MATLAB's plotting functions.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  18. COMMON OPERATIONS                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-operations">18. Common Operations</h2>
+
+      <h3>Sorting</h3>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Charlie', 'Alice', 'Bob', 'Diana'],
+    'Age':   [35, 25, 30, 28],
+    'Score': [78.3, 85.5, 92.0, 95.1]
+})
+
+# Sort by one column
+print(df.sort_values('Age'))
+#       Name  Age  Score
+# 1    Alice   25   85.5
+# 3    Diana   28   95.1
+# 2      Bob   30   92.0
+# 0  Charlie   35   78.3
+
+# Sort descending
+print(df.sort_values('Score', ascending=False))
+
+# Sort by multiple columns
+print(df.sort_values(['Score', 'Age'], ascending=[False, True]))</code></pre>
+
+      <h3>Unique Values &amp; Value Counts</h3>
+
+      <pre><code>df = pd.DataFrame({
+    'City':  ['NYC', 'LA', 'NYC', 'Chicago', 'LA', 'NYC'],
+    'Score': [90, 85, 88, 92, 78, 95]
+})
+
+# Unique values in a column
+print(df['City'].unique())         # ['NYC' 'LA' 'Chicago']
+print(df['City'].nunique())        # 3
+
+# Count occurrences of each value
+print(df['City'].value_counts())
+# NYC        3
+# LA         2
+# Chicago    1</code></pre>
+
+      <h3>The apply() Function</h3>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Alice', 'Bob', 'Charlie'],
+    'Score': [85.5, 92.0, 78.3]
+})
+
+# Apply a function to each value in a column
+def grade(score):
+    if score >= 90: return 'A'
+    elif score >= 80: return 'B'
+    else: return 'C'
+
+df['Grade'] = df['Score'].apply(grade)
+print(df)
+#       Name  Score Grade
+# 0    Alice   85.5     B
+# 1      Bob   92.0     A
+# 2  Charlie   78.3     C
+
+# Lambda version (for simple operations)
+df['Curved'] = df['Score'].apply(lambda x: min(x + 5, 100))
+
+# Apply to rows (axis=1)
+df['Summary'] = df.apply(lambda row: f"{row['Name']}: {row['Score']}", axis=1)</code></pre>
+
+      <h3>String Operations</h3>
+
+      <pre><code>df = pd.DataFrame({'Name': ['Alice Smith', 'Bob Jones', 'Charlie Brown']})
+
+# String methods via .str accessor
+print(df['Name'].str.lower())        # alice smith, bob jones, ...
+print(df['Name'].str.upper())        # ALICE SMITH, BOB JONES, ...
+print(df['Name'].str.split(' '))     # [['Alice', 'Smith'], ...]
+print(df['Name'].str.contains('o'))  # [False, True, True]
+print(df['Name'].str.len())          # [11, 9, 13]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  EXERCISES                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">Exercises</h2>
+
+      <p>
+        Test your understanding with these exercises. Each one builds on
+        concepts from this page.
+      </p>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 1 &mdash; NumPy Array Creation</div>
+        <p>
+          Create a 5&times;5 identity matrix, then replace the diagonal
+          with values [10, 20, 30, 40, 50]. Print the result.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import numpy as np
+
+A = np.eye(5)
+np.fill_diagonal(A, [10, 20, 30, 40, 50])
+print(A)
+# [[10.  0.  0.  0.  0.]
+#  [ 0. 20.  0.  0.  0.]
+#  [ 0.  0. 30.  0.  0.]
+#  [ 0.  0.  0. 40.  0.]
+#  [ 0.  0.  0.  0. 50.]]</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 2 &mdash; Boolean Indexing</div>
+        <p>
+          Create a NumPy array of 20 random integers between 1 and 100.
+          Find and print all values greater than 50. Also print how many
+          such values there are.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import numpy as np
+
+np.random.seed(42)  # For reproducibility
+arr = np.random.randint(1, 101, size=20)
+print("Array:", arr)
+
+above_50 = arr[arr > 50]
+print("Above 50:", above_50)
+print("Count:", len(above_50))
+# or: print("Count:", np.sum(arr > 50))</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 3 &mdash; Matrix Operations</div>
+        <p>
+          Create two 3&times;3 matrices A and B with values of your choice.
+          Compute: (a) element-wise product, (b) matrix product,
+          (c) transpose of A, (d) determinant of A.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import numpy as np
+
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 10]])  # Use 10 instead of 9 so det != 0
+
+B = np.array([[2, 0, 1],
+              [0, 1, 0],
+              [1, 0, 2]])
+
+print("Element-wise product:\n", A * B)
+print("Matrix product:\n", A @ B)
+print("Transpose of A:\n", A.T)
+print("Determinant of A:", np.linalg.det(A))  # -3.0</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 4 &mdash; Solve a Linear System</div>
+        <p>
+          Solve the system of equations:<br>
+          <code>2x + y = 5</code><br>
+          <code>x + 3y = 7</code><br>
+          Use <code>np.linalg.solve()</code> and verify by substituting back.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import numpy as np
+
+A = np.array([[2, 1],
+              [1, 3]])
+b = np.array([5, 7])
+
+x = np.linalg.solve(A, b)
+print("Solution:", x)  # [1.6  1.8]
+
+# Verify: A @ x should equal b
+print("Verification:", A @ x)   # [5. 7.]
+print("Match:", np.allclose(A @ x, b))  # True</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 5 &mdash; Create a DataFrame</div>
+        <p>
+          Create a DataFrame with columns: <code>Product</code>,
+          <code>Price</code>, <code>Quantity</code>. Add at least 5 rows.
+          Then add a <code>Revenue</code> column (Price &times; Quantity)
+          and print the total revenue.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Product':  ['Widget', 'Gadget', 'Doohickey', 'Thingamajig', 'Whatsit'],
+    'Price':    [9.99, 24.99, 4.99, 49.99, 14.99],
+    'Quantity': [100, 50, 200, 30, 75]
+})
+
+df['Revenue'] = df['Price'] * df['Quantity']
+print(df)
+print(f"\nTotal revenue: ${df['Revenue'].sum():,.2f}")</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 6 &mdash; Filter &amp; Sort a DataFrame</div>
+        <p>
+          Using the DataFrame from Exercise 5, filter to show only products
+          with revenue above $500, sorted by revenue in descending order.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code># Continuing from Exercise 5...
+high_rev = df[df['Revenue'] > 500].sort_values('Revenue', ascending=False)
+print(high_rev)</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 7 &mdash; GroupBy Practice</div>
+        <p>
+          Create a DataFrame of student grades with columns:
+          <code>Student</code>, <code>Subject</code>, <code>Score</code>.
+          Include at least 3 students and 3 subjects. Use
+          <code>groupby()</code> to find the average score per student
+          and per subject.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Student': ['Alice','Alice','Alice','Bob','Bob','Bob','Charlie','Charlie','Charlie'],
+    'Subject': ['Math','Science','English','Math','Science','English','Math','Science','English'],
+    'Score':   [90, 85, 92, 78, 88, 72, 95, 91, 88]
+})
+
+print("Average per student:")
+print(df.groupby('Student')['Score'].mean())
+print()
+print("Average per subject:")
+print(df.groupby('Subject')['Score'].mean())</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">Exercise 8 &mdash; NumPy Broadcasting Challenge</div>
+        <p>
+          Create a 4&times;4 matrix of integers 1 through 16. Subtract the
+          row mean from each row (center the data). Verify that each row
+          now has mean approximately 0.
+        </p>
+        <details>
+          <summary>Show Solution</summary>
+          <pre><code>import numpy as np
+
+A = np.arange(1, 17).reshape(4, 4).astype(float)
+print("Original:\n", A)
+
+row_means = A.mean(axis=1, keepdims=True)  # Shape (4, 1)
+centered = A - row_means                    # Broadcasting!
+print("Centered:\n", centered)
+print("Row means after centering:", centered.mean(axis=1))
+# [0. 0. 0. 0.]</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Key Takeaways</div>
+        <p>Here is what you should remember from this page:</p>
+      </div>
+
+      <h3>NumPy Essentials</h3>
+      <ul>
+        <li><strong>Always</strong> <code>import numpy as np</code> &mdash; it is the universal convention.</li>
+        <li><strong>NumPy arrays</strong> replace MATLAB matrices &mdash; they are fast, typed, and support vectorized operations.</li>
+        <li><strong>0-based indexing</strong> &mdash; the first element is <code>a[0]</code>, not <code>a(1)</code>.</li>
+        <li><strong><code>*</code> is element-wise</strong>, <strong><code>@</code> is matrix multiply</strong> &mdash; no more forgetting the dot.</li>
+        <li><strong>Shape is a tuple</strong>: <code>np.zeros((3, 4))</code> not <code>np.zeros(3, 4)</code>.</li>
+        <li><strong>Broadcasting</strong> replaces <code>repmat</code> &mdash; automatic size expansion.</li>
+        <li><strong><code>np.linalg</code></strong> has all your linear algebra: <code>inv</code>, <code>det</code>, <code>eig</code>, <code>solve</code>.</li>
+        <li><strong>Views vs copies</strong> &mdash; slicing returns a view. Use <code>.copy()</code> when you need independence.</li>
+      </ul>
+
+      <h3>Pandas Essentials</h3>
+      <ul>
+        <li><strong>Always</strong> <code>import pandas as pd</code> &mdash; another universal convention.</li>
+        <li><strong>DataFrame</strong> = 2D table, <strong>Series</strong> = 1D column.</li>
+        <li><strong>Explore first</strong>: <code>.head()</code>, <code>.info()</code>, <code>.describe()</code>, <code>.shape</code>.</li>
+        <li><strong>Select data</strong> with <code>df['col']</code>, <code>.iloc[]</code> (position), <code>.loc[]</code> (label), and boolean masks.</li>
+        <li><strong><code>groupby()</code></strong> is incredibly powerful for aggregating data by category.</li>
+        <li><strong><code>pd.read_csv()</code></strong> and <strong><code>df.to_csv()</code></strong> are the most common I/O operations.</li>
+        <li><strong><code>.apply()</code></strong> lets you run any function on every value or row.</li>
+        <li><strong>Built-in plotting</strong> with <code>df.plot()</code> is great for quick visualizations.</li>
+      </ul>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Your Learning Path as a MATLAB User</div>
+        <p>
+          <strong>Week 1:</strong> Get comfortable with NumPy arrays &mdash; creation,
+          indexing (0-based!), basic math. Use the translation table above.<br>
+          <strong>Week 2:</strong> Practice linear algebra with NumPy. Rewrite a
+          small MATLAB script using NumPy.<br>
+          <strong>Week 3:</strong> Learn Pandas for data loading and analysis. Try
+          loading a CSV you previously analyzed in MATLAB.<br>
+          <strong>Week 4:</strong> Combine everything &mdash; load data with Pandas,
+          do numerical work with NumPy, plot with Matplotlib.<br><br>
+          Within a month, you will be more productive in Python than you ever
+          were in MATLAB &mdash; and everything is free and open source.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="oop.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Object-Oriented Programming</span></a>
+        <a href="glossary.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Glossary</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

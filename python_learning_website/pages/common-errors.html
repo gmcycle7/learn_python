@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common Errors &amp; How to Fix Them &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link active">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span>
+        <a href="best-practices.html">Best Practices</a><span class="sep">&rsaquo;</span>
+        Common Errors
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  COMMON ERRORS & HOW TO FIX THEM                              -->
+      <!-- ============================================================ -->
+
+      <h1>Common Errors &amp; How to Fix Them</h1>
+
+      <p>
+        Every programmer makes mistakes &mdash; even seasoned professionals.
+        The difference between a beginner and an experienced developer is not
+        that the expert never sees errors; it is that the expert knows how to
+        <strong>read</strong> the error message, <strong>understand</strong>
+        what went wrong, and <strong>fix it quickly</strong>. This page is your
+        complete reference for the 20 most common Python errors you will
+        encounter as a beginner.
+      </p>
+
+      <div class="callout callout-info">
+        <strong>How to use this page:</strong> Each error includes the exact
+        error message, a plain-English explanation, code that triggers the
+        error, the fix, and tips to avoid it in the future. Bookmark this page
+        and come back whenever you hit an error you don't recognize.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  TABLE OF CONTENTS                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="contents">Table of Contents</h2>
+
+      <ol>
+        <li><a href="#reading-tracebacks">How to Read a Traceback</a></li>
+        <li><a href="#debugging-strategy">General Debugging Strategy</a></li>
+        <li><a href="#quick-reference">Quick-Reference Table</a></li>
+        <li><a href="#syntax-error-invalid">SyntaxError: invalid syntax</a></li>
+        <li><a href="#syntax-error-eof">SyntaxError: unexpected EOF while parsing</a></li>
+        <li><a href="#indentation-expected">IndentationError: expected an indented block</a></li>
+        <li><a href="#indentation-unexpected">IndentationError: unexpected indent</a></li>
+        <li><a href="#name-error">NameError: name 'x' is not defined</a></li>
+        <li><a href="#type-error-operand">TypeError: unsupported operand type(s)</a></li>
+        <li><a href="#type-error-subscriptable">TypeError: 'type' object is not subscriptable</a></li>
+        <li><a href="#type-error-arguments">TypeError: function takes X positional arguments but Y were given</a></li>
+        <li><a href="#value-error">ValueError: invalid literal for int()</a></li>
+        <li><a href="#index-error">IndexError: list index out of range</a></li>
+        <li><a href="#key-error">KeyError</a></li>
+        <li><a href="#attribute-error">AttributeError</a></li>
+        <li><a href="#file-not-found">FileNotFoundError</a></li>
+        <li><a href="#zero-division">ZeroDivisionError</a></li>
+        <li><a href="#module-not-found">ModuleNotFoundError</a></li>
+        <li><a href="#import-error">ImportError</a></li>
+        <li><a href="#unbound-local">UnboundLocalError</a></li>
+        <li><a href="#recursion-error">RecursionError</a></li>
+        <li><a href="#stop-iteration">StopIteration</a></li>
+        <li><a href="#permission-error">PermissionError</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  HOW TO READ A TRACEBACK                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-tracebacks">1. How to Read a Traceback</h2>
+
+      <p>
+        When Python encounters an error, it prints a <strong>traceback</strong>
+        (also called a stack trace). This is not meant to intimidate you &mdash;
+        it is a roadmap that tells you exactly where the problem is. Let's walk
+        through one step by step.
+      </p>
+
+      <h3>Example traceback</h3>
+
+      <pre><code>Traceback (most recent call last):
+  File "calculator.py", line 12, in &lt;module&gt;
+    result = divide(10, 0)
+  File "calculator.py", line 5, in divide
+    return a / b
+ZeroDivisionError: division by zero</code></pre>
+
+      <h3>Step-by-step breakdown</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Line</th>
+            <th>What It Tells You</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Traceback (most recent call last):</code></td>
+            <td>The start of the traceback. The most recent call is listed <strong>last</strong> (at the bottom).</td>
+          </tr>
+          <tr>
+            <td><code>File "calculator.py", line 12, in &lt;module&gt;</code></td>
+            <td>The file name, the line number, and the scope. <code>&lt;module&gt;</code> means top-level code (not inside a function).</td>
+          </tr>
+          <tr>
+            <td><code>result = divide(10, 0)</code></td>
+            <td>The actual line of code that was executing at that point.</td>
+          </tr>
+          <tr>
+            <td><code>File "calculator.py", line 5, in divide</code></td>
+            <td>The error originated deeper &mdash; inside the <code>divide</code> function, at line 5.</td>
+          </tr>
+          <tr>
+            <td><code>return a / b</code></td>
+            <td>This is the exact line that caused the error.</td>
+          </tr>
+          <tr>
+            <td><code>ZeroDivisionError: division by zero</code></td>
+            <td>The <strong>error type</strong> and a <strong>description</strong>. This is always the last line and the most important one.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-success">
+        <strong>Key rule:</strong> Always read the traceback from the
+        <strong>bottom up</strong>. The last line tells you <em>what</em> went
+        wrong, and the lines above tell you <em>where</em> it went wrong.
+      </div>
+
+      <h3>Tips for reading tracebacks</h3>
+
+      <ul>
+        <li><strong>Start at the bottom.</strong> The error type and message are on the last line.</li>
+        <li><strong>Look at the last file/line reference that is YOUR code.</strong> Ignore lines from library files you did not write.</li>
+        <li><strong>Read the code snippet shown.</strong> Python prints the offending line for you.</li>
+        <li><strong>Check the line number.</strong> Open your file and go directly to that line.</li>
+        <li><strong>Sometimes the real bug is one line above.</strong> A missing colon or parenthesis on line 5 may cause an error reported on line 6.</li>
+      </ul>
+
+      <!-- ============================================================ -->
+      <!--  GENERAL DEBUGGING STRATEGY                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="debugging-strategy">2. General Debugging Strategy</h2>
+
+      <p>
+        When you encounter an error, resist the urge to randomly change things.
+        Instead, follow this systematic 5-step approach:
+      </p>
+
+      <h3>Step 1: Read the error message</h3>
+      <p>
+        This sounds obvious, but most beginners skip it. The error message
+        almost always tells you exactly what is wrong. Read the entire traceback,
+        starting from the bottom.
+      </p>
+
+      <h3>Step 2: Find the exact line</h3>
+      <p>
+        The traceback tells you which file and line number caused the error.
+        Go to that line. Remember that the real problem might be on the line
+        <em>just above</em> the reported line (especially for syntax errors).
+      </p>
+
+      <h3>Step 3: Reproduce with a minimal example</h3>
+      <p>
+        If the code is complex, try to isolate the problem. Create a tiny
+        script that reproduces the same error. This helps you understand the
+        root cause without distractions.
+      </p>
+
+      <h3>Step 4: Add print statements</h3>
+      <p>
+        When you are unsure what a variable contains, add <code>print()</code>
+        calls before the error line to inspect values and types:
+      </p>
+
+      <pre><code># Debugging: What is x right before the error?
+print(f"x = {x}, type = {type(x)}")
+result = x + 10  # This line fails</code></pre>
+
+      <h3>Step 5: Search for the error message</h3>
+      <p>
+        If you still can't figure it out, copy the error message and search
+        online. Sites like Stack Overflow have answers for virtually every
+        Python error you will ever encounter. Include the error type in your
+        search, for example: <em>"TypeError unsupported operand type str int
+        python"</em>.
+      </p>
+
+      <div class="callout callout-info">
+        <strong>Pro tip:</strong> As you gain experience, Steps 1 and 2 will
+        be enough to solve 90% of your errors. The debugging process becomes
+        second nature very quickly.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  QUICK-REFERENCE TABLE                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="quick-reference">3. Quick-Reference Table</h2>
+
+      <p>
+        Use this table to quickly identify an error and jump to its detailed
+        explanation.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Error</th>
+            <th>One-Line Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#syntax-error-invalid"><code>SyntaxError: invalid syntax</code></a></td>
+            <td>Missing colon, parenthesis, or quote &mdash; Python can't parse your code.</td>
+          </tr>
+          <tr>
+            <td><a href="#syntax-error-eof"><code>SyntaxError: unexpected EOF</code></a></td>
+            <td>Code ended before a block or expression was complete.</td>
+          </tr>
+          <tr>
+            <td><a href="#indentation-expected"><code>IndentationError: expected an indented block</code></a></td>
+            <td>A colon was followed by no indented code.</td>
+          </tr>
+          <tr>
+            <td><a href="#indentation-unexpected"><code>IndentationError: unexpected indent</code></a></td>
+            <td>A line has more indentation than expected.</td>
+          </tr>
+          <tr>
+            <td><a href="#name-error"><code>NameError: name 'x' is not defined</code></a></td>
+            <td>Using a variable that hasn't been created yet, or a typo in the name.</td>
+          </tr>
+          <tr>
+            <td><a href="#type-error-operand"><code>TypeError: unsupported operand type(s)</code></a></td>
+            <td>Trying an operation on incompatible types (e.g., string + integer).</td>
+          </tr>
+          <tr>
+            <td><a href="#type-error-subscriptable"><code>TypeError: 'type' object is not subscriptable</code></a></td>
+            <td>Using square brackets on a type name instead of calling it.</td>
+          </tr>
+          <tr>
+            <td><a href="#type-error-arguments"><code>TypeError: takes X arguments but Y given</code></a></td>
+            <td>Calling a function with the wrong number of arguments.</td>
+          </tr>
+          <tr>
+            <td><a href="#value-error"><code>ValueError: invalid literal for int()</code></a></td>
+            <td>Trying to convert a non-numeric string to a number.</td>
+          </tr>
+          <tr>
+            <td><a href="#index-error"><code>IndexError: list index out of range</code></a></td>
+            <td>Accessing a list position that doesn't exist.</td>
+          </tr>
+          <tr>
+            <td><a href="#key-error"><code>KeyError</code></a></td>
+            <td>Accessing a dictionary key that doesn't exist.</td>
+          </tr>
+          <tr>
+            <td><a href="#attribute-error"><code>AttributeError</code></a></td>
+            <td>Calling a method or attribute that the object doesn't have.</td>
+          </tr>
+          <tr>
+            <td><a href="#file-not-found"><code>FileNotFoundError</code></a></td>
+            <td>Trying to open a file that doesn't exist at the given path.</td>
+          </tr>
+          <tr>
+            <td><a href="#zero-division"><code>ZeroDivisionError</code></a></td>
+            <td>Dividing a number by zero.</td>
+          </tr>
+          <tr>
+            <td><a href="#module-not-found"><code>ModuleNotFoundError</code></a></td>
+            <td>Importing a module that isn't installed.</td>
+          </tr>
+          <tr>
+            <td><a href="#import-error"><code>ImportError</code></a></td>
+            <td>Importing a name that doesn't exist in a module.</td>
+          </tr>
+          <tr>
+            <td><a href="#unbound-local"><code>UnboundLocalError</code></a></td>
+            <td>Reading a local variable before it has been assigned inside a function.</td>
+          </tr>
+          <tr>
+            <td><a href="#recursion-error"><code>RecursionError</code></a></td>
+            <td>A function calls itself forever without stopping.</td>
+          </tr>
+          <tr>
+            <td><a href="#stop-iteration"><code>StopIteration</code></a></td>
+            <td>Calling <code>next()</code> on an iterator that has no more items.</td>
+          </tr>
+          <tr>
+            <td><a href="#permission-error"><code>PermissionError</code></a></td>
+            <td>Trying to read/write a file you don't have permission to access.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 1: SyntaxError: invalid syntax                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="syntax-error-invalid">4. SyntaxError: invalid syntax</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>SyntaxError: invalid syntax</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        Python tried to read your code but found something it doesn't understand.
+        Your code violates the grammar rules of the Python language. This is like
+        a grammatical error in English &mdash; the sentence doesn't make sense
+        to the interpreter.
+      </p>
+
+      <h3>Common causes and fixes</h3>
+
+      <h4>Cause 1: Missing colon after <code>if</code>, <code>for</code>, <code>def</code>, etc.</h4>
+
+      <pre><code># BAD — missing colon
+if x > 10
+    print("big")
+
+# GOOD
+if x > 10:
+    print("big")</code></pre>
+
+      <h4>Cause 2: Missing or mismatched parentheses</h4>
+
+      <pre><code># BAD — missing closing parenthesis
+print("Hello"
+
+# GOOD
+print("Hello")</code></pre>
+
+      <h4>Cause 3: Missing or mismatched quotes</h4>
+
+      <pre><code># BAD — opening quote but no closing quote
+message = "Hello world
+
+# GOOD
+message = "Hello world"</code></pre>
+
+      <h4>Cause 4: Using <code>=</code> instead of <code>==</code> in a condition</h4>
+
+      <pre><code># BAD — assignment in a condition
+if x = 5:
+    print("five")
+
+# GOOD — comparison
+if x == 5:
+    print("five")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Look at the line number in the error
+        message. Check for missing colons, unmatched parentheses, unmatched
+        quotes, or typos. Sometimes the real problem is on the line
+        <em>before</em> the reported line.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Use a code editor with syntax
+        highlighting. It will visually show you mismatched brackets and quotes
+        by coloring your code differently when something is wrong.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 2: SyntaxError: unexpected EOF while parsing           -->
+      <!-- ============================================================ -->
+
+      <h2 id="syntax-error-eof">5. SyntaxError: unexpected EOF while parsing</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>SyntaxError: unexpected EOF while parsing</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        "EOF" stands for "End Of File." Python reached the end of your code
+        while it was still expecting more. Something is incomplete &mdash; an
+        open parenthesis without a close, a function body with no code inside,
+        or a block that is empty.
+      </p>
+
+      <h3>Common causes and fixes</h3>
+
+      <h4>Cause 1: Empty code block</h4>
+
+      <pre><code># BAD — empty if block
+if x > 10:
+
+# GOOD — use pass as a placeholder
+if x > 10:
+    pass</code></pre>
+
+      <h4>Cause 2: Unclosed parenthesis, bracket, or brace</h4>
+
+      <pre><code># BAD — missing closing bracket
+numbers = [1, 2, 3
+
+# GOOD
+numbers = [1, 2, 3]</code></pre>
+
+      <h4>Cause 3: Incomplete function definition</h4>
+
+      <pre><code># BAD — function body is missing
+def greet(name):
+
+# GOOD
+def greet(name):
+    print(f"Hello, {name}!")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Check if you have an empty code block
+        (add <code>pass</code> as a placeholder), an unclosed bracket, or an
+        incomplete statement at the end of your file.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> When you type an opening bracket or
+        parenthesis, immediately type the closing one too, then move your
+        cursor back inside to fill in the contents.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 3: IndentationError: expected an indented block        -->
+      <!-- ============================================================ -->
+
+      <h2 id="indentation-expected">6. IndentationError: expected an indented block</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>IndentationError: expected an indented block</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        After a colon (<code>:</code>) &mdash; such as after <code>if</code>,
+        <code>for</code>, <code>def</code>, or <code>class</code> &mdash;
+        Python expects at least one indented line of code. You either forgot
+        to indent or left the block empty.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — no indented block after the colon
+def say_hello():
+print("Hello!")   # This line is not indented</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># GOOD — indent the body of the function
+def say_hello():
+    print("Hello!")</code></pre>
+
+      <pre><code># If you don't have code yet, use pass
+def say_hello():
+    pass  # Placeholder — will add code later</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Indent the line(s) after the colon by
+        4 spaces. If you intentionally want an empty block, use
+        <code>pass</code>.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Configure your editor to insert 4
+        spaces when you press Tab. After typing a colon and pressing Enter,
+        most editors will auto-indent for you.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 4: IndentationError: unexpected indent                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="indentation-unexpected">7. IndentationError: unexpected indent</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>IndentationError: unexpected indent</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        A line is indented more than Python expects. This usually happens when
+        you accidentally add extra spaces or mix tabs and spaces.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — the second print has extra indentation
+name = "Alice"
+    print(name)   # IndentationError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># GOOD — both lines at the same indentation level
+name = "Alice"
+print(name)</code></pre>
+
+      <pre><code># Another common case: inconsistent indentation inside a block
+if True:
+    print("A")
+        print("B")   # BAD — too much indentation
+
+# GOOD
+if True:
+    print("A")
+    print("B")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Make sure all lines at the same logical
+        level have exactly the same indentation. Remove extra spaces or fix
+        tab/space mixing.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Turn on "show whitespace" in your
+        editor so you can see whether you are using tabs or spaces. Stick to
+        spaces only (4 per level) and never mix tabs with spaces.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 5: NameError                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="name-error">8. NameError: name 'x' is not defined</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>NameError: name 'x' is not defined</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You are trying to use a variable, function, or name that Python has
+        never heard of. Either you haven't created it yet, you made a typo,
+        or it is defined in a different scope.
+      </p>
+
+      <h3>Common causes and fixes</h3>
+
+      <h4>Cause 1: Typo in a variable name</h4>
+
+      <pre><code># BAD — typo: "mesage" instead of "message"
+message = "Hello"
+print(mesage)   # NameError: name 'mesage' is not defined
+
+# GOOD
+message = "Hello"
+print(message)</code></pre>
+
+      <h4>Cause 2: Using a variable before assigning it</h4>
+
+      <pre><code># BAD — using total before it exists
+print(total)   # NameError
+total = 100
+
+# GOOD — assign first, then use
+total = 100
+print(total)</code></pre>
+
+      <h4>Cause 3: Forgetting to import a module</h4>
+
+      <pre><code># BAD — math was never imported
+result = math.sqrt(16)   # NameError: name 'math' is not defined
+
+# GOOD
+import math
+result = math.sqrt(16)</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Check the spelling carefully. Make sure
+        the variable is assigned <em>before</em> the line that uses it. If it
+        is from a module, make sure you have an <code>import</code> statement.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Use descriptive but consistent variable
+        names. A code editor with autocomplete will help you avoid typos by
+        suggesting names you have already defined.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 6: TypeError: unsupported operand type(s)              -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-error-operand">9. TypeError: unsupported operand type(s)</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>TypeError: unsupported operand type(s) for +: 'str' and 'int'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to perform an operation (like <code>+</code>, <code>-</code>,
+        <code>*</code>) between two types that Python doesn't know how to
+        combine. The most common case is trying to add a string and a number.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — can't add a string and an integer directly
+age = 25
+message = "I am " + age + " years old"   # TypeError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># Fix 1: Convert the number to a string
+age = 25
+message = "I am " + str(age) + " years old"
+
+# Fix 2: Use an f-string (recommended)
+age = 25
+message = f"I am {age} years old"
+
+# Fix 3: Use format()
+age = 25
+message = "I am {} years old".format(age)</code></pre>
+
+      <h3>Another common case: multiplying a string by a float</h3>
+
+      <pre><code># BAD
+print("ha" * 2.5)   # TypeError: can't multiply str by non-int
+
+# GOOD
+print("ha" * 2)     # Output: haha</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Convert values to compatible types
+        before combining them. Use <code>str()</code> to turn numbers into
+        strings, or <code>int()</code> / <code>float()</code> to turn strings
+        into numbers. Better yet, use f-strings for building messages.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> When combining text and numbers, always
+        use f-strings: <code>f"The answer is {value}"</code>. This
+        automatically handles the conversion for you.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 7: TypeError: 'type' object is not subscriptable       -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-error-subscriptable">10. TypeError: 'type' object is not subscriptable</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>TypeError: 'list' object is not callable</code> or
+        <code>TypeError: 'type' object is not subscriptable</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You are confusing <code>()</code> (parentheses, for calling functions)
+        with <code>[]</code> (square brackets, for indexing). Or you are using
+        square brackets on a type name like <code>list</code> instead of
+        creating an instance first.
+      </p>
+
+      <h3>Common causes and fixes</h3>
+
+      <h4>Cause 1: Using parentheses to index a list</h4>
+
+      <pre><code># BAD — using () instead of []
+fruits = ["apple", "banana", "cherry"]
+print(fruits(0))   # TypeError: 'list' object is not callable
+
+# GOOD — use square brackets for indexing
+print(fruits[0])   # Output: apple</code></pre>
+
+      <h4>Cause 2: Naming a variable the same as a built-in type</h4>
+
+      <pre><code># BAD — overwriting the built-in 'list' name
+list = [1, 2, 3]
+new_list = list([4, 5, 6])   # TypeError: 'list' object is not callable
+
+# GOOD — don't use built-in names as variable names
+numbers = [1, 2, 3]
+new_list = list([4, 5, 6])   # Works fine</code></pre>
+
+      <h4>Cause 3: Using brackets on a type name in older Python</h4>
+
+      <pre><code># In Python 3.8 and earlier, this fails:
+def greet(names: list[str]):   # TypeError in Python &lt; 3.9
+    pass
+
+# Fix for older Python: use typing module
+from typing import List
+def greet(names: List[str]):
+    pass</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Use <code>[]</code> for indexing
+        collections and <code>()</code> for calling functions. Avoid naming
+        your variables <code>list</code>, <code>dict</code>, <code>str</code>,
+        <code>int</code>, or any other built-in name.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Never name a variable the same as a
+        Python built-in. Use descriptive names like <code>numbers</code>,
+        <code>names</code>, or <code>items</code> instead of <code>list</code>.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 8: TypeError: function takes X arguments                -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-error-arguments">11. TypeError: function takes X positional arguments but Y were given</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>TypeError: greet() takes 1 positional argument but 2 were given</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You called a function with a different number of arguments than it
+        expects. You either passed too many or too few values.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># The function expects 1 argument
+def greet(name):
+    print(f"Hello, {name}!")
+
+# BAD — passing 2 arguments
+greet("Alice", "Bob")   # TypeError: takes 1 but 2 given
+
+# BAD — passing 0 arguments
+greet()   # TypeError: missing 1 required argument</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># GOOD — pass exactly the number of arguments expected
+greet("Alice")   # Output: Hello, Alice!
+
+# If you need to accept variable arguments, use default values or *args
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")              # Uses default: Hello, Alice!
+greet("Alice", "Hi there")  # Custom: Hi there, Alice!</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Check the function definition to see
+        how many parameters it expects. Match your function call to that
+        number. Use default parameter values if you want optional arguments.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Hover over a function in your editor
+        (or press Ctrl+click) to see its signature and parameter list before
+        calling it.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 9: ValueError                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="value-error">12. ValueError: invalid literal for int()</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>ValueError: invalid literal for int() with base 10: 'hello'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to convert a string to an integer (or float), but the string
+        doesn't contain a valid number. Python can't turn <code>"hello"</code>
+        or <code>"12.5"</code> into an <code>int</code>.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — "hello" is not a number
+number = int("hello")   # ValueError!
+
+# BAD — "12.5" has a decimal, can't convert directly to int
+number = int("12.5")    # ValueError!
+
+# BAD — empty string
+number = int("")         # ValueError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># GOOD — convert a valid numeric string
+number = int("42")       # Works: 42
+
+# For decimal strings, convert to float first
+number = int(float("12.5"))   # Works: 12
+
+# Validate user input before converting
+user_input = input("Enter a number: ")
+if user_input.isdigit():
+    number = int(user_input)
+else:
+    print("That's not a valid number!")
+
+# Or use try/except for robust handling
+try:
+    number = int(user_input)
+except ValueError:
+    print("Please enter a valid whole number.")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Always validate strings before
+        converting them to numbers. Use <code>.isdigit()</code> for simple
+        checks, or <code>try</code>/<code>except ValueError</code> for
+        robust handling.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Whenever you convert user input to a
+        number, wrap it in a <code>try</code>/<code>except</code> block.
+        Users will type unexpected things.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 10: IndexError                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="index-error">13. IndexError: list index out of range</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>IndexError: list index out of range</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to access an element at a position that doesn't exist in
+        the list. Remember: Python uses <strong>zero-based indexing</strong>,
+        so a list with 3 items has valid indices 0, 1, and 2 (not 3).
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]   # indices: 0, 1, 2
+
+# BAD — index 3 doesn't exist (only 0, 1, 2)
+print(colors[3])    # IndexError!
+
+# BAD — using len() directly as an index
+print(colors[len(colors)])   # IndexError! len is 3, but max index is 2
+
+# BAD — accessing an empty list
+empty = []
+print(empty[0])   # IndexError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]
+
+# GOOD — use valid indices
+print(colors[0])    # red
+print(colors[2])    # blue
+print(colors[-1])   # blue (last item)
+
+# GOOD — check the length first
+index = 5
+if index &lt; len(colors):
+    print(colors[index])
+else:
+    print(f"Index {index} is out of range (list has {len(colors)} items)")
+
+# GOOD — use try/except
+try:
+    print(colors[10])
+except IndexError:
+    print("That index doesn't exist!")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Check that your index is less than
+        <code>len(list)</code>. Remember that the last valid index is
+        <code>len(list) - 1</code>. Use negative indexing
+        (<code>list[-1]</code>) to safely access the last element.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> When looping, use <code>for item in
+        list</code> instead of <code>for i in range(len(list))</code>. The
+        first form never causes an IndexError.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 11: KeyError                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="key-error">14. KeyError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>KeyError: 'age'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to access a dictionary key that doesn't exist. Unlike lists
+        (which use numeric indices), dictionaries use named keys &mdash; and
+        if the key isn't there, Python raises a <code>KeyError</code>.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code>person = {"name": "Alice", "city": "London"}
+
+# BAD — "age" is not a key in this dictionary
+print(person["age"])   # KeyError: 'age'</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code>person = {"name": "Alice", "city": "London"}
+
+# Fix 1: Use .get() — returns None (or a default) if key is missing
+age = person.get("age")          # Returns None
+age = person.get("age", "N/A")   # Returns "N/A"
+
+# Fix 2: Check if the key exists first
+if "age" in person:
+    print(person["age"])
+else:
+    print("Age not found")
+
+# Fix 3: Use try/except
+try:
+    print(person["age"])
+except KeyError:
+    print("Age not found")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Use <code>.get(key, default)</code>
+        instead of <code>[key]</code> when a key might not exist. This is the
+        most Pythonic approach and prevents crashes.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Make <code>.get()</code> your default
+        way to access dictionary values. Only use <code>[key]</code> when you
+        are 100% certain the key exists.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 12: AttributeError                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="attribute-error">15. AttributeError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>AttributeError: 'str' object has no attribute 'append'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to call a method or access an attribute that doesn't exist
+        on the object's type. For example, strings don't have an
+        <code>.append()</code> method &mdash; that belongs to lists.
+      </p>
+
+      <h3>Common causes and fixes</h3>
+
+      <h4>Cause 1: Using the wrong method for the type</h4>
+
+      <pre><code># BAD — strings don't have .append()
+name = "Alice"
+name.append(" Smith")   # AttributeError!
+
+# GOOD — use string concatenation or f-strings
+name = "Alice"
+name = name + " Smith"
+# Or: name = f"{name} Smith"</code></pre>
+
+      <h4>Cause 2: Misspelling a method name</h4>
+
+      <pre><code># BAD — typo: "uper" instead of "upper"
+text = "hello"
+print(text.uper())   # AttributeError: 'str' has no attribute 'uper'
+
+# GOOD
+print(text.upper())   # HELLO</code></pre>
+
+      <h4>Cause 3: Variable is None when you expect something else</h4>
+
+      <pre><code># BAD — sort() returns None, not the sorted list
+numbers = [3, 1, 2]
+sorted_numbers = numbers.sort()   # sort() returns None!
+print(sorted_numbers.reverse())   # AttributeError: 'NoneType' has no attribute 'reverse'
+
+# GOOD — sort() modifies in place, or use sorted()
+numbers = [3, 1, 2]
+numbers.sort()
+print(numbers)   # [1, 2, 3]
+
+# Or use sorted() to get a new list
+sorted_numbers = sorted([3, 1, 2])
+print(sorted_numbers)   # [1, 2, 3]</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Check what type your variable actually
+        is with <code>type(variable)</code>, then look up the correct methods
+        for that type. Watch out for methods that return <code>None</code>
+        (like <code>.sort()</code> and <code>.append()</code>).
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Use <code>dir(object)</code> in the
+        Python shell to see all available methods for any object. For example,
+        <code>dir("hello")</code> shows all string methods.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 13: FileNotFoundError                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="file-not-found">16. FileNotFoundError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>FileNotFoundError: [Errno 2] No such file or directory: 'data.txt'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to open or read a file that doesn't exist at the path you
+        specified. Either the file name is wrong, the file is in a different
+        folder, or it was never created.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — file doesn't exist at this path
+with open("data.txt", "r") as f:
+    content = f.read()   # FileNotFoundError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code>import os
+
+# Fix 1: Check if the file exists first
+if os.path.exists("data.txt"):
+    with open("data.txt", "r") as f:
+        content = f.read()
+else:
+    print("File not found!")
+
+# Fix 2: Use try/except
+try:
+    with open("data.txt", "r") as f:
+        content = f.read()
+except FileNotFoundError:
+    print("File 'data.txt' not found. Check the path.")
+
+# Fix 3: Use the full absolute path to be explicit
+with open("/Users/alice/projects/data.txt", "r") as f:
+    content = f.read()</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Double-check the file path and name
+        (spelling, capitalization, extension). Use
+        <code>os.path.exists()</code> to verify the file exists before opening
+        it, or use <code>try</code>/<code>except</code>.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Print the current working directory
+        with <code>os.getcwd()</code> to understand where Python is looking
+        for files. Use absolute paths when in doubt.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 14: ZeroDivisionError                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="zero-division">17. ZeroDivisionError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>ZeroDivisionError: division by zero</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You divided a number by zero. This is mathematically undefined, and
+        Python refuses to do it.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — dividing by zero
+result = 10 / 0   # ZeroDivisionError!
+
+# BAD — this can happen with variables too
+total = 100
+count = 0
+average = total / count   # ZeroDivisionError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># Fix 1: Check before dividing
+total = 100
+count = 0
+
+if count != 0:
+    average = total / count
+else:
+    average = 0   # or handle it however makes sense
+    print("Cannot compute average: no items")
+
+# Fix 2: Use try/except
+try:
+    average = total / count
+except ZeroDivisionError:
+    average = 0
+    print("Warning: divided by zero, defaulting to 0")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Always check that the divisor is not
+        zero before dividing. This is especially important when the divisor
+        comes from user input, a calculation, or a list length.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Any time you divide by a variable
+        (not a literal number), ask yourself: "Could this ever be zero?" If
+        yes, add a check.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 15: ModuleNotFoundError                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="module-not-found">18. ModuleNotFoundError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>ModuleNotFoundError: No module named 'pandas'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to import a module that Python can't find. Either the
+        package isn't installed, you misspelled the name, or you're using a
+        different Python environment than where the package was installed.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — pandas is not installed
+import pandas   # ModuleNotFoundError!
+
+# BAD — typo in module name
+import numpyy   # ModuleNotFoundError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># Fix 1: Install the missing module
+# In your terminal (not in Python):
+# pip install pandas
+
+# Fix 2: Check spelling
+import numpy   # not "numpyy"
+
+# Fix 3: Check which Python you're using
+# In your terminal:
+# python --version
+# pip list   (shows all installed packages)</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Install the module using
+        <code>pip install module_name</code> in your terminal. Verify the
+        correct spelling. Make sure you are using the same Python
+        environment where the package was installed.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Keep track of your project's
+        dependencies. Use <code>pip list</code> to see what's installed, and
+        <code>pip freeze &gt; requirements.txt</code> to save a list.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 16: ImportError                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="import-error">19. ImportError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>ImportError: cannot import name 'Calculator' from 'math'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        The module exists, but the specific name you are trying to import from
+        it does not. You might have misspelled the function or class name, or
+        you might be importing from the wrong module.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — 'Calculator' doesn't exist in the math module
+from math import Calculator   # ImportError!
+
+# BAD — misspelled function name
+from math import squareroot   # ImportError!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># GOOD — use the correct name
+from math import sqrt
+print(sqrt(16))   # 4.0
+
+# Check what's available in a module
+import math
+print(dir(math))   # Lists all names in the module</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Check the module's documentation for
+        the correct name. Use <code>dir(module)</code> to see all available
+        names. Verify the spelling exactly.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Use your editor's autocomplete after
+        typing <code>from module import</code> &mdash; it will show you what
+        names are actually available.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 17: UnboundLocalError                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="unbound-local">20. UnboundLocalError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>UnboundLocalError: cannot access local variable 'count' where it is not associated with a value</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        Inside a function, you tried to read a variable before assigning it.
+        This usually happens when you have a global variable and try to modify
+        it inside a function without using the <code>global</code> keyword.
+        Python sees the assignment and treats the variable as local &mdash;
+        but then you try to read it before the assignment runs.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code>count = 0   # global variable
+
+def increment():
+    count = count + 1   # UnboundLocalError!
+    # Python sees "count = ..." and treats count as LOCAL.
+    # But "count + 1" tries to READ local count, which doesn't exist yet.
+
+increment()</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># Fix 1: Use the global keyword (use sparingly)
+count = 0
+
+def increment():
+    global count
+    count = count + 1
+
+increment()
+print(count)   # 1
+
+# Fix 2 (better): Pass the value as a parameter and return the new value
+def increment(current_count):
+    return current_count + 1
+
+count = 0
+count = increment(count)
+print(count)   # 1</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Either use <code>global variable_name</code>
+        at the top of your function (not recommended for large programs), or
+        pass the variable as a parameter and return the new value (recommended).
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Avoid modifying global variables inside
+        functions. Instead, pass values in as parameters and return results.
+        This makes your code easier to understand and debug.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 18: RecursionError                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="recursion-error">21. RecursionError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>RecursionError: maximum recursion depth exceeded</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        A function keeps calling itself forever. Python has a safety limit
+        (usually 1000 calls deep) to prevent your program from crashing your
+        computer. When a recursive function has no proper stopping condition
+        (called a "base case"), it triggers this error.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — no base case, calls itself forever
+def countdown(n):
+    print(n)
+    countdown(n - 1)   # Never stops!
+
+countdown(5)   # RecursionError after ~1000 calls</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># GOOD — add a base case to stop the recursion
+def countdown(n):
+    if n &lt;= 0:       # Base case: stop when n reaches 0
+        print("Done!")
+        return
+    print(n)
+    countdown(n - 1)
+
+countdown(5)
+# Output: 5 4 3 2 1 Done!</code></pre>
+
+      <h3>Another example: factorial</h3>
+
+      <pre><code># BAD — missing base case
+def factorial(n):
+    return n * factorial(n - 1)   # Never stops!
+
+# GOOD — with base case
+def factorial(n):
+    if n &lt;= 1:       # Base case
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))   # 120</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Every recursive function must have a
+        <strong>base case</strong> &mdash; a condition that causes the function
+        to return without calling itself again. Make sure the recursive call
+        moves toward that base case.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Before writing a recursive function,
+        define two things: (1) the base case (when should it stop?), and
+        (2) how each recursive call gets closer to the base case. If in
+        doubt, use a loop instead.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 19: StopIteration                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="stop-iteration">22. StopIteration</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>StopIteration</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You called <code>next()</code> on an iterator that has no more items
+        to give. Iterators are "used up" after you go through all their
+        elements. Calling <code>next()</code> one more time after the last
+        item raises <code>StopIteration</code>.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code>numbers = iter([10, 20])   # Create an iterator with 2 items
+
+print(next(numbers))   # 10
+print(next(numbers))   # 20
+print(next(numbers))   # StopIteration — no more items!</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># Fix 1: Use a for loop instead — it handles StopIteration automatically
+numbers = iter([10, 20])
+for num in numbers:
+    print(num)
+# Output: 10, 20 (no error)
+
+# Fix 2: Provide a default value to next()
+numbers = iter([10, 20])
+print(next(numbers, "done"))   # 10
+print(next(numbers, "done"))   # 20
+print(next(numbers, "done"))   # "done" (no error)
+
+# Fix 3: Use try/except
+numbers = iter([10, 20])
+try:
+    while True:
+        print(next(numbers))
+except StopIteration:
+    print("All items processed")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Use a <code>for</code> loop to iterate
+        safely (it handles <code>StopIteration</code> automatically). If you
+        must use <code>next()</code> manually, provide a default value:
+        <code>next(iterator, default)</code>.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> As a beginner, prefer <code>for</code>
+        loops over manual <code>next()</code> calls. You will almost never
+        need to call <code>next()</code> directly in everyday code.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  ERROR 20: PermissionError                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="permission-error">23. PermissionError</h2>
+
+      <div class="callout callout-danger">
+        <strong>Error message:</strong>
+        <code>PermissionError: [Errno 13] Permission denied: '/etc/config.txt'</code>
+      </div>
+
+      <h3>What it means</h3>
+      <p>
+        You tried to read, write, or delete a file, but your user account
+        doesn't have permission to do so. This commonly happens when trying
+        to write to system directories, accessing files owned by another user,
+        or trying to modify a read-only file.
+      </p>
+
+      <h3>Code that causes the error</h3>
+
+      <pre><code># BAD — trying to write to a protected system directory
+with open("/etc/my_config.txt", "w") as f:
+    f.write("data")   # PermissionError!
+
+# BAD — trying to overwrite a read-only file
+with open("readonly_file.txt", "w") as f:
+    f.write("new data")   # PermissionError if file is read-only</code></pre>
+
+      <h3>How to fix it</h3>
+
+      <pre><code># Fix 1: Write to a directory you have permission for
+with open("my_config.txt", "w") as f:   # Current directory, not /etc/
+    f.write("data")
+
+# Fix 2: Handle the error gracefully
+try:
+    with open("output.txt", "w") as f:
+        f.write("data")
+except PermissionError:
+    print("Cannot write to that file. Check your permissions.")
+
+# Fix 3: Check if the file is writable before attempting
+import os
+filepath = "output.txt"
+if os.access(filepath, os.W_OK):
+    with open(filepath, "w") as f:
+        f.write("data")
+else:
+    print(f"No write permission for {filepath}")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>How to fix it:</strong> Write files to your own directories
+        (like your home folder or project folder). Use
+        <code>try</code>/<code>except PermissionError</code> to handle cases
+        where permissions are uncertain. On Linux/Mac, you may need to change
+        file permissions with <code>chmod</code>.
+      </div>
+
+      <p>
+        <strong>Avoidance tip:</strong> Always write to locations you control
+        &mdash; your project folder or a dedicated output directory. Avoid
+        writing to system directories unless you are certain you have
+        permission.
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  BONUS: ERROR HANDLING PATTERNS                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="error-handling-patterns">24. Putting It All Together: Error Handling Patterns</h2>
+
+      <p>
+        Now that you know the common errors, here are patterns for handling
+        them gracefully in real code.
+      </p>
+
+      <h3>Pattern 1: The basic try/except</h3>
+
+      <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+    result = 0</code></pre>
+
+      <h3>Pattern 2: Catching multiple errors</h3>
+
+      <pre><code>try:
+    value = int(input("Enter a number: "))
+    result = 100 / value
+except ValueError:
+    print("That's not a valid number!")
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+except Exception as e:
+    print(f"Unexpected error: {e}")</code></pre>
+
+      <h3>Pattern 3: Using else and finally</h3>
+
+      <pre><code>try:
+    f = open("data.txt", "r")
+except FileNotFoundError:
+    print("File not found!")
+else:
+    # Only runs if no exception was raised
+    content = f.read()
+    print(f"Read {len(content)} characters")
+    f.close()
+finally:
+    # Always runs, whether or not there was an exception
+    print("File operation complete")</code></pre>
+
+      <h3>Pattern 4: Safe dictionary access with defaults</h3>
+
+      <pre><code>config = {"debug": True, "port": 8080}
+
+# Instead of risking a KeyError:
+host = config.get("host", "localhost")    # Returns "localhost"
+port = config.get("port", 3000)           # Returns 8080 (key exists)
+print(f"Server: {host}:{port}")</code></pre>
+
+      <h3>Pattern 5: Safe list access</h3>
+
+      <pre><code>def safe_get(lst, index, default=None):
+    """Safely get an item from a list by index."""
+    try:
+        return lst[index]
+    except IndexError:
+        return default
+
+scores = [85, 92, 78]
+print(safe_get(scores, 0))     # 85
+print(safe_get(scores, 10))    # None
+print(safe_get(scores, 10, 0)) # 0</code></pre>
+
+      <div class="callout callout-info">
+        <strong>Remember:</strong> Error handling is not about preventing
+        errors from ever happening &mdash; it is about handling them
+        gracefully when they do. Your programs should fail informatively,
+        not crash silently or mysteriously.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">Summary</h2>
+
+      <ul>
+        <li><strong>Read the traceback bottom-up</strong> &mdash; the last line tells you <em>what</em> went wrong, the lines above tell you <em>where</em>.</li>
+        <li><strong>SyntaxError and IndentationError</strong> mean your code can't even be parsed &mdash; check colons, brackets, quotes, and spacing.</li>
+        <li><strong>NameError</strong> usually means a typo or a missing import.</li>
+        <li><strong>TypeError</strong> means you are mixing incompatible types or passing the wrong number of arguments.</li>
+        <li><strong>ValueError</strong> means the value is the wrong kind (e.g., converting "hello" to an int).</li>
+        <li><strong>IndexError and KeyError</strong> mean you are accessing something that doesn't exist &mdash; use <code>.get()</code> for dicts and check <code>len()</code> for lists.</li>
+        <li><strong>AttributeError</strong> means you called a method that doesn't exist on that type &mdash; check the type with <code>type()</code>.</li>
+        <li><strong>FileNotFoundError and PermissionError</strong> are file-system issues &mdash; check paths and permissions.</li>
+        <li><strong>Use try/except</strong> to handle errors gracefully in production code.</li>
+        <li><strong>When in doubt</strong>, add <code>print()</code> statements to inspect variable values and types.</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>Errors are your friends, not your enemies.</strong> Every error
+        message is Python trying to help you. The more errors you encounter
+        and fix, the faster you learn. Don't be afraid of the red text &mdash;
+        read it, understand it, fix it, and move on.
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="best-practices.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Best Practices</span></a>
+        <a href="cheatsheet.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Cheat Sheet</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>

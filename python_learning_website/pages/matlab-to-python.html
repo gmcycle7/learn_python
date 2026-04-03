@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATLAB to Python &mdash; Learn Python</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> Learn Python</h2>
+      <p>Complete Beginner's Guide</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="Search pages..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">Home</div>
+        <a href="../index.html" class="nav-link">Home</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; What is Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> What is Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; Getting Started</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> Getting Started</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python Basics</div>
+        <a href="basics-print-variables.html" class="nav-link">Print, Variables &amp; Numbers</a>
+        <a href="basics-strings-booleans.html" class="nav-link">Strings &amp; Booleans</a>
+        <a href="basics-lists-tuples.html" class="nav-link">Lists, Tuples &amp; Sets</a>
+        <a href="basics-dictionaries.html" class="nav-link">Dictionaries</a>
+        <a href="basics-conditionals.html" class="nav-link">Conditionals</a>
+        <a href="basics-loops.html" class="nav-link">Loops</a>
+        <a href="basics-functions.html" class="nav-link">Functions &amp; Lambda</a>
+        <a href="basics-more.html" class="nav-link">More Built-ins</a>
+        <a href="basics-files-modules.html" class="nav-link">Files &amp; Modules</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; Common Patterns</div>
+        <a href="common-patterns.html" class="nav-link">Common Patterns</a>
+        <a href="top-100-patterns.html" class="nav-link">Top 100 Patterns</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB to Python</div>
+        <a href="matlab-to-python.html" class="nav-link active">MATLAB to Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">Quick Translation Table</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; Comparisons</div>
+        <a href="comparisons.html" class="nav-link">Language Comparisons</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; Projects</div>
+        <a href="projects.html" class="nav-link">Mini Projects</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; Practice</div>
+        <a href="practice.html" class="nav-link">Practice &amp; Roadmap</a>
+        <a href="interactive-quizzes.html" class="nav-link">Interactive Quizzes</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; Best Practices</div>
+        <a href="best-practices.html" class="nav-link">Best Practices</a>
+        <a href="common-errors.html" class="nav-link">Common Errors</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; Reference</div>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+        <a href="python-for-automation.html" class="nav-link">Python for Automation</a>
+        <a href="glossary.html" class="nav-link">Glossary</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; More Topics</div>
+        <a href="oop.html" class="nav-link">Object-Oriented Programming</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="sep">&rsaquo;</span> <a href="matlab-to-python.html">MATLAB to Python</a>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION E — MATLAB TO PYTHON                                 -->
+      <!-- ============================================================ -->
+
+      <h1>Section E &mdash; MATLAB to Python</h1>
+      <p class="page-subtitle">
+        A thorough guide for MATLAB users transitioning to Python. This page
+        covers every major conceptual and syntactic difference so you can map
+        your existing MATLAB knowledge to the Python world.
+      </p>
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <div class="toc-title">On This Page</div>
+        <ul>
+          <li><a href="#mental-model">1. Mental Model Differences</a></li>
+          <li><a href="#syntax">2. Syntax Differences</a></li>
+          <li><a href="#indexing">3. Indexing Differences</a></li>
+          <li><a href="#arrays-vs-lists">4. Arrays vs Lists</a></li>
+          <li><a href="#vectorization">5. Vectorization</a></li>
+          <li><a href="#function-organization">6. Function Organization</a></li>
+          <li><a href="#scripts-vs-modules">7. Scripts vs Modules</a></li>
+          <li><a href="#plotting">8. Plotting Differences</a></li>
+          <li><a href="#translation-examples">9. Common Translation Examples</a></li>
+          <li><a href="#common-mistakes">10. Common Mistakes MATLAB Users Make</a></li>
+        </ul>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Why This Page Matters</div>
+        <p>
+          If you already know MATLAB, you are <strong>not</strong> starting from
+          zero. You understand variables, loops, functions, arrays, and
+          plotting. The challenge is <em>not</em> learning new concepts &mdash;
+          it is unlearning MATLAB-specific habits and learning the Python way
+          of doing the same things. This page is your translation guide.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. MENTAL MODEL DIFFERENCES                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="mental-model">1. Mental Model Differences</h2>
+
+      <p>
+        Before diving into syntax, it helps to understand how the two
+        languages <em>think</em> differently at a fundamental level.
+      </p>
+
+      <h3>MATLAB: Matrix-First, Numerical World</h3>
+
+      <p>
+        MATLAB (short for <strong>MATrix LABoratory</strong>) was designed
+        from the ground up for numerical computing. Everything in MATLAB is a
+        matrix &mdash; even a single number is internally a 1&times;1 matrix.
+        This means matrix operations, linear algebra, and vectorized
+        computation are built into the language itself.
+      </p>
+
+      <h3>Python: General-Purpose, Multi-Paradigm</h3>
+
+      <p>
+        Python was designed as a <strong>general-purpose</strong> language. It
+        can do numerical work (with NumPy and SciPy), but it can also build
+        websites, automate files, talk to databases, and train machine
+        learning models. Numbers, strings, lists, dictionaries, and objects
+        are all first-class citizens &mdash; not just matrices.
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB Workflow</h4>
+          <ul>
+            <li>Open MATLAB &rarr; you get an interactive <strong>workspace</strong></li>
+            <li>Variables live in the workspace and persist between commands</li>
+            <li>You see all variables in the Workspace pane at all times</li>
+            <li>Scripts run top-to-bottom in the same workspace</li>
+            <li>Everything revolves around the <strong>command window</strong></li>
+          </ul>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python Workflow</h4>
+          <ul>
+            <li>Write a <code>.py</code> file &rarr; run it from the terminal or IDE</li>
+            <li>Variables exist only while the script runs (no persistent workspace)</li>
+            <li>No built-in variable browser (IDEs like VS Code or Spyder add one)</li>
+            <li>Scripts are self-contained; you import other scripts as modules</li>
+            <li>The interactive REPL (<code>python</code> or Jupyter) exists but is separate from scripts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Tip: Use Spyder or Jupyter if you miss the MATLAB feel</div>
+        <p>
+          <strong>Spyder</strong> is a free Python IDE that deliberately mimics
+          the MATLAB layout: editor on the left, console on the bottom right,
+          variable explorer on the top right. <strong>Jupyter Notebook</strong>
+          gives you a cell-by-cell execution model similar to MATLAB's Live
+          Scripts. Both are excellent starting points for MATLAB converts.
+        </p>
+      </div>
+
+      <h3>Key Mindset Shifts</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>MATLAB Mindset</th>
+            <th>Python Mindset</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Data</strong></td>
+            <td>Everything is a matrix</td>
+            <td>Many data types: int, float, str, list, dict, tuple, set, etc.</td>
+          </tr>
+          <tr>
+            <td><strong>Libraries</strong></td>
+            <td>Built-in toolboxes (paid add-ons)</td>
+            <td>Free packages installed with <code>pip install</code></td>
+          </tr>
+          <tr>
+            <td><strong>Indexing</strong></td>
+            <td>1-based, inclusive</td>
+            <td>0-based, exclusive end</td>
+          </tr>
+          <tr>
+            <td><strong>File structure</strong></td>
+            <td>One function per file (usually)</td>
+            <td>Many functions per file; files are modules</td>
+          </tr>
+          <tr>
+            <td><strong>Cost</strong></td>
+            <td>Expensive commercial license</td>
+            <td>100% free and open-source</td>
+          </tr>
+          <tr>
+            <td><strong>Community</strong></td>
+            <td>MATLAB Central, File Exchange</td>
+            <td>PyPI (500k+ packages), GitHub, Stack Overflow</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  2. SYNTAX DIFFERENCES                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="syntax">2. Syntax Differences</h2>
+
+      <p>
+        The table below covers the most important syntax differences. Study
+        these carefully &mdash; they will save you hours of confusion.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Semicolons</strong></td>
+            <td><code>x = 5;</code> suppresses output; omit to print</td>
+            <td>Not used. Nothing is printed unless you call <code>print()</code></td>
+          </tr>
+          <tr>
+            <td><strong>Comments</strong></td>
+            <td><code>% this is a comment</code></td>
+            <td><code># this is a comment</code></td>
+          </tr>
+          <tr>
+            <td><strong>Block comments</strong></td>
+            <td><code>%{ ... %}</code></td>
+            <td>Multi-line strings <code>""" ... """</code> (or <code>#</code> each line)</td>
+          </tr>
+          <tr>
+            <td><strong>Code blocks</strong></td>
+            <td><code>if ... end</code>, <code>for ... end</code></td>
+            <td>Indentation (no <code>end</code> keyword)</td>
+          </tr>
+          <tr>
+            <td><strong>Strings</strong></td>
+            <td><code>'single quotes'</code> (char) or <code>"double quotes"</code> (string)</td>
+            <td>Both <code>'single'</code> and <code>"double"</code> are identical</td>
+          </tr>
+          <tr>
+            <td><strong>String concatenation</strong></td>
+            <td><code>['Hello ' 'World']</code> or <code>strcat()</code></td>
+            <td><code>'Hello ' + 'World'</code> or f-strings</td>
+          </tr>
+          <tr>
+            <td><strong>Boolean values</strong></td>
+            <td><code>true</code>, <code>false</code> (lowercase)</td>
+            <td><code>True</code>, <code>False</code> (capitalized)</td>
+          </tr>
+          <tr>
+            <td><strong>Logical operators</strong></td>
+            <td><code>&amp;&amp;</code>, <code>||</code>, <code>~</code></td>
+            <td><code>and</code>, <code>or</code>, <code>not</code></td>
+          </tr>
+          <tr>
+            <td><strong>Exponent</strong></td>
+            <td><code>2^10</code></td>
+            <td><code>2**10</code></td>
+          </tr>
+          <tr>
+            <td><strong>Not equal</strong></td>
+            <td><code>~=</code></td>
+            <td><code>!=</code></td>
+          </tr>
+          <tr>
+            <td><strong>Print output</strong></td>
+            <td><code>disp(x)</code> or <code>fprintf(...)</code></td>
+            <td><code>print(x)</code> or <code>print(f"...")</code></td>
+          </tr>
+          <tr>
+            <td><strong>Cell arrays / lists</strong></td>
+            <td><code>{1, 'hello', [1 2 3]}</code></td>
+            <td><code>[1, 'hello', [1, 2, 3]]</code></td>
+          </tr>
+          <tr>
+            <td><strong>Structs / dicts</strong></td>
+            <td><code>s.name = 'Alice';</code></td>
+            <td><code>s = {'name': 'Alice'}</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Semicolons &mdash; The #1 Habit to Break</h3>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Stop typing semicolons!</div>
+        <p>
+          In MATLAB, you end almost every line with <code>;</code> to
+          suppress output. In Python, semicolons are <strong>never
+          needed</strong>. Adding them will not cause an error (Python allows
+          them), but they are considered bad style and will confuse other
+          Python programmers reading your code.
+        </p>
+      </div>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Semicolon suppresses output
+x = 5;
+y = 10;
+z = x + y;    % no output
+disp(z)       % prints 15</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># No semicolons needed
+x = 5
+y = 10
+z = x + y     # no output unless you print
+print(z)      # prints 15</code></pre>
+        </div>
+      </div>
+
+      <h3>Indentation vs end Keywords</h3>
+
+      <p>
+        This is the most visible difference between MATLAB and Python.
+        MATLAB uses <code>end</code> to close blocks. Python uses
+        <strong>indentation</strong> &mdash; the whitespace at the start of
+        each line is what tells Python which lines belong together.
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% MATLAB uses end keywords
+if x > 0
+    disp('positive')
+elseif x == 0
+    disp('zero')
+else
+    disp('negative')
+end
+
+for i = 1:5
+    disp(i)
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Python uses indentation (and colons)
+if x > 0:
+    print('positive')
+elif x == 0:
+    print('zero')
+else:
+    print('negative')
+
+for i in range(1, 6):
+    print(i)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">Indentation is not optional!</div>
+        <p>
+          In MATLAB, indentation is just cosmetic &mdash; you could write
+          everything flush left and it would still work. In Python,
+          <strong>incorrect indentation causes errors</strong>. Use
+          4 spaces per indent level (never mix tabs and spaces). Every good
+          Python editor handles this for you automatically.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. INDEXING DIFFERENCES                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="indexing">3. Indexing Differences</h2>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">CRITICAL: This will trip you up constantly</div>
+        <p>
+          Indexing is the single biggest source of bugs when MATLAB users
+          switch to Python. MATLAB is <strong>1-based</strong> (first element
+          is index 1). Python is <strong>0-based</strong> (first element is
+          index 0). You <em>will</em> make off-by-one errors. Expect it,
+          and double-check your indices.
+        </p>
+      </div>
+
+      <h3>Basic Indexing</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB (1-based)</h4>
+<pre><code>v = [10, 20, 30, 40, 50];
+
+v(1)    % 10  (first element)
+v(3)    % 30  (third element)
+v(end)  % 50  (last element)
+v(end-1)% 40  (second to last)</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (0-based)</h4>
+<pre><code>v = [10, 20, 30, 40, 50]
+
+v[0]    # 10  (first element)
+v[2]    # 30  (third element)
+v[-1]   # 50  (last element)
+v[-2]   # 40  (second to last)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB's end vs Python's -1</div>
+        <p>
+          MATLAB uses <code>end</code> to mean "the last index." Python uses
+          <strong>negative indexing</strong>: <code>-1</code> means the last
+          element, <code>-2</code> means second to last, and so on. This is
+          actually more flexible than MATLAB's <code>end</code> keyword.
+        </p>
+      </div>
+
+      <h3>Slicing / Range Indexing</h3>
+
+      <p>
+        This is where the differences get really tricky. MATLAB ranges are
+        <strong>inclusive</strong> on both ends. Python ranges are
+        <strong>inclusive on the start, exclusive on the end</strong>.
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB (inclusive both ends)</h4>
+<pre><code>v = [10, 20, 30, 40, 50];
+
+v(2:4)     % [20, 30, 40]
+           % includes index 2, 3, 4
+
+v(1:3)     % [10, 20, 30]
+           % includes index 1, 2, 3
+
+v(3:end)   % [30, 40, 50]
+           % index 3 to last</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (exclusive end)</h4>
+<pre><code>v = [10, 20, 30, 40, 50]
+
+v[1:4]     # [20, 30, 40]
+           # includes index 1, 2, 3 (NOT 4)
+
+v[0:3]     # [10, 20, 30]
+           # includes index 0, 1, 2 (NOT 3)
+
+v[2:]      # [30, 40, 50]
+           # index 2 to end</code></pre>
+        </div>
+      </div>
+
+      <h3>Index Translation Cheat Sheet</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>What You Want</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First element</td>
+            <td><code>v(1)</code></td>
+            <td><code>v[0]</code></td>
+          </tr>
+          <tr>
+            <td>Second element</td>
+            <td><code>v(2)</code></td>
+            <td><code>v[1]</code></td>
+          </tr>
+          <tr>
+            <td>Last element</td>
+            <td><code>v(end)</code></td>
+            <td><code>v[-1]</code></td>
+          </tr>
+          <tr>
+            <td>Second to last</td>
+            <td><code>v(end-1)</code></td>
+            <td><code>v[-2]</code></td>
+          </tr>
+          <tr>
+            <td>First 3 elements</td>
+            <td><code>v(1:3)</code></td>
+            <td><code>v[:3]</code> or <code>v[0:3]</code></td>
+          </tr>
+          <tr>
+            <td>Elements 2 through 4</td>
+            <td><code>v(2:4)</code></td>
+            <td><code>v[1:4]</code></td>
+          </tr>
+          <tr>
+            <td>Last 3 elements</td>
+            <td><code>v(end-2:end)</code></td>
+            <td><code>v[-3:]</code></td>
+          </tr>
+          <tr>
+            <td>All elements</td>
+            <td><code>v(:)</code></td>
+            <td><code>v[:]</code></td>
+          </tr>
+          <tr>
+            <td>Every other element</td>
+            <td><code>v(1:2:end)</code></td>
+            <td><code>v[::2]</code></td>
+          </tr>
+          <tr>
+            <td>Reverse order</td>
+            <td><code>v(end:-1:1)</code></td>
+            <td><code>v[::-1]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2D Indexing (Matrices)</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>A = [1 2 3; 4 5 6; 7 8 9];
+
+A(1, 1)     % 1  (top-left)
+A(2, 3)     % 6  (row 2, col 3)
+A(end, end) % 9  (bottom-right)
+A(1:2, :)   % first 2 rows, all cols
+A(:, 2)     % all rows, column 2</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (NumPy)</h4>
+<pre><code>import numpy as np
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+A[0, 0]     # 1  (top-left)
+A[1, 2]     # 6  (row 1, col 2)
+A[-1, -1]   # 9  (bottom-right)
+A[:2, :]    # first 2 rows, all cols
+A[:, 1]     # all rows, column 1</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">The Off-by-One Rule</div>
+        <p>
+          When converting MATLAB indices to Python, subtract 1 from every
+          index. MATLAB's <code>A(3, 5)</code> becomes Python's
+          <code>A[2, 4]</code>. For slicing, the start index is shifted by
+          &minus;1 but the end index often stays the same because Python
+          excludes it: MATLAB <code>v(2:5)</code> = Python <code>v[1:5]</code>
+          (both give elements at MATLAB positions 2, 3, 4, 5).
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. ARRAYS VS LISTS                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="arrays-vs-lists">4. Arrays vs Lists</h2>
+
+      <p>
+        In MATLAB, the basic container is a <strong>numeric array
+        (matrix)</strong>. In Python, there are two very different things
+        that beginners confuse: <strong>lists</strong> and <strong>NumPy
+        arrays</strong>.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Python List</th>
+            <th>NumPy Array</th>
+            <th>MATLAB Array</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Contents</strong></td>
+            <td>Anything: numbers, strings, other lists, mixed types</td>
+            <td>Homogeneous numeric data only</td>
+            <td>Homogeneous numeric data only</td>
+          </tr>
+          <tr>
+            <td><strong>Math operations</strong></td>
+            <td>No vectorized math</td>
+            <td>Full vectorized math (like MATLAB)</td>
+            <td>Full vectorized math</td>
+          </tr>
+          <tr>
+            <td><strong>Speed</strong></td>
+            <td>Slow for numeric work</td>
+            <td>Fast (C under the hood)</td>
+            <td>Fast (optimized)</td>
+          </tr>
+          <tr>
+            <td><strong>Built-in?</strong></td>
+            <td>Yes (no import needed)</td>
+            <td>Requires <code>import numpy</code></td>
+            <td>Yes (everything is a matrix)</td>
+          </tr>
+          <tr>
+            <td><strong>Syntax</strong></td>
+            <td><code>[1, 2, 3]</code></td>
+            <td><code>np.array([1, 2, 3])</code></td>
+            <td><code>[1, 2, 3]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Rule of Thumb for MATLAB Users</div>
+        <p>
+          If you are doing <strong>numeric/scientific work</strong>, use
+          <strong>NumPy arrays</strong> &mdash; they behave almost identically
+          to MATLAB arrays. If you are doing <strong>general-purpose
+          programming</strong> (storing names, mixed data, building data
+          structures), use <strong>Python lists</strong>.
+        </p>
+      </div>
+
+      <h3>Creating Arrays: MATLAB vs NumPy</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Row vector
+v = [1, 2, 3, 4, 5];
+
+% Column vector
+v = [1; 2; 3; 4; 5];
+
+% Matrix
+A = [1 2 3; 4 5 6];
+
+% Special arrays
+z = zeros(3, 4);
+o = ones(1, 5);
+r = linspace(0, 1, 100);
+e = eye(3);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (NumPy)</h4>
+<pre><code>import numpy as np
+
+# 1D array (like row vector)
+v = np.array([1, 2, 3, 4, 5])
+
+# Column vector
+v = np.array([[1], [2], [3], [4], [5]])
+
+# Matrix (2D array)
+A = np.array([[1, 2, 3], [4, 5, 6]])
+
+# Special arrays
+z = np.zeros((3, 4))
+o = np.ones((1, 5))
+r = np.linspace(0, 1, 100)
+e = np.eye(3)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Watch the parentheses!</div>
+        <p>
+          MATLAB: <code>zeros(3, 4)</code> &mdash; pass dimensions as
+          separate arguments.<br>
+          NumPy: <code>np.zeros((3, 4))</code> &mdash; pass dimensions as a
+          <strong>tuple</strong> (note the double parentheses). This is a
+          very common mistake.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. VECTORIZATION                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="vectorization">5. Vectorization</h2>
+
+      <p>
+        In MATLAB, vectorized operations on arrays are the natural way to
+        write code. Python lists do <strong>not</strong> support vectorized
+        math. You need NumPy for that.
+      </p>
+
+      <h3>Element-wise Multiplication</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>a = [1, 2, 3, 4];
+b = [10, 20, 30, 40];
+
+% Element-wise multiply
+c = a .* b;
+% c = [10, 40, 90, 160]
+
+% Scalar multiply
+d = a * 5;
+% d = [5, 10, 15, 20]</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (NumPy)</h4>
+<pre><code>import numpy as np
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+
+# Element-wise multiply (no dot needed!)
+c = a * b
+# c = array([10, 40, 90, 160])
+
+# Scalar multiply
+d = a * 5
+# d = array([5, 10, 15, 20])</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">The dot disappears in NumPy</div>
+        <p>
+          MATLAB uses <code>.*</code> for element-wise and <code>*</code>
+          for matrix multiplication. NumPy uses <code>*</code> for
+          element-wise and <code>@</code> (or <code>np.dot()</code>) for
+          matrix multiplication. This is actually simpler once you get used
+          to it.
+        </p>
+      </div>
+
+      <h3>What Happens with Plain Python Lists?</h3>
+
+<pre><code># WARNING: This does NOT work like MATLAB!
+a = [1, 2, 3, 4]
+b = [10, 20, 30, 40]
+
+c = a * 3
+# c = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+# It REPEATS the list 3 times!
+
+# a + b does NOT add element-wise:
+d = a + b
+# d = [1, 2, 3, 4, 10, 20, 30, 40]
+# It CONCATENATES the two lists!</code></pre>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">Lists are NOT arrays!</div>
+        <p>
+          <code>[1, 2, 3] * 3</code> gives <code>[1, 2, 3, 1, 2, 3, 1, 2, 3]</code>
+          (repetition), not <code>[3, 6, 9]</code>. <code>[1, 2] + [3, 4]</code>
+          gives <code>[1, 2, 3, 4]</code> (concatenation), not <code>[4, 6]</code>.
+          If you want MATLAB-style math, you <strong>must</strong> use NumPy arrays.
+        </p>
+      </div>
+
+      <h3>Vectorized Math: Full Comparison</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>MATLAB</th>
+            <th>NumPy</th>
+            <th>Python List (wrong!)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Add arrays</td>
+            <td><code>a + b</code></td>
+            <td><code>a + b</code></td>
+            <td>Concatenates!</td>
+          </tr>
+          <tr>
+            <td>Element-wise multiply</td>
+            <td><code>a .* b</code></td>
+            <td><code>a * b</code></td>
+            <td>Error or wrong</td>
+          </tr>
+          <tr>
+            <td>Matrix multiply</td>
+            <td><code>A * B</code></td>
+            <td><code>A @ B</code></td>
+            <td>Not possible</td>
+          </tr>
+          <tr>
+            <td>Element-wise power</td>
+            <td><code>a .^ 2</code></td>
+            <td><code>a ** 2</code></td>
+            <td>Not possible</td>
+          </tr>
+          <tr>
+            <td>Element-wise divide</td>
+            <td><code>a ./ b</code></td>
+            <td><code>a / b</code></td>
+            <td>Not possible</td>
+          </tr>
+          <tr>
+            <td>Scalar multiply</td>
+            <td><code>a * 5</code></td>
+            <td><code>a * 5</code></td>
+            <td>Repeats list!</td>
+          </tr>
+          <tr>
+            <td>Apply function</td>
+            <td><code>sin(a)</code></td>
+            <td><code>np.sin(a)</code></td>
+            <td>Use list comprehension</td>
+          </tr>
+          <tr>
+            <td>Logical comparison</td>
+            <td><code>a > 2</code></td>
+            <td><code>a > 2</code></td>
+            <td>Not possible</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>List Comprehension: The Python Way (Without NumPy)</h3>
+
+      <p>
+        If you are working with plain Python lists and need element-wise
+        operations, you use a <strong>list comprehension</strong>:
+      </p>
+
+<pre><code># Element-wise operations with list comprehension
+a = [1, 2, 3, 4]
+
+squared = [x**2 for x in a]
+# [1, 4, 9, 16]
+
+doubled = [x * 2 for x in a]
+# [2, 4, 6, 8]
+
+# Two-list operation
+b = [10, 20, 30, 40]
+product = [x * y for x, y in zip(a, b)]
+# [10, 40, 90, 160]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. FUNCTION ORGANIZATION                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="function-organization">6. Function Organization</h2>
+
+      <p>
+        MATLAB and Python handle functions very differently, and this
+        affects how you organize your code.
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+          <ul>
+            <li><strong>One function per file</strong> (the file name must match the function name)</li>
+            <li>Local (helper) functions can appear at the end of the same file</li>
+            <li>The file <code>myFunc.m</code> must contain <code>function ... = myFunc(...)</code></li>
+            <li>Functions are found by adding folders to the <strong>MATLAB path</strong></li>
+          </ul>
+<pre><code>% File: calculate_area.m
+function area = calculate_area(radius)
+    area = pi * radius^2;
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+          <ul>
+            <li><strong>Many functions per file</strong> &mdash; a file is a "module"</li>
+            <li>The file name does not need to match any function name</li>
+            <li>You <code>import</code> functions from other files</li>
+            <li>Functions are found by Python's module system (no path management needed)</li>
+          </ul>
+<pre><code># File: geometry.py
+import math
+
+def calculate_area(radius):
+    return math.pi * radius**2
+
+def calculate_circumference(radius):
+    return 2 * math.pi * radius</code></pre>
+        </div>
+      </div>
+
+      <h3>Defining Functions</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Single return value
+function result = square(x)
+    result = x^2;
+end
+
+% Multiple return values
+function [mn, mx] = min_max(v)
+    mn = min(v);
+    mx = max(v);
+end
+
+% Anonymous function
+f = @(x) x^2 + 1;</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Single return value
+def square(x):
+    return x**2
+
+# Multiple return values
+def min_max(v):
+    return min(v), max(v)
+
+# Lambda function (like anonymous)
+f = lambda x: x**2 + 1</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Key difference: return vs assignment</div>
+        <p>
+          In MATLAB, you assign to the output variable name declared in the
+          function signature (<code>result = ...</code>). In Python, you
+          explicitly use the <code>return</code> keyword. If you forget
+          <code>return</code>, the function returns <code>None</code>
+          &mdash; a common beginner mistake.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. SCRIPTS VS MODULES                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="scripts-vs-modules">7. Scripts vs Modules</h2>
+
+      <h3>MATLAB Scripts</h3>
+
+      <p>
+        In MATLAB, a script is a <code>.m</code> file that runs
+        top-to-bottom. It operates in the base workspace &mdash; all
+        variables created by the script are visible in the command window
+        afterwards. Running a script twice can cause unexpected results if
+        variables from the first run are still in the workspace.
+      </p>
+
+      <h3>Python Scripts and Modules</h3>
+
+      <p>
+        In Python, a <code>.py</code> file can be both a script and a
+        module:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Run as a script:</strong> <code>python my_file.py</code>
+          &mdash; executes top-to-bottom, then everything is gone (no
+          persistent workspace).
+        </li>
+        <li>
+          <strong>Import as a module:</strong>
+          <code>import my_file</code> &mdash; makes the file's functions
+          and variables available in another script without running the
+          "main" code.
+        </li>
+      </ul>
+
+      <h3>The <code>__name__</code> Guard</h3>
+
+      <p>
+        Python has a special pattern to handle the script-vs-module
+        distinction:
+      </p>
+
+<pre><code># File: my_tools.py
+
+def greet(name):
+    return f"Hello, {name}!"
+
+def add(a, b):
+    return a + b
+
+# This block only runs when you execute: python my_tools.py
+# It does NOT run when someone does: import my_tools
+if __name__ == "__main__":
+    print(greet("World"))
+    print(add(3, 4))</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB equivalent</div>
+        <p>
+          MATLAB has no direct equivalent of the <code>__name__</code>
+          guard. The closest concept is writing a function file (which
+          does not execute automatically) versus a script (which does).
+          Python's approach is more flexible: a single file can serve as
+          both a library (when imported) and a standalone program (when run
+          directly).
+        </p>
+      </div>
+
+      <h3>Importing Functions</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Just call it (must be on the path)
+result = calculate_area(5);
+
+% Add folder to path
+addpath('my_functions/');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Import the whole module
+import geometry
+result = geometry.calculate_area(5)
+
+# Import specific function
+from geometry import calculate_area
+result = calculate_area(5)
+
+# Import with alias
+import numpy as np</code></pre>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. PLOTTING DIFFERENCES                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="plotting">8. Plotting Differences</h2>
+
+      <p>
+        MATLAB has legendary built-in plotting. Python uses
+        <strong>Matplotlib</strong>, which was intentionally designed to
+        mimic MATLAB's plotting interface. If you know MATLAB plotting,
+        you will find Matplotlib very familiar.
+      </p>
+
+      <h3>Basic Line Plot</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = linspace(0, 2*pi, 100);
+y = sin(x);
+
+figure;
+plot(x, y, 'b-', 'LineWidth', 2);
+xlabel('x');
+ylabel('sin(x)');
+title('Sine Wave');
+grid on;</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2*np.pi, 100)
+y = np.sin(x)
+
+plt.figure()
+plt.plot(x, y, 'b-', linewidth=2)
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Sine Wave')
+plt.grid(True)
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Almost identical!</div>
+        <p>
+          Matplotlib's <code>pyplot</code> module was built to feel like
+          MATLAB. The function names are nearly the same:
+          <code>plot</code>, <code>xlabel</code>, <code>ylabel</code>,
+          <code>title</code>, <code>grid</code>, <code>legend</code>,
+          <code>subplot</code>. The main differences: use
+          <code>plt.</code> prefix, <code>linewidth</code> instead of
+          <code>'LineWidth'</code>, and call <code>plt.show()</code> at the end.
+        </p>
+      </div>
+
+      <h3>Multiple Lines and Legend</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = linspace(0, 2*pi, 100);
+
+figure;
+plot(x, sin(x), 'r-', 'LineWidth', 2);
+hold on;
+plot(x, cos(x), 'b--', 'LineWidth', 2);
+hold off;
+xlabel('x');
+ylabel('y');
+title('Trig Functions');
+legend('sin(x)', 'cos(x)');
+grid on;</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>x = np.linspace(0, 2*np.pi, 100)
+
+plt.figure()
+plt.plot(x, np.sin(x), 'r-', linewidth=2,
+         label='sin(x)')
+plt.plot(x, np.cos(x), 'b--', linewidth=2,
+         label='cos(x)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Trig Functions')
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">No hold on / hold off in Matplotlib</div>
+        <p>
+          In MATLAB, you need <code>hold on</code> to plot multiple lines
+          on the same figure. In Matplotlib, all <code>plt.plot()</code>
+          calls before <code>plt.show()</code> go on the same figure
+          automatically. Also note that legends are added via the
+          <code>label</code> parameter in each plot call, then
+          <code>plt.legend()</code> displays them.
+        </p>
+      </div>
+
+      <h3>Subplots</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = linspace(0, 2*pi, 100);
+
+figure;
+subplot(2, 1, 1);
+plot(x, sin(x));
+title('Sine');
+
+subplot(2, 1, 2);
+plot(x, cos(x));
+title('Cosine');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>x = np.linspace(0, 2*np.pi, 100)
+
+fig, (ax1, ax2) = plt.subplots(2, 1)
+ax1.plot(x, np.sin(x))
+ax1.set_title('Sine')
+
+ax2.plot(x, np.cos(x))
+ax2.set_title('Cosine')
+
+plt.tight_layout()
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <h3>Saving Figures</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>saveas(gcf, 'my_plot.png');
+% or
+print('-dpng', 'my_plot.png');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>plt.savefig('my_plot.png', dpi=150)
+# Call BEFORE plt.show()!</code></pre>
+        </div>
+      </div>
+
+      <h3>Plotting Function Quick Reference</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Plot Type</th>
+            <th>MATLAB</th>
+            <th>Matplotlib</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Line plot</td>
+            <td><code>plot(x, y)</code></td>
+            <td><code>plt.plot(x, y)</code></td>
+          </tr>
+          <tr>
+            <td>Scatter</td>
+            <td><code>scatter(x, y)</code></td>
+            <td><code>plt.scatter(x, y)</code></td>
+          </tr>
+          <tr>
+            <td>Bar chart</td>
+            <td><code>bar(x, y)</code></td>
+            <td><code>plt.bar(x, y)</code></td>
+          </tr>
+          <tr>
+            <td>Histogram</td>
+            <td><code>histogram(data)</code></td>
+            <td><code>plt.hist(data)</code></td>
+          </tr>
+          <tr>
+            <td>Surface plot</td>
+            <td><code>surf(X, Y, Z)</code></td>
+            <td><code>ax.plot_surface(X, Y, Z)</code></td>
+          </tr>
+          <tr>
+            <td>Contour</td>
+            <td><code>contour(X, Y, Z)</code></td>
+            <td><code>plt.contour(X, Y, Z)</code></td>
+          </tr>
+          <tr>
+            <td>Image</td>
+            <td><code>imagesc(A)</code></td>
+            <td><code>plt.imshow(A)</code></td>
+          </tr>
+          <tr>
+            <td>New figure</td>
+            <td><code>figure;</code></td>
+            <td><code>plt.figure()</code></td>
+          </tr>
+          <tr>
+            <td>Close figure</td>
+            <td><code>close;</code></td>
+            <td><code>plt.close()</code></td>
+          </tr>
+          <tr>
+            <td>Close all</td>
+            <td><code>close all;</code></td>
+            <td><code>plt.close('all')</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  9. COMMON TRANSLATION EXAMPLES                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="translation-examples">9. Common Translation Examples</h2>
+
+      <p>
+        Here are 20 side-by-side translations of common tasks. Study these
+        and you will be able to convert most simple MATLAB code to Python.
+      </p>
+
+      <!-- Example 1 -->
+      <h3>Example 1: Creating a Vector</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>v = [1, 2, 3, 4, 5];
+r = 1:10;          % 1 to 10
+s = 0:0.5:5;       % 0, 0.5, 1, ... 5
+t = linspace(0, 1, 50);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>import numpy as np
+v = np.array([1, 2, 3, 4, 5])
+r = np.arange(1, 11)       # 1 to 10
+s = np.arange(0, 5.5, 0.5) # 0, 0.5, 1, ... 5
+t = np.linspace(0, 1, 50)</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <h3>Example 2: Matrix Operations</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>A = [1 2; 3 4];
+B = [5 6; 7 8];
+
+C = A * B;       % matrix multiply
+D = A .* B;      % element-wise
+E = A';          % transpose
+F = inv(A);      % inverse
+d = det(A);      % determinant</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+C = A @ B                 # matrix multiply
+D = A * B                 # element-wise
+E = A.T                   # transpose
+F = np.linalg.inv(A)      # inverse
+d = np.linalg.det(A)      # determinant</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <h3>Example 3: Finding Elements</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>v = [3, 7, 1, 9, 4, 6];
+
+% Find indices where v > 5
+idx = find(v > 5);
+% idx = [2, 4, 6]
+
+% Get those values
+vals = v(v > 5);
+% vals = [7, 9, 6]</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>v = np.array([3, 7, 1, 9, 4, 6])
+
+# Find indices where v > 5
+idx = np.where(v > 5)
+# (array([1, 3, 5]),)
+
+# Get those values
+vals = v[v > 5]
+# array([7, 9, 6])</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <h3>Example 4: Reading a CSV File</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Read CSV into a table
+T = readtable('data.csv');
+
+% Access a column
+ages = T.Age;
+
+% Filter rows
+young = T(T.Age < 30, :);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>import pandas as pd
+
+# Read CSV into a DataFrame
+df = pd.read_csv('data.csv')
+
+# Access a column
+ages = df['Age']
+
+# Filter rows
+young = df[df['Age'] < 30]</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 5 -->
+      <h3>Example 5: Basic Plotting</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = 0:0.1:10;
+y = sin(x);
+plot(x, y);
+xlabel('Time');
+ylabel('Amplitude');
+title('Sine Wave');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>x = np.arange(0, 10.1, 0.1)
+y = np.sin(x)
+plt.plot(x, y)
+plt.xlabel('Time')
+plt.ylabel('Amplitude')
+plt.title('Sine Wave')
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 6 -->
+      <h3>Example 6: String Operations</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>s = "Hello World";
+n = strlength(s);       % 11
+u = upper(s);           % "HELLO WORLD"
+parts = split(s, " ");  % ["Hello"; "World"]
+has = contains(s, "lo");% true
+new = replace(s, "World", "Python");</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>s = "Hello World"
+n = len(s)              # 11
+u = s.upper()           # "HELLO WORLD"
+parts = s.split(" ")    # ['Hello', 'World']
+has = "lo" in s         # True
+new = s.replace("World", "Python")</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 7 -->
+      <h3>Example 7: For Loops</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Loop over range
+for i = 1:10
+    fprintf('i = %d\n', i);
+end
+
+% Loop over array
+v = [10, 20, 30];
+for val = v
+    disp(val);
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Loop over range
+for i in range(1, 11):
+    print(f'i = {i}')
+
+# Loop over list
+v = [10, 20, 30]
+for val in v:
+    print(val)</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 8 -->
+      <h3>Example 8: While Loop</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = 1;
+while x < 100
+    x = x * 2;
+end
+fprintf('x = %d\n', x);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>x = 1
+while x < 100:
+    x = x * 2
+print(f'x = {x}')</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 9 -->
+      <h3>Example 9: If / Else</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>score = 85;
+if score >= 90
+    grade = 'A';
+elseif score >= 80
+    grade = 'B';
+elseif score >= 70
+    grade = 'C';
+else
+    grade = 'F';
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>score = 85
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+else:
+    grade = 'F'</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 10 -->
+      <h3>Example 10: Switch / Match</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>day = 'Monday';
+switch day
+    case 'Monday'
+        disp('Start of week');
+    case 'Friday'
+        disp('Almost weekend');
+    otherwise
+        disp('Regular day');
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (3.10+)</h4>
+<pre><code>day = 'Monday'
+match day:
+    case 'Monday':
+        print('Start of week')
+    case 'Friday':
+        print('Almost weekend')
+    case _:
+        print('Regular day')</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 11 -->
+      <h3>Example 11: Functions with Multiple Returns</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>function [avg, sd] = stats(v)
+    avg = mean(v);
+    sd = std(v);
+end
+
+% Call:
+[a, s] = stats([1 2 3 4 5]);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>def stats(v):
+    avg = sum(v) / len(v)
+    variance = sum((x - avg)**2 for x in v) / len(v)
+    sd = variance ** 0.5
+    return avg, sd
+
+# Call:
+a, s = stats([1, 2, 3, 4, 5])</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 12 -->
+      <h3>Example 12: Reading and Writing Text Files</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Write
+fid = fopen('output.txt', 'w');
+fprintf(fid, 'Hello\nWorld\n');
+fclose(fid);
+
+% Read
+fid = fopen('output.txt', 'r');
+content = fscanf(fid, '%c');
+fclose(fid);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Write
+with open('output.txt', 'w') as f:
+    f.write('Hello\nWorld\n')
+
+# Read
+with open('output.txt', 'r') as f:
+    content = f.read()</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Python's with statement</div>
+        <p>
+          The <code>with open(...) as f:</code> pattern automatically
+          closes the file when the block ends &mdash; no need for
+          <code>fclose</code>. This is cleaner and prevents file handle
+          leaks.
+        </p>
+      </div>
+
+      <!-- Example 13 -->
+      <h3>Example 13: Cell Arrays vs Lists</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Cell array (mixed types)
+c = {1, 'hello', [1 2 3], true};
+
+% Access (use curly braces)
+c{1}     % 1
+c{2}     % 'hello'
+c{3}     % [1 2 3]
+
+% Length
+n = length(c);   % 4</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># List (mixed types)
+c = [1, 'hello', [1, 2, 3], True]
+
+# Access (use square brackets)
+c[0]     # 1
+c[1]     # 'hello'
+c[2]     # [1, 2, 3]
+
+# Length
+n = len(c)   # 4</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 14 -->
+      <h3>Example 14: Structs vs Dictionaries</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% Create struct
+person.name = 'Alice';
+person.age = 30;
+person.scores = [90, 85, 92];
+
+% Access
+disp(person.name);
+disp(person.age);
+
+% List fields
+fieldnames(person)</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Create dictionary
+person = {
+    'name': 'Alice',
+    'age': 30,
+    'scores': [90, 85, 92]
+}
+
+# Access
+print(person['name'])
+print(person['age'])
+
+# List keys
+person.keys()</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 15 -->
+      <h3>Example 15: Error Handling</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>try
+    result = 1 / 0;
+catch ME
+    fprintf('Error: %s\n', ME.message);
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>try:
+    result = 1 / 0
+except ZeroDivisionError as e:
+    print(f'Error: {e}')</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 16 -->
+      <h3>Example 16: Timing Code</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>tic;
+% ... code to time ...
+pause(1);
+elapsed = toc;
+fprintf('Time: %.3f s\n', elapsed);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>import time
+start = time.time()
+# ... code to time ...
+time.sleep(1)
+elapsed = time.time() - start
+print(f'Time: {elapsed:.3f} s')</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 17 -->
+      <h3>Example 17: Random Numbers</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>r = rand();           % uniform [0,1]
+R = rand(3, 4);       % 3x4 matrix
+n = randn(1, 100);    % normal dist
+i = randi(10, 1, 5);  % random integers</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>r = np.random.rand()        # uniform [0,1]
+R = np.random.rand(3, 4)    # 3x4 matrix
+n = np.random.randn(100)    # normal dist
+i = np.random.randint(1, 11, 5)  # random ints</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 18 -->
+      <h3>Example 18: String Formatting and Output</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>name = 'Alice';
+age = 30;
+score = 95.5;
+
+fprintf('Name: %s\n', name);
+fprintf('Age: %d, Score: %.1f\n', age, score);
+sprintf('Result: %d', age);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>name = 'Alice'
+age = 30
+score = 95.5
+
+print(f'Name: {name}')
+print(f'Age: {age}, Score: {score:.1f}')
+result = f'Result: {age}'</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 19 -->
+      <h3>Example 19: Sorting</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>v = [3, 1, 4, 1, 5, 9];
+
+sorted_v = sort(v);           % ascending
+[sorted_v, idx] = sort(v);    % with indices
+desc = sort(v, 'descend');    % descending</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>v = [3, 1, 4, 1, 5, 9]
+
+sorted_v = sorted(v)             # ascending
+idx = sorted(range(len(v)),
+             key=lambda i: v[i]) # indices
+desc = sorted(v, reverse=True)   # descending
+
+# NumPy:
+v_np = np.array(v)
+sorted_v = np.sort(v_np)
+idx = np.argsort(v_np)</code></pre>
+        </div>
+      </div>
+
+      <!-- Example 20 -->
+      <h3>Example 20: Reshaping Arrays</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>v = 1:12;
+A = reshape(v, 3, 4);
+% 3 rows, 4 columns
+
+B = A(:);  % flatten to column
+sz = size(A);  % [3, 4]</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>v = np.arange(1, 13)
+A = v.reshape(3, 4)
+# 3 rows, 4 columns
+
+B = A.flatten()    # flatten to 1D
+sz = A.shape       # (3, 4)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">reshape column-major vs row-major</div>
+        <p>
+          MATLAB fills matrices <strong>column by column</strong> (column-major
+          / Fortran order). NumPy fills <strong>row by row</strong> by default
+          (row-major / C order). To get MATLAB-like behavior in NumPy, use
+          <code>v.reshape(3, 4, order='F')</code>.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. COMMON MISTAKES                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">10. Common Mistakes MATLAB Users Make in Python</h2>
+
+      <p>
+        After teaching many MATLAB users Python, these are the mistakes that
+        come up again and again. Be aware of them and you will save yourself
+        hours of debugging.
+      </p>
+
+      <h3>Mistake 1: Using 1-based indexing</h3>
+
+<pre><code># WRONG (MATLAB habit)
+v = [10, 20, 30, 40, 50]
+first = v[1]    # This gives 20, NOT 10!
+
+# CORRECT
+first = v[0]    # 10</code></pre>
+
+      <h3>Mistake 2: Forgetting the colon after if/for/while/def</h3>
+
+<pre><code># WRONG (MATLAB habit — no colon)
+if x > 0
+    print('positive')
+# SyntaxError!
+
+# CORRECT
+if x > 0:
+    print('positive')</code></pre>
+
+      <h3>Mistake 3: Expecting automatic vectorization with lists</h3>
+
+<pre><code># WRONG (MATLAB habit)
+a = [1, 2, 3, 4]
+b = a * 2         # [1, 2, 3, 4, 1, 2, 3, 4] — REPEATED!
+
+# CORRECT (use NumPy)
+import numpy as np
+a = np.array([1, 2, 3, 4])
+b = a * 2         # array([2, 4, 6, 8])</code></pre>
+
+      <h3>Mistake 4: Using semicolons everywhere</h3>
+
+<pre><code># Not an error, but bad Python style
+x = 5;
+y = 10;
+z = x + y;
+
+# Correct Python style
+x = 5
+y = 10
+z = x + y</code></pre>
+
+      <h3>Mistake 5: Trying to use end as an index</h3>
+
+<pre><code># WRONG (MATLAB habit)
+v = [10, 20, 30]
+last = v[end]     # NameError: name 'end' is not defined
+
+# CORRECT
+last = v[-1]      # 30</code></pre>
+
+      <h3>Mistake 6: Forgetting parentheses for print</h3>
+
+<pre><code># WRONG (MATLAB habit — disp doesn't need parens, but print does)
+print "hello"     # SyntaxError in Python 3!
+
+# CORRECT
+print("hello")</code></pre>
+
+      <h3>Mistake 7: Expecting workspace behavior</h3>
+
+<pre><code># In MATLAB, you run a script and variables stay in the workspace.
+# In Python, when a script finishes, all variables are gone.
+
+# If you want persistent interactive work, use:
+# - Jupyter Notebook
+# - IPython interactive shell
+# - Spyder IDE (has a variable explorer)</code></pre>
+
+      <h3>Mistake 8: Using ^ for exponentiation</h3>
+
+<pre><code># WRONG (MATLAB habit)
+result = 2 ^ 10    # In Python, ^ is XOR (bitwise), not power!
+# result = 8 (bitwise XOR of 2 and 10)
+
+# CORRECT
+result = 2 ** 10   # 1024</code></pre>
+
+      <h3>Mistake 9: Using ~= for not-equal</h3>
+
+<pre><code># WRONG (MATLAB habit)
+if x ~= 5:        # SyntaxError!
+
+# CORRECT
+if x != 5:
+    print('not five')</code></pre>
+
+      <h3>Mistake 10: Using round brackets for indexing</h3>
+
+<pre><code># WRONG (MATLAB habit — uses parentheses)
+v = [10, 20, 30]
+val = v(0)         # TypeError: 'list' object is not callable
+
+# CORRECT (Python uses square brackets)
+val = v[0]         # 10</code></pre>
+
+      <div class="callout callout-success">
+        <div class="callout-title">Summary of Common Mistakes</div>
+        <p>The top 5 mistakes to watch out for, in order of frequency:</p>
+        <ol>
+          <li><strong>v[1]</strong> instead of <strong>v[0]</strong> for the first element</li>
+          <li>Missing <strong>colon</strong> after <code>if</code>, <code>for</code>, <code>while</code>, <code>def</code></li>
+          <li>Using <strong>lists</strong> when you need <strong>NumPy arrays</strong> for math</li>
+          <li>Using <strong>^</strong> instead of <strong>**</strong> for exponents</li>
+          <li>Using <strong>()</strong> instead of <strong>[]</strong> for indexing</li>
+        </ol>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  WHAT'S NEXT                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="whats-next">What's Next?</h2>
+
+      <p>
+        Now that you understand the big-picture differences between MATLAB
+        and Python, head to the
+        <a href="matlab-quick-translation.html">Quick Translation Table</a>
+        for a dense, scannable reference you can keep open while coding.
+        It covers 50+ common operations with their MATLAB and Python
+        equivalents side by side.
+      </p>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Bookmark this page</div>
+        <p>
+          You will probably come back to this page many times during your
+          first few weeks of Python. That is completely normal. The
+          differences become second nature after a few weeks of practice.
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="top-100-patterns.html" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Top 100 Patterns</span></a>
+        <a href="matlab-quick-translation.html" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Quick Translation Table</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../js/main.js"></script>
+</body>
+</html>
