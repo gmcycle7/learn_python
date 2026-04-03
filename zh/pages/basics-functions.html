@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函式與 Lambda &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-functions.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link active">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python 基礎</a><span class="sep">&rsaquo;</span>
+        函式與 Lambda
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  章節 C — 函式與 LAMBDA                                       -->
+      <!-- ============================================================ -->
+
+      <h1>函式與 Lambda</h1>
+      <p class="page-subtitle">
+        將程式碼組織成可重複使用的區塊。學習如何定義函式、
+        傳遞參數、回傳值，以及使用匿名 lambda 運算式。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong>在 MATLAB 中，函式通常
+        存放在各自的 <code>.m</code> 檔案中（或自 R2016b 起可放在腳本末尾）。
+        Python 更加靈活 &mdash; 你可以在腳本的<em>任何位置</em>定義函式，
+        而且可以在單一檔案中放置任意數量的函式。MATLAB 使用 <code>function</code>
+        關鍵字；Python 使用 <code>def</code>。Python 中的回傳值是顯式的
+        （你需要寫 <code>return</code>），而 MATLAB 則是將值指定給函式簽名中
+        宣告的輸出變數。
+      </div>
+
+      <!-- 目錄 -->
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#defining-functions">1. 定義函式</a></li>
+          <li><a href="#parameters-arguments">2. 參數與引數</a></li>
+          <li><a href="#return-values">3. 回傳值</a></li>
+          <li><a href="#scope">4. 作用域 &mdash; 區域 vs. 全域</a></li>
+          <li><a href="#docstrings">5. 文件字串</a></li>
+          <li><a href="#lambda">6. Lambda 函式</a></li>
+          <li><a href="#first-class">7. 函式作為一等物件</a></li>
+          <li><a href="#args-kwargs">8. *args 與 **kwargs</a></li>
+          <li><a href="#exercises">練習題</a></li>
+          <li><a href="#summary">總結</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. 定義函式                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="defining-functions">1. 定義函式</h2>
+
+      <p>
+        <strong>函式</strong>是一個具名的程式碼區塊，用來執行
+        特定的任務。你只需<em>定義</em>一次，然後可以根據需要
+        <em>呼叫</em>它任意多次。這避免了重複相同的程式碼，並使
+        你的程式更容易閱讀、測試和維護。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>def function_name(parameters):
+    """選擇性的文件字串。"""
+    # 函式主體 — 縮排的程式碼
+    return value  # 選擇性</code></pre>
+
+      <ul>
+        <li><code>def</code> &mdash; 每個函式定義開頭的關鍵字。</li>
+        <li><strong>function_name</strong> &mdash; 使用 <code>snake_case</code>（小寫加底線）。描述性的名稱最佳：<code>calculate_area</code>，而非 <code>ca</code>。</li>
+        <li><strong>括號</strong> &mdash; 用來放置參數（輸入）。如果沒有輸入則使用空的 <code>()</code>。</li>
+        <li><strong>冒號</strong> &mdash; 在 <code>def</code> 行的結尾是必要的。</li>
+        <li><strong>縮排主體</strong> &mdash; 函式內部的所有內容都必須縮排（通常是 4 個空格）。</li>
+      </ul>
+
+      <h3>範例 1 &mdash; 簡單的函式</h3>
+
+      <pre><code># 定義函式
+def greet():
+    print("Hello, welcome to Python!")
+
+# 呼叫它
+greet()          # Hello, welcome to Python!
+greet()          # Hello, welcome to Python!</code></pre>
+
+      <h3>範例 2 &mdash; 帶參數的函式</h3>
+
+      <pre><code>def greet_user(name):
+    print(f"Hello, {name}! Welcome to Python.")
+
+greet_user("Alice")   # Hello, Alice! Welcome to Python.
+greet_user("Bob")     # Hello, Bob! Welcome to Python.</code></pre>
+
+      <h3>範例 3 &mdash; 執行計算的函式</h3>
+
+      <pre><code>def circle_area(radius):
+    pi = 3.14159
+    area = pi * radius ** 2
+    return area
+
+result = circle_area(5)
+print(result)   # 78.53975</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>
+        <pre><code>% MATLAB — 函式在獨立的 circle_area.m 檔案中
+function area = circle_area(radius)
+    area = pi * radius^2;
+end</code></pre>
+        <p>
+          在 MATLAB 中，你需要將此函式儲存在名為
+          <code>circle_area.m</code> 的檔案中。在 Python 中，函式可以直接
+          放在你的腳本中與其他程式碼一起。不需要特殊的檔案。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong>忘記在 <code>def</code> 行結尾加冒號，
+        或忘記縮排函式主體。兩者都會導致 <code>SyntaxError</code>。
+        <pre><code># 錯誤 — 缺少冒號
+def greet()
+    print("Hi")    # SyntaxError!
+
+# 錯誤 — 沒有縮排
+def greet():
+print("Hi")        # IndentationError!</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. 參數與引數                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="parameters-arguments">2. 參數與引數</h2>
+
+      <p>
+        <strong>參數（parameter）</strong>和<strong>引數（argument）</strong>
+        這兩個術語經常互換使用，但有一個微妙的差別：
+      </p>
+
+      <ul>
+        <li><strong>參數</strong> &mdash; 函式定義中的變數名稱（佔位符）。</li>
+        <li><strong>引數</strong> &mdash; 呼叫函式時傳入的實際值。</li>
+      </ul>
+
+      <pre><code>def add(a, b):      # a 和 b 是參數
+    return a + b
+
+result = add(3, 5)  # 3 和 5 是引數</code></pre>
+
+      <h3>位置引數</h3>
+
+      <p>
+        預設情況下，引數是按<strong>位置</strong>（從左到右）
+        與參數配對的：
+      </p>
+
+      <pre><code>def describe_pet(animal, name):
+    print(f"I have a {animal} named {name}.")
+
+describe_pet("cat", "Whiskers")   # I have a cat named Whiskers.
+describe_pet("Whiskers", "cat")   # I have a Whiskers named cat.  （錯誤！）</code></pre>
+
+      <div class="callout callout-danger">
+        <strong>注意：</strong>使用位置引數時順序很重要！
+        交換它們會得到邏輯上錯誤（但語法上有效）的結果。
+      </div>
+
+      <h3>關鍵字引數</h3>
+
+      <p>
+        你可以用名稱指定引數，這樣順序就不重要了：
+      </p>
+
+      <pre><code>describe_pet(name="Whiskers", animal="cat")
+# I have a cat named Whiskers.  （無論順序如何都正確）</code></pre>
+
+      <h3>預設值</h3>
+
+      <p>
+        你可以為參數設定預設值。如果呼叫者未提供
+        該引數，則使用預設值：
+      </p>
+
+      <pre><code>def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")               # Hello, Alice!
+greet("Alice", "Good morning")  # Good morning, Alice!</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>規則：</strong>有預設值的參數必須放在
+        沒有預設值的參數<em>之後</em>。
+        <pre><code># 錯誤 — 預設值在非預設值之前
+def greet(greeting="Hello", name):   # SyntaxError!
+    print(f"{greeting}, {name}!")</code></pre>
+      </div>
+
+      <h3>範例 &mdash; 結合位置、關鍵字和預設值</h3>
+
+      <pre><code>def create_profile(name, age, city="Unknown", hobby="coding"):
+    print(f"{name}, age {age}, from {city}, enjoys {hobby}.")
+
+create_profile("Alice", 30)
+# Alice, age 30, from Unknown, enjoys coding.
+
+create_profile("Bob", 25, city="London")
+# Bob, age 25, from London, enjoys coding.
+
+create_profile("Carol", 28, hobby="painting", city="Tokyo")
+# Carol, age 28, from Tokyo, enjoys painting.</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. 回傳值                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="return-values">3. 回傳值</h2>
+
+      <p>
+        <code>return</code> 陳述式將結果送回給呼叫者。
+        如果沒有 <code>return</code>，函式會回傳 <code>None</code>。
+      </p>
+
+      <h3>回傳單一值</h3>
+
+      <pre><code>def square(n):
+    return n ** 2
+
+result = square(7)
+print(result)   # 49</code></pre>
+
+      <h3>回傳多個值（元組解包）</h3>
+
+      <p>
+        Python 可以回傳用逗號分隔的多個值。底層會回傳一個
+        <strong>元組</strong>，你可以將其解包到不同的變數中：
+      </p>
+
+      <pre><code>def min_max(numbers):
+    return min(numbers), max(numbers)
+
+low, high = min_max([4, 1, 8, 3])
+print(low)    # 1
+print(high)   # 8</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 使用方括號語法來取得
+        多個輸出：<code>[low, high] = minmax(data)</code>。Python
+        使用元組解包，感覺非常相似。
+      </div>
+
+      <h3>回傳 None</h3>
+
+      <p>
+        如果函式沒有 <code>return</code> 陳述式（或使用了
+        不帶值的 <code>return</code>），它會回傳 <code>None</code>：
+      </p>
+
+      <pre><code>def say_hello(name):
+    print(f"Hello, {name}!")
+    # 沒有 return 陳述式
+
+result = say_hello("Alice")   # Hello, Alice!
+print(result)                  # None</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong>混淆 <code>print()</code> 和
+        <code>return</code>。<code>print()</code> 在螢幕上顯示文字，但
+        <em>不會</em>將值送回給呼叫者。<code>return</code>
+        會將值送回，但<em>不會</em>顯示任何東西。
+        <pre><code>def bad_add(a, b):
+    print(a + b)       # 顯示 8，但回傳 None
+
+def good_add(a, b):
+    return a + b       # 回傳 8，由呼叫者決定如何處理
+
+x = bad_add(3, 5)     # 印出 8，但 x 是 None！
+y = good_add(3, 5)    # y 是 8</code></pre>
+      </div>
+
+      <h3>提前回傳</h3>
+
+      <p>
+        你可以使用 <code>return</code> 來提前退出函式：
+      </p>
+
+      <pre><code>def divide(a, b):
+    if b == 0:
+        return "Error: division by zero"
+    return a / b
+
+print(divide(10, 3))   # 3.3333333333333335
+print(divide(10, 0))   # Error: division by zero</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. 作用域                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="scope">4. 作用域 &mdash; 區域 vs. 全域</h2>
+
+      <p>
+        <strong>作用域</strong>決定了變數可以被看到和使用的範圍。
+        在 Python 中，每個函式都會建立自己的<em>區域作用域</em>。
+      </p>
+
+      <h3>區域變數</h3>
+
+      <p>
+        在函式內部建立的變數<em>僅</em>存在於該函式內部：
+      </p>
+
+      <pre><code>def my_function():
+    secret = 42        # 區域變數
+    print(secret)
+
+my_function()           # 42
+print(secret)           # NameError: name 'secret' is not defined</code></pre>
+
+      <h3>全域變數</h3>
+
+      <p>
+        在任何函式外部建立的變數是<strong>全域</strong>的 &mdash;
+        它們可以在函式內部被<em>讀取</em>，但如果沒有
+        <code>global</code> 關鍵字就無法修改：
+      </p>
+
+      <pre><code>greeting = "Hello"     # 全域
+
+def say_hi():
+    print(greeting)    # 讀取全域變數 — 沒問題
+
+say_hi()               # Hello</code></pre>
+
+      <pre><code>counter = 0
+
+def increment():
+    counter = counter + 1   # 錯誤！Python 認為 counter 是區域變數
+                            # 因為你正在對它進行賦值
+
+increment()   # UnboundLocalError</code></pre>
+
+      <h3><code>global</code> 關鍵字（謹慎使用！）</h3>
+
+      <pre><code>counter = 0
+
+def increment():
+    global counter         # 告訴 Python：使用全域變數
+    counter = counter + 1
+
+increment()
+increment()
+print(counter)   # 2</code></pre>
+
+      <div class="callout callout-danger">
+        <strong>最佳實踐：</strong>在大多數情況下避免使用 <code>global</code>。
+        它會使程式碼更難理解、測試和除錯，因為任何函式都可能
+        暗中改變一個變數。相反，將值作為引數傳遞並回傳結果：
+        <pre><code># 更好的方法 — 不需要 global 關鍵字
+def increment(counter):
+    return counter + 1
+
+count = 0
+count = increment(count)   # 1
+count = increment(count)   # 2</code></pre>
+      </div>
+
+      <h3>LEGB 規則（簡化版）</h3>
+
+      <p>
+        當 Python 遇到一個變數名稱時，會按以下順序搜尋：
+      </p>
+
+      <ol>
+        <li><strong>L</strong>ocal（區域） &mdash; 在目前的函式內部。</li>
+        <li><strong>E</strong>nclosing（外圍） &mdash; 在任何外圍（外層）函式內部（用於巢狀函式）。</li>
+        <li><strong>G</strong>lobal（全域） &mdash; 在模組（檔案）層級。</li>
+        <li><strong>B</strong>uilt-in（內建） &mdash; Python 的內建名稱（<code>print</code>、<code>len</code> 等）。</li>
+      </ol>
+
+      <pre><code>x = "global"
+
+def outer():
+    x = "enclosing"
+
+    def inner():
+        x = "local"
+        print(x)       # local
+
+    inner()
+    print(x)           # enclosing
+
+outer()
+print(x)               # global</code></pre>
+
+      <div class="callout callout-info">
+        <strong>初學者提示：</strong>你主要需要記住兩件事：
+        （1）函式內部的變數是區域的，（2）如果 Python 無法在區域
+        找到變數，它會向外層搜尋。完整的 LEGB 規則在你開始
+        撰寫巢狀函式時會變得重要。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 文件字串                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="docstrings">5. 文件字串</h2>
+
+      <p>
+        <strong>文件字串（docstring）</strong>是出現在函式第一個陳述式位置的
+        字串常量。它記錄了函式的功能。
+        使用三重引號（<code>"""..."""</code>）來撰寫文件字串：
+      </p>
+
+      <pre><code>def celsius_to_fahrenheit(celsius):
+    """將溫度從攝氏轉換為華氏。
+
+    Args:
+        celsius: 攝氏溫度。
+
+    Returns:
+        華氏溫度。
+    """
+    return celsius * 9 / 5 + 32</code></pre>
+
+      <h3>為什麼要寫文件字串？</h3>
+
+      <ul>
+        <li>你（或其他人）可以在數個月後閱讀文件字串來了解函式的功能。</li>
+        <li>內建的 <code>help()</code> 函式會自動顯示文件字串：</li>
+      </ul>
+
+      <pre><code>help(celsius_to_fahrenheit)
+
+# 輸出：
+# Help on function celsius_to_fahrenheit in module __main__:
+#
+# celsius_to_fahrenheit(celsius)
+#     將溫度從攝氏轉換為華氏。
+#     ...
+</code></pre>
+
+      <h3>直接存取文件字串</h3>
+
+      <pre><code>print(celsius_to_fahrenheit.__doc__)
+# 將溫度從攝氏轉換為華氏。
+# ...</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中，你在函式檔案頂部
+        以註解的方式撰寫說明文字。Python 使用專門的
+        文件字串（一個真正的字串，而非註解），工具可以自動解析它。
+        概念是相同的：為你的函式撰寫文件！
+      </div>
+
+      <h3>範例 &mdash; 良好的文件字串習慣</h3>
+
+      <pre><code>def calculate_bmi(weight_kg, height_m):
+    """計算身體質量指數（BMI）。
+
+    Args:
+        weight_kg: 體重（公斤）。
+        height_m: 身高（公尺）。
+
+    Returns:
+        BMI 值（浮點數）。
+
+    Example:
+        >>> calculate_bmi(70, 1.75)
+        22.857142857142858
+    """
+    return weight_kg / height_m ** 2</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. LAMBDA 函式                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="lambda">6. Lambda 函式</h2>
+
+      <p>
+        <strong>lambda</strong> 是一個小型的匿名函式（沒有名稱的函式）。
+        它使用 <code>lambda</code> 關鍵字在單行中定義：
+      </p>
+
+      <pre><code># 語法：lambda 參數: 運算式
+
+double = lambda x: x * 2
+print(double(5))    # 10
+
+add = lambda a, b: a + b
+print(add(3, 7))    # 10</code></pre>
+
+      <h3>Lambda 與 <code>def</code> 的比較</h3>
+
+      <pre><code># 一般函式
+def square(x):
+    return x ** 2
+
+# Lambda 等價寫法
+square = lambda x: x ** 2
+
+# 兩者的用法相同
+print(square(4))   # 16</code></pre>
+
+      <h3>何時使用 Lambda</h3>
+
+      <p>
+        Lambda 最適合作為短小的、一次性的函式傳遞給
+        其他函式，如 <code>sorted()</code>、<code>map()</code> 或
+        <code>filter()</code>：
+      </p>
+
+      <pre><code># 按第二個元素排序元組串列
+pairs = [(1, "b"), (3, "a"), (2, "c")]
+sorted_pairs = sorted(pairs, key=lambda x: x[1])
+print(sorted_pairs)   # [(3, 'a'), (1, 'b'), (2, 'c')]</code></pre>
+
+      <pre><code># 使用 map() 將每個數字加倍
+numbers = [1, 2, 3, 4, 5]
+doubled = list(map(lambda x: x * 2, numbers))
+print(doubled)   # [2, 4, 6, 8, 10]</code></pre>
+
+      <pre><code># 使用 filter() 只保留偶數
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)   # [2, 4]</code></pre>
+
+      <h3>何時不該使用 Lambda</h3>
+
+      <div class="callout callout-danger">
+        <strong>避免在以下情況使用 lambda：</strong>
+        <ul>
+          <li>邏輯複雜或超過一個運算式 &mdash; 改用一般的 <code>def</code> 函式。</li>
+          <li>你需要多次重複使用該函式 &mdash; 用 <code>def</code> 給它一個正式的名稱。</li>
+          <li>你需要文件字串 &mdash; lambda 無法擁有文件字串。</li>
+          <li>可讀性受損 &mdash; 如果你需要瞇著眼睛才能理解它，就用 <code>def</code>。</li>
+        </ul>
+        <pre><code># 不好 — 對 lambda 來說太複雜了
+process = lambda x: x.strip().lower().replace(" ", "_") if isinstance(x, str) else str(x)
+
+# 更好 — 使用 def
+def process(x):
+    """清理一個值以作為鍵值使用。"""
+    if isinstance(x, str):
+        return x.strip().lower().replace(" ", "_")
+    return str(x)</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. 函式作為一等物件                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="first-class">7. 函式作為一等物件</h2>
+
+      <p>
+        在 Python 中，函式是<strong>一等物件</strong>。這代表
+        你可以：
+      </p>
+
+      <ul>
+        <li>將函式指定給變數。</li>
+        <li>將函式作為引數傳遞給另一個函式。</li>
+        <li>從另一個函式回傳一個函式。</li>
+      </ul>
+
+      <h3>將函式指定給變數</h3>
+
+      <pre><code>def shout(text):
+    return text.upper() + "!"
+
+yell = shout              # yell 現在參照相同的函式
+print(yell("hello"))      # HELLO!</code></pre>
+
+      <h3>將函式作為引數傳遞</h3>
+
+      <pre><code>def apply_twice(func, value):
+    """對一個值套用函式兩次。"""
+    return func(func(value))
+
+def add_three(x):
+    return x + 3
+
+result = apply_twice(add_three, 10)
+print(result)   # 16  (10 + 3 = 13，然後 13 + 3 = 16)</code></pre>
+
+      <h3>實用範例 &mdash; 自訂排序</h3>
+
+      <pre><code>students = [
+    {"name": "Alice", "grade": 88},
+    {"name": "Bob", "grade": 95},
+    {"name": "Carol", "grade": 72},
+]
+
+def get_grade(student):
+    return student["grade"]
+
+# 將函式作為排序的 key 傳入
+ranked = sorted(students, key=get_grade, reverse=True)
+for s in ranked:
+    print(f"{s['name']}: {s['grade']}")
+# Bob: 95
+# Alice: 88
+# Carol: 72</code></pre>
+
+      <div class="callout callout-info">
+        <strong>重要觀念：</strong>當你將函式作為引數傳遞時，
+        寫函式名稱時<em>不要</em>加括號：
+        <code>key=get_grade</code>，而非 <code>key=get_grade()</code>。
+        加括號會<em>立即呼叫</em>該函式，這不是你想要的。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. *args 與 **kwargs                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="args-kwargs">8. *args 與 **kwargs</h2>
+
+      <p>
+        有時你想要一個接受<em>任意數量</em>引數的函式。
+        Python 為此提供了兩種特殊語法。
+      </p>
+
+      <h3><code>*args</code> &mdash; 可變位置引數</h3>
+
+      <p>
+        <code>*args</code> 參數會將額外的位置引數收集到一個
+        <strong>元組</strong>中：
+      </p>
+
+      <pre><code>def add_all(*args):
+    """將任意數量的值加在一起。"""
+    print(f"Received: {args}")     # args 是一個元組
+    return sum(args)
+
+print(add_all(1, 2))           # Received: (1, 2) → 3
+print(add_all(1, 2, 3, 4, 5)) # Received: (1, 2, 3, 4, 5) → 15</code></pre>
+
+      <h3>範例 &mdash; 靈活的問候</h3>
+
+      <pre><code>def greet_all(*names):
+    for name in names:
+        print(f"Hello, {name}!")
+
+greet_all("Alice", "Bob", "Carol")
+# Hello, Alice!
+# Hello, Bob!
+# Hello, Carol!</code></pre>
+
+      <h3><code>**kwargs</code> &mdash; 可變關鍵字引數</h3>
+
+      <p>
+        <code>**kwargs</code> 參數會將額外的關鍵字引數收集到一個
+        <strong>字典</strong>中：
+      </p>
+
+      <pre><code>def build_profile(name, **kwargs):
+    """建立一個使用者資料字典。"""
+    profile = {"name": name}
+    profile.update(kwargs)
+    return profile
+
+user = build_profile("Alice", age=30, city="London", job="engineer")
+print(user)
+# {'name': 'Alice', 'age': 30, 'city': 'London', 'job': 'engineer'}</code></pre>
+
+      <h3>結合 *args 與 **kwargs</h3>
+
+      <pre><code>def super_function(*args, **kwargs):
+    print(f"Positional: {args}")
+    print(f"Keyword:    {kwargs}")
+
+super_function(1, 2, 3, name="Alice", age=30)
+# Positional: (1, 2, 3)
+# Keyword:    {'name': 'Alice', 'age': 30}</code></pre>
+
+      <div class="callout callout-info">
+        <strong>命名慣例：</strong><code>args</code> 和
+        <code>kwargs</code> 只是慣例而已。你可以使用 <code>*values</code>
+        和 <code>**options</code> &mdash; 重要的是 <code>*</code>
+        和 <code>**</code> 前綴。然而，強烈建議堅持使用 <code>args</code>
+        和 <code>kwargs</code>，因為每個 Python 開發者都能立即辨認它們。
+      </div>
+
+      <h3>參數順序規則</h3>
+
+      <p>
+        當組合所有參數類型時，它們必須按以下順序出現：
+      </p>
+
+      <pre><code>def example(pos1, pos2, default="x", *args, **kwargs):
+    pass
+
+# 1. 一般位置參數
+# 2. 具有預設值的參數
+# 3. *args
+# 4. **kwargs</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 使用 <code>varargin</code>
+        處理可變長度的輸入引數，並使用 <code>nargin</code> 檢查
+        傳入了多少引數。Python 的 <code>*args</code> 和
+        <code>**kwargs</code> 更加優雅和明確 &mdash; 你可以
+        直接迭代它們，而不需要檢查引數數量。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  練習題                                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">練習題</h2>
+
+      <p>
+        練習你所學到的內容。在查看答案之前，先自己嘗試每個練習。
+      </p>
+
+      <!-- 練習 1 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 1 &mdash; 矩形面積</div>
+        <p>
+          撰寫一個函式 <code>rectangle_area(width, height)</code>，
+          回傳矩形的面積。用幾個不同的值來測試它。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def rectangle_area(width, height):
+    """回傳矩形的面積。"""
+    return width * height
+
+print(rectangle_area(5, 3))    # 15
+print(rectangle_area(10, 2))   # 20
+print(rectangle_area(7.5, 4))  # 30.0</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 2 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 2 &mdash; 溫度轉換器</div>
+        <p>
+          撰寫一個函式 <code>f_to_c(fahrenheit)</code>，使用公式
+          <code>C = (F - 32) * 5/9</code> 將華氏轉換為攝氏。
+          回傳四捨五入到小數點後 2 位的結果。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def f_to_c(fahrenheit):
+    """將華氏轉換為攝氏。"""
+    celsius = (fahrenheit - 32) * 5 / 9
+    return round(celsius, 2)
+
+print(f_to_c(32))    # 0.0
+print(f_to_c(212))   # 100.0
+print(f_to_c(98.6))  # 37.0</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 3 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 3 &mdash; 預設問候語</div>
+        <p>
+          撰寫一個函式 <code>greet(name, greeting="Hello")</code>，
+          印出 <code>"{greeting}, {name}!"</code>。分別在有和沒有
+          <code>greeting</code> 引數的情況下呼叫它。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def greet(name, greeting="Hello"):
+    """印出個人化的問候語。"""
+    print(f"{greeting}, {name}!")
+
+greet("Alice")                # Hello, Alice!
+greet("Bob", "Good morning")  # Good morning, Bob!</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 4 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 4 &mdash; 回傳多個值</div>
+        <p>
+          撰寫一個函式 <code>stats(numbers)</code>，接收一個數字串列
+          並回傳三個值：最小值、最大值和平均值。將它們解包到不同的變數中。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def stats(numbers):
+    """回傳串列的最小值、最大值和平均值。"""
+    minimum = min(numbers)
+    maximum = max(numbers)
+    average = sum(numbers) / len(numbers)
+    return minimum, maximum, average
+
+low, high, avg = stats([4, 8, 15, 16, 23, 42])
+print(f"Min: {low}, Max: {high}, Avg: {avg:.2f}")
+# Min: 4, Max: 42, Avg: 18.00</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 5 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 5 &mdash; Lambda 排序</div>
+        <p>
+          給定串列 <code>words = ["banana", "pie", "Washington", "a"]</code>，
+          使用 <code>sorted()</code> 搭配 lambda 按單字的
+          <strong>長度</strong>排序（最短的在前面）。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>words = ["banana", "pie", "Washington", "a"]
+by_length = sorted(words, key=lambda w: len(w))
+print(by_length)   # ['a', 'pie', 'banana', 'Washington']</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 6 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 6 &mdash; *args 求和</div>
+        <p>
+          撰寫一個函式 <code>multiply_all(*args)</code>，將所有引數
+          相乘並回傳結果。如果沒有給引數，回傳 <code>1</code>。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def multiply_all(*args):
+    """將所有引數相乘。"""
+    result = 1
+    for num in args:
+        result *= num
+    return result
+
+print(multiply_all(2, 3, 4))    # 24
+print(multiply_all(5, 10))      # 50
+print(multiply_all())            # 1</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 7 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 7 &mdash; **kwargs 個人資料建立器</div>
+        <p>
+          撰寫一個函式 <code>make_profile(name, **kwargs)</code>，
+          建立並回傳一個字典。字典應該始終有一個 <code>"name"</code> 鍵，
+          加上任何傳入的額外關鍵字引數。
+          用 <code>age</code>、<code>city</code> 和 <code>hobby</code> 來測試它。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def make_profile(name, **kwargs):
+    """從關鍵字引數建立個人資料字典。"""
+    profile = {"name": name}
+    for key, value in kwargs.items():
+        profile[key] = value
+    return profile
+
+p = make_profile("Alice", age=30, city="London", hobby="chess")
+print(p)
+# {'name': 'Alice', 'age': 30, 'city': 'London', 'hobby': 'chess'}</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 8 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 8 &mdash; 文件字串練習</div>
+        <p>
+          撰寫一個函式 <code>is_even(n)</code>，如果 <code>n</code>
+          是偶數則回傳 <code>True</code>，否則回傳 <code>False</code>。
+          加上包含 Args、Returns 和 Example 區段的正式文件字串。
+          然後呼叫 <code>help(is_even)</code> 來驗證文件字串是否正確顯示。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def is_even(n):
+    """檢查一個數字是否為偶數。
+
+    Args:
+        n: 要檢查的整數。
+
+    Returns:
+        如果 n 是偶數回傳 True，否則回傳 False。
+
+    Example:
+        >>> is_even(4)
+        True
+        >>> is_even(7)
+        False
+    """
+    return n % 2 == 0
+
+print(is_even(4))    # True
+print(is_even(7))    # False
+help(is_even)</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 9 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 9 &mdash; 傳遞函式</div>
+        <p>
+          撰寫一個函式 <code>apply_to_list(func, lst)</code>，
+          將給定的函式套用到串列中的每個元素並回傳新的串列。
+          傳入一個將數字乘以三倍的函式來測試它。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>def apply_to_list(func, lst):
+    """對每個元素套用 func 並回傳新串列。"""
+    return [func(item) for item in lst]
+
+def triple(x):
+    return x * 3
+
+numbers = [1, 2, 3, 4, 5]
+result = apply_to_list(triple, numbers)
+print(result)   # [3, 6, 9, 12, 15]
+
+# 也可以搭配 lambda 使用：
+result2 = apply_to_list(lambda x: x ** 2, numbers)
+print(result2)  # [1, 4, 9, 16, 25]</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 10 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 10 &mdash; 作用域挑戰</div>
+        <p>
+          不執行程式碼，預測以下程式會印出什麼。然後執行它來
+          驗證你的答案：
+        </p>
+        <pre><code>x = 10
+
+def outer():
+    x = 20
+    def inner():
+        x = 30
+        print("inner:", x)
+    inner()
+    print("outer:", x)
+
+outer()
+print("global:", x)</code></pre>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code># 輸出：
+# inner: 30
+# outer: 20
+# global: 10
+
+# 每個函式都有自己的區域 x。
+# 全域的 x 從未被修改。</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>概念</th>
+            <th>語法 / 重點</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>定義函式</strong></td>
+            <td><code>def name(params): body</code></td>
+          </tr>
+          <tr>
+            <td><strong>位置引數</strong></td>
+            <td>按順序配對：<code>func(a, b)</code></td>
+          </tr>
+          <tr>
+            <td><strong>關鍵字引數</strong></td>
+            <td>按名稱配對：<code>func(name="Alice")</code></td>
+          </tr>
+          <tr>
+            <td><strong>預設值</strong></td>
+            <td><code>def f(x, y=10):</code></td>
+          </tr>
+          <tr>
+            <td><strong>回傳值</strong></td>
+            <td><code>return value</code>（或多個：<code>return a, b</code>）</td>
+          </tr>
+          <tr>
+            <td><strong>作用域</strong></td>
+            <td>LEGB：區域 > 外圍 > 全域 > 內建</td>
+          </tr>
+          <tr>
+            <td><strong>文件字串</strong></td>
+            <td>函式主體第一行的三重引號字串</td>
+          </tr>
+          <tr>
+            <td><strong>Lambda</strong></td>
+            <td><code>lambda x: expression</code> &mdash; 用於短小的一次性函式</td>
+          </tr>
+          <tr>
+            <td><strong>一等函式</strong></td>
+            <td>將函式作為引數傳遞、指定給變數</td>
+          </tr>
+          <tr>
+            <td><strong>*args</strong></td>
+            <td>將額外的位置引數收集到元組中</td>
+          </tr>
+          <tr>
+            <td><strong>**kwargs</strong></td>
+            <td>將額外的關鍵字引數收集到字典中</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>函式是組織良好的程式碼的基本構建模組。
+        一旦你能自在地定義和呼叫函式，你就能將任何複雜的問題分解成
+        小型、可管理、可測試的部分。你撰寫的每一個正式的 Python 程式
+        都會建立在函式之上。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導航                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-loops.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">迴圈</span></a>
+        <a href="basics-more.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">更多內建功能</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字串與布林值 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-strings-booleans.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link active">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 字串與布林值
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C.2 — STRINGS, BOOLEANS & TYPE CONVERSION           -->
+      <!-- ============================================================ -->
+
+      <h1>字串、布林值與型別轉換</h1>
+
+      <p>
+        本頁涵蓋三個基本主題：<strong>字串</strong>（Python 如何處理文字）、<strong>布林值</strong>（真/假值），以及<strong>型別轉換</strong>（將一種資料型別轉換為另一種）。如果你是從 MATLAB 轉過來的，你會在這裡找到一些熟悉的概念，但 Python 處理文字的方式與 MATLAB 非常不同，而且更為強大。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者：</strong>在 MATLAB 中，文字是用 <code>char</code> 陣列（單引號）和 <code>string</code> 物件（雙引號）處理的。在 Python 中，只有一種字串型別 &mdash; <code>str</code> &mdash; 且單引號和雙引號<em>完全可互換</em>。不用再記住該用哪種引號了！
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. STRINGS                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="strings">1. 字串</h2>
+
+      <p>
+        <strong>字串</strong>是一系列字元 &mdash; 字母、數字、空格、標點符號、符號。在 Python 中，字串是<em>不可變的</em>，意思是一旦你建立了字串，就無法就地修改個別字元。取而代之的是，你建立新的字串。
+      </p>
+
+      <!-- 1.1 Creating Strings -->
+      <h3 id="creating-strings">1.1 建立字串</h3>
+
+      <p>
+        Python 提供你三種建立字串的方式：
+      </p>
+
+      <pre><code># 單引號
+greeting = 'Hello, world!'
+
+# 雙引號 — 與單引號完全相同
+greeting = "Hello, world!"
+
+# 三引號 — 用於多行字串或包含引號的字串
+paragraph = """This is a string
+that spans multiple
+lines."""
+
+paragraph2 = '''You can also use
+triple single quotes.'''</code></pre>
+
+      <div class="callout callout-info">
+        <strong>什麼時候用哪種？</strong>大多數 Python 程式設計師會選擇單引號或雙引號，並且一致地使用。三引號用於多行字串和<em>文件字串</em>（函式內部的文件）。如果你的字串包含撇號，使用雙引號：<code>"It's easy"</code>。如果包含雙引號，使用單引號：<code>'She said "hello"'</code>。
+      </div>
+
+      <pre><code># 包含引號的字串 — 聰明選擇就不需要跳脫
+msg1 = "It's a beautiful day"       # 雙引號內的撇號
+msg2 = 'She said "Python is great"' # 單引號內的雙引號
+msg3 = """He said "It's wonderful""" # 三引號可以處理兩者</code></pre>
+
+      <!-- 1.2 String Concatenation -->
+      <h3 id="concatenation">1.2 使用 <code>+</code> 串接字串</h3>
+
+      <p>
+        你可以使用 <code>+</code> 運算子來連接（串接）字串：
+      </p>
+
+      <pre><code>first = "Hello"
+second = "World"
+combined = first + " " + second
+print(combined)    # Hello World
+
+# 建立路徑
+folder = "/home/user"
+filename = "data.csv"
+path = folder + "/" + filename
+print(path)        # /home/user/data.csv</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong>你<em>不能</em>直接串接字串和數字。這會引發 <code>TypeError</code>：
+        <pre><code>age = 25
+# msg = "I am " + age + " years old"   # TypeError!
+msg = "I am " + str(age) + " years old"  # 先轉換為字串
+print(msg)   # I am 25 years old</code></pre>
+        更好的做法是使用 f-string（下方介紹）&mdash;它們會自動處理型別轉換。
+      </div>
+
+      <!-- 1.3 String Repetition -->
+      <h3 id="repetition">1.3 使用 <code>*</code> 重複字串</h3>
+
+      <p>
+        <code>*</code> 運算子可以重複字串：
+      </p>
+
+      <pre><code>line = "-" * 40
+print(line)    # ----------------------------------------
+
+cheer = "Hip! " * 3
+print(cheer)   # Hip! Hip! Hip!
+
+# 用於格式化輸出很實用
+header = "=" * 50
+print(header)
+print("       REPORT TITLE")
+print(header)</code></pre>
+
+      <!-- 1.4 String Length -->
+      <h3 id="length">1.4 使用 <code>len()</code> 取得字串長度</h3>
+
+      <pre><code>text = "Python"
+print(len(text))      # 6
+
+empty = ""
+print(len(empty))     # 0
+
+sentence = "Hello, World!"
+print(len(sentence))  # 13  （空格和標點符號也算）</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效：</strong> <code>length('Python')</code> 或 <code>strlength("Python")</code>。在 Python 中，<code>len()</code> 是一個內建函式，適用於字串、串列和許多其他型別。
+      </div>
+
+      <!-- 1.5 Indexing -->
+      <h3 id="indexing">1.5 存取字元（索引）</h3>
+
+      <p>
+        字串中的每個字元都有一個位置編號，稱為<strong>索引</strong>。Python 使用<strong>以 0 為基礎的索引</strong>，意思是第一個字元在索引 0。
+      </p>
+
+      <pre><code>word = "Python"
+#        P  y  t  h  o  n
+#        0  1  2  3  4  5    （正索引）
+#       -6 -5 -4 -3 -2 -1   （負索引）
+
+print(word[0])    # P  — 第一個字元
+print(word[1])    # y  — 第二個字元
+print(word[5])    # n  — 最後一個字元
+print(word[-1])   # n  — 最後一個字元（使用負索引）
+print(word[-2])   # o  — 倒數第二個</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>與 MATLAB 的關鍵差異！</strong> MATLAB 使用<strong>以 1 為基礎的索引</strong>：第一個元素在索引 1。Python 使用<strong>以 0 為基礎的索引</strong>：第一個元素在索引 0。這是從 MATLAB 轉換到 Python 時最常見的錯誤來源之一。當你想到「第一個字元」時，請使用 <code>[0]</code>，而不是 <code>[1]</code>。
+      </div>
+
+      <pre><code>word = "Python"
+# print(word[6])   # IndexError: string index out of range
+# 有效的索引是 0 到 5（對於 6 個字元的字串）</code></pre>
+
+      <!-- 1.6 Slicing -->
+      <h3 id="slicing">1.6 字串切片</h3>
+
+      <p>
+        切片可以擷取字串的一<em>部分</em>。語法是 <code>s[start:end]</code>，其中 <code>start</code> 包含在內，而 <code>end</code> <strong>不包含在內</strong>。
+      </p>
+
+      <pre><code>text = "Hello, World!"
+#       H  e  l  l  o  ,     W  o  r  l  d  !
+#       0  1  2  3  4  5  6  7  8  9 10 11 12
+
+print(text[0:5])     # Hello      （索引 0, 1, 2, 3, 4）
+print(text[7:12])    # World      （索引 7, 8, 9, 10, 11）
+print(text[:5])      # Hello      （省略 start = 從 0 開始）
+print(text[7:])      # World!     （省略 end = 到結尾）
+print(text[:])       # Hello, World!  （完整複本）
+print(text[-6:])     # World!     （最後 6 個字元）</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼結尾索引不包含在內？</strong>這是一個刻意的設計選擇。它意味著 <code>len(s[start:end])</code> 總是等於 <code>end - start</code>。它也意味著你可以在位置 <em>n</em> 乾淨地分割字串：<code>s[:n] + s[n:]</code> 總是等於原始字串。MATLAB 包含兩端的索引，所以這需要一些時間適應。
+      </div>
+
+      <p>
+        你也可以加入<strong>步長</strong>值：<code>s[start:end:step]</code>
+      </p>
+
+      <pre><code>text = "Hello, World!"
+print(text[::2])     # Hlo ol!     （每第 2 個字元）
+print(text[1::2])    # el,Wrd      （每第 2 個，從索引 1 開始）
+print(text[::-1])    # !dlroW ,olleH  （反轉字串！）
+
+# 反轉字串 — 一個經典的 Python 技巧
+name = "Python"
+print(name[::-1])    # nohtyP</code></pre>
+
+      <!-- 1.7 String Methods -->
+      <h3 id="methods">1.7 常用字串方法</h3>
+
+      <p>
+        Python 字串附帶了數十個內建方法。以下是最重要的幾個：
+      </p>
+
+      <h4>大小寫方法</h4>
+
+      <pre><code>text = "Hello, World!"
+print(text.upper())       # HELLO, WORLD!
+print(text.lower())       # hello, world!
+print(text.title())       # Hello, World!
+print(text.capitalize())  # Hello, world!
+print(text.swapcase())    # hELLO, wORLD!
+
+# 用於不區分大小寫的比較
+user_input = "YES"
+if user_input.lower() == "yes":
+    print("User said yes")</code></pre>
+
+      <h4>空白字元方法</h4>
+
+      <pre><code>messy = "   Hello, World!   "
+print(messy.strip())      # "Hello, World!"   （移除兩邊）
+print(messy.lstrip())     # "Hello, World!   " （只移除左邊）
+print(messy.rstrip())     # "   Hello, World!" （只移除右邊）
+
+# strip() 在讀取使用者輸入或檔案資料時非常重要
+user_input = "  python  \n"
+clean = user_input.strip()
+print(clean)   # "python"</code></pre>
+
+      <h4>搜尋與取代</h4>
+
+      <pre><code>text = "Hello, World! Hello, Python!"
+
+# .find() — 回傳第一次出現的索引，找不到則回傳 -1
+print(text.find("World"))     # 7
+print(text.find("Java"))      # -1
+
+# .count() — 計算出現次數
+print(text.count("Hello"))    # 2
+print(text.count("o"))        # 3
+
+# .replace() — 取代所有出現的地方（回傳新字串）
+new_text = text.replace("Hello", "Hi")
+print(new_text)   # Hi, World! Hi, Python!
+
+# 只取代第一個出現的地方
+new_text = text.replace("Hello", "Hi", 1)
+print(new_text)   # Hi, World! Hello, Python!</code></pre>
+
+      <h4>分割與連接</h4>
+
+      <pre><code># .split() — 將字串分割成串列
+sentence = "Python is a great language"
+words = sentence.split()           # 預設以空白分割
+print(words)   # ['Python', 'is', 'a', 'great', 'language']
+
+csv_line = "Alice,30,Engineer"
+fields = csv_line.split(",")       # 以逗號分割
+print(fields)  # ['Alice', '30', 'Engineer']
+
+# .join() — 將串列連接成字串（在分隔符上呼叫）
+words = ['Python', 'is', 'great']
+sentence = " ".join(words)
+print(sentence)   # Python is great
+
+path_parts = ['home', 'user', 'documents']
+path = "/".join(path_parts)
+print(path)       # home/user/documents
+
+# 用其他分隔符連接
+csv = ",".join(["Alice", "30", "Engineer"])
+print(csv)        # Alice,30,Engineer</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong>注意 <code>.join()</code> 是在分隔符字串上呼叫的，而不是在串列上。這是一個常見的困惑來源。把它想成：「用這個分隔符來連接那個串列。」
+      </div>
+
+      <h4>檢查開頭/結尾</h4>
+
+      <pre><code>filename = "report_2024.csv"
+print(filename.startswith("report"))   # True
+print(filename.endswith(".csv"))       # True
+print(filename.endswith(".txt"))       # False
+
+# 用於篩選檔案很實用
+if filename.endswith((".csv", ".xlsx")):
+    print("This is a spreadsheet file")</code></pre>
+
+      <!-- 1.8 Substring Check -->
+      <h3 id="in-keyword">1.8 使用 <code>in</code> 檢查子字串</h3>
+
+      <pre><code>text = "Python is a great language"
+
+print("Python" in text)     # True
+print("Java" in text)       # False
+print("great" in text)      # True
+
+# 在 if 陳述式中非常自然
+email = "user@example.com"
+if "@" in email:
+    print("Looks like a valid email")
+
+# 使用 "not in" 否定
+if "spam" not in email:
+    print("Not spam")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效：</strong> <code>contains("Python is great", "Python")</code>。Python 的 <code>in</code> 關鍵字讀起來更自然：<code>"Python" in text</code>。
+      </div>
+
+      <!-- 1.9 Escape Characters -->
+      <h3 id="escape-chars">1.9 跳脫字元</h3>
+
+      <p>
+        有些字元無法直接在字串中輸入。使用反斜線 <code>\</code> 來建立<em>跳脫序列</em>：
+      </p>
+
+      <pre><code># 換行
+print("Line 1\nLine 2")
+# Line 1
+# Line 2
+
+# Tab
+print("Name:\tAlice")
+# Name:   Alice
+
+# 反斜線本身
+print("C:\\Users\\Documents")
+# C:\Users\Documents
+
+# 在同類引號中使用引號
+print('It\'s a test')      # It's a test
+print("She said \"hi\"")   # She said "hi"</code></pre>
+
+      <h4>原始字串</h4>
+
+      <p>
+        在字串前加上 <code>r</code> 來建立<strong>原始字串</strong>，其中反斜線被視為一般字元：
+      </p>
+
+      <pre><code># 沒有原始字串 — 反斜線有特殊意義
+print("C:\new_folder\test")    # \n 變成換行，\t 變成 Tab！
+
+# 使用原始字串 — 反斜線是一般字元
+print(r"C:\new_folder\test")   # C:\new_folder\test
+
+# 在以下情況中非常重要：
+# 1. Windows 檔案路徑
+path = r"C:\Users\Documents\data.csv"
+
+# 2. 正規表達式
+import re
+pattern = r"\d+\.\d+"    # 匹配像 3.14 這樣的數字</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Windows 使用者：</strong>Windows 檔案路徑請務必使用原始字串，或改用正斜線：<code>"C:/Users/Documents/data.csv"</code>。Python 在 Windows 上也接受正斜線。
+      </div>
+
+      <!-- 1.10 f-strings -->
+      <h3 id="fstrings">1.10 f-String（格式化字串字面值）</h3>
+
+      <p>
+        f-string 是在字串中嵌入值的<strong>現代、推薦方式</strong>。在字串前加上 <code>f</code>，然後把表達式放在大括號 <code>{}</code> 中。這是 Python 中最重要的功能之一，務必熟練掌握。
+      </p>
+
+      <pre><code># 基本變數插入
+name = "Alice"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+# My name is Alice and I am 30 years old.</code></pre>
+
+      <pre><code># 大括號內的表達式 — 任何有效的 Python 表達式都可以
+x = 10
+y = 3
+print(f"{x} + {y} = {x + y}")        # 10 + 3 = 13
+print(f"{x} * {y} = {x * y}")        # 10 * 3 = 30
+print(f"{x} / {y} = {x / y:.2f}")    # 10 / 3 = 3.33</code></pre>
+
+      <pre><code># 數字格式化
+pi = 3.14159265
+print(f"Pi is approximately {pi:.2f}")    # Pi is approximately 3.14
+print(f"Pi is approximately {pi:.4f}")    # Pi is approximately 3.1416
+
+price = 49.99
+print(f"Total: ${price:,.2f}")            # Total: $49.99
+
+big_number = 1234567890
+print(f"Population: {big_number:,}")      # Population: 1,234,567,890
+
+# 百分比
+ratio = 0.856
+print(f"Accuracy: {ratio:.1%}")           # Accuracy: 85.6%</code></pre>
+
+      <pre><code># 填充與對齊
+name = "Alice"
+score = 95
+print(f"{'Name':<10} {'Score':>5}")   # Name       Score
+print(f"{name:<10} {score:>5}")       # Alice         95
+
+# 靠左對齊 (<)、靠右對齊 (>)、置中 (^)
+for item in ["Apple", "Banana", "Cherry"]:
+    print(f"{item:^20}")
+#        Apple
+#       Banana
+#       Cherry          </code></pre>
+
+      <pre><code># 在 f-string 內呼叫方法
+name = "alice"
+print(f"Hello, {name.title()}!")      # Hello, Alice!
+
+items = ["eggs", "milk", "bread"]
+print(f"Shopping list has {len(items)} items.")
+# Shopping list has 3 items.</code></pre>
+
+      <pre><code># 使用三引號的多行 f-string
+name = "Alice"
+role = "Engineer"
+years = 5
+profile = f"""
+Employee Profile
+================
+Name:       {name}
+Role:       {role}
+Experience: {years} years
+Status:     {"Senior" if years >= 5 else "Junior"}
+"""
+print(profile)</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼 f-string 是首選：</strong>它們是嵌入值到字串中最易讀的方式。與 <code>+</code> 串接相比，它們會自動處理型別轉換（不需要呼叫 <code>str()</code>）。與 <code>.format()</code> 相比，它們更簡潔，讓你可以直接看到值出現的位置。f-string 在 Python 3.6 中引入，現在已是標準做法。
+      </div>
+
+      <!-- 1.11 .format() -->
+      <h3 id="format-method">1.11 <code>.format()</code> 方法</h3>
+
+      <p>
+        在 f-string 出現之前，<code>.format()</code> 是格式化字串的標準方式。你會在舊的程式碼中看到它，所以認識它很重要：
+      </p>
+
+      <pre><code># 位置引數
+print("Hello, {}! You are {} years old.".format("Alice", 30))
+# Hello, Alice! You are 30 years old.
+
+# 具名引數
+print("Hello, {name}! You are {age} years old.".format(name="Alice", age=30))
+# Hello, Alice! You are 30 years old.
+
+# 數字格式化的用法相同
+print("Pi is {:.2f}".format(3.14159))   # Pi is 3.14
+
+# 重複使用引數
+print("{0} likes {1}. {0} also likes {2}.".format("Alice", "Python", "coffee"))
+# Alice likes Python. Alice also likes coffee.</code></pre>
+
+      <div class="callout callout-info">
+        <strong>建議：</strong>新程式碼使用 f-string。只有在你需要將範本字串與填入的資料分開定義時，才使用 <code>.format()</code>：
+        <pre><code># 範本定義一次，多次使用
+template = "Hello, {name}! Welcome to {place}."
+print(template.format(name="Alice", place="Python"))
+print(template.format(name="Bob", place="the team"))</code></pre>
+      </div>
+
+      <!-- 1.12 Strings are Immutable -->
+      <h3 id="immutable">1.12 字串是不可變的</h3>
+
+      <p>
+        你<strong>無法</strong>透過索引賦值來更改字串中的字元。你必須建立一個新字串：
+      </p>
+
+      <pre><code>word = "Python"
+# word[0] = "J"   # TypeError: 'str' object does not support item assignment
+
+# 改為建立新字串
+word = "J" + word[1:]
+print(word)   # Jython
+
+# 或使用 .replace()
+word = "Python"
+word = word.replace("P", "J")
+print(word)   # Jython</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 的差異：</strong>在 MATLAB 中，你<em>可以</em>更改個別字元：<code>s(1) = 'J'</code>。在 Python 中，字串是不可變的 &mdash; 你總是建立一個新字串。
+      </div>
+
+      <!-- String Exercises -->
+      <h3 id="string-exercises">1.13 字串練習</h3>
+
+      <div class="callout callout-info">
+        <strong>試試這些練習。</strong>點擊以顯示解答。
+      </div>
+
+      <p><strong>練習 1：</strong>給定字串 <code>"Hello, World!"</code>，使用切片擷取 <code>"World"</code>。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>text = "Hello, World!"
+result = text[7:12]
+print(result)   # World</code></pre>
+      </details>
+
+      <p><strong>練習 2：</strong>寫程式碼接收一個人的名字和姓氏，並使用 f-string 以 <code>"Last, First"</code> 的格式印出。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>first = "Alice"
+last = "Smith"
+print(f"{last}, {first}")   # Smith, Alice</code></pre>
+      </details>
+
+      <p><strong>練習 3：</strong>給定字串 <code>"  Python Programming  "</code>，去除空白、轉換為大寫，並將 "PROGRAMMING" 替換為 "ROCKS"。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>text = "  Python Programming  "
+result = text.strip().upper().replace("PROGRAMMING", "ROCKS")
+print(result)   # PYTHON ROCKS</code></pre>
+        <p>注意你可以<em>鏈式呼叫</em>字串方法 &mdash; 每個方法都回傳一個新字串，所以你可以立即在結果上呼叫另一個方法。</p>
+      </details>
+
+      <p><strong>練習 4：</strong>將 CSV 行 <code>"Alice,30,Engineer,New York"</code> 分割成欄位串列，然後用 <code>" | "</code> 分隔符重新連接。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>csv_line = "Alice,30,Engineer,New York"
+fields = csv_line.split(",")
+print(fields)   # ['Alice', '30', 'Engineer', 'New York']
+
+formatted = " | ".join(fields)
+print(formatted)   # Alice | 30 | Engineer | New York</code></pre>
+      </details>
+
+      <p><strong>練習 5：</strong>使用 f-string，將 pi 的值（3.14159265）格式化為 3 位小數，並在 10 個字元寬的欄位中靠右對齊。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>pi = 3.14159265
+print(f"{pi:>10.3f}")   #      3.142</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  2. BOOLEANS                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="booleans">2. 布林值</h2>
+
+      <p>
+        <strong>布林值</strong>是一個只能是 <code>True</code> 或 <code>False</code> 的值。布林值是程式中所有決策的基礎 &mdash; 每一個 <code>if</code> 陳述式、每一個 <code>while</code> 迴圈、每一個篩選都依賴布林值。
+      </p>
+
+      <pre><code>is_active = True
+is_admin = False
+
+print(type(is_active))   # &lt;class 'bool'&gt;</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>大小寫很重要！</strong> Python 使用 <code>True</code> 和 <code>False</code>，<strong>首字母大寫</strong>。寫 <code>true</code> 或 <code>false</code>（小寫）會導致 <code>NameError</code>。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 的差異：</strong> MATLAB 使用 <code>true</code> 和 <code>false</code>（小寫）。Python 使用 <code>True</code> 和 <code>False</code>（大寫開頭）。這一開始會讓你犯錯！
+      </div>
+
+      <!-- 2.1 Comparison Operators -->
+      <h3 id="comparison">2.1 比較運算子</h3>
+
+      <p>
+        比較運算子比較兩個值並回傳布林值：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>運算子</th>
+            <th>意義</th>
+            <th>範例</th>
+            <th>結果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>==</code></td>
+            <td>等於</td>
+            <td><code>5 == 5</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>!=</code></td>
+            <td>不等於</td>
+            <td><code>5 != 3</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&lt;</code></td>
+            <td>小於</td>
+            <td><code>3 &lt; 5</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&gt;</code></td>
+            <td>大於</td>
+            <td><code>5 &gt; 3</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&lt;=</code></td>
+            <td>小於或等於</td>
+            <td><code>5 &lt;= 5</code></td>
+            <td><code>True</code></td>
+          </tr>
+          <tr>
+            <td><code>&gt;=</code></td>
+            <td>大於或等於</td>
+            <td><code>5 &gt;= 6</code></td>
+            <td><code>False</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code>x = 10
+y = 20
+
+print(x == y)     # False
+print(x != y)     # True
+print(x < y)      # True
+print(x >= 10)    # True
+
+# 比較也適用於字串（字母順序）
+print("apple" < "banana")    # True  （a 排在 b 前面）
+print("Python" == "python")  # False （區分大小寫！）
+print("Python".lower() == "python".lower())  # True</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong>不要將 <code>=</code>（賦值）和 <code>==</code>（比較）搞混。在 Python 中寫 <code>if x = 5</code> 而不是 <code>if x == 5</code> 會導致 <code>SyntaxError</code>。（在 MATLAB 中，相同的錯誤會無聲地賦值！）
+      </div>
+
+      <!-- 2.2 Logical Operators -->
+      <h3 id="logical">2.2 邏輯運算子</h3>
+
+      <p>
+        Python 使用英文單字而非符號作為邏輯運算子：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Python</th>
+            <th>MATLAB</th>
+            <th>意義</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>and</code></td>
+            <td><code>&amp;&amp;</code></td>
+            <td>兩者都必須為 True</td>
+          </tr>
+          <tr>
+            <td><code>or</code></td>
+            <td><code>||</code></td>
+            <td>至少一個必須為 True</td>
+          </tr>
+          <tr>
+            <td><code>not</code></td>
+            <td><code>~</code></td>
+            <td>反轉值</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code>age = 25
+has_license = True
+
+# and — 兩個條件都必須為真
+can_drive = age >= 16 and has_license
+print(can_drive)   # True
+
+# or — 至少一個條件為真
+is_weekend = False
+is_holiday = True
+day_off = is_weekend or is_holiday
+print(day_off)     # True
+
+# not — 反轉布林值
+is_raining = False
+go_outside = not is_raining
+print(go_outside)  # True
+
+# 組合運算子
+x = 15
+in_range = x >= 10 and x <= 20
+print(in_range)    # True
+
+# Python 允許鏈式比較（更易讀！）
+in_range = 10 <= x <= 20
+print(in_range)    # True</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者：</strong> Python 使用 <code>and</code>、<code>or</code>、<code>not</code> 而非 <code>&amp;&amp;</code>、<code>||</code>、<code>~</code>。這讀起來更像英文。此外，Python 的鏈式比較（<code>10 &lt;= x &lt;= 20</code>）是 MATLAB 沒有的好用功能。
+      </div>
+
+      <!-- 2.3 Truthy and Falsy -->
+      <h3 id="truthy-falsy">2.3 真值與假值</h3>
+
+      <p>
+        在 Python 中，每個值都有固有的「真假性」。當用在布林語境中（如 <code>if</code> 陳述式），某些值會被視為 <code>False</code>，其餘所有值都被視為 <code>True</code>。
+      </p>
+
+      <p>以下這些值是<strong>假值</strong>（評估為 <code>False</code>）：</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>假值</th>
+            <th>型別</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>False</code></td><td>bool</td></tr>
+          <tr><td><code>0</code></td><td>int</td></tr>
+          <tr><td><code>0.0</code></td><td>float</td></tr>
+          <tr><td><code>""</code>（空字串）</td><td>str</td></tr>
+          <tr><td><code>[]</code>（空串列）</td><td>list</td></tr>
+          <tr><td><code>()</code>（空元組）</td><td>tuple</td></tr>
+          <tr><td><code>{}</code>（空字典）</td><td>dict</td></tr>
+          <tr><td><code>None</code></td><td>NoneType</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>其他所有值都是真值</strong> &mdash; 非零數字、非空字串、非空串列等。</p>
+
+      <pre><code># 假值
+print(bool(0))        # False
+print(bool(0.0))      # False
+print(bool(""))       # False
+print(bool([]))       # False
+print(bool(None))     # False
+
+# 真值
+print(bool(1))        # True
+print(bool(-1))       # True  （任何非零數字）
+print(bool("hello"))  # True  （任何非空字串）
+print(bool([1, 2]))   # True  （任何非空串列）</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>真值/假值讓你能寫出簡潔、Pythonic 的程式碼。你不用寫 <code>if len(my_list) &gt; 0:</code>，只需寫 <code>if my_list:</code>。不用寫 <code>if name != "":</code>，只需寫 <code>if name:</code>。這是一個非常常見的 Python 模式。
+      </div>
+
+      <pre><code># 真值/假值的實際應用
+name = input("Enter your name: ")
+if name:
+    print(f"Hello, {name}!")
+else:
+    print("You didn't enter a name.")
+
+# 檢查串列是否有元素
+results = []
+if not results:
+    print("No results found.")
+
+# 使用 "or" 設定預設值
+username = ""
+display_name = username or "Anonymous"
+print(display_name)   # Anonymous</code></pre>
+
+      <!-- 2.4 bool() Function -->
+      <h3 id="bool-function">2.4 <code>bool()</code> 函式</h3>
+
+      <p>
+        你可以使用 <code>bool()</code> 將任何值明確轉換為布林值：
+      </p>
+
+      <pre><code>print(bool(42))        # True
+print(bool(0))         # False
+print(bool("Python"))  # True
+print(bool(""))        # False
+print(bool(" "))       # True  — 一個空格不是空的！
+print(bool("False"))   # True  — 字串 "False" 是非空的！
+print(bool(None))      # False</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>注意：</strong> <code>bool("False")</code> 是 <code>True</code>，因為 <code>"False"</code> 是一個非空字串。只有<em>空</em>字串 <code>""</code> 才是假值。同樣地，<code>bool("0")</code> 也是 <code>True</code>。
+      </div>
+
+      <!-- Boolean Exercises -->
+      <h3 id="boolean-exercises">2.5 布林值練習</h3>
+
+      <p><strong>練習 6：</strong>不執行程式碼，預測每一行的輸出：</p>
+
+      <pre><code>print(10 > 5 and 3 < 1)
+print(not False)
+print(bool("") or bool("hello"))
+print(0 == False)
+print("" == False)</code></pre>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>print(10 > 5 and 3 < 1)           # False  （True and False = False）
+print(not False)                   # True
+print(bool("") or bool("hello"))   # True   （False or True = True）
+print(0 == False)                  # True   （False 的數值是 0）
+print("" == False)                 # False  （"" 是假值，但不等於 False）</code></pre>
+        <p>最後兩個比較微妙。<code>0 == False</code> 是 <code>True</code>，因為 Python 的 <code>bool</code> 型別是 <code>int</code> 的子類別，而 <code>False</code> 的數值為 0。然而，<code>"" == False</code> 是 <code>False</code>，因為字串和布林值是不同型別，Python 在等值檢查時不會在它們之間進行隱式轉換。</p>
+      </details>
+
+      <p><strong>練習 7：</strong>寫一個布林表達式，使用鏈式比較檢查變數 <code>score</code> 是否在 0 到 100（含）之間。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>score = 85
+is_valid = 0 <= score <= 100
+print(is_valid)   # True
+
+score = 150
+is_valid = 0 <= score <= 100
+print(is_valid)   # False</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  3. TYPE CONVERSION                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-conversion">3. 型別轉換</h2>
+
+      <p>
+        型別轉換（也稱為<em>型別鑄造</em>）是將一個值從一種資料型別轉換為另一種的過程。Python 提供了內建函式來完成這項工作。
+      </p>
+
+      <!-- 3.1 Conversion Functions -->
+      <h3 id="conversion-functions">3.1 轉換函式</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>函式</th>
+            <th>轉換為</th>
+            <th>範例</th>
+            <th>結果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>int()</code></td>
+            <td>整數</td>
+            <td><code>int("42")</code></td>
+            <td><code>42</code></td>
+          </tr>
+          <tr>
+            <td><code>float()</code></td>
+            <td>浮點數</td>
+            <td><code>float("3.14")</code></td>
+            <td><code>3.14</code></td>
+          </tr>
+          <tr>
+            <td><code>str()</code></td>
+            <td>字串</td>
+            <td><code>str(42)</code></td>
+            <td><code>"42"</code></td>
+          </tr>
+          <tr>
+            <td><code>bool()</code></td>
+            <td>布林值</td>
+            <td><code>bool(1)</code></td>
+            <td><code>True</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code># 字串轉數字
+age_str = "25"
+age = int(age_str)
+print(age + 5)         # 30  （數字加法）
+
+price_str = "19.99"
+price = float(price_str)
+print(price * 2)       # 39.98
+
+# 數字轉字串
+count = 42
+message = "There are " + str(count) + " items."
+print(message)         # There are 42 items.
+
+# float 轉 int（截斷 — 不會四捨五入！）
+print(int(3.7))    # 3   （不是 4！）
+print(int(3.2))    # 3
+print(int(-2.8))   # -2  （向零截斷）
+
+# 要四捨五入的話，使用 round()
+print(round(3.7))   # 4
+print(round(3.2))   # 3</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong> <code>int()</code> 會截斷小數，<em>不會</em>四捨五入。<code>int(3.9)</code> 得到 <code>3</code>，不是 <code>4</code>。如果你要四捨五入，請使用 <code>round()</code>。
+      </div>
+
+      <!-- 3.2 When You Need Conversion -->
+      <h3 id="when-convert">3.2 何時以及為何需要轉換</h3>
+
+      <p>
+        你<em>必須</em>進行型別轉換的最常見情境是處理使用者輸入。<code>input()</code> 函式<strong>總是回傳字串</strong>，即使使用者輸入的是數字。
+      </p>
+
+      <pre><code># input() 總是回傳字串！
+age_str = input("Enter your age: ")   # 使用者輸入：25
+print(type(age_str))                   # &lt;class 'str'&gt;
+
+# 這不會如預期般運作：
+# age_str + 5     # TypeError: can only concatenate str to str
+# age_str > 18    # 這是比較字串，不是數字！
+
+# 先轉換：
+age = int(age_str)
+print(age + 5)      # 30
+print(age > 18)     # True</code></pre>
+
+      <pre><code># 完整範例：簡單計算機
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+result = num1 + num2
+print(f"{num1} + {num2} = {result}")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 的差異：</strong> MATLAB 的 <code>input()</code> 函式預設會評估表達式並回傳數字。你需要 <code>input('prompt', 's')</code> 來取得字串。Python 的 <code>input()</code> 正好相反 &mdash; 它<em>總是</em>回傳字串，你必須明確轉換。
+      </div>
+
+      <!-- 3.3 Handling Conversion Errors -->
+      <h3 id="conversion-errors">3.3 處理轉換錯誤</h3>
+
+      <p>
+        不是每個字串都能轉換為數字。嘗試無效的轉換會引發 <code>ValueError</code>：
+      </p>
+
+      <pre><code># 這些會引發 ValueError：
+# int("hello")       # ValueError: invalid literal for int()
+# int("3.14")        # ValueError: int() can't convert "3.14" directly
+# float("abc")       # ValueError: could not convert string to float
+
+# 要將 "3.14" 轉為 int，先轉為 float：
+print(int(float("3.14")))   # 3
+
+# 使用 try/except 安全轉換
+user_input = input("Enter a number: ")
+try:
+    number = float(user_input)
+    print(f"You entered: {number}")
+except ValueError:
+    print(f"'{user_input}' is not a valid number!")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong> <code>int("3.14")</code> 會失敗，因為 Python 拒絕無聲地丟失小數部分。你必須明確地：<code>int(float("3.14"))</code> 先轉為 float，再截斷為 int。
+      </div>
+
+      <!-- 3.4 Checking Types -->
+      <h3 id="checking-types">3.4 檢查型別</h3>
+
+      <pre><code>x = 42
+print(type(x))              # &lt;class 'int'&gt;
+print(isinstance(x, int))   # True
+print(isinstance(x, str))   # False
+
+# isinstance() 可以檢查多種型別
+value = 3.14
+print(isinstance(value, (int, float)))   # True</code></pre>
+
+      <!-- 3.5 Type Conversion Summary -->
+      <h3 id="conversion-summary">3.5 快速參考：什麼可以轉換成什麼</h3>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>來源</th>
+              <th><code>int()</code></th>
+              <th><code>float()</code></th>
+              <th><code>str()</code></th>
+              <th><code>bool()</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>42</code></td>
+              <td><code>42</code></td>
+              <td><code>42.0</code></td>
+              <td><code>"42"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>3.14</code></td>
+              <td><code>3</code>（截斷）</td>
+              <td><code>3.14</code></td>
+              <td><code>"3.14"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>"25"</code></td>
+              <td><code>25</code></td>
+              <td><code>25.0</code></td>
+              <td><code>"25"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>"3.14"</code></td>
+              <td>ValueError</td>
+              <td><code>3.14</code></td>
+              <td><code>"3.14"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>""</code></td>
+              <td>ValueError</td>
+              <td>ValueError</td>
+              <td><code>""</code></td>
+              <td><code>False</code></td>
+            </tr>
+            <tr>
+              <td><code>True</code></td>
+              <td><code>1</code></td>
+              <td><code>1.0</code></td>
+              <td><code>"True"</code></td>
+              <td><code>True</code></td>
+            </tr>
+            <tr>
+              <td><code>False</code></td>
+              <td><code>0</code></td>
+              <td><code>0.0</code></td>
+              <td><code>"False"</code></td>
+              <td><code>False</code></td>
+            </tr>
+            <tr>
+              <td><code>0</code></td>
+              <td><code>0</code></td>
+              <td><code>0.0</code></td>
+              <td><code>"0"</code></td>
+              <td><code>False</code></td>
+            </tr>
+            <tr>
+              <td><code>None</code></td>
+              <td>TypeError</td>
+              <td>TypeError</td>
+              <td><code>"None"</code></td>
+              <td><code>False</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Type Conversion Exercises -->
+      <h3 id="conversion-exercises">3.6 型別轉換練習</h3>
+
+      <p><strong>練習 8：</strong>使用者以字串形式輸入了出生年份。計算他們的大約年齡並使用 f-string 印出。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>birth_year_str = "1995"   # 假設這來自 input()
+birth_year = int(birth_year_str)
+age = 2026 - birth_year
+print(f"You are approximately {age} years old.")
+# You are approximately 31 years old.</code></pre>
+      </details>
+
+      <p><strong>練習 9：</strong>不執行程式碼，預測以下每個會產生什麼（值或錯誤）：</p>
+
+      <pre><code>a = int(7.9)
+b = float("10")
+c = str(True)
+d = bool("0")
+e = int("")</code></pre>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>a = int(7.9)       # 7        （截斷，不是四捨五入）
+b = float("10")    # 10.0
+c = str(True)      # "True"
+d = bool("0")      # True     （"0" 是非空字串！）
+e = int("")        # ValueError  （空字串無法變成 int）</code></pre>
+      </details>
+
+      <p><strong>練習 10：</strong>寫一個小程式，要求使用者輸入華氏溫度，然後將其轉換為攝氏溫度。公式：<code>C = (F - 32) * 5/9</code>。將結果格式化為小數點後 1 位。</p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code># fahrenheit_str = input("Enter temperature in Fahrenheit: ")
+fahrenheit_str = "98.6"   # 範例值
+fahrenheit = float(fahrenheit_str)
+celsius = (fahrenheit - 32) * 5 / 9
+print(f"{fahrenheit}°F = {celsius:.1f}°C")
+# 98.6°F = 37.0°C</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <ul>
+        <li>
+          <strong>字串</strong>使用單引號、雙引號或三引號建立。它們支援索引（<code>[0]</code>）、切片（<code>[1:4]</code>），以及數十個方法如 <code>.upper()</code>、<code>.split()</code> 和 <code>.replace()</code>。
+        </li>
+        <li>
+          <strong>f-string</strong>（<code>f"Hello {name}"</code>）是在字串中嵌入值的首選方式。好好學習它們 &mdash; 你會不斷地使用它們。
+        </li>
+        <li>
+          <strong>字串是不可變的</strong> &mdash; 你無法就地修改它們。方法會回傳新字串。
+        </li>
+        <li>
+          <strong>布林值</strong>是 <code>True</code> 或 <code>False</code>（大寫開頭！）。使用 <code>and</code>、<code>or</code>、<code>not</code> 進行邏輯運算。
+        </li>
+        <li>
+          <strong>真值/假值</strong>：<code>0</code>、<code>""</code>、<code>[]</code>、<code>None</code> 是假值；其他所有都是真值。
+        </li>
+        <li>
+          <strong>型別轉換</strong>：使用 <code>int()</code>、<code>float()</code>、<code>str()</code>、<code>bool()</code> 在型別之間轉換。記住 <code>input()</code> 總是回傳字串。
+        </li>
+        <li>
+          <strong>Python 使用以 0 為基礎的索引</strong>，不像 MATLAB 的以 1 為基礎的索引。這是必須牢記的要點。
+        </li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>字串和布林值是任何程式中最常用的兩種資料型別。你寫的幾乎每個程式都會顯示文字、處理使用者輸入、做出決策或格式化輸出。掌握這些基礎 &mdash; 尤其是 f-string、切片和真值/假值 &mdash; 將使未來每個主題都更容易學習。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-print-variables.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">輸出、變數與數字</span></a>
+        <a href="basics-lists-tuples.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">串列、元組與集合</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

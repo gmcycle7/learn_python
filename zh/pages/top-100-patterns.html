@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前100個常用 Python 模式 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/top-100-patterns.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是 Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link active">前100個常用模式</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; 練習與學習路線</div><a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a></div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb"><a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> <a href="common-patterns.html">常用模式</a><span class="sep">&rsaquo;</span> 前100個常用模式</div>
+
+      <!-- ============================================================ -->
+      <!--  前100個 PYTHON 常用模式 — 快速參考                            -->
+      <!-- ============================================================ -->
+
+      <h1>前100個 Python 常用模式</h1>
+
+      <p class="section-intro">
+        這是一份包含100個最常見 Python 模式和程式碼片段的快速參考清單，
+        初學者每天都會用到。每個條目都有簡短的標題、精簡的程式碼範例和
+        一行說明。收藏此頁面 &mdash; 你會經常回來查閱。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者：</strong>許多模式都有直接對應的 MATLAB 寫法。
+        當 Python 與 MATLAB 有顯著差異時（如零基索引、
+        <code>None</code> 取代 <code>[]</code> 等），說明中會特別指出。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  目錄                                                         -->
+      <!-- ============================================================ -->
+
+      <h2>分類</h2>
+      <ul>
+        <li><a href="#printing">輸出與顯示</a>（1&ndash;8）</li>
+        <li><a href="#variables">變數與型別</a>（9&ndash;16）</li>
+        <li><a href="#strings">字串</a>（17&ndash;30）</li>
+        <li><a href="#lists">串列</a>（31&ndash;46）</li>
+        <li><a href="#dicts">字典</a>（47&ndash;58）</li>
+        <li><a href="#loops">迴圈</a>（59&ndash;68）</li>
+        <li><a href="#functions">函式</a>（69&ndash;76）</li>
+        <li><a href="#files">檔案</a>（77&ndash;86）</li>
+        <li><a href="#errors">錯誤處理</a>（87&ndash;90）</li>
+        <li><a href="#oneliners">實用的一行程式</a>（91&ndash;100）</li>
+      </ul>
+
+      <!-- ============================================================ -->
+      <!--  輸出與顯示 (1-8)                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="printing">輸出與顯示（1&ndash;8）</h2>
+
+      <h3>1. 印出字串</h3>
+      <pre><code>print("Hello, world!")</code></pre>
+      <p>將文字印到主控台。</p>
+
+      <h3>2. 印出變數</h3>
+      <pre><code>name = "Alice"
+print(name)</code></pre>
+      <p>印出變數的目前值。</p>
+
+      <h3>3. 印出多個值</h3>
+      <pre><code>print("x =", 10, "y =", 20)</code></pre>
+      <p>傳入多個引數給 <code>print()</code>；預設會以空格分隔。</p>
+
+      <h3>4. 使用自訂分隔符號印出</h3>
+      <pre><code>print("a", "b", "c", sep="-")  # a-b-c</code></pre>
+      <p><code>sep</code> 參數控制每個值之間的分隔字元。</p>
+
+      <h3>5. 印出時不換行</h3>
+      <pre><code>print("loading", end="... ")
+print("done!")</code></pre>
+      <p><code>end</code> 參數替換每次 <code>print()</code> 結尾預設的換行字元。</p>
+
+      <h3>6. 印出格式化數字</h3>
+      <pre><code>pi = 3.14159265
+print(f"Pi is approximately {pi:.2f}")  # Pi is approximately 3.14</code></pre>
+      <p>使用 f-string 搭配格式指定符來控制小數位數。</p>
+
+      <h3>7. 印出到檔案</h3>
+      <pre><code>with open("log.txt", "w") as f:
+    print("Log entry 1", file=f)</code></pre>
+      <p><code>file</code> 參數將輸出重導到檔案而非主控台。</p>
+
+      <h3>8. 美觀印出複雜資料</h3>
+      <pre><code>from pprint import pprint
+data = {"name": "Alice", "scores": [90, 85, 92], "active": True}
+pprint(data)</code></pre>
+      <p>以縮排格式化巢狀結構，使其更易閱讀。</p>
+
+      <!-- ============================================================ -->
+      <!--  變數與型別 (9-16)                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="variables">變數與型別（9&ndash;16）</h2>
+
+      <h3>9. 指定變數</h3>
+      <pre><code>x = 42</code></pre>
+      <p>變數在你賦值的瞬間就被建立 &mdash; 不需要事先宣告。</p>
+
+      <h3>10. 多重指定</h3>
+      <pre><code>a, b, c = 1, 2, 3</code></pre>
+      <p>在一行中指定多個變數（元組解包）。</p>
+
+      <h3>11. 交換兩個變數</h3>
+      <pre><code>a, b = b, a</code></pre>
+      <p>不需要暫存變數即可交換值。在 MATLAB 中你需要一個暫存變數或 <code>deal()</code>。</p>
+
+      <h3>12. 檢查變數的型別</h3>
+      <pre><code>print(type(42))       # &lt;class 'int'&gt;
+print(type("hello"))  # &lt;class 'str'&gt;</code></pre>
+      <p>回傳任何物件的型別。類似 MATLAB 的 <code>class()</code>。</p>
+
+      <h3>13. 轉換為整數</h3>
+      <pre><code>num = int("42")    # 從字串轉換
+num = int(3.99)    # 從浮點數轉換（截斷為 3）</code></pre>
+      <p>將值轉換為整數；浮點數會被截斷而非四捨五入。</p>
+
+      <h3>14. 轉換為字串</h3>
+      <pre><code>s = str(100)   # "100"
+s = str(3.14)  # "3.14"</code></pre>
+      <p>將任何值轉換為其字串表示。</p>
+
+      <h3>15. 檢查值是否為 None</h3>
+      <pre><code>result = None
+if result is None:
+    print("No result yet")</code></pre>
+      <p>使用 <code>is None</code>（而非 <code>== None</code>）來測試 Python 的空值。</p>
+
+      <h3>16. 使用 isinstance 比較型別</h3>
+      <pre><code>if isinstance(x, int):
+    print("x is an integer")</code></pre>
+      <p>優於 <code>type(x) == int</code>，因為它也能處理子類別。</p>
+
+      <!-- ============================================================ -->
+      <!--  字串 (17-30)                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="strings">字串（17&ndash;30）</h2>
+
+      <h3>17. 串接字串</h3>
+      <pre><code>greeting = "Hello" + " " + "World"</code></pre>
+      <p>使用 <code>+</code> 運算子將字串連接在一起。</p>
+
+      <h3>18. f-string 插值</h3>
+      <pre><code>name = "Alice"
+age = 30
+print(f"{name} is {age} years old")</code></pre>
+      <p>在字串字面值中直接嵌入表達式。最易讀的格式化方法。</p>
+
+      <h3>19. 大寫和小寫</h3>
+      <pre><code>"hello".upper()   # "HELLO"
+"HELLO".lower()   # "hello"</code></pre>
+      <p>回傳轉換為大寫或小寫的新字串。</p>
+
+      <h3>20. 去除空白</h3>
+      <pre><code>"  hello  ".strip()   # "hello"
+"  hello  ".lstrip()  # "hello  "
+"  hello  ".rstrip()  # "  hello"</code></pre>
+      <p>移除前導和/或尾隨的空白字元（或指定字元）。</p>
+
+      <h3>21. 將字串分割為串列</h3>
+      <pre><code>"a,b,c".split(",")  # ["a", "b", "c"]</code></pre>
+      <p>以指定的分隔符號分割，回傳子字串的串列。</p>
+
+      <h3>22. 將串列合併為字串</h3>
+      <pre><code>", ".join(["a", "b", "c"])  # "a, b, c"</code></pre>
+      <p><code>split()</code> 的反向操作 &mdash; 用分隔符號將串列元素黏合在一起。</p>
+
+      <h3>23. 替換子字串</h3>
+      <pre><code>"hello world".replace("world", "Python")  # "hello Python"</code></pre>
+      <p>回傳所有舊子字串被替換後的新字串。</p>
+
+      <h3>24. 檢查字串是否包含子字串</h3>
+      <pre><code>if "error" in "file not found error":
+    print("Found it!")</code></pre>
+      <p><code>in</code> 運算子測試成員關係。類似 MATLAB 的 <code>contains()</code>。</p>
+
+      <h3>25. 檢查開頭/結尾</h3>
+      <pre><code>"report.pdf".endswith(".pdf")    # True
+"report.pdf".startswith("rep")  # True</code></pre>
+      <p>適用於檢查副檔名、前綴或協定字串。</p>
+
+      <h3>26. 計算字串中的出現次數</h3>
+      <pre><code>"banana".count("a")  # 3</code></pre>
+      <p>回傳子字串不重疊出現的次數。</p>
+
+      <h3>27. 尋找子字串的索引</h3>
+      <pre><code>"hello".find("ll")   # 2
+"hello".find("xyz")  # -1（未找到）</code></pre>
+      <p>回傳子字串開始的第一個索引，若未找到則回傳 <code>-1</code>。</p>
+
+      <h3>28. 切片字串</h3>
+      <pre><code>s = "Python"
+s[0:3]   # "Pyt"（索引 0 到 3，不包含 3）
+s[-3:]   # "hon"（最後 3 個字元）</code></pre>
+      <p>使用 <code>[start:stop]</code> 擷取部分內容。記住：Python 使用零基索引。</p>
+
+      <h3>29. 反轉字串</h3>
+      <pre><code>"hello"[::-1]  # "olleh"</code></pre>
+      <p>切片 <code>[::-1]</code> 會反向遍歷整個序列。</p>
+
+      <h3>30. 多行字串</h3>
+      <pre><code>text = """Line one
+Line two
+Line three"""</code></pre>
+      <p>三引號讓你可以撰寫跨多行的字串，無需跳脫字元。</p>
+
+      <!-- ============================================================ -->
+      <!--  串列 (31-46)                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="lists">串列（31&ndash;46）</h2>
+
+      <h3>31. 建立串列</h3>
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+nums = [1, 2, 3, 4, 5]</code></pre>
+      <p>串列是有序、可變的序列 &mdash; Python 最常用的資料結構。</p>
+
+      <h3>32. 附加到串列</h3>
+      <pre><code>fruits.append("date")</code></pre>
+      <p>在末尾新增一個元素。就地修改串列。</p>
+
+      <h3>33. 在指定位置插入</h3>
+      <pre><code>fruits.insert(1, "blueberry")  # 在索引 1 插入</code></pre>
+      <p>將現有元素向右移動以騰出空間。</p>
+
+      <h3>34. 依值移除</h3>
+      <pre><code>fruits.remove("banana")  # 移除第一個出現的</code></pre>
+      <p>如果項目不在串列中，會引發 <code>ValueError</code>。</p>
+
+      <h3>35. Pop（依索引移除）</h3>
+      <pre><code>last = fruits.pop()     # 移除並回傳最後一個項目
+second = fruits.pop(1)  # 移除並回傳索引 1 的項目</code></pre>
+      <p>回傳被移除的元素，讓你可以使用它。</p>
+
+      <h3>36. 排序串列</h3>
+      <pre><code>nums = [3, 1, 4, 1, 5]
+nums.sort()               # 就地排序：[1, 1, 3, 4, 5]
+sorted_nums = sorted(nums)  # 回傳新的已排序串列</code></pre>
+      <p><code>.sort()</code> 就地修改；<code>sorted()</code> 回傳新串列。</p>
+
+      <h3>37. 反轉串列</h3>
+      <pre><code>nums.reverse()           # 就地反轉
+reversed_nums = nums[::-1]  # 回傳新串列</code></pre>
+      <p>兩種方式：就地方法或切片技巧。</p>
+
+      <h3>38. 切片串列</h3>
+      <pre><code>nums = [10, 20, 30, 40, 50]
+nums[1:4]   # [20, 30, 40]
+nums[::2]   # [10, 30, 50]（每隔一個元素）</code></pre>
+      <p>與字串切片完全相同：<code>[start:stop:step]</code>。</p>
+
+      <h3>39. 找出元素的索引</h3>
+      <pre><code>["a", "b", "c"].index("b")  # 1</code></pre>
+      <p>回傳第一次出現的索引。若未找到，引發 <code>ValueError</code>。</p>
+
+      <h3>40. 檢查項目是否在串列中</h3>
+      <pre><code>if "apple" in fruits:
+    print("Found it!")</code></pre>
+      <p><code>in</code> 運算子適用於任何序列（串列、元組、字串、集合）。</p>
+
+      <h3>41. 取得串列的長度</h3>
+      <pre><code>print(len(fruits))  # 元素數量</code></pre>
+      <p>內建 <code>len()</code> 適用於字串、串列、字典、集合等。</p>
+
+      <h3>42. 攤平巢狀串列</h3>
+      <pre><code>nested = [[1, 2], [3, 4], [5, 6]]
+flat = [item for sublist in nested for item in sublist]
+# [1, 2, 3, 4, 5, 6]</code></pre>
+      <p>雙重串列推導式，解開一層巢狀。</p>
+
+      <h3>43. 取得唯一元素</h3>
+      <pre><code>unique = list(set([1, 2, 2, 3, 3, 3]))  # [1, 2, 3]</code></pre>
+      <p>轉換為集合可移除重複值；如需串列則再轉回。順序不保證。</p>
+
+      <h3>44. 串列推導式</h3>
+      <pre><code>squares = [x**2 for x in range(10)]
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+      <p>一種簡潔的方式，透過轉換可迭代物件的每個元素來建立串列。</p>
+
+      <h3>45. 用推導式過濾串列</h3>
+      <pre><code>evens = [x for x in range(20) if x % 2 == 0]</code></pre>
+      <p>加入 <code>if</code> 子句，只保留通過條件的元素。</p>
+
+      <h3>46. 合併（串接）串列</h3>
+      <pre><code>a = [1, 2]
+b = [3, 4]
+combined = a + b        # [1, 2, 3, 4]
+a.extend(b)             # a 現在是 [1, 2, 3, 4]（就地修改）</code></pre>
+      <p>使用 <code>+</code> 產生新串列，或使用 <code>.extend()</code> 就地修改。</p>
+
+      <!-- ============================================================ -->
+      <!--  字典 (47-58)                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="dicts">字典（47&ndash;58）</h2>
+
+      <h3>47. 建立字典</h3>
+      <pre><code>person = {"name": "Alice", "age": 30, "city": "London"}</code></pre>
+      <p>用大括號包圍的鍵值對。類似 MATLAB 的 <code>containers.Map</code>。</p>
+
+      <h3>48. 依鍵取得值</h3>
+      <pre><code>print(person["name"])  # "Alice"</code></pre>
+      <p>如果鍵不存在，會引發 <code>KeyError</code>。</p>
+
+      <h3>49. 使用預設值取得</h3>
+      <pre><code>person.get("email", "N/A")  # "N/A"（鍵未找到）</code></pre>
+      <p>鍵不存在時回傳預設值，而非引發錯誤。</p>
+
+      <h3>50. 新增或更新鍵</h3>
+      <pre><code>person["email"] = "alice@example.com"  # 新增
+person["age"] = 31                     # 更新</code></pre>
+      <p>賦值會在鍵不存在時建立它，存在時則覆寫。</p>
+
+      <h3>51. 刪除鍵</h3>
+      <pre><code>del person["city"]
+# 或
+removed = person.pop("city", None)  # 回傳值（或 None）</code></pre>
+      <p><code>del</code> 在鍵不存在時引發 <code>KeyError</code>；帶預設值的 <code>.pop()</code> 則不會。</p>
+
+      <h3>52. 檢查鍵是否存在</h3>
+      <pre><code>if "name" in person:
+    print("Key exists")</code></pre>
+      <p><code>in</code> 運算子預設檢查鍵（而非值）。</p>
+
+      <h3>53. 遍歷鍵</h3>
+      <pre><code>for key in person:
+    print(key)</code></pre>
+      <p>迭代字典會產出其鍵。</p>
+
+      <h3>54. 遍歷值</h3>
+      <pre><code>for value in person.values():
+    print(value)</code></pre>
+      <p>當你只需要值時，使用 <code>.values()</code>。</p>
+
+      <h3>55. 遍歷鍵值對</h3>
+      <pre><code>for key, value in person.items():
+    print(f"{key}: {value}")</code></pre>
+      <p>迭代字典最常見的方式。</p>
+
+      <h3>56. 合併兩個字典</h3>
+      <pre><code>defaults = {"color": "red", "size": 10}
+overrides = {"size": 20, "weight": 5}
+merged = {**defaults, **overrides}
+# {"color": "red", "size": 20, "weight": 5}</code></pre>
+      <p><code>**</code> 解包合併字典；重複鍵以後面的值為準。</p>
+
+      <h3>57. 字典推導式</h3>
+      <pre><code>squares = {x: x**2 for x in range(6)}
+# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
+      <p>在一個表達式中建立字典，類似串列推導式。</p>
+
+      <h3>58. 依值排序字典</h3>
+      <pre><code>scores = {"Alice": 90, "Bob": 75, "Charlie": 88}
+sorted_scores = dict(sorted(scores.items(), key=lambda item: item[1]))</code></pre>
+      <p>回傳依值排序的新字典。加上 <code>reverse=True</code> 為降序。</p>
+
+      <!-- ============================================================ -->
+      <!--  迴圈 (59-68)                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="loops">迴圈（59&ndash;68）</h2>
+
+      <h3>59. 遍歷串列的 for 迴圈</h3>
+      <pre><code>for fruit in ["apple", "banana", "cherry"]:
+    print(fruit)</code></pre>
+      <p>直接迭代元素 &mdash; 不需要索引變數。</p>
+
+      <h3>60. While 迴圈</h3>
+      <pre><code>count = 0
+while count &lt; 5:
+    print(count)
+    count += 1</code></pre>
+      <p>只要條件為 <code>True</code> 就持續重複。</p>
+
+      <h3>61. 使用 range 的迴圈</h3>
+      <pre><code>for i in range(5):       # 0, 1, 2, 3, 4
+    print(i)
+for i in range(2, 10, 3):  # 2, 5, 8
+    print(i)</code></pre>
+      <p><code>range(start, stop, step)</code> 產生整數。類似 MATLAB 的 <code>start:step:stop</code>，但 stop 值不包含在內。</p>
+
+      <h3>62. Enumerate（索引 + 值）</h3>
+      <pre><code>for i, fruit in enumerate(["apple", "banana", "cherry"]):
+    print(f"{i}: {fruit}")</code></pre>
+      <p>在每次迭代中同時取得索引和值。避免手動計數變數。</p>
+
+      <h3>63. Zip（平行遍歷兩個串列）</h3>
+      <pre><code>names = ["Alice", "Bob"]
+scores = [90, 85]
+for name, score in zip(names, scores):
+    print(f"{name}: {score}")</code></pre>
+      <p>將兩個（或多個）可迭代物件的元素配對。在最短的那個結束時停止。</p>
+
+      <h3>64. 巢狀迴圈</h3>
+      <pre><code>for i in range(3):
+    for j in range(3):
+        print(f"({i},{j})", end=" ")
+    print()</code></pre>
+      <p>內層迴圈在外層迴圈的每次迭代中完整執行。</p>
+
+      <h3>65. 跳出迴圈</h3>
+      <pre><code>for n in range(100):
+    if n * n &gt; 50:
+        print(f"First square above 50: {n * n}")
+        break</code></pre>
+      <p><code>break</code> 立即跳出最內層的迴圈。</p>
+
+      <h3>66. 使用 continue 跳過迭代</h3>
+      <pre><code>for n in range(10):
+    if n % 2 == 0:
+        continue
+    print(n)  # 只印出奇數</code></pre>
+      <p><code>continue</code> 跳到下一次迭代，略過迴圈本體的其餘部分。</p>
+
+      <h3>67. 迴圈搭配 else</h3>
+      <pre><code>for n in range(2, 10):
+    if n == 4:
+        break
+else:
+    print("Loop completed without break")</code></pre>
+      <p><code>else</code> 區塊只在迴圈沒有遇到 <code>break</code> 的情況下執行。</p>
+
+      <h3>68. 反向迴圈</h3>
+      <pre><code>for i in reversed(range(5)):  # 4, 3, 2, 1, 0
+    print(i)</code></pre>
+      <p><code>reversed()</code> 以反向迭代，不會建立新串列。</p>
+
+      <!-- ============================================================ -->
+      <!--  函式 (69-76)                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="functions">函式（69&ndash;76）</h2>
+
+      <h3>69. 定義函式</h3>
+      <pre><code>def greet(name):
+    print(f"Hello, {name}!")</code></pre>
+      <p>函式使用 <code>def</code> 定義。縮排的函式本體，不需要 <code>end</code> 關鍵字。</p>
+
+      <h3>70. 回傳值</h3>
+      <pre><code>def add(a, b):
+    return a + b
+
+result = add(3, 4)  # 7</code></pre>
+      <p>使用 <code>return</code> 將值傳回呼叫者。</p>
+
+      <h3>71. 預設引數</h3>
+      <pre><code>def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")            # Hello, Alice!
+greet("Alice", "Hi")      # Hi, Alice!</code></pre>
+      <p>有預設值的參數在呼叫函式時是可選的。</p>
+
+      <h3>72. *args（可變位置引數）</h3>
+      <pre><code>def total(*args):
+    return sum(args)
+
+total(1, 2, 3, 4)  # 10</code></pre>
+      <p>將任意數量的位置引數收集到一個元組中。</p>
+
+      <h3>73. **kwargs（可變關鍵字引數）</h3>
+      <pre><code>def show_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+show_info(name="Alice", age=30)</code></pre>
+      <p>將任意數量的關鍵字引數收集到一個字典中。</p>
+
+      <h3>74. Lambda（匿名函式）</h3>
+      <pre><code>square = lambda x: x ** 2
+print(square(5))  # 25</code></pre>
+      <p>一行的臨時函式，常與 <code>sort()</code>、<code>map()</code> 或 <code>filter()</code> 搭配使用。</p>
+
+      <h3>75. Map</h3>
+      <pre><code>nums = [1, 2, 3, 4]
+doubled = list(map(lambda x: x * 2, nums))  # [2, 4, 6, 8]</code></pre>
+      <p>對每個元素套用函式。串列推導式通常能更易讀地做到同樣的事。</p>
+
+      <h3>76. Filter</h3>
+      <pre><code>nums = [1, 2, 3, 4, 5, 6]
+evens = list(filter(lambda x: x % 2 == 0, nums))  # [2, 4, 6]</code></pre>
+      <p>只保留函式回傳 <code>True</code> 的元素。</p>
+
+      <!-- ============================================================ -->
+      <!--  檔案 (77-86)                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="files">檔案（77&ndash;86）</h2>
+
+      <h3>77. 讀取整個檔案</h3>
+      <pre><code>with open("data.txt", "r") as f:
+    content = f.read()</code></pre>
+      <p>開啟檔案、將所有內容讀入字串，並自動關閉檔案。</p>
+
+      <h3>78. 逐行讀取檔案</h3>
+      <pre><code>with open("data.txt", "r") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+      <p>記憶體效率高 &mdash; 一次讀取一行，而非載入整個檔案。</p>
+
+      <h3>79. 寫入檔案</h3>
+      <pre><code>with open("output.txt", "w") as f:
+    f.write("Hello, file!\n")</code></pre>
+      <p>模式 <code>"w"</code> 建立檔案，若已存在則覆寫。</p>
+
+      <h3>80. 附加到檔案</h3>
+      <pre><code>with open("log.txt", "a") as f:
+    f.write("New log entry\n")</code></pre>
+      <p>模式 <code>"a"</code> 在末尾新增內容，不會清除現有內容。</p>
+
+      <h3>81. 檢查檔案是否存在</h3>
+      <pre><code>import os
+if os.path.exists("data.txt"):
+    print("File found")</code></pre>
+      <p>防止嘗試開啟可能不存在的檔案時發生錯誤。</p>
+
+      <h3>82. 取得檔案大小</h3>
+      <pre><code>import os
+size = os.path.getsize("data.txt")  # 以位元組為單位</code></pre>
+      <p>回傳檔案大小（位元組）。除以 1024 得 KB，除以 1048576 得 MB。</p>
+
+      <h3>83. 列出目錄中的檔案</h3>
+      <pre><code>import os
+files = os.listdir(".")  # 目前目錄
+print(files)</code></pre>
+      <p>回傳指定目錄中的檔案名稱串列（非完整路徑）。</p>
+
+      <h3>84. 建立目錄</h3>
+      <pre><code>import os
+os.makedirs("output/reports", exist_ok=True)</code></pre>
+      <p>建立目錄及任何缺少的父目錄。<code>exist_ok=True</code> 避免目錄已存在時發生錯誤。</p>
+
+      <h3>85. 刪除檔案</h3>
+      <pre><code>import os
+os.remove("temp.txt")</code></pre>
+      <p>永久刪除檔案。若檔案不存在，引發 <code>FileNotFoundError</code>。</p>
+
+      <h3>86. 複製檔案</h3>
+      <pre><code>import shutil
+shutil.copy("source.txt", "backup.txt")</code></pre>
+      <p>複製檔案內容和權限。使用 <code>shutil.copy2()</code> 可同時保留中繼資料。</p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤處理 (87-90)                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="errors">錯誤處理（87&ndash;90）</h2>
+
+      <h3>87. 基本 try / except</h3>
+      <pre><code>try:
+    result = 10 / 0
+except:
+    print("Something went wrong")</code></pre>
+      <p>捕捉任何例外，防止程式崩潰。</p>
+
+      <h3>88. 捕捉特定例外</h3>
+      <pre><code>try:
+    num = int("abc")
+except ValueError as e:
+    print(f"Invalid input: {e}")</code></pre>
+      <p>只捕捉指定的錯誤類型；其他例外仍會傳播。</p>
+
+      <h3>89. Finally（清理程式碼）</h3>
+      <pre><code>try:
+    f = open("data.txt")
+    data = f.read()
+finally:
+    f.close()</code></pre>
+      <p><code>finally</code> 區塊無論是否發生例外都會執行。（檔案操作建議使用 <code>with</code> 語句。）</p>
+
+      <h3>90. 引發例外</h3>
+      <pre><code>def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b</code></pre>
+      <p>使用 <code>raise</code> 明確發出錯誤條件的信號。</p>
+
+      <!-- ============================================================ -->
+      <!--  實用的一行程式 (91-100)                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="oneliners">實用的一行程式（91&ndash;100）</h2>
+
+      <h3>91. 攤平巢狀串列</h3>
+      <pre><code>flat = [x for sub in [[1,2],[3,4],[5]] for x in sub]
+# [1, 2, 3, 4, 5]</code></pre>
+      <p>雙重推導式，將一層巢狀結構解包為扁平串列。</p>
+
+      <h3>92. 使用 Counter 計數項目</h3>
+      <pre><code>from collections import Counter
+counts = Counter(["a", "b", "a", "c", "a", "b"])
+# Counter({'a': 3, 'b': 2, 'c': 1})</code></pre>
+      <p>統計每個元素的出現次數。非常適合頻率分析。</p>
+
+      <h3>93. 依值排序字典</h3>
+      <pre><code>d = {"x": 3, "y": 1, "z": 2}
+sorted_d = dict(sorted(d.items(), key=lambda kv: kv[1]))
+# {"y": 1, "z": 2, "x": 3}</code></pre>
+      <p>回傳依升序值排列的新字典。</p>
+
+      <h3>94. 轉置矩陣（串列的串列）</h3>
+      <pre><code>matrix = [[1,2,3],[4,5,6],[7,8,9]]
+transposed = list(zip(*matrix))
+# [(1,4,7), (2,5,8), (3,6,9)]</code></pre>
+      <p><code>*</code> 解包列，<code>zip()</code> 按行重新組合。類似 MATLAB 的 <code>.'</code> 運算子。</p>
+
+      <h3>95. 保持順序的唯一元素</h3>
+      <pre><code>items = [3, 1, 2, 3, 1, 4]
+unique = list(dict.fromkeys(items))  # [3, 1, 2, 4]</code></pre>
+      <p>利用字典鍵唯一且保持插入順序的特性（Python 3.7+）。</p>
+
+      <h3>96. 將串列分成區塊</h3>
+      <pre><code>data = list(range(10))
+chunks = [data[i:i+3] for i in range(0, len(data), 3)]
+# [[0,1,2], [3,4,5], [6,7,8], [9]]</code></pre>
+      <p>將串列切成每組 <em>n</em> 個元素。</p>
+
+      <h3>97. 使用 key 函式求最大/最小值</h3>
+      <pre><code>words = ["apple", "hi", "banana", "ok"]
+longest = max(words, key=len)   # "banana"
+shortest = min(words, key=len)  # "hi"</code></pre>
+      <p><code>key</code> 參數控制比較的值。</p>
+
+      <h3>98. 合併字典（Python 3.9+）</h3>
+      <pre><code>a = {"x": 1}
+b = {"y": 2, "x": 10}
+merged = a | b  # {"x": 10, "y": 2}</code></pre>
+      <p><code>|</code> 運算子合併字典；重複鍵以右側為準。</p>
+
+      <h3>99. 條件（三元）表達式</h3>
+      <pre><code>status = "even" if 10 % 2 == 0 else "odd"</code></pre>
+      <p>一行的 if/else，回傳一個值。適合簡潔的賦值。</p>
+
+      <h3>100. defaultdict（自動初始化缺少的鍵）</h3>
+      <pre><code>from collections import defaultdict
+counts = defaultdict(int)
+for ch in "hello":
+    counts[ch] += 1
+# defaultdict(&lt;class 'int'&gt;, {'h':1, 'e':1, 'l':2, 'o':1})</code></pre>
+      <p>當存取新鍵時自動指定預設值（此處為 <code>0</code>），避免 <code>KeyError</code>。</p>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="common-patterns.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">常用模式</span></a>
+        <a href="matlab-to-python.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">MATLAB 轉 Python</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

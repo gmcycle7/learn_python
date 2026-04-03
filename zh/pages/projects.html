@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迷你專案 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/projects.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link active">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 迷你專案
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION G — MINI PROJECTS                                    -->
+      <!-- ============================================================ -->
+
+      <h1>第 G 章 &mdash; 迷你專案</h1>
+
+      <p>
+        這裡是理論與實踐結合的地方。下面每個專案都是一個<strong>完整、可執行的 Python 腳本</strong>，你可以複製、儲存為 <code>.py</code> 檔案，並立即執行。專案大致按複雜度排序 &mdash; 從專案 1 開始，依序完成。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>給 MATLAB 使用者的說明：</strong>這些專案是 Python 版的小型腳本，等同於你在 MATLAB 中為自動化任務、分析資料或產生圖表而撰寫的腳本。你會看到熟悉的概念 &mdash; 函式、迴圈、檔案 I/O、繪圖 &mdash; 但以 Python 語法表達。每個專案都包含將 Python 方法對應回 MATLAB 等效寫法的說明。
+      </div>
+
+      <div class="callout callout-tip">
+        <strong>如何使用本頁：</strong>
+        <ol>
+          <li>閱讀<em>目標</em>以了解專案的功能。</li>
+          <li>研究<em>使用的概念</em>標籤，了解練習了哪些技能。</li>
+          <li>通讀<em>完整程式碼</em> &mdash; 每行都有註解。</li>
+          <li>跟隨<em>逐塊解說</em>理解邏輯。</li>
+          <li>按照<em>如何執行</em>的說明在你的電腦上運行。</li>
+          <li>嘗試<em>修改與延伸</em>的建議，讓它成為你自己的作品。</li>
+        </ol>
+      </div>
+
+      <h2>目錄</h2>
+      <ol>
+        <li><a href="#project-1">簡易計算機</a></li>
+        <li><a href="#project-2">檔案整理器</a></li>
+        <li><a href="#project-3">CSV 分析器</a></li>
+        <li><a href="#project-4">簡易圖表產生器</a></li>
+        <li><a href="#project-5">日誌解析器</a></li>
+        <li><a href="#project-6">批次檔案重新命名器</a></li>
+        <li><a href="#project-7">資料夾報告產生器</a></li>
+        <li><a href="#project-8">簡易數值分析</a></li>
+        <li><a href="#project-9">命令列工具</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 1 — SIMPLE CALCULATOR                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-1">專案 1：簡易計算機</h2>
+
+      <h3>目標</h3>
+      <p>
+        建構一個互動式計算機，要求使用者輸入兩個數字和一個算術運算符（<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>），執行計算並印出結果。程式能優雅地處理無效輸入而不會當機。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">函式</span>
+        <span class="tag">條件判斷</span>
+        <span class="tag">input()</span>
+        <span class="tag">try / except</span>
+        <span class="tag">while 迴圈</span>
+        <span class="tag">f-strings</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# simple_calculator.py — 互動式算術計算機
+# ============================================================
+
+def add(a, b):
+    """回傳 a 和 b 的和。"""
+    return a + b
+
+def subtract(a, b):
+    """回傳 a 和 b 的差。"""
+    return a - b
+
+def multiply(a, b):
+    """回傳 a 和 b 的積。"""
+    return a * b
+
+def divide(a, b):
+    """回傳 a 除以 b 的商。
+    如果 b 為零則引發 ValueError。"""
+    if b == 0:
+        raise ValueError("Cannot divide by zero!")
+    return a / b
+
+def get_number(prompt):
+    """要求使用者輸入一個數字。持續詢問直到輸入有效。"""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("  Invalid input. Please enter a numeric value.")
+
+def main():
+    """主迴圈 — 運行計算機直到使用者退出。"""
+    print("=" * 40)
+    print("  Simple Python Calculator")
+    print("=" * 40)
+
+    # 將運算符號對應到函式
+    operations = {
+        "+": add,
+        "-": subtract,
+        "*": multiply,
+        "/": divide,
+    }
+
+    while True:
+        # --- 取得第一個數字 ---
+        num1 = get_number("\nEnter the first number: ")
+
+        # --- 取得運算符 ---
+        print("Choose an operation: +, -, *, /")
+        op = input("Enter operator: ").strip()
+
+        if op not in operations:
+            print(f"  Unknown operator '{op}'. Try again.")
+            continue  # 重新開始迴圈
+
+        # --- 取得第二個數字 ---
+        num2 = get_number("Enter the second number: ")
+
+        # --- 執行計算 ---
+        try:
+            result = operations[op](num1, num2)
+            print(f"\n  Result: {num1} {op} {num2} = {result}")
+        except ValueError as e:
+            print(f"\n  Error: {e}")
+
+        # --- 詢問是否繼續 ---
+        again = input("\nAnother calculation? (y/n): ").strip().lower()
+        if again != "y":
+            print("Goodbye!")
+            break
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. 算術函式（第 5&ndash;22 行）</h4>
+      <p>
+        每個運算被包裝在各自的函式中（<code>add</code>、<code>subtract</code>、<code>multiply</code>、<code>divide</code>）。這比把所有邏輯放在一個大的 <code>if/elif</code> 鏈中更乾淨，並且使每個運算可以獨立測試。<code>divide</code> 函式明確檢查除以零的情況，並引發帶有清晰訊息的 <code>ValueError</code>。
+      </p>
+
+      <h4>2. 輸入輔助函式 &mdash; <code>get_number()</code>（第 24&ndash;29 行）</h4>
+      <p>
+        這個函式使用 <code>while True</code> 迴圈結合 <code>try/except</code>。如果使用者輸入無法轉換為 <code>float</code> 的內容（例如 <code>"abc"</code>），<code>ValueError</code> 會被捕獲，並再次提示使用者。迴圈只有在回傳有效數字時才會退出。
+      </p>
+
+      <h4>3. 運算分派字典（第 39&ndash;44 行）</h4>
+      <p>
+        我們不為每個運算符寫 <code>if op == "+": ...</code>，而是將函式儲存在以運算符字串為鍵的字典中。這是常見的 Python 模式 &mdash; <em>分派表</em> &mdash; 取代冗長的條件鏈。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中你可能會使用 <code>switch</code> 語句。Python 沒有 <code>switch</code>（雖然 Python 3.10+ 有 <code>match/case</code>）。字典分派模式是慣用的 Python 方法，既簡潔又易於擴展。
+      </div>
+
+      <h4>4. 主迴圈（第 47&ndash;68 行）</h4>
+      <p>
+        <code>while True</code> 迴圈讓計算機持續運行，直到使用者輸入 <code>y</code> 以外的內容。在迴圈中我們收集輸入、查找運算、用兩個數字呼叫它，並印出結果。計算呼叫周圍的 <code>try/except</code> 捕獲除以零的錯誤。
+      </p>
+
+      <h4>5. 入口點守衛（第 70 行）</h4>
+      <p>
+        <code>if __name__ == "__main__":</code> 確保 <code>main()</code> 只在腳本直接執行時運行，而不是被作為模組匯入時。這是一個 Python 最佳實踐，你會在每個結構良好的腳本中看到。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 將程式碼儲存為 simple_calculator.py，然後：
+python simple_calculator.py
+</code></pre>
+      <p>
+        程式會在終端機中互動式地提示你。在被詢問時輸入數字和運算符。
+      </p>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>新增更多運算：次方（<code>**</code>）、取餘數（<code>%</code>）、整數除法（<code>//</code>）。</li>
+        <li>新增歷史記錄串列，儲存過去的計算並在需要時印出。</li>
+        <li>支援像 <code>"3 + 5"</code> 這樣在同一行輸入的運算式（使用 <code>str.split()</code>）。</li>
+        <li>將結果寫入日誌檔，以便記錄所有計算。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 2 — FILE ORGANIZER                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-2">專案 2：檔案整理器</h2>
+
+      <h3>目標</h3>
+      <p>
+        根據副檔名自動將資料夾中的檔案分類到子資料夾。例如，<code>.txt</code> 檔案移到 <code>TextFiles</code> 資料夾，<code>.jpg</code> 和 <code>.png</code> 檔案移到 <code>Images</code> 資料夾，依此類推。不在對應表中的副檔名會移到 <code>Misc</code> 資料夾。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">os</span>
+        <span class="tag">shutil</span>
+        <span class="tag">pathlib</span>
+        <span class="tag">字典</span>
+        <span class="tag">迴圈</span>
+        <span class="tag">條件判斷</span>
+        <span class="tag">檔案 I/O</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# file_organizer.py — 按副檔名整理資料夾中的檔案
+# ============================================================
+
+import os
+import shutil
+from pathlib import Path
+
+# ----- 設定 -----
+# 將每個副檔名（小寫）對應到目標子資料夾名稱。
+# 根據需要新增或移除項目。
+EXTENSION_MAP = {
+    # 文件
+    ".txt":  "TextFiles",
+    ".pdf":  "Documents",
+    ".docx": "Documents",
+    ".xlsx": "Spreadsheets",
+    ".csv":  "Spreadsheets",
+    # 圖片
+    ".jpg":  "Images",
+    ".jpeg": "Images",
+    ".png":  "Images",
+    ".gif":  "Images",
+    ".bmp":  "Images",
+    # 程式碼 / 腳本
+    ".py":   "PythonScripts",
+    ".m":    "MatlabFiles",
+    ".js":   "Code",
+    ".html": "Code",
+    ".css":  "Code",
+    # 資料
+    ".json": "Data",
+    ".xml":  "Data",
+    # 壓縮檔
+    ".zip":  "Archives",
+    ".tar":  "Archives",
+    ".gz":   "Archives",
+}
+
+# 未列出副檔名的備用資料夾
+DEFAULT_FOLDER = "Misc"
+
+
+def organize(folder_path):
+    """將 *folder_path* 中的每個檔案按副檔名移到子資料夾。
+
+    Parameters
+    ----------
+    folder_path : str or Path
+        你想要整理的目錄。
+    """
+    source = Path(folder_path)
+
+    # 安全檢查 — 確保路徑存在且是目錄
+    if not source.is_dir():
+        print(f"Error: '{source}' is not a valid directory.")
+        return
+
+    moved_count = 0  # 追蹤移動了多少檔案
+
+    # 遍歷資料夾中的每個項目
+    for item in source.iterdir():
+        # 跳過目錄 — 我們只想移動檔案
+        if item.is_dir():
+            continue
+
+        # 取得小寫的副檔名（例如 ".TXT" -> ".txt"）
+        ext = item.suffix.lower()
+
+        # 查找目標資料夾；找不到則使用 DEFAULT_FOLDER
+        target_name = EXTENSION_MAP.get(ext, DEFAULT_FOLDER)
+
+        # 建構目標子資料夾的完整路徑
+        target_dir = source / target_name
+
+        # 如果子資料夾不存在則建立
+        target_dir.mkdir(exist_ok=True)
+
+        # 建構目標檔案路徑
+        destination = target_dir / item.name
+
+        # 處理名稱衝突：如果目標資料夾中已存在同名檔案，
+        # 加上數字後綴。
+        counter = 1
+        while destination.exists():
+            stem = item.stem        # 不含副檔名的檔名
+            destination = target_dir / f"{stem}_{counter}{ext}"
+            counter += 1
+
+        # 移動檔案
+        shutil.move(str(item), str(destination))
+        print(f"  Moved: {item.name}  ->  {target_name}/")
+        moved_count += 1
+
+    # 摘要
+    print(f"\nDone! Moved {moved_count} file(s).")
+
+
+if __name__ == "__main__":
+    # 詢問使用者要整理哪個資料夾
+    folder = input("Enter the path of the folder to organize: ").strip()
+
+    # 如果使用者按 Enter 沒有輸入，使用目前目錄
+    if not folder:
+        folder = "."
+
+    print(f"\nOrganizing files in: {Path(folder).resolve()}\n")
+    organize(folder)
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. 匯入（第 5&ndash;7 行）</h4>
+      <p>
+        <code>os</code> 提供基本的作業系統互動，<code>shutil</code> 提供 <code>move()</code> 函式用於跨目錄移動檔案，而 <code>pathlib.Path</code> 提供物件導向的方式來操作檔案路徑（比用 <code>os.path.join</code> 串接字串乾淨多了）。
+      </p>
+
+      <h4>2. 副檔名對應字典（第 12&ndash;39 行）</h4>
+      <p>
+        一個字典將小寫副檔名對應到資料夾名稱。使用字典使得對應表易於閱讀和修改。第 72 行的 <code>.get(ext, DEFAULT_FOLDER)</code> 呼叫會回傳對應的資料夾，如果副檔名未知則回傳 <code>"Misc"</code>。
+      </p>
+
+      <h4>3. <code>organize()</code> 函式（第 43&ndash;92 行）</h4>
+      <p>
+        這是核心邏輯。<code>source.iterdir()</code> 產生目錄中的每個項目。我們跳過子目錄、查找每個檔案的副檔名、用 <code>mkdir(exist_ok=True)</code> 建立目標子資料夾（如果已存在不會報錯）、用 <code>while</code> 迴圈處理名稱衝突，最後呼叫 <code>shutil.move()</code>。
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>提示：</strong><code>mkdir()</code> 上的 <code>exist_ok=True</code> 參數是 Python 版的「如果不存在則建立」。不加的話，對已存在的目錄呼叫 <code>mkdir()</code> 會引發 <code>FileExistsError</code>。
+      </div>
+
+      <h4>4. 入口點（第 95&ndash;103 行）</h4>
+      <p>
+        提示使用者輸入資料夾路徑，如果沒有輸入則預設為目前目錄，然後呼叫 <code>organize()</code>。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中你可能會用 <code>dir()</code> 列出檔案和 <code>movefile()</code> 移動它們。Python 的 <code>pathlib</code> 類似 MATLAB 的 <code>fullfile()</code> 用於建構路徑，但它也提供 <code>.suffix</code>、<code>.stem</code> 和 <code>.name</code> 作為方便的屬性。
+      </div>
+
+      <h3>如何執行</h3>
+<pre><code># 儲存為 file_organizer.py，然後：
+python file_organizer.py
+
+# 提示時輸入資料夾路徑（例如 C:\Users\you\Downloads）
+# 或按 Enter 整理目前目錄。
+</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>警告：</strong>這個腳本會<em>移動</em>檔案。請先在包含副本的資料夾上測試，不要在你唯一的重要資料上測試。
+      </div>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>新增 <code>--dry-run</code> 旗標，只印出<em>將會</em>發生什麼而不實際移動檔案。</li>
+        <li>新增 <code>--undo</code> 功能，將移動記錄寫入日誌以便復原。</li>
+        <li>讓副檔名對應表可透過 JSON 檔案配置。</li>
+        <li>新增遞迴整理功能（也整理子資料夾中的檔案）。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 3 — CSV ANALYZER                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-3">專案 3：CSV 分析器</h2>
+
+      <h3>目標</h3>
+      <p>
+        讀取一個 CSV 檔案，識別數值欄位，並為每個欄位計算基本統計資料：計數、平均值、最小值和最大值。在終端機印出乾淨的摘要表格。這個專案只使用標準函式庫 &mdash; 不需要 pandas 或 numpy。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">csv 模組</span>
+        <span class="tag">檔案 I/O</span>
+        <span class="tag">字典</span>
+        <span class="tag">串列</span>
+        <span class="tag">數學（基礎）</span>
+        <span class="tag">字串格式化</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# csv_analyzer.py — 讀取 CSV 並計算基本統計資料
+# ============================================================
+
+import csv
+import sys
+
+
+def read_csv(filepath):
+    """讀取 CSV 檔案並回傳 (headers, rows)。
+
+    Parameters
+    ----------
+    filepath : str
+        CSV 檔案的路徑。
+
+    Returns
+    -------
+    headers : list of str
+        第一列的欄位名稱。
+    rows : list of list of str
+        所有資料列（每列是字串值的串列）。
+    """
+    with open(filepath, newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        headers = next(reader)          # 第一列 = 欄位名稱
+        rows = [row for row in reader]   # 其餘列 = 資料
+    return headers, rows
+
+
+def is_numeric(value):
+    """如果 *value* 可以轉換為 float 則回傳 True。"""
+    try:
+        float(value)
+        return True
+    except (ValueError, TypeError):
+        return False
+
+
+def compute_stats(values):
+    """給定一個 float 串列，回傳含 count、mean、min、max 的字典。
+
+    Parameters
+    ----------
+    values : list of float
+
+    Returns
+    -------
+    dict with keys: 'count', 'mean', 'min', 'max'
+    """
+    n = len(values)
+    if n == 0:
+        return {"count": 0, "mean": None, "min": None, "max": None}
+
+    total = sum(values)
+    return {
+        "count": n,
+        "mean": total / n,
+        "min": min(values),
+        "max": max(values),
+    }
+
+
+def analyze(filepath):
+    """讀取 *filepath* 的 CSV 並印出數值欄位的統計資料。"""
+    headers, rows = read_csv(filepath)
+
+    # 對每個欄位收集數值
+    # 鍵：欄位索引，值：float 串列
+    numeric_data = {}
+
+    for col_idx, header in enumerate(headers):
+        col_values = []
+        for row in rows:
+            # 某些列可能欄位較少；優雅地跳過
+            if col_idx < len(row) and is_numeric(row[col_idx]):
+                col_values.append(float(row[col_idx]))
+        # 只保留至少有一個數值的欄位
+        if col_values:
+            numeric_data[col_idx] = col_values
+
+    if not numeric_data:
+        print("No numeric columns found in the CSV.")
+        return
+
+    # ----- 印出報告 -----
+    print(f"\nFile: {filepath}")
+    print(f"Total rows (excluding header): {len(rows)}")
+    print(f"Total columns: {len(headers)}")
+    print(f"Numeric columns found: {len(numeric_data)}\n")
+
+    # 表頭
+    print(f"{'Column':<20} {'Count':>8} {'Mean':>12} {'Min':>12} {'Max':>12}")
+    print("-" * 66)
+
+    for col_idx, values in numeric_data.items():
+        stats = compute_stats(values)
+        name = headers[col_idx]
+        print(
+            f"{name:<20} "
+            f"{stats['count']:>8} "
+            f"{stats['mean']:>12.4f} "
+            f"{stats['min']:>12.4f} "
+            f"{stats['max']:>12.4f}"
+        )
+
+    print()
+
+
+if __name__ == "__main__":
+    # 從命令列接受檔案路徑或提示輸入
+    if len(sys.argv) > 1:
+        csv_path = sys.argv[1]
+    else:
+        csv_path = input("Enter the path to the CSV file: ").strip()
+
+    analyze(csv_path)
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. <code>read_csv()</code>（第 9&ndash;30 行）</h4>
+      <p>
+        使用 Python 內建的 <code>csv.reader</code> 開啟 CSV 檔案。第一列用 <code>next(reader)</code> 單獨讀取以取得欄位標題。其餘列用串列推導式收集成串列的串列。
+      </p>
+
+      <h4>2. <code>is_numeric()</code>（第 33&ndash;39 行）</h4>
+      <p>
+        一個小型輔助函式，嘗試將值轉換為 <code>float</code>。如果轉換失敗，則該值不是數值。這是標準的 Python「請求寬恕而非許可」（EAFP）模式。
+      </p>
+
+      <h4>3. <code>compute_stats()</code>（第 42&ndash;60 行）</h4>
+      <p>
+        接受一個 float 串列並回傳 count、mean、min 和 max 作為字典。使用內建的 <code>sum()</code>、<code>min()</code> 和 <code>max()</code> 函式。不需要外部函式庫。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中你會直接在欄向量上呼叫 <code>mean()</code>、<code>min()</code>、<code>max()</code> 和 <code>numel()</code>。Python 的內建函式可用於任何可迭代物件（串列、元組等），而不需要陣列。
+      </div>
+
+      <h4>4. <code>analyze()</code>（第 63&ndash;101 行）</h4>
+      <p>
+        主要的分析函式。它讀取 CSV、遍歷每個欄位以收集數值、為每個數值欄位計算統計資料，並使用 f-string 對齊指定符如 <code>&lt;20</code>（左對齊，20 字元）和 <code>&gt;12.4f</code>（右對齊，12 字元，4 位小數）印出格式化的表格。
+      </p>
+
+      <h4>5. 入口點（第 104&ndash;109 行）</h4>
+      <p>
+        接受 CSV 路徑作為命令列引數，或在沒有引數時互動式提示輸入。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 先建立一個測試 CSV 檔案：
+# data.csv:
+#   Name,Age,Score,City
+#   Alice,30,88.5,NYC
+#   Bob,25,92.3,LA
+#   Charlie,35,76.1,Chicago
+
+# 然後執行：
+python csv_analyzer.py data.csv
+
+# 或不帶引數執行，在提示時輸入路徑：
+python csv_analyzer.py
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>在統計資料中新增標準差和中位數。</li>
+        <li>將摘要寫入輸出 CSV 或文字檔。</li>
+        <li>透過命令列旗標支援不同的分隔符（Tab、分號）。</li>
+        <li>處理缺失值（空欄位），分開計數。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 4 — SIMPLE PLOT GENERATOR                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-4">專案 4：簡易圖表產生器</h2>
+
+      <h3>目標</h3>
+      <p>
+        產生樣本資料並建立兩個出版品質的圖表：一個顯示趨勢的<strong>折線圖</strong>，以及一個比較類別的<strong>長條圖</strong>。使用 <code>savefig()</code> 將兩個圖表儲存為影像檔。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">matplotlib</span>
+        <span class="tag">串列</span>
+        <span class="tag">串列推導式</span>
+        <span class="tag">math 模組</span>
+        <span class="tag">savefig()</span>
+        <span class="tag">子圖</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# plot_generator.py — 建立折線圖和長條圖
+# ============================================================
+
+import math
+import matplotlib.pyplot as plt
+
+
+def generate_line_plot(filename="line_plot.png"):
+    """建立並儲存正弦波訊號的折線圖。
+
+    這模擬了隨時間繪製實驗資料的情境 — 對從
+    MATLAB 轉來的人而言是非常常見的任務。
+    """
+    # --- 產生資料 ---
+    # 從 0 到 4*pi 的 100 個等距 x 值
+    num_points = 100
+    x = [i * (4 * math.pi) / (num_points - 1) for i in range(num_points)]
+
+    # 兩個訊號：正弦波和衰減正弦波
+    y_sine    = [math.sin(xi) for xi in x]
+    y_damped  = [math.exp(-0.2 * xi) * math.sin(xi) for xi in x]
+
+    # --- 建立圖表 ---
+    fig, ax = plt.subplots(figsize=(8, 4))
+
+    ax.plot(x, y_sine,   label="sin(x)",                  color="steelblue", linewidth=2)
+    ax.plot(x, y_damped, label="exp(-0.2x) * sin(x)",     color="tomato",    linewidth=2, linestyle="--")
+
+    # --- 標籤和樣式 ---
+    ax.set_title("Line Plot: Sine Waves", fontsize=14, fontweight="bold")
+    ax.set_xlabel("x (radians)")
+    ax.set_ylabel("Amplitude")
+    ax.legend(loc="upper right")
+    ax.grid(True, alpha=0.3)
+
+    # --- 儲存到檔案 ---
+    fig.tight_layout()
+    fig.savefig(filename, dpi=150)
+    print(f"  Line plot saved to: {filename}")
+    plt.close(fig)  # 釋放記憶體
+
+
+def generate_bar_chart(filename="bar_chart.png"):
+    """建立並儲存比較程式語言的長條圖。"""
+
+    # --- 資料 ---
+    languages   = ["Python", "JavaScript", "Java", "C++", "MATLAB", "R"]
+    popularity  = [30, 22, 18, 12, 8, 6]        # 百分比（虛構的）
+    colors      = ["#3776AB", "#F7DF1E", "#ED8B00", "#00599C", "#EF6C00", "#276DC3"]
+
+    # --- 建立圖表 ---
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    bars = ax.bar(languages, popularity, color=colors, edgecolor="white", linewidth=0.8)
+
+    # 在每個長條上方新增數值標籤
+    for bar, val in zip(bars, popularity):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,   # x 位置：長條中心
+            bar.get_height() + 0.5,                # y 位置：長條正上方
+            f"{val}%",                              # 標籤文字
+            ha="center", va="bottom", fontsize=10, fontweight="bold"
+        )
+
+    # --- 標籤和樣式 ---
+    ax.set_title("Bar Chart: Language Popularity", fontsize=14, fontweight="bold")
+    ax.set_ylabel("Popularity (%)")
+    ax.set_ylim(0, 35)          # 為長條上方的標籤留空間
+    ax.grid(axis="y", alpha=0.3)
+
+    # --- 儲存到檔案 ---
+    fig.tight_layout()
+    fig.savefig(filename, dpi=150)
+    print(f"  Bar chart saved to: {filename}")
+    plt.close(fig)
+
+
+def main():
+    """產生兩個圖表。"""
+    print("Generating plots...\n")
+    generate_line_plot()
+    generate_bar_chart()
+    print("\nAll plots generated successfully.")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. 資料產生（第 17&ndash;22 行）</h4>
+      <p>
+        我們用串列推導式建立從 0 到 4&pi; 的 100 個 x 值，並計算兩個 y 系列：一個普通正弦波和一個衰減正弦波。這個方法只使用標準的 <code>math</code> 模組。如果你已安裝 numpy，可以改用 <code>numpy.linspace()</code> 和向量化運算。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>這是 Python 版的 <code>x = linspace(0, 4*pi, 100); y = sin(x);</code> 後接 <code>plot(x, y)</code>。在 Python 中使用 matplotlib，工作流程幾乎相同：產生資料、呼叫 <code>ax.plot()</code>、設定標籤、儲存或顯示。
+      </div>
+
+      <h4>2. 建立圖形（第 25 行）</h4>
+      <p>
+        <code>plt.subplots()</code> 回傳一個 <code>Figure</code> 和一個 <code>Axes</code> 物件。這是「物件導向」的 matplotlib API，建議使用它而非較簡單的 <code>plt.plot()</code> 風格，因為它能完全控制每個子圖。
+      </p>
+
+      <h4>3. 樣式和儲存（第 31&ndash;40 行）</h4>
+      <p>
+        我們設定標題、軸標籤、圖例和網格。然後 <code>fig.tight_layout()</code> 調整間距以避免裁切，<code>fig.savefig()</code> 將圖表以 150 DPI 寫入 PNG 檔案。最後 <code>plt.close(fig)</code> 釋放記憶體。
+      </p>
+
+      <h4>4. 帶數值標籤的長條圖（第 57&ndash;64 行）</h4>
+      <p>
+        建立長條後，我們遍歷它們，使用 <code>ax.text()</code> 在每個長條上方放置文字標籤。<code>zip(bars, popularity)</code> 將每個長條物件與其值配對，使定位標籤變得容易。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 先安裝 matplotlib（僅需一次）：
+pip install matplotlib
+
+# 然後執行：
+python plot_generator.py
+
+# 兩個影像檔會在目前目錄中建立：
+#   line_plot.png
+#   bar_chart.png
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>從 CSV 檔案讀取資料，而非在程式碼中產生。</li>
+        <li>新增散布圖或直方圖作為第三個圖表。</li>
+        <li>使用 <code>plt.subplots(1, 3)</code> 建立包含所有圖表的多面板圖形。</li>
+        <li>接受輸出檔名和 DPI 作為命令列引數。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 5 — LOG PARSER                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-5">專案 5：日誌解析器</h2>
+
+      <h3>目標</h3>
+      <p>
+        讀取日誌檔、擷取所有包含錯誤訊息的行、計算每個唯一錯誤出現的次數，並將摘要報告寫入新檔案。這是 Python 擅長的文字處理任務。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">檔案 I/O</span>
+        <span class="tag">字串方法</span>
+        <span class="tag">字典</span>
+        <span class="tag">排序</span>
+        <span class="tag">迴圈</span>
+        <span class="tag">f-strings</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# log_parser.py — 解析日誌檔並摘要錯誤
+# ============================================================
+
+import sys
+from datetime import datetime
+
+
+def parse_log(filepath):
+    """讀取日誌檔並擷取錯誤行。
+
+    假設每行日誌的格式為：
+        [TIMESTAMP] LEVEL: message
+    例如：
+        [2025-01-15 10:23:45] ERROR: Connection timed out
+
+    Returns
+    -------
+    error_lines : list of str
+        每個錯誤行的完整文字。
+    error_counts : dict
+        將每個唯一錯誤訊息對應到出現次數。
+    total_lines : int
+        檔案中的總行數。
+    """
+    error_lines = []
+    error_counts = {}
+    total_lines = 0
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        for line in f:
+            total_lines += 1
+            stripped = line.strip()
+
+            # 檢查這行是否包含 ERROR 級別訊息
+            if "ERROR" in stripped.upper():
+                error_lines.append(stripped)
+
+                # 擷取訊息部分（"ERROR:" 之後的內容）
+                # 如果存在 "ERROR:" 則取其後的所有內容；否則使用整行
+                if "ERROR:" in stripped:
+                    msg = stripped.split("ERROR:", 1)[1].strip()
+                elif "error:" in stripped:
+                    msg = stripped.split("error:", 1)[1].strip()
+                else:
+                    msg = stripped  # 備用：使用整行
+
+                # 計算此確切訊息的出現次數
+                error_counts[msg] = error_counts.get(msg, 0) + 1
+
+    return error_lines, error_counts, total_lines
+
+
+def write_report(error_lines, error_counts, total_lines, log_path, report_path):
+    """將錯誤摘要報告寫入 *report_path*。
+
+    Parameters
+    ----------
+    error_lines : list of str
+    error_counts : dict
+    total_lines : int
+    log_path : str
+    report_path : str
+    """
+    # 按次數排序錯誤，最多的在前
+    sorted_errors = sorted(error_counts.items(), key=lambda x: x[1], reverse=True)
+
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write("=" * 60 + "\n")
+        f.write("  LOG ERROR SUMMARY REPORT\n")
+        f.write(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("=" * 60 + "\n\n")
+
+        f.write(f"Source log file: {log_path}\n")
+        f.write(f"Total lines in log: {total_lines}\n")
+        f.write(f"Total error lines:  {len(error_lines)}\n")
+        f.write(f"Unique errors:      {len(error_counts)}\n\n")
+
+        # --- 錯誤頻率表 ---
+        f.write("-" * 60 + "\n")
+        f.write(f"{'Count':>6}  {'Error Message'}\n")
+        f.write("-" * 60 + "\n")
+        for msg, count in sorted_errors:
+            f.write(f"{count:>6}  {msg}\n")
+        f.write("-" * 60 + "\n\n")
+
+        # --- 完整錯誤行 ---
+        f.write("FULL ERROR LINES:\n\n")
+        for i, line in enumerate(error_lines, start=1):
+            f.write(f"  [{i}] {line}\n")
+        f.write("\n" + "=" * 60 + "\n")
+        f.write("  END OF REPORT\n")
+        f.write("=" * 60 + "\n")
+
+
+def main():
+    """解析日誌檔並產生報告。"""
+    # 取得檔案路徑
+    if len(sys.argv) > 1:
+        log_path = sys.argv[1]
+    else:
+        log_path = input("Enter path to the log file: ").strip()
+
+    report_path = log_path.rsplit(".", 1)[0] + "_error_report.txt"
+
+    print(f"Parsing: {log_path}")
+    error_lines, error_counts, total_lines = parse_log(log_path)
+
+    if not error_lines:
+        print("No errors found in the log file.")
+        return
+
+    # 寫入報告
+    write_report(error_lines, error_counts, total_lines, log_path, report_path)
+
+    # 同時在終端機印出快速摘要
+    print(f"\nTotal lines:  {total_lines}")
+    print(f"Error lines:  {len(error_lines)}")
+    print(f"Unique errors: {len(error_counts)}")
+    print(f"\nTop errors:")
+    for msg, count in sorted(error_counts.items(), key=lambda x: x[1], reverse=True)[:5]:
+        print(f"  {count:>4}x  {msg}")
+    print(f"\nFull report written to: {report_path}")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. <code>parse_log()</code>（第 9&ndash;51 行）</h4>
+      <p>
+        逐行讀取檔案（即使對超大檔案也節省記憶體）。對每行檢查大寫版本是否包含 <code>"ERROR"</code>。如果是，則擷取 <code>"ERROR:"</code> 之後的訊息部分，並使用字典模式 <code>dict.get(key, 0) + 1</code> 計算出現次數。
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>提示：</strong><code>.get(key, default)</code> 方法是安全存取可能尚不存在的字典鍵的方式。它回傳預設值（這裡是 <code>0</code>）而非引發 <code>KeyError</code>。替代方案是 <code>collections.Counter</code>，它自動處理計數。
+      </div>
+
+      <h4>2. <code>write_report()</code>（第 54&ndash;94 行）</h4>
+      <p>
+        撰寫結構化的文字報告。錯誤使用 <code>sorted()</code> 搭配 <code>key</code> 函式按次數排序（最多的在前）。報告包含頻率表和每個錯誤行的完整文字。
+      </p>
+
+      <h4>3. <code>main()</code>（第 97&ndash;119 行）</h4>
+      <p>
+        處理輸入（命令列引數或互動式提示）、呼叫解析器、撰寫報告，並在終端機印出顯示前 5 個最頻繁錯誤的快速摘要。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 先建立一個範例日誌檔（sample.log）：
+#   [2025-01-15 10:00:01] INFO: Server started
+#   [2025-01-15 10:00:05] ERROR: Connection timed out
+#   [2025-01-15 10:00:08] INFO: Request processed
+#   [2025-01-15 10:00:12] ERROR: File not found
+#   [2025-01-15 10:00:15] ERROR: Connection timed out
+#   [2025-01-15 10:00:20] WARNING: Disk space low
+#   [2025-01-15 10:00:25] ERROR: Authentication failed
+#   [2025-01-15 10:00:30] ERROR: Connection timed out
+
+# 執行：
+python log_parser.py sample.log
+
+# 輸出檔案：sample_error_report.txt
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>除了 ERROR 外，新增對 WARNING 和 CRITICAL 級別的支援。</li>
+        <li>擷取並解析時間戳記，顯示錯誤高峰時段。</li>
+        <li>將報告輸出為 HTML 或 CSV 而非純文字。</li>
+        <li>使用正規表達式（<code>re</code> 模組）進行更靈活的模式匹配。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 6 — BATCH FILE RENAMER                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-6">專案 6：批次檔案重新命名器</h2>
+
+      <h3>目標</h3>
+      <p>
+        根據模式重新命名資料夾中的所有檔案：加上前綴、序號，以及可選的當前日期。例如，將 <code>photo.jpg</code> 重新命名為 <code>vacation_001_2025-01-15_photo.jpg</code>。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">os</span>
+        <span class="tag">pathlib</span>
+        <span class="tag">datetime</span>
+        <span class="tag">f-strings</span>
+        <span class="tag">enumerate()</span>
+        <span class="tag">排序</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# batch_renamer.py — 以前綴、編號和日期重新命名檔案
+# ============================================================
+
+import os
+from pathlib import Path
+from datetime import datetime
+
+
+def preview_renames(folder_path, prefix="file", include_date=True, start_num=1,
+                    num_digits=3, extensions=None):
+    """建立 (old_name, new_name) 配對的串列，不實際重新命名。
+
+    Parameters
+    ----------
+    folder_path : str or Path
+        包含要重新命名檔案的目錄。
+    prefix : str
+        要加在每個檔名前面的字串。
+    include_date : bool
+        是否在新名稱中包含今天的日期。
+    start_num : int
+        序號計數器的起始數字。
+    num_digits : int
+        將計數器補零到此位數（例如 3 -> 001, 002）。
+    extensions : set or None
+        如果提供，只重新命名具有這些副檔名的檔案（例如 {".jpg", ".png"}）。
+        如果為 None，重新命名所有檔案。
+
+    Returns
+    -------
+    rename_pairs : list of (Path, Path)
+        每個元組是 (old_path, new_path)。
+    """
+    source = Path(folder_path)
+    if not source.is_dir():
+        print(f"Error: '{source}' is not a valid directory.")
+        return []
+
+    # 取得日期字串（例如 "2025-01-15"）
+    date_str = datetime.now().strftime("%Y-%m-%d") if include_date else ""
+
+    # 收集並排序檔案（按名稱排序以保持一致的順序）
+    files = sorted(
+        [f for f in source.iterdir() if f.is_file()],
+        key=lambda f: f.name.lower()
+    )
+
+    # 如果指定了副檔名則篩選
+    if extensions:
+        extensions = {ext.lower() for ext in extensions}
+        files = [f for f in files if f.suffix.lower() in extensions]
+
+    rename_pairs = []
+    for i, filepath in enumerate(files, start=start_num):
+        # 建構新檔名
+        number_part = str(i).zfill(num_digits)     # 例如 "001"
+
+        if include_date:
+            new_name = f"{prefix}_{number_part}_{date_str}{filepath.suffix}"
+        else:
+            new_name = f"{prefix}_{number_part}{filepath.suffix}"
+
+        new_path = filepath.parent / new_name
+        rename_pairs.append((filepath, new_path))
+
+    return rename_pairs
+
+
+def execute_renames(rename_pairs):
+    """執行實際的檔案重新命名。
+
+    Parameters
+    ----------
+    rename_pairs : list of (Path, Path)
+    """
+    for old_path, new_path in rename_pairs:
+        # 安全措施：不覆蓋已存在的檔案
+        if new_path.exists():
+            print(f"  SKIP (already exists): {new_path.name}")
+            continue
+        os.rename(str(old_path), str(new_path))
+        print(f"  Renamed: {old_path.name}  ->  {new_path.name}")
+
+
+def main():
+    """互動式批次檔案重新命名器。"""
+    print("=" * 50)
+    print("  Batch File Renamer")
+    print("=" * 50)
+
+    folder = input("\nFolder to rename files in: ").strip() or "."
+    prefix = input("Prefix for new filenames [file]: ").strip() or "file"
+
+    date_choice = input("Include date in filename? (y/n) [y]: ").strip().lower()
+    include_date = date_choice != "n"
+
+    ext_input = input("Filter by extensions (comma-separated, e.g. .jpg,.png) or Enter for all: ").strip()
+    extensions = None
+    if ext_input:
+        extensions = {e.strip() for e in ext_input.split(",")}
+
+    # 產生預覽
+    rename_pairs = preview_renames(folder, prefix, include_date, extensions=extensions)
+
+    if not rename_pairs:
+        print("\nNo files to rename.")
+        return
+
+    # 顯示預覽
+    print(f"\n--- Preview ({len(rename_pairs)} files) ---\n")
+    for old_path, new_path in rename_pairs:
+        print(f"  {old_path.name}  ->  {new_path.name}")
+
+    # 確認
+    confirm = input(f"\nProceed with renaming {len(rename_pairs)} files? (y/n): ").strip().lower()
+    if confirm == "y":
+        print()
+        execute_renames(rename_pairs)
+        print(f"\nDone! Renamed {len(rename_pairs)} file(s).")
+    else:
+        print("Cancelled. No files were renamed.")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. <code>preview_renames()</code>（第 11&ndash;68 行）</h4>
+      <p>
+        這個函式建立 <code>(old_path, new_path)</code> 元組的串列，<strong>不會實際重新命名任何東西</strong>。這種「規劃」與「執行」的分離是一個重要的設計模式 &mdash; 它讓你在做出更改之前顯示預覽並要求確認。
+      </p>
+      <p>
+        檔案按字母順序排序以保持一致的編號。<code>zfill()</code> 方法用前導零填充數字（例如，<code>"1".zfill(3)</code> 得到 <code>"001"</code>）。
+      </p>
+
+      <h4>2. <code>execute_renames()</code>（第 71&ndash;81 行）</h4>
+      <p>
+        遍歷計劃的重新命名，並為每個呼叫 <code>os.rename()</code>。如果目標已經存在，則跳過以防止意外的資料遺失。
+      </p>
+
+      <h4>3. 互動式 <code>main()</code>（第 84&ndash;119 行）</h4>
+      <p>
+        從使用者收集設定（資料夾、前綴、是否包含日期、篩選哪些副檔名），產生預覽，顯示它，並在執行前要求確認。
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>提示：</strong>「預覽然後確認」模式是任何修改檔案的腳本的最佳實踐。它能防止意外並建立使用者對你工具的信任。
+      </div>
+
+      <h3>如何執行</h3>
+<pre><code># 儲存為 batch_renamer.py，然後：
+python batch_renamer.py
+
+# 按照互動式提示操作。
+# 範例輸出：
+#   report.txt   ->  meeting_001_2025-01-15.txt
+#   notes.txt    ->  meeting_002_2025-01-15.txt
+#   slides.pdf   ->  meeting_003_2025-01-15.pdf
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>將新舊對應寫入 JSON 檔案以新增復原功能。</li>
+        <li>支援不同的命名模式（例如日期在前、自訂分隔符）。</li>
+        <li>使用 <code>argparse</code> 新增 <code>--dry-run</code> 命令列旗標。</li>
+        <li>讓使用者選擇排序方式（按名稱、修改日期、大小）。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 7 — FOLDER REPORT GENERATOR                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-7">專案 7：資料夾報告產生器</h2>
+
+      <h3>目標</h3>
+      <p>
+        掃描整個目錄樹（包括所有子目錄）並產生報告，顯示：檔案總數、總大小、按副檔名分組的檔案數量和大小，以及最大的檔案。這對了解磁碟空間使用情況很有用。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">os.walk()</span>
+        <span class="tag">pathlib</span>
+        <span class="tag">字典</span>
+        <span class="tag">排序</span>
+        <span class="tag">字串格式化</span>
+        <span class="tag">函式</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# folder_report.py — 掃描目錄樹並產生報告
+# ============================================================
+
+import os
+import sys
+from pathlib import Path
+from datetime import datetime
+
+
+def format_size(size_bytes):
+    """將位元組大小轉換為人類可讀的字串。
+
+    範例：1024 -> '1.00 KB', 1048576 -> '1.00 MB'
+    """
+    for unit in ["B", "KB", "MB", "GB", "TB"]:
+        if size_bytes < 1024:
+            return f"{size_bytes:.2f} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.2f} PB"
+
+
+def scan_directory(root_path):
+    """遍歷目錄樹並收集檔案資訊。
+
+    Parameters
+    ----------
+    root_path : str or Path
+        要掃描的最上層目錄。
+
+    Returns
+    -------
+    file_list : list of dict
+        每個字典含鍵：'path', 'name', 'ext', 'size'。
+    dir_count : int
+        找到的子目錄數量。
+    """
+    root = Path(root_path)
+    file_list = []
+    dir_count = 0
+
+    for dirpath, dirnames, filenames in os.walk(root):
+        dir_count += len(dirnames)
+
+        for fname in filenames:
+            full_path = Path(dirpath) / fname
+            try:
+                size = full_path.stat().st_size
+            except (OSError, PermissionError):
+                # 跳過無法存取的檔案
+                continue
+
+            ext = full_path.suffix.lower() if full_path.suffix else "(no extension)"
+
+            file_list.append({
+                "path": str(full_path),
+                "name": fname,
+                "ext": ext,
+                "size": size,
+            })
+
+    return file_list, dir_count
+
+
+def generate_report(root_path, file_list, dir_count, top_n=10):
+    """產生並印出格式化的報告。
+
+    Parameters
+    ----------
+    root_path : str
+    file_list : list of dict
+    dir_count : int
+    top_n : int
+        要顯示的最大檔案數量。
+    """
+    total_size = sum(f["size"] for f in file_list)
+    total_files = len(file_list)
+
+    # --- 按副檔名分組 ---
+    ext_stats = {}  # ext -> {"count": int, "size": int}
+    for f in file_list:
+        ext = f["ext"]
+        if ext not in ext_stats:
+            ext_stats[ext] = {"count": 0, "size": 0}
+        ext_stats[ext]["count"] += 1
+        ext_stats[ext]["size"] += f["size"]
+
+    # 按總大小排序副檔名（降序）
+    sorted_exts = sorted(ext_stats.items(), key=lambda x: x[1]["size"], reverse=True)
+
+    # --- 最大的檔案 ---
+    largest_files = sorted(file_list, key=lambda x: x["size"], reverse=True)[:top_n]
+
+    # --- 建構報告字串 ---
+    lines = []
+    lines.append("=" * 70)
+    lines.append("  FOLDER REPORT")
+    lines.append(f"  Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    lines.append("=" * 70)
+    lines.append("")
+    lines.append(f"  Root directory:   {root_path}")
+    lines.append(f"  Total files:      {total_files:,}")
+    lines.append(f"  Total folders:    {dir_count:,}")
+    lines.append(f"  Total size:       {format_size(total_size)}")
+    lines.append("")
+
+    # --- 副檔名明細 ---
+    lines.append("-" * 70)
+    lines.append(f"  {'Extension':<18} {'Files':>8} {'Total Size':>14} {'% of Total':>12}")
+    lines.append("-" * 70)
+    for ext, stats in sorted_exts:
+        pct = (stats["size"] / total_size * 100) if total_size > 0 else 0
+        lines.append(
+            f"  {ext:<18} {stats['count']:>8,} {format_size(stats['size']):>14} {pct:>11.1f}%"
+        )
+    lines.append("-" * 70)
+    lines.append("")
+
+    # --- 最大的檔案 ---
+    lines.append(f"  TOP {top_n} LARGEST FILES:")
+    lines.append("")
+    for i, f in enumerate(largest_files, start=1):
+        lines.append(f"  {i:>3}. {format_size(f['size']):>10}  {f['path']}")
+    lines.append("")
+    lines.append("=" * 70)
+
+    report = "\n".join(lines)
+    return report
+
+
+def main():
+    """掃描目錄並印出 / 儲存報告。"""
+    if len(sys.argv) > 1:
+        root_path = sys.argv[1]
+    else:
+        root_path = input("Enter directory to scan: ").strip() or "."
+
+    root_path = str(Path(root_path).resolve())
+    print(f"\nScanning: {root_path}\n")
+
+    file_list, dir_count = scan_directory(root_path)
+
+    if not file_list:
+        print("No files found.")
+        return
+
+    report = generate_report(root_path, file_list, dir_count)
+
+    # 印到終端機
+    print(report)
+
+    # 儲存到檔案
+    report_file = "folder_report.txt"
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(report)
+    print(f"\nReport saved to: {report_file}")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. <code>format_size()</code>（第 10&ndash;17 行）</h4>
+      <p>
+        一個工具函式，將原始位元組計數轉換為人類可讀的字串，如 <code>"3.45 MB"</code>。它反覆除以 1024，依次使用各單位（B、KB、MB、GB、TB）直到數字小於 1024。
+      </p>
+
+      <h4>2. <code>scan_directory()</code>（第 20&ndash;58 行）</h4>
+      <p>
+        使用 <code>os.walk()</code>，它遞迴遍歷目錄樹。對每個檔案記錄路徑、名稱、副檔名和大小。<code>try/except</code> 區塊優雅地處理權限錯誤 &mdash; 某些系統檔案可能無法存取。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>最接近的 MATLAB 等效寫法是 <code>dir('**/*')</code> 搭配遞迴搜尋，或撰寫自訂函式在每個子資料夾呼叫 <code>dir()</code>。Python 的 <code>os.walk()</code> 專為此模式設計，並為你處理遞迴。
+      </div>
+
+      <h4>3. <code>generate_report()</code>（第 61&ndash;119 行）</h4>
+      <p>
+        使用字典按副檔名分組檔案，按總大小排序，並識別最大的檔案。報告以字串串列（每行一個）建構，然後用 <code>"\n"</code> 串接。這比字串串接更有效率。
+      </p>
+
+      <h4>4. <code>main()</code>（第 122&ndash;143 行）</h4>
+      <p>
+        從命令列引數或互動式輸入取得目錄、執行掃描、印出報告，並儲存到文字檔。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 掃描目前目錄：
+python folder_report.py .
+
+# 掃描特定目錄：
+python folder_report.py C:\Users\you\Documents
+
+# 或不帶引數執行，在提示時輸入路徑：
+python folder_report.py
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>新增深度限制以控制掃描的層數。</li>
+        <li>將報告輸出為 CSV 或 HTML 檔案。</li>
+        <li>使用 matplotlib 新增按副檔名顯示大小的長條圖。</li>
+        <li>顯示檔案年齡（最近修改的、最舊的檔案）。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 8 — SIMPLE NUMERICAL ANALYSIS                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-8">專案 8：簡易數值分析</h2>
+
+      <h3>目標</h3>
+      <p>
+        產生帶雜訊的合成資料集，計算描述性統計資料，使用基本數學進行直線擬合（線性迴歸），並將資料和擬合線繪製在圖上。這個專案對習慣資料分析和曲線擬合的 MATLAB 使用者特別相關。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">random 模組</span>
+        <span class="tag">math 模組</span>
+        <span class="tag">matplotlib</span>
+        <span class="tag">統計</span>
+        <span class="tag">線性迴歸</span>
+        <span class="tag">串列推導式</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# numerical_analysis.py — 產生資料、計算統計、擬合直線、繪圖
+# ============================================================
+# 此腳本僅使用標準函式庫 + matplotlib。
+# （不需要 numpy，但 numpy 會簡化許多操作。）
+
+import math
+import random
+import matplotlib.pyplot as plt
+
+
+# ----- 資料產生 -----
+
+def generate_data(n=50, slope=2.5, intercept=10, noise_level=5.0, seed=42):
+    """沿著一條直線產生 n 個帶高斯雜訊的資料點。
+
+    y = slope * x + intercept + noise
+
+    Parameters
+    ----------
+    n : int            資料點數量。
+    slope : float      直線的真實斜率。
+    intercept : float  真實的 y 截距。
+    noise_level : float  新增雜訊的標準差。
+    seed : int         隨機種子以確保可重現性。
+
+    Returns
+    -------
+    x_data : list of float
+    y_data : list of float
+    """
+    random.seed(seed)
+    x_data = [i * 1.0 for i in range(n)]
+    y_data = [slope * x + intercept + random.gauss(0, noise_level) for x in x_data]
+    return x_data, y_data
+
+
+# ----- 統計 -----
+
+def calc_mean(values):
+    """回傳數字串列的算術平均值。"""
+    return sum(values) / len(values)
+
+
+def calc_std(values):
+    """回傳樣本標準差。"""
+    mean = calc_mean(values)
+    variance = sum((v - mean) ** 2 for v in values) / (len(values) - 1)
+    return math.sqrt(variance)
+
+
+def calc_median(values):
+    """回傳數字串列的中位數。"""
+    s = sorted(values)
+    n = len(s)
+    mid = n // 2
+    if n % 2 == 0:
+        return (s[mid - 1] + s[mid]) / 2
+    else:
+        return s[mid]
+
+
+def print_stats(label, values):
+    """印出描述性統計資料的摘要。"""
+    print(f"\n  Statistics for {label}:")
+    print(f"    Count:    {len(values)}")
+    print(f"    Mean:     {calc_mean(values):.4f}")
+    print(f"    Median:   {calc_median(values):.4f}")
+    print(f"    Std Dev:  {calc_std(values):.4f}")
+    print(f"    Min:      {min(values):.4f}")
+    print(f"    Max:      {max(values):.4f}")
+
+
+# ----- 線性迴歸（最小平方法）-----
+
+def linear_fit(x, y):
+    """使用最小平方法擬合直線 y = mx + b。
+
+    實作封閉式解：
+        m = (n * sum(x*y) - sum(x) * sum(y)) / (n * sum(x^2) - (sum(x))^2)
+        b = mean(y) - m * mean(x)
+
+    Parameters
+    ----------
+    x : list of float
+    y : list of float
+
+    Returns
+    -------
+    m : float   斜率
+    b : float   截距
+    r_squared : float   決定係數 (R^2)
+    """
+    n = len(x)
+    sum_x   = sum(x)
+    sum_y   = sum(y)
+    sum_xy  = sum(xi * yi for xi, yi in zip(x, y))
+    sum_x2  = sum(xi ** 2 for xi in x)
+    sum_y2  = sum(yi ** 2 for yi in y)
+
+    # 斜率
+    denom = n * sum_x2 - sum_x ** 2
+    m = (n * sum_xy - sum_x * sum_y) / denom
+
+    # 截距
+    b = (sum_y - m * sum_x) / n
+
+    # R 平方
+    ss_res = sum((yi - (m * xi + b)) ** 2 for xi, yi in zip(x, y))
+    ss_tot = sum((yi - calc_mean(y)) ** 2 for yi in y)
+    r_squared = 1 - ss_res / ss_tot if ss_tot != 0 else 0
+
+    return m, b, r_squared
+
+
+# ----- 繪圖 -----
+
+def plot_results(x, y, m, b, r_squared, filename="numerical_analysis.png"):
+    """繪製資料點和擬合線，並儲存到檔案。"""
+    # 計算擬合線的值
+    y_fit = [m * xi + b for xi in x]
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    # 原始資料的散布圖
+    ax.scatter(x, y, color="steelblue", alpha=0.6, s=30, label="Data points")
+
+    # 擬合線
+    ax.plot(x, y_fit, color="tomato", linewidth=2,
+            label=f"Fit: y = {m:.2f}x + {b:.2f} (R² = {r_squared:.4f})")
+
+    ax.set_title("Numerical Analysis: Linear Fit", fontsize=14, fontweight="bold")
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+
+    fig.tight_layout()
+    fig.savefig(filename, dpi=150)
+    print(f"\n  Plot saved to: {filename}")
+    plt.close(fig)
+
+
+# ----- 主程式 -----
+
+def main():
+    """執行完整的分析流程。"""
+    print("=" * 50)
+    print("  Simple Numerical Analysis")
+    print("=" * 50)
+
+    # 步驟 1：產生資料
+    x, y = generate_data(n=50, slope=2.5, intercept=10, noise_level=5.0)
+    print(f"\nGenerated {len(x)} data points.")
+
+    # 步驟 2：描述性統計
+    print_stats("x", x)
+    print_stats("y", y)
+
+    # 步驟 3：線性迴歸
+    m, b, r_sq = linear_fit(x, y)
+    print(f"\n  Linear Fit Results:")
+    print(f"    Slope (m):     {m:.4f}   (true value: 2.5)")
+    print(f"    Intercept (b): {b:.4f}   (true value: 10.0)")
+    print(f"    R-squared:     {r_sq:.4f}")
+
+    # 步驟 4：繪圖
+    plot_results(x, y, m, b, r_sq)
+    print("\nAnalysis complete.")
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. 資料產生（第 14&ndash;36 行）</h4>
+      <p>
+        沿直線 <code>y = 2.5x + 10</code> 建立 <code>n</code> 個資料點，加上高斯雜訊。設定 <code>random.seed(42)</code> 確保每次執行腳本時結果可重現。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中你會寫 <code>x = 0:49; y = 2.5*x + 10 + 5*randn(size(x));</code>。Python 版本做同樣的事，但使用串列推導式而非向量化運算。如果你安裝了 numpy，可以寫出幾乎相同的程式碼：<code>x = np.arange(50); y = 2.5*x + 10 + 5*np.random.randn(50)</code>。
+      </div>
+
+      <h4>2. 統計函式（第 41&ndash;72 行）</h4>
+      <p>
+        我們從零開始實作平均值、樣本標準差和中位數，以展示底層數學。在生產程式碼中你會使用 <code>statistics</code> 模組或 numpy，但自己實作它們是教育性的。
+      </p>
+
+      <h4>3. 線性迴歸（第 77&ndash;113 行）</h4>
+      <p>
+        實作普通最小平方法（OLS）的封閉式解。這是 MATLAB 的 <code>polyfit(x, y, 1)</code> 背後的同一公式。我們也計算 R 平方以衡量擬合優度。公式使用基本的求和運算，可以在單次遍歷資料中計算。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>
+        <code>p = polyfit(x, y, 1); m = p(1); b = p(2);</code> &mdash;
+        在 MATLAB 中只要一行。在 Python 中使用 numpy：
+        <code>m, b = np.polyfit(x, y, 1)</code>。我們的從零開始版本讓你看到這些函式內部究竟做了什麼。
+      </div>
+
+      <h4>4. 繪圖和主程式（第 118&ndash;157 行）</h4>
+      <p>
+        圖表將原始資料顯示為散布圖，擬合線顯示為紅色直線，方程式和 R 平方顯示在圖例中。<code>main()</code> 函式編排完整的流程：產生、分析、擬合、繪圖。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 先安裝 matplotlib（僅需一次）：
+pip install matplotlib
+
+# 然後執行：
+python numerical_analysis.py
+
+# 輸出：統計資料印到終端機 + numerical_analysis.png 儲存
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>從 CSV 檔案讀取資料而非產生。</li>
+        <li>新增多項式擬合（2 次、3 次）並比較擬合結果。</li>
+        <li>新增殘差圖（資料與擬合值之間的差異）。</li>
+        <li>使用 numpy 進行向量化運算，並比較程式碼簡潔度。</li>
+        <li>新增殘差的直方圖以檢查常態性。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  PROJECT 9 — COMMAND LINE UTILITY                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="project-9">專案 9：命令列工具</h2>
+
+      <h3>目標</h3>
+      <p>
+        建構一個 CLI 工具，計算一個或多個文字檔中的字數、行數和字元數 &mdash; 類似 Unix 的 <code>wc</code> 命令。使用 <code>argparse</code> 進行適當的引數解析，含說明文字、旗標和多檔案支援。
+      </p>
+
+      <h3>使用的概念</h3>
+      <p>
+        <span class="tag">argparse</span>
+        <span class="tag">sys</span>
+        <span class="tag">檔案 I/O</span>
+        <span class="tag">字典</span>
+        <span class="tag">函式</span>
+        <span class="tag">字串方法</span>
+        <span class="tag">命令列工具</span>
+      </p>
+
+      <h3>完整程式碼</h3>
+<pre><code># ============================================================
+# wordcount.py — 文字檔的 CLI 字數/行數/字元數計數器
+# ============================================================
+# 用法：
+#   python wordcount.py file1.txt file2.txt
+#   python wordcount.py *.txt --sort words --top 5
+#   python wordcount.py myfile.txt --no-total
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def count_file(filepath):
+    """計算單一檔案中的行數、字數和字元數。
+
+    Parameters
+    ----------
+    filepath : str or Path
+        文字檔的路徑。
+
+    Returns
+    -------
+    dict with keys: 'lines', 'words', 'chars', 'file'
+    如果檔案無法讀取則回傳 None。
+    """
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"  Error: File not found: {filepath}", file=sys.stderr)
+        return None
+    except PermissionError:
+        print(f"  Error: Permission denied: {filepath}", file=sys.stderr)
+        return None
+    except UnicodeDecodeError:
+        print(f"  Error: Cannot read (not a text file?): {filepath}", file=sys.stderr)
+        return None
+
+    lines = content.count("\n")
+    words = len(content.split())
+    chars = len(content)
+
+    return {
+        "lines": lines,
+        "words": words,
+        "chars": chars,
+        "file": str(filepath),
+    }
+
+
+def print_results(results, show_total=True, sort_by=None, top_n=None):
+    """印出格式化的字數計數結果表格。
+
+    Parameters
+    ----------
+    results : list of dict
+        每個字典來自 count_file()。
+    show_total : bool
+        是否在底部印出總計列。
+    sort_by : str or None
+        按 'lines'、'words' 或 'chars' 排序結果（降序）。
+    top_n : int or None
+        僅顯示前 N 個檔案（排序後）。
+    """
+    if not results:
+        print("No results to display.")
+        return
+
+    # 可選排序
+    if sort_by and sort_by in ("lines", "words", "chars"):
+        results = sorted(results, key=lambda r: r[sort_by], reverse=True)
+
+    # 可選的前 N 篩選
+    if top_n is not None and top_n > 0:
+        results = results[:top_n]
+
+    # 印出表頭
+    print(f"\n{'Lines':>10} {'Words':>10} {'Chars':>10}  {'File'}")
+    print("-" * 50)
+
+    # 印出每個檔案的計數
+    total_lines = 0
+    total_words = 0
+    total_chars = 0
+
+    for r in results:
+        print(f"{r['lines']:>10,} {r['words']:>10,} {r['chars']:>10,}  {r['file']}")
+        total_lines += r["lines"]
+        total_words += r["words"]
+        total_chars += r["chars"]
+
+    # 印出總計（僅在超過一個檔案且 show_total 為 True 時）
+    if show_total and len(results) > 1:
+        print("-" * 50)
+        print(f"{total_lines:>10,} {total_words:>10,} {total_chars:>10,}  TOTAL")
+
+    print()
+
+
+def build_parser():
+    """建立並回傳引數解析器。"""
+    parser = argparse.ArgumentParser(
+        description="Count lines, words, and characters in text files.",
+        epilog="Example: python wordcount.py report.txt notes.txt --sort words",
+    )
+
+    # 位置引數：一個或多個檔案路徑
+    parser.add_argument(
+        "files",
+        nargs="+",
+        help="One or more text files to analyze.",
+    )
+
+    # 可選旗標
+    parser.add_argument(
+        "--sort",
+        choices=["lines", "words", "chars"],
+        default=None,
+        help="Sort results by the specified metric (descending).",
+    )
+
+    parser.add_argument(
+        "--top",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Show only the top N files (requires --sort).",
+    )
+
+    parser.add_argument(
+        "--no-total",
+        action="store_true",
+        help="Do not show the total row.",
+    )
+
+    return parser
+
+
+def main():
+    """解析引數並執行字數計數器。"""
+    parser = build_parser()
+    args = parser.parse_args()
+
+    # 計算每個檔案
+    results = []
+    for filepath in args.files:
+        result = count_file(filepath)
+        if result is not None:
+            results.append(result)
+
+    if not results:
+        print("No valid files to analyze.", file=sys.stderr)
+        sys.exit(1)
+
+    # 顯示結果
+    print_results(
+        results,
+        show_total=not args.no_total,
+        sort_by=args.sort,
+        top_n=args.top,
+    )
+
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+
+      <h3>逐塊解說</h3>
+
+      <h4>1. <code>count_file()</code>（第 14&ndash;49 行）</h4>
+      <p>
+        讀取單一檔案並計算三個指標：行數（換行字元數量）、字數（使用 <code>str.split()</code>，它在任何空白字元處分割），以及字元數（<code>len(content)</code>）。函式優雅地處理三種常見錯誤：找不到檔案、權限被拒和非文字檔。
+      </p>
+
+      <h4>2. <code>print_results()</code>（第 52&ndash;90 行）</h4>
+      <p>
+        格式化並印出結果表格。支援按任何指標的可選排序和可選的前 N 篩選。格式指定符 <code>&gt;10,</code> 在 10 字元欄位中右對齊數字，千位數帶逗號分隔。
+      </p>
+
+      <h4>3. <code>build_parser()</code>（第 93&ndash;129 行）</h4>
+      <p>
+        這是 <code>argparse</code> 發揮的地方。我們定義：
+      </p>
+      <ul>
+        <li><code>files</code> &mdash; 接受一個或多個檔案路徑的位置引數（<code>nargs="+"</code>）。</li>
+        <li><code>--sort</code> &mdash; 帶限制選項的可選旗標。</li>
+        <li><code>--top N</code> &mdash; 可選的整數旗標。</li>
+        <li><code>--no-total</code> &mdash; 布林旗標（存在 = True，不存在 = False）。</li>
+      </ul>
+      <p>
+        執行 <code>python wordcount.py --help</code> 會從這些定義自動產生說明訊息。
+      </p>
+
+      <div class="callout callout-tip">
+        <strong>提示：</strong><code>argparse</code> 是標準函式庫中建構 CLI 工具的方式。對簡單腳本而言，<code>sys.argv</code> 就夠了，但對任何有旗標、可選引數或說明文字的工具，<code>argparse</code> 是正確的選擇。也有第三方替代方案如 <code>click</code> 和 <code>typer</code>，提供更多便利性。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 腳本沒有像 <code>argparse</code> 這樣的內建引數解析器。MATLAB 使用者通常透過函式參數傳遞引數或使用 <code>inputParser</code>。Python 的方法使建構行為像正規命令列工具的腳本變得容易。
+      </div>
+
+      <h4>4. <code>main()</code>（第 132&ndash;153 行）</h4>
+      <p>
+        解析引數、計算每個檔案、過濾掉失敗的結果，並將結果傳給印出函式。如果沒有有效的檔案被處理，則以狀態碼 1 退出。
+      </p>
+
+      <h3>如何執行</h3>
+<pre><code># 基本用法 — 計算單一檔案：
+python wordcount.py myfile.txt
+
+# 多個檔案：
+python wordcount.py file1.txt file2.txt file3.txt
+
+# 按字數排序並顯示前 3 個：
+python wordcount.py *.txt --sort words --top 3
+
+# 不顯示總計列：
+python wordcount.py report.txt notes.txt --no-total
+
+# 查看說明：
+python wordcount.py --help
+</code></pre>
+
+      <h3>修改與延伸</h3>
+      <ul>
+        <li>新增 <code>--unique-words</code> 旗標，使用 <code>set</code> 計算不重複的單字。</li>
+        <li>新增 <code>--output csv</code> 旗標，將結果寫入 CSV 檔。</li>
+        <li>在沒有給定檔案時支援從標準輸入（<code>stdin</code>）讀取。</li>
+        <li>新增 <code>--exclude</code> 旗標，跳過特定檔案模式（例如 <code>--exclude "*.log"</code>）。</li>
+        <li>使用 <code>tqdm</code> 為大量檔案新增進度條。</li>
+      </ul>
+
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <p>
+        恭喜你完成了這九個專案。以下是每個專案教授內容的回顧：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>專案</th>
+            <th>關鍵技能</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>簡易計算機</td>
+            <td>函式、輸入、錯誤處理、分派字典</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>檔案整理器</td>
+            <td>pathlib、shutil、字典、檔案系統操作</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>CSV 分析器</td>
+            <td>csv 模組、檔案 I/O、基本統計、字串格式化</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>圖表產生器</td>
+            <td>matplotlib、子圖、savefig、資料視覺化</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>日誌解析器</td>
+            <td>字串方法、計數用字典、檔案 I/O</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>批次檔案重新命名器</td>
+            <td>pathlib、datetime、預覽確認模式、enumerate</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>資料夾報告產生器</td>
+            <td>os.walk、檔案中繼資料、格式化報告</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>數值分析</td>
+            <td>統計、線性迴歸、matplotlib、串列推導式</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>CLI 工具</td>
+            <td>argparse、sys、建構可重複使用的命令列工具</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-tip">
+        <strong>接下來做什麼：</strong>選擇最接近你實際工作的專案並修改它。學習程式設計最好的方式是解決你真正關心的問題。一旦你能自信地修改這些專案，你就準備好從零開始建構自己的了。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>給 MATLAB 使用者：</strong>如果你已經完成了這些專案，你現在知道如何用 Python 做到你之前在 MATLAB 中做的大部分事情：讀取資料檔、計算統計、擬合曲線、建立圖表，以及自動化檔案任務。語法不同，但模式相同。你已經在通往 Python 高手的路上了。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="comparisons.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">語言比較</span></a>
+        <a href="practice.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">練習與學習路線</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

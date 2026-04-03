@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 術語表 — 學習 Python</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換側邊欄">&#9776;</button>
+  <div class="progress-bar"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> 學習 Python</h2><p>完整初學者指南</p>
+      <a href="../../pages/glossary.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search"><span class="search-icon">&#128269;</span><input type="text" placeholder="搜尋頁面..." aria-label="搜尋"><div class="search-results"></div></div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A — 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B — 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C — Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a><a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a><a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a><a href="basics-dictionaries.html" class="nav-link">字典</a><a href="basics-conditionals.html" class="nav-link">條件判斷</a><a href="basics-loops.html" class="nav-link">迴圈</a><a href="basics-functions.html" class="nav-link">函式與Lambda</a><a href="basics-more.html" class="nav-link">更多內建功能</a><a href="basics-files-modules.html" class="nav-link">檔案與模組</a></div>
+      <div class="nav-section"><div class="nav-section-title">D — 常用模式</div><a href="common-patterns.html" class="nav-link">常用模式</a><a href="top-100-patterns.html" class="nav-link">前100個常用模式</a></div>
+      <div class="nav-section"><div class="nav-section-title">E — MATLAB 轉 Python</div><a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a><a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a></div>
+      <div class="nav-section"><div class="nav-section-title">F — 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G — 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H — 練習與學習路線</div><a href="practice.html" class="nav-link">練習與學習路線</a><a href="interactive-quizzes.html" class="nav-link">互動測驗</a></div>
+      <div class="nav-section"><div class="nav-section-title">I — 最佳實踐</div><a href="best-practices.html" class="nav-link">最佳實踐</a><a href="common-errors.html" class="nav-link">常見錯誤</a></div>
+      <div class="nav-section"><div class="nav-section-title">J — 速查表</div><a href="cheatsheet.html" class="nav-link">速查表</a><a href="python-for-automation.html" class="nav-link">Python 自動化</a><a href="glossary.html" class="nav-link">術語表</a></div>
+      <div class="nav-section"><div class="nav-section-title">K — 更多主題</div><a href="oop.html" class="nav-link">物件導向程式設計</a><a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a></div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="content-header">
+      <h1>Python 術語表</h1>
+      <p class="subtitle">每位初學者都應該知道的 Python 基本術語 A-Z 參考。</p>
+    </div>
+
+    <div class="glossary-nav">
+      <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a><a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a><a href="#I">I</a><a href="#J">J</a><a href="#K">K</a><a href="#L">L</a><a href="#M">M</a><a href="#N">N</a><a href="#O">O</a><a href="#P">P</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a><a href="#V">V</a><a href="#W">W</a><a href="#Z">Z</a>
+    </div>
+
+    <!-- A -->
+    <div id="A" class="glossary-letter">A</div>
+    <dl class="glossary-list">
+      <dt>引數（Argument）</dt>
+      <dd>呼叫函式時傳入的值。在 <code>print("hello")</code> 中，<code>"hello"</code> 就是引數。</dd>
+
+      <dt>賦值（Assignment）</dt>
+      <dd>使用 <code>=</code> 運算子將值儲存到變數中。例如：<code>x = 10</code> 將整數 10 賦值給變數 <code>x</code>。</dd>
+
+      <dt><code>assert</code></dt>
+      <dd>一種除錯語句，測試條件是否成立，若為假則觸發 <code>AssertionError</code>。例如：<code>assert len(my_list) &gt; 0</code> 確保串列不為空。</dd>
+
+      <dt>屬性（Attribute）</dt>
+      <dd>與物件關聯的值或函式，透過點號語法存取。在 <code>my_list.append(5)</code> 中，<code>append</code> 是串列物件的屬性（具體來說是方法）。</dd>
+    </dl>
+
+    <!-- B -->
+    <div id="B" class="glossary-letter">B</div>
+    <dl class="glossary-list">
+      <dt>布林值（Boolean）</dt>
+      <dd>只有兩個可能值的資料型別：<code>True</code> 或 <code>False</code>。用於條件和比較，例如 <code>is_active = True</code>。</dd>
+
+      <dt><code>break</code></dt>
+      <dd>立即退出最內層迴圈的語句。例如：<code>for n in range(100): if n == 5: break</code> 當 <code>n</code> 到達 5 時停止迴圈。</dd>
+
+      <dt>內建（Built-in）</dt>
+      <dd>在 Python 中不需要匯入即可使用的函式或型別。例如 <code>print()</code>、<code>len()</code>、<code>int()</code> 和 <code>list()</code>。</dd>
+
+      <dt>位元組（Byte）</dt>
+      <dd>資料的基本單位。Python 有 <code>bytes</code> 型別用於位元組序列，常用於讀取二進位檔案或處理網路資料。使用 <code>b"hello"</code> 建立。</dd>
+    </dl>
+
+    <!-- C -->
+    <div id="C" class="glossary-letter">C</div>
+    <dl class="glossary-list">
+      <dt>類別（Class）</dt>
+      <dd>建立物件的藍圖。使用 <code>class</code> 關鍵字定義。例如：<code>class Dog: pass</code> 定義了一個名為 <code>Dog</code> 的簡單類別。</dd>
+
+      <dt>註解（Comment）</dt>
+      <dd>程式碼中 Python 會忽略的文字，用於解釋程式碼的功能。單行註解以 <code>#</code> 開頭。例如：<code># 這是一個註解</code>。</dd>
+
+      <dt>推導式（Comprehension）</dt>
+      <dd>建立串列、集合或字典的簡潔方式。例如：<code>[x * 2 for x in range(5)]</code> 產生 <code>[0, 2, 4, 6, 8]</code>。</dd>
+
+      <dt>串接（Concatenation）</dt>
+      <dd>將兩個序列連接在一起。字串：<code>"Hello" + " World"</code> 得到 <code>"Hello World"</code>。串列：<code>[1, 2] + [3, 4]</code> 得到 <code>[1, 2, 3, 4]</code>。</dd>
+
+      <dt>條件式（Conditional）</dt>
+      <dd>僅在條件為真時才執行程式碼的語句。Python 使用 <code>if</code>、<code>elif</code> 和 <code>else</code> 進行條件邏輯判斷。</dd>
+
+      <dt>建構子（Constructor）</dt>
+      <dd>特殊方法 <code>__init__</code>，在從類別建立新物件時自動執行。例如：<code>def __init__(self, name): self.name = name</code>。</dd>
+
+      <dt><code>continue</code></dt>
+      <dd>跳過當前迴圈迭代的剩餘部分並進入下一次迭代的語句。例如：<code>for n in range(5): if n == 2: continue</code> 在 <code>n</code> 為 2 時跳過該次迭代。</dd>
+
+      <dt>CSV</dt>
+      <dd>逗號分隔值，一種用於表格資料的純文字檔案格式。Python 的內建 <code>csv</code> 模組可以透過 <code>import csv</code> 輕鬆讀寫 CSV 檔案。</dd>
+    </dl>
+
+    <!-- D -->
+    <div id="D" class="glossary-letter">D</div>
+    <dl class="glossary-list">
+      <dt>資料型別（Data type）</dt>
+      <dd>值的類別，決定了可以對其執行哪些操作。常見型別包括 <code>int</code>、<code>float</code>、<code>str</code>、<code>list</code>、<code>dict</code> 和 <code>bool</code>。</dd>
+
+      <dt>裝飾器（Decorator）</dt>
+      <dd>修改另一個函式行為的函式。在函式定義上方使用 <code>@</code> 符號套用。例如：在方法前加上 <code>@staticmethod</code> 使其成為靜態方法。</dd>
+
+      <dt><code>def</code></dt>
+      <dd>用於定義函式的關鍵字。例如：<code>def greet(name): return f"Hello, {name}"</code>。</dd>
+
+      <dt>預設參數（Default parameter）</dt>
+      <dd>函式參數中預先指定的值，當未提供引數時使用。例如：<code>def greet(name="World")</code> 在未給名稱時使用 <code>"World"</code>。</dd>
+
+      <dt>字典（Dictionary）</dt>
+      <dd>儲存鍵值對的內建資料結構。使用大括號建立：<code>{"name": "Alice", "age": 30}</code>。透過鍵存取值：<code>d["name"]</code>。</dd>
+
+      <dt>文件字串（Docstring）</dt>
+      <dd>放在函式、類別或模組第一行的字串，用於文件記錄。使用三引號撰寫：<code>"""此函式執行 X。"""</code>。可透過 <code>help()</code> 存取。</dd>
+
+      <dt>動態型別（Dynamic typing）</dt>
+      <dd>Python 的特性，變數沒有固定型別。你可以寫 <code>x = 5</code> 然後 <code>x = "hello"</code>，Python 不會抱怨——型別在執行時改變。</dd>
+    </dl>
+
+    <!-- E -->
+    <div id="E" class="glossary-letter">E</div>
+    <dl class="glossary-list">
+      <dt>元素（Element）</dt>
+      <dd>集合（如串列、元組或集合）中的單個項目。在 <code>[10, 20, 30]</code> 中，<code>20</code> 是索引 1 的元素。</dd>
+
+      <dt><code>elif</code></dt>
+      <dd>「else if」的縮寫。在 <code>if</code> 區塊後用於檢查另一個條件。例如：<code>elif x &gt; 0:</code>。</dd>
+
+      <dt><code>else</code></dt>
+      <dd>當前面的 <code>if</code>（和所有 <code>elif</code>）條件都為假時執行的子句。例如：<code>else: print("No match")</code>。</dd>
+
+      <dt>封裝（Encapsulation）</dt>
+      <dd>物件導向原則，將資料和方法綁定在類別內部，並限制對某些內部元素的直接存取。在 Python 中，前導底線（例如 <code>_private</code>）表示屬性是內部的。</dd>
+
+      <dt><code>enumerate()</code></dt>
+      <dd>為可迭代物件添加索引計數器的內建函式。例如：<code>for i, val in enumerate(["a", "b"])</code> 產生 <code>(0, "a")</code> 和 <code>(1, "b")</code> 對。</dd>
+
+      <dt>例外（Exception）</dt>
+      <dd>程式執行期間發生的錯誤。常見例外包括 <code>ValueError</code>、<code>TypeError</code> 和 <code>IndexError</code>。使用 <code>try/except</code> 處理。</dd>
+
+      <dt>運算式（Expression）</dt>
+      <dd>計算後會產生值的程式碼片段。例如：<code>3 + 4</code>、<code>len("hi")</code> 和 <code>x &gt; 5</code> 都是運算式。</dd>
+    </dl>
+
+    <!-- F -->
+    <div id="F" class="glossary-letter">F</div>
+    <dl class="glossary-list">
+      <dt>f-字串（f-string）</dt>
+      <dd>格式化字串字面值（Python 3.6+），可在大括號內嵌入運算式。例如：<code>f"Hello, {name}!"</code> 將 <code>name</code> 的值插入字串。</dd>
+
+      <dt><code>False</code></dt>
+      <dd>兩個布林值之一。在數值上下文中等同於 <code>0</code>。<code>0</code>、<code>""</code>、<code>[]</code> 和 <code>None</code> 等值都是「假值」。</dd>
+
+      <dt><code>filter()</code></dt>
+      <dd>回傳可迭代物件中函式回傳 <code>True</code> 的元素的內建函式。例如：<code>list(filter(lambda x: x &gt; 0, [-1, 2, 3]))</code> 得到 <code>[2, 3]</code>。</dd>
+
+      <dt><code>finally</code></dt>
+      <dd><code>try/except</code> 語句中無論是否發生例外都會執行的區塊。常用於清理工作，如關閉檔案。</dd>
+
+      <dt>浮點數（Float）</dt>
+      <dd>帶小數點的數字。例如：<code>3.14</code>。可用 <code>float("3.14")</code> 或直接寫小數字面值建立。</dd>
+
+      <dt><code>for</code> 迴圈</dt>
+      <dd>遍歷序列中每個項目的迴圈。例如：<code>for fruit in ["apple", "banana"]: print(fruit)</code>。</dd>
+
+      <dt>函式（Function）</dt>
+      <dd>使用 <code>def</code> 定義的可重複使用的程式碼區塊，執行特定任務。透過名稱和括號呼叫：<code>greet("Alice")</code>。</dd>
+    </dl>
+
+    <!-- G -->
+    <div id="G" class="glossary-letter">G</div>
+    <dl class="glossary-list">
+      <dt>產生器（Generator）</dt>
+      <dd>使用 <code>yield</code> 而非 <code>return</code> 來延遲產生值序列的函式（一次一個）。例如：<code>def count(): yield 1; yield 2</code>。</dd>
+
+      <dt><code>global</code></dt>
+      <dd>允許函式修改模組層級變數的關鍵字。例如：函式內的 <code>global counter</code> 允許修改外部的 <code>counter</code> 變數。</dd>
+
+      <dt>全域變數（Global variable）</dt>
+      <dd>在腳本或模組頂層定義的變數，可在該檔案的任何地方存取。請謹慎使用——優先將值作為函式引數傳遞。</dd>
+    </dl>
+
+    <!-- H -->
+    <div id="H" class="glossary-letter">H</div>
+    <dl class="glossary-list">
+      <dt>雜湊（Hash）</dt>
+      <dd>從物件計算出的固定大小數值，用於字典和集合中的快速查找。只有不可變型別（如 <code>str</code>、<code>int</code> 和 <code>tuple</code>）是可雜湊的。</dd>
+
+      <dt><code>help()</code></dt>
+      <dd>顯示任何物件文件的內建函式。在直譯器中輸入 <code>help(print)</code> 即可查看 <code>print()</code> 的用法。</dd>
+    </dl>
+
+    <!-- I -->
+    <div id="I" class="glossary-letter">I</div>
+    <dl class="glossary-list">
+      <dt>IDE</dt>
+      <dd>整合開發環境——用於撰寫程式碼的軟體應用程式，具有語法高亮、除錯和自動完成等功能。常用的 Python IDE 包括 VS Code 和 PyCharm。</dd>
+
+      <dt><code>if</code></dt>
+      <dd>開始條件語句的關鍵字。縮排區塊僅在條件為真時執行。例如：<code>if x &gt; 0: print("positive")</code>。</dd>
+
+      <dt>不可變（Immutable）</dt>
+      <dd>建立後值無法更改的物件。字串、整數、浮點數和元組在 Python 中是不可變的。例如：你無法執行 <code>"hello"[0] = "H"</code>。</dd>
+
+      <dt>匯入（Import）</dt>
+      <dd><code>import</code> 語句載入模組，使你可以使用其函式和類別。例如：<code>import math</code> 然後 <code>math.sqrt(16)</code>。</dd>
+
+      <dt>索引（Index）</dt>
+      <dd>元素在序列中的位置，從 0 開始。在 <code>["a", "b", "c"]</code> 中，<code>"b"</code> 的索引是 <code>1</code>。負索引從末尾計算：<code>-1</code> 是最後一個項目。</dd>
+
+      <dt>繼承（Inheritance）</dt>
+      <dd>物件導向機制，一個類別（子類別）繼承另一個類別（父類別）的屬性和方法。例如：<code>class Cat(Animal):</code> 表示 <code>Cat</code> 繼承自 <code>Animal</code>。</dd>
+
+      <dt><code>input()</code></dt>
+      <dd>從使用者讀取一行文字的內建函式。例如：<code>name = input("Enter your name: ")</code>。總是回傳字串。</dd>
+
+      <dt>實例（Instance）</dt>
+      <dd>從類別建立的特定物件。如果 <code>Dog</code> 是一個類別，那麼 <code>my_dog = Dog("Rex")</code> 建立了 <code>Dog</code> 的一個實例。</dd>
+
+      <dt>整數（Integer）</dt>
+      <dd>沒有小數點的整數，如 <code>42</code> 或 <code>-7</code>。Python 整數具有無限精度。</dd>
+
+      <dt>直譯器（Interpreter）</dt>
+      <dd>逐行讀取和執行 Python 程式碼的程式。你可以在終端機輸入 <code>python</code> 以互動方式執行，或用它執行腳本如 <code>python script.py</code>。</dd>
+
+      <dt>可迭代物件（Iterable）</dt>
+      <dd>任何可以用 <code>for</code> 迴圈遍歷的物件。串列、元組、字串、字典、集合和產生器都是可迭代物件。</dd>
+
+      <dt>迭代器（Iterator）</dt>
+      <dd>當你對其呼叫 <code>next()</code> 時產生序列中下一個值的物件。使用 <code>iter()</code> 從可迭代物件建立。例如：<code>it = iter([1, 2]); next(it)</code> 得到 <code>1</code>。</dd>
+    </dl>
+
+    <!-- J -->
+    <div id="J" class="glossary-letter">J</div>
+    <dl class="glossary-list">
+      <dt>JSON</dt>
+      <dd>JavaScript 物件標記法——一種輕量級的文字格式，用於儲存和交換資料。Python 的 <code>json</code> 模組可以處理：<code>json.loads('{"key": "value"}')</code> 將 JSON 解析為字典。</dd>
+
+      <dt><code>join()</code></dt>
+      <dd>將字串串列合併為一個字串的字串方法，使用該字串作為分隔符。例如：<code>", ".join(["a", "b", "c"])</code> 得到 <code>"a, b, c"</code>。</dd>
+    </dl>
+
+    <!-- K -->
+    <div id="K" class="glossary-letter">K</div>
+    <dl class="glossary-list">
+      <dt>鍵（Key）</dt>
+      <dd>用於存取字典中值的識別符。在 <code>{"name": "Alice"}</code> 中，<code>"name"</code> 是鍵。鍵必須是不可變的（字串、數字、元組）。</dd>
+
+      <dt>關鍵字（Keyword）</dt>
+      <dd>Python 中具有特殊含義且不能用作變數名稱的保留字。例如：<code>if</code>、<code>for</code>、<code>def</code>、<code>class</code>、<code>return</code>、<code>import</code>。</dd>
+
+      <dt>關鍵字引數（Keyword argument）</dt>
+      <dd>透過名稱傳遞給函式的引數。例如：<code>print("hi", end="")</code>——這裡 <code>end=""</code> 是關鍵字引數。</dd>
+    </dl>
+
+    <!-- L -->
+    <div id="L" class="glossary-letter">L</div>
+    <dl class="glossary-list">
+      <dt>Lambda</dt>
+      <dd>使用 <code>lambda</code> 關鍵字在單一運算式中定義的匿名（無名）函式。例如：<code>square = lambda x: x ** 2</code> 然後 <code>square(4)</code> 得到 <code>16</code>。</dd>
+
+      <dt><code>len()</code></dt>
+      <dd>回傳物件中項目數量的內建函式。例如：<code>len([1, 2, 3])</code> 得到 <code>3</code>；<code>len("hello")</code> 得到 <code>5</code>。</dd>
+
+      <dt>函式庫（Library）</dt>
+      <dd>提供預先撰寫功能的模組和套件集合。例如：Python 標準函式庫、NumPy、Pandas 和 Requests。</dd>
+
+      <dt>串列（List）</dt>
+      <dd>使用方括號建立的有序、可變集合。例如：<code>fruits = ["apple", "banana", "cherry"]</code>。透過索引存取項目：<code>fruits[0]</code>。</dd>
+
+      <dt>串列推導式（List comprehension）</dt>
+      <dd>建立串列的精簡語法。例如：<code>[x ** 2 for x in range(5)]</code> 得到 <code>[0, 1, 4, 9, 16]</code>。可以包含條件：<code>[x for x in range(10) if x % 2 == 0]</code>。</dd>
+
+      <dt>區域變數（Local variable）</dt>
+      <dd>在函式內部定義的變數，僅在該函式內可存取。它在函式執行時建立，函式結束時銷毀。</dd>
+
+      <dt>迴圈（Loop）</dt>
+      <dd>重複執行程式碼區塊的控制結構。Python 有兩種：<code>for</code> 迴圈（遍歷序列）和 <code>while</code> 迴圈（在條件為真時重複）。</dd>
+    </dl>
+
+    <!-- M -->
+    <div id="M" class="glossary-letter">M</div>
+    <dl class="glossary-list">
+      <dt><code>map()</code></dt>
+      <dd>將函式套用到可迭代物件中每個項目的內建函式。例如：<code>list(map(str, [1, 2, 3]))</code> 得到 <code>["1", "2", "3"]</code>。</dd>
+
+      <dt>方法（Method）</dt>
+      <dd>屬於物件的函式，使用點號語法呼叫。例如：<code>"hello".upper()</code> 呼叫字串 <code>"hello"</code> 的 <code>upper</code> 方法，回傳 <code>"HELLO"</code>。</dd>
+
+      <dt>模組（Module）</dt>
+      <dd>包含函式、類別和變數的單一 Python 檔案（<code>.py</code>），可以被匯入使用。例如：<code>import math</code> 匯入 <code>math</code> 模組。</dd>
+
+      <dt>可變（Mutable）</dt>
+      <dd>建立後值可以更改的物件。串列、字典和集合是可變的。例如：<code>my_list[0] = 99</code> 原地更改第一個元素。</dd>
+    </dl>
+
+    <!-- N -->
+    <div id="N" class="glossary-letter">N</div>
+    <dl class="glossary-list">
+      <dt><code>None</code></dt>
+      <dd>Python 的空值，表示沒有值。未明確回傳的函式會回傳 <code>None</code>。使用 <code>if x is None:</code> 進行檢查。</dd>
+
+      <dt>NumPy</dt>
+      <dd>流行的第三方數值計算函式庫，具有強大的陣列操作功能。使用 <code>pip install numpy</code> 安裝。例如：<code>import numpy as np; np.array([1, 2, 3])</code>。</dd>
+    </dl>
+
+    <!-- O -->
+    <div id="O" class="glossary-letter">O</div>
+    <dl class="glossary-list">
+      <dt>物件（Object）</dt>
+      <dd>Python 中的一切都是物件——一份具有型別、值和相關方法的資料。整數、字串、串列、函式和類別都是物件。</dd>
+
+      <dt><code>open()</code></dt>
+      <dd>開啟檔案並回傳檔案物件的內建函式。例如：<code>with open("data.txt", "r") as f: content = f.read()</code>。</dd>
+
+      <dt>運算子（Operator）</dt>
+      <dd>對值執行操作的符號。算術：<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>。比較：<code>==</code>、<code>!=</code>、<code>&lt;</code>、<code>&gt;</code>。邏輯：<code>and</code>、<code>or</code>、<code>not</code>。</dd>
+    </dl>
+
+    <!-- P -->
+    <div id="P" class="glossary-letter">P</div>
+    <dl class="glossary-list">
+      <dt>套件（Package）</dt>
+      <dd>以 <code>__init__.py</code> 檔案組織的 Python 模組目錄。套件讓你組織大型專案。例如：<code>import mypackage.mymodule</code>。</dd>
+
+      <dt>Pandas</dt>
+      <dd>強大的第三方資料分析和處理函式庫，建立在 NumPy 之上。使用 <code>pip install pandas</code> 安裝。其核心資料結構是 <code>DataFrame</code>。</dd>
+
+      <dt>參數（Parameter）</dt>
+      <dd>函式定義中列出的變數，在函式被呼叫時接收值。在 <code>def greet(name):</code> 中，<code>name</code> 是參數。與引數（傳遞的實際值）相對。</dd>
+
+      <dt><code>pass</code></dt>
+      <dd>不做任何事的語句。當語法上需要程式碼區塊但你還沒有要寫的內容時用作佔位符。例如：<code>def todo(): pass</code>。</dd>
+
+      <dt>PEP 8</dt>
+      <dd>Python 官方風格指南。建議使用 4 個空格縮排、變數和函式使用 <code>snake_case</code>，類別名稱使用 <code>PascalCase</code> 等慣例。</dd>
+
+      <dt>pip</dt>
+      <dd>Python 的套件安裝工具。用於從 PyPI 安裝第三方函式庫。例如：<code>pip install requests</code> 安裝 Requests 函式庫。</dd>
+
+      <dt><code>print()</code></dt>
+      <dd>將輸出顯示到主控台的內建函式。例如：<code>print("Hello, World!")</code>。接受多個引數：<code>print("a", "b", sep="-")</code> 輸出 <code>a-b</code>。</dd>
+
+      <dt>屬性裝飾器（Property）</dt>
+      <dd>使用 <code>@property</code> 裝飾器在類別屬性上定義 getter 和 setter 方法的方式。讓你像存取簡單屬性一樣存取方法。</dd>
+
+      <dt>Python</dt>
+      <dd>由 Guido van Rossum 創建的高階、直譯式、通用程式語言。以可讀的語法、龐大的標準函式庫和廣泛的社群支援著稱。</dd>
+    </dl>
+
+    <!-- R -->
+    <div id="R" class="glossary-letter">R</div>
+    <dl class="glossary-list">
+      <dt><code>range()</code></dt>
+      <dd>產生數字序列的內建函式。例如：<code>range(5)</code> 產生 <code>0, 1, 2, 3, 4</code>。常用於 <code>for</code> 迴圈：<code>for i in range(3):</code>。</dd>
+
+      <dt>遞迴（Recursion）</dt>
+      <dd>函式透過將問題拆分為更小的子問題來呼叫自身。例如：<code>def factorial(n): return 1 if n == 0 else n * factorial(n - 1)</code>。</dd>
+
+      <dt>REPL</dt>
+      <dd>讀取-求值-輸出迴圈——互動式 Python 殼層，你輸入運算式後立即看到結果。在終端機執行 <code>python</code> 即可啟動。</dd>
+
+      <dt><code>return</code></dt>
+      <dd>退出函式並將值傳回給呼叫者的語句。例如：<code>def add(a, b): return a + b</code>。沒有 <code>return</code> 的函式隱式回傳 <code>None</code>。</dd>
+    </dl>
+
+    <!-- S -->
+    <div id="S" class="glossary-letter">S</div>
+    <dl class="glossary-list">
+      <dt>作用域（Scope）</dt>
+      <dd>變數可存取的程式碼區域。Python 使用 LEGB 規則：區域（Local）、外層（Enclosing）、全域（Global）、內建（Built-in）。在函式內定義的變數具有區域作用域。</dd>
+
+      <dt><code>self</code></dt>
+      <dd>類別中實例方法第一個參數的慣用名稱。它指向目前的物件。例如：<code>def greet(self): print(self.name)</code>。</dd>
+
+      <dt>集合（Set）</dt>
+      <dd>不重複元素的無序集合，使用大括號或 <code>set()</code> 建立。例如：<code>{1, 2, 3}</code>。適合去除重複和集合操作如聯集和交集。</dd>
+
+      <dt>切片（Slice）</dt>
+      <dd>使用 <code>[start:stop:step]</code> 語法從序列中擷取部分的方式。例如：<code>"Python"[0:3]</code> 得到 <code>"Pyt"</code>；<code>[1, 2, 3, 4][::2]</code> 得到 <code>[1, 3]</code>。</dd>
+
+      <dt><code>sorted()</code></dt>
+      <dd>從任何可迭代物件回傳新排序串列的內建函式。例如：<code>sorted([3, 1, 2])</code> 得到 <code>[1, 2, 3]</code>。使用 <code>reverse=True</code> 做降序排列。</dd>
+
+      <dt>標準函式庫（Standard library）</dt>
+      <dd>每個 Python 安裝都附帶的模組集合。涵蓋檔案 I/O、數學、JSON、CSV、正規表達式、網路等——不需要 <code>pip install</code>。</dd>
+
+      <dt>字串（String）</dt>
+      <dd>以引號包圍的字元序列。例如：<code>"Hello"</code> 或 <code>'Hello'</code>。字串是不可變的。使用三引號表示多行字串：<code>"""第1行\n第2行"""</code>。</dd>
+
+      <dt><code>super()</code></dt>
+      <dd>在子類別中呼叫父類別方法的內建函式。例如：<code>super().__init__(name)</code> 呼叫父類別的建構子。</dd>
+    </dl>
+
+    <!-- T -->
+    <div id="T" class="glossary-letter">T</div>
+    <dl class="glossary-list">
+      <dt>追蹤（Traceback）</dt>
+      <dd>例外發生時 Python 顯示的錯誤報告。它顯示導致錯誤的函式呼叫鏈，最近的呼叫在最後。從底部往上讀以找到原因。</dd>
+
+      <dt><code>True</code></dt>
+      <dd>兩個布林值之一。在數值上下文中等同於 <code>1</code>。非空字串、非零數字和非空集合都是「真值」。</dd>
+
+      <dt><code>try/except</code></dt>
+      <dd>處理例外的語句。嘗試執行 <code>try</code> 區塊中的程式碼；如果發生錯誤，則執行 <code>except</code> 區塊。例如：<code>try: int("abc") except ValueError: print("Not a number")</code>。</dd>
+
+      <dt>元組（Tuple）</dt>
+      <dd>使用括號建立的有序、不可變序列。例如：<code>point = (3, 4)</code>。像是無法修改的串列。透過索引存取項目：<code>point[0]</code>。</dd>
+
+      <dt>型別（Type）</dt>
+      <dd>值的類別。使用 <code>type()</code> 檢查：<code>type(42)</code> 回傳 <code>&lt;class 'int'&gt;</code>。常見型別：<code>int</code>、<code>float</code>、<code>str</code>、<code>list</code>、<code>dict</code>、<code>bool</code>。</dd>
+
+      <dt>型別轉換（Type conversion）</dt>
+      <dd>將值從一種型別改為另一種。例如：<code>int("5")</code> 將字串 <code>"5"</code> 轉為整數 <code>5</code>。也稱為型別轉型。常見轉換：<code>str()</code>、<code>int()</code>、<code>float()</code>、<code>list()</code>。</dd>
+    </dl>
+
+    <!-- V -->
+    <div id="V" class="glossary-letter">V</div>
+    <dl class="glossary-list">
+      <dt>變數（Variable）</dt>
+      <dd>儲存在記憶體中值的命名參考。透過賦值建立：<code>age = 25</code>。變數名稱應具描述性並遵循 <code>snake_case</code> 慣例。</dd>
+
+      <dt><code>venv</code></dt>
+      <dd>用於建立虛擬環境的內建模組。用法：<code>python -m venv myenv</code> 在 <code>myenv</code> 資料夾中建立隔離環境。</dd>
+
+      <dt>虛擬環境（Virtual environment）</dt>
+      <dd>擁有獨立套件集的隔離 Python 安裝，與系統 Python 分開。防止專案間的版本衝突。使用 <code>python -m venv myenv</code> 建立，使用前需啟用。</dd>
+    </dl>
+
+    <!-- W -->
+    <div id="W" class="glossary-letter">W</div>
+    <dl class="glossary-list">
+      <dt><code>while</code> 迴圈</dt>
+      <dd>在條件保持為真時重複執行程式碼區塊的迴圈。例如：<code>while count &lt; 10: count += 1</code>。注意避免無限迴圈。</dd>
+
+      <dt><code>with</code> 語句</dt>
+      <dd>確保資源被正確設定和清理的上下文管理器。最常與檔案搭配使用：<code>with open("file.txt") as f:</code> 在區塊結束時自動關閉檔案。</dd>
+    </dl>
+
+    <!-- Z -->
+    <div id="Z" class="glossary-letter">Z</div>
+    <dl class="glossary-list">
+      <dt>零基索引（Zero-based indexing）</dt>
+      <dd>Python 的慣例，序列的第一個元素在索引 <code>0</code>，第二個在 <code>1</code>，依此類推。例如：在 <code>["a", "b", "c"]</code> 中，<code>"a"</code> 在索引 <code>0</code>。</dd>
+
+      <dt><code>zip()</code></dt>
+      <dd>將多個可迭代物件逐元素組合成元組的內建函式。例如：<code>list(zip([1, 2], ["a", "b"]))</code> 得到 <code>[(1, "a"), (2, "b")]</code>。適合平行遍歷兩個串列。</dd>
+    </dl>
+
+    <div class="page-nav">
+      <a href="cheatsheet.html" class="prev-link">&larr; 速查表</a>
+      <a href="oop.html" class="next-link">物件導向程式設計 &rarr;</a>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

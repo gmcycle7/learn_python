@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NumPy &amp; Pandas 基礎 &mdash; 學習 Python</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導航">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/numpy-pandas.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+      <div class="search-results"></div>
+    </div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link active">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> NumPy &amp; Pandas 基礎
+      </div>
+
+      <h1>章節 K &mdash; NumPy &amp; Pandas 基礎</h1>
+      <p class="page-subtitle">
+        NumPy 是 Python 對 MATLAB 矩陣引擎的回應。Pandas 是表格資料分析的首選函式庫。
+        如果你來自 MATLAB，這兩個函式庫會讓你感到最為熟悉 &mdash; 它們一起取代了
+        MATLAB 內建的大部分功能。
+      </p>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">為什麼本頁對 MATLAB 使用者至關重要</div>
+        <p>
+          在 MATLAB 中，數值陣列和矩陣運算是內建於語言中的。在 Python 中，
+          <strong>它們不是</strong>。你需要 <code>import numpy</code> 才能獲得
+          類似 MATLAB 的陣列行為。沒有 NumPy，Python 沒有原生矩陣型別、
+          沒有陣列的逐元素運算、也沒有線性代數函式。把 NumPy 想成
+          <strong>Python 內部的 MATLAB 引擎</strong>。
+        </p>
+      </div>
+
+      <!-- 目錄 -->
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><strong>第一部分：NumPy</strong>
+            <ul>
+              <li><a href="#what-is-numpy">1. 什麼是 NumPy？</a></li>
+              <li><a href="#creating-arrays">2. 建立陣列</a></li>
+              <li><a href="#array-properties">3. 陣列屬性</a></li>
+              <li><a href="#indexing-slicing">4. 索引與切片</a></li>
+              <li><a href="#array-operations">5. 陣列運算</a></li>
+              <li><a href="#math-functions">6. 數學函式</a></li>
+              <li><a href="#linear-algebra">7. 線性代數</a></li>
+              <li><a href="#reshaping-stacking">8. 重塑與堆疊</a></li>
+              <li><a href="#matlab-numpy-table">9. MATLAB vs NumPy 轉換表</a></li>
+            </ul>
+          </li>
+          <li><strong>第二部分：Pandas</strong>
+            <ul>
+              <li><a href="#what-is-pandas">10. 什麼是 Pandas？</a></li>
+              <li><a href="#creating-dataframes">11. 建立 DataFrame</a></li>
+              <li><a href="#exploring-data">12. 探索資料</a></li>
+              <li><a href="#selecting-data">13. 選取資料</a></li>
+              <li><a href="#modifying-data">14. 修改資料</a></li>
+              <li><a href="#grouping-aggregation">15. 分組與聚合</a></li>
+              <li><a href="#reading-writing">16. 讀寫檔案</a></li>
+              <li><a href="#plotting-pandas">17. 使用 Pandas 繪圖</a></li>
+              <li><a href="#common-operations">18. 常用操作</a></li>
+            </ul>
+          </li>
+          <li><a href="#exercises">練習</a></li>
+          <li><a href="#summary">總結</a></li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top:2.5rem; border-bottom:3px solid var(--primary); padding-bottom:.5rem;">
+        第一部分 &mdash; NumPy（MATLAB 替代方案）
+      </h2>
+
+      <h2 id="what-is-numpy">1. 什麼是 NumPy？</h2>
+
+      <p>
+        <strong>NumPy</strong>（Numerical Python）是 Python 數值計算的基礎函式庫。它提供：
+      </p>
+
+      <ul>
+        <li><strong>N 維陣列</strong>（<code>ndarray</code>）&mdash; 快速、記憶體效率高、型別化的陣列</li>
+        <li><strong>逐元素運算</strong> &mdash; 就像 MATLAB 的 <code>.*</code>、<code>./</code> 等</li>
+        <li><strong>廣播</strong> &mdash; 相容形狀的自動大小擴展</li>
+        <li><strong>線性代數、FFT、隨機數</strong> &mdash; 核心科學工具箱</li>
+        <li><strong>C 語言級速度</strong> &mdash; 迴圈在優化的 C 程式碼中執行，不是慢速的 Python 迴圈</li>
+      </ul>
+
+      <h3>安裝</h3>
+
+      <pre><code># 安裝 NumPy（在終端機中執行一次）
+pip install numpy
+
+# 然後在你的 Python 程式碼中：
+import numpy as np     # 通用慣例——始終使用 'np'</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 比較</div>
+        <p>
+          在 MATLAB 中，你只需輸入 <code>A = [1 2 3]</code> 就能運作 &mdash;
+          陣列是內建的。在 Python 中，你必須先 <code>import numpy as np</code>，
+          然後使用 <code>A = np.array([1, 2, 3])</code>。這多出的一行是
+          Python 作為通用語言的「代價」。其他一切行為類似。
+        </p>
+      </div>
+
+      <h2 id="creating-arrays">2. 建立陣列</h2>
+
+      <p>
+        NumPy 陣列是主力資料結構。以下是所有常見的建立方式 &mdash;
+        每個都在註解中附上 MATLAB 等價寫法。
+      </p>
+
+      <pre><code>import numpy as np
+
+# 從 Python 串列（MATLAB: a = [1, 2, 3]）
+a = np.array([1, 2, 3])
+print(a)            # [1 2 3]
+
+# 2D 陣列 / 矩陣（MATLAB: A = [1 2; 3 4]）
+A = np.array([[1, 2],
+              [3, 4]])
+print(A)
+# [[1 2]
+#  [3 4]]
+
+# 零矩陣（MATLAB: zeros(3, 4)）
+z = np.zeros((3, 4))          # 注意：元組 (3, 4)，不是兩個引數
+
+# 一矩陣（MATLAB: ones(2, 3)）
+o = np.ones((2, 3))
+
+# 單位矩陣（MATLAB: eye(4)）
+I = np.eye(4)
+
+# 值的範圍（MATLAB: 0:2:10）
+r = np.arange(0, 11, 2)       # [0, 2, 4, 6, 8, 10]
+
+# 等距值（MATLAB: linspace(0, 1, 5)）
+ls = np.linspace(0, 1, 5)     # [0.  0.25 0.5  0.75 1. ]
+
+# 隨機值（MATLAB: rand(3, 3)）
+R = np.random.rand(3, 3)      # 3x3 均勻隨機 [0, 1)
+
+# 隨機整數（MATLAB: randi(10, 2, 3)）
+ri = np.random.randint(1, 11, size=(2, 3))  # 隨機整數 1-10
+
+# 空（未初始化）（MATLAB: 無等價）
+e = np.empty((2, 2))          # 快速，但值是垃圾
+
+# 填充（以特定值填充）（MATLAB: repmat(7, 3, 3) 或 7*ones(3,3)）
+f = np.full((3, 3), 7)        # 3x3 填充 7</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">注意：shape 使用元組！</div>
+        <p>
+          MATLAB：<code>zeros(3, 4)</code> 使用兩個獨立引數。<br>
+          NumPy：<code>np.zeros((3, 4))</code> 使用<strong>單一元組</strong>
+          <code>(3, 4)</code>。忘記雙括號是初學者的第一大錯誤。
+        </p>
+      </div>
+
+      <h2 id="array-properties">3. 陣列屬性</h2>
+
+      <pre><code>import numpy as np
+
+A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+print(A.shape)     # (2, 3)   — MATLAB: size(A)
+print(A.ndim)      # 2        — MATLAB: ndims(A)
+print(A.size)      # 6        — MATLAB: numel(A)
+print(A.dtype)     # int64    — MATLAB: class(A)
+print(len(A))      # 2        — 列數（第一維度）</code></pre>
+
+      <h3>重塑</h3>
+
+      <pre><code># 1D 重塑為 2D（MATLAB: reshape(a, 2, 3)）
+a = np.arange(6)           # [0 1 2 3 4 5]
+b = a.reshape(2, 3)
+print(b)
+# [[0 1 2]
+#  [3 4 5]]
+
+# 使用 -1 自動計算一個維度
+c = a.reshape(3, -1)       # (3, 2) — NumPy 自動算出 2
+print(c)
+# [[0 1]
+#  [2 3]
+#  [4 5]]
+
+# 更改 dtype
+d = np.array([1, 2, 3], dtype=np.float64)
+print(d.dtype)              # float64</code></pre>
+
+      <h2 id="indexing-slicing">4. 索引與切片</h2>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">重要：0 基索引！</div>
+        <p>
+          MATLAB 使用<strong>1 基</strong>索引。Python 和 NumPy 使用
+          <strong>0 基</strong>索引。第一個元素在索引 <code>0</code>，不是 <code>1</code>。
+          這個單一差異比任何其他事情都更容易讓 MATLAB 轉換者出錯。請保持警覺！
+        </p>
+      </div>
+
+      <pre><code>import numpy as np
+
+a = np.array([10, 20, 30, 40, 50])
+
+# 基本索引（0 基！）
+print(a[0])        # 10    — MATLAB: a(1)
+print(a[2])        # 30    — MATLAB: a(3)
+print(a[-1])       # 50    — MATLAB: a(end)
+print(a[-2])       # 40    — MATLAB: a(end-1)
+
+# 切片 [start:stop:step] — stop 是排除的
+print(a[1:4])      # [20 30 40]   — MATLAB: a(2:4) 取得相同值
+print(a[:3])       # [10 20 30]   — 前 3 個元素
+print(a[2:])       # [30 40 50]   — 從索引 2 開始
+print(a[::2])      # [10 30 50]   — 每隔一個元素</code></pre>
+
+      <h3>2D 索引</h3>
+
+      <pre><code>A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+# 單一元素（MATLAB: A(1, 2) = 2）
+print(A[0, 1])     # 2 — 第 0 列，第 1 行
+
+# 整列（MATLAB: A(2, :)）
+print(A[1, :])     # [4 5 6]
+
+# 整行（MATLAB: A(:, 3)）
+print(A[:, 2])     # [3 6 9]
+
+# 子矩陣（MATLAB: A(1:2, 2:3)）
+print(A[0:2, 1:3])
+# [[2 3]
+#  [5 6]]</code></pre>
+
+      <h3>花式索引（無 MATLAB 等價）</h3>
+
+      <pre><code># 以位置串列索引
+a = np.array([10, 20, 30, 40, 50])
+print(a[[0, 2, 4]])    # [10 30 50] — 挑選特定索引
+
+# 布林索引（MATLAB: a(a > 25)）
+mask = a > 25
+print(mask)             # [False False  True  True  True]
+print(a[mask])          # [30 40 50]
+print(a[a > 25])        # [30 40 50] — 簡寫，結果相同</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">切片回傳視圖，不是副本！</div>
+        <p>
+          在 NumPy 中，<code>b = a[1:4]</code> 建立同一記憶體的<strong>視圖</strong>。
+          如果你修改 <code>b</code>，也會修改 <code>a</code>！在 MATLAB 中，
+          切片總是複製。要在 NumPy 中取得副本，使用 <code>b = a[1:4].copy()</code>。
+        </p>
+      </div>
+
+      <h2 id="array-operations">5. 陣列運算</h2>
+
+      <p>
+        在 MATLAB 中，你用 <code>.*</code> 做逐元素運算，<code>*</code> 做矩陣乘法。
+        在 NumPy 中，<code>*</code> <strong>始終是逐元素</strong>，<code>@</code> 是矩陣乘法。
+        這更簡單且不易出錯。
+      </p>
+
+      <pre><code>import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# 逐元素算術（MATLAB: .* ./ .^ 等）
+print(a + b)       # [5 7 9]
+print(a - b)       # [-3 -3 -3]
+print(a * b)       # [ 4 10 18]     — 逐元素（如 MATLAB .*）
+print(a / b)       # [0.25 0.4  0.5]
+print(a ** 2)      # [1 4 9]        — 逐元素次方（MATLAB: a.^2）
+
+# 純量運算（廣播）
+print(a * 10)      # [10 20 30]
+print(a + 100)     # [101 102 103]
+
+# 比較運算子回傳布林陣列
+print(a > 2)       # [False False  True]
+print(a == 2)      # [False  True False]</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">NumPy 中點號消失了</div>
+        <p>
+          <strong>MATLAB：</strong><code>.*</code>（逐元素），<code>*</code>（矩陣乘法）<br>
+          <strong>NumPy：</strong><code>*</code>（逐元素），<code>@</code>（矩陣乘法）<br>
+          不用再忘記點號了！在 NumPy 中，<code>*</code> 始終表示逐元素，所以最常見的操作就是預設值。
+        </p>
+      </div>
+
+      <h3>廣播</h3>
+
+      <p>
+        廣播讓 NumPy 可以對不同形狀的陣列執行運算而不需明確複製。
+        MATLAB 在 R2016b 添加了隱式擴展；NumPy 從一開始就有。
+      </p>
+
+      <pre><code>A = np.array([[1, 2, 3],
+              [4, 5, 6]])     # 形狀 (2, 3)
+
+row = np.array([10, 20, 30])  # 形狀 (3,)
+
+# 將 row 加到 A 的每一列（不需要 repmat！）
+print(A + row)
+# [[11 22 33]
+#  [14 25 36]]
+
+col = np.array([[100],
+                [200]])       # 形狀 (2, 1)
+
+# 將 col 加到 A 的每一行
+print(A + col)
+# [[101 102 103]
+#  [204 205 206]]</code></pre>
+
+      <h2 id="math-functions">6. 數學函式</h2>
+
+      <pre><code>import numpy as np
+
+a = np.array([1, 2, 3, 4, 5])
+
+# 聚合函式
+print(np.sum(a))       # 15    — MATLAB: sum(a)
+print(np.mean(a))      # 3.0   — MATLAB: mean(a)
+print(np.std(a))       # 1.414 — MATLAB: std(a)（注意：預設 ddof 不同！）
+print(np.min(a))       # 1     — MATLAB: min(a)
+print(np.max(a))       # 5     — MATLAB: max(a)
+print(np.argmin(a))    # 0     — 最小值的索引（MATLAB: [~, idx] = min(a)）
+print(np.argmax(a))    # 4     — 最大值的索引
+
+# 也可作為方法使用
+print(a.sum())         # 15
+print(a.mean())        # 3.0
+
+# 數學函式
+print(np.sqrt(a))      # [1.   1.41 1.73 2.   2.24]
+print(np.sin(a))       # 每個元素的 sin
+print(np.cos(a))       # 每個元素的 cos
+print(np.exp(a))       # 每個元素的 e^x
+print(np.log(a))       # 自然對數（MATLAB: log(a)）
+print(np.log10(a))     # 以 10 為底的對數（MATLAB: log10(a)）
+print(np.abs(a))       # 絕對值</code></pre>
+
+      <h3>axis 參數</h3>
+
+      <p>
+        對於 2D 陣列，你經常需要沿列或行求和。<code>axis</code> 參數控制這一點。
+      </p>
+
+      <pre><code>A = np.array([[1, 2, 3],
+              [4, 5, 6]])
+
+print(np.sum(A))           # 21 — 所有元素的總和
+
+print(np.sum(A, axis=0))   # [5 7 9] — 沿每行向下求和
+                           # MATLAB: sum(A, 1) 或 sum(A)
+
+print(np.sum(A, axis=1))   # [ 6 15] — 沿每列橫向求和
+                           # MATLAB: sum(A, 2)
+
+print(np.mean(A, axis=0))  # [2.5 3.5 4.5] — 行平均
+print(np.mean(A, axis=1))  # [2.  5.]      — 列平均</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">axis=0 vs axis=1</div>
+        <p>
+          這一開始會令人困惑。可以這樣想：<code>axis=0</code> 表示「摺疊列」
+          （沿行<strong>向下</strong>操作），<code>axis=1</code> 表示「摺疊行」
+          （沿列<strong>橫向</strong>操作）。<br><br>
+          MATLAB：<code>sum(A, 1)</code> = 沿行向下求和，<code>sum(A, 2)</code> = 沿列橫向求和。<br>
+          NumPy：<code>np.sum(A, axis=0)</code> = 沿行向下求和，<code>np.sum(A, axis=1)</code> = 沿列橫向求和。<br>
+          相同概念，但 MATLAB 使用 1/2 而 NumPy 使用 0/1。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">std() 預設值不同！</div>
+        <p>
+          MATLAB 的 <code>std()</code> 預設使用 <strong>N-1</strong>（樣本標準差）。
+          NumPy 的 <code>np.std()</code> 預設使用 <strong>N</strong>（母體標準差）。
+          要匹配 MATLAB，使用 <code>np.std(a, ddof=1)</code>。
+        </p>
+      </div>
+
+      <h2 id="linear-algebra">7. 線性代數</h2>
+
+      <p>線性代數是 MATLAB 使用者最有家的感覺的地方。NumPy 的 <code>linalg</code> 子模組具備所有基本功能。</p>
+
+      <pre><code>import numpy as np
+
+A = np.array([[1, 2],
+              [3, 4]])
+b = np.array([5, 6])
+
+# 矩陣乘法（MATLAB: A * B）
+B = np.array([[5, 6],
+              [7, 8]])
+print(A @ B)               # @ 運算子（Python 3.5+）
+# [[19 22]
+#  [43 50]]
+print(np.dot(A, B))        # 等同於 @
+
+# 轉置（MATLAB: A'）
+print(A.T)
+# [[1 3]
+#  [2 4]]
+
+# 行列式（MATLAB: det(A)）
+print(np.linalg.det(A))   # -2.0
+
+# 逆矩陣（MATLAB: inv(A)）
+print(np.linalg.inv(A))
+# [[-2.   1. ]
+#  [ 1.5 -0.5]]
+
+# 求解線性系統 Ax = b（MATLAB: A\b）
+x = np.linalg.solve(A, b)
+print(x)                   # [-4.   4.5]
+
+# 特徵值和特徵向量（MATLAB: [V, D] = eig(A)）
+eigenvalues, eigenvectors = np.linalg.eig(A)
+print(eigenvalues)         # [-0.372  5.372]
+print(eigenvectors)        # 行是特徵向量
+
+# 矩陣秩（MATLAB: rank(A)）
+print(np.linalg.matrix_rank(A))   # 2
+
+# 範數（MATLAB: norm(A)）
+print(np.linalg.norm(A))          # 預設為 Frobenius 範數</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 的反斜線 \ 運算子</div>
+        <p>
+          MATLAB：<code>x = A\b</code> 求解系統 <code>Ax = b</code>。<br>
+          NumPy：<code>x = np.linalg.solve(A, b)</code> &mdash; 更冗長但同樣高效。
+          對於最小二乘解（超定系統），使用 <code>np.linalg.lstsq(A, b, rcond=None)</code>
+          取代 MATLAB 的反斜線。
+        </p>
+      </div>
+
+      <h2 id="reshaping-stacking">8. 重塑與堆疊</h2>
+
+      <pre><code>import numpy as np
+
+a = np.array([1, 2, 3, 4, 5, 6])
+
+# reshape — 不改變資料的情況下改變維度
+b = a.reshape(2, 3)
+print(b)
+# [[1 2 3]
+#  [4 5 6]]
+
+# ravel / flatten — 轉換為 1D
+print(b.ravel())             # [1 2 3 4 5 6] — 回傳視圖
+print(b.flatten())           # [1 2 3 4 5 6] — 回傳副本
+
+# 轉置
+print(b.T)
+# [[1 4]
+#  [2 5]
+#  [3 6]]
+
+# 串接（MATLAB: [A, B] 或 [A; B]）
+x = np.array([1, 2, 3])
+y = np.array([4, 5, 6])
+print(np.concatenate([x, y]))     # [1 2 3 4 5 6]
+
+# vstack — 垂直堆疊（MATLAB: [A; B]）
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6]])
+print(np.vstack([A, B]))
+# [[1 2]
+#  [3 4]
+#  [5 6]]
+
+# hstack — 水平堆疊（MATLAB: [A, B]）
+C = np.array([[7], [8]])
+print(np.hstack([A, C]))
+# [[1 2 7]
+#  [3 4 8]]
+
+# column_stack — 從 1D 陣列建構矩陣很有用
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+print(np.column_stack([a, b]))
+# [[1 4]
+#  [2 5]
+#  [3 6]]</code></pre>
+
+      <h2 id="matlab-numpy-table">9. MATLAB vs NumPy 轉換表</h2>
+
+      <p>
+        這是你最常使用的參考表。收藏、列印或開在分頁中。它涵蓋 35+ 個常見操作。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:8%">#</th>
+            <th style="width:28%">操作</th>
+            <th style="width:30%">MATLAB</th>
+            <th style="width:34%">NumPy (Python)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>建立列向量</td><td><code>a = [1 2 3]</code></td><td><code>a = np.array([1, 2, 3])</code></td></tr>
+          <tr><td>2</td><td>建立行向量</td><td><code>a = [1; 2; 3]</code></td><td><code>a = np.array([[1],[2],[3]])</code></td></tr>
+          <tr><td>3</td><td>建立矩陣</td><td><code>A = [1 2; 3 4]</code></td><td><code>A = np.array([[1,2],[3,4]])</code></td></tr>
+          <tr><td>4</td><td>零矩陣</td><td><code>zeros(3, 4)</code></td><td><code>np.zeros((3, 4))</code></td></tr>
+          <tr><td>5</td><td>一矩陣</td><td><code>ones(3, 4)</code></td><td><code>np.ones((3, 4))</code></td></tr>
+          <tr><td>6</td><td>單位矩陣</td><td><code>eye(4)</code></td><td><code>np.eye(4)</code></td></tr>
+          <tr><td>7</td><td>範圍（步進）</td><td><code>0:2:10</code></td><td><code>np.arange(0, 12, 2)</code></td></tr>
+          <tr><td>8</td><td>等距</td><td><code>linspace(0, 1, 5)</code></td><td><code>np.linspace(0, 1, 5)</code></td></tr>
+          <tr><td>9</td><td>隨機（均勻）</td><td><code>rand(3, 3)</code></td><td><code>np.random.rand(3, 3)</code></td></tr>
+          <tr><td>10</td><td>隨機（常態）</td><td><code>randn(3, 3)</code></td><td><code>np.random.randn(3, 3)</code></td></tr>
+          <tr><td>11</td><td>大小 / 形狀</td><td><code>size(A)</code></td><td><code>A.shape</code></td></tr>
+          <tr><td>12</td><td>列數</td><td><code>size(A, 1)</code></td><td><code>A.shape[0]</code></td></tr>
+          <tr><td>13</td><td>元素數量</td><td><code>numel(A)</code></td><td><code>A.size</code></td></tr>
+          <tr><td>14</td><td>維度數量</td><td><code>ndims(A)</code></td><td><code>A.ndim</code></td></tr>
+          <tr><td>15</td><td>轉置</td><td><code>A'</code></td><td><code>A.T</code></td></tr>
+          <tr><td>16</td><td>共軛轉置</td><td><code>A'</code></td><td><code>A.conj().T</code></td></tr>
+          <tr><td>17</td><td>逐元素乘法</td><td><code>A .* B</code></td><td><code>A * B</code></td></tr>
+          <tr><td>18</td><td>矩陣乘法</td><td><code>A * B</code></td><td><code>A @ B</code></td></tr>
+          <tr><td>19</td><td>逐元素次方</td><td><code>A .^ 2</code></td><td><code>A ** 2</code></td></tr>
+          <tr><td>20</td><td>矩陣次方</td><td><code>A ^ 2</code></td><td><code>np.linalg.matrix_power(A,2)</code></td></tr>
+          <tr><td>21</td><td>逐元素除法</td><td><code>A ./ B</code></td><td><code>A / B</code></td></tr>
+          <tr><td>22</td><td>逆矩陣</td><td><code>inv(A)</code></td><td><code>np.linalg.inv(A)</code></td></tr>
+          <tr><td>23</td><td>行列式</td><td><code>det(A)</code></td><td><code>np.linalg.det(A)</code></td></tr>
+          <tr><td>24</td><td>特徵值</td><td><code>[V, D] = eig(A)</code></td><td><code>vals, vecs = np.linalg.eig(A)</code></td></tr>
+          <tr><td>25</td><td>求解 Ax=b</td><td><code>A \ b</code></td><td><code>np.linalg.solve(A, b)</code></td></tr>
+          <tr><td>26</td><td>秩</td><td><code>rank(A)</code></td><td><code>np.linalg.matrix_rank(A)</code></td></tr>
+          <tr><td>27</td><td>全部求和</td><td><code>sum(A(:))</code></td><td><code>np.sum(A)</code></td></tr>
+          <tr><td>28</td><td>行求和</td><td><code>sum(A)</code> 或 <code>sum(A,1)</code></td><td><code>np.sum(A, axis=0)</code></td></tr>
+          <tr><td>29</td><td>列求和</td><td><code>sum(A, 2)</code></td><td><code>np.sum(A, axis=1)</code></td></tr>
+          <tr><td>30</td><td>平均值</td><td><code>mean(A)</code></td><td><code>np.mean(A)</code></td></tr>
+          <tr><td>31</td><td>標準差（樣本）</td><td><code>std(A)</code></td><td><code>np.std(A, ddof=1)</code></td></tr>
+          <tr><td>32</td><td>陣列最大值</td><td><code>max(A(:))</code></td><td><code>np.max(A)</code></td></tr>
+          <tr><td>33</td><td>內積</td><td><code>dot(a, b)</code></td><td><code>np.dot(a, b)</code></td></tr>
+          <tr><td>34</td><td>外積</td><td><code>cross(a, b)</code></td><td><code>np.cross(a, b)</code></td></tr>
+          <tr><td>35</td><td>水平串接</td><td><code>[A, B]</code></td><td><code>np.hstack([A, B])</code></td></tr>
+          <tr><td>36</td><td>垂直串接</td><td><code>[A; B]</code></td><td><code>np.vstack([A, B])</code></td></tr>
+          <tr><td>37</td><td>攤平為 1D</td><td><code>A(:)</code></td><td><code>A.ravel()</code></td></tr>
+          <tr><td>38</td><td>重塑</td><td><code>reshape(A, 2, 3)</code></td><td><code>A.reshape(2, 3)</code></td></tr>
+          <tr><td>39</td><td>找非零</td><td><code>find(A)</code></td><td><code>np.nonzero(A)</code></td></tr>
+          <tr><td>40</td><td>排序</td><td><code>sort(A)</code></td><td><code>np.sort(A)</code></td></tr>
+          <tr><td>41</td><td>對角線</td><td><code>diag(A)</code></td><td><code>np.diag(A)</code></td></tr>
+          <tr><td>42</td><td>Repmat</td><td><code>repmat(A, 2, 3)</code></td><td><code>np.tile(A, (2, 3))</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <div class="callout-title">列印這張表！</div>
+        <p>
+          認真的 &mdash; 如果你正在從 MATLAB 轉型，前幾週請把這張表放在手邊。
+          之後，NumPy 語法就會變得自然。大多數操作在 NumPy 中比 MATLAB 更<em>簡短</em>。
+        </p>
+      </div>
+
+      <h2 style="margin-top:3rem; border-bottom:3px solid var(--primary); padding-bottom:.5rem;">
+        第二部分 &mdash; Pandas（資料分析）
+      </h2>
+
+      <h2 id="what-is-pandas">10. 什麼是 Pandas？</h2>
+
+      <p>
+        <strong>Pandas</strong> 是處理<strong>表格資料</strong>的標準 Python 函式庫
+        &mdash; 想像試算表、CSV 檔案或 SQL 資料表。它提供兩個主要資料結構：
+      </p>
+
+      <ul>
+        <li><strong>Series</strong> &mdash; 單一欄的資料（如帶標籤的 1D 陣列）</li>
+        <li><strong>DataFrame</strong> &mdash; 帶有標籤列和行的 2D 資料表（如 Excel 工作表）</li>
+      </ul>
+
+      <h3>安裝</h3>
+
+      <pre><code># 安裝 Pandas
+pip install pandas
+
+# 在你的程式碼中：
+import pandas as pd    # 通用慣例——始終使用 'pd'</code></pre>
+
+      <h2 id="creating-dataframes">11. 建立 DataFrame</h2>
+
+      <pre><code>import pandas as pd
+
+# 從字典（最常見）
+data = {
+    'Name':   ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age':    [25, 30, 35, 28],
+    'Score':  [85.5, 92.0, 78.3, 95.1],
+    'Passed': [True, True, False, True]
+}
+df = pd.DataFrame(data)
+print(df)
+
+# 從 CSV 檔案（實務中最常見）
+# df = pd.read_csv('data.csv')</code></pre>
+
+      <h2 id="exploring-data">12. 探索資料</h2>
+
+      <p>當你第一次載入資料時，你總是想要檢查它。以下是必須先執行的基本命令：</p>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':   ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'Age':    [25, 30, 35, 28, 22],
+    'Score':  [85.5, 92.0, 78.3, 95.1, 88.0],
+    'Grade':  ['B', 'A', 'C', 'A', 'B']
+})
+
+# 前 5 列（或指定 n）
+print(df.head())         # 前 5 列
+print(df.head(3))        # 前 3 列
+
+# 最後 5 列
+print(df.tail())
+
+# 形狀：（列數, 行數）
+print(df.shape)          # (5, 4)
+
+# 行名
+print(df.columns)
+
+# 每行的資料型別
+print(df.dtypes)
+
+# 簡潔摘要
+df.info()
+
+# 數值行的統計摘要
+print(df.describe())</code></pre>
+
+      <h2 id="selecting-data">13. 選取資料</h2>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age':   [25, 30, 35, 28],
+    'Score': [85.5, 92.0, 78.3, 95.1]
+})
+
+# === 選取單一行 ===
+print(df['Name'])              # 回傳 Series
+
+# === 選取多行 ===
+print(df[['Name', 'Score']])   # 注意雙括號 [[...]]
+
+# === 依位置選取列：.iloc[]（整數位置）===
+print(df.iloc[0])              # 第一列（作為 Series）
+print(df.iloc[0:2])            # 前 2 列（作為 DataFrame）
+
+# === 依標籤選取列：.loc[] ===
+print(df.loc[0])               # 索引標籤 0 的列
+print(df.loc[0:2])             # 列 0、1 和 2（包含！）
+
+# === 布林篩選（最有用的！）===
+# 年齡超過 27 的人
+print(df[df['Age'] > 27])
+
+# 用 &（和）或 |（或）組合條件
+print(df[(df['Age'] > 25) & (df['Score'] > 90)])</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">iloc vs loc：關鍵差異</div>
+        <p>
+          <code>.iloc[]</code> 使用<strong>整數位置</strong>（0, 1, 2...），
+          結尾是<strong>排除的</strong>（如 Python 切片）。<br>
+          <code>.loc[]</code> 使用<strong>索引標籤</strong>，
+          結尾是<strong>包含的</strong>。<br>
+          當索引是預設的 0,1,2... 時它們看起來類似，但對自訂索引行為不同。
+        </p>
+      </div>
+
+      <h2 id="modifying-data">14. 修改資料</h2>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Alice', 'Bob', 'Charlie'],
+    'Age':   [25, 30, 35],
+    'Score': [85.5, 92.0, 78.3]
+})
+
+# === 添加新行 ===
+df['Grade'] = ['B', 'A', 'C']
+df['Pass']  = df['Score'] >= 80     # 計算欄
+
+# === 修改現有行 ===
+df['Age'] = df['Age'] + 1           # 每人增加一歲
+
+# === 刪除行 ===
+df = df.drop(columns=['Pass'])      # 回傳新 DataFrame
+
+# === 重新命名行 ===
+df = df.rename(columns={'Score': 'TestScore', 'Name': 'Student'})
+
+# === 處理缺失資料 ===
+import numpy as np
+df.loc[1, 'TestScore'] = np.nan    # 引入缺失值
+
+print(df.isna().sum())             # 計算每行的 NaN 數
+df['TestScore'] = df['TestScore'].fillna(0)        # 用 0 取代 NaN</code></pre>
+
+      <h2 id="grouping-aggregation">15. 分組與聚合</h2>
+
+      <p>
+        分組是 Pandas 最強大的功能之一。它的作用類似 SQL 的 <code>GROUP BY</code>
+        或 Excel 的樞紐分析表。
+      </p>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Department': ['Engineering', 'Engineering', 'Marketing',
+                   'Marketing', 'Engineering', 'Marketing'],
+    'Name':       ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'],
+    'Salary':     [75000, 82000, 65000, 70000, 90000, 68000],
+    'Years':      [3, 5, 2, 7, 10, 4]
+})
+
+# 依部門分組並計算平均薪資
+print(df.groupby('Department')['Salary'].mean())
+
+# 同時進行多種聚合
+print(df.groupby('Department')['Salary'].agg(['mean', 'min', 'max', 'count']))
+
+# 對不同行進行不同聚合
+result = df.groupby('Department').agg({
+    'Salary': ['mean', 'sum'],
+    'Years':  'mean'
+})
+print(result)</code></pre>
+
+      <h2 id="reading-writing">16. 讀寫檔案</h2>
+
+      <pre><code>import pandas as pd
+
+# === 讀取 CSV ===
+df = pd.read_csv('data.csv')                # 基本
+df = pd.read_csv('data.csv', sep=';')       # 分號分隔
+df = pd.read_csv('data.csv', header=None)   # 沒有標題列
+df = pd.read_csv('data.csv', index_col=0)   # 使用第一行作為索引
+df = pd.read_csv('data.csv', usecols=['Name', 'Age'])  # 只載入部分行
+df = pd.read_csv('data.csv', nrows=100)     # 只載入前 100 列
+
+# === 寫入 CSV ===
+df.to_csv('output.csv', index=False)        # 不寫入索引行
+
+# === 讀取 Excel ===
+df = pd.read_excel('data.xlsx')             # 需要 openpyxl
+df = pd.read_excel('data.xlsx', sheet_name='Sheet2')
+
+# === 寫入 Excel ===
+df.to_excel('output.xlsx', index=False)     # 需要 openpyxl</code></pre>
+
+      <h2 id="plotting-pandas">17. 使用 Pandas 繪圖</h2>
+
+      <p>
+        Pandas 內建繪圖功能，底層使用 Matplotlib。它很適合不需要寫太多程式碼的快速視覺化。
+      </p>
+
+      <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    'Month':    ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    'Sales':    [100, 120, 90, 140, 160],
+    'Expenses': [80, 85, 95, 100, 110]
+})
+
+# === 折線圖 ===
+df.plot(x='Month', y='Sales', kind='line', title='Monthly Sales')
+plt.show()
+
+# === 長條圖 ===
+df.plot(x='Month', y=['Sales', 'Expenses'], kind='bar', title='Sales vs Expenses')
+plt.show()
+
+# === 直方圖 ===
+df['Sales'].hist(bins=5, title='Sales Distribution')
+plt.show()
+
+# === 散佈圖 ===
+df.plot(x='Sales', y='Expenses', kind='scatter', title='Sales vs Expenses')
+plt.show()</code></pre>
+
+      <h2 id="common-operations">18. 常用操作</h2>
+
+      <h3>排序</h3>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Charlie', 'Alice', 'Bob', 'Diana'],
+    'Age':   [35, 25, 30, 28],
+    'Score': [78.3, 85.5, 92.0, 95.1]
+})
+
+# 依單一行排序
+print(df.sort_values('Age'))
+
+# 降序排序
+print(df.sort_values('Score', ascending=False))
+
+# 依多行排序
+print(df.sort_values(['Score', 'Age'], ascending=[False, True]))</code></pre>
+
+      <h3>唯一值與值計數</h3>
+
+      <pre><code>df = pd.DataFrame({
+    'City':  ['NYC', 'LA', 'NYC', 'Chicago', 'LA', 'NYC'],
+    'Score': [90, 85, 88, 92, 78, 95]
+})
+
+# 行中的唯一值
+print(df['City'].unique())         # ['NYC' 'LA' 'Chicago']
+print(df['City'].nunique())        # 3
+
+# 計算每個值出現的次數
+print(df['City'].value_counts())</code></pre>
+
+      <h3>apply() 函式</h3>
+
+      <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name':  ['Alice', 'Bob', 'Charlie'],
+    'Score': [85.5, 92.0, 78.3]
+})
+
+# 對行中的每個值套用函式
+def grade(score):
+    if score >= 90: return 'A'
+    elif score >= 80: return 'B'
+    else: return 'C'
+
+df['Grade'] = df['Score'].apply(grade)
+
+# Lambda 版本（用於簡單操作）
+df['Curved'] = df['Score'].apply(lambda x: min(x + 5, 100))
+
+# 套用到列（axis=1）
+df['Summary'] = df.apply(lambda row: f"{row['Name']}: {row['Score']}", axis=1)</code></pre>
+
+      <h3>字串操作</h3>
+
+      <pre><code>df = pd.DataFrame({'Name': ['Alice Smith', 'Bob Jones', 'Charlie Brown']})
+
+# 透過 .str 存取器使用字串方法
+print(df['Name'].str.lower())        # alice smith, bob jones, ...
+print(df['Name'].str.upper())        # ALICE SMITH, BOB JONES, ...
+print(df['Name'].str.split(' '))     # [['Alice', 'Smith'], ...]
+print(df['Name'].str.contains('o'))  # [False, True, True]
+print(df['Name'].str.len())          # [11, 9, 13]</code></pre>
+
+      <h2 id="exercises">練習</h2>
+
+      <p>用這些練習測試你的理解。每個都建立在本頁的概念上。</p>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 1 &mdash; NumPy 陣列建立</div>
+        <p>
+          建立一個 5&times;5 單位矩陣，然後將對角線替換為值 [10, 20, 30, 40, 50]。列印結果。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import numpy as np
+
+A = np.eye(5)
+np.fill_diagonal(A, [10, 20, 30, 40, 50])
+print(A)</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 2 &mdash; 布林索引</div>
+        <p>
+          建立一個包含 20 個 1 到 100 之間隨機整數的 NumPy 陣列。
+          找出並列印所有大於 50 的值。也列印有多少個這樣的值。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import numpy as np
+
+np.random.seed(42)  # 為了可重現性
+arr = np.random.randint(1, 101, size=20)
+print("Array:", arr)
+
+above_50 = arr[arr > 50]
+print("Above 50:", above_50)
+print("Count:", len(above_50))</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 3 &mdash; 矩陣運算</div>
+        <p>
+          建立兩個 3&times;3 矩陣 A 和 B。計算：(a) 逐元素乘積，
+          (b) 矩陣乘積，(c) A 的轉置，(d) A 的行列式。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import numpy as np
+
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 10]])  # 用 10 而非 9 使 det != 0
+
+B = np.array([[2, 0, 1],
+              [0, 1, 0],
+              [1, 0, 2]])
+
+print("Element-wise product:\n", A * B)
+print("Matrix product:\n", A @ B)
+print("Transpose of A:\n", A.T)
+print("Determinant of A:", np.linalg.det(A))  # -3.0</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 4 &mdash; 求解線性系統</div>
+        <p>
+          求解方程組：<br>
+          <code>2x + y = 5</code><br>
+          <code>x + 3y = 7</code><br>
+          使用 <code>np.linalg.solve()</code> 並代回驗證。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import numpy as np
+
+A = np.array([[2, 1],
+              [1, 3]])
+b = np.array([5, 7])
+
+x = np.linalg.solve(A, b)
+print("Solution:", x)  # [1.6  1.8]
+
+# 驗證：A @ x 應等於 b
+print("Verification:", A @ x)   # [5. 7.]
+print("Match:", np.allclose(A @ x, b))  # True</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 5 &mdash; 建立 DataFrame</div>
+        <p>
+          建立一個有 <code>Product</code>、<code>Price</code>、<code>Quantity</code> 行的 DataFrame。
+          至少添加 5 列。然後添加 <code>Revenue</code> 行（Price &times; Quantity）
+          並列印總收入。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Product':  ['Widget', 'Gadget', 'Doohickey', 'Thingamajig', 'Whatsit'],
+    'Price':    [9.99, 24.99, 4.99, 49.99, 14.99],
+    'Quantity': [100, 50, 200, 30, 75]
+})
+
+df['Revenue'] = df['Price'] * df['Quantity']
+print(df)
+print(f"\nTotal revenue: ${df['Revenue'].sum():,.2f}")</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 6 &mdash; 篩選與排序 DataFrame</div>
+        <p>
+          使用練習 5 的 DataFrame，篩選出收入超過 $500 的產品，
+          依收入降序排列。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code># 接續練習 5...
+high_rev = df[df['Revenue'] > 500].sort_values('Revenue', ascending=False)
+print(high_rev)</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 7 &mdash; GroupBy 練習</div>
+        <p>
+          建立學生成績的 DataFrame，行有：<code>Student</code>、<code>Subject</code>、<code>Score</code>。
+          包含至少 3 個學生和 3 個科目。使用 <code>groupby()</code> 找出每個學生和每個科目的平均分數。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Student': ['Alice','Alice','Alice','Bob','Bob','Bob','Charlie','Charlie','Charlie'],
+    'Subject': ['Math','Science','English','Math','Science','English','Math','Science','English'],
+    'Score':   [90, 85, 92, 78, 88, 72, 95, 91, 88]
+})
+
+print("Average per student:")
+print(df.groupby('Student')['Score'].mean())
+print()
+print("Average per subject:")
+print(df.groupby('Subject')['Score'].mean())</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 8 &mdash; NumPy 廣播挑戰</div>
+        <p>
+          建立一個包含整數 1 到 16 的 4&times;4 矩陣。從每列減去列平均值
+          （中心化資料）。驗證每列的平均值現在大約為 0。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import numpy as np
+
+A = np.arange(1, 17).reshape(4, 4).astype(float)
+print("Original:\n", A)
+
+row_means = A.mean(axis=1, keepdims=True)  # 形狀 (4, 1)
+centered = A - row_means                    # 廣播！
+print("Centered:\n", centered)
+print("Row means after centering:", centered.mean(axis=1))
+# [0. 0. 0. 0.]</code></pre>
+        </details>
+      </div>
+
+      <h2 id="summary">總結</h2>
+
+      <div class="callout callout-success">
+        <div class="callout-title">重點整理</div>
+        <p>以下是你應該從本頁記住的內容：</p>
+      </div>
+
+      <h3>NumPy 要點</h3>
+      <ul>
+        <li><strong>始終</strong> <code>import numpy as np</code> &mdash; 這是通用慣例。</li>
+        <li><strong>NumPy 陣列</strong>取代 MATLAB 矩陣 &mdash; 它們快速、型別化且支援向量化運算。</li>
+        <li><strong>0 基索引</strong> &mdash; 第一個元素是 <code>a[0]</code>，不是 <code>a(1)</code>。</li>
+        <li><strong><code>*</code> 是逐元素</strong>，<strong><code>@</code> 是矩陣乘法</strong> &mdash; 不用再忘記點號了。</li>
+        <li><strong>Shape 是元組</strong>：<code>np.zeros((3, 4))</code> 不是 <code>np.zeros(3, 4)</code>。</li>
+        <li><strong>廣播</strong>取代了 <code>repmat</code> &mdash; 自動大小擴展。</li>
+        <li><strong><code>np.linalg</code></strong> 有你所有的線性代數：<code>inv</code>、<code>det</code>、<code>eig</code>、<code>solve</code>。</li>
+        <li><strong>視圖 vs 副本</strong> &mdash; 切片回傳視圖。需要獨立時使用 <code>.copy()</code>。</li>
+      </ul>
+
+      <h3>Pandas 要點</h3>
+      <ul>
+        <li><strong>始終</strong> <code>import pandas as pd</code> &mdash; 另一個通用慣例。</li>
+        <li><strong>DataFrame</strong> = 2D 資料表，<strong>Series</strong> = 1D 行。</li>
+        <li><strong>先探索</strong>：<code>.head()</code>、<code>.info()</code>、<code>.describe()</code>、<code>.shape</code>。</li>
+        <li>使用 <code>df['col']</code>、<code>.iloc[]</code>（位置）、<code>.loc[]</code>（標籤）和布林遮罩<strong>選取資料</strong>。</li>
+        <li><strong><code>groupby()</code></strong> 對於依類別聚合資料非常強大。</li>
+        <li><strong><code>pd.read_csv()</code></strong> 和 <strong><code>df.to_csv()</code></strong> 是最常見的 I/O 操作。</li>
+        <li><strong><code>.apply()</code></strong> 讓你在每個值或每列上執行任何函式。</li>
+        <li>使用 <code>df.plot()</code> 的<strong>內建繪圖</strong>很適合快速視覺化。</li>
+      </ul>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">你作為 MATLAB 使用者的學習路徑</div>
+        <p>
+          <strong>第 1 週：</strong>熟悉 NumPy 陣列 &mdash; 建立、索引（0 基！）、基本數學。使用上方的轉換表。<br>
+          <strong>第 2 週：</strong>用 NumPy 練習線性代數。用 NumPy 改寫一個小 MATLAB 腳本。<br>
+          <strong>第 3 週：</strong>學習 Pandas 進行資料載入和分析。嘗試載入你之前在 MATLAB 中分析的 CSV。<br>
+          <strong>第 4 週：</strong>結合一切 &mdash; 用 Pandas 載入資料、用 NumPy 做數值運算、用 Matplotlib 繪圖。<br><br>
+          一個月內，你在 Python 中的生產力會超過你在 MATLAB 中的水準 &mdash; 而且一切都是免費和開源的。
+        </p>
+      </div>
+
+      <div class="page-nav">
+        <a href="oop.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">物件導向程式設計</span></a>
+        <a href="glossary.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">術語表</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

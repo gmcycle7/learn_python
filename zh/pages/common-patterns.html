@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常用 Python 模式 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/common-patterns.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是 Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link active">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 常用模式
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  第D節 — 常用 PYTHON 模式                                      -->
+      <!-- ============================================================ -->
+
+      <h1>第 D 節 &mdash; 常用 Python 模式</h1>
+
+      <p>
+        這是整份指南中最實用的頁面之一。它涵蓋了你在日常 Python 程式設計中
+        會使用的 <strong>20 個最常見模式</strong>。每個模式都包含功能說明、
+        使用時機、多個程式碼範例，以及常見的陷阱。
+      </p>
+
+      <p>
+        收藏此頁面 &mdash; 當你撰寫自己的腳本和專案時，你會經常回來查閱。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong>許多模式都有直接對應的 MATLAB 寫法。
+        在適用的地方，我們會指出 MATLAB 的等效寫法，讓你可以將現有知識
+        對應到 Python。你會注意到最大的差異是 Python 依靠
+        <code>import</code> 語句來引入功能，而 MATLAB 預設就有大多數功能可用。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  目錄                                                         -->
+      <!-- ============================================================ -->
+
+      <h2>目錄</h2>
+      <ol>
+        <li><a href="#printing-formatting">輸出與格式化</a></li>
+        <li><a href="#checking-types">型別檢查</a></li>
+        <li><a href="#looping-lists">遍歷串列</a></li>
+        <li><a href="#reading-text-files">讀取文字檔</a></li>
+        <li><a href="#reading-csv">讀取 CSV 檔案</a></li>
+        <li><a href="#writing-files">寫入檔案</a></li>
+        <li><a href="#path-handling">路徑處理</a></li>
+        <li><a href="#creating-folders">建立資料夾</a></li>
+        <li><a href="#checking-file-existence">檢查檔案是否存在</a></li>
+        <li><a href="#command-line-args">命令列引數</a></li>
+        <li><a href="#running-shell-commands">執行 Shell 命令</a></li>
+        <li><a href="#math-operations">數學運算</a></li>
+        <li><a href="#random-numbers">隨機數</a></li>
+        <li><a href="#simple-plotting">簡單繪圖</a></li>
+        <li><a href="#working-with-dates">日期處理</a></li>
+        <li><a href="#json-reading-writing">JSON 讀寫</a></li>
+        <li><a href="#copying-files">複製檔案</a></li>
+        <li><a href="#glob-file-matching">Glob 檔案匹配</a></li>
+        <li><a href="#regex-basics">正規表達式基礎</a></li>
+        <li><a href="#useful-builtins">實用的內建函式</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  1. 輸出與格式化                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="printing-formatting">1. 輸出與格式化</h2>
+
+      <p>
+        <strong>功能：</strong>將輸出顯示到主控台。Python 的
+        <code>print()</code> 函式是你最主要的除錯和輸出工具。
+        F-string（格式化字串字面值）讓你可以直接在字串中嵌入變數和
+        表達式，並精確控制格式。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>你撰寫的每一個 Python 腳本。
+        印出是你驗證程式碼是否如預期運作的方式。
+      </p>
+
+      <h3>基本 print 變化</h3>
+
+      <pre><code># 印出簡單字串
+print("Hello, World!")
+
+# 印出多個值（預設以空格分隔）
+name = "Alice"
+age = 30
+print("Name:", name, "Age:", age)   # Name: Alice Age: 30
+
+# 改變分隔符號
+print("2025", "03", "15", sep="-")  # 2025-03-15
+
+# 改變結尾字元（預設是換行）
+print("Loading", end="...")
+print("Done!")                       # Loading...Done!
+
+# 印出空行
+print()</code></pre>
+
+      <h3>F-string 格式化（Python 3.6+）</h3>
+
+      <pre><code>name = "Alice"
+score = 95.678
+items = 42
+
+# 基本變數插入
+print(f"Hello, {name}!")                    # Hello, Alice!
+
+# 大括號內的表達式
+print(f"Next year you will be {age + 1}")   # Next year you will be 31
+
+# 小數位數
+print(f"Score: {score:.2f}")                # Score: 95.68
+
+# 填充和對齊
+print(f"{'Left':<15}|{'Center':^15}|{'Right':>15}")
+# Left           |    Center     |          Right
+
+# 千位分隔符號
+big_number = 1234567890
+print(f"{big_number:,}")                    # 1,234,567,890
+
+# 百分比
+ratio = 0.856
+print(f"Accuracy: {ratio:.1%}")             # Accuracy: 85.6%
+
+# 零填充
+day = 5
+print(f"Day {day:03d}")                     # Day 005</code></pre>
+
+      <h3>數字格式化摘要</h3>
+
+      <pre><code>pi = 3.141592653589793
+
+print(f"{pi:.4f}")       # 3.1416       — 4 位小數
+print(f"{pi:.2e}")       # 3.14e+00     — 科學記號
+print(f"{1024:>10d}")    #       1024   — 靠右對齊，寬度 10
+print(f"{1024:010d}")    # 0000001024   — 零填充，寬度 10
+print(f"{255:#x}")       # 0xff         — 十六進位加前綴
+print(f"{255:#b}")       # 0b11111111   — 二進位加前綴</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>在 MATLAB 中你使用
+        <code>fprintf('Score: %.2f\n', score)</code> 或
+        <code>sprintf</code>。Python 的 f-string 更易讀，因為變數名稱
+        直接出現在值將被插入的位置，而不是另外列在末尾。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>不要忘記開引號前的 <code>f</code> 前綴。
+        寫 <code>print("{name}")</code> 會直接印出 <code>{name}</code>
+        而非變數的值。你需要 <code>print(f"{name}")</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. 型別檢查                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="checking-types">2. 型別檢查</h2>
+
+      <p>
+        <strong>功能：</strong>讓你在執行期檢查或驗證變數的資料型別。
+        Python 是動態型別語言，所以變數可以持有任何型別的值 &mdash;
+        檢查其型別有助於撰寫健壯的程式碼。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>處理使用者輸入、從檔案讀取資料、
+        撰寫接受多種型別的函式，或除錯意外行為時。
+      </p>
+
+      <h3>使用 type()</h3>
+
+      <pre><code>x = 42
+print(type(x))          # &lt;class 'int'&gt;
+
+y = 3.14
+print(type(y))          # &lt;class 'float'&gt;
+
+name = "Alice"
+print(type(name))       # &lt;class 'str'&gt;
+
+items = [1, 2, 3]
+print(type(items))      # &lt;class 'list'&gt;
+
+# 直接比較型別
+if type(x) == int:
+    print("x is an integer")</code></pre>
+
+      <h3>使用 isinstance()（推薦）</h3>
+
+      <pre><code># isinstance() 是推薦的方式，因為它能處理繼承
+x = 42
+print(isinstance(x, int))        # True
+print(isinstance(x, float))      # False
+
+# 一次檢查多種型別
+value = 3.14
+if isinstance(value, (int, float)):
+    print("It's a number!")       # It's a number!
+
+# 也適用於字串、串列、字典等
+data = {"key": "value"}
+print(isinstance(data, dict))     # True
+print(isinstance(data, list))     # False</code></pre>
+
+      <h3>實務中常見的型別檢查</h3>
+
+      <pre><code>def process_input(value):
+    """優雅地處理不同的輸入型別。"""
+    if isinstance(value, str):
+        return value.strip().lower()
+    elif isinstance(value, (int, float)):
+        return round(value, 2)
+    elif isinstance(value, list):
+        return len(value)
+    else:
+        return str(value)
+
+print(process_input("  Hello  "))  # hello
+print(process_input(3.14159))      # 3.14
+print(process_input([1, 2, 3]))    # 3</code></pre>
+
+      <div class="callout callout-info">
+        <strong>最佳實踐：</strong>優先使用 <code>isinstance()</code> 而非
+        <code>type() ==</code> 比較。<code>isinstance()</code>
+        函式尊重繼承，所以 <code>isinstance(True, int)</code>
+        回傳 <code>True</code>（因為 <code>bool</code> 是 Python 中
+        <code>int</code> 的子類別），而 <code>type(True) == int</code>
+        回傳 <code>False</code>。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>在 Python 中，<code>True</code> 和
+        <code>False</code> 是 <code>bool</code> 的實例，而 <code>bool</code>
+        是 <code>int</code> 的子類別。這表示 <code>isinstance(True, int)</code>
+        為 <code>True</code>。如果你需要區分布林值和整數，
+        請先檢查 <code>bool</code>：
+        <code>isinstance(value, bool)</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. 遍歷串列                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="looping-lists">3. 遍歷串列</h2>
+
+      <p>
+        <strong>功能：</strong>遍歷串列（或任何可迭代物件）中的每個元素。
+        這是 Python 中最基本的模式之一，你會不斷使用它。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>當你需要處理、過濾、轉換或檢查
+        集合中的每個項目時。
+      </p>
+
+      <h3>基本 for 迴圈</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+# apple
+# banana
+# cherry</code></pre>
+
+      <h3>使用 enumerate() 帶索引的迴圈</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]
+
+for index, color in enumerate(colors):
+    print(f"{index}: {color}")
+# 0: red
+# 1: green
+# 2: blue
+
+# 從 1 開始計數
+for i, color in enumerate(colors, start=1):
+    print(f"Color #{i}: {color}")
+# Color #1: red
+# Color #2: green
+# Color #3: blue</code></pre>
+
+      <h3>反向遍歷</h3>
+
+      <pre><code>numbers = [10, 20, 30, 40, 50]
+
+for n in reversed(numbers):
+    print(n)
+# 50, 40, 30, 20, 10
+
+# 替代方式：步長為 -1 的切片
+for n in numbers[::-1]:
+    print(n)</code></pre>
+
+      <h3>排序後遍歷</h3>
+
+      <pre><code>scores = [88, 45, 92, 67, 73]
+
+# 升序
+for s in sorted(scores):
+    print(s)                    # 45, 67, 73, 88, 92
+
+# 降序
+for s in sorted(scores, reverse=True):
+    print(s)                    # 92, 88, 73, 67, 45
+
+# 不分大小寫排序字串
+names = ["Charlie", "alice", "Bob"]
+for name in sorted(names, key=str.lower):
+    print(name)                 # alice, Bob, Charlie</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>在 MATLAB 中你會寫
+        <code>for i = 1:length(arr)</code> 並用 <code>arr(i)</code>
+        存取元素。Python 的 <code>for item in list</code> 更簡單，
+        因為你直接取得元素 &mdash; 不需要索引變數。
+        當你確實需要索引時，<code>enumerate()</code> 比手動管理
+        計數器更乾淨。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>不要在遍歷串列時修改它。
+        這會導致跳過元素或無限迴圈。改為建立新串列或遍歷副本：
+        <code>for item in my_list[:]:</code>（<code>[:]</code>
+        建立淺複製）。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 讀取文字檔                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-text-files">4. 讀取文字檔</h2>
+
+      <p>
+        <strong>功能：</strong>開啟文字檔並將內容讀入你的程式。
+        <code>with</code> 語句確保檔案在讀取後被正確關閉，
+        即使發生錯誤也是如此。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>讀取設定檔、日誌檔、資料檔，
+        或任何文字型的輸入。
+      </p>
+
+      <h3>逐行讀取（記憶體效率高）</h3>
+
+      <pre><code># 最適合大檔案 — 一次讀取一行
+with open("data.txt", "r") as f:
+    for line in f:
+        print(line.strip())    # .strip() 移除尾隨換行</code></pre>
+
+      <h3>將所有行讀入串列</h3>
+
+      <pre><code>with open("data.txt", "r") as f:
+    lines = f.readlines()      # 字串串列，每個以 '\n' 結尾
+
+# 乾淨版本 — 去除每行的空白
+with open("data.txt", "r") as f:
+    lines = [line.strip() for line in f]
+
+print(f"File has {len(lines)} lines")
+print(f"First line: {lines[0]}")</code></pre>
+
+      <h3>將整個檔案讀為單一字串</h3>
+
+      <pre><code>with open("data.txt", "r") as f:
+    content = f.read()
+
+print(f"File length: {len(content)} characters")
+
+# 檢查某個字詞是否出現在檔案中
+if "error" in content.lower():
+    print("Found 'error' in the file!")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>在 MATLAB 中你使用
+        <code>fid = fopen('data.txt'); ... fclose(fid);</code>。Python 的
+        <code>with open()</code> 更安全，因為它會自動關閉檔案 &mdash;
+        你不可能忘記呼叫 <code>fclose</code>。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>從檔案讀取的每一行都包含尾隨的換行字元
+        （<code>\n</code>）。務必呼叫 <code>.strip()</code> 或
+        <code>.rstrip('\n')</code> 來移除它。否則，像
+        <code>if line == "hello"</code> 這樣的比較會失敗，
+        因為該行實際上是 <code>"hello\n"</code>。
+      </div>
+
+      <div class="callout callout-info">
+        <strong>編碼提示：</strong>如果你遇到 <code>UnicodeDecodeError</code>，
+        請明確指定編碼：
+        <code>open("data.txt", "r", encoding="utf-8")</code>。在 Windows 上，
+        預設編碼可能不是 UTF-8。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 讀取 CSV 檔案                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-csv">5. 讀取 CSV 檔案</h2>
+
+      <p>
+        <strong>功能：</strong>解析逗號分隔值（CSV）檔案，這是最常見的
+        資料交換格式之一。Python 內建的 <code>csv</code> 模組處理
+        引號、跳脫和不同的分隔符號。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>每當你需要從 CSV 檔案讀取表格資料時。
+        對於更進階的工作（過濾、分組、統計），可考慮改用 <code>pandas</code>。
+      </p>
+
+      <h3>使用 csv.reader（依索引存取欄位）</h3>
+
+      <pre><code>import csv
+
+with open("scores.csv", "r") as f:
+    reader = csv.reader(f)
+    header = next(reader)       # 讀取標題列
+    print("Columns:", header)   # 例如 ['name', 'score', 'grade']
+
+    for row in reader:
+        name = row[0]
+        score = int(row[1])
+        print(f"{name}: {score}")</code></pre>
+
+      <h3>使用 csv.DictReader（依名稱存取欄位）</h3>
+
+      <pre><code>import csv
+
+with open("scores.csv", "r") as f:
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        # 每列是一個字典：{'name': 'Alice', 'score': '95', ...}
+        name = row["name"]
+        score = int(row["score"])
+        print(f"{name}: {score}")
+
+# DictReader 更適合以下情況：
+#   - 你的 CSV 有標題列
+#   - 你想要可讀的程式碼（row["name"] 比 row[0] 清楚）
+#   - 欄位順序可能改變</code></pre>
+
+      <h3>讀取不同分隔符號的檔案</h3>
+
+      <pre><code>import csv
+
+# Tab 分隔的檔案
+with open("data.tsv", "r") as f:
+    reader = csv.reader(f, delimiter="\t")
+    for row in reader:
+        print(row)</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>在 MATLAB 中你使用
+        <code>readtable('scores.csv')</code> 或 <code>csvread()</code>。
+        Python 的 <code>csv</code> 模組更手動但給你完全控制。
+        如需類似 MATLAB 的體驗，請使用
+        <code>pandas.read_csv()</code>。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong><code>csv</code> 模組的所有值都是
+        <strong>字串</strong>。你必須明確轉換數字：
+        <code>int(row["score"])</code> 或
+        <code>float(row["temperature"])</code>。忘記這一點會在
+        對字串做算術時產生錯誤。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. 寫入檔案                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="writing-files">6. 寫入檔案</h2>
+
+      <p>
+        <strong>功能：</strong>建立或覆寫檔案。Python 可以寫入純文字檔、
+        CSV 檔案等。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>儲存結果、產生報告、匯出資料、建立日誌檔。
+      </p>
+
+      <h3>寫入文字檔</h3>
+
+      <pre><code># "w" 模式建立檔案或覆寫現有檔案
+with open("output.txt", "w") as f:
+    f.write("First line\n")
+    f.write("Second line\n")
+    f.write(f"The answer is {42}\n")</code></pre>
+
+      <h3>附加到檔案</h3>
+
+      <pre><code># "a" 模式將內容加到現有檔案末尾
+with open("log.txt", "a") as f:
+    f.write("New log entry: operation completed\n")</code></pre>
+
+      <h3>寫入 CSV 檔案</h3>
+
+      <pre><code>import csv
+
+data = [
+    ["name", "score", "grade"],
+    ["Alice", 95, "A"],
+    ["Bob", 82, "B"],
+    ["Charlie", 91, "A"],
+]
+
+with open("results.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(data)       # 一次寫入所有列
+
+# 或逐列寫入
+with open("results.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["name", "score", "grade"])    # 標題
+    writer.writerow(["Alice", 95, "A"])
+    writer.writerow(["Bob", 82, "B"])</code></pre>
+
+      <h3>使用 DictWriter 寫入 CSV</h3>
+
+      <pre><code>import csv
+
+students = [
+    {"name": "Alice", "score": 95, "grade": "A"},
+    {"name": "Bob", "score": 82, "grade": "B"},
+]
+
+with open("results.csv", "w", newline="") as f:
+    writer = csv.DictWriter(f, fieldnames=["name", "score", "grade"])
+    writer.writeheader()
+    writer.writerows(students)</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>使用 <code>"w"</code> 模式會
+        <strong>靜默覆寫</strong>現有檔案，沒有任何警告。
+        如果你想在現有檔案中新增內容，請使用 <code>"a"</code>（附加）模式。
+        如果你想防止意外覆寫，請先用 <code>os.path.exists()</code>
+        檢查檔案是否存在。
+      </div>
+
+      <div class="callout callout-info">
+        <strong>Windows 注意事項：</strong>在 Windows 上開啟 CSV 檔案進行
+        寫入時，務必傳入 <code>newline=""</code>。否則，你可能會在每列
+        之間得到空白行，因為 Windows 會多加額外的 <code>\r</code> 字元。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. 路徑處理                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="path-handling">7. 路徑處理</h2>
+
+      <p>
+        <strong>功能：</strong>以跨作業系統的方式建構和操作檔案路徑
+        （Windows 使用反斜線，macOS/Linux 使用正斜線）。Python 提供
+        兩種方式：較舊的 <code>os.path</code> 模組和現代的
+        <code>pathlib</code> 模組。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>任何時候你在可能於不同作業系統上
+        執行的腳本中處理檔案路徑，或當你需要擷取檔案路徑的部分
+        （目錄、檔名、副檔名）時。
+      </p>
+
+      <h3>os.path 方式（傳統）</h3>
+
+      <pre><code>import os
+
+# 組合路徑元件（使用你作業系統的正確分隔符號）
+path = os.path.join("data", "2025", "results.csv")
+print(path)         # data/2025/results.csv（Windows 上為 data\2025\results.csv）
+
+# 取得路徑的各部分
+print(os.path.dirname(path))     # data/2025
+print(os.path.basename(path))    # results.csv
+print(os.path.splitext(path))    # ('data/2025/results', '.csv')
+
+# 取得副檔名
+_, ext = os.path.splitext("report.pdf")
+print(ext)                        # .pdf
+
+# 取得絕對路徑
+print(os.path.abspath("data.txt"))
+
+# 取得目前工作目錄
+print(os.getcwd())</code></pre>
+
+      <h3>pathlib 方式（現代，推薦）</h3>
+
+      <pre><code>from pathlib import Path
+
+# 建立路徑物件
+path = Path("data") / "2025" / "results.csv"
+print(path)              # data/2025/results.csv
+
+# 取得路徑的各部分
+print(path.parent)       # data/2025
+print(path.name)         # results.csv
+print(path.stem)         # results
+print(path.suffix)       # .csv
+
+# 改變副檔名
+new_path = path.with_suffix(".json")
+print(new_path)          # data/2025/results.json
+
+# 取得絕對路徑
+print(path.resolve())
+
+# 取得目前工作目錄
+print(Path.cwd())
+
+# 取得家目錄
+print(Path.home())</code></pre>
+
+      <div class="callout callout-info">
+        <strong>建議：</strong>新程式碼請使用 <code>pathlib</code>。
+        它更易讀、更強大、更 Pythonic。使用 <code>/</code>
+        運算子來組合路徑特別優雅，比 <code>os.path.join()</code> 更好。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>MATLAB 的 <code>fullfile()</code>
+        函式類似 <code>os.path.join()</code>。例如，
+        <code>fullfile('data', '2025', 'results.csv')</code>。Python 的
+        <code>pathlib</code> 更進一步，提供物件導向的介面，
+        為每個路徑操作都提供方法。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. 建立資料夾                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="creating-folders">8. 建立資料夾</h2>
+
+      <p>
+        <strong>功能：</strong>在磁碟上建立目錄。Python 可以建立
+        單一目錄或整個目錄樹（巢狀資料夾）。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>在將輸出檔案寫入特定目錄之前、
+        將資料組織到資料夾中、設定專案結構。
+      </p>
+
+      <h3>使用 os.makedirs</h3>
+
+      <pre><code>import os
+
+# 建立單一目錄
+os.makedirs("output")
+
+# 建立巢狀目錄（類似 mkdir -p）
+os.makedirs("output/2025/march")
+
+# 重要：使用 exist_ok=True 避免資料夾已存在時的錯誤
+os.makedirs("output/2025/march", exist_ok=True)</code></pre>
+
+      <h3>使用 pathlib</h3>
+
+      <pre><code>from pathlib import Path
+
+# 建立單一目錄
+Path("output").mkdir(exist_ok=True)
+
+# 建立巢狀目錄
+Path("output/2025/march").mkdir(parents=True, exist_ok=True)</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>不使用 <code>exist_ok=True</code>，
+        在已存在的目錄上呼叫 <code>makedirs()</code> 或 <code>mkdir()</code>
+        會引發 <code>FileExistsError</code>。除非你特別需要該錯誤，
+        否則務必加上 <code>exist_ok=True</code>。
+        同樣地，<code>pathlib.mkdir()</code> 需要
+        <code>parents=True</code> 來建立中間目錄 &mdash;
+        沒有它，建立 <code>"a/b/c"</code> 會在 <code>"a/b"</code>
+        不存在時失敗。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>MATLAB 的 <code>mkdir('output')</code>
+        在資料夾已存在時不會引發錯誤，所以它的行為預設就像
+        Python 的 <code>exist_ok=True</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. 檢查檔案是否存在                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="checking-file-existence">9. 檢查檔案是否存在</h2>
+
+      <p>
+        <strong>功能：</strong>在嘗試讀取、寫入或刪除之前，
+        測試檔案或目錄是否存在於磁碟上。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>讀取檔案之前（以提供有用的錯誤訊息）、
+        寫入之前（以避免覆寫）、或有條件地處理檔案。
+      </p>
+
+      <h3>使用 os.path</h3>
+
+      <pre><code>import os
+
+# 檢查檔案或目錄是否存在
+print(os.path.exists("data.txt"))       # True 或 False
+
+# 專門檢查是否為檔案（非目錄）
+print(os.path.isfile("data.txt"))       # 如果是檔案則為 True
+
+# 專門檢查是否為目錄
+print(os.path.isdir("output"))          # 如果是目錄則為 True
+
+# 實務範例
+filename = "config.json"
+if not os.path.isfile(filename):
+    print(f"Error: {filename} not found!")
+else:
+    with open(filename) as f:
+        config = f.read()</code></pre>
+
+      <h3>使用 pathlib</h3>
+
+      <pre><code>from pathlib import Path
+
+path = Path("data.txt")
+
+print(path.exists())       # True 或 False
+print(path.is_file())      # 如果是檔案則為 True
+print(path.is_dir())       # 如果是目錄則為 True
+
+# 實務範例
+config_path = Path("config.json")
+if not config_path.is_file():
+    print(f"Error: {config_path} not found!")
+else:
+    content = config_path.read_text()</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong><code>pathlib.Path</code> 物件有方便的
+        <code>.read_text()</code> 方法，可在一次呼叫中讀取整個檔案，
+        不需要 <code>with</code> 區塊。同樣地，
+        <code>.write_text("content")</code> 可寫入檔案。
+        這些對簡單的讀寫操作非常好用。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱（TOCTOU 競態）：</strong>檢查存在性然後操作檔案
+        有一個微妙的問題 &mdash; 另一個程序可能在你的檢查和操作之間
+        建立或刪除該檔案。對於關鍵程式碼，有時使用
+        <code>try/except</code> 更好：
+        <pre><code>try:
+    with open("data.txt") as f:
+        content = f.read()
+except FileNotFoundError:
+    print("File not found!")</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. 命令列引數                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="command-line-args">10. 命令列引數</h2>
+
+      <p>
+        <strong>功能：</strong>讓你的腳本接受來自命令列的輸入，
+        使其靈活且可重複使用，無需每次都編輯程式碼。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>撰寫處理不同檔案的腳本、接受
+        設定選項，或需要從其他腳本或 shell 命令呼叫時。
+      </p>
+
+      <h3>使用 sys.argv（簡單方式）</h3>
+
+      <pre><code>import sys
+
+# sys.argv 是字串串列
+# sys.argv[0] 是腳本名稱
+# sys.argv[1]、sys.argv[2]、... 是引數
+
+# 範例：python myscript.py input.txt output.txt
+print(f"Script name: {sys.argv[0]}")
+print(f"Arguments: {sys.argv[1:]}")
+
+# 實務範例：處理作為引數給定的檔案
+if len(sys.argv) &lt; 2:
+    print("Usage: python myscript.py &lt;filename&gt;")
+    sys.exit(1)
+
+filename = sys.argv[1]
+print(f"Processing {filename}...")</code></pre>
+
+      <h3>帶預設值的基本引數解析</h3>
+
+      <pre><code>import sys
+
+# python analyze.py data.csv --verbose
+args = sys.argv[1:]
+
+# 擷取檔名（必要）
+if not args:
+    print("Error: Please provide a filename")
+    sys.exit(1)
+
+filename = args[0]
+verbose = "--verbose" in args
+
+if verbose:
+    print(f"Verbose mode enabled")
+print(f"Reading {filename}...")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>進階引數解析：</strong>使用 Python 內建的
+        <code>argparse</code> 模組，它提供說明訊息、型別轉換、
+        必要/可選旗標和子命令。對於只有 1-2 個引數的簡單腳本，
+        <code>sys.argv</code> 就足夠了。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong><code>sys.argv</code> 中的所有值都是
+        <strong>字串</strong>。如果你需要數字，必須轉換它：
+        <code>count = int(sys.argv[1])</code>。忘記這一點是常見的錯誤來源。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  11. 執行 SHELL 命令                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="running-shell-commands">11. 執行 Shell 命令</h2>
+
+      <p>
+        <strong>功能：</strong>從 Python 腳本中執行作業系統命令，
+        讓你自動化涉及外部工具的任務。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>執行系統工具（ping、git、ffmpeg）、
+        檢查磁碟空間、自動化結合 Python 邏輯與命令列工具的工作流程。
+      </p>
+
+      <h3>基本命令執行</h3>
+
+      <pre><code>import subprocess
+
+# 執行命令並等待完成
+result = subprocess.run(["echo", "Hello from Python"])
+print(f"Return code: {result.returncode}")  # 0 表示成功</code></pre>
+
+      <h3>擷取輸出</h3>
+
+      <pre><code>import subprocess
+
+# 將命令的輸出擷取為字串
+result = subprocess.run(
+    ["python", "--version"],
+    capture_output=True,
+    text=True              # 回傳字串而非位元組
+)
+print(f"stdout: {result.stdout.strip()}")    # 例如 Python 3.11.5
+print(f"stderr: {result.stderr.strip()}")
+print(f"Return code: {result.returncode}")</code></pre>
+
+      <h3>檢查錯誤</h3>
+
+      <pre><code>import subprocess
+
+try:
+    result = subprocess.run(
+        ["git", "status"],
+        capture_output=True,
+        text=True,
+        check=True         # 命令失敗時引發例外
+    )
+    print(result.stdout)
+except subprocess.CalledProcessError as e:
+    print(f"Command failed with code {e.returncode}")
+    print(f"Error output: {e.stderr}")</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>永遠不要對使用者提供的輸入使用
+        <code>shell=True</code> &mdash; 這會造成稱為
+        <em>shell injection</em> 的安全漏洞。將命令以字串串列傳入：
+        <code>["git", "log", "--oneline"]</code> 而非
+        <code>"git log --oneline"</code>。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>在 MATLAB 中你使用
+        <code>system('git status')</code> 或 <code>[status, output] =
+        system('git status')</code>。Python 的 <code>subprocess.run()</code>
+        給你更多對輸入、輸出、錯誤處理和逾時的控制。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  12. 數學運算                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="math-operations">12. 數學運算</h2>
+
+      <p>
+        <strong>功能：</strong>提供超越基本算術的數學函式。Python 的
+        <code>math</code> 模組涵蓋三角函式、對數、捨入、常數等。
+        <code>statistics</code> 模組提供平均值、中位數和標準差。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>科學計算、資料分析、幾何、
+        單位轉換、任何需要精確數學的地方。
+      </p>
+
+      <h3>常見數學運算</h3>
+
+      <pre><code>import math
+
+# 常數
+print(math.pi)           # 3.141592653589793
+print(math.e)            # 2.718281828459045
+print(math.inf)          # inf（無限大）
+
+# 捨入
+print(math.ceil(4.2))    # 5（上取整）
+print(math.floor(4.8))   # 4（下取整）
+print(round(4.5))        # 4（內建，四捨六入五取偶）
+print(round(3.14159, 2)) # 3.14
+
+# 次方和根號
+print(math.sqrt(144))    # 12.0
+print(math.pow(2, 10))   # 1024.0
+print(2 ** 10)           # 1024（內建運算子，回傳整數）
+
+# 對數
+print(math.log(100))     # 4.605（自然對數，ln）
+print(math.log10(100))   # 2.0（以10為底的對數）
+print(math.log2(1024))   # 10.0（以2為底的對數）
+
+# 三角函式（弧度）
+print(math.sin(math.pi / 2))   # 1.0
+print(math.cos(0))              # 1.0
+print(math.degrees(math.pi))    # 180.0
+print(math.radians(180))        # 3.14159...</code></pre>
+
+      <h3>統計</h3>
+
+      <pre><code>import statistics
+
+data = [4, 8, 6, 5, 3, 7, 9, 2]
+
+print(statistics.mean(data))      # 5.5
+print(statistics.median(data))    # 5.5
+print(statistics.stdev(data))     # 2.449...
+print(statistics.variance(data))  # 6.0
+
+# 簡單情況也可用內建函式
+print(sum(data))         # 44
+print(min(data))         # 2
+print(max(data))         # 9
+print(len(data))         # 8</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>在 MATLAB 中，像
+        <code>sqrt</code>、<code>sin</code>、<code>log</code> 和
+        <code>mean</code> 這樣的函式無需匯入即可使用。在 Python 中，
+        你需要 <code>import math</code> 來使用數學函式，
+        <code>import statistics</code> 來使用統計函式。
+        函式名稱和行為非常相似。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  13. 隨機數                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="random-numbers">13. 隨機數</h2>
+
+      <p>
+        <strong>功能：</strong>為模擬、測試、遊戲、隨機抽樣和
+        資料洗牌產生偽隨機數。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>蒙地卡羅模擬、隨機化測試、
+        洗牌資料、隨機抽樣、產生測試資料。
+      </p>
+
+      <h3>常見隨機操作</h3>
+
+      <pre><code>import random
+
+# 範圍 [a, b] 內的隨機整數（兩端包含）
+print(random.randint(1, 10))       # 例如 7
+
+# [0.0, 1.0) 的隨機浮點數
+print(random.random())             # 例如 0.5488135039
+
+# 某範圍內的隨機浮點數
+print(random.uniform(1.0, 10.0))   # 例如 6.723
+
+# 從串列中隨機選擇
+colors = ["red", "green", "blue", "yellow"]
+print(random.choice(colors))       # 例如 "blue"
+
+# 多次隨機選擇（可重複）
+print(random.choices(colors, k=3)) # 例如 ['red', 'blue', 'red']
+
+# 隨機抽樣（不重複）
+print(random.sample(colors, k=2))  # 例如 ['green', 'yellow']
+
+# 就地洗牌串列
+deck = list(range(1, 53))
+random.shuffle(deck)
+print(deck[:5])                    # 例如 [37, 12, 49, 3, 21]</code></pre>
+
+      <h3>使用種子的可重現結果</h3>
+
+      <pre><code>import random
+
+# 設定種子以確保可重現性
+random.seed(42)
+print(random.randint(1, 100))   # 種子 42 時總是 82
+print(random.randint(1, 100))   # 種子 42 時總是 15
+
+# 重設種子以再次取得相同序列
+random.seed(42)
+print(random.randint(1, 100))   # 又是 82</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>MATLAB 的 <code>rand()</code>、
+        <code>randi()</code> 和 <code>randn()</code> 對應 Python 的
+        <code>random.random()</code>、<code>random.randint()</code> 和
+        <code>random.gauss()</code>。MATLAB 的 <code>rng(42)</code> 設定種子
+        變成 <code>random.seed(42)</code>。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>Python 的 <code>random</code> 模組
+        不適合安全敏感的任務（例如產生密碼或令牌）。請改用
+        <code>secrets</code> 模組：
+        <code>secrets.token_hex(16)</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  14. 簡單繪圖                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="simple-plotting">14. 簡單繪圖</h2>
+
+      <p>
+        <strong>功能：</strong>使用 <code>matplotlib</code>（Python
+        最受歡迎的繪圖程式庫）從資料建立圖表和圖形。它能產出
+        出版品質的圖形，並且與 MATLAB 的繪圖函式運作方式類似。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>視覺化資料、建立報告、
+        探索資料集、儲存圖形用於簡報。
+      </p>
+
+      <div class="callout callout-info">
+        <strong>安裝：</strong>Matplotlib 不是 Python 標準函式庫的一部分。
+        使用以下命令安裝：<code>pip install matplotlib</code>
+      </div>
+
+      <h3>折線圖</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 7, 11, 16]
+
+plt.plot(x, y, marker="o", label="Growth")
+plt.xlabel("Time (days)")
+plt.ylabel("Value")
+plt.title("Simple Line Plot")
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+
+      <h3>散佈圖</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+heights = [160, 165, 170, 175, 180, 185, 190]
+weights = [55, 62, 68, 73, 80, 85, 92]
+
+plt.scatter(heights, weights, color="blue", alpha=0.7)
+plt.xlabel("Height (cm)")
+plt.ylabel("Weight (kg)")
+plt.title("Height vs Weight")
+plt.grid(True)
+plt.show()</code></pre>
+
+      <h3>長條圖</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+languages = ["Python", "JavaScript", "Java", "C++", "Go"]
+popularity = [30, 25, 20, 15, 10]
+
+plt.bar(languages, popularity, color="steelblue")
+plt.xlabel("Language")
+plt.ylabel("Popularity (%)")
+plt.title("Programming Language Popularity")
+plt.show()</code></pre>
+
+      <h3>儲存圖形到檔案</h3>
+
+      <pre><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+
+plt.plot(x, y)
+plt.title("Squares")
+
+# 儲存為 PNG（也支援 PDF、SVG、JPG）
+plt.savefig("squares.png", dpi=150, bbox_inches="tight")
+print("Figure saved!")
+plt.close()     # 關閉以釋放記憶體（在腳本中很重要）</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong><code>matplotlib.pyplot</code>
+        介面是<em>刻意</em>模仿 MATLAB 的繪圖函式而設計的。
+        MATLAB 的 <code>plot(x, y)</code> 變成
+        <code>plt.plot(x, y)</code>。MATLAB 的 <code>xlabel()</code>、
+        <code>ylabel()</code>、<code>title()</code>、<code>legend()</code>
+        和 <code>grid on</code> 都有幾乎相同的 Python 對應。
+        如果你熟悉 MATLAB 繪圖，你就已經會 matplotlib 了。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>在腳本（非筆記本）中呼叫
+        <code>plt.show()</code> 會開啟互動視窗並阻斷執行，
+        直到你關閉它。在非互動腳本中，改用
+        <code>plt.savefig()</code>。此外，儲存後務必呼叫
+        <code>plt.close()</code>，以避免在迴圈中建立多個圖形時
+        發生記憶體洩漏。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  15. 日期處理                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="working-with-dates">15. 日期處理</h2>
+
+      <p>
+        <strong>功能：</strong>建立、格式化和操作日期與時間。
+        Python 的 <code>datetime</code> 模組處理從取得目前時間
+        到計算持續時間的所有事情。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>為日誌條目加時間戳記、計算截止日期、
+        從檔案解析日期字串、排程任務、比較日期。
+      </p>
+
+      <h3>取得目前日期和時間</h3>
+
+      <pre><code>from datetime import datetime, date, timedelta
+
+now = datetime.now()
+print(now)                         # 2025-03-15 14:30:22.123456
+print(now.year, now.month, now.day)  # 2025 3 15
+print(now.hour, now.minute)         # 14 30
+
+today = date.today()
+print(today)                       # 2025-03-15</code></pre>
+
+      <h3>將日期格式化為字串</h3>
+
+      <pre><code>from datetime import datetime
+
+now = datetime.now()
+
+# 使用 strftime 自訂格式
+print(now.strftime("%Y-%m-%d"))           # 2025-03-15
+print(now.strftime("%B %d, %Y"))          # March 15, 2025
+print(now.strftime("%I:%M %p"))           # 02:30 PM
+print(now.strftime("%Y%m%d_%H%M%S"))      # 20250315_143022（適合作檔名）</code></pre>
+
+      <h3>從字串解析日期</h3>
+
+      <pre><code>from datetime import datetime
+
+date_str = "2025-03-15"
+dt = datetime.strptime(date_str, "%Y-%m-%d")
+print(dt)                # 2025-03-15 00:00:00
+
+# 另一種格式
+date_str2 = "15/03/2025 14:30"
+dt2 = datetime.strptime(date_str2, "%d/%m/%Y %H:%M")
+print(dt2)               # 2025-03-15 14:30:00</code></pre>
+
+      <h3>使用 timedelta 進行日期運算</h3>
+
+      <pre><code>from datetime import datetime, timedelta
+
+today = datetime.now()
+
+# 加減天數
+tomorrow = today + timedelta(days=1)
+last_week = today - timedelta(weeks=1)
+print(f"Tomorrow: {tomorrow.strftime('%Y-%m-%d')}")
+print(f"Last week: {last_week.strftime('%Y-%m-%d')}")
+
+# 計算兩個日期之間的差異
+start = datetime(2025, 1, 1)
+end = datetime(2025, 12, 31)
+diff = end - start
+print(f"Days in 2025: {diff.days}")      # 364</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong><code>strftime</code>（f 代表 format）
+        將 datetime 轉換<em>為</em>字串。<code>strptime</code>
+        （p 代表 parse）將字串轉換<em>為</em> datetime。
+        混淆這兩個是常見的錯誤。記住：<strong>f = format（輸出），
+        p = parse（輸入）</strong>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  16. JSON 讀寫                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="json-reading-writing">16. JSON 讀寫</h2>
+
+      <p>
+        <strong>功能：</strong>讀取和寫入 JSON（JavaScript 物件表示法），
+        一種到處都在使用的輕量級資料格式 &mdash; API、設定檔、
+        資料儲存和系統間的通訊。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>儲存結構化資料、讀取 API 回應、
+        建立設定檔、在程式之間交換資料。
+      </p>
+
+      <h3>從檔案讀取 JSON</h3>
+
+      <pre><code>import json
+
+# json.load() 從檔案物件讀取
+with open("config.json", "r") as f:
+    config = json.load(f)
+
+print(config)                        # 一個 Python 字典
+print(config["database"]["host"])    # 存取巢狀值</code></pre>
+
+      <h3>將 JSON 寫入檔案</h3>
+
+      <pre><code>import json
+
+data = {
+    "name": "Alice",
+    "scores": [95, 88, 92],
+    "active": True,
+    "address": None
+}
+
+# json.dump() 寫入檔案物件
+with open("output.json", "w") as f:
+    json.dump(data, f, indent=2)     # indent=2 用於美觀印出</code></pre>
+
+      <h3>處理 JSON 字串</h3>
+
+      <pre><code>import json
+
+# 將 JSON 字串解析為 Python 物件
+json_string = '{"name": "Bob", "age": 25}'
+data = json.loads(json_string)        # 注意：loadS（s 代表 string）
+print(data["name"])                   # Bob
+
+# 將 Python 物件轉換為 JSON 字串
+person = {"name": "Charlie", "scores": [90, 85]}
+json_output = json.dumps(person, indent=2)  # 注意：dumpS
+print(json_output)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>四個 JSON 函式：</strong>
+        <ul>
+          <li><code>json.load(file)</code> &mdash; 從<strong>檔案</strong>讀取 JSON</li>
+          <li><code>json.loads(string)</code> &mdash; 從<strong>字串</strong>讀取 JSON</li>
+          <li><code>json.dump(data, file)</code> &mdash; 將 JSON 寫入<strong>檔案</strong></li>
+          <li><code>json.dumps(data)</code> &mdash; 將 JSON 寫入<strong>字串</strong></li>
+        </ul>
+        末尾的 <code>s</code> 代表 "string"。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong>JSON 要求字串使用雙引號。
+        Python 字典可以使用單引號，但當你寫入 JSON 時，
+        <code>json</code> 模組會自動處理。此外，JSON 有
+        <code>null</code>（不是 <code>None</code>）、<code>true</code>/<code>false</code>
+        （不是 <code>True</code>/<code>False</code>）&mdash; 模組會
+        為你處理這些轉換。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  17. 複製檔案                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="copying-files">17. 複製檔案</h2>
+
+      <p>
+        <strong>功能：</strong>將檔案和目錄從一個位置複製到另一個位置。
+        Python 的 <code>shutil</code>（shell 工具）模組提供高階的檔案操作。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>建立備份、組織檔案、部署輸出、複製範本。
+      </p>
+
+      <h3>複製單一檔案</h3>
+
+      <pre><code>import shutil
+
+# 複製檔案（保留權限）
+shutil.copy("report.pdf", "backup/report.pdf")
+
+# 複製檔案及中繼資料（時間戳記、權限）
+shutil.copy2("report.pdf", "backup/report.pdf")
+
+# 如果目的地是目錄，檔名會被保留
+shutil.copy("report.pdf", "backup/")   # 建立 backup/report.pdf</code></pre>
+
+      <h3>複製整個目錄</h3>
+
+      <pre><code>import shutil
+
+# 複製目錄及其所有內容
+shutil.copytree("project/", "project_backup/")
+
+# Python 3.8+：複製到現有目錄
+shutil.copytree("source/", "destination/", dirs_exist_ok=True)</code></pre>
+
+      <h3>移動和重新命名檔案</h3>
+
+      <pre><code>import shutil
+
+# 移動檔案（也可用於重新命名）
+shutil.move("old_name.txt", "new_name.txt")
+
+# 將檔案移到不同目錄
+shutil.move("report.pdf", "archive/report.pdf")</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong><code>shutil.copytree()</code>
+        如果目的目錄已存在會失敗（Python 3.8 之前）。
+        使用 <code>dirs_exist_ok=True</code>（Python 3.8+）或先用
+        <code>shutil.rmtree()</code> 刪除目的地。使用
+        <code>rmtree()</code> 時要非常小心 &mdash; 它會永久刪除
+        整個目錄樹，沒有資源回收筒。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  18. GLOB 檔案匹配                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="glob-file-matching">18. Glob 檔案匹配</h2>
+
+      <p>
+        <strong>功能：</strong>使用萬用字元尋找符合模式的檔案。
+        這就像在檔案管理員或終端機中使用 <code>*.txt</code>。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>處理某種類型的所有檔案、
+        批次操作、在巢狀目錄中尋找檔案。
+      </p>
+
+      <h3>使用 glob 模組</h3>
+
+      <pre><code>import glob
+
+# 尋找目前目錄中所有 .txt 檔案
+txt_files = glob.glob("*.txt")
+print(txt_files)   # ['notes.txt', 'data.txt', 'readme.txt']
+
+# 尋找特定目錄中所有 .csv 檔案
+csv_files = glob.glob("data/*.csv")
+
+# 遞迴尋找檔案（所有子目錄）
+all_py = glob.glob("**/*.py", recursive=True)
+print(f"Found {len(all_py)} Python files")
+
+# 多個模式：尋找圖片
+import itertools
+images = list(itertools.chain(
+    glob.glob("photos/*.jpg"),
+    glob.glob("photos/*.png"),
+))</code></pre>
+
+      <h3>使用 pathlib.glob（推薦）</h3>
+
+      <pre><code>from pathlib import Path
+
+# 尋找目錄中所有 .txt 檔案
+data_dir = Path("data")
+for txt_file in data_dir.glob("*.txt"):
+    print(txt_file.name)
+
+# 使用 ** 遞迴搜尋
+project = Path(".")
+for py_file in project.rglob("*.py"):    # rglob = 遞迴 glob
+    print(py_file)
+
+# 實務範例：處理所有 CSV 檔案
+for csv_file in Path("data").glob("*.csv"):
+    print(f"Processing {csv_file.name}...")
+    content = csv_file.read_text()
+    line_count = len(content.splitlines())
+    print(f"  {line_count} lines")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>MATLAB 的 <code>dir('*.txt')</code>
+        函式類似 <code>glob.glob('*.txt')</code>。Python 的
+        <code>pathlib.rglob()</code> 類似 MATLAB 的
+        <code>dir('**/*.txt')</code> 遞迴搜尋。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong><code>glob.glob()</code> 回傳
+        <strong>未排序</strong>的串列。如果你需要依字母順序或日期排序，
+        請對結果排序：<code>sorted(glob.glob("*.txt"))</code>。
+        此外，使用 <code>glob.glob()</code> 搭配 <code>**</code> 時
+        不要忘記 <code>recursive=True</code> &mdash; 沒有它，
+        <code>**</code> 模式會被當作字面值處理。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  19. 正規表達式基礎                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="regex-basics">19. 正規表達式基礎</h2>
+
+      <p>
+        <strong>功能：</strong>正規表達式（regex）讓你使用模式來
+        搜尋、匹配和操作文字。Python 的 <code>re</code> 模組
+        提供完整的正規表達式支援。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>驗證輸入（電子郵件、電話號碼）、
+        從非結構化文字中擷取資料、尋找和替換操作、解析日誌檔。
+      </p>
+
+      <h3>搜尋模式</h3>
+
+      <pre><code>import re
+
+text = "My phone number is 555-123-4567"
+
+# re.search() 找到第一個匹配
+match = re.search(r"\d{3}-\d{3}-\d{4}", text)
+if match:
+    print(f"Found: {match.group()}")   # Found: 555-123-4567
+
+# 沒有匹配時 re.search() 回傳 None
+result = re.search(r"\d{3}-\d{3}-\d{4}", "No phone here")
+if result is None:
+    print("No phone number found")</code></pre>
+
+      <h3>找出所有匹配</h3>
+
+      <pre><code>import re
+
+text = "Scores: 95, 87, 92, 78, 100"
+
+# 找出所有數字
+numbers = re.findall(r"\d+", text)
+print(numbers)   # ['95', '87', '92', '78', '100']
+
+# 轉換為整數
+numbers = [int(n) for n in re.findall(r"\d+", text)]
+print(numbers)   # [95, 87, 92, 78, 100]
+
+# 找出所有類似電子郵件的模式
+text2 = "Contact alice@example.com or bob@test.org"
+emails = re.findall(r"[\w.+-]+@[\w-]+\.[\w.-]+", text2)
+print(emails)    # ['alice@example.com', 'bob@test.org']</code></pre>
+
+      <h3>搜尋和替換</h3>
+
+      <pre><code>import re
+
+text = "Today is 03/15/2025"
+
+# 替換日期格式：MM/DD/YYYY -> YYYY-MM-DD
+result = re.sub(r"(\d{2})/(\d{2})/(\d{4})", r"\3-\1-\2", text)
+print(result)    # Today is 2025-03-15
+
+# 移除多餘空白
+messy = "Too   many     spaces    here"
+clean = re.sub(r"\s+", " ", messy)
+print(clean)     # Too many spaces here
+
+# 不分大小寫的替換
+text2 = "Hello WORLD, hello world, HELLO World"
+result2 = re.sub(r"hello", "hi", text2, flags=re.IGNORECASE)
+print(result2)   # hi WORLD, hi world, hi World</code></pre>
+
+      <h3>常見正規表達式模式</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模式</th>
+            <th>匹配</th>
+            <th>範例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>\d</code></td>
+            <td>任何數字（0-9）</td>
+            <td><code>\d+</code> 匹配 <code>"123"</code></td>
+          </tr>
+          <tr>
+            <td><code>\w</code></td>
+            <td>文字字元（字母、數字、底線）</td>
+            <td><code>\w+</code> 匹配 <code>"hello_42"</code></td>
+          </tr>
+          <tr>
+            <td><code>\s</code></td>
+            <td>空白字元（空格、tab、換行）</td>
+            <td><code>\s+</code> 匹配 <code>"  \t"</code></td>
+          </tr>
+          <tr>
+            <td><code>.</code></td>
+            <td>除換行外的任何字元</td>
+            <td><code>a.c</code> 匹配 <code>"abc"</code>、<code>"a1c"</code></td>
+          </tr>
+          <tr>
+            <td><code>^</code></td>
+            <td>字串開頭</td>
+            <td><code>^Hello</code> 匹配 <code>"Hello world"</code></td>
+          </tr>
+          <tr>
+            <td><code>$</code></td>
+            <td>字串結尾</td>
+            <td><code>world$</code> 匹配 <code>"Hello world"</code></td>
+          </tr>
+          <tr>
+            <td><code>*</code></td>
+            <td>0 次或多次重複</td>
+            <td><code>ab*c</code> 匹配 <code>"ac"</code>、<code>"abc"</code>、<code>"abbc"</code></td>
+          </tr>
+          <tr>
+            <td><code>+</code></td>
+            <td>1 次或多次重複</td>
+            <td><code>ab+c</code> 匹配 <code>"abc"</code>、<code>"abbc"</code></td>
+          </tr>
+          <tr>
+            <td><code>?</code></td>
+            <td>0 次或 1 次重複</td>
+            <td><code>colou?r</code> 匹配 <code>"color"</code>、<code>"colour"</code></td>
+          </tr>
+          <tr>
+            <td><code>{n}</code></td>
+            <td>恰好 n 次重複</td>
+            <td><code>\d{4}</code> 匹配 <code>"2025"</code></td>
+          </tr>
+          <tr>
+            <td><code>[abc]</code></td>
+            <td>列出的字元中的任一個</td>
+            <td><code>[aeiou]</code> 匹配任何母音</td>
+          </tr>
+          <tr>
+            <td><code>(group)</code></td>
+            <td>捕獲群組</td>
+            <td><code>(\d+)-(\d+)</code> 從 <code>"12-34"</code> 中捕獲 <code>"12"</code> 和 <code>"34"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>原始字串：</strong>正規表達式模式務必使用 <code>r"..."</code>
+        （原始字串）。不加 <code>r</code> 前綴，Python 會將反斜線解讀為
+        跳脫字元，所以 <code>"\d"</code> 與 <code>r"\d"</code> 不同。
+        原始字串可以避免此混淆。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>MATLAB 使用 <code>regexp()</code>、
+        <code>regexpi()</code> 和 <code>regexprep()</code>。Python 使用
+        <code>re.search()</code>、<code>re.findall()</code> 和
+        <code>re.sub()</code>。兩個語言的正規表達式語法幾乎相同。
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>常見陷阱：</strong><code>re.match()</code> 只在字串
+        <strong>開頭</strong>匹配，而 <code>re.search()</code> 在字串
+        <strong>任何位置</strong>找到匹配。初學者常使用
+        <code>re.match()</code> 然後疑惑為何他們的模式不匹配字串
+        中間的文字。除非你特別需要字串開頭匹配，否則請使用
+        <code>re.search()</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  20. 實用的內建函式                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="useful-builtins">20. 實用的內建函式</h2>
+
+      <p>
+        <strong>功能：</strong>Python 提供一組豐富的內建函式，
+        無需匯入即可使用。以下是日常程式設計中最實用的一些。
+      </p>
+
+      <p>
+        <strong>使用時機：</strong>經常使用。這些函式取代了許多
+        否則需要迴圈或輔助函式的模式。
+      </p>
+
+      <h3>any() 和 all()</h3>
+
+      <pre><code># any() — 如果任何元素為真則回傳 True
+numbers = [0, 0, 0, 5, 0]
+print(any(numbers))           # True（因為 5 為真值）
+
+# all() — 如果所有元素都為真則回傳 True
+scores = [85, 90, 78, 92]
+print(all(s >= 70 for s in scores))    # True（全部及格）
+print(all(s >= 80 for s in scores))    # False（78 < 80）
+
+# 實務：檢查是否有任何檔案存在
+from pathlib import Path
+files = ["data.csv", "config.json", "readme.txt"]
+if any(Path(f).exists() for f in files):
+    print("At least one file exists!")</code></pre>
+
+      <h3>sum()、min()、max()、abs()</h3>
+
+      <pre><code>numbers = [4, 8, 2, 9, 1, 7]
+
+print(sum(numbers))          # 31
+print(min(numbers))          # 1
+print(max(numbers))          # 9
+print(abs(-42))              # 42
+
+# 帶初始值的 sum
+print(sum(numbers, 100))     # 131
+
+# 帶 key 函式的 min/max
+words = ["banana", "apple", "cherry"]
+print(min(words))                       # apple（字母順序）
+print(max(words, key=len))              # banana（最長）
+
+# 字典中的 min/max
+students = [
+    {"name": "Alice", "score": 95},
+    {"name": "Bob", "score": 82},
+    {"name": "Charlie", "score": 91},
+]
+best = max(students, key=lambda s: s["score"])
+print(f"Top student: {best['name']}")   # Alice</code></pre>
+
+      <h3>len() 和 sorted()</h3>
+
+      <pre><code># len() — 計算元素數量
+print(len([1, 2, 3]))           # 3
+print(len("Hello"))              # 5
+print(len({"a": 1, "b": 2}))    # 2
+
+# sorted() — 回傳新的已排序串列（原始不變）
+data = [3, 1, 4, 1, 5, 9, 2, 6]
+print(sorted(data))              # [1, 1, 2, 3, 4, 5, 6, 9]
+print(sorted(data, reverse=True))  # [9, 6, 5, 4, 3, 2, 1, 1]
+
+# 依自訂條件排序
+names = ["Charlie", "alice", "Bob"]
+print(sorted(names, key=str.lower))   # ['alice', 'Bob', 'Charlie']</code></pre>
+
+      <h3>reversed() 和 zip()</h3>
+
+      <pre><code># reversed() — 以反向順序迭代
+for i in reversed(range(5)):
+    print(i)                # 4, 3, 2, 1, 0
+
+# zip() — 逐元素組合多個可迭代物件
+names = ["Alice", "Bob", "Charlie"]
+scores = [95, 82, 91]
+grades = ["A", "B", "A"]
+
+for name, score, grade in zip(names, scores, grades):
+    print(f"{name}: {score} ({grade})")
+# Alice: 95 (A)
+# Bob: 82 (B)
+# Charlie: 91 (A)
+
+# 從兩個串列建立字典
+name_to_score = dict(zip(names, scores))
+print(name_to_score)   # {'Alice': 95, 'Bob': 82, 'Charlie': 91}</code></pre>
+
+      <h3>enumerate()</h3>
+
+      <pre><code># enumerate() — 帶自動計數器的迴圈
+fruits = ["apple", "banana", "cherry"]
+
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")
+# 0: apple
+# 1: banana
+# 2: cherry
+
+# 從 1 開始計數
+for i, fruit in enumerate(fruits, start=1):
+    print(f"Fruit #{i}: {fruit}")</code></pre>
+
+      <h3>map() 和 filter()</h3>
+
+      <pre><code># map() — 對每個元素套用函式
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)               # [1, 4, 9, 16, 25]
+
+# 用串列推導式做同樣的事（通常更推薦）
+squared = [x ** 2 for x in numbers]
+
+# filter() — 保留滿足條件的元素
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)                 # [2, 4, 6, 8, 10]
+
+# 用串列推導式做同樣的事（通常更推薦）
+evens = [x for x in numbers if x % 2 == 0]
+
+# 實務：將字串串列轉換為整數
+string_numbers = ["10", "20", "30", "40"]
+integers = list(map(int, string_numbers))
+print(integers)              # [10, 20, 30, 40]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>串列推導式 vs. map/filter：</strong>在 Python 中，
+        串列推導式通常比 <code>map()</code> 和 <code>filter()</code> 更受推薦，
+        因為它們更易讀。然而，當你想對每個元素套用現有函式
+        （如 <code>int</code> 或 <code>str</code>）時，<code>map()</code>
+        很有用 &mdash; <code>list(map(int, strings))</code> 簡潔又清晰。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等效寫法：</strong>MATLAB 的 <code>cellfun()</code> 和
+        <code>arrayfun()</code> 類似 Python 的 <code>map()</code>。
+        MATLAB 的 <code>sort()</code> 類似 <code>sorted()</code>。
+        Python 的 <code>zip()</code> 沒有直接的 MATLAB 對應 &mdash;
+        在 MATLAB 中，你通常使用矩陣的列/行而非將單獨的陣列 zip 在一起。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <p>
+        本頁涵蓋了日常 Python 程式設計中
+        <strong>20 個最常見的模式</strong>：
+      </p>
+
+      <ol>
+        <li><strong>輸出與格式化</strong> &mdash; <code>print()</code>、f-string、數字格式化</li>
+        <li><strong>型別檢查</strong> &mdash; <code>type()</code>、<code>isinstance()</code></li>
+        <li><strong>遍歷串列</strong> &mdash; <code>for</code>、<code>enumerate()</code>、<code>reversed()</code>、<code>sorted()</code></li>
+        <li><strong>讀取文字檔</strong> &mdash; <code>with open()</code>、逐行讀取、<code>.strip()</code></li>
+        <li><strong>讀取 CSV 檔案</strong> &mdash; <code>csv.reader</code>、<code>csv.DictReader</code></li>
+        <li><strong>寫入檔案</strong> &mdash; 文字、CSV、附加模式</li>
+        <li><strong>路徑處理</strong> &mdash; <code>os.path</code>、<code>pathlib.Path</code></li>
+        <li><strong>建立資料夾</strong> &mdash; <code>os.makedirs()</code>、<code>pathlib.mkdir()</code></li>
+        <li><strong>檢查檔案是否存在</strong> &mdash; <code>os.path.exists()</code>、<code>Path.exists()</code></li>
+        <li><strong>命令列引數</strong> &mdash; <code>sys.argv</code></li>
+        <li><strong>執行 Shell 命令</strong> &mdash; <code>subprocess.run()</code></li>
+        <li><strong>數學運算</strong> &mdash; <code>math</code> 模組、<code>statistics</code> 模組</li>
+        <li><strong>隨機數</strong> &mdash; <code>random</code> 模組、種子</li>
+        <li><strong>簡單繪圖</strong> &mdash; <code>matplotlib</code> 基礎</li>
+        <li><strong>日期處理</strong> &mdash; <code>datetime</code>、<code>timedelta</code></li>
+        <li><strong>JSON 讀寫</strong> &mdash; <code>json.load</code>、<code>json.dump</code>、<code>json.loads</code>、<code>json.dumps</code></li>
+        <li><strong>複製檔案</strong> &mdash; <code>shutil.copy</code>、<code>shutil.copytree</code></li>
+        <li><strong>Glob 檔案匹配</strong> &mdash; <code>glob.glob</code>、<code>pathlib.rglob</code></li>
+        <li><strong>正規表達式基礎</strong> &mdash; <code>re.search</code>、<code>re.findall</code>、<code>re.sub</code></li>
+        <li><strong>實用的內建函式</strong> &mdash; <code>any</code>、<code>all</code>、<code>sum</code>、<code>min</code>、<code>max</code>、<code>zip</code>、<code>enumerate</code>、<code>map</code>、<code>filter</code></li>
+      </ol>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>這 20 個模式涵蓋了你在日常 Python
+        中會撰寫的絕大部分內容。精通它們，你就能自信地應對大多數
+        實際的程式設計任務。每當你需要快速回顧語法時，
+        請回到此頁面作為參考。
+      </div>
+
+      <p>
+        準備好看更多模式了嗎？下一頁呈現
+        <strong>前100個常用模式</strong> &mdash; 一份最實用的
+        Python 程式碼片段的完整快速參考。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-files-modules.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">檔案與模組</span></a>
+        <a href="top-100-patterns.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">前100個常用模式</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

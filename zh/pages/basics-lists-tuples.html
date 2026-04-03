@@ -1,0 +1,977 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>串列、元組與集合 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg"><link rel="stylesheet" href="../../css/style.css"></head>
+<body>
+<button class="sidebar-toggle" aria-label="切換導覽">&#9776;</button>
+<aside class="sidebar"><div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> 學習 Python</h2><p>完整初學者指南</p><a href="../../pages/basics-lists-tuples.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a></div>
+  <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+<div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+<div class="nav-section"><div class="nav-section-title">A &mdash; 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+<div class="nav-section"><div class="nav-section-title">B &mdash; 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+<div class="nav-section"><div class="nav-section-title">C &mdash; Python 基礎</div>
+<a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a><a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a><a href="basics-lists-tuples.html" class="nav-link active">串列、元組與集合</a><a href="basics-dictionaries.html" class="nav-link">字典</a><a href="basics-conditionals.html" class="nav-link">條件判斷</a><a href="basics-loops.html" class="nav-link">迴圈</a><a href="basics-functions.html" class="nav-link">函式與Lambda</a><a href="basics-more.html" class="nav-link">更多內建功能</a><a href="basics-files-modules.html" class="nav-link">檔案與模組</a></div>
+<div class="nav-section"><div class="nav-section-title">D &mdash; 常用模式</div><a href="common-patterns.html" class="nav-link">常用模式</a><a href="top-100-patterns.html" class="nav-link">前100個常用模式</a></div>
+<div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB 轉 Python</div><a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a><a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a></div>
+<div class="nav-section"><div class="nav-section-title">F &mdash; 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+<div class="nav-section"><div class="nav-section-title">G &mdash; 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+<div class="nav-section"><div class="nav-section-title">H &mdash; 練習與學習路線</div><a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a></div>
+<div class="nav-section"><div class="nav-section-title">I &mdash; 最佳實踐</div><a href="best-practices.html" class="nav-link">最佳實踐</a><a href="common-errors.html" class="nav-link">常見錯誤</a></div>
+<div class="nav-section"><div class="nav-section-title">J &mdash; 速查表</div><a href="cheatsheet.html" class="nav-link">速查表</a><a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a></div>
+<div class="nav-section"><div class="nav-section-title">K &mdash; 更多主題</div><a href="oop.html" class="nav-link">物件導向程式設計</a><a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a></div>
+</nav></aside>
+<main class="main-content"><div class="progress-bar"><div class="progress-fill"></div></div>
+<div class="content-wrapper">
+<div class="breadcrumb"><a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 串列、元組與集合</div>
+
+<!-- ============================================================ -->
+<!--  SECTION: LISTS, TUPLES & SETS                               -->
+<!-- ============================================================ -->
+
+<h1>串列、元組與集合</h1>
+
+<p>
+  在 Python 中，<strong>串列</strong>、<strong>元組</strong>和<strong>集合</strong>是你每天都會使用的三種核心集合型別。它們各自儲存多個值，但在可變性、順序性，以及是否允許重複方面有所不同。本頁會深入介紹這三者，從最重要的開始：<strong>串列</strong>。
+</p>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 使用者：</strong> Python 的<strong>串列</strong>大致相當於 MATLAB 的<em>cell 陣列</em> &mdash; 它可以容納混合型別，並使用方括號存取。然而，最大的差異是 <strong>Python 使用以 0 為基礎的索引</strong>，而 MATLAB 使用以 1 為基礎的索引。本頁會反覆提醒你這一點，因為這是從 MATLAB 轉換到 Python 時最常見的錯誤來源。
+</div>
+
+<!-- ============================================================ -->
+<!--  1. LISTS                                                     -->
+<!-- ============================================================ -->
+
+<h2 id="lists">1. 串列 &mdash; Python 的主力集合</h2>
+
+<p>
+  <strong>串列</strong>是一個<em>有序、可變</em>的項目集合。「有序」意味著項目會保持你放入的順序。「可變」意味著你可以在建立後更改、新增或移除項目。串列是 Python 中最常用的資料結構。
+</p>
+
+<!-- 1.1 Creating Lists -->
+<h3 id="creating-lists">1.1 建立串列</h3>
+
+<p>
+  你可以將以逗號分隔的值放在方括號 <code>[]</code> 中來建立串列。
+</p>
+
+<pre><code># 建立串列
+fruits = ["apple", "banana", "cherry"]
+numbers = [10, 20, 30, 40, 50]
+mixed = [1, "hello", 3.14, True]       # 串列可以容納混合型別！
+empty = []                              # 空串列
+
+print(fruits)   # ['apple', 'banana', 'cherry']
+print(mixed)    # [1, 'hello', 3.14, True]
+print(empty)    # []</code></pre>
+
+<p>
+  你也可以使用 <code>list()</code> 建構子從其他可迭代物件建立串列：
+</p>
+
+<pre><code># list() 建構子
+letters = list("hello")    # ['h', 'e', 'l', 'l', 'o']
+nums = list(range(5))      # [0, 1, 2, 3, 4]
+print(letters)
+print(nums)</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong>在 MATLAB 中，陣列只能容納一種型別（全部是 double、全部是 char 等）。要容納混合型別，你需要使用大括號的 <em>cell 陣列</em>：<code>c = {1, 'hello', 3.14}</code>。在 Python 中，普通的串列就已經能處理混合型別 &mdash; 不需要特殊語法。
+</div>
+
+<!-- 1.2 Accessing Elements -->
+<h3 id="indexing">1.2 存取元素（以 0 為基礎的索引）</h3>
+
+<p>
+  你使用方括號和<strong>索引</strong>來存取個別元素。Python 的索引從 <strong>0</strong> 開始，不是 1。
+</p>
+
+<pre><code>fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+
+print(fruits[0])   # apple      （第一個元素）
+print(fruits[1])   # banana     （第二個元素）
+print(fruits[4])   # elderberry （第五個元素，索引 4）</code></pre>
+
+<div class="callout callout-warning">
+  <strong>與 MATLAB 的關鍵差異！</strong>在 MATLAB 中，<code>fruits{1}</code> 給你第一個元素。在 Python 中，<code>fruits[0]</code> 給你第一個元素。5 個項目的串列，最後一個元素在索引 <strong>4</strong>，不是 5。這種「差一」的偏移是從 MATLAB 轉換到 Python 時最常見的錯誤來源。
+</div>
+
+<p>
+  以下是幫助記憶的視覺圖：
+</p>
+
+<pre><code>#  元素：       "apple"  "banana"  "cherry"  "date"  "elderberry"
+#  索引：           0        1         2        3          4
+#  負索引：        -5       -4        -3       -2         -1</code></pre>
+
+<!-- 1.3 Negative Indexing -->
+<h3 id="negative-indexing">1.3 負索引</h3>
+
+<p>
+  Python 支援<strong>負索引</strong>，從串列末尾往回計數。<code>-1</code> 是最後一個元素，<code>-2</code> 是倒數第二個，以此類推。
+</p>
+
+<pre><code>fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+
+print(fruits[-1])   # elderberry （最後一個元素）
+print(fruits[-2])   # date       （倒數第二個）
+print(fruits[-5])   # apple      （第一個元素，等同 fruits[0]）</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong> MATLAB 使用 <code>fruits{end}</code> 表示最後一個元素，<code>fruits{end-1}</code> 表示倒數第二個。Python 的 <code>fruits[-1]</code> 和 <code>fruits[-2]</code> 功能相同，但更簡潔。
+</div>
+
+<!-- 1.4 Slicing -->
+<h3 id="slicing">1.4 串列切片</h3>
+
+<p>
+  <strong>切片</strong>讓你擷取一個子串列。語法是 <code>list[start:stop]</code>，其中 <code>start</code> 包含在內，<code>stop</code> <em>不包含在內</em>。
+</p>
+
+<pre><code>nums = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+print(nums[2:5])    # [20, 30, 40]   （索引 2, 3, 4 &mdash; 不包含 5）
+print(nums[:4])     # [0, 10, 20, 30]  （從開頭到索引 3）
+print(nums[6:])     # [60, 70, 80, 90] （從索引 6 到結尾）
+print(nums[:])      # [0, 10, 20, 30, 40, 50, 60, 70, 80, 90] （完整複本）
+print(nums[::2])    # [0, 20, 40, 60, 80] （每第 2 個元素）
+print(nums[::-1])   # [90, 80, 70, 60, 50, 40, 30, 20, 10, 0] （反轉）</code></pre>
+
+<p>
+  完整語法是 <code>list[start:stop:step]</code>：
+</p>
+
+<ul>
+  <li><code>start</code> &mdash; 切片開始的索引（預設：開頭）</li>
+  <li><code>stop</code> &mdash; 切片結束的索引，<strong>不包含在內</strong>（預設：結尾）</li>
+  <li><code>step</code> &mdash; 跳過多少個索引（預設：1）</li>
+</ul>
+
+<div class="callout callout-warning">
+  <strong>常見錯誤：</strong>忘記 <code>stop</code> 索引<em>不包含在內</em>。<code>nums[2:5]</code> 給你索引 2、3 和 4 的元素 &mdash; <strong>不包含</strong>索引 5。這與 MATLAB 不同，MATLAB 的 <code>nums(3:5)</code> 包含所有三個元素（MATLAB 以 1 為基礎索引中的 3、4 和 5）。
+</div>
+
+<!-- 1.5 Modifying Elements -->
+<h3 id="modifying-elements">1.5 修改元素</h3>
+
+<p>
+  串列是可變的，所以你可以透過對索引賦值來更改任何元素：
+</p>
+
+<pre><code>colors = ["red", "green", "blue"]
+
+colors[1] = "yellow"
+print(colors)   # ['red', 'yellow', 'blue']
+
+# 你也可以替換一個切片
+colors[0:2] = ["pink", "purple"]
+print(colors)   # ['pink', 'purple', 'blue']</code></pre>
+
+<!-- 1.6 List Methods -->
+<h3 id="list-methods">1.6 串列方法</h3>
+
+<p>
+  串列附帶許多內建方法。以下是每個重要方法的說明和範例：
+</p>
+
+<h4><code>.append(item)</code> &mdash; 在末尾新增一個項目</h4>
+
+<pre><code>animals = ["cat", "dog"]
+animals.append("fish")
+print(animals)   # ['cat', 'dog', 'fish']</code></pre>
+
+<h4><code>.extend(iterable)</code> &mdash; 在末尾新增多個項目</h4>
+
+<pre><code>animals = ["cat", "dog"]
+animals.extend(["fish", "bird"])
+print(animals)   # ['cat', 'dog', 'fish', 'bird']
+
+# 與 append 的區別：
+animals2 = ["cat", "dog"]
+animals2.append(["fish", "bird"])       # 將串列作為單一元素新增！
+print(animals2)  # ['cat', 'dog', ['fish', 'bird']]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>常見錯誤：</strong>想用 <code>.extend()</code> 時卻用了 <code>.append()</code>。如果你 append 一個串列，它會變成原始串列內的巢狀串列。使用 <code>.extend()</code> 來逐一新增每個元素。
+</div>
+
+<h4><code>.insert(index, item)</code> &mdash; 在特定位置插入</h4>
+
+<pre><code>fruits = ["apple", "cherry"]
+fruits.insert(1, "banana")       # 在索引 1 插入 "banana"
+print(fruits)   # ['apple', 'banana', 'cherry']</code></pre>
+
+<h4><code>.remove(item)</code> &mdash; 移除第一個出現的值</h4>
+
+<pre><code>nums = [10, 20, 30, 20, 40]
+nums.remove(20)               # 只移除第一個 20
+print(nums)   # [10, 30, 20, 40]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>注意：</strong>如果值不在串列中，<code>.remove()</code> 會引發 <code>ValueError</code>。移除前請先用 <code>if value in list</code> 檢查，或使用 <code>try/except</code> 區塊。
+</div>
+
+<h4><code>.pop(index)</code> &mdash; 按索引移除並回傳一個項目</h4>
+
+<pre><code>letters = ["a", "b", "c", "d"]
+
+last = letters.pop()        # 移除並回傳最後一個項目
+print(last)      # d
+print(letters)   # ['a', 'b', 'c']
+
+second = letters.pop(1)     # 移除並回傳索引 1 的項目
+print(second)    # b
+print(letters)   # ['a', 'c']</code></pre>
+
+<h4><code>.clear()</code> &mdash; 移除所有項目</h4>
+
+<pre><code>data = [1, 2, 3, 4, 5]
+data.clear()
+print(data)   # []</code></pre>
+
+<h4><code>.index(item)</code> &mdash; 找到第一個出現的索引</h4>
+
+<pre><code>colors = ["red", "green", "blue", "green"]
+print(colors.index("green"))   # 1  （第一個出現的位置）
+# colors.index("purple")       # ValueError！不在串列中</code></pre>
+
+<h4><code>.count(item)</code> &mdash; 計算一個值的出現次數</h4>
+
+<pre><code>grades = ["A", "B", "A", "C", "A", "B"]
+print(grades.count("A"))   # 3
+print(grades.count("D"))   # 0</code></pre>
+
+<h4><code>.sort()</code> &mdash; 就地排序串列</h4>
+
+<pre><code>nums = [30, 10, 50, 20, 40]
+nums.sort()
+print(nums)   # [10, 20, 30, 40, 50]
+
+nums.sort(reverse=True)
+print(nums)   # [50, 40, 30, 20, 10]
+
+# 按字母順序排序字串
+words = ["banana", "apple", "cherry"]
+words.sort()
+print(words)  # ['apple', 'banana', 'cherry']</code></pre>
+
+<div class="callout callout-info">
+  <strong>sort() vs sorted()：</strong> <code>.sort()</code> 就地修改串列並回傳 <code>None</code>。內建函式 <code>sorted(list)</code> 回傳一個<em>新的</em>已排序串列，不改變原始串列。當你需要保留原始順序時，使用 <code>sorted()</code>。
+</div>
+
+<h4><code>.reverse()</code> &mdash; 就地反轉串列</h4>
+
+<pre><code>nums = [1, 2, 3, 4, 5]
+nums.reverse()
+print(nums)   # [5, 4, 3, 2, 1]</code></pre>
+
+<h4><code>.copy()</code> &mdash; 建立淺複本</h4>
+
+<pre><code>original = [1, 2, 3]
+duplicate = original.copy()
+duplicate.append(4)
+
+print(original)    # [1, 2, 3]       （未改變）
+print(duplicate)   # [1, 2, 3, 4]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>常見錯誤 &mdash; 別名 vs. 複本：</strong>如果你寫 <code>b = a</code>（沒有 <code>.copy()</code>），兩個變數都指向<em>同一個</em>串列。改變其中一個就會改變另一個！
+  <pre><code>a = [1, 2, 3]
+b = a              # b 不是複本 &mdash; 它是同一個串列
+b.append(4)
+print(a)           # [1, 2, 3, 4]  &mdash; a 也跟著改了！</code></pre>
+  務必使用 <code>.copy()</code> 或切片（<code>b = a[:]</code>）來建立獨立的複本。
+</div>
+
+<!-- 1.7 len() -->
+<h3 id="len">1.7 len() &mdash; 取得串列的長度</h3>
+
+<pre><code>fruits = ["apple", "banana", "cherry"]
+print(len(fruits))   # 3
+
+empty = []
+print(len(empty))    # 0</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong> Python 的 <code>len(fruits)</code> 等同 MATLAB 的 <code>length(fruits)</code> 或 <code>numel(fruits)</code>。
+</div>
+
+<!-- 1.8 Membership -->
+<h3 id="membership">1.8 使用 <code>in</code> 檢查成員資格</h3>
+
+<p>
+  <code>in</code> 關鍵字用來檢查某個項目是否存在於串列中。它回傳 <code>True</code> 或 <code>False</code>。
+</p>
+
+<pre><code>fruits = ["apple", "banana", "cherry"]
+
+print("banana" in fruits)      # True
+print("grape" in fruits)       # False
+print("grape" not in fruits)   # True
+
+# 常見模式：先檢查再操作
+if "apple" in fruits:
+    print("We have apples!")   # We have apples!</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong>在 MATLAB 中你會使用 <code>ismember('banana', fruits)</code> 或 <code>any(strcmp(fruits, 'banana'))</code>。Python 的 <code>"banana" in fruits</code> 更簡潔易讀。
+</div>
+
+<!-- 1.9 Nested Lists -->
+<h3 id="nested-lists">1.9 巢狀串列（串列中的串列）</h3>
+
+<p>
+  串列可以包含其他串列。這就是你在學習 NumPy 之前，在純 Python 中表示矩陣、網格和資料表的方式。
+</p>
+
+<pre><code># 以串列的串列表示 3x3 矩陣
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(matrix[0])       # [1, 2, 3]  （第一列）
+print(matrix[1][2])    # 6          （第二列，第三行）
+print(matrix[2][0])    # 7          （第三列，第一行）</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong>在 MATLAB 中，<code>matrix(2, 3)</code> 給你第 2 列第 3 行（值 6）。在 Python 中，<code>matrix[1][2]</code> 給你相同的值 &mdash; 記住索引從 0 開始。對於嚴肅的矩陣運算，使用 <strong>NumPy</strong>，它提供 <code>matrix[1, 2]</code> 語法，就像 MATLAB 一樣（但仍然是以 0 為基礎的索引）。
+</div>
+
+<!-- 1.10 Concatenation and Repetition -->
+<h3 id="concat-repeat">1.10 串列串接與重複</h3>
+
+<pre><code># 使用 + 串接
+list_a = [1, 2, 3]
+list_b = [4, 5, 6]
+combined = list_a + list_b
+print(combined)   # [1, 2, 3, 4, 5, 6]
+
+# 使用 * 重複
+zeros = [0] * 5
+print(zeros)      # [0, 0, 0, 0, 0]
+
+pattern = [1, 2] * 3
+print(pattern)    # [1, 2, 1, 2, 1, 2]</code></pre>
+
+<div class="callout callout-warning">
+  <strong>重複可變物件的陷阱：</strong>當重複的串列包含可變物件（如其他串列）時，要特別小心。
+  <pre><code># 危險！三個內部串列是同一個物件
+grid = [[0] * 3] * 3
+grid[0][0] = 1
+print(grid)   # [[1, 0, 0], [1, 0, 0], [1, 0, 0]]  &mdash; 所有列都改了！
+
+# 安全的做法：使用串列推導式
+grid = [[0] * 3 for _ in range(3)]
+grid[0][0] = 1
+print(grid)   # [[1, 0, 0], [0, 0, 0], [0, 0, 0]]  &mdash; 只有第一列改了</code></pre>
+</div>
+
+<!-- 1.11 Common Mistake: Index Out of Range -->
+<h3 id="index-error">1.11 常見錯誤：索引超出範圍</h3>
+
+<pre><code>fruits = ["apple", "banana", "cherry"]   # 索引 0, 1, 2
+
+# 這會當掉：
+# print(fruits[3])   # IndexError: list index out of range
+
+# 記住：最後一個有效索引 = len(list) - 1
+print(fruits[len(fruits) - 1])   # cherry
+print(fruits[-1])                # cherry （更簡單的方式）</code></pre>
+
+<div class="callout callout-warning">
+  <strong>常見錯誤：</strong>有 3 個元素的串列，索引為 0、1 和 2。存取索引 3 會引發 <code>IndexError</code>。如果你習慣 MATLAB（3 個元素的陣列索引為 1、2 和 3），這個錯誤特別容易犯。
+</div>
+
+<!-- 1.12 List Exercises -->
+<h3 id="list-exercises">1.12 練習：串列</h3>
+
+<div class="callout callout-info">
+  <strong>練習 1：</strong>建立一個包含你想去的 5 個城市的串列。印出第一個城市、最後一個城市和中間的城市。然後按字母順序排序並印出結果。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>cities = ["Tokyo", "Paris", "Sydney", "Cairo", "Lima"]
+
+print(cities[0])     # Tokyo  （第一個）
+print(cities[-1])    # Lima   （最後一個）
+print(cities[2])     # Sydney （中間）
+
+cities.sort()
+print(cities)        # ['Cairo', 'Lima', 'Paris', 'Sydney', 'Tokyo']</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>練習 2：</strong>從 <code>nums = [5, 3, 8, 1, 9, 2, 7]</code> 開始。移除值 8，新增值 6，排序串列，然後印出串列和它的長度。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>nums = [5, 3, 8, 1, 9, 2, 7]
+
+nums.remove(8)
+nums.append(6)
+nums.sort()
+print(nums)        # [1, 2, 3, 5, 6, 7, 9]
+print(len(nums))   # 7</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>練習 3：</strong>給定 <code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]</code>，使用 Python 索引印出值 6（第 2 列第 3 行）。然後印出整個第二列。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+print(matrix[1][2])   # 6   （列索引 1，行索引 2）
+print(matrix[1])      # [4, 5, 6]</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>練習 4：</strong>建立串列 <code>scores = [85, 92, 78, 90, 88]</code>。使用切片，印出前 3 個分數、最後 2 個分數，以及每隔一個的分數。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>scores = [85, 92, 78, 90, 88]
+
+print(scores[:3])    # [85, 92, 78]   （前 3 個）
+print(scores[-2:])   # [90, 88]       （最後 2 個）
+print(scores[::2])   # [85, 78, 88]   （每隔一個）</code></pre>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  2. TUPLES                                                    -->
+<!-- ============================================================ -->
+
+<h2 id="tuples">2. 元組 &mdash; 不可變序列</h2>
+
+<p>
+  <strong>元組</strong>就像串列，但是<strong>不可變的</strong> &mdash; 一旦建立，你就無法更改、新增或移除它的元素。元組使用圓括號 <code>()</code> 而非方括號 <code>[]</code>。
+</p>
+
+<!-- 2.1 Creating Tuples -->
+<h3 id="creating-tuples">2.1 建立元組</h3>
+
+<pre><code># 建立元組
+point = (3, 4)
+colors = ("red", "green", "blue")
+mixed = (1, "hello", 3.14)
+empty = ()
+
+print(point)    # (3, 4)
+print(colors)   # ('red', 'green', 'blue')
+
+# 存取元素的方式與串列相同
+print(colors[0])    # red
+print(colors[-1])   # blue
+print(colors[1:])   # ('green', 'blue')</code></pre>
+
+<h4>單一元素元組的陷阱</h4>
+
+<div class="callout callout-warning">
+  <strong>陷阱！</strong>要建立只有<strong>一個元素</strong>的元組，你需要加上尾隨逗號。沒有逗號的話，Python 會把它視為括號內的普通值（分組表達式），而不是元組。
+  <pre><code># 錯誤 &mdash; 這只是一個整數，不是元組
+not_a_tuple = (42)
+print(type(not_a_tuple))   # &lt;class 'int'&gt;
+
+# 正確 &mdash; 尾隨逗號使其成為元組
+a_tuple = (42,)
+print(type(a_tuple))       # &lt;class 'tuple'&gt;
+print(a_tuple)             # (42,)</code></pre>
+  這讓很多初學者措手不及。單一元素元組務必加上尾隨逗號。
+</div>
+
+<!-- 2.2 Tuples Are Immutable -->
+<h3 id="tuples-immutable">2.2 元組是不可變的</h3>
+
+<p>
+  元組和串列的關鍵差異：你<strong>無法</strong>在建立後修改元組。
+</p>
+
+<pre><code>point = (3, 4)
+
+# 以下都會引發錯誤：
+# point[0] = 10        # TypeError: 'tuple' object does not support item assignment
+# point.append(5)      # AttributeError: 'tuple' object has no attribute 'append'
+# del point[0]         # TypeError: 'tuple' object doesn't support item deletion</code></pre>
+
+<p>
+  如果你需要「更改」元組，你必須建立一個新的：
+</p>
+
+<pre><code>point = (3, 4)
+new_point = (10,) + point[1:]    # 替換第一個元素
+print(new_point)   # (10, 4)</code></pre>
+
+<!-- 2.3 When to Use Tuples vs Lists -->
+<h3 id="tuples-vs-lists">2.3 何時使用元組 vs. 串列</h3>
+
+<p>在以下情況使用<strong>元組</strong>：</p>
+<ul>
+  <li>資料<strong>不應該被更改</strong> &mdash; 座標、RGB 顏色、資料庫記錄、設定常數。</li>
+  <li>你想將集合用作<strong>字典的鍵</strong>（串列不能作為字典的鍵，因為它們是可變的）。</li>
+  <li>你要從函式<strong>回傳多個值</strong>（Python 慣例）。</li>
+  <li>你想向其他程式設計師傳達訊號：「這筆資料是固定的。」</li>
+</ul>
+
+<p>在以下情況使用<strong>串列</strong>：</p>
+<ul>
+  <li>你需要<strong>新增、移除或更改</strong>項目。</li>
+  <li>集合代表的資料會隨時間<strong>增長或縮小</strong>。</li>
+  <li>你事先不知道大小。</li>
+</ul>
+
+<div class="callout callout-info">
+  <strong>效能注意事項：</strong>元組比串列稍快且佔用較少記憶體。對於不會改變的小集合，優先使用元組。其他情況下，串列是首選。
+</div>
+
+<!-- 2.4 Tuple Unpacking -->
+<h3 id="tuple-unpacking">2.4 元組解包</h3>
+
+<p>
+  <strong>元組解包</strong>（也稱為「解構」）讓你可以在一行中將元組的每個元素分別指定給一個變數：
+</p>
+
+<pre><code># 基本解包
+point = (3, 4)
+x, y = point
+print(x)   # 3
+print(y)   # 4
+
+# 更多元素的解包
+name, age, city = ("Alice", 30, "Paris")
+print(name)   # Alice
+print(age)    # 30
+print(city)   # Paris
+
+# 交換變數 &mdash; 一個經典的 Python 技巧
+a = 10
+b = 20
+a, b = b, a          # 使用元組解包交換
+print(a, b)          # 20 10</code></pre>
+
+<div class="callout callout-info">
+  <strong>解包中的 * 運算子：</strong>你可以使用 <code>*</code> 來捕獲「其餘的」元素：
+  <pre><code>first, *rest = [1, 2, 3, 4, 5]
+print(first)   # 1
+print(rest)    # [2, 3, 4, 5]
+
+first, *middle, last = [1, 2, 3, 4, 5]
+print(first)    # 1
+print(middle)   # [2, 3, 4]
+print(last)     # 5</code></pre>
+</div>
+
+<!-- 2.5 Returning Multiple Values -->
+<h3 id="tuple-return">2.5 常見用法：從函式回傳多個值</h3>
+
+<p>
+  在 Python 中，函式經常以元組的形式回傳多個值：
+</p>
+
+<pre><code>def min_max(numbers):
+    return min(numbers), max(numbers)    # 回傳一個元組
+
+result = min_max([4, 1, 7, 2, 9])
+print(result)        # (1, 9)
+
+# 或直接解包：
+lo, hi = min_max([4, 1, 7, 2, 9])
+print(lo)            # 1
+print(hi)            # 9</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong> MATLAB 也支援多個回傳值：<code>[lo, hi] = min_max(nums)</code>。Python 透過元組解包做相同的事 &mdash; 語法只是稍有不同（左邊沒有方括號）。
+</div>
+
+<!-- 2.6 Tuple Exercises -->
+<h3 id="tuple-exercises">2.6 練習：元組</h3>
+
+<div class="callout callout-info">
+  <strong>練習 5：</strong>建立一個代表 RGB 顏色的元組 <code>(255, 128, 0)</code>。將其解包到變數 <code>r</code>、<code>g</code>、<code>b</code> 並印出每個值。然後嘗試在元組內將 <code>r</code> 改為 200 &mdash; 會發生什麼？
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>color = (255, 128, 0)
+r, g, b = color
+print(r, g, b)   # 255 128 0
+
+# 嘗試修改元組：
+# color[0] = 200   # TypeError: 'tuple' object does not support item assignment
+
+# 你需要建立一個新元組：
+color = (200, g, b)
+print(color)   # (200, 128, 0)</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>練習 6：</strong>寫一個函式 <code>circle_stats(radius)</code>，以元組形式回傳圓的面積和周長。呼叫它並解包結果。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>import math
+
+def circle_stats(radius):
+    area = math.pi * radius ** 2
+    circumference = 2 * math.pi * radius
+    return area, circumference
+
+a, c = circle_stats(5)
+print(f"Area: {a:.2f}")            # Area: 78.54
+print(f"Circumference: {c:.2f}")   # Circumference: 31.42</code></pre>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  3. SETS                                                      -->
+<!-- ============================================================ -->
+
+<h2 id="sets">3. 集合 &mdash; 不重複元素的無序集合</h2>
+
+<p>
+  <strong>集合</strong>是一個<em>無序、可變</em>的<strong>不重複</strong>元素集合。集合會自動移除重複項，且不維護插入順序。它們非常適合用於成員測試和數學集合運算（聯集、交集、差集）。
+</p>
+
+<!-- 3.1 Creating Sets -->
+<h3 id="creating-sets">3.1 建立集合</h3>
+
+<pre><code># 使用大括號建立集合
+fruits = {"apple", "banana", "cherry"}
+print(fruits)   # {'cherry', 'apple', 'banana'}  （順序可能不同！）
+
+# 自動移除重複項
+nums = {1, 2, 2, 3, 3, 3, 4}
+print(nums)     # {1, 2, 3, 4}
+
+# 從串列建立集合（非常適合去除重複項！）
+names = ["Alice", "Bob", "Alice", "Charlie", "Bob"]
+unique_names = set(names)
+print(unique_names)   # {'Alice', 'Bob', 'Charlie'}</code></pre>
+
+<div class="callout callout-warning">
+  <strong>關鍵陷阱 &mdash; 空集合：</strong>空集合要用 <code>set()</code> 建立，<strong>而非</strong> <code>{}</code>。空的大括號會建立一個空<strong>字典</strong>，不是集合！
+  <pre><code># 錯誤 &mdash; 這建立的是空字典
+not_a_set = {}
+print(type(not_a_set))   # &lt;class 'dict'&gt;
+
+# 正確 &mdash; 這建立的是空集合
+empty_set = set()
+print(type(empty_set))   # &lt;class 'set'&gt;</code></pre>
+</div>
+
+<!-- 3.2 Adding and Removing Elements -->
+<h3 id="set-add-remove">3.2 新增和移除元素</h3>
+
+<pre><code>colors = {"red", "green", "blue"}
+
+# 新增元素
+colors.add("yellow")
+print(colors)   # {'red', 'green', 'blue', 'yellow'}
+
+colors.add("red")          # 已存在 &mdash; 無效果，無錯誤
+print(colors)              # {'red', 'green', 'blue', 'yellow'}
+
+# 移除元素
+colors.remove("green")     # 找不到的話會引發 KeyError
+print(colors)              # {'red', 'blue', 'yellow'}
+
+colors.discard("purple")   # 找不到也不會出錯（更安全）
+print(colors)              # {'red', 'blue', 'yellow'}
+
+# 隨機移除一個元素
+item = colors.pop()
+print(f"Removed: {item}")  # Removed:（某個元素，順序不定）</code></pre>
+
+<div class="callout callout-info">
+  <strong>提示：</strong>當你不確定元素是否存在時，使用 <code>.discard()</code> 而非 <code>.remove()</code>。<code>.discard()</code> 如果元素不存在會靜默地什麼都不做，而 <code>.remove()</code> 會引發 <code>KeyError</code>。
+</div>
+
+<!-- 3.3 Set Operations -->
+<h3 id="set-operations">3.3 集合運算：聯集、交集、差集</h3>
+
+<p>
+  集合支援所有標準的數學集合運算：
+</p>
+
+<pre><code>a = {1, 2, 3, 4, 5}
+b = {4, 5, 6, 7, 8}
+
+# 聯集 &mdash; 兩個集合中的所有元素
+print(a | b)            # {1, 2, 3, 4, 5, 6, 7, 8}
+print(a.union(b))       # 相同結果
+
+# 交集 &mdash; 兩個集合中共有的元素
+print(a &amp; b)            # {4, 5}
+print(a.intersection(b))  # 相同結果
+
+# 差集 &mdash; 在 a 中但不在 b 中的元素
+print(a - b)            # {1, 2, 3}
+print(a.difference(b))  # 相同結果
+
+# 對稱差集 &mdash; 在任一集合中但不同時在兩者中的元素
+print(a ^ b)                      # {1, 2, 3, 6, 7, 8}
+print(a.symmetric_difference(b))  # 相同結果</code></pre>
+
+<pre><code># 實際範例：找出共同和獨特的技能
+python_devs = {"Alice", "Bob", "Charlie", "Diana"}
+java_devs   = {"Charlie", "Diana", "Eve", "Frank"}
+
+both = python_devs &amp; java_devs
+print(f"Know both: {both}")            # {'Charlie', 'Diana'}
+
+only_python = python_devs - java_devs
+print(f"Only Python: {only_python}")   # {'Alice', 'Bob'}
+
+all_devs = python_devs | java_devs
+print(f"All devs: {all_devs}")         # {'Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'}</code></pre>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 比較：</strong> MATLAB 有 <code>union(A, B)</code>、<code>intersect(A, B)</code> 和 <code>setdiff(A, B)</code> 函式。Python 使用相同的概念，但提供運算子捷徑（<code>|</code>、<code>&amp;</code>、<code>-</code>）以及方法呼叫。
+</div>
+
+<!-- 3.4 When to Use Sets -->
+<h3 id="when-sets">3.4 何時使用集合</h3>
+
+<p>當你需要以下功能時，集合是最佳選擇：</p>
+
+<ul>
+  <li><strong>移除重複項</strong>：
+    <pre><code>data = [1, 2, 2, 3, 3, 3, 4]
+unique = list(set(data))    # [1, 2, 3, 4]（順序可能不同）
+print(unique)</code></pre>
+  </li>
+  <li><strong>快速成員測試</strong> &mdash; 對於大型集合，檢查 <code>x in my_set</code> 比 <code>x in my_list</code> <em>快得多</em>（O(1) vs. O(n)）：
+    <pre><code># 檢查使用者是否在允許的使用者集合中
+allowed = {"admin", "editor", "viewer"}
+user = "editor"
+if user in allowed:
+    print("Access granted")</code></pre>
+  </li>
+  <li><strong>找出共同或獨特的元素</strong>，使用集合運算（聯集、交集、差集）。
+  </li>
+</ul>
+
+
+<!-- 3.5 Set Exercises -->
+<h3 id="set-exercises">3.5 練習：集合</h3>
+
+<div class="callout callout-info">
+  <strong>練習 7：</strong>給定 <code>nums = [1, 5, 2, 1, 3, 5, 4, 2, 3, 1]</code>，使用集合找出有多少個不重複的數字並印出。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>nums = [1, 5, 2, 1, 3, 5, 4, 2, 3, 1]
+unique = set(nums)
+print(f"Unique numbers: {unique}")
+print(f"Count: {len(unique)}")
+# Unique numbers: {1, 2, 3, 4, 5}
+# Count: 5</code></pre>
+  </details>
+</div>
+
+<div class="callout callout-info">
+  <strong>練習 8：</strong>你有兩個學生串列：<code>math_class = ["Alice", "Bob", "Charlie", "Diana"]</code> 和 <code>science_class = ["Charlie", "Diana", "Eve", "Frank"]</code>。使用集合找出：(a) 同時在兩個班的學生，(b) 只在數學班的學生，(c) 所有學生合併。
+  <details>
+    <summary>顯示解答</summary>
+    <pre><code>math_class = {"Alice", "Bob", "Charlie", "Diana"}
+science_class = {"Charlie", "Diana", "Eve", "Frank"}
+
+both = math_class &amp; science_class
+print(f"Both classes: {both}")          # {'Charlie', 'Diana'}
+
+only_math = math_class - science_class
+print(f"Only math: {only_math}")        # {'Alice', 'Bob'}
+
+all_students = math_class | science_class
+print(f"All students: {all_students}")  # {'Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank'}</code></pre>
+  </details>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  4. COMPARISON TABLE                                          -->
+<!-- ============================================================ -->
+
+<h2 id="comparison">4. 比較：串列 vs. 元組 vs. 集合</h2>
+
+<p>
+  以下是一個快速參考表，總結了關鍵差異：
+</p>
+
+<div style="overflow-x: auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>特性</th>
+        <th>串列</th>
+        <th>元組</th>
+        <th>集合</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>語法</strong></td>
+        <td><code>[1, 2, 3]</code></td>
+        <td><code>(1, 2, 3)</code></td>
+        <td><code>{1, 2, 3}</code></td>
+      </tr>
+      <tr>
+        <td><strong>可變？</strong></td>
+        <td>是 &mdash; 可以更改、新增、移除</td>
+        <td>否 &mdash; 建立後不可變</td>
+        <td>是 &mdash; 可以新增和移除</td>
+      </tr>
+      <tr>
+        <td><strong>有序？</strong></td>
+        <td>是 &mdash; 維持插入順序</td>
+        <td>是 &mdash; 維持插入順序</td>
+        <td>否 &mdash; 無序</td>
+      </tr>
+      <tr>
+        <td><strong>允許重複？</strong></td>
+        <td>是</td>
+        <td>是</td>
+        <td>否 &mdash; 所有元素唯一</td>
+      </tr>
+      <tr>
+        <td><strong>支援索引？</strong></td>
+        <td>是 &mdash; <code>my_list[0]</code></td>
+        <td>是 &mdash; <code>my_tuple[0]</code></td>
+        <td>否 &mdash; 無法按索引存取</td>
+      </tr>
+      <tr>
+        <td><strong>支援切片？</strong></td>
+        <td>是</td>
+        <td>是</td>
+        <td>否</td>
+      </tr>
+      <tr>
+        <td><strong>可以當字典鍵？</strong></td>
+        <td>否（可變）</td>
+        <td>是（不可變）</td>
+        <td>否（可變）</td>
+      </tr>
+      <tr>
+        <td><strong>成員測試速度</strong></td>
+        <td>大型串列較慢 (O(n))</td>
+        <td>大型元組較慢 (O(n))</td>
+        <td>快速 (O(1))</td>
+      </tr>
+      <tr>
+        <td><strong>建立空的</strong></td>
+        <td><code>[]</code> 或 <code>list()</code></td>
+        <td><code>()</code> 或 <code>tuple()</code></td>
+        <td><code>set()</code>（不是 <code>{}</code>！）</td>
+      </tr>
+      <tr>
+        <td><strong>常見使用場景</strong></td>
+        <td>通用集合</td>
+        <td>固定資料、函式回傳值、字典鍵</td>
+        <td>不重複元素、快速查詢、集合運算</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<pre><code># 快速展示三者
+my_list  = [1, 2, 2, 3]     # 有序、可變、允許重複
+my_tuple = (1, 2, 2, 3)     # 有序、不可變、允許重複
+my_set   = {1, 2, 2, 3}     # 無序、可變、不允許重複
+
+print(my_list)    # [1, 2, 2, 3]
+print(my_tuple)   # (1, 2, 2, 3)
+print(my_set)     # {1, 2, 3}  &mdash; 重複的 2 被移除了！
+
+print(len(my_list))    # 4
+print(len(my_tuple))   # 4
+print(len(my_set))     # 3  &mdash; 只計算不重複的元素</code></pre>
+
+
+<!-- ============================================================ -->
+<!--  5. CONVERTING BETWEEN TYPES                                  -->
+<!-- ============================================================ -->
+
+<h2 id="converting">5. 在串列、元組和集合之間轉換</h2>
+
+<p>
+  你可以使用它們的建構子自由地在這些集合型別之間轉換：
+</p>
+
+<pre><code># 從串列開始
+my_list = [3, 1, 4, 1, 5, 9, 2, 6, 5]
+
+# 串列轉元組
+my_tuple = tuple(my_list)
+print(my_tuple)   # (3, 1, 4, 1, 5, 9, 2, 6, 5)
+
+# 串列轉集合（移除重複項）
+my_set = set(my_list)
+print(my_set)     # {1, 2, 3, 4, 5, 6, 9}
+
+# 集合轉回串列（現在沒有重複項了）
+unique_list = list(my_set)
+print(unique_list)   # [1, 2, 3, 4, 5, 6, 9]（順序可能不同）
+
+# 元組轉串列
+editable = list(my_tuple)
+editable.append(99)
+print(editable)   # [3, 1, 4, 1, 5, 9, 2, 6, 5, 99]</code></pre>
+
+<div class="callout callout-info">
+  <strong>常見模式 &mdash; 去除重複項同時保留順序：</strong>轉為集合再轉回來會失去順序。如果你需要在移除重複項的同時保留原始順序：
+  <pre><code>data = [3, 1, 4, 1, 5, 9, 2, 6, 5]
+seen = set()
+unique_ordered = []
+for item in data:
+    if item not in seen:
+        seen.add(item)
+        unique_ordered.append(item)
+print(unique_ordered)   # [3, 1, 4, 5, 9, 2, 6]</code></pre>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  6. SUMMARY                                                   -->
+<!-- ============================================================ -->
+
+<h2 id="summary">6. 總結</h2>
+
+<ul>
+  <li>
+    <strong>串列</strong>（<code>[]</code>）是有序、可變的集合。把它們當作你預設的首選資料結構。它們支援索引、切片，以及豐富的方法集（<code>.append()</code>、<code>.sort()</code>、<code>.pop()</code> 等）。
+  </li>
+  <li>
+    <strong>元組</strong>（<code>()</code>）是有序、不可變的集合。用於固定資料、函式回傳值和字典鍵。記得單一元素元組要加上尾隨逗號。
+  </li>
+  <li>
+    <strong>集合</strong>（<code>{}</code>）是不重複元素的無序集合。當你需要消除重複項或進行快速的成員測試時使用它們。記住：空集合用 <code>set()</code>，不是 <code>{}</code>。
+  </li>
+  <li>
+    Python 使用<strong>以 0 為基礎的索引</strong>。第一個元素在索引 0，不是 1。從 MATLAB 轉過來的話，這需要有意識地調適。
+  </li>
+  <li>
+    使用 <code>in</code> 進行成員檢查，<code>len()</code> 取得長度，以及切片語法 <code>[start:stop:step]</code> 擷取子序列。
+  </li>
+</ul>
+
+<div class="callout callout-matlab">
+  <strong>MATLAB 使用者的關鍵要點：</strong> Python 串列取代了 MATLAB 的數值陣列（用於通用資料）和 cell 陣列（用於混合型別）。主要的調整是：(1) 以 0 為基礎的索引，(2) 使用方括號而非圓括號進行索引，(3) 使用 <code>.append()</code> 等方法而非 <code>end+1</code> 技巧。對於矩陣的數值運算，你之後會使用 <strong>NumPy 陣列</strong>，它的感覺更像 MATLAB 陣列。
+</div>
+
+
+<!-- ============================================================ -->
+<!--  PAGE NAVIGATION                                              -->
+<!-- ============================================================ -->
+
+<div class="page-nav">
+<a href="basics-strings-booleans.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">字串與布林值</span></a>
+<a href="basics-dictionaries.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">字典</span></a>
+</div></div></main>
+<script src="../../js/main.js"></script></body></html>

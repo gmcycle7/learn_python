@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>入門設定 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/getting-started.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; 入門設定</div><a href="getting-started.html" class="nav-link active"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; 練習</div><a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a></div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy 與 Pandas</a>
+      </div>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb"><a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 入門設定</div>
+
+      <!-- ============================================================ -->
+      <!-- SECTION B — GETTING STARTED WITH PYTHON                      -->
+      <!-- ============================================================ -->
+
+      <h1>章節 B &mdash; Python 入門設定</h1>
+      <p class="section-intro">
+        在你撰寫第一行 Python 程式碼之前，你需要在電腦上安裝 Python，並且對如何執行程式碼有基本的了解。本章節將帶你完成每一個步驟 &mdash; 安裝 Python、驗證安裝、以互動式和檔案方式執行程式碼、管理虛擬環境，以及安裝第三方套件。學完之後，你將擁有一個完整可運作的 Python 開發環境。
+      </p>
+
+      <div class="callout callout-matlab">
+        <h4>給 MATLAB 使用者的提示</h4>
+        <p>
+          在 MATLAB 中，所有東西都是捆綁在一起的：你安裝 MATLAB 後就立即擁有編輯器、命令視窗、路徑管理器，以及你購買的所有工具箱。Python 不同。Python 本身只是語言直譯器。你自行選擇編輯器（VS Code、PyCharm 等），使用 <code>pip</code> 單獨管理套件，並使用虛擬環境來組織專案的依賴項目。這種靈活性很強大，但這意味著在開始寫程式之前需要做幾個設定步驟。別擔心 &mdash; 一旦你做過一次，就會變成習慣。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 1. HOW TO INSTALL PYTHON                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="install-python">1. 如何安裝 Python</h2>
+
+      <p>
+        Python 是免費且開源的。官方版本可從
+        <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a> 下載。
+        請務必下載最新的穩定版本（截至撰寫時為 Python 3.12 或更新版本）。<strong>不要安裝 Python 2</strong> &mdash; 它已於 2020 年 1 月停止支援。
+      </p>
+
+      <!-- Windows -->
+      <h3 id="install-windows">Windows</h3>
+      <ol>
+        <li>前往 <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>。</li>
+        <li>點擊黃色大按鈕 <strong>"Download Python 3.x.x"</strong>。這會下載 Windows 安裝程式（<code>.exe</code> 檔案）。</li>
+        <li>執行下載的安裝程式。你會看到一個標題為 <em>"Install Python 3.x.x"</em> 的視窗，底部有兩個核取方塊。</li>
+        <li>
+          <strong>關鍵步驟：</strong>在點擊其他任何東西之前，先勾選 <strong>"Add python.exe to PATH"</strong> 這個選項。這個核取方塊位於安裝程式視窗的最底部，<em>預設是未勾選的</em>。
+        </li>
+        <li>點擊 <strong>"Install Now"</strong>（建議選項）。安裝程式會顯示進度條。</li>
+        <li>當你看到 <em>"Setup was successful"</em> 時，點擊 <strong>Close</strong>。</li>
+        <li>開啟一個<strong>新的</strong>命令提示字元或 PowerShell 視窗（現有的視窗看不到新的 PATH），然後輸入 <code>python --version</code> 來驗證。</li>
+      </ol>
+
+      <div class="callout callout-warning">
+        <h4>警告 &mdash; Windows 上的「加入 PATH」</h4>
+        <p>
+          如果你忘記勾選 <strong>"Add python.exe to PATH"</strong>，Windows 將無法在終端機中辨識 <code>python</code> 指令。你需要重新執行安裝程式並選擇 <em>Modify</em> 來加入它，或者手動將 Python 的安裝目錄（例如 <code>C:\Users\YourName\AppData\Local\Programs\Python\Python312\</code>）加入系統的 PATH 環境變數。為了省去麻煩 &mdash; 請務必勾選那個選項。
+        </p>
+      </div>
+
+      <!-- macOS -->
+      <h3 id="install-macos">macOS</h3>
+      <ol>
+        <li>前往 <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org/downloads</a>。</li>
+        <li>點擊 <strong>"Download Python 3.x.x"</strong> 按鈕。這會下載一個 <code>.pkg</code> 安裝程式。</li>
+        <li>開啟 <code>.pkg</code> 檔案。你會看到標準的 macOS 安裝精靈。點擊 <strong>Continue</strong> 跳過簡介、授權合約（點擊 <strong>Agree</strong>），以及目的地選擇。</li>
+        <li>點擊 <strong>Install</strong>。你可能需要輸入管理員密碼。</li>
+        <li>安裝程式完成後，會開啟一個 Finder 視窗顯示 Python 資料夾。你可以關閉它。</li>
+        <li>開啟<strong>終端機</strong>（位於「應用程式」&gt;「工具程式」），輸入 <code>python3 --version</code> 來驗證。</li>
+      </ol>
+
+      <p>
+        <strong>注意：</strong>macOS 可能預裝了較舊的系統 Python（舊版本上的 Python 2，或者一個提示你安裝開發工具的佔位程式）。在 macOS 上請務必使用 <code>python3</code> 指令，以確保你執行的是 Python 3。
+      </p>
+
+      <p><strong>使用 Homebrew 的替代方法：</strong></p>
+      <pre><code class="language-bash"># 如果你還沒有 Homebrew，先安裝它：
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 然後安裝 Python：
+brew install python</code></pre>
+
+      <!-- Linux -->
+      <h3 id="install-linux">Linux</h3>
+      <p>大多數 Linux 發行版都預裝了 Python 3。先檢查一下：</p>
+      <pre><code class="language-bash">python3 --version</code></pre>
+      <p>如果沒有安裝 Python 3，或者你想要更新的版本，請使用你的發行版的套件管理器：</p>
+
+      <pre><code class="language-bash"># Ubuntu / Debian
+sudo apt update
+sudo apt install python3 python3-pip python3-venv
+
+# Fedora
+sudo dnf install python3 python3-pip
+
+# Arch Linux
+sudo pacman -S python python-pip</code></pre>
+
+      <div class="callout callout-tip">
+        <h4>提示 &mdash; 該安裝哪個 Python 版本？</h4>
+        <p>
+          請務必安裝最新的穩定 Python 3 版本。截至撰寫時，建議使用 Python 3.12+。避免使用 Python 3.6 或更舊的版本，因為許多現代函式庫已不再支援它們。你可以在 <a href="https://devguide.python.org/versions/" target="_blank" rel="noopener">devguide.python.org/versions</a> 查看目前支援的版本。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 2. HOW TO CHECK PYTHON VERSION                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="check-version">2. 如何檢查你的 Python 版本</h2>
+
+      <p>
+        安裝完成後，開啟終端機（Windows 上的命令提示字元或 PowerShell，macOS/Linux 上的終端機），執行以下其中一個指令：
+      </p>
+
+      <pre><code class="language-bash"># 檢查 Python 版本
+python --version
+# 輸出：Python 3.12.4
+
+# 在 macOS/Linux 上你可能需要使用 python3
+python3 --version
+# 輸出：Python 3.12.4</code></pre>
+
+      <p>
+        如果你在 Windows 上看到類似 <code>'python' is not recognized as an internal or external command</code> 的錯誤，表示 Python 不在你的 PATH 中。請回到上面的安裝步驟。
+      </p>
+
+      <h3>找出 Python 的安裝位置</h3>
+
+      <pre><code class="language-bash"># Windows — 找出 Python 可執行檔的位置
+where python
+# 輸出：C:\Users\YourName\AppData\Local\Programs\Python\Python312\python.exe
+
+# macOS / Linux — 找出 Python 可執行檔的位置
+which python3
+# 輸出：/usr/local/bin/python3</code></pre>
+
+      <p>
+        當你安裝了多個 Python 版本，想要確認終端機正在使用哪一個時，這些指令非常有用。
+      </p>
+
+      <h3>同時檢查 pip 版本</h3>
+
+      <pre><code class="language-bash"># 檢查 pip 版本
+pip --version
+# 輸出：pip 24.0 from ...site-packages/pip (python 3.12)
+
+# 或在 macOS/Linux 上
+pip3 --version</code></pre>
+
+      <!-- ============================================================ -->
+      <!-- 3. HOW TO RUN PYTHON FROM THE TERMINAL                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="run-interactive">3. 如何從終端機執行 Python（互動模式）</h2>
+
+      <p>
+        Python 有一個內建的互動式直譯器，通常稱為 <strong>REPL</strong>（讀取-求值-輸出 迴圈）。這類似於 MATLAB 的命令視窗 &mdash; 你輸入一個表達式，按下 Enter，就能立即看到結果。
+      </p>
+
+      <h3>啟動互動式直譯器</h3>
+
+      <pre><code class="language-bash"># 啟動互動式 Python
+python
+
+# 或在 macOS/Linux 上
+python3</code></pre>
+
+      <p>你會看到類似這樣的內容：</p>
+
+      <pre><code class="language-text">Python 3.12.4 (main, Jun  7 2024, 00:00:00) [GCC 14.1.1] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;</code></pre>
+
+      <p>
+        <code>&gt;&gt;&gt;</code> 提示符表示 Python 正在等待你的輸入。試著輸入一些表達式：
+      </p>
+
+      <pre><code class="language-python">&gt;&gt;&gt; 2 + 3
+5
+&gt;&gt;&gt; "Hello, " + "World!"
+'Hello, World!'
+&gt;&gt;&gt; 10 / 3
+3.3333333333333335
+&gt;&gt;&gt; 2 ** 10
+1024
+&gt;&gt;&gt; type(42)
+&lt;class 'int'&gt;
+&gt;&gt;&gt; import math
+&gt;&gt;&gt; math.sqrt(144)
+12.0
+&gt;&gt;&gt; [x ** 2 for x in range(5)]
+[0, 1, 4, 9, 16]</code></pre>
+
+      <h3>離開互動式直譯器</h3>
+
+      <p>有幾種方式可以離開：</p>
+
+      <pre><code class="language-python">&gt;&gt;&gt; exit()       # 內建函式 — 在任何地方都有效
+&gt;&gt;&gt; quit()       # 同樣在任何地方都有效
+# 或使用快捷鍵：
+# Ctrl+Z 然後 Enter（Windows）
+# Ctrl+D           （macOS / Linux）</code></pre>
+
+      <div class="callout callout-info">
+        <h4>互動模式 vs. 腳本</h4>
+        <p>
+          互動式直譯器非常適合快速實驗和測試小段程式碼，就像 MATLAB 的命令視窗一樣。然而，對於超過幾行的程式碼，你應該將程式碼寫在 <code>.py</code> 檔案（即「腳本」）中，然後從終端機執行它。我們接下來會介紹這個部分。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 4. HOW TO RUN A .py FILE                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="run-script">4. 如何執行 <code>.py</code> 檔案</h2>
+
+      <p>
+        真正的 Python 開發是在 <code>.py</code> 檔案中進行的 &mdash; 包含 Python 程式碼的純文字檔案。以下是完整的工作流程：
+      </p>
+
+      <h3>步驟 1：建立 Python 檔案</h3>
+
+      <p>
+        開啟任何文字編輯器（VS Code、Notepad++、Sublime Text，甚至是記事本），然後輸入以下內容：
+      </p>
+
+      <pre><code class="language-python"># hello.py — 我的第一個 Python 腳本
+
+name = "World"
+print(f"Hello, {name}!")
+print("Welcome to Python.")
+print(f"2 + 3 = {2 + 3}")</code></pre>
+
+      <p>
+        將這個檔案儲存為 <code>hello.py</code>，放在你容易找到的資料夾中（例如 Windows 上的 <code>C:\Users\YourName\projects\hello.py</code> 或 macOS/Linux 上的 <code>~/projects/hello.py</code>）。
+      </p>
+
+      <div class="callout callout-warning">
+        <h4>警告 &mdash; 副檔名很重要</h4>
+        <p>
+          確保檔案儲存時使用 <code>.py</code> 副檔名，而不是 <code>.py.txt</code>。如果你使用 Windows 記事本，在「存檔類型」下拉選單中選擇 <strong>"所有檔案 (*.*)"</strong>，然後輸入檔名為 <code>hello.py</code>。更好的做法是使用像 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>（免費）這樣的專業程式碼編輯器。
+        </p>
+      </div>
+
+      <h3>步驟 2：導覽到檔案所在的資料夾</h3>
+
+      <pre><code class="language-bash"># Windows
+cd C:\Users\YourName\projects
+
+# macOS / Linux
+cd ~/projects</code></pre>
+
+      <h3>步驟 3：執行腳本</h3>
+
+      <pre><code class="language-bash"># Windows
+python hello.py
+
+# macOS / Linux
+python3 hello.py</code></pre>
+
+      <p>你應該會看到以下輸出：</p>
+
+      <pre><code class="language-text">Hello, World!
+Welcome to Python.
+2 + 3 = 5</code></pre>
+
+      <h3>工作流程摘要</h3>
+      <ol>
+        <li>在文字編輯器中<strong>編輯</strong>你的 <code>.py</code> 檔案。</li>
+        <li><strong>儲存</strong>檔案。</li>
+        <li><strong>切換</strong>到終端機。</li>
+        <li>使用 <code>python filename.py</code> <strong>執行</strong>。</li>
+        <li><strong>閱讀</strong>輸出（或錯誤訊息）。</li>
+        <li><strong>重複</strong> &mdash; 回到步驟 1 進行修改。</li>
+      </ol>
+
+      <p>
+        這個「編輯-儲存-執行」循環是 Python 的基本工作流程。像 VS Code 這樣的編輯器讓你可以用一個按鍵就執行腳本，但在底層，它做的是同樣的事情。
+      </p>
+
+      <!-- ============================================================ -->
+      <!-- 5. VIRTUAL ENVIRONMENTS                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="virtual-environments">5. 如何使用虛擬環境</h2>
+
+      <div class="callout callout-important">
+        <h4>為什麼這很重要</h4>
+        <p>
+          想像你有兩個專案：專案 A 需要 <code>numpy 1.24</code>，而專案 B 需要 <code>numpy 1.26</code>。如果你將套件安裝在全域（整個系統），你一次只能有一個版本的 <code>numpy</code>，在專案之間切換會變成一場惡夢。<strong>虛擬環境解決了這個問題。</strong>每個專案都有自己獨立的套件資料夾，所以專案 A 和專案 B 可以各自擁有它們需要的精確版本，而不會有任何衝突。
+        </p>
+        <p>
+          你可以將虛擬環境想成是給每個專案一份 Python 及其套件的私有副本。這是作為 Python 程式設計師最重要的習慣之一。<strong>每個專案都要使用虛擬環境。</strong>
+        </p>
+      </div>
+
+      <h3>建立虛擬環境</h3>
+
+      <p>
+        Python 3 內建了 <code>venv</code> 模組（不需要額外安裝）。導覽到你的專案資料夾並執行：
+      </p>
+
+      <pre><code class="language-bash"># 建立一個名為 "myenv" 的虛擬環境
+python -m venv myenv
+
+# 或在 macOS/Linux 上
+python3 -m venv myenv</code></pre>
+
+      <p>
+        這會在你的專案目錄中建立一個名為 <code>myenv</code> 的新資料夾。這個資料夾包含一份 Python 直譯器的副本、一個 <code>pip</code> 可執行檔，以及一個 <code>site-packages</code> 目錄，安裝的套件會放在這裡。你通常會將它命名為 <code>venv</code>、<code>.venv</code> 或 <code>env</code> &mdash; 任何名稱都可以。
+      </p>
+
+      <h3>啟動虛擬環境</h3>
+
+      <p>
+        建立環境還不夠 &mdash; 你必須<strong>啟動</strong>它，這樣你的終端機才會使用環境內的 Python 和 pip，而不是全域的。
+      </p>
+
+      <pre><code class="language-bash"># Windows（命令提示字元）
+myenv\Scripts\activate
+
+# Windows（PowerShell）
+myenv\Scripts\Activate.ps1
+
+# Windows（Git Bash）
+source myenv/Scripts/activate
+
+# macOS / Linux
+source myenv/bin/activate</code></pre>
+
+      <p>
+        當環境啟動時，你會在終端機提示符的開頭看到環境名稱（用括號括起來）：
+      </p>
+
+      <pre><code class="language-text">(myenv) C:\Users\YourName\projects&gt;
+(myenv) user@machine:~/projects$</code></pre>
+
+      <p>
+        環境啟動期間，<code>python</code> 和 <code>pip</code> 指的是虛擬環境內的版本 &mdash; 而不是全域的。
+      </p>
+
+      <h3>停用虛擬環境</h3>
+
+      <pre><code class="language-bash"># 在所有平台上都有效 — 直接輸入：
+deactivate</code></pre>
+
+      <p>
+        <code>(myenv)</code> 前綴會消失，你的終端機會恢復使用全域的 Python。
+      </p>
+
+      <h3>完整的虛擬環境工作流程</h3>
+
+      <pre><code class="language-bash"># 1. 建立專案資料夾
+mkdir my_project
+cd my_project
+
+# 2. 建立虛擬環境
+python -m venv venv
+
+# 3. 啟動虛擬環境
+# Windows：  venv\Scripts\activate
+# Mac/Linux：source venv/bin/activate
+
+# 4. 安裝套件（只會安裝到虛擬環境中）
+pip install numpy requests
+
+# 5. 進行你的工作...
+python my_script.py
+
+# 6. 完成後，停用虛擬環境
+deactivate</code></pre>
+
+      <div class="callout callout-warning">
+        <h4>警告 &mdash; 不要將 venv 資料夾提交到版本控制</h4>
+        <p>
+          虛擬環境資料夾（<code>venv/</code>、<code>myenv/</code> 等）可能有數百 MB，而且是特定於你的作業系統的。<strong>永遠不要</strong>將它加入版本控制（Git）。相反，將它加入你的 <code>.gitignore</code> 檔案。其他人可以使用你的 <code>requirements.txt</code>（下一節會介紹）來重新建立環境。
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <h4>MATLAB 比較</h4>
+        <p>
+          MATLAB 沒有虛擬環境。當你安裝一個工具箱，它會對你電腦上的每個 MATLAB 專案都可用。這比較簡單，但可能會導致版本衝突。Python 的虛擬環境系統讓你能夠按專案精細控制依賴項目 &mdash; 這對可重現性和協作來說是一個重大優勢。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 6. INSTALLING PACKAGES WITH PIP                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="pip">6. 如何使用 pip 安裝套件</h2>
+
+      <p>
+        Python 的標準函式庫非常廣泛，但生態系統真正的力量來自<strong>第三方套件</strong> &mdash; 由社群撰寫並發布在 <a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a>（Python 套件索引）上的函式庫。有超過 500,000 個套件可用。你使用 <code>pip</code>（Python 的套件安裝程式）來安裝它們。
+      </p>
+
+      <h3>安裝套件</h3>
+
+      <pre><code class="language-bash"># 確保你的虛擬環境已經啟動！
+
+# 安裝單一套件
+pip install numpy
+
+# 安裝特定版本
+pip install numpy==1.26.4
+
+# 一次安裝多個套件
+pip install numpy requests matplotlib pandas</code></pre>
+
+      <p>
+        pip 會從 PyPI 下載套件並安裝它（以及它所需的任何依賴項目）。你會看到顯示下載進度的輸出，以及類似 <code>Successfully installed numpy-1.26.4</code> 的成功訊息。
+      </p>
+
+      <h3>列出已安裝的套件</h3>
+
+      <pre><code class="language-bash"># 查看所有已安裝的套件及其版本
+pip list
+
+# 範例輸出：
+# Package    Version
+# ---------- -------
+# numpy      1.26.4
+# pip        24.0
+# requests   2.31.0
+# setuptools 69.5.1</code></pre>
+
+      <h3>將依賴項目凍結到 requirements.txt</h3>
+
+      <pre><code class="language-bash"># 匯出所有已安裝套件的精確版本
+pip freeze &gt; requirements.txt
+
+# 查看檔案
+cat requirements.txt
+# 輸出：
+# certifi==2024.2.2
+# charset-normalizer==3.3.2
+# numpy==1.26.4
+# requests==2.31.0
+# urllib3==2.2.1</code></pre>
+
+      <p>
+        <code>requirements.txt</code> 檔案是一個包含固定版本套件的純文字列表。將這個檔案分享給協作者或放入你的 Git 儲存庫，這樣任何人都可以重新建立你的精確環境：
+      </p>
+
+      <pre><code class="language-bash"># 其他人（或你在新電腦上）可以用以下指令安裝所有套件：
+pip install -r requirements.txt</code></pre>
+
+      <h3>升級和解除安裝套件</h3>
+
+      <pre><code class="language-bash"># 將套件升級到最新版本
+pip install --upgrade numpy
+
+# 升級 pip 本身
+pip install --upgrade pip
+
+# 解除安裝套件
+pip uninstall requests</code></pre>
+
+      <h3>搜尋套件</h3>
+
+      <p>
+        要尋找套件，請在你的網頁瀏覽器中直接瀏覽 <a href="https://pypi.org/" target="_blank" rel="noopener">pypi.org</a>。以下是作為 MATLAB 使用者轉換到 Python 時會遇到的一些熱門套件：
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>套件</th><th>用途</th><th>MATLAB 對應功能</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>numpy</code></td><td>數值陣列和數學運算</td><td>MATLAB 核心陣列</td></tr>
+          <tr><td><code>scipy</code></td><td>科學計算（最佳化、積分等）</td><td>MATLAB 內建函式</td></tr>
+          <tr><td><code>matplotlib</code></td><td>繪圖和視覺化</td><td>MATLAB 繪圖函式</td></tr>
+          <tr><td><code>pandas</code></td><td>資料表格和分析</td><td>MATLAB 表格</td></tr>
+          <tr><td><code>sympy</code></td><td>符號數學</td><td>符號數學工具箱</td></tr>
+          <tr><td><code>scikit-learn</code></td><td>機器學習</td><td>統計和機器學習工具箱</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!-- 7. COMMON BEGINNER MISTAKES IN SETUP                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">7. 初學者常犯的設定錯誤</h2>
+
+      <p>
+        幾乎每個 Python 初學者都會遇到以下一個或多個問題。現在先讀過它們，這樣你就能避免日後數小時的挫折。
+      </p>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 1 &mdash; 未將 Python 加入 PATH（Windows）</h4>
+        <p>
+          <strong>症狀：</strong>你在終端機中輸入 <code>python</code>，卻出現 <code>'python' is not recognized as an internal or external command'</code>。
+        </p>
+        <p>
+          <strong>解決方法：</strong>重新執行 Python 安裝程式，選擇 <em>Modify</em>，確保 PATH 選項已勾選。或者，使用 python.exe 的完整路徑（例如 <code>C:\Users\YourName\AppData\Local\Programs\Python\Python312\python.exe</code>），但這很麻煩。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 2 &mdash; 使用了錯誤的 Python 版本</h4>
+        <p>
+          <strong>症狀：</strong>使用現代功能（f-strings、海象運算子、match 語句）的程式碼拋出 <code>SyntaxError</code>。
+        </p>
+        <p>
+          <strong>解決方法：</strong>執行 <code>python --version</code> 來檢查。如果你看到 Python 2.x，你需要安裝 Python 3 並使用 <code>python3</code> 指令。如果你看到 Python 3.6 或更舊的版本，請升級到最新版本。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 3 &mdash; 混淆 pip 和 pip3</h4>
+        <p>
+          <strong>症狀：</strong>你用 <code>pip install numpy</code> 安裝了套件，但當你用 <code>python3</code> 執行腳本時，卻出現 <code>ModuleNotFoundError: No module named 'numpy'</code>。
+        </p>
+        <p>
+          <strong>解決方法：</strong>在某些系統上，<code>pip</code> 可能連結到 Python 2，而 <code>pip3</code> 連結到 Python 3。最安全的安裝套件方式是：<code>python3 -m pip install numpy</code>。這能保證套件安裝到你實際執行的同一個 Python 版本中。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 4 &mdash; 將套件安裝在全域而非虛擬環境中</h4>
+        <p>
+          <strong>症狀：</strong>專案之間的套件版本衝突。系統 Python 在一次錯誤安裝後損壞。權限錯誤（<code>ERROR: Could not install packages due to an EnvironmentError</code>）。
+        </p>
+        <p>
+          <strong>解決方法：</strong>在執行 <code>pip install</code> 之前，務必先建立並啟動虛擬環境。確認你的提示符顯示 <code>(venv)</code> 後再安裝。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 5 &mdash; 忘記啟動虛擬環境</h4>
+        <p>
+          <strong>症狀：</strong>你建立了虛擬環境，也在其中安裝了套件，但你的腳本找不到它們。
+        </p>
+        <p>
+          <strong>解決方法：</strong>確認你的終端機提示符中有顯示 <code>(venv)</code> 或 <code>(myenv)</code>。如果沒有，再次執行啟動指令。你<strong>每次</strong>開啟新的終端機視窗時都必須啟動環境。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 6 &mdash; 在 macOS/Linux 上執行 python 而非 python3</h4>
+        <p>
+          <strong>症狀：</strong>在某些 macOS/Linux 系統上，<code>python</code> 指向 Python 2（或根本不存在），而 <code>python3</code> 才是正確的指令。
+        </p>
+        <p>
+          <strong>解決方法：</strong>除非你在虛擬環境內（在虛擬環境中 <code>python</code> 始終是正確的），否則在 macOS/Linux 上請務必使用 <code>python3</code> 和 <code>pip3</code>。
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <h4>錯誤 7 &mdash; 修改了程式碼但執行的是舊版本</h4>
+        <p>
+          <strong>症狀：</strong>你修改了程式碼，但輸出結果沒有改變。
+        </p>
+        <p>
+          <strong>解決方法：</strong>確認你在重新執行之前已<strong>儲存了檔案</strong>。這是一個出乎意料的常見疏忽，特別是對於習慣了編輯器在執行前自動儲存的 MATLAB 使用者。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- 8. COMMAND/TOOL COMPARISON TABLE                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="command-comparison">8. python、python3、pip、pip3、venv 和 conda 的差異</h2>
+
+      <p>
+        這些術語在你剛入門時可能會令人困惑。以下是一個清楚的比較：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指令／工具</th>
+            <th>是什麼</th>
+            <th>何時使用</th>
+            <th>備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>python</code></td>
+            <td>Python 直譯器</td>
+            <td>執行腳本、啟動 REPL</td>
+            <td>在 Windows 上，這通常是 Python 3。在 macOS/Linux 上，較舊的系統上可能<em>指向</em> Python 2，或者根本不存在。</td>
+          </tr>
+          <tr>
+            <td><code>python3</code></td>
+            <td>Python 3 直譯器（明確指定）</td>
+            <td>在 macOS/Linux 上執行腳本</td>
+            <td>始終指向 Python 3。在 macOS/Linux 上使用這個指令比較安全。在虛擬環境內，<code>python</code> 和 <code>python3</code> 是相同的。</td>
+          </tr>
+          <tr>
+            <td><code>pip</code></td>
+            <td>Python 套件安裝程式</td>
+            <td>安裝第三方套件</td>
+            <td>在某些系統上可能連結到 Python 2。最安全的用法：<code>python -m pip install ...</code></td>
+          </tr>
+          <tr>
+            <td><code>pip3</code></td>
+            <td>Python 3 的套件安裝程式（明確指定）</td>
+            <td>在 macOS/Linux 上安裝套件</td>
+            <td>保證套件安裝到 Python 3。在虛擬環境內，<code>pip</code> 和 <code>pip3</code> 是等效的。</td>
+          </tr>
+          <tr>
+            <td><code>venv</code></td>
+            <td>Python 內建的虛擬環境模組</td>
+            <td>建立隔離的專案環境</td>
+            <td>Python 3.3+ 內建。輕量級，不需要額外安裝。用法：<code>python -m venv myenv</code></td>
+          </tr>
+          <tr>
+            <td><code>conda</code></td>
+            <td>第三方套件和環境管理器（來自 Anaconda/Miniconda）</td>
+            <td>資料科學專案、管理複雜的依賴項目</td>
+            <td>同時管理 Python 套件<em>和</em>非 Python 依賴項目（例如 C 函式庫）。比 venv 重。在資料科學領域很受歡迎。你<strong>不需要</strong> conda 就能開始學習 Python &mdash; <code>venv</code> + <code>pip</code> 就足夠了。</td>
+          </tr>
+          <tr>
+            <td><code>virtualenv</code></td>
+            <td>第三方虛擬環境工具</td>
+            <td>較舊的專案或需要額外功能時</td>
+            <td>比 <code>venv</code> 更早出現。建立環境的速度更快，支援較舊的 Python。對大多數初學者來說，內建的 <code>venv</code> 就夠用了。</td>
+          </tr>
+          <tr>
+            <td><code>pyenv</code></td>
+            <td>管理多個 Python 版本的工具</td>
+            <td>當你需要多個 Python 版本並存時</td>
+            <td>不是套件管理器 &mdash; 它管理的是 <em>Python 本身</em>。對於需要在不同 Python 版本的專案上工作的開發者很有用。僅限 macOS/Linux（有一個 Windows 版本叫做 <code>pyenv-win</code>）。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-tip">
+        <h4>給初學者的建議設定</h4>
+        <p>
+          不要把事情搞得太複雜。在你學習 Python 的頭幾個月，你只需要：
+        </p>
+        <ul>
+          <li>從 python.org 安裝的 <strong>Python 3</strong></li>
+          <li>用於虛擬環境的 <strong>venv</strong>（內建，不需要安裝）</li>
+          <li>用於安裝套件的 <strong>pip</strong>（隨 Python 一起安裝）</li>
+          <li>作為文字編輯器的 <strong>VS Code</strong>（免費，有優秀的 Python 支援）</li>
+        </ul>
+        <p>你可以在有具體需求時再去探索 conda、pyenv 和其他工具。</p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- QUICK REFERENCE                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="quick-reference">快速參考：常用指令</h2>
+
+      <p>收藏這個章節。這些是你每天都會使用的指令：</p>
+
+      <table>
+        <thead>
+          <tr><th>任務</th><th>指令</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>檢查 Python 版本</td><td><code>python --version</code></td></tr>
+          <tr><td>啟動互動式 Python</td><td><code>python</code></td></tr>
+          <tr><td>執行腳本</td><td><code>python myscript.py</code></td></tr>
+          <tr><td>建立虛擬環境</td><td><code>python -m venv venv</code></td></tr>
+          <tr><td>啟動 venv（Windows CMD）</td><td><code>venv\Scripts\activate</code></td></tr>
+          <tr><td>啟動 venv（macOS/Linux）</td><td><code>source venv/bin/activate</code></td></tr>
+          <tr><td>停用 venv</td><td><code>deactivate</code></td></tr>
+          <tr><td>安裝套件</td><td><code>pip install package_name</code></td></tr>
+          <tr><td>從 requirements 安裝</td><td><code>pip install -r requirements.txt</code></td></tr>
+          <tr><td>列出已安裝的套件</td><td><code>pip list</code></td></tr>
+          <tr><td>匯出依賴項目</td><td><code>pip freeze &gt; requirements.txt</code></td></tr>
+          <tr><td>升級套件</td><td><code>pip install --upgrade package_name</code></td></tr>
+          <tr><td>離開互動式 Python</td><td><code>exit()</code> 或 Ctrl+D / Ctrl+Z</td></tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!-- SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <p>在這個章節中，你學到了如何：</p>
+
+      <ul>
+        <li>在 Windows、macOS 和 Linux 上<strong>安裝 Python</strong>（以及為什麼 Windows 上的「加入 PATH」核取方塊很重要）。</li>
+        <li>使用 <code>python --version</code> 和 <code>where</code>/<code>which</code> <strong>驗證你的安裝</strong>。</li>
+        <li><strong>使用互動式直譯器</strong>進行快速實驗，以及如何離開它。</li>
+        <li>使用「編輯-儲存-執行」工作流程<strong>撰寫並執行 <code>.py</code> 檔案</strong>。</li>
+        <li>使用 <code>venv</code> <strong>建立虛擬環境</strong>來隔離專案的依賴項目。</li>
+        <li>使用 <code>pip</code> <strong>安裝套件</strong>，並使用 <code>requirements.txt</code> 管理依賴項目。</li>
+        <li><strong>避免常見的設定錯誤</strong>，這些錯誤會讓大多數初學者受挫。</li>
+        <li><strong>區分</strong> <code>python</code>、<code>python3</code>、<code>pip</code>、<code>pip3</code>、<code>venv</code> 和 <code>conda</code>。</li>
+      </ul>
+
+      <p>
+        你現在擁有了開始撰寫 Python 程式碼所需的一切。在下一個章節中，我們將深入語言本身 &mdash; 從 <code>print()</code>、變數和數字開始。
+      </p>
+
+      <!-- ============================================================ -->
+      <!-- PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="what-is-python.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">什麼是Python？</span></a>
+        <a href="basics-print-variables.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">輸出、變數與數字</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

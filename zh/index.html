@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>學習 Python — 完整初學者指南</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Mobile sidebar toggle -->
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+
+      <!-- 首頁 -->
+      <div class="nav-section">
+        <a href="index.html" class="nav-link active">
+          <span class="section-badge">&#8962;</span> 首頁
+        </a>
+      </div>
+
+      <!-- Section A -->
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="pages/what-is-python.html" class="nav-link">
+          <span class="section-badge">A</span> 什麼是 Python？
+        </a>
+      </div>
+
+      <!-- Section B -->
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="pages/getting-started.html" class="nav-link">
+          <span class="section-badge">B</span> 入門設定
+        </a>
+      </div>
+
+      <!-- Section C -->
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="pages/basics-print-variables.html" class="nav-link">
+          <span class="section-badge">C1</span> 輸出、變數、數字
+        </a>
+        <a href="pages/basics-strings-booleans.html" class="nav-link">
+          <span class="section-badge">C2</span> 字串、布林值、型別
+        </a>
+        <a href="pages/basics-lists-tuples.html" class="nav-link">
+          <span class="section-badge">C3</span> 串列、元組、集合
+        </a>
+        <a href="pages/basics-dictionaries.html" class="nav-link">
+          <span class="section-badge">C4</span> 字典
+        </a>
+        <a href="pages/basics-conditionals.html" class="nav-link">
+          <span class="section-badge">C5</span> if / elif / else
+        </a>
+        <a href="pages/basics-loops.html" class="nav-link">
+          <span class="section-badge">C6</span> 迴圈
+        </a>
+        <a href="pages/basics-functions.html" class="nav-link">
+          <span class="section-badge">C7</span> 函式
+        </a>
+        <a href="pages/basics-more.html" class="nav-link">
+          <span class="section-badge">C8</span> 更多內建功能
+        </a>
+        <a href="pages/basics-files-modules.html" class="nav-link">
+          <span class="section-badge">C9</span> 檔案與模組
+        </a>
+      </div>
+
+      <!-- Section D -->
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="pages/common-patterns.html" class="nav-link">
+          <span class="section-badge">D1</span> 常用模式
+        </a>
+        <a href="pages/top-100-patterns.html" class="nav-link">
+          <span class="section-badge">D2</span> 百大常用模式
+        </a>
+      </div>
+
+      <!-- Section E -->
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="pages/matlab-to-python.html" class="nav-link">
+          <span class="section-badge">E1</span> MATLAB 轉 Python
+        </a>
+        <a href="pages/matlab-quick-translation.html" class="nav-link">
+          <span class="section-badge">E2</span> 快速對照指南
+        </a>
+      </div>
+
+      <!-- Section F -->
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="pages/comparisons.html" class="nav-link">
+          <span class="section-badge">F</span> 語言比較
+        </a>
+      </div>
+
+      <!-- Section G -->
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 實作專案</div>
+        <a href="pages/projects.html" class="nav-link">
+          <span class="section-badge">G</span> 迷你專案
+        </a>
+      </div>
+
+      <!-- Section H -->
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習</div>
+        <a href="pages/practice.html" class="nav-link">
+          <span class="section-badge">H</span> 練習題
+        </a>
+        <a href="pages/interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+
+      <!-- Section I -->
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="pages/best-practices.html" class="nav-link">
+          <span class="section-badge">I1</span> 最佳實踐
+        </a>
+        <a href="pages/common-errors.html" class="nav-link">
+          <span class="section-badge">I2</span> 常見錯誤
+        </a>
+      </div>
+
+      <!-- Section J -->
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="pages/cheatsheet.html" class="nav-link">
+          <span class="section-badge">J</span> 速查表
+        </a>
+        <a href="pages/glossary.html" class="nav-link">詞彙表</a>
+      </div>
+
+      <!-- Bonus -->
+      <div class="nav-section">
+        <div class="nav-section-title">附錄</div>
+        <a href="pages/python-for-automation.html" class="nav-link">
+          <span class="section-badge">+</span> Python 自動化應用
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 進階主題</div>
+        <a href="pages/oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="pages/numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ==================== Main Content ==================== -->
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+
+    <div class="content-wrapper">
+
+      <!-- Welcome Header -->
+      <h1>學習 Python &mdash; 完整初學者指南</h1>
+      <p class="page-subtitle">一個以實作範例驅動、從零開始學習 Python 的教學網站</p>
+
+      <p>
+        歡迎！本網站是一門結構化、自主學習的課程，專為想要以正確方式學習 Python 的完全初學者設計
+        &mdash; 透過閱讀清晰的說明和研究實際的範例來學習。無論您從未寫過任何一行程式碼，還是您有
+        <strong>MATLAB 背景</strong>並希望快速掌握 Python，每個章節都是為您量身打造的。
+        本課程不假設您具備任何程式設計的先備知識；每個概念都從頭開始介紹。
+      </p>
+
+      <p>
+        每一頁都包含了附有詳細註解的程式碼片段，您可以複製並自行執行。
+        概念按照邏輯順序層層遞進，但您也可以隨時透過側邊欄導覽跳到任何
+        您感興趣的主題。
+      </p>
+
+      <hr>
+
+      <!-- ===== Section Cards ===== -->
+
+      <!-- Section A -->
+      <h2>章節 A &mdash; 什麼是 Python</h2>
+      <div class="card-grid">
+        <a href="pages/what-is-python.html" class="card">
+          <div class="card-badge">章節 A</div>
+          <h3>什麼是 Python？</h3>
+          <p>
+            了解為什麼 Python 是世界上最受歡迎的程式語言之一。
+            認識它的歷史、設計哲學，以及它被廣泛應用的領域
+            &mdash; 從資料科學和機器學習到網頁開發和自動化。
+          </p>
+        </a>
+      </div>
+
+      <!-- Section B -->
+      <h2>章節 B &mdash; 入門設定</h2>
+      <div class="card-grid">
+        <a href="pages/getting-started.html" class="card">
+          <div class="card-badge">章節 B</div>
+          <h3>入門設定</h3>
+          <p>
+            安裝 Python、設定您的開發環境，並執行您的第一個腳本。
+            涵蓋編輯器的選擇（VS Code、PyCharm、Jupyter）、終端機的使用，
+            以及了解 Python 檔案的結構。
+          </p>
+        </a>
+      </div>
+
+      <!-- Section C -->
+      <h2>章節 C &mdash; Python 基礎</h2>
+      <p>課程的核心部分。這九頁內容將帶您逐一學習 Python 的每一個基本概念。</p>
+      <div class="card-grid">
+
+        <a href="pages/basics-print-variables.html" class="card">
+          <div class="card-badge">章節 C1</div>
+          <h3>輸出、註解、變數、數字</h3>
+          <p>
+            從 <code>print()</code> 開始，學習註解的用法、建立變數，
+            並探索 Python 的數值型別 &mdash; 整數、浮點數和基本算術運算子。
+          </p>
+        </a>
+
+        <a href="pages/basics-strings-booleans.html" class="card">
+          <div class="card-badge">章節 C2</div>
+          <h3>字串、布林值、型別轉換</h3>
+          <p>
+            使用字串處理文字、了解布林邏輯（<code>True</code> /
+            <code>False</code>），並學習如何使用
+            <code>int()</code>、<code>str()</code> 和 <code>float()</code> 進行型別轉換。
+          </p>
+        </a>
+
+        <a href="pages/basics-lists-tuples.html" class="card">
+          <div class="card-badge">章節 C3</div>
+          <h3>串列、元組、集合</h3>
+          <p>
+            使用串列儲存資料集合、了解不可變的元組，並使用集合
+            進行快速的成員檢測。學習索引、切片和常見的集合方法。
+          </p>
+        </a>
+
+        <a href="pages/basics-dictionaries.html" class="card">
+          <div class="card-badge">章節 C4</div>
+          <h3>字典</h3>
+          <p>
+            掌握 Python 的鍵值資料結構。建立、存取、更新和遍歷
+            字典 &mdash; Python 中最強大且最常使用的型別之一。
+          </p>
+        </a>
+
+        <a href="pages/basics-conditionals.html" class="card">
+          <div class="card-badge">章節 C5</div>
+          <h3>if / elif / else</h3>
+          <p>
+            使用條件陳述式控制程式流程。學習比較運算子、
+            邏輯運算子（<code>and</code>、<code>or</code>、<code>not</code>），
+            以及如何撰寫簡潔、易讀的分支邏輯。
+          </p>
+        </a>
+
+        <a href="pages/basics-loops.html" class="card">
+          <div class="card-badge">章節 C6</div>
+          <h3>for、while、break、continue、pass</h3>
+          <p>
+            使用 <code>for</code> 和 <code>while</code> 迴圈重複執行動作。學習如何
+            遍歷串列、字串和範圍，並使用
+            <code>break</code>、<code>continue</code> 和 <code>pass</code> 控制迴圈執行。
+          </p>
+        </a>
+
+        <a href="pages/basics-functions.html" class="card">
+          <div class="card-badge">章節 C7</div>
+          <h3>函式、回傳值、作用域、Lambda</h3>
+          <p>
+            使用函式撰寫可重複使用的程式碼。了解參數、回傳值、變數
+            作用域、預設引數、<code>*args</code> / <code>**kwargs</code>，
+            以及單行的 <code>lambda</code> 運算式。
+          </p>
+        </a>
+
+        <a href="pages/basics-more.html" class="card">
+          <div class="card-badge">章節 C8</div>
+          <h3>更多內建功能與技巧</h3>
+          <p>
+            進階學習 <code>input()</code>、錯誤處理基礎、f-string、切片、
+            串列推導式、<code>enumerate()</code>、<code>zip()</code>、
+            <code>range()</code>、排序，以及 <code>map()</code> / <code>filter()</code>。
+          </p>
+        </a>
+
+        <a href="pages/basics-files-modules.html" class="card">
+          <div class="card-badge">章節 C9</div>
+          <h3>檔案讀寫、try/except、匯入模組</h3>
+          <p>
+            讀取和寫入檔案、使用 <code>try</code> /
+            <code>except</code> 優雅地處理錯誤，並學習如何匯入和使用 Python 豐富的
+            標準函式庫和第三方套件。
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section D -->
+      <h2>章節 D &mdash; 常用模式</h2>
+      <div class="card-grid">
+
+        <a href="pages/common-patterns.html" class="card">
+          <div class="card-badge">章節 D1</div>
+          <h3>常用模式</h3>
+          <p>
+            探索在實際 Python 程式中反覆出現的程式碼模式 &mdash;
+            累加器迴圈、字典計數、巢狀迭代、防護子句
+            等等。認識這些模式能加速您的學習。
+          </p>
+        </a>
+
+        <a href="pages/top-100-patterns.html" class="card">
+          <div class="card-badge">章節 D2</div>
+          <h3>百大常用模式</h3>
+          <p>
+            精選的 100 個簡短 Python 模式參考，您將一再使用它們。
+            每一個都是獨立的範例，您可以複製、改編並組合
+            到您自己的專案中。
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section E -->
+      <h2>章節 E &mdash; MATLAB 轉 Python</h2>
+      <div class="card-grid">
+
+        <a href="pages/matlab-to-python.html" class="card">
+          <div class="card-badge">章節 E1</div>
+          <h3>MATLAB 轉 Python</h3>
+          <p>
+            為 MATLAB 使用者轉換到 Python 而設計的專門指南。涵蓋
+            理念上的差異、等效的工作流程，以及取代 MATLAB 內建工具箱的
+            函式庫（NumPy、SciPy、Matplotlib）。
+          </p>
+        </a>
+
+        <a href="pages/matlab-quick-translation.html" class="card">
+          <div class="card-badge">章節 E2</div>
+          <h3>快速對照指南</h3>
+          <p>
+            數十種常見操作的 MATLAB 與 Python 程式碼並列對照 &mdash;
+            陣列、繪圖、線性代數、檔案讀寫等等。在您撰寫程式碼時
+            可以將此頁面作為快速參考。
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section F -->
+      <h2>章節 F &mdash; 語言比較</h2>
+      <div class="card-grid">
+        <a href="pages/comparisons.html" class="card">
+          <div class="card-badge">章節 F</div>
+          <h3>語言比較</h3>
+          <p>
+            了解 Python 與其他熱門語言（如 JavaScript、C++、Java 和 R）的比較。
+            理解 Python 在速度、語法簡潔性和生態系統
+            方面的優劣取捨。
+          </p>
+        </a>
+      </div>
+
+      <!-- Section G -->
+      <h2>章節 G &mdash; 迷你專案</h2>
+      <div class="card-grid">
+        <a href="pages/projects.html" class="card">
+          <div class="card-badge">章節 G</div>
+          <h3>迷你專案</h3>
+          <p>
+            透過引導式迷你專案實踐您的技能：猜數字遊戲、
+            待辦事項應用程式、檔案整理器、網頁爬蟲等等。每個專案
+            都綜合運用了基礎章節中的多個概念。
+          </p>
+        </a>
+      </div>
+
+      <!-- Section H -->
+      <h2>章節 H &mdash; 練習</h2>
+      <div class="card-grid">
+        <a href="pages/practice.html" class="card">
+          <div class="card-badge">章節 H</div>
+          <h3>練習題</h3>
+          <p>
+            透過數十道按難度分類的練習題磨練您的技能。
+            每道題目都附有提示和完整解答，讓您能檢查自己的作業
+            並從不同的解題方法中學習。
+          </p>
+        </a>
+      </div>
+
+      <!-- Section I -->
+      <h2>章節 I &mdash; 最佳實踐</h2>
+      <div class="card-grid">
+
+        <a href="pages/best-practices.html" class="card">
+          <div class="card-badge">章節 I1</div>
+          <h3>最佳實踐</h3>
+          <p>
+            撰寫乾淨、易讀且易於維護的 Python 程式碼。涵蓋 PEP 8 風格、
+            有意義的命名、DRY 原則、虛擬環境、專案結構，
+            以及區分初學者與專業人士的良好習慣。
+          </p>
+        </a>
+
+        <a href="pages/common-errors.html" class="card">
+          <div class="card-badge">章節 I2</div>
+          <h3>常見錯誤</h3>
+          <p>
+            您最常遇到的錯誤訊息實用指南 &mdash;
+            <code>SyntaxError</code>、<code>IndentationError</code>、
+            <code>TypeError</code>、<code>KeyError</code> 等等 &mdash; 附有
+            每種錯誤的解說和修正方法。
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Section J -->
+      <h2>章節 J &mdash; 附錄</h2>
+      <div class="card-grid">
+        <a href="pages/cheatsheet.html" class="card">
+          <div class="card-badge">章節 J</div>
+          <h3>速查表</h3>
+          <p>
+            可列印的快速參考，涵蓋 Python 的語法、資料型別、
+            運算子、字串方法、串列方法、字典方法、常用模組，
+            以及常用的單行程式碼。
+          </p>
+        </a>
+      </div>
+
+      <!-- Bonus -->
+      <h2>附錄</h2>
+      <div class="card-grid">
+        <a href="pages/python-for-automation.html" class="card">
+          <div class="card-badge">附錄</div>
+          <h3>Python 自動化應用</h3>
+          <p>
+            了解 Python 如何幫您省下數小時的重複工作。學習自動化
+            檔案管理、試算表處理、電子郵件發送、網頁爬蟲，
+            以及排程任務，附有可立即使用的實用腳本。
+          </p>
+        </a>
+      </div>
+
+      <hr>
+
+      <!-- ===== Where to Start ===== -->
+      <h2 id="where-to-start">從哪裡開始</h2>
+      <p>
+        如果您是程式設計的新手，建議您按照章節順序學習。
+        以下是建議的閱讀路徑：
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">建議閱讀順序</div>
+        <ol>
+          <li><strong><a href="pages/what-is-python.html">什麼是 Python？</a></strong> &mdash; 了解您要學習的內容以及為什麼它很重要。</li>
+          <li><strong><a href="pages/getting-started.html">入門設定</a></strong> &mdash; 安裝 Python 並設定編輯器，以便跟著操作。</li>
+          <li><strong><a href="pages/basics-print-variables.html">輸出、變數、數字</a></strong> &mdash; 撰寫並執行您的第一段程式碼。</li>
+          <li><strong><a href="pages/basics-strings-booleans.html">字串、布林值、型別</a></strong> &mdash; 處理文字和 True/False 值。</li>
+          <li><strong><a href="pages/basics-lists-tuples.html">串列、元組、集合</a></strong> &mdash; 儲存和組織資料。</li>
+          <li><strong><a href="pages/basics-dictionaries.html">字典</a></strong> &mdash; 將鍵對應到值。</li>
+          <li><strong><a href="pages/basics-conditionals.html">條件判斷</a></strong> &mdash; 在程式碼中做出決策。</li>
+          <li><strong><a href="pages/basics-loops.html">迴圈</a></strong> &mdash; 高效地重複執行動作。</li>
+          <li><strong><a href="pages/basics-functions.html">函式</a></strong> &mdash; 撰寫可重複使用的邏輯區塊。</li>
+          <li><strong><a href="pages/basics-more.html">更多內建功能</a></strong> &mdash; 用必備的技巧完善您的工具包。</li>
+          <li><strong><a href="pages/basics-files-modules.html">檔案與模組</a></strong> &mdash; 讀取檔案和使用函式庫。</li>
+          <li><strong><a href="pages/common-patterns.html">常用模式</a></strong> &mdash; 識別並應用常見的慣用寫法。</li>
+          <li><strong><a href="pages/practice.html">練習</a></strong> &mdash; 透過實作練習鞏固所學。</li>
+          <li><strong><a href="pages/projects.html">迷你專案</a></strong> &mdash; 建造一些真正的東西。</li>
+        </ol>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">來自 MATLAB？</div>
+        <p>
+          如果您已經熟悉 MATLAB，請先閱讀
+          <strong><a href="pages/matlab-to-python.html">MATLAB 轉 Python</a></strong> 以獲得
+          概念性的總覽，然後在學習基礎時使用
+          <strong><a href="pages/matlab-quick-translation.html">快速對照指南</a></strong>
+          作為並列參考。您會發現許多 MATLAB 概念可以直接對應到 Python
+          &mdash; 只是語法不同而已。
+        </p>
+      </div>
+
+      <div class="callout callout-success">
+        <div class="callout-title">提示：做中學</div>
+        <p>
+          不要只是閱讀範例 &mdash; 親手輸入它們、執行它們、修改它們，
+          甚至故意弄壞它們。學習程式語言最快的方式就是
+          每天都寫程式碼，即使只有幾行也好。
+        </p>
+      </div>
+
+      <hr>
+
+      <p class="text-muted text-center" style="margin-top: 2rem; font-size: 0.85rem;">
+        用心為初學者打造。祝您寫程式愉快！
+      </p>
+
+    </div><!-- /.content-wrapper -->
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

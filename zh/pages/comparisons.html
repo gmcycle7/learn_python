@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 與其他語言比較 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- ==================== Sidebar ==================== -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/comparisons.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link active"><span class="section-badge">F</span> 語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ==================== Main Content ==================== -->
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+
+    <div class="content-wrapper">
+
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 語言比較
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION F — PYTHON VS OTHER LANGUAGES                       -->
+      <!-- ============================================================ -->
+
+      <h1>第 F 章 &mdash; Python 與其他語言比較</h1>
+      <p class="page-subtitle">
+        誠實且並排地比較 Python 與 MATLAB、C、C++、Java、JavaScript 和 Bash &mdash;
+        幫助你為每項工作選擇合適的工具。
+      </p>
+
+      <p>
+        沒有一種語言在所有方面都是最好的。Python 的超能力在於<strong>可讀性和開發速度</strong>，但在原始執行速度、行動開發和底層硬體存取方面確實有取捨。本頁透過將 Python 與你可能遇到的其他六種語言進行比較，幫助你了解這些取捨。
+      </p>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">給 MATLAB 使用者</div>
+        <p>
+          如果你是從 MATLAB 轉過來的，請從<a href="#python-vs-matlab">第 1 節：Python vs MATLAB</a> 開始。
+          其他比較在同事或職缺提到 C++、Java 或 JavaScript 時，有助於了解更廣泛的程式語言生態。
+        </p>
+      </div>
+
+      <!-- ===== Table of Contents ===== -->
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#master-comparison">總覽比較表</a></li>
+          <li><a href="#python-vs-matlab">1. Python vs MATLAB</a></li>
+          <li><a href="#python-vs-c">2. Python vs C</a></li>
+          <li><a href="#python-vs-cpp">3. Python vs C++</a></li>
+          <li><a href="#python-vs-java">4. Python vs Java</a></li>
+          <li><a href="#python-vs-javascript">5. Python vs JavaScript</a></li>
+          <li><a href="#python-vs-bash">6. Python vs Bash</a></li>
+          <li><a href="#decision-flowchart">我該使用哪種語言？</a></li>
+          <li><a href="#practical-recommendations">實用建議</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  MASTER COMPARISON TABLE                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="master-comparison">總覽比較表</h2>
+
+      <p>
+        下表提供一個全局概覽。每個欄位將語言從<strong>優秀</strong>到<strong>差</strong>進行評分。
+        （沒有語言在所有方面都是贏家 &mdash; 這就是重點。）
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>評估標準</th>
+              <th>Python</th>
+              <th>MATLAB</th>
+              <th>C</th>
+              <th>C++</th>
+              <th>Java</th>
+              <th>JavaScript</th>
+              <th>Bash</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>學習難度</strong></td>
+              <td>優秀</td>
+              <td>良好</td>
+              <td>困難</td>
+              <td>困難</td>
+              <td>中等</td>
+              <td>中等</td>
+              <td>中等</td>
+            </tr>
+            <tr>
+              <td><strong>可讀性</strong></td>
+              <td>優秀</td>
+              <td>良好</td>
+              <td>尚可</td>
+              <td>尚可</td>
+              <td>尚可</td>
+              <td>良好</td>
+              <td>差</td>
+            </tr>
+            <tr>
+              <td><strong>執行速度</strong></td>
+              <td>慢</td>
+              <td>中等</td>
+              <td>優秀</td>
+              <td>優秀</td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>慢</td>
+            </tr>
+            <tr>
+              <td><strong>生態系統 / 函式庫</strong></td>
+              <td>優秀</td>
+              <td>特定領域</td>
+              <td>尚可</td>
+              <td>良好</td>
+              <td>優秀</td>
+              <td>優秀</td>
+              <td>有限</td>
+            </tr>
+            <tr>
+              <td><strong>科學計算</strong></td>
+              <td>優秀</td>
+              <td>優秀</td>
+              <td>尚可</td>
+              <td>良好</td>
+              <td>尚可</td>
+              <td>差</td>
+              <td>差</td>
+            </tr>
+            <tr>
+              <td><strong>網頁開發</strong></td>
+              <td>良好</td>
+              <td>差</td>
+              <td>差</td>
+              <td>尚可</td>
+              <td>優秀</td>
+              <td>優秀</td>
+              <td>差</td>
+            </tr>
+            <tr>
+              <td><strong>自動化 / 腳本</strong></td>
+              <td>優秀</td>
+              <td>尚可</td>
+              <td>差</td>
+              <td>差</td>
+              <td>尚可</td>
+              <td>良好</td>
+              <td>優秀</td>
+            </tr>
+            <tr>
+              <td><strong>圖形介面應用</strong></td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>尚可</td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>優秀</td>
+              <td>差</td>
+            </tr>
+            <tr>
+              <td><strong>除錯</strong></td>
+              <td>容易</td>
+              <td>容易</td>
+              <td>困難</td>
+              <td>困難</td>
+              <td>中等</td>
+              <td>中等</td>
+              <td>困難</td>
+            </tr>
+            <tr>
+              <td><strong>跨平台</strong></td>
+              <td>優秀</td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>優秀</td>
+              <td>優秀</td>
+              <td>僅 Unix</td>
+            </tr>
+            <tr>
+              <td><strong>費用</strong></td>
+              <td>免費</td>
+              <td>昂貴</td>
+              <td>免費</td>
+              <td>免費</td>
+              <td>免費</td>
+              <td>免費</td>
+              <td>免費</td>
+            </tr>
+            <tr>
+              <td><strong>產業採用度</strong></td>
+              <td>非常高</td>
+              <td>學術界 / 工程</td>
+              <td>嵌入式 / 作業系統</td>
+              <td>遊戲 / 系統</td>
+              <td>企業</td>
+              <td>網頁 / 前端</td>
+              <td>DevOps</td>
+            </tr>
+            <tr>
+              <td><strong>錯誤處理</strong></td>
+              <td>優秀</td>
+              <td>良好</td>
+              <td>手動</td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>良好</td>
+              <td>差</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">如何閱讀此表</div>
+        <p>
+          這些評分是面向初學者的廣泛概括，旨在幫助決定將學習時間投入在哪裡。在專家手中，幾乎任何語言都可以完成幾乎任何事情。
+          這些評分反映的是初學者在使用每種語言完成該任務時的<em>典型體驗</em>。
+        </p>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  1. PYTHON VS MATLAB                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-matlab">1. Python vs MATLAB</h2>
+
+      <p>
+        如果你來自工程或學術背景，這是最重要的比較。MATLAB 是矩陣運算和訊號處理的出色工具，但 Python 提供了一個免費的通用替代方案，擁有龐大的生態系統。
+      </p>
+
+      <h3>摘要表</h3>
+      <table>
+        <thead>
+          <tr><th>評估標準</th><th>Python</th><th>MATLAB</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>費用</strong></td><td>免費且開源</td><td>昂貴的商業授權（工具箱需額外付費）</td></tr>
+          <tr><td><strong>範圍</strong></td><td>通用 &mdash; 網頁、AI、自動化、科學</td><td>特定領域 &mdash; 工程、數學、模擬</td></tr>
+          <tr><td><strong>速度</strong></td><td>純迴圈較慢；使用 NumPy 向量化則快</td><td>矩陣運算快；可使用 JIT 編譯器</td></tr>
+          <tr><td><strong>生態系統</strong></td><td>PyPI 上超過 400,000+ 套件</td><td>精選工具箱（昂貴的附加元件）</td></tr>
+          <tr><td><strong>社群</strong></td><td>龐大 &mdash; Stack Overflow、GitHub、YouTube</td><td>較小 &mdash; MATLAB Central、學術論壇</td></tr>
+          <tr><td><strong>產業採用度</strong></td><td>資料科學、科技、金融、新創、DevOps</td><td>航太、汽車、大學實驗室</td></tr>
+          <tr><td><strong>索引</strong></td><td>從 0 開始（<code>a[0]</code> 是第一個元素）</td><td>從 1 開始（<code>a(1)</code> 是第一個元素）</td></tr>
+          <tr><td><strong>IDE</strong></td><td>VS Code、PyCharm、Jupyter，多種選擇</td><td>內建桌面 IDE，含除錯器和變數瀏覽器</td></tr>
+          <tr><td><strong>可讀性</strong></td><td>優秀 &mdash; 類似英語的語法</td><td>良好 &mdash; 簡潔但可能晦澀</td></tr>
+          <tr><td><strong>除錯</strong></td><td>pdb、IDE 除錯器、優秀的錯誤追蹤</td><td>優秀的內建除錯器，含中斷點</td></tr>
+          <tr><td><strong>科學計算</strong></td><td>NumPy、SciPy、Matplotlib、pandas</td><td>內建矩陣引擎、Simulink</td></tr>
+          <tr><td><strong>網頁開發</strong></td><td>Django、Flask、FastAPI</td><td>非為網頁設計</td></tr>
+          <tr><td><strong>圖形介面</strong></td><td>Tkinter、PyQt、Kivy</td><td>App Designer、GUIDE</td></tr>
+          <tr><td><strong>自動化</strong></td><td>優秀的腳本語言</td><td>可行但在工程任務外不太方便</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="cmt"># hello.py</span>
+<span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code><span class="cmt">% hello.m</span>
+<span class="fn">disp</span>(<span class="str">'Hello, World!'</span>)</code></pre>
+        </div>
+      </div>
+
+      <h3>實際任務：讀取 CSV 並計算欄位平均值</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+df = pd.<span class="fn">read_csv</span>(<span class="str">"data.csv"</span>)
+avg = df[<span class="str">"temperature"</span>].<span class="fn">mean</span>()
+<span class="fn">print</span>(<span class="str">f"Average: </span>{avg:.2f}<span class="str">"</span>)</code></pre>
+        </div>
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>T = <span class="fn">readtable</span>(<span class="str">'data.csv'</span>);
+avg = <span class="fn">mean</span>(T.temperature);
+<span class="fn">fprintf</span>(<span class="str">'Average: %.2f\n'</span>, avg);</code></pre>
+        </div>
+      </div>
+
+      <h3>何時使用哪一個</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">使用 Python 的時機...</div>
+        <ul>
+          <li>你需要一個<strong>免費</strong>且無授權限制的工具。</li>
+          <li>你的專案超越數學範疇 &mdash; 網頁應用、自動化、API、資料庫。</li>
+          <li>你想使用最先進的機器學習和 AI 函式庫。</li>
+          <li>你正與軟體工程師或資料科學家合作。</li>
+          <li>你需要在伺服器、雲端或共用系統上部署腳本。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">使用 MATLAB 的時機...</div>
+        <ul>
+          <li>你的組織已經擁有 MATLAB 授權和既定的工作流程。</li>
+          <li>你需要 <strong>Simulink</strong> 進行系統級模擬和基於模型的設計。</li>
+          <li>你在某個領域工作，該領域的 MATLAB 工具箱（控制系統、訊號處理）無可比擬。</li>
+          <li>使用內建 IDE 和變數瀏覽器快速原型設計矩陣密集型演算法。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  2. PYTHON VS C                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-c">2. Python vs C</h2>
+
+      <p>
+        C 是現代程式設計的始祖。它提供直接的記憶體存取和極快的速度，但代價是需要手動管理記憶體和更陡峭的學習曲線。Python 處於光譜的另一端：容易撰寫，執行較慢。
+      </p>
+
+      <h3>摘要表</h3>
+      <table>
+        <thead>
+          <tr><th>評估標準</th><th>Python</th><th>C</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>速度</strong></td><td>慢（直譯式、動態型別）</td><td>非常快（編譯為機器碼）</td></tr>
+          <tr><td><strong>學習難度</strong></td><td>適合初學者</td><td>陡峭 &mdash; 指標、記憶體、標頭檔</td></tr>
+          <tr><td><strong>記憶體管理</strong></td><td>自動（垃圾回收）</td><td>手動（<code>malloc</code> / <code>free</code>）</td></tr>
+          <tr><td><strong>型別系統</strong></td><td>動態（執行時期檢查型別）</td><td>靜態（編譯時期宣告型別）</td></tr>
+          <tr><td><strong>編譯方式</strong></td><td>直譯 / 位元組碼</td><td>編譯為原生二進位檔</td></tr>
+          <tr><td><strong>使用場景</strong></td><td>腳本、資料科學、網頁、AI</td><td>作業系統、嵌入式、驅動程式、韌體</td></tr>
+          <tr><td><strong>生態系統</strong></td><td>龐大（PyPI）</td><td>僅標準函式庫；許多系統級函式庫</td></tr>
+          <tr><td><strong>可讀性</strong></td><td>非常高</td><td>低至中等 &mdash; 指標語法、手動迴圈</td></tr>
+          <tr><td><strong>除錯</strong></td><td>容易的錯誤追蹤、簡單的除錯器</td><td>GDB、Valgrind &mdash; 強大但複雜</td></tr>
+          <tr><td><strong>自動化</strong></td><td>優秀</td><td>不適合腳本</td></tr>
+          <tr><td><strong>科學計算</strong></td><td>透過 NumPy/SciPy 達到優秀</td><td>可行但需手動 &mdash; 無內建矩陣型別</td></tr>
+          <tr><td><strong>網頁開發</strong></td><td>Django、Flask、FastAPI</td><td>很少用於網頁</td></tr>
+          <tr><td><strong>圖形介面</strong></td><td>Tkinter、PyQt</td><td>GTK、原生 Win32 API &mdash; 底層</td></tr>
+          <tr><td><strong>腳本適用性</strong></td><td>優秀</td><td>差 &mdash; 需要編譯步驟</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="fn">printf</span>(<span class="str">"Hello, World!\n"</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-why">
+        <div class="callout-title">為什麼 Python 的版本這麼短？</div>
+        <p>
+          Python 幫你處理了樣板程式碼。在 C 語言中，你必須包含標頭檔、定義 <code>main</code> 函式，並明確返回退出碼。Python 只需從上到下執行你的語句 &mdash; 不需要任何儀式。
+        </p>
+      </div>
+
+      <h3>實際任務：排序整數串列</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>numbers = [<span class="num">42</span>, <span class="num">7</span>, <span class="num">13</span>, <span class="num">99</span>, <span class="num">1</span>]
+numbers.<span class="fn">sort</span>()
+<span class="fn">print</span>(numbers)
+<span class="cmt"># [1, 7, 13, 42, 99]</span></code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;stdlib.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">compare</span>(<span class="kw">const void</span> *a, <span class="kw">const void</span> *b) {
+    <span class="kw">return</span> (*(<span class="kw">int</span>*)a - *(<span class="kw">int</span>*)b);
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">int</span> nums[] = {<span class="num">42</span>, <span class="num">7</span>, <span class="num">13</span>, <span class="num">99</span>, <span class="num">1</span>};
+    <span class="kw">int</span> n = <span class="kw">sizeof</span>(nums)/<span class="kw">sizeof</span>(nums[<span class="num">0</span>]);
+    <span class="fn">qsort</span>(nums, n, <span class="kw">sizeof</span>(<span class="kw">int</span>), compare);
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++)
+        <span class="fn">printf</span>(<span class="str">"%d "</span>, nums[i]);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>何時使用哪一個</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">使用 Python 的時機...</div>
+        <ul>
+          <li>開發速度比執行速度更重要。</li>
+          <li>你正在撰寫腳本、原型、資料分析或網頁服務。</li>
+          <li>你想完全避免手動記憶體管理。</li>
+          <li>任務不需要直接的硬體存取。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">使用 C 的時機...</div>
+        <ul>
+          <li>你正在撰寫作業系統、裝置驅動程式或韌體。</li>
+          <li>微秒級的效能是不可妥協的（嵌入式系統、即時系統）。</li>
+          <li>你需要直接的記憶體控制（<code>malloc</code>、指標、記憶體映射 I/O）。</li>
+          <li>目標平台資源非常有限（微控制器）。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  3. PYTHON VS C++                                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-cpp">3. Python vs C++</h2>
+
+      <p>
+        C++ 在 C 的基礎上增加了物件導向程式設計、模板和標準模板庫（STL）。它是遊戲引擎、高頻交易和效能關鍵軟體的首選語言。Python 可以透過 <code>pybind11</code> 等函式庫呼叫 C++ 程式碼，所以兩者經常協同工作。
+      </p>
+
+      <h3>摘要表</h3>
+      <table>
+        <thead>
+          <tr><th>評估標準</th><th>Python</th><th>C++</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>速度</strong></td><td>慢（直譯式）</td><td>非常快（編譯、最佳化）</td></tr>
+          <tr><td><strong>物件導向</strong></td><td>簡單的類別語法、鴨子型別</td><td>完整的物件導向，含多重繼承、模板、RAII</td></tr>
+          <tr><td><strong>複雜度</strong></td><td>低 &mdash; 幾週即可學會</td><td>非常高 &mdash; 需要數年才能精通</td></tr>
+          <tr><td><strong>使用場景</strong></td><td>資料科學、腳本、網頁、AI</td><td>遊戲、引擎、高頻交易、瀏覽器、資料庫</td></tr>
+          <tr><td><strong>記憶體管理</strong></td><td>自動</td><td>手動 / 智慧指標 / RAII</td></tr>
+          <tr><td><strong>生態系統</strong></td><td>PyPI（400k+ 套件）</td><td>Boost、Qt、Unreal Engine、vcpkg/Conan</td></tr>
+          <tr><td><strong>可讀性</strong></td><td>非常高</td><td>低 &mdash; 模板和標頭檔密度很高</td></tr>
+          <tr><td><strong>除錯</strong></td><td>簡單的錯誤追蹤</td><td>GDB、LLDB、Visual Studio 除錯器</td></tr>
+          <tr><td><strong>自動化</strong></td><td>優秀</td><td>不實用 &mdash; 需要編譯步驟</td></tr>
+          <tr><td><strong>科學計算</strong></td><td>NumPy、SciPy</td><td>Eigen、Armadillo、自訂程式碼</td></tr>
+          <tr><td><strong>圖形介面</strong></td><td>Tkinter、PyQt</td><td>Qt、wxWidgets、Dear ImGui</td></tr>
+          <tr><td><strong>網頁開發</strong></td><td>Django、Flask</td><td>不常見（Crow、Drogon 存在但屬小眾）</td></tr>
+          <tr><td><strong>腳本適用性</strong></td><td>優秀</td><td>差</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C++</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    std::cout <span class="op">&lt;&lt;</span> <span class="str">"Hello, World!"</span> <span class="op">&lt;&lt;</span> std::endl;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>實際任務：從檔案讀取行到串列</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">with</span> <span class="fn">open</span>(<span class="str">"data.txt"</span>) <span class="kw">as</span> f:
+    lines = f.<span class="fn">readlines</span>()
+
+<span class="kw">for</span> line <span class="kw">in</span> lines:
+    <span class="fn">print</span>(line.<span class="fn">strip</span>())</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>C++</h4>
+<pre><code><span class="kw">#include</span> <span class="str">&lt;iostream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;fstream&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;string&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;vector&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    std::ifstream file(<span class="str">"data.txt"</span>);
+    std::vector&lt;std::string&gt; lines;
+    std::string line;
+
+    <span class="kw">while</span> (std::<span class="fn">getline</span>(file, line)) {
+        lines.<span class="fn">push_back</span>(line);
+    }
+
+    <span class="kw">for</span> (<span class="kw">const auto</span>&amp; l : lines) {
+        std::cout <span class="op">&lt;&lt;</span> l <span class="op">&lt;&lt;</span> std::endl;
+    }
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>何時使用哪一個</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">使用 Python 的時機...</div>
+        <ul>
+          <li>你想快速建立原型並快速迭代。</li>
+          <li>你的瓶頸是開發者時間，而非 CPU 時間。</li>
+          <li>你正在進行資料分析、機器學習或自動化。</li>
+          <li>你想用 <code>pybind11</code> 將現有的 C++ 函式庫黏合在一起。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">使用 C++ 的時機...</div>
+        <ul>
+          <li>你正在建構遊戲引擎、物理引擎或即時系統。</li>
+          <li>最大效能是關鍵（奈秒級的最佳化）。</li>
+          <li>你需要精細控制記憶體佈局和硬體。</li>
+          <li>你正在貢獻一個大型 C++ 程式碼庫（瀏覽器、資料庫、交易系統）。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  4. PYTHON VS JAVA                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-java">4. Python vs Java</h2>
+
+      <p>
+        Java 驅動企業後端、Android 應用程式和大規模分散式系統。它比 Python 更冗長，但提供強型別安全性和優秀的工具支援。許多組織同時使用兩者：Python 用於資料科學和腳本，Java 用於生產服務。
+      </p>
+
+      <h3>摘要表</h3>
+      <table>
+        <thead>
+          <tr><th>評估標準</th><th>Python</th><th>Java</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>冗長度</strong></td><td>低 &mdash; 最少的樣板程式碼</td><td>高 &mdash; 類別、型別、getter/setter 無處不在</td></tr>
+          <tr><td><strong>型別系統</strong></td><td>動態（可選的型別提示）</td><td>靜態（所有型別在編譯時期宣告）</td></tr>
+          <tr><td><strong>執行環境</strong></td><td>CPython 直譯器 / 位元組碼</td><td>JVM（編譯為位元組碼，然後 JIT 編譯）</td></tr>
+          <tr><td><strong>速度</strong></td><td>較慢</td><td>較快（JIT 編譯、靜態型別）</td></tr>
+          <tr><td><strong>企業應用</strong></td><td>成長中（資料、DevOps、ML）</td><td>主導（銀行、保險、電信）</td></tr>
+          <tr><td><strong>Android</strong></td><td>非原生（Kivy 存在但屬小眾）</td><td>主要語言（與 Kotlin 並用）</td></tr>
+          <tr><td><strong>生態系統</strong></td><td>PyPI（pip）</td><td>Maven Central（Maven/Gradle）</td></tr>
+          <tr><td><strong>學習曲線</strong></td><td>平緩</td><td>中等 &mdash; 需要較早接觸物件導向概念</td></tr>
+          <tr><td><strong>可讀性</strong></td><td>非常高</td><td>中等 &mdash; 冗長但明確</td></tr>
+          <tr><td><strong>除錯</strong></td><td>簡單的錯誤追蹤、pdb</td><td>優秀的 IDE 除錯器（IntelliJ、Eclipse）</td></tr>
+          <tr><td><strong>科學計算</strong></td><td>優秀</td><td>有限（ND4J、DL4J 存在但較不流行）</td></tr>
+          <tr><td><strong>網頁開發</strong></td><td>Django、Flask、FastAPI</td><td>Spring Boot、Jakarta EE &mdash; 企業級</td></tr>
+          <tr><td><strong>自動化</strong></td><td>優秀</td><td>可行但對簡單腳本來說太重</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Java</h4>
+<pre><code><span class="kw">public class</span> <span class="cls">HelloWorld</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        System.out.<span class="fn">println</span>(<span class="str">"Hello, World!"</span>);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-why">
+        <div class="callout-title">為什麼 Java 需要這麼多程式碼？</div>
+        <p>
+          Java 要求每段程式碼都必須放在類別中。你必須宣告一個類別、一個 <code>public static void main</code> 方法，並處處指定型別。Python 讓你在最上層撰寫可執行程式碼，不需要任何儀式。這種冗長度的取捨為 Java 提供了更好的工具支援和編譯時期的錯誤檢查，但它會拖慢快速腳本的撰寫。
+        </p>
+      </div>
+
+      <h3>實際任務：從串列中篩選偶數</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code>numbers = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>]
+evens = [n <span class="kw">for</span> n <span class="kw">in</span> numbers <span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>]
+<span class="fn">print</span>(evens)
+<span class="cmt"># [2, 4, 6, 8]</span></code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Java</h4>
+<pre><code><span class="kw">import</span> java.util.*;
+<span class="kw">import</span> java.util.stream.*;
+
+<span class="kw">public class</span> <span class="cls">FilterEvens</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
+        List&lt;Integer&gt; numbers = Arrays.<span class="fn">asList</span>(
+            <span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>
+        );
+        List&lt;Integer&gt; evens = numbers.<span class="fn">stream</span>()
+            .<span class="fn">filter</span>(n <span class="op">-&gt;</span> n % <span class="num">2</span> == <span class="num">0</span>)
+            .<span class="fn">collect</span>(Collectors.<span class="fn">toList</span>());
+        System.out.<span class="fn">println</span>(evens);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <h3>何時使用哪一個</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">使用 Python 的時機...</div>
+        <ul>
+          <li>你想快速建立原型和撰寫簡短腳本。</li>
+          <li>你正在從事資料科學、ML 或科學計算。</li>
+          <li>最少的樣板程式碼對你很重要。</li>
+          <li>你需要快速的自動化或膠合腳本。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">使用 Java 的時機...</div>
+        <ul>
+          <li>你正在建構大型企業應用程式（銀行、ERP）。</li>
+          <li>你需要 Android 行動開發。</li>
+          <li>你的團隊依賴強靜態型別和編譯時期檢查。</li>
+          <li>你需要經過實戰考驗的並行和多執行緒支援（Java 的執行緒模型是成熟的）。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  5. PYTHON VS JAVASCRIPT                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-javascript">5. Python vs JavaScript</h2>
+
+      <p>
+        JavaScript 是網頁的語言。每個瀏覽器都原生運行它，使其成為前端開發不可或缺的部分。透過 Node.js，它也可以在伺服器上運行。Python 和 JavaScript 有一些語法相似之處，但服務於不同的主要領域。
+      </p>
+
+      <h3>摘要表</h3>
+      <table>
+        <thead>
+          <tr><th>評估標準</th><th>Python</th><th>JavaScript</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>主要領域</strong></td><td>資料科學、AI、腳本、後端</td><td>網頁（透過 Node.js 前後端皆可）</td></tr>
+          <tr><td><strong>語法</strong></td><td>基於縮排、簡潔</td><td>大括號、分號可選、彈性</td></tr>
+          <tr><td><strong>非同步模型</strong></td><td><code>asyncio</code>（後來加入，較非核心）</td><td>事件迴圈是核心 &mdash; <code>async/await</code>、Promises</td></tr>
+          <tr><td><strong>套件管理器</strong></td><td>pip（PyPI: 400k+ 套件）</td><td>npm（2M+ 套件 &mdash; 最大的註冊中心）</td></tr>
+          <tr><td><strong>速度</strong></td><td>較慢（CPython）</td><td>較快（V8 JIT 引擎）</td></tr>
+          <tr><td><strong>前端</strong></td><td>原生不可行</td><td>必要 &mdash; React、Vue、Angular</td></tr>
+          <tr><td><strong>後端</strong></td><td>Django、Flask、FastAPI</td><td>Express、Fastify、NestJS（Node.js）</td></tr>
+          <tr><td><strong>使用場景</strong></td><td>資料、AI、自動化、科學</td><td>網站、SPA、行動（React Native）、桌面（Electron）</td></tr>
+          <tr><td><strong>可讀性</strong></td><td>非常高</td><td>良好 &mdash; 但有 <code>==</code> vs <code>===</code> 等怪癖</td></tr>
+          <tr><td><strong>除錯</strong></td><td>pdb、IDE 除錯器</td><td>瀏覽器 DevTools（優秀）、Node 除錯器</td></tr>
+          <tr><td><strong>科學計算</strong></td><td>優秀</td><td>差 &mdash; 沒有 NumPy 的成熟替代品</td></tr>
+          <tr><td><strong>圖形介面</strong></td><td>Tkinter、PyQt</td><td>Electron、基於瀏覽器的 UI</td></tr>
+          <tr><td><strong>腳本適用性</strong></td><td>優秀</td><td>搭配 Node.js 良好；系統任務較不便</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>JavaScript (Node.js)</h4>
+<pre><code>console.<span class="fn">log</span>(<span class="str">"Hello, World!"</span>);</code></pre>
+        </div>
+      </div>
+
+      <h3>實際任務：從網頁 API 取得資料</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">import</span> requests
+
+resp = requests.<span class="fn">get</span>(<span class="str">"https://api.example.com/data"</span>)
+data = resp.<span class="fn">json</span>()
+<span class="fn">print</span>(data[<span class="str">"name"</span>])</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>JavaScript (Node.js)</h4>
+<pre><code><span class="kw">const</span> resp = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">"https://api.example.com/data"</span>);
+<span class="kw">const</span> data = <span class="kw">await</span> resp.<span class="fn">json</span>();
+console.<span class="fn">log</span>(data.name);</code></pre>
+        </div>
+      </div>
+
+      <h3>何時使用哪一個</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">使用 Python 的時機...</div>
+        <ul>
+          <li>你正在建構資料管線、ML 模型或科學工作流程。</li>
+          <li>你需要乾淨、可讀的自動化腳本。</li>
+          <li>你的專案僅限後端，不涉及瀏覽器 UI。</li>
+          <li>你想要出色的數值計算函式庫支援。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">使用 JavaScript 的時機...</div>
+        <ul>
+          <li>你正在建構任何在網頁瀏覽器中運行的東西。</li>
+          <li>你想用單一語言同時處理前端和後端（全端 JS）。</li>
+          <li>你正在建構即時應用程式（聊天、串流、WebSockets）。</li>
+          <li>你需要跨平台桌面應用（Electron）或行動應用（React Native）。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  6. PYTHON VS BASH                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="python-vs-bash">6. Python vs Bash</h2>
+
+      <p>
+        Bash 是 Linux 和 macOS 的預設 shell。它非常適合快速的一行指令和將 Unix 命令串連在一起。但一旦腳本超過幾十行，Bash 就會變得脆弱且難以維護。這就是 Python 接手的地方。
+      </p>
+
+      <h3>摘要表</h3>
+      <table>
+        <thead>
+          <tr><th>評估標準</th><th>Python</th><th>Bash</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>腳本</strong></td><td>適合複雜腳本</td><td>適合短小的檔案/程序導向任務</td></tr>
+          <tr><td><strong>大規模可讀性</strong></td><td>高 &mdash; 可擴展到數千行</td><td>超過 50-100 行後急速下降</td></tr>
+          <tr><td><strong>錯誤處理</strong></td><td><code>try/except</code> &mdash; 結構化且清晰</td><td><code>set -e</code>、退出碼 &mdash; 脆弱且容易遺漏</td></tr>
+          <tr><td><strong>跨平台</strong></td><td>Windows、macOS、Linux</td><td>Linux/macOS 原生；Windows 需要 WSL 或 Git Bash</td></tr>
+          <tr><td><strong>資料結構</strong></td><td>串列、字典、集合、類別</td><td>字串、陣列（有限）、關聯陣列（Bash 4+）</td></tr>
+          <tr><td><strong>執行系統命令</strong></td><td><code>subprocess.run()</code></td><td>原生 &mdash; 每行都可以是命令</td></tr>
+          <tr><td><strong>文字處理</strong></td><td>內建字串方法、正規表達式</td><td>grep、sed、awk &mdash; 強大但晦澀</td></tr>
+          <tr><td><strong>速度</strong></td><td>中等</td><td>I/O 管道快；邏輯和迴圈慢</td></tr>
+          <tr><td><strong>學習曲線</strong></td><td>平緩</td><td>基礎容易；引號/跳脫規則很棘手</td></tr>
+          <tr><td><strong>生態系統</strong></td><td>400k+ 套件</td><td>Unix 工具集（coreutils 等）</td></tr>
+          <tr><td><strong>除錯</strong></td><td>錯誤追蹤、pdb</td><td><code>set -x</code> &mdash; 原始</td></tr>
+          <tr><td><strong>科學計算</strong></td><td>優秀</td><td>不適用</td></tr>
+          <tr><td><strong>網頁開發</strong></td><td>Django、Flask</td><td>不適用</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hello World</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Bash</h4>
+<pre><code><span class="cmt">#!/bin/bash</span>
+<span class="fn">echo</span> <span class="str">"Hello, World!"</span></code></pre>
+        </div>
+      </div>
+
+      <h3>實際任務：找到所有 .txt 檔案並計算行數</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code><span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+total = <span class="num">0</span>
+<span class="kw">for</span> f <span class="kw">in</span> Path(<span class="str">"."</span>).<span class="fn">rglob</span>(<span class="str">"*.txt"</span>):
+    lines = f.<span class="fn">read_text</span>().<span class="fn">splitlines</span>()
+    <span class="fn">print</span>(<span class="str">f"</span>{f}: {<span class="fn">len</span>(lines)} lines<span class="str">"</span>)
+    total += <span class="fn">len</span>(lines)
+
+<span class="fn">print</span>(<span class="str">f"Total: </span>{total}<span class="str"> lines"</span>)</code></pre>
+        </div>
+        <div class="comparison-col">
+          <h4>Bash</h4>
+<pre><code><span class="cmt">#!/bin/bash</span>
+total=<span class="num">0</span>
+<span class="kw">for</span> f <span class="kw">in</span> $(<span class="fn">find</span> . -name <span class="str">"*.txt"</span>); <span class="kw">do</span>
+    count=$(<span class="fn">wc</span> -l &lt; <span class="str">"$f"</span>)
+    <span class="fn">echo</span> <span class="str">"$f: $count lines"</span>
+    total=$(( total + count ))
+<span class="kw">done</span>
+<span class="fn">echo</span> <span class="str">"Total: $total lines"</span></code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">50 行規則</div>
+        <p>
+          一個常見的經驗法則：如果你的 Bash 腳本超過大約 50 行，就該用 Python 重寫了。Python 提供了 Bash 根本無法提供的適當錯誤處理、資料結構和可測試性。另一方面，一個 3 行的 Bash 管道串連 <code>grep</code>、<code>sort</code> 和 <code>uniq</code> 通常比等效的 Python 更自然。
+        </p>
+      </div>
+
+      <h3>何時使用哪一個</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">使用 Python 的時機...</div>
+        <ul>
+          <li>腳本超過幾十行。</li>
+          <li>你需要適當的錯誤處理、日誌記錄和可測試性。</li>
+          <li>腳本必須在 Windows 和 Linux/macOS 上運行。</li>
+          <li>你正在處理結構化資料（JSON、CSV、資料庫）。</li>
+          <li>你需要複雜的資料結構（字典、物件）。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">使用 Bash 的時機...</div>
+        <ul>
+          <li>你正在將幾個 Unix 命令串連成管道。</li>
+          <li>任務純粹與檔案、目錄和程序有關。</li>
+          <li>你在終端機寫一個快速的一行指令。</li>
+          <li>你正在撰寫 CI/CD 管線步驟，只需執行幾個命令。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  DECISION FLOWCHART                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="decision-flowchart">我該使用哪種語言？</h2>
+
+      <p>
+        當你開始一個新專案並想知道該使用哪種語言時，請使用這個決策指南。從上到下依序回答問題。
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">決策流程圖</div>
+
+        <p><strong>1. 程式碼需要在網頁瀏覽器中運行嗎？</strong></p>
+        <ul>
+          <li><strong>是</strong> &rarr; 使用 <strong>JavaScript</strong>（前端）。你可以在後端搭配 Python。</li>
+          <li><strong>否</strong> &rarr; 繼續問題 2。</li>
+        </ul>
+
+        <p><strong>2. 你需要最高執行速度或直接的硬體存取嗎？</strong></p>
+        <ul>
+          <li><strong>是，原始效能 / 嵌入式 / 作業系統層級</strong> &rarr; 使用 <strong>C</strong>。</li>
+          <li><strong>是，效能 + 物件導向 / 遊戲引擎 / 高頻交易</strong> &rarr; 使用 <strong>C++</strong>。</li>
+          <li><strong>否</strong> &rarr; 繼續問題 3。</li>
+        </ul>
+
+        <p><strong>3. 你正在建構大型企業應用程式或 Android 應用嗎？</strong></p>
+        <ul>
+          <li><strong>是，企業後端 / Android</strong> &rarr; 使用 <strong>Java</strong>（或 Kotlin）。</li>
+          <li><strong>否</strong> &rarr; 繼續問題 4。</li>
+        </ul>
+
+        <p><strong>4. 任務是快速的 shell 一行指令或 5 行的檔案/程序腳本嗎？</strong></p>
+        <ul>
+          <li><strong>是</strong> &rarr; 使用 <strong>Bash</strong>。</li>
+          <li><strong>否</strong> &rarr; 繼續問題 5。</li>
+        </ul>
+
+        <p><strong>5. 你在使用 Simulink 建模或在組織中使用僅限 MATLAB 的工具箱嗎？</strong></p>
+        <ul>
+          <li><strong>是</strong> &rarr; 使用 <strong>MATLAB</strong>。</li>
+          <li><strong>否</strong> &rarr; 繼續問題 6。</li>
+        </ul>
+
+        <p><strong>6. 其他所有情況...</strong></p>
+        <ul>
+          <li><strong>使用 Python。</strong>資料科學、自動化、腳本、網頁後端、API、機器學習、科學計算、檔案處理、原型設計 &mdash; Python 是絕大多數任務的最佳通用選擇。</li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- ============================================================ -->
+      <!--  PRACTICAL RECOMMENDATIONS                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="practical-recommendations">實用建議</h2>
+
+      <p>
+        閱讀完所有六個比較之後，以下是初學者在決定將學習時間投入在哪裡時的關鍵要點。
+      </p>
+
+      <h3>如果你剛開始學習</h3>
+      <ul>
+        <li><strong>先學 Python。</strong>它有最平緩的學習曲線和最廣泛的適用性。一旦你理解了 Python 中的變數、迴圈、函式和資料結構，學習任何其他語言都會容易得多。</li>
+        <li><strong>不要同時學五種語言。</strong>先精通一種再擴展。</li>
+        <li><strong>根據你的目標選擇第二語言：</strong>
+          <ul>
+            <li>網頁前端 &rarr; JavaScript</li>
+            <li>系統 / 效能 &rarr; C 或 C++</li>
+            <li>企業 / Android &rarr; Java</li>
+            <li>DevOps / 系統管理 &rarr; Bash</li>
+            <li>工程 / 模擬 &rarr; MATLAB（如果你的組織提供的話）</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>如果你是正在學習 Python 的 MATLAB 使用者</h3>
+      <ul>
+        <li>你已經知道如何用演算法思考。專注學習 Python 的<strong>語法差異</strong>（從 0 開始索引、縮排、<code>def</code> 取代 <code>function</code>）。</li>
+        <li>立即安裝 NumPy、SciPy 和 Matplotlib &mdash; 它們是你的 MATLAB 對等工具。</li>
+        <li>使用<a href="matlab-quick-translation.html">快速轉換對照表</a>作為日常參考。</li>
+        <li>保留 MATLAB 用於 Simulink 和專門工具箱。其他一切都用 Python。</li>
+      </ul>
+
+      <h3>語言會協同工作</h3>
+
+      <div class="callout callout-success">
+        <div class="callout-title">真正的秘訣</div>
+        <p>
+          在實際工作中，你很少只使用一種語言。一個典型的現代專案可能使用：
+        </p>
+        <ul>
+          <li><strong>Python</strong> 用於資料處理和後端 API</li>
+          <li><strong>JavaScript</strong> 用於網頁前端</li>
+          <li><strong>C/C++</strong> 用於從 Python 呼叫的效能關鍵函式庫</li>
+          <li><strong>Bash</strong> 用於 CI/CD 腳本和部署自動化</li>
+          <li><strong>SQL</strong> 用於資料庫查詢</li>
+        </ul>
+        <p>
+          精通 Python 是最好的基礎，因為它可以連接所有這些。Python 可以呼叫 C 函式庫（<code>ctypes</code>、<code>cffi</code>）、執行 shell 命令（<code>subprocess</code>）、提供網頁 API（Flask），以及查詢資料庫（SQLAlchemy）。它是通用的膠合語言。
+        </p>
+      </div>
+
+      <h3>摘要速查表</h3>
+      <table>
+        <thead>
+          <tr><th>我想要...</th><th>使用...</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>分析資料或訓練 ML 模型</td><td><strong>Python</strong></td></tr>
+          <tr><td>建構網站前端</td><td><strong>JavaScript</strong></td></tr>
+          <tr><td>建構網站後端</td><td><strong>Python</strong> 或 <strong>JavaScript</strong>（Node.js）</td></tr>
+          <tr><td>撰寫快速 shell 腳本</td><td><strong>Bash</strong>（50 行以下）或 <strong>Python</strong></td></tr>
+          <tr><td>建構遊戲引擎</td><td><strong>C++</strong></td></tr>
+          <tr><td>為微控制器寫程式</td><td><strong>C</strong></td></tr>
+          <tr><td>建構 Android 應用</td><td><strong>Java</strong> 或 Kotlin</td></tr>
+          <tr><td>執行 Simulink 模擬</td><td><strong>MATLAB</strong></td></tr>
+          <tr><td>在電腦上自動管理檔案</td><td><strong>Python</strong></td></tr>
+          <tr><td>第一次學習寫程式</td><td><strong>Python</strong></td></tr>
+        </tbody>
+      </table>
+
+      <!-- ===== Prev / Next ===== -->
+      <div class="page-nav">
+        <a href="matlab-quick-translation.html" class="prev">
+          <span class="nav-label">&larr; 上一頁</span>
+          <span class="nav-title">快速轉換對照表</span>
+        </a>
+        <a href="projects.html" class="next">
+          <span class="nav-label">下一頁 &rarr;</span>
+          <span class="nav-title">迷你專案</span>
+        </a>
+      </div>
+
+    </div><!-- /.content-wrapper -->
+  </main>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

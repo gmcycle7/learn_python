@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>互動測驗 &mdash; 學習 Python</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> 學習 Python</h2><p>完整初學者指南</p>
+      <a href="../../pages/interactive-quizzes.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search"><span class="search-icon">&#128269;</span><input type="text" placeholder="搜尋頁面..." aria-label="搜尋"><div class="search-results"></div></div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a><a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a><a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a><a href="basics-dictionaries.html" class="nav-link">字典</a><a href="basics-conditionals.html" class="nav-link">條件判斷</a><a href="basics-loops.html" class="nav-link">迴圈</a><a href="basics-functions.html" class="nav-link">函式與Lambda</a><a href="basics-more.html" class="nav-link">更多內建功能</a><a href="basics-files-modules.html" class="nav-link">檔案與模組</a></div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; 常用模式</div><a href="common-patterns.html" class="nav-link">常用模式</a><a href="top-100-patterns.html" class="nav-link">前100個常用模式</a></div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB 轉 Python</div><a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a><a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a></div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; 練習</div><a href="practice.html" class="nav-link">練習與學習路線</a><a href="interactive-quizzes.html" class="nav-link active">互動測驗</a></div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; 最佳實踐</div><a href="best-practices.html" class="nav-link">最佳實踐</a><a href="common-errors.html" class="nav-link">常見錯誤</a></div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; 參考資料</div><a href="cheatsheet.html" class="nav-link">速查表</a><a href="python-for-automation.html" class="nav-link">Python 自動化</a><a href="glossary.html" class="nav-link">術語表</a></div>
+      <div class="nav-section"><div class="nav-section-title">K &mdash; 更多主題</div><a href="oop.html" class="nav-link">物件導向程式設計</a><a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a></div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        互動測驗
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  第 H 節 — 互動測驗                                           -->
+      <!-- ============================================================ -->
+
+      <h1>第 H 節 &mdash; 互動測驗</h1>
+      <p class="page-subtitle">
+        用 40 道實作題目測試你的 Python 知識。每個測驗
+        都會即時計分 &mdash; 選擇答案，立即獲得回饋，最後
+        查看你的總分。
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">測驗使用方式</div>
+        <p>
+          點選答案即可鎖定。你會立即看到答對或答錯。
+          當測驗中的每道題都回答完後，你的總分就會顯示。
+          點擊<strong>重置測驗</strong>可以重新作答。
+        </p>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#quiz-basics">測驗 1：Python 基礎（10 題）</a></li>
+          <li><a href="#quiz-data-structures">測驗 2：資料結構（10 題）</a></li>
+          <li><a href="#quiz-control-flow">測驗 3：控制流程與函式（10 題）</a></li>
+          <li><a href="#quiz-files-errors">測驗 4：檔案、錯誤與模組（10 題）</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  測驗 1 — PYTHON 基礎                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-basics">測驗 1：Python 基礎</h2>
+      <p>
+        變數、數字、字串、<code>print()</code>、註解和型別。
+        小心那些容易出錯的題目！
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 1 題：這段程式碼會印出什麼？</h4>
+          <pre><code>x = 7
+y = 2
+print(x // y)</code></pre>
+          <div class="quiz-option" data-value="a">3.5</div>
+          <div class="quiz-option" data-value="b">3.0</div>
+          <div class="quiz-option" data-value="c">3</div>
+          <div class="quiz-option" data-value="d">4</div>
+          <div class="quiz-feedback" data-correct="正確！// 運算子執行整數（取整）除法。7 // 2 = 3。" data-incorrect="不太對。// 運算子執行取整除法，丟棄餘數。由於兩個運算元都是整數，結果是整數 3。"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 2 題：以下哪個是 Python 中有效的變數名稱？</h4>
+          <div class="quiz-option" data-value="a">2nd_place</div>
+          <div class="quiz-option" data-value="b">_private_var</div>
+          <div class="quiz-option" data-value="c">my-variable</div>
+          <div class="quiz-option" data-value="d">class</div>
+          <div class="quiz-feedback" data-correct="正確！變數名稱可以以字母或底線開頭，_private_var 符合這個規則。" data-incorrect="不太對。變數名稱不能以數字開頭（2nd_place）、不能包含連字號（my-variable）、也不能是保留關鍵字（class）。_private_var 是有效的。"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 3 題：這段程式碼會印出什麼？</h4>
+          <pre><code>name = "Python"
+print(name[0] + name[-1])</code></pre>
+          <div class="quiz-option" data-value="a">Py</div>
+          <div class="quiz-option" data-value="b">Pn</div>
+          <div class="quiz-option" data-value="c">yn</div>
+          <div class="quiz-option" data-value="d">Po</div>
+          <div class="quiz-feedback" data-correct="正確！name[0] 是 'P'，name[-1] 是 'n'，所以結果是 'Pn'。" data-incorrect="不太對。name[0] 得到第一個字元 'P'，name[-1] 得到最後一個字元 'n'。串接後：'Pn'。"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 4 題：結果的型別是什麼？</h4>
+          <pre><code>result = 10 / 2</code></pre>
+          <div class="quiz-option" data-value="a">float</div>
+          <div class="quiz-option" data-value="b">int</div>
+          <div class="quiz-option" data-value="c">str</div>
+          <div class="quiz-option" data-value="d">bool</div>
+          <div class="quiz-feedback" data-correct="正確！在 Python 3 中，/ 運算子總是回傳 float，即使除法是整除的。10 / 2 得到 5.0，是 float。" data-incorrect="不太對。Python 3 中的 / 運算子總是回傳 float。即使 10 / 2 = 5.0，型別是 float，不是 int。"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 5 題：這段程式碼會印出什麼？</h4>
+          <pre><code>x = "3"
+y = 4
+print(x * y)</code></pre>
+          <div class="quiz-option" data-value="a">12</div>
+          <div class="quiz-option" data-value="b">34</div>
+          <div class="quiz-option" data-value="c">3333</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！字串乘以整數會重複該字串。&quot;3&quot; * 4 產生 &quot;3333&quot;。" data-incorrect="不太對。x 是字串 &quot;3&quot;，不是數字 3。字串 * 整數 會重複字串，所以 &quot;3&quot; * 4 = &quot;3333&quot;。"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 6 題：這段程式碼會印出什麼？</h4>
+          <pre><code>print(type(True))</code></pre>
+          <div class="quiz-option" data-value="a">&lt;class 'int'&gt;</div>
+          <div class="quiz-option" data-value="b">&lt;class 'bool'&gt;</div>
+          <div class="quiz-option" data-value="c">&lt;class 'str'&gt;</div>
+          <div class="quiz-option" data-value="d">&lt;class 'NoneType'&gt;</div>
+          <div class="quiz-feedback" data-correct="正確！True 是布林值，所以 type(True) 回傳 &lt;class 'bool'&gt;。（注意：bool 是 int 的子類別，但顯示的型別仍然是 bool。）" data-incorrect="不太對。True 是布林字面值。雖然 bool 是 Python 中 int 的子類別，type(True) 回報的是 &lt;class 'bool'&gt;。"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 7 題：這段程式碼會印出什麼？</h4>
+          <pre><code>a = 5
+b = a
+a = 10
+print(b)</code></pre>
+          <div class="quiz-option" data-value="a">10</div>
+          <div class="quiz-option" data-value="b">15</div>
+          <div class="quiz-option" data-value="c">0</div>
+          <div class="quiz-option" data-value="d">5</div>
+          <div class="quiz-feedback" data-correct="正確！整數是不可變的。當執行 b = a 時，b 得到值 5。將 a 重新賦值為 10 不會影響 b。" data-incorrect="不太對。b = a 將值 5 複製到 b。之後將 a 改為 10 不會改變 b，因為整數是不可變物件，b 仍然指向原來的 5。"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 8 題：哪一行是有效的單行註解？</h4>
+          <div class="quiz-option" data-value="a"># This is a comment</div>
+          <div class="quiz-option" data-value="b">// This is a comment</div>
+          <div class="quiz-option" data-value="c">/* This is a comment */</div>
+          <div class="quiz-option" data-value="d">-- This is a comment</div>
+          <div class="quiz-feedback" data-correct="正確！Python 使用 # 來表示單行註解。" data-incorrect="不太對。Python 使用 # 符號作為註解。// 用於 C/Java/JS，/* */ 是 C 風格的區塊註解，-- 用於 SQL/Lua。"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 9 題：這段程式碼會印出什麼？</h4>
+          <pre><code>x = int("42.0")</code></pre>
+          <div class="quiz-option" data-value="a">42</div>
+          <div class="quiz-option" data-value="b">42.0</div>
+          <div class="quiz-option" data-value="c">ValueError</div>
+          <div class="quiz-option" data-value="d">0</div>
+          <div class="quiz-feedback" data-correct="正確！int() 無法直接解析包含小數點的字串。&quot;42.0&quot; 會引發 ValueError。你需要改用 int(float(&quot;42.0&quot;))。" data-incorrect="不太對。int() 可以轉換 &quot;42&quot;，但不能轉換 &quot;42.0&quot; &mdash; 小數點會導致 ValueError。要轉換它，你需要寫 int(float(&quot;42.0&quot;))。"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 10 題：這段程式碼會印出什麼？</h4>
+          <pre><code>x = "hello"
+print(x.upper().count("L"))</code></pre>
+          <div class="quiz-option" data-value="a">0</div>
+          <div class="quiz-option" data-value="b">2</div>
+          <div class="quiz-option" data-value="c">1</div>
+          <div class="quiz-option" data-value="d">5</div>
+          <div class="quiz-feedback" data-correct="正確！x.upper() 得到 &quot;HELLO&quot;，&quot;HELLO&quot;.count(&quot;L&quot;) 計算大寫 L 的個數，找到 2 個。" data-incorrect="不太對。&quot;hello&quot;.upper() 回傳 &quot;HELLO&quot;。然後 .count(&quot;L&quot;) 計算 &quot;HELLO&quot; 中 &quot;L&quot; 出現的次數，即 2 次（位置 2 和 3）。"></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">重置測驗</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  測驗 2 — 資料結構                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-data-structures">測驗 2：資料結構</h2>
+      <p>
+        串列、元組、字典和集合。了解你的可變與不可變
+        型別，以及索引和切片的真正運作方式。
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 1 題：append() 和 extend() 有什麼區別？</h4>
+          <pre><code>a = [1, 2, 3]
+a.append([4, 5])
+print(a)</code></pre>
+          <div class="quiz-option" data-value="a">[1, 2, 3, 4, 5]</div>
+          <div class="quiz-option" data-value="b">[1, 2, 3, [4], [5]]</div>
+          <div class="quiz-option" data-value="c">[1, 2, 3, [4, 5]]</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！append() 將其引數作為單一元素加入。串列 [4, 5] 成為一個巢狀元素。使用 extend() 可以逐一加入元素。" data-incorrect="不太對。append() 將整個引數作為一個項目加入。所以串列 [4, 5] 被作為巢狀串列加入，得到 [1, 2, 3, [4, 5]]。"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 2 題：這段程式碼會印出什麼？</h4>
+          <pre><code>d = {"a": 1, "b": 2, "c": 3}
+print(d.get("z", 0))</code></pre>
+          <div class="quiz-option" data-value="a">0</div>
+          <div class="quiz-option" data-value="b">None</div>
+          <div class="quiz-option" data-value="c">KeyError</div>
+          <div class="quiz-option" data-value="d">"z"</div>
+          <div class="quiz-feedback" data-correct="正確！.get(key, default) 在鍵不存在時回傳預設值。由於 &quot;z&quot; 不在字典中，它回傳 0。" data-incorrect="不太對。.get() 方法在鍵不存在時回傳預設值。d.get(&quot;z&quot;, 0) 回傳 0，因為 &quot;z&quot; 不是鍵。（d[&quot;z&quot;] 會引發 KeyError。）"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 3 題：嘗試修改元組會發生什麼？</h4>
+          <pre><code>t = (1, 2, 3)
+t[0] = 99</code></pre>
+          <div class="quiz-option" data-value="a">t 變成 (99, 2, 3)</div>
+          <div class="quiz-option" data-value="b">t 變成 [99, 2, 3]</div>
+          <div class="quiz-option" data-value="c">IndexError</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！元組是不可變的。嘗試對索引賦值會引發 TypeError: 'tuple' object does not support item assignment。" data-incorrect="不太對。元組是不可變的 &mdash; 建立後不能修改其元素。這會引發 TypeError，不是 IndexError。"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 4 題：這段程式碼會印出什麼？</h4>
+          <pre><code>s1 = {1, 2, 3, 4}
+s2 = {3, 4, 5, 6}
+print(s1 &amp; s2)</code></pre>
+          <div class="quiz-option" data-value="a">{1, 2, 5, 6}</div>
+          <div class="quiz-option" data-value="b">{3, 4}</div>
+          <div class="quiz-option" data-value="c">{1, 2, 3, 4, 5, 6}</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！&amp; 運算子計算集合交集 &mdash; 兩個集合中都有的元素：{3, 4}。" data-incorrect="不太對。集合的 &amp; 運算子回傳交集（兩個集合中都有的元素）。s1 和 s2 共有 3 和 4，所以結果是 {3, 4}。"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 5 題：這個切片會產生什麼？</h4>
+          <pre><code>nums = [10, 20, 30, 40, 50]
+print(nums[1:4])</code></pre>
+          <div class="quiz-option" data-value="a">[20, 30, 40]</div>
+          <div class="quiz-option" data-value="b">[10, 20, 30, 40]</div>
+          <div class="quiz-option" data-value="c">[20, 30, 40, 50]</div>
+          <div class="quiz-option" data-value="d">[20, 30]</div>
+          <div class="quiz-feedback" data-correct="正確！切片 [1:4] 包含索引 1、2、3（結束索引 4 被排除），得到 [20, 30, 40]。" data-incorrect="不太對。Python 切片是起始包含、結束排除。[1:4] 表示索引 1、2、3 &mdash; 分別是 20、30、40。"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 6 題：這段程式碼會印出什麼？</h4>
+          <pre><code>items = [1, 2, 3, 4, 5]
+print(items[::-1])</code></pre>
+          <div class="quiz-option" data-value="a">[1, 2, 3, 4, 5]</div>
+          <div class="quiz-option" data-value="b">[5]</div>
+          <div class="quiz-option" data-value="c">[5, 4, 3, 2, 1]</div>
+          <div class="quiz-option" data-value="d">[]</div>
+          <div class="quiz-feedback" data-correct="正確！切片 [::-1] 會反轉串列，產生 [5, 4, 3, 2, 1]。" data-incorrect="不太對。[::-1] 中步長值 -1 會反轉序列。結果是 [5, 4, 3, 2, 1]。"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 7 題：這段程式碼會印出什麼？</h4>
+          <pre><code>d = {"x": 10, "y": 20}
+print(list(d.keys()))</code></pre>
+          <div class="quiz-option" data-value="a">[10, 20]</div>
+          <div class="quiz-option" data-value="b">['x', 'y']</div>
+          <div class="quiz-option" data-value="c">[('x', 10), ('y', 20)]</div>
+          <div class="quiz-option" data-value="d">{'x', 'y'}</div>
+          <div class="quiz-feedback" data-correct="正確！.keys() 回傳字典的鍵，用 list() 包裝得到 ['x', 'y']。" data-incorrect="不太對。.keys() 回傳鍵（不是值或項目）。轉換為串列得到 ['x', 'y']。"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 8 題：這段程式碼會印出什麼？</h4>
+          <pre><code>a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)</code></pre>
+          <div class="quiz-option" data-value="a">[1, 2, 3]</div>
+          <div class="quiz-option" data-value="b">[4]</div>
+          <div class="quiz-option" data-value="c">[1, 2, 3, [4]]</div>
+          <div class="quiz-option" data-value="d">[1, 2, 3, 4]</div>
+          <div class="quiz-feedback" data-correct="正確！b = a 不會複製串列 &mdash; 兩個變數引用同一個物件。對 b 做 append 也會改變 a。" data-incorrect="不太對。b = a 讓 b 指向與 a 相同的串列物件。透過 b 修改也會影響 a。兩者都顯示 [1, 2, 3, 4]。使用 a.copy() 或 a[:] 來建立獨立副本。"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 9 題：這段程式碼會產生什麼？</h4>
+          <pre><code>my_set = {1, 2, 2, 3, 3, 3}
+print(len(my_set))</code></pre>
+          <div class="quiz-option" data-value="a">3</div>
+          <div class="quiz-option" data-value="b">6</div>
+          <div class="quiz-option" data-value="c">1</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="正確！集合會自動移除重複項。{1, 2, 2, 3, 3, 3} 變成 {1, 2, 3}，長度為 3。" data-incorrect="不太對。集合只儲存唯一元素。重複值會被丟棄，所以集合是 {1, 2, 3}，長度為 3。"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 10 題：這段程式碼會印出什麼？</h4>
+          <pre><code>data = {"name": "Alice", "age": 30}
+data["age"] = 31
+data["city"] = "NYC"
+print(len(data))</code></pre>
+          <div class="quiz-option" data-value="a">2</div>
+          <div class="quiz-option" data-value="b">4</div>
+          <div class="quiz-option" data-value="c">3</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！字典一開始有 2 個鍵。更新 &quot;age&quot; 不會新增鍵，但新增 &quot;city&quot; 會。總共：3 個鍵。" data-incorrect="不太對。data[&quot;age&quot;] = 31 更新現有的鍵（仍然 2 個鍵）。data[&quot;city&quot;] = &quot;NYC&quot; 新增一個鍵，總共 3 個。"></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">重置測驗</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  測驗 3 — 控制流程與函式                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-control-flow">測驗 3：控制流程與函式</h2>
+      <p>
+        條件判斷、迴圈、函式、作用域和 lambda 運算式。仔細注意
+        什麼是被回傳的，什麼是被印出的。
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 1 題：這段程式碼會印出什麼？</h4>
+          <pre><code>print(list(range(2, 10, 3)))</code></pre>
+          <div class="quiz-option" data-value="a">[2, 5, 8, 11]</div>
+          <div class="quiz-option" data-value="b">[2, 5, 8]</div>
+          <div class="quiz-option" data-value="c">[2, 3, 4, 5, 6, 7, 8, 9]</div>
+          <div class="quiz-option" data-value="d">[3, 6, 9]</div>
+          <div class="quiz-feedback" data-correct="正確！range(2, 10, 3) 從 2 開始，步長 3，在 10 之前停止：2、5、8。" data-incorrect="不太對。range(start, stop, step) 從 start 開始生成數字，到 stop（不包含）為止，步長為 3。得到 2、5、8。"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 2 題：這段程式碼會印出什麼？</h4>
+          <pre><code>for i in range(3):
+    print(i, end=" ")
+else:
+    print("done")</code></pre>
+          <div class="quiz-option" data-value="a">0 1 2 done</div>
+          <div class="quiz-option" data-value="b">0 1 2</div>
+          <div class="quiz-option" data-value="c">done</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="正確！for-else 區塊是有效的 Python 語法。else 子句在迴圈正常完成（沒有 break）時執行，所以在迴圈後印出 &quot;done&quot;。" data-incorrect="不太對。Python 支援 for-else 語法。else 區塊在迴圈正常結束（沒有 break）後執行。輸出：0 1 2 done。"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 3 題：這個函式回傳什麼？</h4>
+          <pre><code>def greet(name="World"):
+    return f"Hello, {name}!"
+
+result = greet()
+print(result)</code></pre>
+          <div class="quiz-option" data-value="a">Hello, name!</div>
+          <div class="quiz-option" data-value="b">Hello, !</div>
+          <div class="quiz-option" data-value="c">Hello, World!</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！沒有傳遞引數時，使用預設參數值 &quot;World&quot;。f-string 產生 &quot;Hello, World!&quot;。" data-incorrect="不太對。函式有預設參數 name=&quot;World&quot;。不帶引數呼叫 greet() 使用預設值，回傳 &quot;Hello, World!&quot;。"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 4 題：這段程式碼會印出什麼？</h4>
+          <pre><code>x = 10
+
+def change():
+    x = 20
+
+change()
+print(x)</code></pre>
+          <div class="quiz-option" data-value="a">20</div>
+          <div class="quiz-option" data-value="b">None</div>
+          <div class="quiz-option" data-value="c">Error</div>
+          <div class="quiz-option" data-value="d">10</div>
+          <div class="quiz-feedback" data-correct="正確！change() 裡的 x 是局部變數。它不會影響全域的 x。全域 x 仍然是 10。" data-incorrect="不太對。在函式內賦值 x = 20 會建立一個新的局部變數，全域 x 保持 10 不變。你需要 &quot;global x&quot; 才能修改外部的 x。"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 5 題：這個 lambda 運算式的結果是什麼？</h4>
+          <pre><code>double = lambda x: x * 2
+print(double(7))</code></pre>
+          <div class="quiz-option" data-value="a">x * 2</div>
+          <div class="quiz-option" data-value="b">14</div>
+          <div class="quiz-option" data-value="c">7</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="正確！lambda 接受 x 並回傳 x * 2。傳入 7 得到 14。" data-incorrect="不太對。lambda x: x * 2 建立一個將引數加倍的函式。double(7) = 7 * 2 = 14。"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 6 題：這段程式碼會印出什麼？</h4>
+          <pre><code>count = 0
+while count &lt; 5:
+    if count == 3:
+        break
+    count += 1
+print(count)</code></pre>
+          <div class="quiz-option" data-value="a">3</div>
+          <div class="quiz-option" data-value="b">4</div>
+          <div class="quiz-option" data-value="c">5</div>
+          <div class="quiz-option" data-value="d">2</div>
+          <div class="quiz-feedback" data-correct="正確！迴圈將 count 遞增到 1、2、3。在下一次迭代中，count == 3 在遞增之前觸發 break。" data-incorrect="不太對。追蹤一下：count 從 0 開始。遞增到 1、2、3。當 count 為 3 時，if 檢查在遞增前觸發，所以 break 時 count = 3。"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 7 題：這段程式碼會印出什麼？</h4>
+          <pre><code>def add(a, b=5):
+    return a + b
+
+print(add(3, b=10))</code></pre>
+          <div class="quiz-option" data-value="a">8</div>
+          <div class="quiz-option" data-value="b">5</div>
+          <div class="quiz-option" data-value="c">13</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！a 得到 3，b 被明確設定為 10（覆蓋預設值 5）。3 + 10 = 13。" data-incorrect="不太對。呼叫傳入 a=3 和 b=10。關鍵字引數 b=10 覆蓋預設值 5。所以 3 + 10 = 13。"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 8 題：這段程式碼會印出什麼？</h4>
+          <pre><code>nums = [1, 2, 3, 4, 5]
+result = [x for x in nums if x % 2 == 0]
+print(result)</code></pre>
+          <div class="quiz-option" data-value="a">[1, 3, 5]</div>
+          <div class="quiz-option" data-value="b">[1, 2, 3, 4, 5]</div>
+          <div class="quiz-option" data-value="c">[0, 0, 0, 0, 0]</div>
+          <div class="quiz-option" data-value="d">[2, 4]</div>
+          <div class="quiz-feedback" data-correct="正確！串列推導式篩選出偶數（x % 2 == 0），即 2 和 4。" data-incorrect="不太對。條件 x % 2 == 0 只保留偶數。從 [1, 2, 3, 4, 5] 中，偶數是 [2, 4]。"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 9 題：這段程式碼會印出什麼？</h4>
+          <pre><code>def mystery():
+    print("A")
+    return
+    print("B")
+
+mystery()</code></pre>
+          <div class="quiz-option" data-value="a">A B</div>
+          <div class="quiz-option" data-value="b">A</div>
+          <div class="quiz-option" data-value="c">B</div>
+          <div class="quiz-option" data-value="d">None</div>
+          <div class="quiz-feedback" data-correct="正確！函式印出 &quot;A&quot;，然後 return 立即退出函式。print(&quot;B&quot;) 那行是不可達的。" data-incorrect="不太對。return 語句在印出 &quot;A&quot; 後立即退出函式。return 之後的程式碼永遠不會執行，所以只印出 &quot;A&quot;。"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 10 題：這段程式碼會印出什麼？</h4>
+          <pre><code>values = [10, 20, 30]
+total = 0
+for v in values:
+    total += v
+    if total > 25:
+        break
+print(total)</code></pre>
+          <div class="quiz-option" data-value="a">30</div>
+          <div class="quiz-option" data-value="b">60</div>
+          <div class="quiz-option" data-value="c">10</div>
+          <div class="quiz-option" data-value="d">25</div>
+          <div class="quiz-feedback" data-correct="正確！第一次迭代：total = 10（不 > 25）。第二次迭代：total = 30（> 25），所以 break。最終 total 是 30。" data-incorrect="不太對。total 從 0 開始。加上 10 後：total=10。加上 20 後：total=30，大於 25，所以觸發 break。最終 total 是 30。"></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">重置測驗</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  測驗 4 — 檔案、錯誤與模組                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="quiz-files-errors">測驗 4：檔案、錯誤與模組</h2>
+      <p>
+        檔案 I/O、例外處理、匯入，以及辨識常見的執行時期
+        錯誤。這裡測試實際的 Python 技能。
+      </p>
+
+      <div class="quiz-container">
+
+        <!-- Q1 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 1 題：<code>open()</code> 中的檔案模式 <code>"r"</code> 做什麼？</h4>
+          <div class="quiz-option" data-value="a">開啟檔案進行寫入（如果不存在則建立）</div>
+          <div class="quiz-option" data-value="b">以唯讀模式開啟檔案（檔案必須存在）</div>
+          <div class="quiz-option" data-value="c">開啟檔案進行附加</div>
+          <div class="quiz-option" data-value="d">開啟檔案進行讀取和寫入</div>
+          <div class="quiz-feedback" data-correct="正確！&quot;r&quot; 模式以唯讀方式開啟檔案。檔案必須已經存在，否則會引發 FileNotFoundError。" data-incorrect="不太對。&quot;r&quot; 是唯讀模式。&quot;w&quot; 是寫入，&quot;a&quot; 是附加，&quot;r+&quot; 是讀寫。&quot;r&quot; 要求檔案存在。"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 2 題：這段程式碼會引發什麼例外？</h4>
+          <pre><code>my_list = [1, 2, 3]
+print(my_list[5])</code></pre>
+          <div class="quiz-option" data-value="a">KeyError</div>
+          <div class="quiz-option" data-value="b">ValueError</div>
+          <div class="quiz-option" data-value="c">IndexError</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！存取串列中不存在的索引會引發 IndexError。KeyError 是用於字典的。" data-incorrect="不太對。串列對超出範圍的索引引發 IndexError。KeyError 是用於缺少的字典鍵。這個串列只有索引 0、1、2。"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 3 題：這段程式碼會印出什麼？</h4>
+          <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("oops")
+finally:
+    print("done")</code></pre>
+          <div class="quiz-option" data-value="a">oops done</div>
+          <div class="quiz-option" data-value="b">oops</div>
+          <div class="quiz-option" data-value="c">done</div>
+          <div class="quiz-option" data-value="d">ZeroDivisionError</div>
+          <div class="quiz-feedback" data-correct="正確！except 區塊捕獲錯誤並印出 &quot;oops&quot;。finally 區塊總是會執行，印出 &quot;done&quot;。" data-incorrect="不太對。except 子句處理 ZeroDivisionError（印出 &quot;oops&quot;）。finally 區塊無論如何都會執行（印出 &quot;done&quot;）。輸出：oops done。"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 4 題：從 <code>math</code> 模組匯入 <code>sqrt</code> 函式的正確方式是哪個？</h4>
+          <div class="quiz-option" data-value="a">import sqrt from math</div>
+          <div class="quiz-option" data-value="b">import math.sqrt</div>
+          <div class="quiz-option" data-value="c">using math import sqrt</div>
+          <div class="quiz-option" data-value="d">from math import sqrt</div>
+          <div class="quiz-feedback" data-correct="正確！語法是 &quot;from module import name&quot;。這讓你可以直接使用 sqrt()，不需要 math. 前綴。" data-incorrect="不太對。Python 的匯入語法是：from math import sqrt。&quot;import sqrt from math&quot; 看起來像 JavaScript，&quot;import math.sqrt&quot; 不是有效的 Python 語法。"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 5 題：檔案模式 <code>"a"</code> 做什麼？</h4>
+          <div class="quiz-option" data-value="a">從頭開始覆寫檔案</div>
+          <div class="quiz-option" data-value="b">附加到檔案末尾（如果不存在則建立）</div>
+          <div class="quiz-option" data-value="c">以唯讀模式開啟</div>
+          <div class="quiz-option" data-value="d">刪除檔案內容然後開啟進行寫入</div>
+          <div class="quiz-feedback" data-correct="正確！&quot;a&quot; 模式開啟檔案進行附加。新資料寫在末尾。如果檔案不存在，會被建立。" data-incorrect="不太對。&quot;a&quot; 代表附加。它在檔案末尾新增內容，不會清除現有內容。&quot;w&quot; 模式才會覆寫。"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 6 題：這段程式碼會引發什麼例外？</h4>
+          <pre><code>d = {"name": "Alice"}
+print(d["age"])</code></pre>
+          <div class="quiz-option" data-value="a">IndexError</div>
+          <div class="quiz-option" data-value="b">AttributeError</div>
+          <div class="quiz-option" data-value="c">KeyError</div>
+          <div class="quiz-option" data-value="d">NameError</div>
+          <div class="quiz-feedback" data-correct="正確！使用方括號存取缺少的鍵會引發 KeyError。使用 .get() 可以避免這個問題。" data-incorrect="不太對。字典在使用 d[key] 存取不存在的鍵時引發 KeyError。IndexError 是用於串列/序列的。"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" data-answer="a">
+          <h4>第 7 題：使用檔案時 <code>with</code> 語句的目的是什麼？</h4>
+          <pre><code>with open("data.txt", "r") as f:
+    content = f.read()</code></pre>
+          <div class="quiz-option" data-value="a">當區塊結束時自動關閉檔案，即使發生錯誤也是如此</div>
+          <div class="quiz-option" data-value="b">使檔案變為唯讀</div>
+          <div class="quiz-option" data-value="c">鎖定檔案以防止其他程式存取</div>
+          <div class="quiz-option" data-value="d">比不使用 "with" 讀取檔案更快</div>
+          <div class="quiz-feedback" data-correct="正確！with 語句是上下文管理器，保證檔案被正確關閉，即使區塊內引發了例外。" data-incorrect="不太對。with 語句確保當區塊結束時（或發生錯誤時）檔案自動關閉。它是資源管理的最佳實踐。"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" data-answer="d">
+          <h4>第 8 題：這段程式碼會引發什麼例外？</h4>
+          <pre><code>x = "hello"
+y = x + 5</code></pre>
+          <div class="quiz-option" data-value="a">ValueError</div>
+          <div class="quiz-option" data-value="b">SyntaxError</div>
+          <div class="quiz-option" data-value="c">NameError</div>
+          <div class="quiz-option" data-value="d">TypeError</div>
+          <div class="quiz-feedback" data-correct="正確！你不能用 + 連接字串和整數。Python 引發 TypeError: can only concatenate str to str。" data-incorrect="不太對。將字串和整數相加是型別不匹配。Python 引發 TypeError，因為它不會隱式地在 str 和 int 之間轉換。"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" data-answer="b">
+          <h4>第 9 題：這段程式碼會印出什麼？</h4>
+          <pre><code>try:
+    x = int("abc")
+except ValueError as e:
+    print("caught")
+except TypeError:
+    print("type error")
+else:
+    print("success")</code></pre>
+          <div class="quiz-option" data-value="a">success</div>
+          <div class="quiz-option" data-value="b">caught</div>
+          <div class="quiz-option" data-value="c">type error</div>
+          <div class="quiz-option" data-value="d">abc</div>
+          <div class="quiz-feedback" data-correct="正確！int(&quot;abc&quot;) 引發 ValueError，被第一個 except 區塊捕獲。else 區塊只在沒有例外時執行。" data-incorrect="不太對。int(&quot;abc&quot;) 無法將 &quot;abc&quot; 轉換為整數，引發 ValueError。匹配的 except 子句印出 &quot;caught&quot;。else 區塊被跳過，因為確實發生了例外。"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" data-answer="c">
+          <h4>第 10 題：這段程式碼會引發什麼例外？</h4>
+          <pre><code>print(undefined_variable)</code></pre>
+          <div class="quiz-option" data-value="a">TypeError</div>
+          <div class="quiz-option" data-value="b">ValueError</div>
+          <div class="quiz-option" data-value="c">NameError</div>
+          <div class="quiz-option" data-value="d">SyntaxError</div>
+          <div class="quiz-feedback" data-correct="正確！使用從未定義過的變數會引發 NameError: name 'undefined_variable' is not defined。" data-incorrect="不太對。引用從未被賦值的名稱會引發 NameError。SyntaxError 是程式碼結構本身有問題，而不是缺少變數。"></div>
+        </div>
+
+        <div class="quiz-score" style="display:none"></div>
+        <button class="quiz-btn quiz-reset">重置測驗</button>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  上一頁 / 下一頁 導覽                                         -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="practice.html" class="prev">
+          <span class="nav-label">&larr; 上一頁</span>
+          <span class="nav-title">練習與學習路線</span>
+        </a>
+        <a href="best-practices.html" class="next">
+          <span class="nav-label">下一頁 &rarr;</span>
+          <span class="nav-title">最佳實踐</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

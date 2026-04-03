@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>什麼是Python？ &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- Sidebar — same on every page -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/what-is-python.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link active"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy 與 Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 什麼是Python？
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION A — WHAT IS PYTHON?                                  -->
+      <!-- ============================================================ -->
+
+      <h1>章節 A &mdash; 什麼是Python？</h1>
+
+      <p>
+        如果你來自 MATLAB 背景，或者完全是程式設計的新手，
+        這個頁面將為你提供全面的概覽：什麼是 Python、為什麼它
+        已經成為世界上最受歡迎的程式語言之一，以及
+        它是否適合你想做的事情。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>給 MATLAB 使用者的提示：</strong>你已經知道如何進行
+        演算法思維，並且熟悉矩陣、函式和腳本的操作。Python
+        在許多方面會讓你感到熟悉 &mdash; 變數、迴圈、函式、
+        繪圖 &mdash; 但語法和生態系統有所不同。在整個
+        指南中，我們會指出 MATLAB 的對應概念，讓你能夠將
+        現有的知識對應到 Python 的世界。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. WHAT PYTHON IS                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-python-is">1. 什麼是 Python</h2>
+
+      <p>
+        <strong>Python</strong> 是一種<em>高階、直譯式、
+        通用型</em>程式語言。讓我們來解釋這些詞的含義：
+      </p>
+
+      <ul>
+        <li>
+          <strong>高階</strong> &mdash; 你撰寫的程式碼幾乎像
+          英文一樣易讀。你不需要管理記憶體位址、
+          CPU 暫存器或其他硬體細節。語言會為你
+          處理這些（就像 MATLAB 一樣）。
+        </li>
+        <li>
+          <strong>直譯式</strong> &mdash; 你可以逐行執行程式碼，
+          不需要單獨的編譯步驟。你輸入一個
+          指令，按下 Enter，就能立即看到結果。這
+          類似於 MATLAB 的命令視窗。
+        </li>
+        <li>
+          <strong>通用型</strong> &mdash; Python 不局限於某一個
+          領域。你可以用它來開發網頁應用、資料分析、自動化、
+          機器學習、科學計算等等。相比之下，MATLAB
+          主要是為數值計算而設計的。
+        </li>
+      </ul>
+
+      <h3>簡要歷史</h3>
+
+      <p>
+        Python 是由荷蘭程式設計師 <strong>Guido van Rossum</strong>
+        創建的，於 1991 年首次發布。他以英國喜劇團體 Monty Python
+        的名字為其命名，而不是以蛇的名字。Guido 的目標是創建一種
+        <em>有趣</em>且<em>易於閱讀</em>的語言。
+        如今，Python 由 Python 軟體基金會和一個
+        龐大的開源社群維護。目前的主要版本是
+        <strong>Python 3</strong>（Python 2 已於 2020 年停止支援）。
+      </p>
+
+      <h3>直譯式 vs. 編譯式 &mdash; 簡單的解釋</h3>
+
+      <p>
+        程式語言通常分為兩大類：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>編譯式（C、C++、Rust）</th>
+            <th>直譯式（Python、MATLAB、JavaScript）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>運作方式</strong></td>
+            <td>你的原始碼在執行<em>之前</em>就被翻譯成機器碼。一個叫做<em>編譯器</em>的特殊程式負責進行翻譯。</td>
+            <td>你的原始碼在執行時由<em>直譯器</em>逐行讀取和執行。</td>
+          </tr>
+          <tr>
+            <td><strong>速度</strong></td>
+            <td>通常執行時速度較快，因為翻譯已經完成。</td>
+            <td>通常執行時速度較慢，因為翻譯是即時進行的。</td>
+          </tr>
+          <tr>
+            <td><strong>開發速度</strong></td>
+            <td>較慢 &mdash; 每次修改都必須重新編譯。</td>
+            <td>較快 &mdash; 修改一行，立即執行。</td>
+          </tr>
+          <tr>
+            <td><strong>錯誤偵測</strong></td>
+            <td>許多錯誤在編譯時就被發現，在程式執行之前。</td>
+            <td>錯誤通常在執行時才被發現，當有問題的那行程式碼被執行時。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>可以這樣理解：</strong>編譯式語言就像在任何人閱讀之前
+        先把整本書從法文翻譯成英文。直譯式語言就像有一個即時口譯員
+        在觀眾聆聽的同時逐句翻譯。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. WHY PYTHON IS POPULAR                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="why-popular">2. 為什麼 Python 如此受歡迎</h2>
+
+      <p>
+        Python 在每個主要調查中（TIOBE 指數、Stack
+        Overflow 開發者調查、GitHub Octoverse）都持續名列
+        最受歡迎程式語言的前 1&ndash;3 名。原因如下：
+      </p>
+
+      <ol>
+        <li>
+          <strong>可讀、簡潔的語法</strong> &mdash; Python 使用
+          縮排代替大括號，使程式碼視覺上整潔
+          且易於理解。
+        </li>
+        <li>
+          <strong>龐大的社群</strong> &mdash; 數百萬的開發者
+          意味著數百萬的教學、Stack Overflow 上的解答，以及
+          開源套件。
+        </li>
+        <li>
+          <strong>豐富的函式庫生態系統</strong> &mdash; 在
+          <a href="https://pypi.org">PyPI</a>（Python 套件索引）上有超過 500,000 個
+          套件。如果你需要做某件事，幾乎
+          一定有一個函式庫可以使用。
+        </li>
+        <li>
+          <strong>廣泛應用於業界</strong> &mdash; Google、Netflix、
+          NASA、Instagram、Spotify、JPMorgan 以及數千家其他
+          組織在生產環境中使用 Python。
+        </li>
+        <li>
+          <strong>免費且開源</strong> &mdash; 永遠不需要授權費用。
+          相比之下，MATLAB 需要昂貴的
+          商業授權。
+        </li>
+        <li>
+          <strong>對初學者友好</strong> &mdash; 全球各地的大學
+          使用 Python 作為入門程式語言。
+        </li>
+      </ol>
+
+      <h3>Hello World &mdash; Python vs. C vs. Java</h3>
+
+      <p>
+        要感受 Python 可讀性的優勢，最好的方式是比較
+        最簡單的程式 &mdash; 在三種語言中印出 "Hello, World!" &mdash;：
+      </p>
+
+      <h4>Python</h4>
+      <pre><code>print("Hello, World!")</code></pre>
+
+      <p>就這樣。一行就夠了。</p>
+
+      <h4>C</h4>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+
+      <h4>Java</h4>
+      <pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+
+      <p>
+        Python 讓你專注於你<em>想做什麼</em>，而不是
+        樣板程式碼。對初學者來說，這意味著你可以在
+        第一天就開始解決實際問題。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong>在 MATLAB 中你會寫
+        <code>disp('Hello, World!')</code> 或
+        <code>fprintf('Hello, World!\n')</code>。Python 的
+        <code>print()</code> 本質上是相同的概念 &mdash; 一行，
+        一個函式呼叫。你會感到很熟悉。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. WHAT PYTHON IS USED FOR                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="used-for">3. Python 的應用領域</h2>
+
+      <p>
+        Python 的多功能性是它最大的優勢之一。以下是
+        Python 表現出色的主要領域，並附有具體範例：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>領域</th>
+            <th>你可以做什麼</th>
+            <th>關鍵函式庫／工具</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>資料科學與分析</strong></td>
+            <td>清理資料集、計算統計數據、建立視覺化圖表、構建儀表板</td>
+            <td>pandas、NumPy、Matplotlib、Seaborn、Plotly</td>
+          </tr>
+          <tr>
+            <td><strong>機器學習與人工智慧</strong></td>
+            <td>訓練影像辨識、自然語言處理、推薦系統的模型</td>
+            <td>scikit-learn、TensorFlow、PyTorch、Keras</td>
+          </tr>
+          <tr>
+            <td><strong>網頁開發</strong></td>
+            <td>建立網站和 REST API（Instagram 的後端就是用 Python 開發的）</td>
+            <td>Django、Flask、FastAPI</td>
+          </tr>
+          <tr>
+            <td><strong>自動化與腳本</strong></td>
+            <td>重新命名 10,000 個檔案、爬取網站、發送自動化電子郵件、產生報告</td>
+            <td>os、shutil、requests、Beautiful Soup、openpyxl</td>
+          </tr>
+          <tr>
+            <td><strong>科學計算</strong></td>
+            <td>求解微分方程、執行模擬、處理訊號</td>
+            <td>SciPy、SymPy、NumPy</td>
+          </tr>
+          <tr>
+            <td><strong>教育</strong></td>
+            <td>教授程式設計基礎、建立互動式筆記本</td>
+            <td>Jupyter Notebook、Google Colab</td>
+          </tr>
+          <tr>
+            <td><strong>DevOps 與雲端</strong></td>
+            <td>自動化伺服器配置、管理雲端基礎設施、撰寫 CI/CD 管道</td>
+            <td>Ansible、Boto3 (AWS)、Fabric</td>
+          </tr>
+          <tr>
+            <td><strong>遊戲原型開發</strong></td>
+            <td>建立 2D 遊戲和互動式模擬以進行快速原型開發</td>
+            <td>Pygame、Arcade</td>
+          </tr>
+          <tr>
+            <td><strong>桌面應用程式</strong></td>
+            <td>建立跨平台的圖形介面工具</td>
+            <td>Tkinter、PyQt、Kivy</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>如果你學會 Python，你不是
+        在學習一個單一用途的工具。你正在學習一種可以
+        從資料分析到網頁開發到自動化到
+        機器學習都能使用的語言 &mdash; 全部使用相同的語法和思維模式。
+        而使用 MATLAB，你基本上只能侷限在數值計算和
+        工程模擬的範圍內。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. STRENGTHS OF PYTHON                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="strengths">4. Python 的優勢</h2>
+
+      <ul>
+        <li>
+          <strong>容易學習</strong> &mdash; Python 的語法精簡
+          且接近自然英語。大多數初學者可以在
+          幾小時內撰寫出有用的程式。
+        </li>
+        <li>
+          <strong>高度可讀</strong> &mdash; 強制縮排和
+          簡潔的語法使 Python 程式碼在你寫完數月後仍然
+          容易閱讀（或者閱讀別人的程式碼時也一樣）。
+        </li>
+        <li>
+          <strong>龐大的生態系統</strong> &mdash; 套件管理器
+          <code>pip</code> 讓你可以存取超過五十萬個套件。
+          需要讀取 Excel 檔案？<code>pip install openpyxl</code>。需要
+          繪製資料圖表？<code>pip install matplotlib</code>。就是這麼
+          簡單。
+        </li>
+        <li>
+          <strong>跨平台</strong> &mdash; 在 Windows 上撰寫程式碼，
+          在 macOS 或 Linux 上無需修改即可執行。MATLAB 也能做到，
+          但 Python 完全免費。
+        </li>
+        <li>
+          <strong>快速開發</strong> &mdash; 沒有編譯步驟意味著
+          你可以快速迭代。Python 非常適合在投入更複雜的實作之前
+          先進行原型開發。
+        </li>
+        <li>
+          <strong>適合原型開發</strong> &mdash; 用 C++ 或 Java 所需
+          時間的一小部分就能寫出概念驗證。
+          許多公司先用 Python 進行原型開發，然後在需要時
+          再優化關鍵部分。
+        </li>
+        <li>
+          <strong>強大的社群支援</strong> &mdash; 幾乎你能想到的
+          任何問題都已經在 Stack Overflow、Reddit 或 Python
+          社群論壇上被提問和回答過了。
+        </li>
+        <li>
+          <strong>優秀的文件</strong> &mdash; 官方
+          Python 文件、函式庫文件和社群教學
+          內容豐富且維護良好。
+        </li>
+      </ul>
+
+      <h3>範例：讀取 CSV 檔案</h3>
+
+      <p>
+        為了說明生態系統如何讓工作變得輕鬆，以下是
+        讀取 CSV 檔案並計算某一欄平均值的方法 &mdash; 這是
+        資料工作中常見的任務：
+      </p>
+
+      <pre><code># Python — 讀取 CSV 並計算平均值
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+average_score = df["score"].mean()
+print(f"Average score: {average_score:.2f}")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對應寫法：</strong>
+        <pre><code>% MATLAB — 讀取 CSV 並計算平均值
+T = readtable('data.csv');
+averageScore = mean(T.score);
+fprintf('Average score: %.2f\n', averageScore);</code></pre>
+        <p>
+          邏輯幾乎相同。主要差異在於：Python 使用
+          <code>import</code> 而不是依賴內建的工具箱，
+          並且使用 <code>f-strings</code> 進行格式化輸出，而不是
+          <code>fprintf</code>。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. WEAKNESSES OF PYTHON                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="weaknesses">5. Python 的弱點</h2>
+
+      <p>
+        沒有語言是完美的。了解 Python 的
+        限制很重要，這樣你才能為每項工作選擇正確的工具：
+      </p>
+
+      <ul>
+        <li>
+          <strong>比編譯式語言慢</strong> &mdash; 純
+          Python 程式碼可能比等效的 C 或 C++ 慢 10&ndash;100 倍。
+          對於大多數任務（腳本、資料分析、網頁應用），這並不
+          重要。對於效能關鍵的內部迴圈，你可以呼叫
+          優化過的 C 函式庫（NumPy 內部就是這樣做的）或使用
+          像 Cython 這樣的工具。
+        </li>
+        <li>
+          <strong>GIL（全域直譯器鎖）</strong> &mdash;
+          CPython（標準的 Python 直譯器）有一個鎖，會阻止
+          CPU 密集型任務進行真正的多執行緒平行處理。這意味著
+          單一 Python 程序無法完全利用多個 CPU 核心
+          進行純計算。解決方案包括
+          <code>multiprocessing</code> 模組和像 Dask 這樣的函式庫。
+        </li>
+        <li>
+          <strong>不適合手機應用程式開發</strong> &mdash; 雖然
+          Kivy 和 BeeWare 等框架存在，但 Python 並不是
+          建立 iOS 或 Android 應用程式的標準選擇。Swift、Kotlin
+          或像 Flutter 這樣的跨平台框架更受青睞。
+        </li>
+        <li>
+          <strong>不適合底層系統程式設計</strong>
+          &mdash; 用 Python 來撰寫作業系統核心、裝置驅動程式或
+          嵌入式韌體是不切實際的。C、C++ 和 Rust
+          才是這方面的首選語言。
+        </li>
+        <li>
+          <strong>執行時錯誤（沒有編譯時型別檢查）</strong>
+          &mdash; 因為 Python 是動態型別的，某些錯誤
+          （例如在需要數字的地方傳入字串）只會在
+          程式碼執行時才被發現。像 <code>mypy</code> 和
+          型別提示（在 Python 3.5+ 中引入）等工具有助於緩解這個問題，
+          但它仍然不如 Java 或 C++ 那樣嚴格。
+        </li>
+        <li>
+          <strong>較高的記憶體使用量</strong> &mdash; Python 物件
+          比其 C 語言的對應物佔用更多額外開銷。對於大多數應用程式
+          這不是問題，但在處理非常大的資料集
+          或記憶體受限的環境中可能會有影響。
+        </li>
+      </ul>
+
+      <div class="callout callout-info">
+        <strong>觀點：</strong>這些弱點對於
+        初學者或大多數實際的 Python 使用場景來說很少會造成影響。Python
+        較慢的速度被大幅縮短的開發時間所彌補。當
+        效能確實重要時，Python 的生態系統提供了解決方案
+        （NumPy、Cython、呼叫 C 擴展），讓你能夠兩全其美。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. HOW PYTHON COMPARES                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="comparison">6. Python 與其他語言的比較</h2>
+
+      <p>
+        以下是 Python 與你可能聽過或使用過的語言的
+        高層次比較。這是刻意簡化的 &mdash; 比較程式語言的內容
+        可以寫成整本書。
+      </p>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>特性</th>
+              <th>Python</th>
+              <th>MATLAB</th>
+              <th>C</th>
+              <th>C++</th>
+              <th>Java</th>
+              <th>JavaScript</th>
+              <th>Bash</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>學習難易度</strong></td>
+              <td>非常容易</td>
+              <td>容易（數學方面）</td>
+              <td>困難</td>
+              <td>困難</td>
+              <td>中等</td>
+              <td>中等</td>
+              <td>中等</td>
+            </tr>
+            <tr>
+              <td><strong>執行速度</strong></td>
+              <td>慢</td>
+              <td>中等</td>
+              <td>非常快</td>
+              <td>非常快</td>
+              <td>快</td>
+              <td>快（V8）</td>
+              <td>慢</td>
+            </tr>
+            <tr>
+              <td><strong>生態系統規模</strong></td>
+              <td>龐大</td>
+              <td>中等（工具箱）</td>
+              <td>大</td>
+              <td>大</td>
+              <td>龐大</td>
+              <td>龐大（npm）</td>
+              <td>小</td>
+            </tr>
+            <tr>
+              <td><strong>典型使用場景</strong></td>
+              <td>資料科學、網頁、自動化、機器學習、腳本</td>
+              <td>工程、訊號處理、控制系統</td>
+              <td>作業系統核心、嵌入式系統、驅動程式</td>
+              <td>遊戲引擎、高效能應用、系統</td>
+              <td>企業應用、Android、大型系統</td>
+              <td>網頁前端、網頁後端（Node.js）</td>
+              <td>Shell 腳本、系統管理</td>
+            </tr>
+            <tr>
+              <td><strong>費用</strong></td>
+              <td>免費</td>
+              <td>付費授權（$$$）</td>
+              <td>免費</td>
+              <td>免費</td>
+              <td>免費</td>
+              <td>免費</td>
+              <td>免費</td>
+            </tr>
+            <tr>
+              <td><strong>型別系統</strong></td>
+              <td>動態</td>
+              <td>動態</td>
+              <td>靜態</td>
+              <td>靜態</td>
+              <td>靜態</td>
+              <td>動態</td>
+              <td>無型別</td>
+            </tr>
+            <tr>
+              <td><strong>互動式 REPL</strong></td>
+              <td>是</td>
+              <td>是</td>
+              <td>否</td>
+              <td>否</td>
+              <td>否（Java 9 之後有 JShell）</td>
+              <td>是（Node.js）</td>
+              <td>是</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB vs. Python &mdash; 關鍵取捨：</strong>
+        MATLAB 提供了一個精心打造的、整合式的數值工作環境，
+        開箱即用。Python 需要組裝套件（NumPy、
+        SciPy、Matplotlib），但這些套件是免費的、功能極為強大，
+        而且更廣泛的 Python 生態系統在純數值計算
+        之外提供了更多的靈活性。如果你的工作範圍超出
+        矩陣運算 &mdash; 例如為資料建立網頁儀表板或
+        自動化工作流程 &mdash; Python 是明顯的贏家。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. WHEN TO CHOOSE PYTHON                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="when-python">7. 何時選擇 Python</h2>
+
+      <p>
+        在以下情況中，Python 是絕佳的選擇：
+      </p>
+
+      <ul>
+        <li>
+          你想<strong>第一次學習程式設計</strong>
+          或為你的技能組合增加一種通用型語言。
+        </li>
+        <li>
+          你需要<strong>分析、清理或視覺化資料</strong>
+          &mdash; Python 搭配 pandas 和 Matplotlib 在大多數資料任務上
+          可以媲美甚至超越 MATLAB。
+        </li>
+        <li>
+          你想<strong>自動化重複性任務</strong> &mdash;
+          重新命名檔案、處理試算表、發送電子郵件、
+          產生報告。
+        </li>
+        <li>
+          你正在進入<strong>資料科學或機器學習</strong>領域
+          &mdash; Python 是這些領域的主導語言。
+        </li>
+        <li>
+          你需要<strong>建立網頁應用程式</strong>或 REST API
+          &mdash; Django 和 Flask 讓這變得簡單直接。
+        </li>
+        <li>
+          你想要一個<strong>免費的 MATLAB 替代方案</strong>來進行
+          科學計算 &mdash; NumPy + SciPy + Matplotlib 涵蓋了
+          MATLAB 絕大部分的核心功能。
+        </li>
+        <li>
+          你需要<strong>快速建立原型</strong>，然後再投入時間
+          進行更複雜的實作。
+        </li>
+        <li>
+          你需要<strong>跨平台相容性</strong> &mdash;
+          撰寫一次，就能在 Windows、macOS 和 Linux 上執行。
+        </li>
+        <li>
+          你需要<strong>將不同系統串接在一起</strong>
+          &mdash; Python 擅長作為「膠水語言」，連接資料庫、
+          API、檔案系統和其他工具。
+        </li>
+      </ul>
+
+      <h3>範例：自動化任務</h3>
+
+      <p>
+        假設你有 500 個文字檔案，你需要找到每個
+        包含「error」這個詞的檔案，並將它們複製到另一個資料夾。在
+        Python 中：
+      </p>
+
+      <pre><code>import os
+import shutil
+
+source = "logs/"
+destination = "error_logs/"
+os.makedirs(destination, exist_ok=True)
+
+for filename in os.listdir(source):
+    filepath = os.path.join(source, filename)
+    if filename.endswith(".txt"):
+        with open(filepath, "r") as f:
+            if "error" in f.read().lower():
+                shutil.copy(filepath, destination)
+                print(f"Copied: {filename}")</code></pre>
+
+      <p>
+        即使你從未見過 Python，這段腳本也很容易閱讀。
+        它建立一個資料夾、遍歷檔案、檢查是否包含
+        「error」這個詞，並複製符合條件的檔案。試著用 C 來寫這個 &mdash;
+        需要的程式碼會多得多。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  8. WHEN NOT TO CHOOSE PYTHON                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="when-not-python">8. 何時不該選擇 Python</h2>
+
+      <p>
+        Python 並非每種情境的最佳選擇。以下是
+        其他語言表現更好的場景：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>場景</th>
+            <th>Python 的不足之處</th>
+            <th>更好的替代方案</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>手機應用程式開發</strong></td>
+            <td>原生支援有限，在行動裝置上效能不佳</td>
+            <td>Swift（iOS）、Kotlin（Android）、Flutter/Dart、React Native</td>
+          </tr>
+          <tr>
+            <td><strong>高效能運算（內部迴圈）</strong></td>
+            <td>純 Python 對於緊湊的數值迴圈來說太慢</td>
+            <td>C、C++、Rust、Fortran（或在 Python 中使用 NumPy/Cython）</td>
+          </tr>
+          <tr>
+            <td><strong>作業系統核心與驅動程式</strong></td>
+            <td>無法進行底層記憶體控制；依賴執行時直譯器</td>
+            <td>C、Rust</td>
+          </tr>
+          <tr>
+            <td><strong>即時系統</strong></td>
+            <td>垃圾回收暫停和 GIL 使得確定性時序控制變得困難</td>
+            <td>C、C++、Ada</td>
+          </tr>
+          <tr>
+            <td><strong>瀏覽器前端</strong></td>
+            <td>瀏覽器原生執行 JavaScript；Python 需要轉譯</td>
+            <td>JavaScript、TypeScript</td>
+          </tr>
+          <tr>
+            <td><strong>3A 遊戲開發</strong></td>
+            <td>對遊戲引擎來說不夠快（渲染、物理引擎）</td>
+            <td>C++、C#（Unity）、Rust</td>
+          </tr>
+          <tr>
+            <td><strong>大型企業系統</strong></td>
+            <td>動態型別在多人開發的大型程式碼庫中可能成為負擔</td>
+            <td>Java、C#、Go、TypeScript</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>重要的細微差別：</strong>「不太理想」不代表
+        「不可能」。人們確實用 Python 建立過手機應用程式（Kivy）、
+        撰寫過高效能程式碼（NumPy、Cython）、也開發過遊戲
+        （Pygame）。重點在於其他語言更自然地適合
+        這些任務。Python 對於你作為初學者會遇到的
+        絕大多數程式設計需求來說，仍然是絕佳的選擇。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <p>
+        以下是你應該從這個頁面帶走的重點：
+      </p>
+
+      <ul>
+        <li>
+          Python 是一種<strong>高階、直譯式、通用型</strong>
+          語言，由 Guido van Rossum 於 1991 年創建。
+        </li>
+        <li>
+          它之所以受歡迎，是因為它<strong>可讀、免費、用途廣泛，
+          並且有龐大的社群和生態系統支持</strong>。
+        </li>
+        <li>
+          Python 被用於<strong>資料科學、網頁開發、
+          自動化、機器學習、科學計算</strong>等眾多領域。
+        </li>
+        <li>
+          它的主要弱點是<strong>執行速度和 GIL</strong>，
+          但在大多數使用場景中這些很少會造成實際影響。
+        </li>
+        <li>
+          從 MATLAB 轉過來，你會發現 Python 的語法很熟悉，
+          而且它的功能<strong>更廣泛且完全免費</strong>。
+        </li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>了解 Python 是什麼（以及
+        不是什麼）能幫助你設定合理的期望並做出明智的
+        決策。你現在知道 Python 不是最快的語言，但
+        它是最具生產力的語言之一。你知道它不能做所有事情，
+        但它可以把大多數事情做好。這個基礎將使你接下來的
+        學習旅程更加順暢 &mdash; 你會理解
+        Python 為<em>什麼</em>這樣運作，而不僅僅是<em>如何</em>運作。
+      </div>
+
+      <p>
+        準備好安裝 Python 並撰寫你的第一個腳本了嗎？前往下一個章節吧。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  PAGE NAVIGATION                                              -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="../index.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">首頁</span></a>
+        <a href="getting-started.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">入門設定</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

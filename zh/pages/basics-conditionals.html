@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>條件判斷 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-conditionals.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link active">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python 基礎</a><span class="sep">&rsaquo;</span>
+        條件判斷
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  第 C5 節 — 條件判斷                                           -->
+      <!-- ============================================================ -->
+
+      <h1>第 C5 節 &mdash; 條件判斷 (if / elif / else)</h1>
+
+      <p>
+        每個有用的程式都需要做決定。是否應該顯示錯誤訊息？
+        使用者年齡是否足夠？感測器讀數是否超過閾值？
+        在 Python 中，你使用<strong>條件語句</strong> &mdash;
+        <code>if</code>、<code>elif</code> 和 <code>else</code> 來做決定。
+        本頁涵蓋你需要了解的所有 Python 分支邏輯知識。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong> 你已經知道
+        <code>if&nbsp;...&nbsp;elseif&nbsp;...&nbsp;else&nbsp;...&nbsp;end</code>。
+        Python 的版本在邏輯上幾乎相同，但語法有三個重要差異：
+        (1)&nbsp;Python 使用 <strong>elif</strong>
+        而非 <code>elseif</code>，(2)&nbsp;每個條件行以
+        <strong>冒號</strong>結尾，(3)&nbsp;沒有
+        <strong><code>end</code> 關鍵字</strong> &mdash; Python 僅使用縮排來定義區塊。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. if 語句                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="if-statement">1. <code>if</code> 語句</h2>
+
+      <p>
+        最簡單的條件是純粹的 <code>if</code>。它<em>僅</em>在條件為
+        <code>True</code> 時執行一段程式碼區塊。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>if condition:
+    # 此區塊僅在 condition 為 True 時執行
+    do_something()</code></pre>
+
+      <p>關鍵規則：</p>
+      <ul>
+        <li>該行必須以<strong>冒號</strong>（<code>:</code>）結尾。</li>
+        <li>下方的縮排區塊是主體。Python 使用<strong>縮排</strong>（通常 4 個空格）來定義哪些行屬於 <code>if</code>。</li>
+        <li>條件是任何求值為 <code>True</code> 或 <code>False</code> 的表達式。</li>
+      </ul>
+
+      <h3>範例 1 &mdash; 基本 <code>if</code></h3>
+
+      <pre><code>temperature = 35
+
+if temperature > 30:
+    print("It's hot outside!")
+
+# 輸出：It's hot outside!</code></pre>
+
+      <p>
+        因為 <code>temperature</code> 是 35，條件
+        <code>35 &gt; 30</code> 為 <code>True</code>，所以縮排的
+        <code>print()</code> 行會被執行。
+      </p>
+
+      <h3>範例 2 &mdash; 條件為 False 時什麼都不會發生</h3>
+
+      <pre><code>temperature = 20
+
+if temperature > 30:
+    print("It's hot outside!")
+
+print("Done checking.")
+# 輸出：Done checking.</code></pre>
+
+      <p>
+        條件為 <code>False</code>，所以縮排的行被完全跳過。
+        程式繼續執行下一行未縮排的程式碼。
+      </p>
+
+      <div class="callout callout-info">
+        <strong>縮排不是可選的。</strong> 在大多數語言中，
+        縮排只是風格選擇。在 Python 中，它是語法的一部分。
+        如果你縮排不正確，Python 會引發
+        <code>IndentationError</code>。始終使用每層 <strong>4 個空格</strong>
+        （你的編輯器可以自動完成此操作）。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. if / else                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="if-else">2. <code>if</code> / <code>else</code></h2>
+
+      <p>
+        通常你想在條件為真時做一件事，在為假時做
+        <em>另一件</em>事。這就是 <code>else</code> 的用途。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>if condition:
+    # 條件為 True 時執行
+else:
+    # 條件為 False 時執行</code></pre>
+
+      <h3>範例 3 &mdash; 及格或不及格</h3>
+
+      <pre><code>score = 72
+
+if score >= 60:
+    print("You passed!")
+else:
+    print("You failed. Try again.")
+
+# 輸出：You passed!</code></pre>
+
+      <h3>範例 4 &mdash; 偶數或奇數</h3>
+
+      <pre><code>number = 7
+
+if number % 2 == 0:
+    print(f"{number} is even")
+else:
+    print(f"{number} is odd")
+
+# 輸出：7 is odd</code></pre>
+
+      <p>
+        取模運算子 <code>%</code> 給出除法後的餘數。
+        如果 <code>number % 2</code> 等於 0，該數字是偶數；否則是奇數。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  3. elif                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="elif">3. <code>elif</code> &mdash; 多重條件</h2>
+
+      <p>
+        當你有兩個以上的分支時，使用 <code>elif</code>（「else if」的縮寫）。
+        Python 從上到下檢查每個條件，並執行
+        <em>第一個</em>條件為 <code>True</code> 的區塊。如果
+        都不符合，<code>else</code> 區塊會執行（如果有的話）。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>if condition_1:
+    # 如果 condition_1 為 True 則執行
+elif condition_2:
+    # 如果 condition_1 為 False 且 condition_2 為 True 則執行
+elif condition_3:
+    # 如果以上兩者都為 False 且 condition_3 為 True 則執行
+else:
+    # 如果以上所有條件都為 False 則執行</code></pre>
+
+      <p>
+        你可以有任意多個 <code>elif</code> 分支。
+        末尾的 <code>else</code> 是可選的，但建議作為兜底使用。
+      </p>
+
+      <h3>範例 5 &mdash; 字母等級</h3>
+
+      <pre><code>score = 85
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+
+print(f"Score: {score}, Grade: {grade}")
+# 輸出：Score: 85, Grade: B</code></pre>
+
+      <p>
+        Python 依序測試每個條件。<code>85 &gt;= 90</code> 為
+        <code>False</code>，所以繼續。<code>85 &gt;= 80</code> 為
+        <code>True</code>，所以 <code>grade</code> 被設為 <code>"B"</code>，
+        所有剩餘分支被跳過。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong>
+        <pre><code>% MATLAB
+if score >= 90
+    grade = 'A';
+elseif score >= 80
+    grade = 'B';
+elseif score >= 70
+    grade = 'C';
+elseif score >= 60
+    grade = 'D';
+else
+    grade = 'F';
+end</code></pre>
+        <p>
+          注意 MATLAB 使用 <code>elseif</code>（一個字）且需要
+          <code>end</code>。Python 使用 <code>elif</code> 並用縮排取代
+          <code>end</code>。邏輯上完全相同。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 巢狀 if 語句                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="nested-if">4. 巢狀 <code>if</code> 語句</h2>
+
+      <p>
+        你可以將一個 <code>if</code> 語句放在另一個
+        <code>if</code> 語句內部。這稱為<strong>巢狀</strong>。
+        內部的 <code>if</code> 只在外部條件已經為
+        <code>True</code> 時才會執行。
+      </p>
+
+      <h3>範例 6 &mdash; 巢狀檢查</h3>
+
+      <pre><code>age = 25
+has_ticket = True
+
+if age >= 18:
+    if has_ticket:
+        print("Welcome to the concert!")
+    else:
+        print("You need a ticket.")
+else:
+    print("Sorry, you must be 18 or older.")
+
+# 輸出：Welcome to the concert!</code></pre>
+
+      <p>
+        每層巢狀增加 4 個空格的縮排。雖然巢狀可以運作，
+        但深層巢狀的程式碼（3 層以上）會變得難以閱讀。
+        在實務上，你通常可以使用 <code>and</code> 組合來簡化巢狀條件（見下文）。
+      </p>
+
+      <h3>範例 7 &mdash; 使用 <code>and</code> 的扁平版本</h3>
+
+      <pre><code>age = 25
+has_ticket = True
+
+if age >= 18 and has_ticket:
+    print("Welcome to the concert!")
+elif age < 18:
+    print("Sorry, you must be 18 or older.")
+else:
+    print("You need a ticket.")</code></pre>
+
+      <p>
+        這樣更簡潔、更容易閱讀。盡可能選擇扁平化。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  5. 組合條件                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="combining-conditions">5. 使用 <code>and</code>、<code>or</code>、<code>not</code> 組合條件</h2>
+
+      <p>
+        Python 提供三個<strong>邏輯運算子</strong>來組合條件：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>運算子</th>
+            <th>含義</th>
+            <th>何時為 True&hellip;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>and</code></td>
+            <td>兩者都必須為真</td>
+            <td><code>A and B</code> &rarr; 僅當 A 為 True <em>且</em> B 為 True 時為 True</td>
+          </tr>
+          <tr>
+            <td><code>or</code></td>
+            <td>至少一個必須為真</td>
+            <td><code>A or B</code> &rarr; 如果 A 為 True <em>或</em> B 為 True（或兩者）則為 True</td>
+          </tr>
+          <tr>
+            <td><code>not</code></td>
+            <td>反轉真假值</td>
+            <td><code>not A</code> &rarr; 如果 A 為 False 則為 True</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>範例 8 &mdash; 使用 <code>and</code></h3>
+
+      <pre><code>username = "admin"
+password = "secret123"
+
+if username == "admin" and password == "secret123":
+    print("Login successful!")
+else:
+    print("Invalid credentials.")
+
+# 輸出：Login successful!</code></pre>
+
+      <p>兩個條件都必須為 <code>True</code>，組合表達式才為 <code>True</code>。</p>
+
+      <h3>範例 9 &mdash; 使用 <code>or</code></h3>
+
+      <pre><code>day = "Saturday"
+
+if day == "Saturday" or day == "Sunday":
+    print("It's the weekend!")
+else:
+    print("It's a weekday.")
+
+# 輸出：It's the weekend!</code></pre>
+
+      <h3>範例 10 &mdash; 使用 <code>not</code></h3>
+
+      <pre><code>is_raining = False
+
+if not is_raining:
+    print("No umbrella needed.")
+
+# 輸出：No umbrella needed.</code></pre>
+
+      <p>
+        <code>not</code> 將 <code>False</code> 翻轉為 <code>True</code>，
+        所以區塊會被執行。
+      </p>
+
+      <h3>範例 11 &mdash; 組合多個運算子</h3>
+
+      <pre><code>temperature = 22
+is_sunny = True
+
+if temperature > 20 and temperature < 35 and is_sunny:
+    print("Perfect day for a walk!")
+
+# 輸出：Perfect day for a walk!</code></pre>
+
+      <div class="callout callout-info">
+        <strong>運算子優先順序：</strong> <code>not</code> 最先求值，
+        然後是 <code>and</code>，最後是 <code>or</code>。
+        有疑問時，使用括號讓你的意圖更清楚：
+        <code>if (a or b) and c:</code>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong> MATLAB 使用 <code>&amp;&amp;</code>
+        作為邏輯 AND，<code>||</code> 作為邏輯 OR。Python 使用英文單字拼寫：
+        <code>and</code> 和 <code>or</code>。
+        MATLAB 的 <code>~</code>（波浪號表示 NOT）在 Python 中變為 <code>not</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. 比較運算子                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="comparison-operators">6. 比較運算子參考</h2>
+
+      <p>
+        條件依賴比較運算子。以下是完整列表：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>運算子</th>
+            <th>含義</th>
+            <th>範例</th>
+            <th>結果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>==</code></td><td>等於</td><td><code>5 == 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>!=</code></td><td>不等於</td><td><code>5 != 3</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&gt;</code></td><td>大於</td><td><code>5 &gt; 3</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&lt;</code></td><td>小於</td><td><code>3 &lt; 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&gt;=</code></td><td>大於或等於</td><td><code>5 &gt;= 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>&lt;=</code></td><td>小於或等於</td><td><code>3 &lt;= 5</code></td><td><code>True</code></td></tr>
+          <tr><td><code>in</code></td><td>成員測試</td><td><code>"a" in "cat"</code></td><td><code>True</code></td></tr>
+          <tr><td><code>not in</code></td><td>否定成員測試</td><td><code>"x" not in "cat"</code></td><td><code>True</code></td></tr>
+          <tr><td><code>is</code></td><td>身份（同一物件）</td><td><code>x is None</code></td><td>取決於情況</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>鏈式比較：</strong> Python 讓你可以自然地鏈式比較。
+        不必寫 <code>x &gt; 0 and x &lt; 100</code>，你可以寫
+        <code>0 &lt; x &lt; 100</code>。這就像數學記號一樣，
+        在 Python 中完全有效。
+      </div>
+
+      <h3>範例 12 &mdash; 鏈式比較</h3>
+
+      <pre><code>age = 25
+
+if 18 <= age <= 65:
+    print("Working age")
+
+# 輸出：Working age</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  7. 三元表達式                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="ternary">7. 三元表達式（行內 <code>if</code>/<code>else</code>）</h2>
+
+      <p>
+        有時你想根據條件在單行中賦值。Python 有一個簡潔的語法，
+        稱為<strong>三元表達式</strong>（也稱為條件表達式）。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>value = a if condition else b</code></pre>
+
+      <p>
+        這讀作：「如果條件為真，將 <code>value</code> 設為 <code>a</code>；
+        否則，設為 <code>b</code>。」
+      </p>
+
+      <h3>範例 13 &mdash; 簡單的三元</h3>
+
+      <pre><code>age = 20
+
+status = "adult" if age >= 18 else "minor"
+print(status)
+# 輸出：adult</code></pre>
+
+      <h3>範例 14 &mdash; print 語句中的三元</h3>
+
+      <pre><code>score = 45
+
+print("Pass" if score >= 50 else "Fail")
+# 輸出：Fail</code></pre>
+
+      <h3>範例 15 &mdash; 三元用於選擇值</h3>
+
+      <pre><code>x = -7
+
+absolute_value = x if x >= 0 else -x
+print(absolute_value)
+# 輸出：7</code></pre>
+
+      <div class="callout callout-info">
+        <strong>何時使用三元：</strong> 它們非常適合簡單的單行賦值。
+        如果邏輯複雜或涉及多個分支，
+        請使用完整的 <code>if</code>/<code>elif</code>/<code>else</code>
+        區塊。可讀性永遠勝過巧妙。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 注意：</strong> MATLAB 沒有內建的三元運算子。
+        最接近的等價物是單行 <code>if</code> 或使用索引技巧。
+        Python 的三元語法更簡潔且更易讀。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. 真值與假值                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="truthiness">8. 真值與假值</h2>
+
+      <p>
+        在 Python 中，你不一定需要明確的比較。每個值都有固有的
+        <strong>真值性</strong>。當你寫 <code>if x:</code> 時，
+        Python 會判斷 <code>x</code> 是「真值」還是「假值」。
+      </p>
+
+      <h3>假值（求值為 <code>False</code>）</h3>
+
+      <table>
+        <thead>
+          <tr><th>值</th><th>型別</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>False</code></td><td>bool</td></tr>
+          <tr><td><code>None</code></td><td>NoneType</td></tr>
+          <tr><td><code>0</code></td><td>int</td></tr>
+          <tr><td><code>0.0</code></td><td>float</td></tr>
+          <tr><td><code>""</code>（空字串）</td><td>str</td></tr>
+          <tr><td><code>[]</code>（空串列）</td><td>list</td></tr>
+          <tr><td><code>{}</code>（空字典）</td><td>dict</td></tr>
+          <tr><td><code>()</code>（空元組）</td><td>tuple</td></tr>
+          <tr><td><code>set()</code>（空集合）</td><td>set</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>其他所有值都是真值。</strong> 非零數字、非空字串、非空集合 &mdash; 都是真值。</p>
+
+      <h3>範例 16 &mdash; 檢查空串列</h3>
+
+      <pre><code>shopping_list = []
+
+if shopping_list:
+    print("Let's go shopping!")
+else:
+    print("Nothing to buy.")
+
+# 輸出：Nothing to buy.</code></pre>
+
+      <p>
+        空串列是假值，所以 <code>if shopping_list:</code> 求值為
+        <code>False</code>。這是 Python 中檢查集合是否有項目的慣用方式 &mdash;
+        你不需要寫 <code>if len(shopping_list) &gt; 0:</code>。
+      </p>
+
+      <h3>範例 17 &mdash; 檢查非空字串</h3>
+
+      <pre><code>user_input = "hello"
+
+if user_input:
+    print(f"You typed: {user_input}")
+else:
+    print("You didn't type anything.")
+
+# 輸出：You typed: hello</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong> 理解真值性是寫出簡潔、
+        道地 Python 程式碼的關鍵。與其寫冗長的比較如
+        <code>if name != "":</code> 或 <code>if count != 0:</code>，
+        有經驗的 Python 程式設計師會寫 <code>if name:</code> 和
+        <code>if count:</code>。這更短、更簡潔，被視為最佳實踐。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. 常見錯誤                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">9. 常見錯誤</h2>
+
+      <p>
+        條件判斷在概念上很簡單，但初學者常常在幾個可預見的
+        陷阱上犯錯。以下是最常見的錯誤及修正方法。
+      </p>
+
+      <h3>錯誤 1：使用 <code>=</code> 而非 <code>==</code></h3>
+
+      <p>
+        單等號 <code>=</code> 用於<strong>賦值</strong>（儲存值）。
+        雙等號 <code>==</code> 用於<strong>比較</strong>（檢查是否相等）。
+        混淆兩者是初學者最常見的錯誤之一。
+      </p>
+
+      <pre><code># 錯誤 — 這是賦值，不是比較
+x = 10
+if x = 10:       # SyntaxError!
+    print("ten")
+
+# 正確 — 使用 == 進行比較
+x = 10
+if x == 10:
+    print("ten")  # 輸出：ten</code></pre>
+
+      <div class="callout callout-info">
+        <strong>好消息：</strong> 與 C 或 JavaScript 不同，如果你在
+        <code>if</code> 中不小心使用了 <code>=</code>，Python 會引發
+        <code>SyntaxError</code>。錯誤訊息會指出問題所在。
+      </div>
+
+      <h3>錯誤 2：忘記冒號</h3>
+
+      <pre><code># 錯誤 — 結尾缺少冒號
+if score > 90
+    print("A+")
+
+# 正確
+if score > 90:
+    print("A+")</code></pre>
+
+      <p>
+        每個 <code>if</code>、<code>elif</code> 和 <code>else</code> 行
+        必須以冒號結尾。忘記它會產生 <code>SyntaxError</code>。
+      </p>
+
+      <h3>錯誤 3：縮排錯誤</h3>
+
+      <pre><code># 錯誤 — 不一致的縮排
+if temperature > 30:
+    print("Hot")
+      print("Drink water")   # IndentationError!
+
+# 正確 — 兩行有相同的縮排
+if temperature > 30:
+    print("Hot")
+    print("Drink water")</code></pre>
+
+      <p>
+        同一區塊中的所有行必須有<em>完全</em>相同的縮排。
+        混用 Tab 和空格是問題的根源 &mdash;
+        將你的編輯器設定為按 Tab 時插入 4 個空格。
+      </p>
+
+      <h3>錯誤 4：把 <code>elif</code> 寫成 <code>else if</code></h3>
+
+      <pre><code># 錯誤 — Python 不使用 "else if"
+if x > 0:
+    print("positive")
+else if x < 0:       # SyntaxError!
+    print("negative")
+
+# 正確 — 使用 elif（一個字）
+if x > 0:
+    print("positive")
+elif x < 0:
+    print("negative")</code></pre>
+
+      <h3>錯誤 5：錯誤地檢查多個值</h3>
+
+      <pre><code># 錯誤 — 不會如你所想的那樣運作
+color = "red"
+if color == "red" or "blue":   # 永遠為 True！
+    print("Match")
+
+# 為什麼？Python 將此讀為：(color == "red") or ("blue")
+# 字串 "blue" 是真值，所以整個表達式永遠為 True。
+
+# 正確
+if color == "red" or color == "blue":
+    print("Match")
+
+# 更好 — 使用 'in' 運算子
+if color in ("red", "blue"):
+    print("Match")</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>
+        <code>color == "red" or "blue"</code> 這個 bug 在初學者中極為常見。
+        它在英文中看起來合乎邏輯（「if color equals red or blue」），
+        但 Python 的解讀不同。
+        對於檢查一組值中的成員，始終使用 <code>in</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. MATLAB vs PYTHON 並排比較                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="matlab-comparison">10. MATLAB vs. Python &mdash; 條件判斷並排比較</h2>
+
+      <p>
+        如果你來自 MATLAB，這個比較將幫助你看到語法如何對應。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>功能</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>基本 if</td>
+            <td><code>if x &gt; 0<br>&nbsp;&nbsp;disp('positive');<br>end</code></td>
+            <td><code>if x &gt; 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('positive')</code></td>
+          </tr>
+          <tr>
+            <td>else</td>
+            <td><code>else<br>&nbsp;&nbsp;disp('not positive');<br>end</code></td>
+            <td><code>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('not positive')</code></td>
+          </tr>
+          <tr>
+            <td>Else-if 關鍵字</td>
+            <td><code>elseif</code></td>
+            <td><code>elif</code></td>
+          </tr>
+          <tr>
+            <td>區塊終止符</td>
+            <td><code>end</code></td>
+            <td>縮排（沒有 end 關鍵字）</td>
+          </tr>
+          <tr>
+            <td>邏輯 AND</td>
+            <td><code>&amp;&amp;</code></td>
+            <td><code>and</code></td>
+          </tr>
+          <tr>
+            <td>邏輯 OR</td>
+            <td><code>||</code></td>
+            <td><code>or</code></td>
+          </tr>
+          <tr>
+            <td>邏輯 NOT</td>
+            <td><code>~</code></td>
+            <td><code>not</code></td>
+          </tr>
+          <tr>
+            <td>相等檢查</td>
+            <td><code>==</code></td>
+            <td><code>==</code></td>
+          </tr>
+          <tr>
+            <td>不等於</td>
+            <td><code>~=</code></td>
+            <td><code>!=</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者的關鍵要點：</strong> 去掉 <code>end</code>，
+        加上冒號，使用 <code>elif</code> 取代 <code>elseif</code>，
+        並將邏輯運算子拼寫為英文單字（<code>and</code>、<code>or</code>、<code>not</code>）。
+        不等於在 Python 中是 <code>!=</code>，而非 <code>~=</code>。
+        其他在邏輯上的運作方式完全相同。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  11. 實際範例                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="real-world">11. 實際範例</h2>
+
+      <h3>範例 18 &mdash; 簡單計算機</h3>
+
+      <pre><code>a = 10
+b = 3
+operator = "+"
+
+if operator == "+":
+    result = a + b
+elif operator == "-":
+    result = a - b
+elif operator == "*":
+    result = a * b
+elif operator == "/":
+    if b != 0:
+        result = a / b
+    else:
+        result = "Error: division by zero"
+else:
+    result = "Unknown operator"
+
+print(f"{a} {operator} {b} = {result}")
+# 輸出：10 + 3 = 13</code></pre>
+
+      <h3>範例 19 &mdash; 閏年檢查器</h3>
+
+      <pre><code>year = 2024
+
+if year % 400 == 0:
+    is_leap = True
+elif year % 100 == 0:
+    is_leap = False
+elif year % 4 == 0:
+    is_leap = True
+else:
+    is_leap = False
+
+print(f"{year} is a leap year: {is_leap}")
+# 輸出：2024 is a leap year: True</code></pre>
+
+      <h3>範例 20 &mdash; FizzBuzz（經典程式設計練習）</h3>
+
+      <pre><code>n = 15
+
+if n % 3 == 0 and n % 5 == 0:
+    print("FizzBuzz")
+elif n % 3 == 0:
+    print("Fizz")
+elif n % 5 == 0:
+    print("Buzz")
+else:
+    print(n)
+
+# 輸出：FizzBuzz</code></pre>
+
+      <p>
+        注意：順序很重要。組合檢查（<code>n % 3 == 0 and
+        n % 5 == 0</code>）必須放在最前面。如果你先檢查
+        <code>n % 3 == 0</code>，它會印出「Fizz」並完全跳過
+        FizzBuzz 的情況。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  12. 練習題                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">12. 練習題</h2>
+
+      <div class="callout callout-info">
+        <strong>練習使之永久。</strong> 在查看解答之前先自己嘗試這些練習。
+        把程式碼打出來而不是複製貼上 &mdash; 肌肉記憶有幫助。
+      </div>
+
+      <h3>練習 1：年齡組分類器</h3>
+      <p>
+        寫一個程式，接受一個 <code>age</code> 變數並印出
+        該人屬於哪個年齡組：
+      </p>
+      <ul>
+        <li>0&ndash;12：「Child」</li>
+        <li>13&ndash;17：「Teenager」</li>
+        <li>18&ndash;64：「Adult」</li>
+        <li>65+：「Senior」</li>
+      </ul>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>age = 30
+
+if age < 0:
+    print("Invalid age")
+elif age <= 12:
+    print("Child")
+elif age <= 17:
+    print("Teenager")
+elif age <= 64:
+    print("Adult")
+else:
+    print("Senior")
+
+# 輸出：Adult</code></pre>
+      </details>
+
+      <h3>練習 2：溫度建議</h3>
+      <p>
+        給定攝氏溫度 <code>temp</code>，印出建議：
+      </p>
+      <ul>
+        <li>低於 0：「Freezing! Stay inside.」</li>
+        <li>0&ndash;15：「Cold. Wear a jacket.」</li>
+        <li>16&ndash;25：「Nice weather. Enjoy!」</li>
+        <li>26&ndash;35：「Warm. Stay hydrated.」</li>
+        <li>高於 35：「Dangerously hot!」</li>
+      </ul>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>temp = 22
+
+if temp < 0:
+    print("Freezing! Stay inside.")
+elif temp <= 15:
+    print("Cold. Wear a jacket.")
+elif temp <= 25:
+    print("Nice weather. Enjoy!")
+elif temp <= 35:
+    print("Warm. Stay hydrated.")
+else:
+    print("Dangerously hot!")
+
+# 輸出：Nice weather. Enjoy!</code></pre>
+      </details>
+
+      <h3>練習 3：密碼強度檢查器</h3>
+      <p>
+        給定一個 <code>password</code> 字串，檢查其強度：
+      </p>
+      <ul>
+        <li>少於 6 個字元：「Weak」</li>
+        <li>6&ndash;11 個字元：「Medium」</li>
+        <li>12 個或更多字元：「Strong」</li>
+        <li>加分：如果密碼包含至少一個數字，在輸出後加上「 (has number)」。</li>
+      </ul>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>password = "hello2world"
+
+length = len(password)
+has_digit = any(char.isdigit() for char in password)
+
+if length < 6:
+    strength = "Weak"
+elif length < 12:
+    strength = "Medium"
+else:
+    strength = "Strong"
+
+if has_digit:
+    strength += " (has number)"
+
+print(f"Password strength: {strength}")
+# 輸出：Password strength: Medium (has number)</code></pre>
+      </details>
+
+      <h3>練習 4：三元練習</h3>
+      <p>
+        使用三元表達式將以下程式碼改寫為單行：
+      </p>
+      <pre><code>x = 42
+if x % 2 == 0:
+    parity = "even"
+else:
+    parity = "odd"</code></pre>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>x = 42
+parity = "even" if x % 2 == 0 else "odd"
+print(parity)  # 輸出：even</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <ul>
+        <li><code>if</code> 檢查條件；縮排區塊僅在條件為 <code>True</code> 時執行。</li>
+        <li><code>elif</code>（不是 <code>elseif</code>！）提供額外的分支。</li>
+        <li><code>else</code> 是兜底選項，在沒有條件匹配時執行。</li>
+        <li>每個條件行以<strong>冒號</strong>結尾。</li>
+        <li><strong>縮排</strong>定義區塊 &mdash; 沒有 <code>end</code> 關鍵字。</li>
+        <li>使用 <code>and</code>、<code>or</code> 和 <code>not</code> 來組合條件。</li>
+        <li>三元語法：<code>value = a if condition else b</code>。</li>
+        <li>Python 的值具有固有的真值性 &mdash; 空集合和零是假值。</li>
+        <li>使用 <code>==</code> 進行比較，不是 <code>=</code>。始終以冒號結尾。一致地縮排。</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>你現在擁有了在程式中做決定的能力！</strong>
+        結合你已經學過的資料型別（數字、字串、串列、字典），
+        條件判斷讓你能寫出根據不同輸入智能回應的程式。接下來：
+        <strong>迴圈</strong> &mdash; 重複執行動作的能力。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-dictionaries.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">字典</span></a>
+        <a href="basics-loops.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">迴圈</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

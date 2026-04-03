@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATLAB 轉 Python &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/matlab-to-python.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是 Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link active">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> <a href="matlab-to-python.html">MATLAB 轉 Python</a>
+      </div>
+
+      <h1>第 E 節 &mdash; MATLAB 轉 Python</h1>
+      <p class="page-subtitle">
+        一份為從 MATLAB 轉換到 Python 的使用者準備的詳盡指南。本頁
+        涵蓋每個主要的概念和語法差異，讓你可以將現有的 MATLAB 知識
+        對應到 Python 的世界。
+      </p>
+
+      <!-- 目錄 -->
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#mental-model">1. 思維模式差異</a></li>
+          <li><a href="#syntax">2. 語法差異</a></li>
+          <li><a href="#indexing">3. 索引差異</a></li>
+          <li><a href="#arrays-vs-lists">4. 陣列 vs 串列</a></li>
+          <li><a href="#vectorization">5. 向量化</a></li>
+          <li><a href="#function-organization">6. 函式組織</a></li>
+          <li><a href="#scripts-vs-modules">7. 腳本 vs 模組</a></li>
+          <li><a href="#plotting">8. 繪圖差異</a></li>
+          <li><a href="#translation-examples">9. 常見轉換範例</a></li>
+          <li><a href="#common-mistakes">10. MATLAB 使用者常犯的錯誤</a></li>
+        </ul>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">為什麼此頁面很重要</div>
+        <p>
+          如果你已經會 MATLAB，你<strong>不是</strong>從零開始。
+          你理解變數、迴圈、函式、陣列和繪圖。挑戰<em>不是</em>
+          學習新概念 &mdash; 而是忘掉 MATLAB 特有的習慣，
+          學習用 Python 的方式做同樣的事。本頁就是你的翻譯指南。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. 思維模式差異                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="mental-model">1. 思維模式差異</h2>
+
+      <p>
+        在深入語法之前，了解兩種語言在根本層面上如何<em>思考</em>
+        會有所幫助。
+      </p>
+
+      <h3>MATLAB：矩陣優先的數值世界</h3>
+
+      <p>
+        MATLAB（<strong>MATrix LABoratory</strong> 的縮寫）從一開始
+        就是為數值運算設計的。MATLAB 中的一切都是矩陣 &mdash;
+        即使是單一數字在內部也是 1&times;1 矩陣。這意味著矩陣運算、
+        線性代數和向量化計算是語言本身的一部分。
+      </p>
+
+      <h3>Python：通用、多範式</h3>
+
+      <p>
+        Python 被設計為<strong>通用</strong>語言。它可以做數值工作
+        （透過 NumPy 和 SciPy），但也可以建立網站、自動化檔案、
+        連接資料庫和訓練機器學習模型。數字、字串、串列、字典和
+        物件都是一等公民 &mdash; 不只是矩陣。
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB 工作流程</h4>
+          <ul>
+            <li>開啟 MATLAB &rarr; 你得到一個互動式<strong>工作空間</strong></li>
+            <li>變數存在於工作空間中，在命令之間保持存在</li>
+            <li>你隨時在工作空間面板中看到所有變數</li>
+            <li>腳本在同一工作空間中從上到下執行</li>
+            <li>一切圍繞著<strong>命令視窗</strong>運作</li>
+          </ul>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python 工作流程</h4>
+          <ul>
+            <li>撰寫 <code>.py</code> 檔案 &rarr; 從終端機或 IDE 執行</li>
+            <li>變數只在腳本執行期間存在（沒有持久的工作空間）</li>
+            <li>沒有內建的變數瀏覽器（VS Code 或 Spyder 等 IDE 會加入）</li>
+            <li>腳本是獨立的；你將其他腳本作為模組匯入</li>
+            <li>互動式 REPL（<code>python</code> 或 Jupyter）存在但與腳本分開</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">提示：如果你懷念 MATLAB 的感覺，使用 Spyder 或 Jupyter</div>
+        <p>
+          <strong>Spyder</strong> 是一個免費的 Python IDE，刻意模仿
+          MATLAB 的佈局：左邊是編輯器，右下是主控台，
+          右上是變數瀏覽器。<strong>Jupyter Notebook</strong>
+          提供類似 MATLAB Live Scripts 的逐格執行模型。
+          兩者都是 MATLAB 轉換者的絕佳起點。
+        </p>
+      </div>
+
+      <h3>關鍵思維轉變</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>概念</th>
+            <th>MATLAB 思維</th>
+            <th>Python 思維</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>資料</strong></td>
+            <td>一切都是矩陣</td>
+            <td>多種資料型別：int、float、str、list、dict、tuple、set 等</td>
+          </tr>
+          <tr>
+            <td><strong>程式庫</strong></td>
+            <td>內建工具箱（付費附加元件）</td>
+            <td>免費套件，使用 <code>pip install</code> 安裝</td>
+          </tr>
+          <tr>
+            <td><strong>索引</strong></td>
+            <td>1-based，包含兩端</td>
+            <td>0-based，不包含末端</td>
+          </tr>
+          <tr>
+            <td><strong>檔案結構</strong></td>
+            <td>一個函式一個檔案（通常）</td>
+            <td>一個檔案多個函式；檔案就是模組</td>
+          </tr>
+          <tr>
+            <td><strong>費用</strong></td>
+            <td>昂貴的商業授權</td>
+            <td>100% 免費且開源</td>
+          </tr>
+          <tr>
+            <td><strong>社群</strong></td>
+            <td>MATLAB Central、File Exchange</td>
+            <td>PyPI（50萬+ 套件）、GitHub、Stack Overflow</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  2. 語法差異                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="syntax">2. 語法差異</h2>
+
+      <p>
+        下表涵蓋最重要的語法差異。仔細研究這些 &mdash;
+        它們能為你省下數小時的困惑。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>特性</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>分號</strong></td>
+            <td><code>x = 5;</code> 抑制輸出；省略則印出</td>
+            <td>不使用。除非你呼叫 <code>print()</code>，否則不印出任何東西</td>
+          </tr>
+          <tr>
+            <td><strong>註解</strong></td>
+            <td><code>% 這是一個註解</code></td>
+            <td><code># 這是一個註解</code></td>
+          </tr>
+          <tr>
+            <td><strong>區塊註解</strong></td>
+            <td><code>%{ ... %}</code></td>
+            <td>多行字串 <code>""" ... """</code>（或每行加 <code>#</code>）</td>
+          </tr>
+          <tr>
+            <td><strong>程式碼區塊</strong></td>
+            <td><code>if ... end</code>、<code>for ... end</code></td>
+            <td>縮排（沒有 <code>end</code> 關鍵字）</td>
+          </tr>
+          <tr>
+            <td><strong>字串</strong></td>
+            <td><code>'單引號'</code>（字元）或 <code>"雙引號"</code>（字串）</td>
+            <td><code>'單引號'</code> 和 <code>"雙引號"</code> 完全相同</td>
+          </tr>
+          <tr>
+            <td><strong>字串串接</strong></td>
+            <td><code>['Hello ' 'World']</code> 或 <code>strcat()</code></td>
+            <td><code>'Hello ' + 'World'</code> 或 f-string</td>
+          </tr>
+          <tr>
+            <td><strong>布林值</strong></td>
+            <td><code>true</code>、<code>false</code>（小寫）</td>
+            <td><code>True</code>、<code>False</code>（大寫開頭）</td>
+          </tr>
+          <tr>
+            <td><strong>邏輯運算子</strong></td>
+            <td><code>&amp;&amp;</code>、<code>||</code>、<code>~</code></td>
+            <td><code>and</code>、<code>or</code>、<code>not</code></td>
+          </tr>
+          <tr>
+            <td><strong>指數</strong></td>
+            <td><code>2^10</code></td>
+            <td><code>2**10</code></td>
+          </tr>
+          <tr>
+            <td><strong>不等於</strong></td>
+            <td><code>~=</code></td>
+            <td><code>!=</code></td>
+          </tr>
+          <tr>
+            <td><strong>印出輸出</strong></td>
+            <td><code>disp(x)</code> 或 <code>fprintf(...)</code></td>
+            <td><code>print(x)</code> 或 <code>print(f"...")</code></td>
+          </tr>
+          <tr>
+            <td><strong>Cell 陣列 / 串列</strong></td>
+            <td><code>{1, 'hello', [1 2 3]}</code></td>
+            <td><code>[1, 'hello', [1, 2, 3]]</code></td>
+          </tr>
+          <tr>
+            <td><strong>結構體 / 字典</strong></td>
+            <td><code>s.name = 'Alice';</code></td>
+            <td><code>s = {'name': 'Alice'}</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>分號 &mdash; 第一個要改掉的習慣</h3>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">別再打分號了！</div>
+        <p>
+          在 MATLAB 中，你幾乎每一行都以 <code>;</code> 結尾以抑制輸出。
+          在 Python 中，分號<strong>永遠不需要</strong>。加上它們不會
+          造成錯誤（Python 允許），但它們被認為是不好的風格，
+          會讓其他閱讀你程式碼的 Python 程式設計師感到困惑。
+        </p>
+      </div>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% 分號抑制輸出
+x = 5;
+y = 10;
+z = x + y;    % 無輸出
+disp(z)       % 印出 15</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># 不需要分號
+x = 5
+y = 10
+z = x + y     # 除非 print，否則無輸出
+print(z)      # 印出 15</code></pre>
+        </div>
+      </div>
+
+      <h3>縮排 vs end 關鍵字</h3>
+
+      <p>
+        這是 MATLAB 和 Python 之間最明顯的差異。
+        MATLAB 使用 <code>end</code> 來關閉區塊。Python 使用
+        <strong>縮排</strong> &mdash; 每行開頭的空白是告訴 Python
+        哪些行屬於同一區塊的方式。
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% MATLAB 使用 end 關鍵字
+if x > 0
+    disp('positive')
+elseif x == 0
+    disp('zero')
+else
+    disp('negative')
+end
+
+for i = 1:5
+    disp(i)
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># Python 使用縮排（和冒號）
+if x > 0:
+    print('positive')
+elif x == 0:
+    print('zero')
+else:
+    print('negative')
+
+for i in range(1, 6):
+    print(i)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">縮排不是可選的！</div>
+        <p>
+          在 MATLAB 中，縮排只是美觀 &mdash; 你可以把所有東西寫在
+          最左邊，它仍然能運作。在 Python 中，
+          <strong>不正確的縮排會造成錯誤</strong>。每個縮排層級使用
+          4 個空格（永遠不要混用 tab 和空格）。每個好的 Python
+          編輯器都會自動為你處理這個。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. 索引差異                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="indexing">3. 索引差異</h2>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">關鍵：這會不斷讓你犯錯</div>
+        <p>
+          索引是 MATLAB 使用者轉到 Python 時最大的錯誤來源。
+          MATLAB 是 <strong>1-based</strong>（第一個元素是索引 1）。
+          Python 是 <strong>0-based</strong>（第一個元素是索引 0）。
+          你<em>一定會</em>犯差一錯誤。預期它，並仔細檢查你的索引。
+        </p>
+      </div>
+
+      <h3>基本索引</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB（1-based）</h4>
+<pre><code>v = [10, 20, 30, 40, 50];
+
+v(1)    % 10（第一個元素）
+v(3)    % 30（第三個元素）
+v(end)  % 50（最後一個元素）
+v(end-1)% 40（倒數第二個）</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python（0-based）</h4>
+<pre><code>v = [10, 20, 30, 40, 50]
+
+v[0]    # 10（第一個元素）
+v[2]    # 30（第三個元素）
+v[-1]   # 50（最後一個元素）
+v[-2]   # 40（倒數第二個）</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 的 end vs Python 的 -1</div>
+        <p>
+          MATLAB 使用 <code>end</code> 表示「最後一個索引」。Python 使用
+          <strong>負索引</strong>：<code>-1</code> 表示最後一個元素，
+          <code>-2</code> 表示倒數第二個，以此類推。這實際上比
+          MATLAB 的 <code>end</code> 關鍵字更靈活。
+        </p>
+      </div>
+
+      <h3>切片 / 範圍索引</h3>
+
+      <p>
+        這是差異變得非常棘手的地方。MATLAB 的範圍<strong>兩端都包含</strong>。
+        Python 的範圍<strong>包含起始，不包含結尾</strong>。
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB（兩端包含）</h4>
+<pre><code>v = [10, 20, 30, 40, 50];
+
+v(2:4)     % [20, 30, 40]
+           % 包含索引 2, 3, 4
+
+v(1:3)     % [10, 20, 30]
+           % 包含索引 1, 2, 3
+
+v(3:end)   % [30, 40, 50]
+           % 索引 3 到最後</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python（不包含末端）</h4>
+<pre><code>v = [10, 20, 30, 40, 50]
+
+v[1:4]     # [20, 30, 40]
+           # 包含索引 1, 2, 3（不包含 4）
+
+v[0:3]     # [10, 20, 30]
+           # 包含索引 0, 1, 2（不包含 3）
+
+v[2:]      # [30, 40, 50]
+           # 索引 2 到最後</code></pre>
+        </div>
+      </div>
+
+      <h3>索引轉換速查表</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>你想要的</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>第一個元素</td><td><code>v(1)</code></td><td><code>v[0]</code></td></tr>
+          <tr><td>第二個元素</td><td><code>v(2)</code></td><td><code>v[1]</code></td></tr>
+          <tr><td>最後一個元素</td><td><code>v(end)</code></td><td><code>v[-1]</code></td></tr>
+          <tr><td>倒數第二個</td><td><code>v(end-1)</code></td><td><code>v[-2]</code></td></tr>
+          <tr><td>前 3 個元素</td><td><code>v(1:3)</code></td><td><code>v[:3]</code> 或 <code>v[0:3]</code></td></tr>
+          <tr><td>第 2 到第 4 個元素</td><td><code>v(2:4)</code></td><td><code>v[1:4]</code></td></tr>
+          <tr><td>最後 3 個元素</td><td><code>v(end-2:end)</code></td><td><code>v[-3:]</code></td></tr>
+          <tr><td>所有元素</td><td><code>v(:)</code></td><td><code>v[:]</code></td></tr>
+          <tr><td>每隔一個元素</td><td><code>v(1:2:end)</code></td><td><code>v[::2]</code></td></tr>
+          <tr><td>反向順序</td><td><code>v(end:-1:1)</code></td><td><code>v[::-1]</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>2D 索引（矩陣）</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>A = [1 2 3; 4 5 6; 7 8 9];
+
+A(1, 1)     % 1（左上）
+A(2, 3)     % 6（第2列，第3行）
+A(end, end) % 9（右下）
+A(1:2, :)   % 前2列，所有行
+A(:, 2)     % 所有列，第2行</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (NumPy)</h4>
+<pre><code>import numpy as np
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+A[0, 0]     # 1（左上）
+A[1, 2]     # 6（第1列，第2行）
+A[-1, -1]   # 9（右下）
+A[:2, :]    # 前2列，所有行
+A[:, 1]     # 所有列，第1行</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">差一規則</div>
+        <p>
+          將 MATLAB 索引轉換為 Python 時，每個索引減 1。
+          MATLAB 的 <code>A(3, 5)</code> 變成 Python 的
+          <code>A[2, 4]</code>。對於切片，起始索引移動 &minus;1，
+          但結束索引通常保持不變，因為 Python 不包含它：
+          MATLAB <code>v(2:5)</code> = Python <code>v[1:5]</code>
+          （兩者都給出 MATLAB 位置 2, 3, 4, 5 的元素）。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 陣列 vs 串列                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="arrays-vs-lists">4. 陣列 vs 串列</h2>
+
+      <p>
+        在 MATLAB 中，基本容器是<strong>數值陣列（矩陣）</strong>。
+        在 Python 中，有兩種非常不同的東西讓初學者混淆：
+        <strong>串列</strong>和 <strong>NumPy 陣列</strong>。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>特性</th>
+            <th>Python 串列</th>
+            <th>NumPy 陣列</th>
+            <th>MATLAB 陣列</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>內容</strong></td><td>任何東西：數字、字串、其他串列、混合型別</td><td>僅同質數值資料</td><td>僅同質數值資料</td></tr>
+          <tr><td><strong>數學運算</strong></td><td>無向量化數學</td><td>完整向量化數學（如 MATLAB）</td><td>完整向量化數學</td></tr>
+          <tr><td><strong>速度</strong></td><td>數值工作較慢</td><td>快速（底層為 C）</td><td>快速（已最佳化）</td></tr>
+          <tr><td><strong>內建？</strong></td><td>是（無需匯入）</td><td>需要 <code>import numpy</code></td><td>是（一切都是矩陣）</td></tr>
+          <tr><td><strong>語法</strong></td><td><code>[1, 2, 3]</code></td><td><code>np.array([1, 2, 3])</code></td><td><code>[1, 2, 3]</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 使用者的經驗法則</div>
+        <p>
+          如果你在做<strong>數值/科學工作</strong>，使用
+          <strong>NumPy 陣列</strong> &mdash; 它們的行為幾乎與
+          MATLAB 陣列相同。如果你在做<strong>通用程式設計</strong>
+          （儲存名字、混合資料、建立資料結構），使用
+          <strong>Python 串列</strong>。
+        </p>
+      </div>
+
+      <h3>建立陣列：MATLAB vs NumPy</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% 列向量
+v = [1, 2, 3, 4, 5];
+
+% 行向量
+v = [1; 2; 3; 4; 5];
+
+% 矩陣
+A = [1 2 3; 4 5 6];
+
+% 特殊陣列
+z = zeros(3, 4);
+o = ones(1, 5);
+r = linspace(0, 1, 100);
+e = eye(3);</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (NumPy)</h4>
+<pre><code>import numpy as np
+
+# 1D 陣列（如列向量）
+v = np.array([1, 2, 3, 4, 5])
+
+# 行向量
+v = np.array([[1], [2], [3], [4], [5]])
+
+# 矩陣（2D 陣列）
+A = np.array([[1, 2, 3], [4, 5, 6]])
+
+# 特殊陣列
+z = np.zeros((3, 4))
+o = np.ones((1, 5))
+r = np.linspace(0, 1, 100)
+e = np.eye(3)</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">注意括號！</div>
+        <p>
+          MATLAB：<code>zeros(3, 4)</code> &mdash; 維度作為單獨引數傳入。<br>
+          NumPy：<code>np.zeros((3, 4))</code> &mdash; 維度作為
+          <strong>元組</strong>傳入（注意雙括號）。這是非常常見的錯誤。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 向量化                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="vectorization">5. 向量化</h2>
+
+      <p>
+        在 MATLAB 中，對陣列的向量化運算是自然的寫法。
+        Python 串列<strong>不</strong>支援向量化數學。你需要 NumPy。
+      </p>
+
+      <h3>元素逐一相乘</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>a = [1, 2, 3, 4];
+b = [10, 20, 30, 40];
+
+% 元素逐一相乘
+c = a .* b;
+% c = [10, 40, 90, 160]
+
+% 純量相乘
+d = a * 5;
+% d = [5, 10, 15, 20]</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (NumPy)</h4>
+<pre><code>import numpy as np
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+
+# 元素逐一相乘（不需要點！）
+c = a * b
+# c = array([10, 40, 90, 160])
+
+# 純量相乘
+d = a * 5
+# d = array([5, 10, 15, 20])</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">點號在 NumPy 中消失了</div>
+        <p>
+          MATLAB 使用 <code>.*</code> 做元素逐一運算，<code>*</code>
+          做矩陣乘法。NumPy 使用 <code>*</code> 做元素逐一運算，
+          <code>@</code>（或 <code>np.dot()</code>）做矩陣乘法。
+          一旦你習慣了，這實際上更簡單。
+        </p>
+      </div>
+
+      <h3>用普通 Python 串列會怎樣？</h3>
+
+<pre><code># 警告：這不像 MATLAB！
+a = [1, 2, 3, 4]
+b = [10, 20, 30, 40]
+
+c = a * 3
+# c = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+# 它把串列重複了 3 次！
+
+# a + b 不會元素逐一相加：
+d = a + b
+# d = [1, 2, 3, 4, 10, 20, 30, 40]
+# 它串接了兩個串列！</code></pre>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">串列不是陣列！</div>
+        <p>
+          <code>[1, 2, 3] * 3</code> 得到 <code>[1, 2, 3, 1, 2, 3, 1, 2, 3]</code>
+          （重複），不是 <code>[3, 6, 9]</code>。<code>[1, 2] + [3, 4]</code>
+          得到 <code>[1, 2, 3, 4]</code>（串接），不是 <code>[4, 6]</code>。
+          如果你想要 MATLAB 風格的數學，你<strong>必須</strong>使用 NumPy 陣列。
+        </p>
+      </div>
+
+      <h3>向量化數學：完整比較</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>運算</th>
+            <th>MATLAB</th>
+            <th>NumPy</th>
+            <th>Python 串列（錯誤！）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>陣列相加</td><td><code>a + b</code></td><td><code>a + b</code></td><td>會串接！</td></tr>
+          <tr><td>元素逐一相乘</td><td><code>a .* b</code></td><td><code>a * b</code></td><td>錯誤或結果不對</td></tr>
+          <tr><td>矩陣乘法</td><td><code>A * B</code></td><td><code>A @ B</code></td><td>不可能</td></tr>
+          <tr><td>元素逐一次方</td><td><code>a .^ 2</code></td><td><code>a ** 2</code></td><td>不可能</td></tr>
+          <tr><td>元素逐一相除</td><td><code>a ./ b</code></td><td><code>a / b</code></td><td>不可能</td></tr>
+          <tr><td>純量相乘</td><td><code>a * 5</code></td><td><code>a * 5</code></td><td>會重複串列！</td></tr>
+          <tr><td>套用函式</td><td><code>sin(a)</code></td><td><code>np.sin(a)</code></td><td>使用串列推導式</td></tr>
+          <tr><td>邏輯比較</td><td><code>a > 2</code></td><td><code>a > 2</code></td><td>不可能</td></tr>
+        </tbody>
+      </table>
+
+      <h3>串列推導式：不用 NumPy 的 Python 方式</h3>
+
+      <p>
+        如果你使用普通 Python 串列且需要元素逐一運算，
+        你可以使用<strong>串列推導式</strong>：
+      </p>
+
+<pre><code># 使用串列推導式的元素逐一運算
+a = [1, 2, 3, 4]
+
+squared = [x**2 for x in a]
+# [1, 4, 9, 16]
+
+doubled = [x * 2 for x in a]
+# [2, 4, 6, 8]
+
+# 兩個串列的運算
+b = [10, 20, 30, 40]
+product = [x * y for x, y in zip(a, b)]
+# [10, 40, 90, 160]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. 函式組織                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="function-organization">6. 函式組織</h2>
+
+      <p>
+        MATLAB 和 Python 處理函式的方式非常不同，
+        這影響你組織程式碼的方式。
+      </p>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+          <ul>
+            <li><strong>一個函式一個檔案</strong>（檔案名必須與函式名相同）</li>
+            <li>區域（輔助）函式可以出現在同一檔案末尾</li>
+            <li>檔案 <code>myFunc.m</code> 必須包含 <code>function ... = myFunc(...)</code></li>
+            <li>函式透過將資料夾加入 <strong>MATLAB 路徑</strong>來找到</li>
+          </ul>
+<pre><code>% 檔案：calculate_area.m
+function area = calculate_area(radius)
+    area = pi * radius^2;
+end</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+          <ul>
+            <li><strong>一個檔案多個函式</strong> &mdash; 一個檔案就是一個「模組」</li>
+            <li>檔案名不需要與任何函式名相同</li>
+            <li>你從其他檔案 <code>import</code> 函式</li>
+            <li>函式透過 Python 的模組系統找到（不需要路徑管理）</li>
+          </ul>
+<pre><code># 檔案：geometry.py
+import math
+
+def calculate_area(radius):
+    return math.pi * radius**2
+
+def calculate_circumference(radius):
+    return 2 * math.pi * radius</code></pre>
+        </div>
+      </div>
+
+      <h3>定義函式</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% 單一回傳值
+function result = square(x)
+    result = x^2;
+end
+
+% 多個回傳值
+function [mn, mx] = min_max(v)
+    mn = min(v);
+    mx = max(v);
+end
+
+% 匿名函式
+f = @(x) x^2 + 1;</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># 單一回傳值
+def square(x):
+    return x**2
+
+# 多個回傳值
+def min_max(v):
+    return min(v), max(v)
+
+# Lambda 函式（如匿名函式）
+f = lambda x: x**2 + 1</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">關鍵差異：return vs 賦值</div>
+        <p>
+          在 MATLAB 中，你賦值給函式簽名中宣告的輸出變數名稱
+          （<code>result = ...</code>）。在 Python 中，你明確使用
+          <code>return</code> 關鍵字。如果你忘了 <code>return</code>，
+          函式會回傳 <code>None</code> &mdash; 這是常見的初學者錯誤。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. 腳本 vs 模組                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="scripts-vs-modules">7. 腳本 vs 模組</h2>
+
+      <h3>MATLAB 腳本</h3>
+
+      <p>
+        在 MATLAB 中，腳本是一個從上到下執行的 <code>.m</code> 檔案。
+        它在基本工作空間中操作 &mdash; 腳本建立的所有變數在命令視窗中
+        之後仍然可見。執行兩次腳本可能因為第一次執行的變數仍在
+        工作空間中而造成意外結果。
+      </p>
+
+      <h3>Python 腳本和模組</h3>
+
+      <p>
+        在 Python 中，一個 <code>.py</code> 檔案可以同時是腳本和模組：
+      </p>
+
+      <ul>
+        <li>
+          <strong>作為腳本執行：</strong><code>python my_file.py</code>
+          &mdash; 從上到下執行，然後一切都消失了（沒有持久的工作空間）。
+        </li>
+        <li>
+          <strong>作為模組匯入：</strong>
+          <code>import my_file</code> &mdash; 使該檔案的函式和變數在
+          另一個腳本中可用，而不執行「主」程式碼。
+        </li>
+      </ul>
+
+      <h3><code>__name__</code> 保護</h3>
+
+      <p>
+        Python 有一個特殊模式來處理腳本與模組的區別：
+      </p>
+
+<pre><code># 檔案：my_tools.py
+
+def greet(name):
+    return f"Hello, {name}!"
+
+def add(a, b):
+    return a + b
+
+# 此區塊只在你執行 python my_tools.py 時運作
+# 當有人 import my_tools 時不會執行
+if __name__ == "__main__":
+    print(greet("World"))
+    print(add(3, 4))</code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 等效寫法</div>
+        <p>
+          MATLAB 沒有 <code>__name__</code> 保護的直接對應。
+          最接近的概念是寫一個函式檔案（不會自動執行）vs 腳本
+          （會自動執行）。Python 的方式更靈活：單一檔案可以
+          同時作為程式庫（被匯入時）和獨立程式（直接執行時）。
+        </p>
+      </div>
+
+      <h3>匯入函式</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>% 直接呼叫（必須在路徑上）
+result = calculate_area(5);
+
+% 將資料夾加入路徑
+addpath('my_functions/');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python</h4>
+<pre><code># 匯入整個模組
+import geometry
+result = geometry.calculate_area(5)
+
+# 匯入特定函式
+from geometry import calculate_area
+result = calculate_area(5)
+
+# 使用別名匯入
+import numpy as np</code></pre>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. 繪圖差異                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="plotting">8. 繪圖差異</h2>
+
+      <p>
+        MATLAB 有傳奇般的內建繪圖功能。Python 使用
+        <strong>Matplotlib</strong>，它是刻意設計來模仿 MATLAB
+        的繪圖介面的。如果你會 MATLAB 繪圖，你會發現 Matplotlib
+        非常熟悉。
+      </p>
+
+      <h3>基本折線圖</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = linspace(0, 2*pi, 100);
+y = sin(x);
+
+figure;
+plot(x, y, 'b-', 'LineWidth', 2);
+xlabel('x');
+ylabel('sin(x)');
+title('Sine Wave');
+grid on;</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2*np.pi, 100)
+y = np.sin(x)
+
+plt.figure()
+plt.plot(x, y, 'b-', linewidth=2)
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Sine Wave')
+plt.grid(True)
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">幾乎完全相同！</div>
+        <p>
+          Matplotlib 的 <code>pyplot</code> 模組是為了模仿 MATLAB 而建的。
+          函式名稱幾乎相同：<code>plot</code>、<code>xlabel</code>、
+          <code>ylabel</code>、<code>title</code>、<code>grid</code>、
+          <code>legend</code>、<code>subplot</code>。主要差異：使用
+          <code>plt.</code> 前綴、<code>linewidth</code> 取代
+          <code>'LineWidth'</code>，以及在結尾呼叫 <code>plt.show()</code>。
+        </p>
+      </div>
+
+      <h3>多條線和圖例</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = linspace(0, 2*pi, 100);
+
+figure;
+plot(x, sin(x), 'r-', 'LineWidth', 2);
+hold on;
+plot(x, cos(x), 'b--', 'LineWidth', 2);
+hold off;
+xlabel('x');
+ylabel('y');
+title('Trig Functions');
+legend('sin(x)', 'cos(x)');
+grid on;</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>x = np.linspace(0, 2*np.pi, 100)
+
+plt.figure()
+plt.plot(x, np.sin(x), 'r-', linewidth=2,
+         label='sin(x)')
+plt.plot(x, np.cos(x), 'b--', linewidth=2,
+         label='cos(x)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Trig Functions')
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">Matplotlib 不需要 hold on / hold off</div>
+        <p>
+          在 MATLAB 中，你需要 <code>hold on</code> 來在同一圖形上
+          繪製多條線。在 Matplotlib 中，<code>plt.show()</code> 之前
+          的所有 <code>plt.plot()</code> 呼叫會自動放在同一圖形上。
+          同時注意圖例是透過每個 plot 呼叫中的 <code>label</code>
+          參數加入的，然後 <code>plt.legend()</code> 顯示它們。
+        </p>
+      </div>
+
+      <h3>子圖</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>x = linspace(0, 2*pi, 100);
+
+figure;
+subplot(2, 1, 1);
+plot(x, sin(x));
+title('Sine');
+
+subplot(2, 1, 2);
+plot(x, cos(x));
+title('Cosine');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>x = np.linspace(0, 2*np.pi, 100)
+
+fig, (ax1, ax2) = plt.subplots(2, 1)
+ax1.plot(x, np.sin(x))
+ax1.set_title('Sine')
+
+ax2.plot(x, np.cos(x))
+ax2.set_title('Cosine')
+
+plt.tight_layout()
+plt.show()</code></pre>
+        </div>
+      </div>
+
+      <h3>儲存圖形</h3>
+
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col">
+          <h4>MATLAB</h4>
+<pre><code>saveas(gcf, 'my_plot.png');
+% 或
+print('-dpng', 'my_plot.png');</code></pre>
+        </div>
+        <div class="comparison-col python-col">
+          <h4>Python (Matplotlib)</h4>
+<pre><code>plt.savefig('my_plot.png', dpi=150)
+# 要在 plt.show() 之前呼叫！</code></pre>
+        </div>
+      </div>
+
+      <h3>繪圖函式快速參考</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>圖形類型</th>
+            <th>MATLAB</th>
+            <th>Matplotlib</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>折線圖</td><td><code>plot(x, y)</code></td><td><code>plt.plot(x, y)</code></td></tr>
+          <tr><td>散佈圖</td><td><code>scatter(x, y)</code></td><td><code>plt.scatter(x, y)</code></td></tr>
+          <tr><td>長條圖</td><td><code>bar(x, y)</code></td><td><code>plt.bar(x, y)</code></td></tr>
+          <tr><td>直方圖</td><td><code>histogram(data)</code></td><td><code>plt.hist(data)</code></td></tr>
+          <tr><td>曲面圖</td><td><code>surf(X, Y, Z)</code></td><td><code>ax.plot_surface(X, Y, Z)</code></td></tr>
+          <tr><td>等高線圖</td><td><code>contour(X, Y, Z)</code></td><td><code>plt.contour(X, Y, Z)</code></td></tr>
+          <tr><td>影像</td><td><code>imagesc(A)</code></td><td><code>plt.imshow(A)</code></td></tr>
+          <tr><td>新圖形</td><td><code>figure;</code></td><td><code>plt.figure()</code></td></tr>
+          <tr><td>關閉圖形</td><td><code>close;</code></td><td><code>plt.close()</code></td></tr>
+          <tr><td>關閉所有圖形</td><td><code>close all;</code></td><td><code>plt.close('all')</code></td></tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  9. 常見轉換範例                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="translation-examples">9. 常見轉換範例</h2>
+
+      <p>
+        這裡有 20 個並排的常見任務翻譯。研究這些，
+        你就能轉換大多數簡單的 MATLAB 程式碼到 Python。
+      </p>
+
+      <h3>範例 1：建立向量</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>v = [1, 2, 3, 4, 5];
+r = 1:10;          % 1 到 10
+s = 0:0.5:5;       % 0, 0.5, 1, ... 5
+t = linspace(0, 1, 50);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>import numpy as np
+v = np.array([1, 2, 3, 4, 5])
+r = np.arange(1, 11)       # 1 到 10
+s = np.arange(0, 5.5, 0.5) # 0, 0.5, 1, ... 5
+t = np.linspace(0, 1, 50)</code></pre></div>
+      </div>
+
+      <h3>範例 2：矩陣運算</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>A = [1 2; 3 4];
+B = [5 6; 7 8];
+
+C = A * B;       % 矩陣乘法
+D = A .* B;      % 元素逐一
+E = A';          % 轉置
+F = inv(A);      % 反矩陣
+d = det(A);      % 行列式</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+C = A @ B                 # 矩陣乘法
+D = A * B                 # 元素逐一
+E = A.T                   # 轉置
+F = np.linalg.inv(A)      # 反矩陣
+d = np.linalg.det(A)      # 行列式</code></pre></div>
+      </div>
+
+      <h3>範例 3：尋找元素</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>v = [3, 7, 1, 9, 4, 6];
+
+% 尋找 v > 5 的索引
+idx = find(v > 5);
+% idx = [2, 4, 6]
+
+% 取得那些值
+vals = v(v > 5);
+% vals = [7, 9, 6]</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>v = np.array([3, 7, 1, 9, 4, 6])
+
+# 尋找 v > 5 的索引
+idx = np.where(v > 5)
+# (array([1, 3, 5]),)
+
+# 取得那些值
+vals = v[v > 5]
+# array([7, 9, 6])</code></pre></div>
+      </div>
+
+      <h3>範例 4：讀取 CSV 檔案</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>% 讀取 CSV 到表格
+T = readtable('data.csv');
+
+% 存取欄位
+ages = T.Age;
+
+% 過濾列
+young = T(T.Age < 30, :);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>import pandas as pd
+
+# 讀取 CSV 到 DataFrame
+df = pd.read_csv('data.csv')
+
+# 存取欄位
+ages = df['Age']
+
+# 過濾列
+young = df[df['Age'] < 30]</code></pre></div>
+      </div>
+
+      <h3>範例 5：基本繪圖</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>x = 0:0.1:10;
+y = sin(x);
+plot(x, y);
+xlabel('Time');
+ylabel('Amplitude');
+title('Sine Wave');</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>x = np.arange(0, 10.1, 0.1)
+y = np.sin(x)
+plt.plot(x, y)
+plt.xlabel('Time')
+plt.ylabel('Amplitude')
+plt.title('Sine Wave')
+plt.show()</code></pre></div>
+      </div>
+
+      <h3>範例 6：字串操作</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>s = "Hello World";
+n = strlength(s);       % 11
+u = upper(s);           % "HELLO WORLD"
+parts = split(s, " ");  % ["Hello"; "World"]
+has = contains(s, "lo");% true
+new = replace(s, "World", "Python");</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>s = "Hello World"
+n = len(s)              # 11
+u = s.upper()           # "HELLO WORLD"
+parts = s.split(" ")    # ['Hello', 'World']
+has = "lo" in s         # True
+new = s.replace("World", "Python")</code></pre></div>
+      </div>
+
+      <h3>範例 7：For 迴圈</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>% 遍歷範圍
+for i = 1:10
+    fprintf('i = %d\n', i);
+end
+
+% 遍歷陣列
+v = [10, 20, 30];
+for val = v
+    disp(val);
+end</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code># 遍歷範圍
+for i in range(1, 11):
+    print(f'i = {i}')
+
+# 遍歷串列
+v = [10, 20, 30]
+for val in v:
+    print(val)</code></pre></div>
+      </div>
+
+      <h3>範例 8：While 迴圈</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>x = 1;
+while x < 100
+    x = x * 2;
+end
+fprintf('x = %d\n', x);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>x = 1
+while x < 100:
+    x = x * 2
+print(f'x = {x}')</code></pre></div>
+      </div>
+
+      <h3>範例 9：If / Else</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>score = 85;
+if score >= 90
+    grade = 'A';
+elseif score >= 80
+    grade = 'B';
+elseif score >= 70
+    grade = 'C';
+else
+    grade = 'F';
+end</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>score = 85
+if score >= 90:
+    grade = 'A'
+elif score >= 80:
+    grade = 'B'
+elif score >= 70:
+    grade = 'C'
+else:
+    grade = 'F'</code></pre></div>
+      </div>
+
+      <h3>範例 10：Switch / Match</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>day = 'Monday';
+switch day
+    case 'Monday'
+        disp('Start of week');
+    case 'Friday'
+        disp('Almost weekend');
+    otherwise
+        disp('Regular day');
+end</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python (3.10+)</h4>
+<pre><code>day = 'Monday'
+match day:
+    case 'Monday':
+        print('Start of week')
+    case 'Friday':
+        print('Almost weekend')
+    case _:
+        print('Regular day')</code></pre></div>
+      </div>
+
+      <h3>範例 11：多回傳值的函式</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>function [avg, sd] = stats(v)
+    avg = mean(v);
+    sd = std(v);
+end
+
+% 呼叫：
+[a, s] = stats([1 2 3 4 5]);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>def stats(v):
+    avg = sum(v) / len(v)
+    variance = sum((x - avg)**2 for x in v) / len(v)
+    sd = variance ** 0.5
+    return avg, sd
+
+# 呼叫：
+a, s = stats([1, 2, 3, 4, 5])</code></pre></div>
+      </div>
+
+      <h3>範例 12：讀寫文字檔</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>% 寫入
+fid = fopen('output.txt', 'w');
+fprintf(fid, 'Hello\nWorld\n');
+fclose(fid);
+
+% 讀取
+fid = fopen('output.txt', 'r');
+content = fscanf(fid, '%c');
+fclose(fid);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code># 寫入
+with open('output.txt', 'w') as f:
+    f.write('Hello\nWorld\n')
+
+# 讀取
+with open('output.txt', 'r') as f:
+    content = f.read()</code></pre></div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Python 的 with 語句</div>
+        <p>
+          <code>with open(...) as f:</code> 模式在區塊結束時
+          自動關閉檔案 &mdash; 不需要 <code>fclose</code>。
+          這更乾淨，也能防止檔案控制代碼洩漏。
+        </p>
+      </div>
+
+      <h3>範例 13：Cell 陣列 vs 串列</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>% Cell 陣列（混合型別）
+c = {1, 'hello', [1 2 3], true};
+
+% 存取（使用大括號）
+c{1}     % 1
+c{2}     % 'hello'
+c{3}     % [1 2 3]
+
+% 長度
+n = length(c);   % 4</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code># 串列（混合型別）
+c = [1, 'hello', [1, 2, 3], True]
+
+# 存取（使用方括號）
+c[0]     # 1
+c[1]     # 'hello'
+c[2]     # [1, 2, 3]
+
+# 長度
+n = len(c)   # 4</code></pre></div>
+      </div>
+
+      <h3>範例 14：結構體 vs 字典</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>% 建立結構體
+person.name = 'Alice';
+person.age = 30;
+person.scores = [90, 85, 92];
+
+% 存取
+disp(person.name);
+disp(person.age);
+
+% 列出欄位
+fieldnames(person)</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code># 建立字典
+person = {
+    'name': 'Alice',
+    'age': 30,
+    'scores': [90, 85, 92]
+}
+
+# 存取
+print(person['name'])
+print(person['age'])
+
+# 列出鍵
+person.keys()</code></pre></div>
+      </div>
+
+      <h3>範例 15：錯誤處理</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>try
+    result = 1 / 0;
+catch ME
+    fprintf('Error: %s\n', ME.message);
+end</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>try:
+    result = 1 / 0
+except ZeroDivisionError as e:
+    print(f'Error: {e}')</code></pre></div>
+      </div>
+
+      <h3>範例 16：計時程式碼</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>tic;
+% ... 要計時的程式碼 ...
+pause(1);
+elapsed = toc;
+fprintf('Time: %.3f s\n', elapsed);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>import time
+start = time.time()
+# ... 要計時的程式碼 ...
+time.sleep(1)
+elapsed = time.time() - start
+print(f'Time: {elapsed:.3f} s')</code></pre></div>
+      </div>
+
+      <h3>範例 17：隨機數</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>r = rand();           % 均勻分佈 [0,1]
+R = rand(3, 4);       % 3x4 矩陣
+n = randn(1, 100);    % 常態分佈
+i = randi(10, 1, 5);  % 隨機整數</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>r = np.random.rand()        # 均勻分佈 [0,1]
+R = np.random.rand(3, 4)    # 3x4 矩陣
+n = np.random.randn(100)    # 常態分佈
+i = np.random.randint(1, 11, 5)  # 隨機整數</code></pre></div>
+      </div>
+
+      <h3>範例 18：字串格式化與輸出</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>name = 'Alice';
+age = 30;
+score = 95.5;
+
+fprintf('Name: %s\n', name);
+fprintf('Age: %d, Score: %.1f\n', age, score);
+sprintf('Result: %d', age);</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>name = 'Alice'
+age = 30
+score = 95.5
+
+print(f'Name: {name}')
+print(f'Age: {age}, Score: {score:.1f}')
+result = f'Result: {age}'</code></pre></div>
+      </div>
+
+      <h3>範例 19：排序</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>v = [3, 1, 4, 1, 5, 9];
+
+sorted_v = sort(v);           % 升序
+[sorted_v, idx] = sort(v);    % 帶索引
+desc = sort(v, 'descend');    % 降序</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>v = [3, 1, 4, 1, 5, 9]
+
+sorted_v = sorted(v)             # 升序
+idx = sorted(range(len(v)),
+             key=lambda i: v[i]) # 索引
+desc = sorted(v, reverse=True)   # 降序
+
+# NumPy：
+v_np = np.array(v)
+sorted_v = np.sort(v_np)
+idx = np.argsort(v_np)</code></pre></div>
+      </div>
+
+      <h3>範例 20：重塑陣列</h3>
+      <div class="comparison-row">
+        <div class="comparison-col matlab-col"><h4>MATLAB</h4>
+<pre><code>v = 1:12;
+A = reshape(v, 3, 4);
+% 3 列，4 行
+
+B = A(:);  % 攤平為行向量
+sz = size(A);  % [3, 4]</code></pre></div>
+        <div class="comparison-col python-col"><h4>Python</h4>
+<pre><code>v = np.arange(1, 13)
+A = v.reshape(3, 4)
+# 3 列，4 行
+
+B = A.flatten()    # 攤平為 1D
+sz = A.shape       # (3, 4)</code></pre></div>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">reshape 的行優先 vs 列優先</div>
+        <p>
+          MATLAB <strong>逐行</strong>填充矩陣（行優先 / Fortran 順序）。
+          NumPy 預設<strong>逐列</strong>填充（列優先 / C 順序）。
+          要在 NumPy 中取得類似 MATLAB 的行為，使用
+          <code>v.reshape(3, 4, order='F')</code>。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  10. 常見錯誤                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">10. MATLAB 使用者在 Python 中常犯的錯誤</h2>
+
+      <p>
+        在教導許多 MATLAB 使用者 Python 之後，這些是反覆出現的錯誤。
+        注意它們，你就能省下數小時的除錯時間。
+      </p>
+
+      <h3>錯誤 1：使用 1-based 索引</h3>
+
+<pre><code># 錯誤（MATLAB 習慣）
+v = [10, 20, 30, 40, 50]
+first = v[1]    # 這給出 20，不是 10！
+
+# 正確
+first = v[0]    # 10</code></pre>
+
+      <h3>錯誤 2：忘記 if/for/while/def 後的冒號</h3>
+
+<pre><code># 錯誤（MATLAB 習慣 — 沒有冒號）
+if x > 0
+    print('positive')
+# SyntaxError!
+
+# 正確
+if x > 0:
+    print('positive')</code></pre>
+
+      <h3>錯誤 3：期望串列自動向量化</h3>
+
+<pre><code># 錯誤（MATLAB 習慣）
+a = [1, 2, 3, 4]
+b = a * 2         # [1, 2, 3, 4, 1, 2, 3, 4] — 重複了！
+
+# 正確（使用 NumPy）
+import numpy as np
+a = np.array([1, 2, 3, 4])
+b = a * 2         # array([2, 4, 6, 8])</code></pre>
+
+      <h3>錯誤 4：到處使用分號</h3>
+
+<pre><code># 不會出錯，但是不好的 Python 風格
+x = 5;
+y = 10;
+z = x + y;
+
+# 正確的 Python 風格
+x = 5
+y = 10
+z = x + y</code></pre>
+
+      <h3>錯誤 5：嘗試使用 end 作為索引</h3>
+
+<pre><code># 錯誤（MATLAB 習慣）
+v = [10, 20, 30]
+last = v[end]     # NameError: name 'end' is not defined
+
+# 正確
+last = v[-1]      # 30</code></pre>
+
+      <h3>錯誤 6：忘記 print 的括號</h3>
+
+<pre><code># 錯誤（MATLAB 習慣 — disp 不需要括號，但 print 需要）
+print "hello"     # Python 3 中 SyntaxError！
+
+# 正確
+print("hello")</code></pre>
+
+      <h3>錯誤 7：期望工作空間行為</h3>
+
+<pre><code># 在 MATLAB 中，你執行腳本後變數留在工作空間。
+# 在 Python 中，腳本結束後所有變數都消失了。
+
+# 如果你想要持久的互動式工作，使用：
+# - Jupyter Notebook
+# - IPython 互動式 shell
+# - Spyder IDE（有變數瀏覽器）</code></pre>
+
+      <h3>錯誤 8：使用 ^ 做指數運算</h3>
+
+<pre><code># 錯誤（MATLAB 習慣）
+result = 2 ^ 10    # 在 Python 中，^ 是 XOR（位元運算），不是次方！
+# result = 8（2 和 10 的位元 XOR）
+
+# 正確
+result = 2 ** 10   # 1024</code></pre>
+
+      <h3>錯誤 9：使用 ~= 做不等於</h3>
+
+<pre><code># 錯誤（MATLAB 習慣）
+if x ~= 5:        # SyntaxError!
+
+# 正確
+if x != 5:
+    print('not five')</code></pre>
+
+      <h3>錯誤 10：使用圓括號做索引</h3>
+
+<pre><code># 錯誤（MATLAB 習慣 — 使用括號）
+v = [10, 20, 30]
+val = v(0)         # TypeError: 'list' object is not callable
+
+# 正確（Python 使用方括號）
+val = v[0]         # 10</code></pre>
+
+      <div class="callout callout-success">
+        <div class="callout-title">常見錯誤總結</div>
+        <p>依頻率排序的前 5 個需要注意的錯誤：</p>
+        <ol>
+          <li>用 <strong>v[1]</strong> 而非 <strong>v[0]</strong> 取得第一個元素</li>
+          <li><code>if</code>、<code>for</code>、<code>while</code>、<code>def</code> 後缺少<strong>冒號</strong></li>
+          <li>數學運算時使用<strong>串列</strong>而非 <strong>NumPy 陣列</strong></li>
+          <li>使用 <strong>^</strong> 而非 <strong>**</strong> 做指數運算</li>
+          <li>使用 <strong>()</strong> 而非 <strong>[]</strong> 做索引</li>
+        </ol>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  接下來呢？                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="whats-next">接下來呢？</h2>
+
+      <p>
+        現在你了解了 MATLAB 和 Python 之間的大方向差異，
+        前往<a href="matlab-quick-translation.html">快速轉換對照表</a>
+        查看一份密集、可快速瀏覽的參考，你可以在寫程式時保持開啟。
+        它涵蓋 50 多個常見操作及其 MATLAB 和 Python 的並排對照。
+      </p>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">收藏此頁面</div>
+        <p>
+          在你學 Python 的最初幾週，你可能會多次回到此頁面。
+          這完全正常。經過幾週的練習，這些差異會變成第二天性。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="top-100-patterns.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">前100個常用模式</span></a>
+        <a href="matlab-quick-translation.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">快速轉換對照表</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

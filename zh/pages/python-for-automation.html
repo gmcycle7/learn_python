@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 自動化 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導航">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/python-for-automation.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link active">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="cheatsheet.html">參考</a><span class="sep">&rsaquo;</span>
+        Python 自動化
+      </div>
+
+      <h1>Python 自動化</h1>
+
+      <p>
+        本附錄頁面是你使用 Python 自動化日常任務的實用手冊：管理檔案、處理文字、
+        執行 shell 命令和建立命令列工具。每個範例都是完整、可執行的腳本，
+        你可以立即應用到自己的工作中。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>給 MATLAB 使用者：</strong>在 MATLAB 中，你可能使用
+        <code>system()</code> 呼叫 shell 命令，或撰寫 <code>.m</code>
+        腳本來批次處理資料檔案。Python 以更豐富的標準函式庫提供相同的功能
+        &mdash; 不需要額外工具箱。如果你曾寫過 MATLAB 腳本來遍歷資料夾中的
+        檔案、清理資料並儲存結果，在這裡你會感到很熟悉。
+      </div>
+
+      <h2 id="why-python">1. 為什麼 Python 適合自動化</h2>
+
+      <p>
+        Python 已成為自動化腳本的首選語言，原因如下：
+      </p>
+
+      <ul>
+        <li>
+          <strong>可讀的語法</strong> &mdash; 你今天寫的腳本，六個月後仍然容易理解。不需要晦澀的 bash 單行指令。
+        </li>
+        <li>
+          <strong>跨平台</strong> &mdash; 同一個 Python 腳本在 Windows、macOS 和 Linux 上無需修改即可執行（當你使用標準函式庫處理檔案路徑和系統呼叫時）。
+        </li>
+        <li>
+          <strong>電池已充飽</strong> &mdash; 標準函式庫附帶檔案 I/O、JSON、CSV、正規表達式、子程序、引數解析等模組 &mdash; 不需要 <code>pip install</code>。
+        </li>
+        <li>
+          <strong>取代 bash 腳本</strong> &mdash; 超過幾行的任務，Python 比 shell 腳本更易維護、更可移植、更容易除錯。
+        </li>
+        <li>
+          <strong>易於擴展</strong> &mdash; 需要更多功能時，數千個第三方套件只需一個 <code>pip install</code> 即可取得。
+        </li>
+      </ul>
+
+      <div class="callout callout-info">
+        <strong>本頁使用的標準函式庫模組：</strong>
+        <code>os</code>、<code>os.path</code>、<code>pathlib</code>、
+        <code>shutil</code>、<code>glob</code>、<code>json</code>、
+        <code>csv</code>、<code>re</code>、<code>subprocess</code>、
+        <code>sys</code>、<code>argparse</code>、<code>time</code>、
+        <code>datetime</code>。這些都隨每個 Python 安裝附帶。
+      </div>
+
+      <h2 id="file-system">2. 檔案系統操作</h2>
+
+      <p>
+        檔案管理是自動化的基礎。Python 提供兩種主要方法：較舊的 <code>os</code> /
+        <code>os.path</code> 模組和現代的 <code>pathlib</code> 模組（建議新程式碼使用）。
+      </p>
+
+      <h3 id="listing-files">2.1 列出目錄中的檔案</h3>
+
+      <pre><code># --- 方法 1：os.listdir（回傳名稱的純串列）---
+import os
+
+entries = os.listdir(".")          # 目前目錄
+print(entries)
+# ['report.csv', 'data', 'script.py', ...]
+
+# --- 方法 2：pathlib.Path.iterdir（回傳 Path 物件）---
+from pathlib import Path
+
+for item in Path(".").iterdir():
+    print(item.name, "dir" if item.is_dir() else "file")
+
+# --- 方法 3：glob（模式匹配）---
+import glob
+
+csv_files = glob.glob("*.csv")     # 目前目錄中所有 CSV
+print(csv_files)
+
+# pathlib 等價寫法
+csv_files = list(Path(".").glob("*.csv"))
+print(csv_files)</code></pre>
+
+      <h3 id="walking-trees">2.2 遍歷目錄樹</h3>
+
+      <pre><code># --- os.walk：遞迴拜訪每個目錄 ---
+import os
+
+for dirpath, dirnames, filenames in os.walk("/home/user/projects"):
+    for fname in filenames:
+        full_path = os.path.join(dirpath, fname)
+        print(full_path)
+
+# --- pathlib.rglob：遞迴 glob ---
+from pathlib import Path
+
+# 在資料夾下任意位置尋找所有 .py 檔案
+for py_file in Path("/home/user/projects").rglob("*.py"):
+    print(py_file)</code></pre>
+
+      <h3 id="create-delete-folders">2.3 建立和刪除資料夾</h3>
+
+      <pre><code>import os
+import shutil
+
+# 建立巢狀資料夾結構（類似 mkdir -p）
+os.makedirs("output/reports/2025", exist_ok=True)
+
+# pathlib 等價寫法
+from pathlib import Path
+Path("output/reports/2025").mkdir(parents=True, exist_ok=True)
+
+# 刪除單一空目錄
+os.rmdir("output/reports/2025")
+
+# 刪除整個目錄樹（小心——這是永久的！）
+shutil.rmtree("output")</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>警告：</strong><code>shutil.rmtree()</code> 會永久刪除檔案
+        &mdash; 沒有資源回收桶，無法復原。請務必仔細檢查路徑，
+        並考慮在實際刪除前先列印出要刪除的內容。
+      </div>
+
+      <h3 id="copy-move">2.4 複製和移動檔案</h3>
+
+      <pre><code>import shutil
+
+# 複製檔案（保留內容，不一定保留中繼資料）
+shutil.copy("data.csv", "backup/data.csv")
+
+# 複製檔案及其中繼資料（時間戳記、權限）
+shutil.copy2("data.csv", "backup/data.csv")
+
+# 移動（或重新命名）檔案
+shutil.move("old_name.txt", "new_name.txt")
+
+# 複製整個目錄樹
+shutil.copytree("src_folder", "dst_folder")</code></pre>
+
+      <h3 id="renaming">2.5 重新命名檔案</h3>
+
+      <pre><code>import os
+from pathlib import Path
+
+# os 方法
+os.rename("report_draft.txt", "report_final.txt")
+
+# pathlib 方法
+Path("report_draft.txt").rename("report_final.txt")</code></pre>
+
+      <h3 id="file-info">2.6 檢查檔案大小和修改時間</h3>
+
+      <pre><code>import os
+import datetime
+
+info = os.stat("data.csv")
+print(f"Size: {info.st_size} bytes")
+print(f"Modified: {datetime.datetime.fromtimestamp(info.st_mtime)}")
+
+# pathlib 方法
+from pathlib import Path
+
+p = Path("data.csv")
+print(f"Size: {p.stat().st_size} bytes")
+print(f"Suffix: {p.suffix}")        # '.csv'
+print(f"Stem: {p.stem}")            # 'data'
+print(f"Exists: {p.exists()}")</code></pre>
+
+      <h3 id="organize-downloads">2.7 完整範例：整理下載資料夾</h3>
+
+      <div class="callout callout-success">
+        <strong>可執行腳本！</strong>將此儲存為
+        <code>organize_downloads.py</code>，指向任何雜亂的資料夾。
+        它會按副檔名將檔案分類到子資料夾中。
+      </div>
+
+      <pre><code>#!/usr/bin/env python3
+"""將目錄中的檔案依副檔名整理到子資料夾。"""
+
+import os
+import shutil
+from pathlib import Path
+
+def organize_folder(folder_path):
+    """將檔案移動到以副檔名命名的子資料夾中。"""
+    folder = Path(folder_path)
+
+    if not folder.is_dir():
+        print(f"Error: {folder} is not a directory")
+        return
+
+    moved = 0
+    for item in folder.iterdir():
+        # 跳過目錄和隱藏檔案
+        if item.is_dir() or item.name.startswith("."):
+            continue
+
+        # 決定目標子資料夾
+        ext = item.suffix.lower()          # 例如 '.pdf'
+        if ext == "":
+            dest_folder = folder / "no_extension"
+        else:
+            dest_folder = folder / ext.lstrip(".")   # 'pdf', 'jpg' 等
+
+        dest_folder.mkdir(exist_ok=True)
+        dest_file = dest_folder / item.name
+
+        # 避免覆寫已存在的檔案
+        if dest_file.exists():
+            print(f"  Skipped (already exists): {item.name}")
+            continue
+
+        shutil.move(str(item), str(dest_file))
+        moved += 1
+        print(f"  Moved: {item.name} -> {dest_folder.name}/")
+
+    print(f"\nDone! Moved {moved} file(s).")
+
+if __name__ == "__main__":
+    import sys
+    target = sys.argv[1] if len(sys.argv) > 1 else "."
+    organize_folder(target)</code></pre>
+
+      <pre><code># 用法：
+# python organize_downloads.py ~/Downloads
+#   Moved: report.pdf -> pdf/
+#   Moved: photo.jpg -> jpg/
+#   Moved: notes.txt -> txt/
+#   Done! Moved 3 file(s).</code></pre>
+
+      <h2 id="text-files">3. 處理文字檔案</h2>
+
+      <h3 id="read-write-append">3.1 讀取、寫入和附加</h3>
+
+      <pre><code># --- 讀取整個檔案 ---
+with open("notes.txt", "r") as f:
+    content = f.read()
+print(content)
+
+# --- 逐行讀取（適合大檔案，節省記憶體）---
+with open("notes.txt", "r") as f:
+    for line in f:
+        print(line.strip())        # strip() 移除尾部的換行符
+
+# --- 寫入（覆蓋現有內容）---
+with open("output.txt", "w") as f:
+    f.write("Line 1\n")
+    f.write("Line 2\n")
+
+# --- 附加（添加到末尾）---
+with open("output.txt", "a") as f:
+    f.write("Line 3 (appended)\n")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等價寫法：</strong><code>fopen</code> /
+        <code>fgets</code> / <code>fprintf</code> / <code>fclose</code>。
+        Python 的 <code>with open(...)</code> 會自動為你關閉檔案
+        &mdash; 不需要記住 <code>fclose</code>。
+      </div>
+
+      <h3 id="csv-files">3.2 處理 CSV 檔案</h3>
+
+      <pre><code>import csv
+
+# --- 讀取 CSV ---
+with open("employees.csv", "r", newline="") as f:
+    reader = csv.reader(f)
+    header = next(reader)          # 第一行 = 欄位名稱
+    print("Columns:", header)
+
+    for row in reader:
+        name, dept, salary = row
+        print(f"  {name} works in {dept}, earns ${salary}")
+
+# --- 讀取為字典（欄位名稱作為鍵）---
+with open("employees.csv", "r", newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        print(row["name"], row["salary"])
+
+# --- 寫入 CSV ---
+data = [
+    ["name", "score"],
+    ["Alice", 95],
+    ["Bob", 87],
+    ["Carol", 92],
+]
+
+with open("scores.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerows(data)         # 一次寫入所有行</code></pre>
+
+      <h3 id="json-files">3.3 處理 JSON 檔案</h3>
+
+      <pre><code>import json
+
+# --- 讀取 JSON ---
+with open("config.json", "r") as f:
+    config = json.load(f)          # 回傳字典（或串列）
+print(config["database"]["host"])
+
+# --- 寫入 JSON ---
+data = {
+    "name": "AutoBot",
+    "version": 2,
+    "features": ["file_ops", "scheduling"],
+}
+with open("output.json", "w") as f:
+    json.dump(data, f, indent=2)   # indent 讓輸出更易讀
+
+# --- 處理 JSON 字串 ---
+json_string = '{"x": 1, "y": 2}'
+obj = json.loads(json_string)      # loads = 從字串載入
+print(obj["x"])                    # 1
+
+back_to_string = json.dumps(obj)
+print(back_to_string)              # '{"x": 1, "y": 2}'</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong><code>json.load()</code> 從<em>檔案</em>讀取。
+        <code>json.loads()</code> 從<em>字串</em>讀取。
+        輸出也是同樣的模式：<code>json.dump()</code> 寫入檔案，
+        <code>json.dumps()</code> 回傳字串。尾部的 <strong>s</strong>
+        代表 <strong>s</strong>tring（字串）。
+      </div>
+
+      <h3 id="log-files">3.4 處理日誌檔案</h3>
+
+      <pre><code># 計算日誌檔案中 ERROR、WARNING 和 INFO 行的數量
+from collections import Counter
+
+level_counts = Counter()
+
+with open("app.log", "r") as f:
+    for line in f:
+        for level in ("ERROR", "WARNING", "INFO"):
+            if level in line:
+                level_counts[level] += 1
+                break
+
+for level, count in level_counts.most_common():
+    print(f"  {level}: {count}")</code></pre>
+
+      <h3 id="regex">3.5 使用正規表達式搜尋模式</h3>
+
+      <pre><code>import re
+
+text = "Contact us at support@example.com or sales@example.com"
+
+# 找到所有電子郵件地址
+emails = re.findall(r"[\w.+-]+@[\w-]+\.[\w.]+", text)
+print(emails)
+# ['support@example.com', 'sales@example.com']
+
+# 搜尋模式（回傳第一個匹配或 None）
+match = re.search(r"\d{3}-\d{4}", "Call 555-1234 today")
+if match:
+    print(f"Found: {match.group()}")   # Found: 555-1234
+
+# 替換模式
+cleaned = re.sub(r"\s+", " ", "too   many    spaces")
+print(cleaned)   # 'too many spaces'
+
+# 依模式分割
+parts = re.split(r"[;,]\s*", "one, two; three,four")
+print(parts)     # ['one', 'two', 'three', 'four']</code></pre>
+
+      <h3 id="extract-logs">3.6 完整範例：從多個日誌檔案中擷取資料</h3>
+
+      <div class="callout callout-success">
+        <strong>可執行腳本！</strong>此腳本掃描目錄中的日誌檔案，
+        擷取所有 ERROR 行，並寫出摘要報告。
+      </div>
+
+      <pre><code>#!/usr/bin/env python3
+"""掃描日誌檔案中的 ERROR 行並產生摘要報告。"""
+
+import re
+from pathlib import Path
+from collections import defaultdict
+
+def scan_logs(log_dir, output_file="error_report.txt"):
+    """在 .log 檔案中找到所有 ERROR 行並寫出摘要。"""
+    log_dir = Path(log_dir)
+    errors_by_file = defaultdict(list)
+
+    # 模式：時間戳記後接 ERROR 和訊息
+    pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}).*ERROR\s+(.*)")
+
+    for log_file in sorted(log_dir.glob("*.log")):
+        with open(log_file, "r") as f:
+            for line_num, line in enumerate(f, 1):
+                match = pattern.search(line)
+                if match:
+                    timestamp, message = match.groups()
+                    errors_by_file[log_file.name].append(
+                        (line_num, timestamp, message.strip())
+                    )
+
+    # 寫入報告
+    total_errors = sum(len(errs) for errs in errors_by_file.values())
+
+    with open(output_file, "w") as out:
+        out.write(f"Error Report\n{'=' * 60}\n")
+        out.write(f"Scanned: {log_dir}\n")
+        out.write(f"Total errors found: {total_errors}\n\n")
+
+        for filename, errs in sorted(errors_by_file.items()):
+            out.write(f"--- {filename} ({len(errs)} errors) ---\n")
+            for line_num, timestamp, message in errs:
+                out.write(f"  Line {line_num} [{timestamp}]: {message}\n")
+            out.write("\n")
+
+    print(f"Report written to {output_file} ({total_errors} errors found)")
+
+if __name__ == "__main__":
+    import sys
+    folder = sys.argv[1] if len(sys.argv) > 1 else "."
+    scan_logs(folder)</code></pre>
+
+      <h2 id="shell-commands">4. 執行 Shell 命令</h2>
+
+      <p>
+        Python 的 <code>subprocess</code> 模組讓你可以在腳本中執行任何命令列
+        程式。它取代了較舊的 <code>os.system()</code> 函式（你應該避免使用）。
+      </p>
+
+      <h3 id="subprocess-basics">4.1 subprocess.run 基礎</h3>
+
+      <pre><code>import subprocess
+
+# 執行簡單命令
+result = subprocess.run(["echo", "Hello from Python!"])
+print(f"Return code: {result.returncode}")   # 0 表示成功</code></pre>
+
+      <div class="callout callout-info">
+        <strong>為什麼用串列？</strong>將命令以串列形式傳遞
+        （<code>["echo", "Hello"]</code>）比單一字串更安全，因為
+        Python 會為你處理引號和跳脫字元。它也避免了 shell 注入漏洞。
+      </div>
+
+      <h3 id="capture-output">4.2 擷取輸出</h3>
+
+      <pre><code>import subprocess
+
+# 將 stdout 擷取為字串
+result = subprocess.run(
+    ["python", "--version"],
+    capture_output=True,           # 擷取 stdout 和 stderr
+    text=True                      # 將位元組解碼為字串
+)
+print(f"stdout: {result.stdout.strip()}")
+print(f"stderr: {result.stderr.strip()}")
+print(f"return code: {result.returncode}")</code></pre>
+
+      <h3 id="check-return">4.3 檢查回傳碼</h3>
+
+      <pre><code>import subprocess
+
+# 方法 1：手動檢查
+result = subprocess.run(["ls", "nonexistent_file"], capture_output=True, text=True)
+if result.returncode != 0:
+    print(f"Command failed: {result.stderr.strip()}")
+
+# 方法 2：失敗時觸發例外
+try:
+    subprocess.run(
+        ["ls", "nonexistent_file"],
+        capture_output=True, text=True,
+        check=True                 # 非零退出碼時觸發 CalledProcessError
+    )
+except subprocess.CalledProcessError as e:
+    print(f"Command failed with code {e.returncode}")
+    print(f"stderr: {e.stderr.strip()}")</code></pre>
+
+      <h3 id="piping">4.4 管道命令</h3>
+
+      <pre><code>import subprocess
+
+# 等同於：cat /etc/hosts | grep "localhost"
+cat_proc = subprocess.run(
+    ["cat", "/etc/hosts"],
+    capture_output=True, text=True
+)
+
+grep_proc = subprocess.run(
+    ["grep", "localhost"],
+    input=cat_proc.stdout,         # 將 cat 的輸出導入 grep
+    capture_output=True, text=True
+)
+
+print(grep_proc.stdout)</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼不用 <code>shell=True</code>？</strong>你可能在較舊的
+        程式碼中看到 <code>subprocess.run("cat file | grep pattern", shell=True)</code>。
+        雖然它能運作，但使用 <code>shell=True</code> 會帶來 shell 注入攻擊的風險，
+        並使你的腳本依賴平台。優先使用串列形式，並透過 Python 傳遞資料。
+      </div>
+
+      <h3 id="health-check">4.5 完整範例：系統健康檢查腳本</h3>
+
+      <div class="callout callout-success">
+        <strong>可執行腳本！</strong>一個快速的系統資訊報告器，
+        適用於 Linux 和 macOS。Windows 請根據需要調整命令。
+      </div>
+
+      <pre><code>#!/usr/bin/env python3
+"""快速系統健康檢查腳本。"""
+
+import subprocess
+import platform
+import shutil
+
+def run_cmd(cmd):
+    """執行命令並回傳其 stdout，或錯誤訊息。"""
+    try:
+        result = subprocess.run(
+            cmd, capture_output=True, text=True, timeout=10
+        )
+        return result.stdout.strip()
+    except FileNotFoundError:
+        return "(command not found)"
+    except subprocess.TimeoutExpired:
+        return "(timed out)"
+
+def health_check():
+    print("=" * 50)
+    print("SYSTEM HEALTH CHECK")
+    print("=" * 50)
+
+    # 1. 基本系統資訊（跨平台）
+    print(f"\nPlatform:   {platform.system()} {platform.release()}")
+    print(f"Python:     {platform.python_version()}")
+
+    # 2. 磁碟使用量（跨平台，透過 shutil）
+    total, used, free = shutil.disk_usage("/")
+    gb = 1024 ** 3
+    print(f"\nDisk usage: {used / gb:.1f} GB used / {total / gb:.1f} GB total "
+          f"({free / gb:.1f} GB free)")
+
+    # 3. 運行時間（Linux/macOS）
+    uptime = run_cmd(["uptime", "-p"])
+    if uptime != "(command not found)":
+        print(f"Uptime:     {uptime}")
+
+    # 4. 記憶體資訊（Linux）
+    mem = run_cmd(["free", "-h"])
+    if mem != "(command not found)":
+        print(f"\nMemory:\n{mem}")
+
+    # 5. 網路連線
+    ping = run_cmd(["ping", "-c", "1", "-W", "2", "8.8.8.8"])
+    if "1 received" in ping or "1 packets received" in ping:
+        print("\nNetwork:    Connected (ping to 8.8.8.8 OK)")
+    else:
+        print("\nNetwork:    Possibly offline")
+
+    print("\n" + "=" * 50)
+
+if __name__ == "__main__":
+    health_check()</code></pre>
+
+      <h2 id="cli-scripts">5. 命令列腳本</h2>
+
+      <p>
+        一個良好的 CLI 腳本接受命令列引數，這樣你每次執行時不需要修改程式碼。
+      </p>
+
+      <h3 id="sys-argv">5.1 sys.argv 基本引數</h3>
+
+      <pre><code>import sys
+
+# sys.argv 是字串的串列：
+#   sys.argv[0] = 腳本名稱
+#   sys.argv[1] = 第一個引數，以此類推
+
+print(f"Script name: {sys.argv[0]}")
+print(f"Arguments:   {sys.argv[1:]}")
+
+# 使用範例：python myscript.py hello world
+# 輸出：
+#   Script name: myscript.py
+#   Arguments:   ['hello', 'world']</code></pre>
+
+      <div class="callout callout-info">
+        <strong>何時使用 <code>sys.argv</code>：</strong>快速的一次性腳本，
+        只需要一兩個位置引數。更複雜的情況，請使用 <code>argparse</code>（下一節）。
+      </div>
+
+      <h3 id="argparse">5.2 使用 argparse 建立正式 CLI 工具</h3>
+
+      <pre><code>#!/usr/bin/env python3
+"""使用 argparse 的簡單問候程式。"""
+
+import argparse
+
+parser = argparse.ArgumentParser(description="Greet someone.")
+parser.add_argument("name", help="Name of the person to greet")
+parser.add_argument("-n", "--count", type=int, default=1,
+                    help="Number of times to greet (default: 1)")
+parser.add_argument("-u", "--upper", action="store_true",
+                    help="Print greeting in uppercase")
+
+args = parser.parse_args()
+
+greeting = f"Hello, {args.name}!"
+if args.upper:
+    greeting = greeting.upper()
+
+for _ in range(args.count):
+    print(greeting)</code></pre>
+
+      <pre><code># 使用範例：
+# python greet.py Alice
+#   Hello, Alice!
+#
+# python greet.py Bob -n 3 --upper
+#   HELLO, BOB!
+#   HELLO, BOB!
+#   HELLO, BOB!
+#
+# python greet.py --help
+#   usage: greet.py [-h] [-n COUNT] [-u] name
+#   Greet someone.
+#   positional arguments:
+#     name                  Name of the person to greet
+#   optional arguments:
+#     -n COUNT, --count COUNT  Number of times to greet (default: 1)
+#     -u, --upper           Print greeting in uppercase</code></pre>
+
+      <h3 id="executable">5.3 讓腳本可執行</h3>
+
+      <pre><code># 在 macOS/Linux 上，在腳本頂部添加 shebang 行：
+#!/usr/bin/env python3
+
+# 然後使其可執行：
+# chmod +x myscript.py
+
+# 現在可以直接執行：
+# ./myscript.py --help
+
+# 在 Windows 上，你可以用以下方式執行腳本：
+# python myscript.py --help
+# 或將 .py 檔案關聯到 Python 直譯器。</code></pre>
+
+      <h3 id="cli-search-tool">5.4 完整範例：CLI 檔案搜尋工具</h3>
+
+      <div class="callout callout-success">
+        <strong>可執行腳本！</strong>一個類似 <code>grep</code> 的小工具，
+        搜尋檔案中的模式並報告匹配結果。
+      </div>
+
+      <pre><code>#!/usr/bin/env python3
+"""搜尋檔案中的文字模式（類似簡易 grep）。"""
+
+import argparse
+import re
+from pathlib import Path
+
+def search_files(directory, pattern, extension, ignore_case):
+    """搜尋檔案中的正規表達式模式並產生匹配結果。"""
+    flags = re.IGNORECASE if ignore_case else 0
+    regex = re.compile(pattern, flags)
+
+    search_path = Path(directory)
+    glob_pattern = f"*.{extension}" if extension else "*"
+
+    for filepath in sorted(search_path.rglob(glob_pattern)):
+        if not filepath.is_file():
+            continue
+
+        try:
+            with open(filepath, "r", errors="ignore") as f:
+                for line_num, line in enumerate(f, 1):
+                    if regex.search(line):
+                        yield filepath, line_num, line.rstrip()
+        except (PermissionError, OSError):
+            continue
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Search files for a text pattern."
+    )
+    parser.add_argument("pattern", help="Regex pattern to search for")
+    parser.add_argument("directory", nargs="?", default=".",
+                        help="Directory to search (default: current)")
+    parser.add_argument("-e", "--ext", default=None,
+                        help="Only search files with this extension (e.g. py)")
+    parser.add_argument("-i", "--ignore-case", action="store_true",
+                        help="Case-insensitive search")
+    args = parser.parse_args()
+
+    count = 0
+    for filepath, line_num, line in search_files(
+        args.directory, args.pattern, args.ext, args.ignore_case
+    ):
+        # 顯示相對路徑使輸出更簡潔
+        rel = filepath.relative_to(args.directory)
+        print(f"{rel}:{line_num}: {line}")
+        count += 1
+
+    print(f"\n--- {count} match(es) found ---")
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+      <pre><code># 用法：
+# python filesearch.py "TODO" ./src --ext py
+# python filesearch.py "error" /var/log --ext log -i</code></pre>
+
+      <h2 id="batch-processing">6. 排程與批次處理</h2>
+
+      <h3 id="multi-file">6.1 在迴圈中處理多個檔案</h3>
+
+      <pre><code>from pathlib import Path
+import csv
+
+data_dir = Path("data")
+results = []
+
+for csv_file in sorted(data_dir.glob("*.csv")):
+    with open(csv_file, "r", newline="") as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        row_count = sum(1 for _ in reader)
+    results.append((csv_file.name, row_count))
+    print(f"  {csv_file.name}: {row_count} rows")
+
+print(f"\nProcessed {len(results)} file(s)")</code></pre>
+
+      <h3 id="timing">6.2 使用 time 模組進行簡單計時</h3>
+
+      <pre><code>import time
+
+start = time.time()
+
+# ... 執行一些工作 ...
+total = sum(range(10_000_000))
+
+elapsed = time.time() - start
+print(f"Result: {total}")
+print(f"Time elapsed: {elapsed:.2f} seconds")</code></pre>
+
+      <h3 id="progress">6.3 進度報告</h3>
+
+      <pre><code>import sys
+from pathlib import Path
+
+files = list(Path("data").glob("*.csv"))
+total = len(files)
+
+for i, f in enumerate(files, 1):
+    # 處理檔案...
+    process(f)
+
+    # 在同一行列印進度
+    pct = i / total * 100
+    sys.stdout.write(f"\rProcessing: {i}/{total} ({pct:.0f}%)")
+    sys.stdout.flush()
+
+print("\nDone!")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong><code>\r</code>（回車符）將游標移回行首，
+        這樣下一個 <code>write()</code> 就會覆蓋它。這提供了乾淨的、
+        即時更新的進度計數器，而不會在終端機中產生大量行。
+      </div>
+
+      <h3 id="batch-file-info">6.4 完整範例：批次檔案資訊報告器</h3>
+
+      <div class="callout callout-success">
+        <strong>可執行腳本！</strong>掃描目錄中的圖片檔案，
+        報告其大小和修改日期。
+      </div>
+
+      <pre><code>#!/usr/bin/env python3
+"""報告目錄中圖片的檔案資訊（大小、日期）。"""
+
+import os
+import sys
+import datetime
+from pathlib import Path
+
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp"}
+
+def format_size(size_bytes):
+    """將位元組轉換為人類可讀的字串。"""
+    for unit in ("B", "KB", "MB", "GB"):
+        if size_bytes < 1024:
+            return f"{size_bytes:.1f} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.1f} TB"
+
+def report_images(directory):
+    """列印目錄中所有圖片檔案的報告。"""
+    dir_path = Path(directory)
+
+    if not dir_path.is_dir():
+        print(f"Error: {directory} is not a valid directory")
+        sys.exit(1)
+
+    # 收集圖片檔案
+    images = [
+        f for f in dir_path.iterdir()
+        if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS
+    ]
+
+    if not images:
+        print("No image files found.")
+        return
+
+    images.sort(key=lambda f: f.name)
+    total_size = 0
+
+    print(f"{'File':<35} {'Size':>10}  {'Modified'}")
+    print("-" * 70)
+
+    for img in images:
+        stat = img.stat()
+        size = stat.st_size
+        total_size += size
+        modified = datetime.datetime.fromtimestamp(stat.st_mtime)
+
+        print(f"{img.name:<35} {format_size(size):>10}  {modified:%Y-%m-%d %H:%M}")
+
+    print("-" * 70)
+    print(f"{'Total: ' + str(len(images)) + ' files':<35} {format_size(total_size):>10}")
+
+if __name__ == "__main__":
+    target = sys.argv[1] if len(sys.argv) > 1 else "."
+    report_images(target)</code></pre>
+
+      <pre><code># 用法：
+# python image_report.py ~/Pictures
+#
+# File                                    Size  Modified
+# ----------------------------------------------------------------------
+# beach_sunset.jpg                      2.3 MB  2025-06-15 14:30
+# diagram.png                         145.2 KB  2025-07-01 09:12
+# screenshot_2025.png                  890.4 KB  2025-08-20 11:45
+# ----------------------------------------------------------------------
+# Total: 3 files                        3.3 MB</code></pre>
+
+      <h2 id="paths">7. 路徑處理</h2>
+
+      <p>
+        正確的路徑處理對於跨平台腳本至關重要。Python 提供兩種方法：
+        傳統的 <code>os.path</code> 模組和現代的 <code>pathlib</code> 模組。
+      </p>
+
+      <h3 id="os-path-vs-pathlib">7.1 os.path 與 pathlib 比較</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>os.path</th>
+            <th>pathlib</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>合併路徑</td>
+            <td><code>os.path.join("a", "b", "c.txt")</code></td>
+            <td><code>Path("a") / "b" / "c.txt"</code></td>
+          </tr>
+          <tr>
+            <td>取得檔名</td>
+            <td><code>os.path.basename(p)</code></td>
+            <td><code>Path(p).name</code></td>
+          </tr>
+          <tr>
+            <td>取得目錄</td>
+            <td><code>os.path.dirname(p)</code></td>
+            <td><code>Path(p).parent</code></td>
+          </tr>
+          <tr>
+            <td>取得副檔名</td>
+            <td><code>os.path.splitext(p)[1]</code></td>
+            <td><code>Path(p).suffix</code></td>
+          </tr>
+          <tr>
+            <td>取得檔名（無副檔名）</td>
+            <td><code>os.path.splitext(os.path.basename(p))[0]</code></td>
+            <td><code>Path(p).stem</code></td>
+          </tr>
+          <tr>
+            <td>檔案是否存在？</td>
+            <td><code>os.path.exists(p)</code></td>
+            <td><code>Path(p).exists()</code></td>
+          </tr>
+          <tr>
+            <td>是否為檔案？</td>
+            <td><code>os.path.isfile(p)</code></td>
+            <td><code>Path(p).is_file()</code></td>
+          </tr>
+          <tr>
+            <td>是否為目錄？</td>
+            <td><code>os.path.isdir(p)</code></td>
+            <td><code>Path(p).is_dir()</code></td>
+          </tr>
+          <tr>
+            <td>絕對路徑</td>
+            <td><code>os.path.abspath(p)</code></td>
+            <td><code>Path(p).resolve()</code></td>
+          </tr>
+          <tr>
+            <td>家目錄</td>
+            <td><code>os.path.expanduser("~")</code></td>
+            <td><code>Path.home()</code></td>
+          </tr>
+          <tr>
+            <td>目前目錄</td>
+            <td><code>os.getcwd()</code></td>
+            <td><code>Path.cwd()</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>應該使用哪一個？</strong>新程式碼優先使用 <code>pathlib</code>。
+        它更易讀（<code>/</code> 運算子很直覺）、回傳豐富的物件而非原始字串，
+        並自動處理平台差異。你在較舊的程式碼中會遇到 <code>os.path</code>，
+        所以兩者都值得了解。
+      </div>
+
+      <h3 id="cross-platform">7.2 跨平台路徑處理</h3>
+
+      <pre><code>from pathlib import Path
+
+# 錯誤 — 硬編碼分隔符（在 Windows 或 Linux 上會中斷）
+path = "data/reports/2025/summary.csv"     # 在 Linux/macOS 上可用
+path = "data\\reports\\2025\\summary.csv"   # 只在 Windows 上可用
+
+# 正確 — 讓 Python 選擇分隔符
+path = Path("data") / "reports" / "2025" / "summary.csv"
+print(path)
+# Linux 上：  data/reports/2025/summary.csv
+# Windows 上：data\reports\2025\summary.csv</code></pre>
+
+      <h3 id="safe-paths">7.3 安全地建構路徑</h3>
+
+      <pre><code>from pathlib import Path
+
+# 從已知的基礎路徑開始
+base = Path.home() / "Documents" / "project"
+
+# 添加組件
+data_file = base / "data" / "input.csv"
+output_dir = base / "output"
+
+# 確保輸出目錄存在
+output_dir.mkdir(parents=True, exist_ok=True)
+
+# 從輸入檔名建構輸出檔名
+input_path = Path("data/experiment_001.csv")
+output_path = output_dir / input_path.with_suffix(".json").name
+print(output_path)
+# /home/user/Documents/project/output/experiment_001.json</code></pre>
+
+      <h3 id="common-path-ops">7.4 常用路徑操作</h3>
+
+      <pre><code>from pathlib import Path
+
+p = Path("/home/user/projects/data/results.csv")
+
+print(p.name)       # 'results.csv'
+print(p.stem)       # 'results'
+print(p.suffix)     # '.csv'
+print(p.parent)     # /home/user/projects/data
+print(p.parents[0]) # /home/user/projects/data（與 .parent 相同）
+print(p.parents[1]) # /home/user/projects
+print(p.parents[2]) # /home/user
+
+# 更改副檔名
+new_p = p.with_suffix(".json")
+print(new_p)         # /home/user/projects/data/results.json
+
+# 只更改檔名
+new_p = p.with_name("output.csv")
+print(new_p)         # /home/user/projects/data/output.csv
+
+# 檢查路徑是否匹配模式
+print(p.match("*.csv"))              # True
+print(p.match("data/*.csv"))         # True
+
+# 取得所有部分作為元組
+print(p.parts)
+# ('/', 'home', 'user', 'projects', 'data', 'results.csv')</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong>MATLAB 使用
+        <code>fullfile()</code> 建構路徑，<code>fileparts()</code> 分解路徑。
+        Python 的 <code>pathlib</code> 提供相同功能，但有更豐富的物件導向 API。
+        <code>/</code> 運算子取代了 <code>fullfile()</code>，<code>.stem</code>、
+        <code>.suffix</code> 和 <code>.parent</code> 等屬性取代了
+        <code>fileparts()</code> 的多個回傳值。
+      </div>
+
+      <h2 id="recipes">8. 實用自動化配方</h2>
+
+      <p>
+        本節收集了立即可用的自動化配方。每個都是完整的可執行腳本。
+      </p>
+
+      <h3 id="watch-folder">8.1 監看資料夾中的新檔案</h3>
+
+      <pre><code>#!/usr/bin/env python3
+"""輪詢目錄，當新檔案出現時做出反應。"""
+
+import time
+from pathlib import Path
+
+def watch_folder(folder, interval=2):
+    """監看資料夾，當新檔案到達時列印訊息。"""
+    folder = Path(folder)
+    known_files = set(folder.iterdir())
+
+    print(f"Watching {folder} for new files (Ctrl+C to stop)...")
+
+    try:
+        while True:
+            time.sleep(interval)
+            current_files = set(folder.iterdir())
+            new_files = current_files - known_files
+
+            for f in new_files:
+                if f.is_file():
+                    print(f"  New file detected: {f.name} "
+                          f"({f.stat().st_size} bytes)")
+
+            known_files = current_files
+    except KeyboardInterrupt:
+        print("\nStopped watching.")
+
+if __name__ == "__main__":
+    import sys
+    target = sys.argv[1] if len(sys.argv) > 1 else "."
+    watch_folder(target)</code></pre>
+
+      <h3 id="backup-script">8.2 備份腳本</h3>
+
+      <pre><code>#!/usr/bin/env python3
+"""建立目錄的時間戳記備份。"""
+
+import shutil
+import datetime
+from pathlib import Path
+
+def backup_directory(source, backup_root="backups"):
+    """將來源目錄複製到帶有時間戳記的 backup_root 中。"""
+    source = Path(source)
+    backup_root = Path(backup_root)
+
+    if not source.is_dir():
+        print(f"Error: {source} is not a directory")
+        return
+
+    # 建立基於時間戳記的資料夾名稱
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    dest = backup_root / f"{source.name}_{timestamp}"
+
+    print(f"Backing up {source} -> {dest}")
+    shutil.copytree(source, dest)
+
+    # 計算複製了什麼
+    file_count = sum(1 for _ in dest.rglob("*") if _.is_file())
+    print(f"Done! {file_count} file(s) backed up.")
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: python backup.py <directory> [backup_root]")
+        sys.exit(1)
+    src = sys.argv[1]
+    dst = sys.argv[2] if len(sys.argv) > 2 else "backups"
+    backup_directory(src, dst)</code></pre>
+
+      <h3 id="find-replace">8.3 跨檔案尋找與取代</h3>
+
+      <pre><code>#!/usr/bin/env python3
+"""在所有匹配模式的檔案中尋找和取代字串。"""
+
+from pathlib import Path
+
+def find_and_replace(directory, glob_pattern, old_text, new_text, dry_run=True):
+    """在匹配 glob_pattern 的檔案中將 old_text 取代為 new_text。"""
+    directory = Path(directory)
+    changed_files = 0
+
+    for filepath in sorted(directory.rglob(glob_pattern)):
+        if not filepath.is_file():
+            continue
+
+        try:
+            content = filepath.read_text()
+        except (UnicodeDecodeError, PermissionError):
+            continue
+
+        if old_text not in content:
+            continue
+
+        count = content.count(old_text)
+
+        if dry_run:
+            print(f"  [DRY RUN] {filepath}: {count} occurrence(s)")
+        else:
+            new_content = content.replace(old_text, new_text)
+            filepath.write_text(new_content)
+            print(f"  Updated {filepath}: {count} replacement(s)")
+
+        changed_files += 1
+
+    mode = "DRY RUN" if dry_run else "DONE"
+    print(f"\n[{mode}] {changed_files} file(s) affected.")
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 4:
+        print("Usage: python replace.py <directory> <old> <new> [--apply]")
+        print("  Without --apply, runs in dry-run mode (shows what would change)")
+        sys.exit(1)
+
+    apply = "--apply" in sys.argv
+    find_and_replace(
+        directory=sys.argv[1],
+        glob_pattern="*.py",
+        old_text=sys.argv[2],
+        new_text=sys.argv[3],
+        dry_run=not apply
+    )</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>安全第一：</strong>注意 <code>dry_run=True</code> 預設值。
+        在進行實際修改之前，務必預覽大量編輯腳本會更改的內容。
+        這個模式 &mdash; 預設為試執行，<code>--apply</code> 旗標才執行
+        &mdash; 可以防止意外。
+      </div>
+
+      <h3 id="generate-report">8.4 從資料產生報告</h3>
+
+      <pre><code>#!/usr/bin/env python3
+"""讀取 CSV 資料檔案並產生摘要報告。"""
+
+import csv
+from pathlib import Path
+from collections import defaultdict
+
+def generate_report(data_dir, output_file="summary_report.txt"):
+    """讀取所有 CSV 檔案並產生摘要。"""
+    data_dir = Path(data_dir)
+    all_stats = []
+
+    for csv_file in sorted(data_dir.glob("*.csv")):
+        with open(csv_file, "r", newline="") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+
+        if not rows:
+            continue
+
+        # 收集基本統計
+        stats = {
+            "file": csv_file.name,
+            "rows": len(rows),
+            "columns": len(rows[0]),
+            "column_names": list(rows[0].keys()),
+        }
+        all_stats.append(stats)
+
+    # 寫入報告
+    with open(output_file, "w") as out:
+        out.write("DATA SUMMARY REPORT\n")
+        out.write("=" * 50 + "\n\n")
+
+        for s in all_stats:
+            out.write(f"File: {s['file']}\n")
+            out.write(f"  Rows: {s['rows']}\n")
+            out.write(f"  Columns ({s['columns']}): {', '.join(s['column_names'])}\n\n")
+
+        out.write(f"Total files processed: {len(all_stats)}\n")
+        out.write(f"Total rows across all files: "
+                  f"{sum(s['rows'] for s in all_stats)}\n")
+
+    print(f"Report written to {output_file}")
+
+if __name__ == "__main__":
+    import sys
+    folder = sys.argv[1] if len(sys.argv) > 1 else "."
+    generate_report(folder)</code></pre>
+
+      <h3 id="cleanup">8.5 清理暫存檔案</h3>
+
+      <pre><code>#!/usr/bin/env python3
+"""從專案目錄中刪除暫存和快取檔案。"""
+
+import os
+from pathlib import Path
+
+# 要清理的模式
+JUNK_PATTERNS = [
+    "**/*.pyc",              # 編譯的 Python 位元碼
+    "**/__pycache__",        # 位元碼快取目錄
+    "**/*.tmp",              # 暫存檔案
+    "**/*.log",              # 日誌檔案
+    "**/.DS_Store",          # macOS 資料夾中繼資料
+    "**/Thumbs.db",          # Windows 縮圖快取
+]
+
+def cleanup(directory, dry_run=True):
+    """移除匹配 JUNK_PATTERNS 的暫存檔案和目錄。"""
+    directory = Path(directory)
+    removed_files = 0
+    removed_dirs = 0
+    freed_bytes = 0
+
+    for pattern in JUNK_PATTERNS:
+        for item in directory.glob(pattern):
+            if item.is_file():
+                size = item.stat().st_size
+                if dry_run:
+                    print(f"  [DEL FILE] {item} ({size:,} bytes)")
+                else:
+                    item.unlink()
+                    print(f"  Deleted: {item}")
+                removed_files += 1
+                freed_bytes += size
+            elif item.is_dir():
+                if dry_run:
+                    print(f"  [DEL DIR]  {item}/")
+                else:
+                    import shutil
+                    shutil.rmtree(item)
+                    print(f"  Removed: {item}/")
+                removed_dirs += 1
+
+    mode = "DRY RUN" if dry_run else "CLEANED"
+    print(f"\n[{mode}] {removed_files} file(s), {removed_dirs} dir(s), "
+          f"~{freed_bytes / 1024:.1f} KB freed")
+
+if __name__ == "__main__":
+    import sys
+    target = sys.argv[1] if len(sys.argv) > 1 else "."
+    apply = "--apply" in sys.argv
+    cleanup(target, dry_run=not apply)</code></pre>
+
+      <pre><code># 用法：
+# python cleanup.py ./my_project              （預覽將被刪除的內容）
+# python cleanup.py ./my_project --apply      （實際刪除）</code></pre>
+
+      <h2 id="quick-reference">快速參考：自動化關鍵模組</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模組</th>
+            <th>用途</th>
+            <th>關鍵函式 / 類別</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>os</code></td>
+            <td>作業系統介面</td>
+            <td><code>listdir</code>、<code>makedirs</code>、<code>rename</code>、<code>walk</code>、<code>getcwd</code></td>
+          </tr>
+          <tr>
+            <td><code>os.path</code></td>
+            <td>路徑操作</td>
+            <td><code>join</code>、<code>exists</code>、<code>basename</code>、<code>dirname</code>、<code>splitext</code></td>
+          </tr>
+          <tr>
+            <td><code>pathlib</code></td>
+            <td>物件導向路徑</td>
+            <td><code>Path</code>、<code>.glob()</code>、<code>.rglob()</code>、<code>.mkdir()</code>、<code>.read_text()</code></td>
+          </tr>
+          <tr>
+            <td><code>shutil</code></td>
+            <td>高階檔案操作</td>
+            <td><code>copy</code>、<code>copy2</code>、<code>move</code>、<code>copytree</code>、<code>rmtree</code></td>
+          </tr>
+          <tr>
+            <td><code>glob</code></td>
+            <td>檔名匹配</td>
+            <td><code>glob</code>、<code>iglob</code></td>
+          </tr>
+          <tr>
+            <td><code>json</code></td>
+            <td>JSON 讀寫</td>
+            <td><code>load</code>、<code>loads</code>、<code>dump</code>、<code>dumps</code></td>
+          </tr>
+          <tr>
+            <td><code>csv</code></td>
+            <td>CSV 讀寫</td>
+            <td><code>reader</code>、<code>writer</code>、<code>DictReader</code>、<code>DictWriter</code></td>
+          </tr>
+          <tr>
+            <td><code>re</code></td>
+            <td>正規表達式</td>
+            <td><code>search</code>、<code>findall</code>、<code>sub</code>、<code>split</code>、<code>compile</code></td>
+          </tr>
+          <tr>
+            <td><code>subprocess</code></td>
+            <td>執行 shell 命令</td>
+            <td><code>run</code>、<code>CalledProcessError</code></td>
+          </tr>
+          <tr>
+            <td><code>argparse</code></td>
+            <td>CLI 引數解析</td>
+            <td><code>ArgumentParser</code>、<code>add_argument</code>、<code>parse_args</code></td>
+          </tr>
+          <tr>
+            <td><code>sys</code></td>
+            <td>系統特定參數</td>
+            <td><code>argv</code>、<code>exit</code>、<code>stdout</code></td>
+          </tr>
+          <tr>
+            <td><code>time</code></td>
+            <td>時間函式</td>
+            <td><code>time</code>、<code>sleep</code>、<code>perf_counter</code></td>
+          </tr>
+          <tr>
+            <td><code>datetime</code></td>
+            <td>日期/時間型別</td>
+            <td><code>datetime.now()</code>、<code>strftime</code>、<code>fromtimestamp</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="summary">總結</h2>
+
+      <ul>
+        <li>
+          Python 的標準函式庫提供了你所需的一切：檔案管理、文字處理、shell 命令和 CLI 工具 &mdash; 不需要第三方套件。
+        </li>
+        <li>
+          新程式碼中使用 <code>pathlib.Path</code> 進行所有路徑操作。它比 <code>os.path</code> 更易讀且跨平台。
+        </li>
+        <li>
+          始終使用 <code>with open(...)</code> 進行檔案 I/O，以確保檔案被正確關閉。
+        </li>
+        <li>
+          使用 <code>subprocess.run()</code> 搭配串列引數安全地執行 shell 命令。避免使用 <code>shell=True</code>。
+        </li>
+        <li>
+          使用 <code>argparse</code> 將腳本轉變為具有說明文字和驗證的正式 CLI 工具。
+        </li>
+        <li>
+          在腳本中內建安全機制：使用試執行模式、刪除前先列印、優雅地處理例外。
+        </li>
+        <li>
+          本頁的配方（資料夾監看、備份、尋找和取代、清理）是起始模板 &mdash; 將它們調整為你的特定工作流程。
+        </li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>你現在擁有了實用的自動化工具箱！</strong>
+        這些模式涵蓋了絕大多數的日常腳本需求。
+        當你準備好進行更進階的自動化（網頁爬蟲、電子郵件、資料庫、API）時，
+        Python 的生態系統都有成熟的套件。但本頁的標準函式庫技術已經能帶你走得很遠。
+      </div>
+
+      <div class="page-nav">
+        <a href="cheatsheet.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">速查表</span></a>
+        <a href="../index.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">首頁</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

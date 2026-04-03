@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字典 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-dictionaries.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link active">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 字典
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  字典                                                         -->
+      <!-- ============================================================ -->
+
+      <h1>字典</h1>
+
+      <p>
+        字典是 Python 中最強大且最常用的資料結構之一。如果串列讓你儲存有序的值序列，
+        那麼字典則讓你儲存<strong>鍵值對</strong>
+        &mdash; 將標籤（鍵）與資料（值）連結起來。
+        一旦你理解了字典，你會發現它們無處不在：
+        設定檔、JSON 資料、函式的關鍵字引數等等。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong> MATLAB 有
+        <code>containers.Map</code>，其運作方式類似 &mdash; 你透過鍵而非數字位置來儲存和索引值。然而，
+        <code>containers.Map</code> 在 MATLAB 程式碼中相對少見。
+        在 Python 中，字典（<code>dict</code>）是語言的核心。
+        它們被廣泛使用 &mdash; 用於 JSON 資料、
+        函式 <code>**kwargs</code>、底層的類別屬性、
+        模組命名空間等等。掌握字典是必不可少的。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. 什麼是字典？                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="what-is-a-dictionary">1. 什麼是字典？</h2>
+
+      <p>
+        想像一本現實世界的字典：你查找一個<strong>單字</strong>
+        （鍵）然後找到它的<strong>定義</strong>（值）。Python
+        的字典運作方式完全相同 &mdash; 每個條目都是一個
+        <em>鍵值對</em>，你使用鍵來檢索對應的值。
+      </p>
+
+      <h3>使用 <code>{}</code> 建立字典</h3>
+
+      <p>
+        建立字典最常見的方式是使用大括號，
+        用冒號分隔鍵和值：
+      </p>
+
+      <pre><code># 一個簡單的字典：英文單字 -> 西班牙文翻譯
+english_to_spanish = {
+    "hello": "hola",
+    "goodbye": "adi&oacute;s",
+    "please": "por favor",
+    "thank you": "gracias"
+}
+
+print(english_to_spanish)
+# {'hello': 'hola', 'goodbye': 'adi&oacute;s', 'please': 'por favor', 'thank you': 'gracias'}</code></pre>
+
+      <h3>使用 <code>dict()</code> 建立字典</h3>
+
+      <p>
+        你也可以使用內建的
+        <code>dict()</code> 建構函式來建立字典。當你的鍵是看起來像有效 Python 變數名稱的簡單字串時，這種方式特別好用：
+      </p>
+
+      <pre><code># 使用 dict() 搭配關鍵字引數
+person = dict(name="Alice", age=30, city="London")
+print(person)
+# {'name': 'Alice', 'age': 30, 'city': 'London'}
+
+# 使用 dict() 搭配元組串列
+pairs = [("x", 10), ("y", 20), ("z", 30)]
+coordinates = dict(pairs)
+print(coordinates)
+# {'x': 10, 'y': 20, 'z': 30}</code></pre>
+
+      <h3>空字典</h3>
+
+      <pre><code># 建立空字典的兩種方式
+empty1 = {}
+empty2 = dict()
+
+print(type(empty1))  # &lt;class 'dict'&gt;
+print(len(empty1))   # 0</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>注意：</strong> <code>{}</code> 建立的是空
+        <em>字典</em>，不是空集合。要建立空集合，
+        你必須使用 <code>set()</code>。這是初學者常見的混淆來源。
+      </div>
+
+      <h3>鍵的規則：鍵必須是不可變的</h3>
+
+      <p>
+        字典的鍵必須是<strong>不可變的</strong>（不可更改的）
+        型別。這表示你可以使用：
+      </p>
+
+      <ul>
+        <li><strong>字串</strong> &mdash; 最常見的鍵型別</li>
+        <li><strong>數字</strong>（int、float） &mdash; 完全有效</li>
+        <li><strong>元組</strong> &mdash; 僅當它們包含不可變元素時</li>
+        <li><strong>布林值</strong> &mdash; 技術上有效但很少有用</li>
+      </ul>
+
+      <p>你<strong>不能</strong>使用串列、字典或集合作為鍵，
+        因為它們是可變的：</p>
+
+      <pre><code># 有效的鍵
+valid = {
+    "name": "Alice",       # 字串鍵
+    42: "the answer",      # 整數鍵
+    3.14: "pi",            # 浮點數鍵
+    (1, 2): "coordinates"  # 元組鍵
+}
+
+# 無效的鍵 - 這會引發 TypeError
+# bad = {[1, 2]: "a list as key"}  # TypeError: unhashable type: 'list'</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼鍵必須是不可變的？</strong> Python 使用一種稱為
+        <em>雜湊</em>的技術來快速查找鍵。雜湊是從鍵的值計算出的
+        固定大小數字。如果鍵在被加入後可以改變（像是一個被附加了項目的串列），
+        它的雜湊值也會改變，Python 就無法再找到它。不可變型別保證了雜湊值保持不變。
+      </div>
+
+      <p>
+        另一方面，值可以是<strong>任何東西</strong> &mdash;
+        字串、數字、串列、其他字典、函式、物件等。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  2. 存取值                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="accessing-values">2. 存取值</h2>
+
+      <p>
+        從字典中取得值有兩種主要方式：方括號表示法和
+        <code>.get()</code> 方法。選擇哪一種取決於你是否預期鍵一定存在。
+      </p>
+
+      <h3>方括號表示法：<code>dict[key]</code></h3>
+
+      <p>
+        使用方括號加上鍵來檢索值。如果鍵不存在，
+        Python 會引發 <code>KeyError</code>：
+      </p>
+
+      <pre><code>student = {"name": "Bob", "grade": "A", "age": 21}
+
+print(student["name"])   # Bob
+print(student["grade"])  # A
+
+# 嘗試存取不存在的鍵：
+# print(student["email"])  # KeyError: 'email'</code></pre>
+
+      <h3><code>.get()</code> 方法：安全存取</h3>
+
+      <p>
+        <code>.get()</code> 方法在鍵不存在時回傳 <code>None</code>，
+        而不是讓你的程式崩潰：
+      </p>
+
+      <pre><code>student = {"name": "Bob", "grade": "A", "age": 21}
+
+# .get() 在鍵不存在時回傳 None
+print(student.get("email"))       # None
+print(student.get("name"))        # Bob
+
+# 你可以提供預設值作為第二個引數
+print(student.get("email", "N/A"))    # N/A
+print(student.get("grade", "N/A"))    # A（鍵存在，所以忽略預設值）</code></pre>
+
+      <div class="callout callout-info">
+        <strong>何時使用哪一種：</strong>
+        <ul>
+          <li>當你<strong>確定</strong>鍵存在時，使用 <code>dict[key]</code>，
+            或者當鍵缺失表示一個應該大聲報錯的 bug 時。</li>
+          <li>當鍵<strong>可能</strong>不存在，而你想優雅地處理時，
+            使用 <code>dict.get(key)</code>。</li>
+          <li>當你想要為缺失的鍵提供一個<strong>備用值</strong>時，
+            使用 <code>dict.get(key, default)</code>。</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. 修改字典                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="modifying-dictionaries">3. 修改字典</h2>
+
+      <p>
+        字典是<strong>可變的</strong> &mdash; 你可以在建立後
+        新增、更改和移除鍵值對。
+      </p>
+
+      <h3>新增和更新值</h3>
+
+      <pre><code>student = {"name": "Bob", "age": 21}
+
+# 新增一個鍵值對
+student["email"] = "bob@example.com"
+print(student)
+# {'name': 'Bob', 'age': 21, 'email': 'bob@example.com'}
+
+# 更新現有的值
+student["age"] = 22
+print(student)
+# {'name': 'Bob', 'age': 22, 'email': 'bob@example.com'}</code></pre>
+
+      <div class="callout callout-info">
+        <strong>注意：</strong> 新增和更新的語法是相同的 &mdash;
+        <code>dict[key] = value</code>。如果鍵已經存在，舊值會被替換。
+        如果不存在，則建立新條目。
+      </div>
+
+      <h3><code>.update()</code> 方法</h3>
+
+      <p>
+        使用 <code>.update()</code> 將另一個字典（或可迭代的鍵值對）
+        合併到現有字典中。已存在的鍵會被覆寫；新鍵會被新增：
+      </p>
+
+      <pre><code>student = {"name": "Bob", "age": 21}
+
+# 用另一個字典更新
+student.update({"age": 22, "grade": "A", "email": "bob@example.com"})
+print(student)
+# {'name': 'Bob', 'age': 22, 'grade': 'A', 'email': 'bob@example.com'}
+
+# 用關鍵字引數更新
+student.update(city="New York", age=23)
+print(student)
+# {'name': 'Bob', 'age': 23, 'grade': 'A', 'email': 'bob@example.com', 'city': 'New York'}</code></pre>
+
+      <h3>移除條目</h3>
+
+      <p>
+        Python 提供了多種從字典中移除鍵值對的方式：
+      </p>
+
+      <pre><code>student = {"name": "Bob", "age": 22, "grade": "A", "email": "bob@example.com"}
+
+# del — 移除指定的鍵（如果不存在則引發 KeyError）
+del student["email"]
+print(student)
+# {'name': 'Bob', 'age': 22, 'grade': 'A'}
+
+# .pop(key) — 移除並回傳值（如果不存在則引發 KeyError）
+grade = student.pop("grade")
+print(grade)     # A
+print(student)   # {'name': 'Bob', 'age': 22}
+
+# .pop(key, default) — 回傳預設值而非引發 KeyError
+missing = student.pop("phone", "not found")
+print(missing)   # not found
+
+# .popitem() — 移除並回傳最後插入的鍵值對
+student["city"] = "London"
+student["year"] = 3
+last = student.popitem()
+print(last)      # ('year', 3)
+print(student)   # {'name': 'Bob', 'age': 22, 'city': 'London'}
+
+# .clear() — 移除所有條目
+student.clear()
+print(student)   # {}</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong> 在沒有先檢查鍵是否存在的情況下使用
+        <code>del dict[key]</code>。如果鍵不存在，
+        你會得到 <code>KeyError</code>。先用
+        <code>if key in dict</code> 檢查，或使用
+        <code>dict.pop(key, None)</code> 來安全移除。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 字典方法                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="dictionary-methods">4. 字典方法</h2>
+
+      <h3><code>.keys()</code>、<code>.values()</code> 和 <code>.items()</code></h3>
+
+      <p>
+        這三個方法讓你以不同方式檢視字典的內容：
+      </p>
+
+      <pre><code>fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+
+# .keys() — 所有鍵
+print(fruit_colors.keys())
+# dict_keys(['apple', 'banana', 'grape'])
+
+# .values() — 所有值
+print(fruit_colors.values())
+# dict_values(['red', 'yellow', 'purple'])
+
+# .items() — 所有鍵值對（以元組形式）
+print(fruit_colors.items())
+# dict_items([('apple', 'red'), ('banana', 'yellow'), ('grape', 'purple')])
+
+# 需要時轉換為串列
+keys_list = list(fruit_colors.keys())
+print(keys_list)  # ['apple', 'banana', 'grape']</code></pre>
+
+      <div class="callout callout-info">
+        <strong>這些是視圖，不是副本。</strong>
+        <code>.keys()</code>、<code>.values()</code> 和
+        <code>.items()</code> 回傳的物件是<em>視圖</em>，
+        它們會反映字典的變更。如果你向字典新增一個鍵，
+        視圖會自動包含它。
+      </div>
+
+      <h3><code>.copy()</code> &mdash; 淺層複製</h3>
+
+      <pre><code>original = {"a": 1, "b": 2, "c": 3}
+duplicate = original.copy()
+
+duplicate["d"] = 4
+print(original)   # {'a': 1, 'b': 2, 'c': 3}（未改變）
+print(duplicate)  # {'a': 1, 'b': 2, 'c': 3, 'd': 4}</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>淺層複製警告：</strong> <code>.copy()</code> 建立的是
+        <em>淺層</em>複製。如果你的字典包含可變值
+        （如串列或其他字典），那些內部物件是
+        <strong>共享的</strong>，不是被複製的。如果你需要一個完全獨立的副本，
+        使用 <code>import copy; copy.deepcopy(dict)</code>。
+      </div>
+
+      <h3>使用 <code>in</code> 檢查鍵是否存在</h3>
+
+      <pre><code>student = {"name": "Bob", "age": 22}
+
+print("name" in student)     # True
+print("email" in student)    # False
+print("Bob" in student)      # False — "in" 檢查的是鍵，不是值
+
+# 常見模式：存取前先檢查
+if "email" in student:
+    print(student["email"])
+else:
+    print("No email on file")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong> 在 MATLAB 中使用
+        <code>containers.Map</code> 時，你用 <code>isKey(map, key)</code>
+        來檢查鍵是否存在。在 Python 中，<code>in</code> 關鍵字
+        讀起來更自然：<code>if key in dict</code>。
+      </div>
+
+      <h3><code>len()</code> &mdash; 鍵值對數量</h3>
+
+      <pre><code>student = {"name": "Bob", "age": 22, "grade": "A"}
+print(len(student))  # 3</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. 遍歷字典                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="looping">5. 遍歷字典</h2>
+
+      <p>
+        你經常需要迭代字典。Python 提供了幾種簡潔的方式來做到這一點。
+      </p>
+
+      <h3>遍歷鍵（預設）</h3>
+
+      <pre><code>fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+
+# 預設情況下，迭代字典會給你鍵
+for fruit in fruit_colors:
+    print(fruit)
+
+# 輸出：
+# apple
+# banana
+# grape</code></pre>
+
+      <h3>同時遍歷鍵和值</h3>
+
+      <pre><code>fruit_colors = {"apple": "red", "banana": "yellow", "grape": "purple"}
+
+# .items() 同時給你鍵和值
+for fruit, color in fruit_colors.items():
+    print(f"The {fruit} is {color}")
+
+# 輸出：
+# The apple is red
+# The banana is yellow
+# The grape is purple</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼 <code>.items()</code> 是最常見的模式：</strong>
+        大多數時候當你遍歷字典時，你需要同時使用鍵和值。使用
+        <code>for key, value in dict.items()</code>
+        比先遍歷鍵再用 <code>dict[key]</code> 取得每個值更簡潔且更有效率。
+      </div>
+
+      <h3>僅遍歷值</h3>
+
+      <pre><code>scores = {"Alice": 95, "Bob": 87, "Charlie": 92}
+
+# 如果你只關心值
+for score in scores.values():
+    print(score)
+
+# 輸出：
+# 95
+# 87
+# 92
+
+# 適合用於計算
+total = sum(scores.values())
+average = total / len(scores)
+print(f"Average score: {average:.1f}")  # Average score: 91.3</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. 巢狀字典                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="nested-dictionaries">6. 巢狀字典</h2>
+
+      <p>
+        字典的值可以是任何東西 &mdash; 包括其他字典。
+        這稱為<strong>巢狀</strong>，在真實世界的資料中極為常見（想想 JSON）。
+      </p>
+
+      <h3>字典中的字典</h3>
+
+      <pre><code># 學生記錄 — 每個學生是一個巢狀字典
+students = {
+    "alice": {
+        "full_name": "Alice Johnson",
+        "age": 22,
+        "grades": {"math": 95, "physics": 88, "cs": 92}
+    },
+    "bob": {
+        "full_name": "Bob Smith",
+        "age": 21,
+        "grades": {"math": 78, "physics": 85, "cs": 90}
+    }
+}</code></pre>
+
+      <h3>存取巢狀值</h3>
+
+      <pre><code># 串連方括號以深入巢狀字典
+print(students["alice"]["full_name"])           # Alice Johnson
+print(students["bob"]["grades"]["physics"])     # 85
+
+# 對於深層巢狀資料，使用 .get() 更安全
+math_grade = students.get("charlie", {}).get("grades", {}).get("math", "N/A")
+print(math_grade)  # N/A（charlie 不存在）</code></pre>
+
+      <h3>真實世界範例：設定檔</h3>
+
+      <pre><code># 應用程式設定（類似於 JSON 設定檔中的內容）
+config = {
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "name": "myapp_db",
+        "credentials": {
+            "user": "admin",
+            "password": "secret123"
+        }
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "/var/log/myapp.log",
+        "max_size_mb": 50
+    },
+    "features": {
+        "dark_mode": True,
+        "notifications": False
+    }
+}
+
+# 存取深層巢狀的值
+db_host = config["database"]["host"]
+log_level = config["logging"]["level"]
+print(f"Connecting to {db_host}, log level: {log_level}")
+# Connecting to localhost, log level: INFO</code></pre>
+
+      <div class="callout callout-info">
+        <strong>JSON 與字典：</strong> JSON（JavaScript 物件表示法）
+        是 Web API 最常見的資料格式。當你在 Python 中使用
+        <code>import json</code> 載入 JSON 資料時，它會變成一個字典
+        （或字典的串列）。這是字典如此重要的原因之一。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. 字典推導式                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="dict-comprehensions">7. 字典推導式</h2>
+
+      <p>
+        就像串列推導式一樣，Python 支援
+        <strong>字典推導式</strong> &mdash; 一種從可迭代物件簡潔地建立字典的方式。
+      </p>
+
+      <h3>基本語法</h3>
+
+      <pre><code># 語法：{鍵運算式: 值運算式 for 項目 in 可迭代物件}
+
+# 建立一個平方數字典
+squares = {n: n ** 2 for n in range(1, 6)}
+print(squares)
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
+
+      <h3>實用範例</h3>
+
+      <pre><code># 將單字串列轉換為單字長度字典
+words = ["hello", "world", "python", "code"]
+word_lengths = {word: len(word) for word in words}
+print(word_lengths)
+# {'hello': 5, 'world': 5, 'python': 6, 'code': 4}
+
+# 篩選：只包含符合條件的項目
+scores = {"Alice": 95, "Bob": 67, "Charlie": 82, "Diana": 91}
+high_scores = {name: score for name, score in scores.items() if score >= 85}
+print(high_scores)
+# {'Alice': 95, 'Diana': 91}
+
+# 交換鍵和值
+original = {"a": 1, "b": 2, "c": 3}
+swapped = {v: k for k, v in original.items()}
+print(swapped)
+# {1: 'a', 2: 'b', 3: 'c'}
+
+# 轉換值：攝氏轉華氏
+celsius = {"London": 15, "Paris": 18, "Tokyo": 22, "Sydney": 25}
+fahrenheit = {city: round(temp * 9/5 + 32, 1) for city, temp in celsius.items()}
+print(fahrenheit)
+# {'London': 59.0, 'Paris': 64.4, 'Tokyo': 71.6, 'Sydney': 77.0}</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong> MATLAB 沒有字典推導式。
+        你通常需要使用迴圈配合 <code>containers.Map</code>
+        或逐一建構結構體欄位。
+        Python 的推導式讓你能用單一可讀的表達式建立整個字典。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. 常見用途                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-use-cases">8. 常見用途</h2>
+
+      <p>
+        以下是在真實 Python 程式碼中反覆出現的四種模式。
+        掌握這些會讓你成為更有效率的程式設計師。
+      </p>
+
+      <h3>計算出現次數</h3>
+
+      <p>
+        字典最常見的用途之一是計算序列中每個項目出現的次數：
+      </p>
+
+      <pre><code># 計算字串中的字元頻率
+text = "mississippi"
+freq = {}
+for char in text:
+    freq[char] = freq.get(char, 0) + 1
+
+print(freq)
+# {'m': 1, 'i': 4, 's': 4, 'p': 2}
+
+# 或使用內建的 collections.Counter（捷徑！）
+from collections import Counter
+freq2 = Counter(text)
+print(freq2)
+# Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼 <code>freq.get(char, 0) + 1</code> 有效：</strong>
+        如果字元還不在字典中，
+        <code>.get(char, 0)</code> 回傳 <code>0</code>。我們加上
+        <code>1</code>，所以任何字元的首次出現從 <code>1</code> 開始。
+        在後續遇到時，會檢索當前計數並遞增。
+        這是一種簡潔的替代方案，不需要先檢查 <code>if char in freq</code>。
+      </div>
+
+      <h3>資料分組</h3>
+
+      <pre><code># 按成績分組學生
+students = [
+    ("Alice", "A"), ("Bob", "B"), ("Charlie", "A"),
+    ("Diana", "B"), ("Eve", "A"), ("Frank", "C")
+]
+
+groups = {}
+for name, grade in students:
+    if grade not in groups:
+        groups[grade] = []
+    groups[grade].append(name)
+
+print(groups)
+# {'A': ['Alice', 'Charlie', 'Eve'], 'B': ['Bob', 'Diana'], 'C': ['Frank']}
+
+# 使用 .setdefault() 更簡潔的版本
+groups2 = {}
+for name, grade in students:
+    groups2.setdefault(grade, []).append(name)
+
+print(groups2)
+# {'A': ['Alice', 'Charlie', 'Eve'], 'B': ['Bob', 'Diana'], 'C': ['Frank']}</code></pre>
+
+      <h3>查找值（取代冗長的 if/elif 鏈）</h3>
+
+      <pre><code># 取代這樣寫：
+def get_day_name_ugly(day_num):
+    if day_num == 1:
+        return "Monday"
+    elif day_num == 2:
+        return "Tuesday"
+    elif day_num == 3:
+        return "Wednesday"
+    # ... 等等
+
+# 使用字典查找：
+day_names = {
+    1: "Monday", 2: "Tuesday", 3: "Wednesday",
+    4: "Thursday", 5: "Friday", 6: "Saturday", 7: "Sunday"
+}
+
+def get_day_name(day_num):
+    return day_names.get(day_num, "Invalid day")
+
+print(get_day_name(3))  # Wednesday
+print(get_day_name(9))  # Invalid day</code></pre>
+
+      <div class="callout callout-info">
+        <strong>效能提示：</strong> 字典查找平均是
+        <strong>O(1)</strong> &mdash; 無論字典有多少鍵，時間都是固定的。一長串的
+        <code>if/elif</code> 語句是 <strong>O(n)</strong> &mdash; 隨著你增加更多情況會變慢。對於大型查找表，字典既更簡潔又更快。
+      </div>
+
+      <h3>設定儲存</h3>
+
+      <pre><code># 常見模式：使用字典來儲存設定
+default_settings = {
+    "theme": "light",
+    "font_size": 14,
+    "auto_save": True,
+    "language": "en",
+    "max_retries": 3
+}
+
+# 使用者覆寫部分設定
+user_settings = {
+    "theme": "dark",
+    "font_size": 16
+}
+
+# 合併：使用者設定覆寫預設值
+final_settings = {**default_settings, **user_settings}
+print(final_settings)
+# {'theme': 'dark', 'font_size': 16, 'auto_save': True, 'language': 'en', 'max_retries': 3}</code></pre>
+
+      <div class="callout callout-info">
+        <strong><code>**</code> 解包運算子：</strong>
+        <code>{**dict1, **dict2}</code> 語法透過解包兩個字典來建立新字典。
+        如果它們有相同的鍵，第二個字典的值會勝出。
+        這是一種簡潔、Pythonic 的字典合併方式。在 Python 3.9+ 中，
+        你也可以使用 <code>|</code> 運算子：<code>dict1 | dict2</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  常見錯誤                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">常見錯誤</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>錯誤</th>
+            <th>會發生什麼</th>
+            <th>修正方法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>dict[missing_key]</code></td>
+            <td><code>KeyError</code></td>
+            <td>使用 <code>dict.get(key)</code> 或用 <code>in</code> 檢查</td>
+          </tr>
+          <tr>
+            <td>使用串列作為鍵</td>
+            <td><code>TypeError: unhashable type</code></td>
+            <td>先轉換為元組：<code>tuple(my_list)</code></td>
+          </tr>
+          <tr>
+            <td>用 <code>{}</code> 建立空集合</td>
+            <td>建立的是空字典</td>
+            <td>使用 <code>set()</code> 建立空集合</td>
+          </tr>
+          <tr>
+            <td>在遍歷字典時修改它</td>
+            <td><code>RuntimeError: dictionary changed size during iteration</code></td>
+            <td>遍歷副本：<code>for k in list(dict.keys()):</code></td>
+          </tr>
+          <tr>
+            <td>假設字典在舊版 Python 中是有序的</td>
+            <td>插入順序僅在 Python 3.7+ 中保證</td>
+            <td>使用 Python 3.7+（或 <code>collections.OrderedDict</code>）</td>
+          </tr>
+          <tr>
+            <td>檢查 <code>value in dict</code></td>
+            <td>檢查的是鍵，不是值</td>
+            <td>使用 <code>value in dict.values()</code> 來檢查值</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  快速參考表                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="quick-reference">快速參考</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>操作</th>
+            <th>語法</th>
+            <th>備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>建立</td>
+            <td><code>d = {"a": 1, "b": 2}</code></td>
+            <td>最常見的方式</td>
+          </tr>
+          <tr>
+            <td>存取</td>
+            <td><code>d["a"]</code></td>
+            <td>鍵不存在時引發 KeyError</td>
+          </tr>
+          <tr>
+            <td>安全存取</td>
+            <td><code>d.get("a", default)</code></td>
+            <td>鍵不存在時回傳預設值</td>
+          </tr>
+          <tr>
+            <td>新增 / 更新</td>
+            <td><code>d["c"] = 3</code></td>
+            <td>新增或覆寫</td>
+          </tr>
+          <tr>
+            <td>合併</td>
+            <td><code>d.update(other)</code></td>
+            <td>就地修改 d</td>
+          </tr>
+          <tr>
+            <td>刪除</td>
+            <td><code>del d["a"]</code></td>
+            <td>鍵不存在時引發 KeyError</td>
+          </tr>
+          <tr>
+            <td>安全刪除</td>
+            <td><code>d.pop("a", None)</code></td>
+            <td>鍵不存在時回傳 None</td>
+          </tr>
+          <tr>
+            <td>檢查鍵</td>
+            <td><code>"a" in d</code></td>
+            <td>回傳 True/False</td>
+          </tr>
+          <tr>
+            <td>所有鍵</td>
+            <td><code>d.keys()</code></td>
+            <td>回傳視圖物件</td>
+          </tr>
+          <tr>
+            <td>所有值</td>
+            <td><code>d.values()</code></td>
+            <td>回傳視圖物件</td>
+          </tr>
+          <tr>
+            <td>所有鍵值對</td>
+            <td><code>d.items()</code></td>
+            <td>回傳 (key, value) 元組</td>
+          </tr>
+          <tr>
+            <td>長度</td>
+            <td><code>len(d)</code></td>
+            <td>鍵值對數量</td>
+          </tr>
+          <tr>
+            <td>複製</td>
+            <td><code>d.copy()</code></td>
+            <td>淺層複製</td>
+          </tr>
+          <tr>
+            <td>清除</td>
+            <td><code>d.clear()</code></td>
+            <td>移除所有條目</td>
+          </tr>
+          <tr>
+            <td>推導式</td>
+            <td><code>{k: v for k, v in ...}</code></td>
+            <td>從可迭代物件建立</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  練習                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">練習題</h2>
+
+      <p>
+        透過這些練習題測試你的理解。在查看解答之前，
+        先試著自己解決每一題。
+      </p>
+
+      <!-- 練習 1 -->
+      <h3>練習 1：建立電話簿</h3>
+      <p>
+        建立一個名為 <code>phone_book</code> 的字典，包含至少
+        三個姓名到電話號碼的條目。然後列印特定人員的電話號碼、
+        新增一個條目，並刪除一個條目。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>phone_book = {
+    "Alice": "555-1234",
+    "Bob": "555-5678",
+    "Charlie": "555-9012"
+}
+
+# 列印 Bob 的號碼
+print(phone_book["Bob"])  # 555-5678
+
+# 新增一個條目
+phone_book["Diana"] = "555-3456"
+
+# 刪除 Charlie
+del phone_book["Charlie"]
+
+print(phone_book)
+# {'Alice': '555-1234', 'Bob': '555-5678', 'Diana': '555-3456'}</code></pre>
+      </details>
+
+      <!-- 練習 2 -->
+      <h3>練習 2：單字頻率計數器</h3>
+      <p>
+        給定字串 <code>"the cat sat on the mat the cat"</code>，
+        寫程式碼計算每個單字出現的次數。
+        將結果存在字典中。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>sentence = "the cat sat on the mat the cat"
+words = sentence.split()
+
+word_count = {}
+for word in words:
+    word_count[word] = word_count.get(word, 0) + 1
+
+print(word_count)
+# {'the': 3, 'cat': 2, 'sat': 1, 'on': 1, 'mat': 1}</code></pre>
+      </details>
+
+      <!-- 練習 3 -->
+      <h3>練習 3：反轉字典</h3>
+      <p>
+        寫程式碼將字典
+        <code>{"a": 1, "b": 2, "c": 3}</code> 的鍵和值交換，建立新字典：
+        <code>{1: "a", 2: "b", 3: "c"}</code>。
+        使用字典推導式。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>original = {"a": 1, "b": 2, "c": 3}
+inverted = {v: k for k, v in original.items()}
+print(inverted)
+# {1: 'a', 2: 'b', 3: 'c'}</code></pre>
+      </details>
+
+      <!-- 練習 4 -->
+      <h3>練習 4：合併兩個字典</h3>
+      <p>
+        你有兩個字典：
+      </p>
+      <pre><code>defaults = {"color": "blue", "size": 10, "visible": True}
+overrides = {"color": "red", "border": 2}</code></pre>
+      <p>
+        建立一個包含兩者所有鍵的新字典，其中
+        <code>overrides</code> 對於共享鍵的值優先於 <code>defaults</code>。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>defaults = {"color": "blue", "size": 10, "visible": True}
+overrides = {"color": "red", "border": 2}
+
+# 方法 1：** 解包
+merged = {**defaults, **overrides}
+print(merged)
+# {'color': 'red', 'size': 10, 'visible': True, 'border': 2}
+
+# 方法 2：.update()（就地修改 defaults）
+defaults_copy = defaults.copy()
+defaults_copy.update(overrides)
+print(defaults_copy)
+# {'color': 'red', 'size': 10, 'visible': True, 'border': 2}
+
+# 方法 3：| 運算子（Python 3.9+）
+# merged = defaults | overrides</code></pre>
+      </details>
+
+      <!-- 練習 5 -->
+      <h3>練習 5：學生成績平均</h3>
+      <p>
+        給定以下學生成績的巢狀字典，計算並列印
+        每位學生的平均成績：
+      </p>
+      <pre><code>students = {
+    "Alice": {"math": 90, "science": 85, "english": 92},
+    "Bob": {"math": 78, "science": 82, "english": 88},
+    "Charlie": {"math": 95, "science": 91, "english": 87}
+}</code></pre>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>students = {
+    "Alice": {"math": 90, "science": 85, "english": 92},
+    "Bob": {"math": 78, "science": 82, "english": 88},
+    "Charlie": {"math": 95, "science": 91, "english": 87}
+}
+
+for name, grades in students.items():
+    avg = sum(grades.values()) / len(grades)
+    print(f"{name}: average = {avg:.1f}")
+
+# 輸出：
+# Alice: average = 89.0
+# Bob: average = 82.7
+# Charlie: average = 91.0</code></pre>
+      </details>
+
+      <!-- 練習 6 -->
+      <h3>練習 6：按首字母分組</h3>
+      <p>
+        給定一個單字串列，按首字母將它們分組到字典中。
+        例如，<code>["apple", "banana", "avocado",
+        "blueberry", "cherry", "apricot"]</code> 應該產生：
+      </p>
+      <pre><code>{"a": ["apple", "avocado", "apricot"], "b": ["banana", "blueberry"], "c": ["cherry"]}</code></pre>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>words = ["apple", "banana", "avocado", "blueberry", "cherry", "apricot"]
+
+groups = {}
+for word in words:
+    first_letter = word[0]
+    groups.setdefault(first_letter, []).append(word)
+
+print(groups)
+# {'a': ['apple', 'avocado', 'apricot'], 'b': ['banana', 'blueberry'], 'c': ['cherry']}
+
+# 使用一般 if 檢查的替代方案：
+groups2 = {}
+for word in words:
+    letter = word[0]
+    if letter not in groups2:
+        groups2[letter] = []
+    groups2[letter].append(word)</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <ul>
+        <li>
+          字典儲存<strong>鍵值對</strong>。鍵必須是不可變的；值可以是任何東西。
+        </li>
+        <li>
+          當你確定鍵存在時使用 <code>dict[key]</code>；
+          使用 <code>dict.get(key, default)</code> 進行安全存取。
+        </li>
+        <li>
+          <code>.keys()</code>、<code>.values()</code> 和
+          <code>.items()</code> 讓你檢視字典的內容。
+        </li>
+        <li>
+          最常見的迴圈模式是
+          <code>for key, value in dict.items()</code>。
+        </li>
+        <li>
+          字典可以<strong>巢狀</strong> &mdash; 值可以是其他字典、串列等。
+        </li>
+        <li>
+          <strong>字典推導式</strong>讓你從可迭代物件簡潔地建立字典。
+        </li>
+        <li>
+          常見模式包括<strong>計數、分組、查找和設定儲存</strong>。
+        </li>
+        <li>
+          字典是 Python 的核心 &mdash; 它們驅動 JSON 處理、
+          函式關鍵字引數以及語言的大部分內部機制。
+        </li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong> 字典可以說是 Python 中
+        僅次於串列的最重要資料結構。無論你是在解析 API 回應、
+        建立設定物件、計算項目還是組織資料，你每天都會使用它們。
+        你在這裡學到的模式 &mdash; 特別是使用 <code>.get()</code> 計數、
+        使用 <code>.setdefault()</code> 分組和推導式 &mdash;
+        幾乎會出現在你參與的每個 Python 專案中。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-lists-tuples.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">串列、元組與集合</span></a>
+        <a href="basics-conditionals.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">條件判斷</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

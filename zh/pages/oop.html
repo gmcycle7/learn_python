@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>物件導向程式設計 &mdash; 學習 Python</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導航">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/oop.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+      <div class="search-results"></div>
+    </div>
+    <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A &mdash; 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B &mdash; 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F &mdash; 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G &mdash; 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link active">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="cheatsheet.html">更多主題</a><span class="sep">&rsaquo;</span>
+        物件導向程式設計
+      </div>
+
+      <h1>物件導向程式設計（OOP）</h1>
+
+      <p>
+        物件導向程式設計是現代軟體開發中最重要的概念之一。本頁將帶你從零開始
+        建立信心 &mdash; 你將學會如何設計自己的類別、建立物件、使用繼承，
+        並撰寫乾淨、可重複使用的程式碼。每個概念都以淺顯的語言解釋，
+        附帶大量範例。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>給 MATLAB 使用者：</strong>MATLAB 從 R2008a 起支援 OOP，
+        使用 <code>classdef</code>。Python 的 OOP 更深度整合於語言中
+        &mdash; 事實上，Python 中的<em>一切</em>都是物件（甚至數字和函式也是）。
+        如果你曾寫過 MATLAB 類別，許多概念會很熟悉，但語法和慣例相當不同。
+        我們會在整個頁面中強調這些差異。
+      </div>
+
+      <h2 id="contents">目錄</h2>
+
+      <ol>
+        <li><a href="#what-is-oop">什麼是 OOP？</a></li>
+        <li><a href="#classes-objects">類別和物件</a></li>
+        <li><a href="#methods">方法</a></li>
+        <li><a href="#attributes">屬性：實例 vs 類別</a></li>
+        <li><a href="#init">__init__ 建構子</a></li>
+        <li><a href="#str-repr">__str__ 和 __repr__</a></li>
+        <li><a href="#inheritance">繼承</a></li>
+        <li><a href="#encapsulation">封裝</a></li>
+        <li><a href="#classmethod-staticmethod">類別方法和靜態方法</a></li>
+        <li><a href="#dunder-methods">魔術 / Dunder 方法</a></li>
+        <li><a href="#composition">組合 vs 繼承</a></li>
+        <li><a href="#practical-examples">實用範例</a></li>
+        <li><a href="#common-mistakes">常見錯誤</a></li>
+        <li><a href="#matlab-comparison">MATLAB 比較</a></li>
+        <li><a href="#exercises">練習</a></li>
+        <li><a href="#summary">總結</a></li>
+      </ol>
+
+      <h2 id="what-is-oop">1. 什麼是 OOP？</h2>
+
+      <p>
+        想像你在建造一座汽車工廠。在你能造出汽車之前，你需要一份<strong>藍圖</strong>，
+        描述每輛車應該有什麼：引擎、四個輪子、顏色、速度。藍圖本身不是汽車
+        &mdash; 它是製造汽車的<em>計劃</em>。有了藍圖，你可以製造出任意多輛獨立的車，
+        每輛有自己的顏色和速度。
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">藍圖類比</div>
+        <div class="flowchart">
+          <div class="flow-node" style="background: var(--primary); color: white;">藍圖（類別）：定義 colour、speed、drive()</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">my_car = Car("red", 0) &mdash; 一個實際物件</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">your_car = Car("blue", 0) &mdash; 另一個物件</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">race_car = Car("yellow", 0) &mdash; 又一個物件</div>
+        </div>
+      </div>
+
+      <p>在程式設計中：</p>
+      <ul>
+        <li><strong>類別</strong>就是藍圖。</li>
+        <li><strong>物件</strong>（也稱為<strong>實例</strong>）是根據藍圖建造的具體汽車。</li>
+        <li><strong>屬性</strong>是儲存在每個物件中的資料（顏色、速度）。</li>
+        <li><strong>方法</strong>是物件可以執行的動作（駕駛、煞車）。</li>
+      </ul>
+
+      <div class="callout callout-why">
+        <strong>為什麼使用 OOP？</strong>OOP 幫助你透過將相關的資料和行為組織在一起
+        來整理程式碼。不是讓鬆散的變數和函式散佈各處，而是將它們打包成整齊的包裹
+        （類別）。這使程式碼更易理解、重複使用和維護 &mdash; 尤其是隨著專案規模增長。
+      </div>
+
+      <h3>一句話概括 OOP</h3>
+      <p>
+        OOP 是一種撰寫程式的方式，你定義<strong>類別</strong>（藍圖）將
+        <strong>資料</strong>（屬性）和<strong>行為</strong>（方法）綁定在一起，
+        然後從這些類別建立<strong>物件</strong>（實例）。
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">OOP 四大支柱</div>
+        <div class="concept-map">
+          <div class="concept-node primary">封裝</div>
+          <div class="concept-node primary">抽象</div>
+          <div class="concept-node primary">繼承</div>
+          <div class="concept-node primary">多型</div>
+        </div>
+      </div>
+
+      <h2 id="classes-objects">2. 類別和物件</h2>
+
+      <h3>你的第一個類別</h3>
+
+      <p>
+        這是最簡單的類別。它還沒做任何事，但展示了語法：
+      </p>
+
+      <pre><code># 用 'class' 關鍵字定義類別
+class Dog:
+    pass   # 'pass' 表示「不做任何事」——一個佔位符
+
+# 建立類別的物件（實例）
+my_dog = Dog()
+print(type(my_dog))   # &lt;class '__main__.Dog'&gt;</code></pre>
+
+      <h3>帶資料的類別</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name      # 實例屬性
+        self.breed = breed    # 實例屬性
+        self.age = age        # 實例屬性
+
+# 建立兩隻不同的狗
+rex = Dog("Rex", "German Shepherd", 5)
+luna = Dog("Luna", "Labrador", 3)
+
+print(rex.name)    # Rex
+print(luna.breed)  # Labrador
+print(luna.age)    # 3</code></pre>
+
+      <div class="callout callout-info">
+        <strong>重點：</strong>
+        <ul>
+          <li><code>class Dog:</code> 定義了一個名為 <code>Dog</code> 的新類別。類別名稱依慣例使用 CamelCase。</li>
+          <li><code>__init__</code> 是特殊方法，在建立物件時自動執行。</li>
+          <li><code>self</code> 指向正在被建立的特定物件 &mdash; 把它想成「這隻特定的狗」。</li>
+          <li><code>self.name = name</code> 將 <code>name</code> 引數儲存為物件的屬性。</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等價寫法：</strong>在 MATLAB 中，你會寫：
+        <pre><code>classdef Dog
+    properties
+        Name
+        Breed
+        Age
+    end
+    methods
+        function obj = Dog(name, breed, age)
+            obj.Name = name;
+            obj.Breed = breed;
+            obj.Age = age;
+        end
+    end
+end</code></pre>
+        注意 Python 不需要單獨的 <code>properties</code> 和 <code>methods</code> 區塊。
+        屬性在 <code>__init__</code> 中動態建立。另外，Python 使用 <code>self</code>，
+        而 MATLAB 使用 <code>obj</code>。
+      </div>
+
+      <h3>存取和修改屬性</h3>
+
+      <pre><code>rex = Dog("Rex", "German Shepherd", 5)
+
+# 用點號語法存取屬性
+print(f"{rex.name} is a {rex.breed}, age {rex.age}")
+# Rex is a German Shepherd, age 5
+
+# 直接修改屬性
+rex.age = 6
+print(f"{rex.name} is now {rex.age} years old")
+# Rex is now 6 years old
+
+# 你甚至可以動態添加新屬性（雖然這不常見）
+rex.favourite_toy = "ball"
+print(rex.favourite_toy)   # ball</code></pre>
+
+      <h2 id="methods">3. 方法</h2>
+
+      <p>
+        <strong>方法</strong>就是存在於類別內部的函式。第一個參數始終是 <code>self</code>，
+        它讓方法可以存取物件的屬性。
+      </p>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+        self.tricks = []
+
+    def bark(self):
+        """讓狗吠叫。"""
+        return f"{self.name} says: Woof!"
+
+    def learn_trick(self, trick):
+        """教狗新技能。"""
+        self.tricks.append(trick)
+
+    def show_tricks(self):
+        """顯示所有已學的技能。"""
+        if self.tricks:
+            return f"{self.name} knows: {', '.join(self.tricks)}"
+        return f"{self.name} hasn't learned any tricks yet."
+
+# 使用方法
+rex = Dog("Rex", "German Shepherd", 5)
+print(rex.bark())              # Rex says: Woof!
+
+rex.learn_trick("sit")
+rex.learn_trick("shake")
+print(rex.show_tricks())       # Rex knows: sit, shake</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>別忘了 <code>self</code>！</strong>每個實例方法必須以 <code>self</code>
+        作為第一個參數。如果忘記了，當你嘗試呼叫方法時，Python 會觸發
+        <code>TypeError</code>。我們會在<a href="#common-mistakes">常見錯誤</a>一節中更詳細討論。
+      </div>
+
+      <h3>回傳值的方法 vs 修改狀態的方法</h3>
+
+      <pre><code>class Counter:
+    def __init__(self):
+        self.count = 0
+
+    def increment(self):
+        """修改物件的狀態（不需要回傳）。"""
+        self.count += 1
+
+    def get_count(self):
+        """回傳值而不改變狀態。"""
+        return self.count
+
+    def reset(self):
+        """修改狀態並回傳舊值。"""
+        old = self.count
+        self.count = 0
+        return old
+
+c = Counter()
+c.increment()
+c.increment()
+c.increment()
+print(c.get_count())   # 3
+
+old_value = c.reset()
+print(f"Was {old_value}, now {c.get_count()}")  # Was 3, now 0</code></pre>
+
+      <h2 id="attributes">4. 屬性：實例 vs 類別</h2>
+
+      <p>Python 類別中有兩種屬性：</p>
+
+      <div class="diagram">
+        <div class="diagram-title">實例屬性 vs 類別屬性</div>
+        <div class="concept-map">
+          <div class="concept-node primary">類別屬性：所有實例共享</div>
+          <div class="concept-node secondary">實例屬性：每個實例獨有</div>
+        </div>
+      </div>
+
+      <h3>實例屬性</h3>
+      <p>在 <code>__init__</code> 中用 <code>self.name = value</code> 定義。每個物件都有自己的副本。</p>
+
+      <pre><code>class Student:
+    def __init__(self, name, grade):
+        self.name = name      # 實例屬性——每個學生獨有
+        self.grade = grade    # 實例屬性——每個學生獨有
+
+alice = Student("Alice", 90)
+bob = Student("Bob", 85)
+print(alice.grade)   # 90
+print(bob.grade)     # 85 — 與 Alice 的不同</code></pre>
+
+      <h3>類別屬性</h3>
+      <p>直接在類別本體中定義（在任何方法之外）。所有實例共享。</p>
+
+      <pre><code>class Student:
+    school = "Python Academy"   # 類別屬性——所有實例共享
+
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+alice = Student("Alice", 90)
+bob = Student("Bob", 85)
+
+print(alice.school)   # Python Academy
+print(bob.school)     # Python Academy — 兩者相同
+
+# 修改類別屬性會影響所有實例
+Student.school = "Advanced Python Academy"
+print(alice.school)   # Advanced Python Academy
+print(bob.school)     # Advanced Python Academy</code></pre>
+
+      <div class="callout callout-info">
+        <strong>何時使用哪一種？</strong>
+        <ul>
+          <li>使用<strong>實例屬性</strong>儲存每個物件不同的資料（名稱、年齡、分數）。</li>
+          <li>使用<strong>類別屬性</strong>儲存所有物件共享的資料（所有狗的物種、計算多少個物件存在）。</li>
+        </ul>
+      </div>
+
+      <h3>常見用途：計算實例數量</h3>
+
+      <pre><code>class Player:
+    total_players = 0   # 類別屬性
+
+    def __init__(self, name):
+        self.name = name
+        Player.total_players += 1   # 修改類別屬性
+
+p1 = Player("Alice")
+p2 = Player("Bob")
+p3 = Player("Charlie")
+print(Player.total_players)   # 3</code></pre>
+
+      <h2 id="init">5. __init__ 建構子</h2>
+
+      <p>
+        <code>__init__</code> 方法（常稱為<strong>建構子</strong>）在每次建立新物件時
+        自動呼叫。它是你設定物件初始狀態的地方。
+      </p>
+
+      <h3>基本建構子</h3>
+
+      <pre><code>class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+r = Rectangle(5, 3)
+print(r.area())   # 15</code></pre>
+
+      <h3>帶預設值的建構子</h3>
+
+      <pre><code>class Rectangle:
+    def __init__(self, width=1, height=1):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+r1 = Rectangle()          # 使用預設值：1 x 1
+r2 = Rectangle(5)         # width=5，height 預設為 1
+r3 = Rectangle(5, 3)      # width=5，height=3
+
+print(r1.area())   # 1
+print(r2.area())   # 5
+print(r3.area())   # 15</code></pre>
+
+      <h3>帶驗證的建構子</h3>
+
+      <pre><code>class Rectangle:
+    def __init__(self, width, height):
+        if width &lt;= 0 or height &lt;= 0:
+            raise ValueError("Width and height must be positive numbers")
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+# 這可以正常運作
+r = Rectangle(5, 3)
+
+# 這會觸發錯誤
+try:
+    bad = Rectangle(-1, 5)
+except ValueError as e:
+    print(e)   # Width and height must be positive numbers</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼在 __init__ 中驗證？</strong>透過提早檢查輸入，你在物件
+        建立的那一刻就能捕捉到錯誤，而不是稍後嘗試使用它時才遇到神秘的錯誤。
+        這稱為「快速失敗」，讓除錯變得容易許多。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 注意：</strong>在 MATLAB 中，建構子是與類別同名的方法：
+        <pre><code>function obj = Rectangle(width, height)
+    obj.Width = width;
+    obj.Height = height;
+end</code></pre>
+        在 Python 中，建構子始終叫做 <code>__init__</code>，與類別名稱無關。
+      </div>
+
+      <h2 id="str-repr">6. __str__ 和 __repr__</h2>
+
+      <p>
+        預設情況下，列印物件會給你類似 <code>&lt;__main__.Dog object at 0x7f3c...&gt;</code>
+        這樣沒用的結果。你可以透過定義 <code>__str__</code> 和 <code>__repr__</code> 來改善。
+      </p>
+
+      <h3>沒有 __str__</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+rex = Dog("Rex", "German Shepherd")
+print(rex)   # &lt;__main__.Dog object at 0x7f3c...&gt; — 沒用！</code></pre>
+
+      <h3>有 __str__</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def __str__(self):
+        return f"{self.name} ({self.breed})"
+
+rex = Dog("Rex", "German Shepherd")
+print(rex)         # Rex (German Shepherd) — 好多了！
+print(str(rex))    # Rex (German Shepherd)</code></pre>
+
+      <h3>__str__ vs __repr__</h3>
+
+      <pre><code>class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def __str__(self):
+        """人類友好字串（給終端使用者）。"""
+        return f"{self.name} ({self.breed})"
+
+    def __repr__(self):
+        """開發者友好字串（給除錯用）。"""
+        return f"Dog(name='{self.name}', breed='{self.breed}')"
+
+rex = Dog("Rex", "German Shepherd")
+
+# __str__ 被 print() 和 str() 使用
+print(rex)          # Rex (German Shepherd)
+
+# __repr__ 被 REPL 和容器內部使用
+print(repr(rex))    # Dog(name='Rex', breed='German Shepherd')
+print([rex])        # [Dog(name='Rex', breed='German Shepherd')]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>經驗法則：</strong>
+        <ul>
+          <li><code>__str__</code> 應回傳美觀、人類可讀的字串。想想「我會給使用者看什麼？」</li>
+          <li><code>__repr__</code> 應回傳明確的字串，理想情況下可以重建物件。想想「我在除錯器中想看到什麼？」</li>
+          <li>如果只定義一個，定義 <code>__repr__</code> &mdash; Python 會用它作為 <code>__str__</code> 的備用。</li>
+        </ul>
+      </div>
+
+      <h2 id="inheritance">7. 繼承</h2>
+
+      <p>
+        <strong>繼承</strong>讓你基於現有類別建立新類別。新類別（子類別）自動獲得
+        現有類別（父類別）的所有屬性和方法，並可添加新的或覆蓋現有的。
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">繼承層次結構</div>
+        <div class="flowchart">
+          <div class="flow-node" style="background: var(--primary); color: white;">Animal（父類別）</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">Dog（子類別）</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #f8f8f8;">GuideDog（孫類別）</div>
+        </div>
+      </div>
+
+      <h3>基本繼承</h3>
+
+      <pre><code>class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+    def speak(self):
+        return f"{self.name} says {self.sound}!"
+
+    def __str__(self):
+        return f"Animal: {self.name}"
+
+
+class Dog(Animal):     # Dog 繼承自 Animal
+    def fetch(self, item):
+        return f"{self.name} fetches the {item}!"
+
+
+class Cat(Animal):     # Cat 繼承自 Animal
+    def purr(self):
+        return f"{self.name} purrs..."
+
+# Dog 和 Cat 自動獲得所有 Animal 的方法
+rex = Dog("Rex", "Woof")
+whiskers = Cat("Whiskers", "Meow")
+
+print(rex.speak())       # Rex says Woof!
+print(rex.fetch("ball")) # Rex fetches the ball!
+
+print(whiskers.speak())  # Whiskers says Meow!
+print(whiskers.purr())   # Whiskers purrs...</code></pre>
+
+      <h3>使用 super() 擴展父類別</h3>
+
+      <p>
+        通常子類別需要做父類別做的一切<em>再加上更多</em>。
+        使用 <code>super()</code> 呼叫父類別的方法：
+      </p>
+
+      <pre><code>class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        super().__init__(name, sound)   # 呼叫 Animal 的 __init__
+        self.breed = breed              # 添加 Dog 特有的屬性
+
+rex = Dog("Rex", "Woof", "German Shepherd")
+print(rex.name)    # Rex       — 來自 Animal
+print(rex.breed)   # German Shepherd — 來自 Dog</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼使用 super()？</strong>沒有 <code>super()</code>，你必須
+        複製父類別的所有初始化程式碼。使用 <code>super()</code> 代表父類別處理
+        自己的設定，子類別只添加不同的部分。這保持你的程式碼 DRY（不要重複自己）。
+      </div>
+
+      <h3>覆蓋方法</h3>
+
+      <pre><code>class Animal:
+    def speak(self):
+        return "..."
+
+class Dog(Animal):
+    def speak(self):       # 覆蓋父類別的 speak()
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):       # 覆蓋父類別的 speak()
+        return "Meow!"
+
+# 多型：相同方法名稱，不同行為
+animals = [Dog(), Cat(), Dog()]
+for animal in animals:
+    print(animal.speak())
+# Woof!
+# Meow!
+# Woof!</code></pre>
+
+      <div class="callout callout-info">
+        <strong>多型</strong>意味著「多種形態」。當不同類別有同名方法時，
+        Python 根據物件的型別呼叫正確的版本。這讓你可以撰寫通用程式碼，
+        適用於任何具有預期方法的物件。
+      </div>
+
+      <h3>檢查繼承</h3>
+
+      <pre><code>rex = Dog("Rex", "Woof", "German Shepherd")
+
+print(isinstance(rex, Dog))      # True
+print(isinstance(rex, Animal))   # True — Dog 是一個 Animal
+print(isinstance(rex, Cat))      # False
+
+print(issubclass(Dog, Animal))   # True
+print(issubclass(Cat, Animal))   # True
+print(issubclass(Dog, Cat))      # False</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 等價寫法：</strong>MATLAB 的繼承使用 <code>&lt;</code> 運算子：
+        <pre><code>classdef Dog &lt; Animal
+    ...
+end</code></pre>
+        在 Python 中，你將父類別放在括號中：<code>class Dog(Animal):</code>。
+        MATLAB 使用 <code>obj@Animal(args)</code> 呼叫父建構子；
+        Python 使用 <code>super().__init__(args)</code>。
+      </div>
+
+      <h2 id="encapsulation">8. 封裝</h2>
+
+      <p>
+        <strong>封裝</strong>意味著隱藏物件的內部細節，透過乾淨的介面控制存取。
+        Python 使用命名慣例而非嚴格的存取控制。
+      </p>
+
+      <h3>公有、受保護和私有（依慣例）</h3>
+
+      <pre><code>class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner          # 公有——任何人都可以存取
+        self._bank_name = "PyBank"  # 「受保護」——慣例：不要碰
+        self.__balance = balance    # 「私有」——Python 會做名稱修飾
+
+    def deposit(self, amount):
+        if amount &gt; 0:
+            self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount("Alice", 1000)
+
+# 公有：正常運作
+print(account.owner)         # Alice
+
+# 受保護：可以運作，但依慣例你不應該直接存取它
+print(account._bank_name)    # PyBank
+
+# 私有：Python「修飾」名稱，所以這會失敗
+try:
+    print(account.__balance)
+except AttributeError as e:
+    print(e)  # 'BankAccount' object has no attribute '__balance'
+
+# 你仍然可以存取它（Python 不是真正強制私有性）
+print(account._BankAccount__balance)   # 1000 — 但不要這樣做！
+
+# 改用公有介面
+print(account.get_balance())   # 1000</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>Python 的私有性是慣例，不是強制。</strong>
+        不像 Java 或 C++，Python 沒有真正的私有屬性。雙底線前綴觸發
+        「名稱修飾」（屬性被重新命名為 <code>_ClassName__attr</code>），
+        這使意外存取更困難但並非不可能。其哲學是：
+        「我們都是有共識的成年人。」
+      </div>
+
+      <h3>@property 裝飾器</h3>
+
+      <p>
+        <code>@property</code> 裝飾器讓你定義像屬性一樣運作的方法。
+        這給你屬性存取的簡潔語法，同時具有方法中驗證的功能。
+      </p>
+
+      <pre><code>class Temperature:
+    def __init__(self, celsius=0):
+        self._celsius = celsius   # 儲存內部值
+
+    @property
+    def celsius(self):
+        """取得攝氏溫度。"""
+        return self._celsius
+
+    @celsius.setter
+    def celsius(self, value):
+        """設定攝氏溫度並驗證。"""
+        if value &lt; -273.15:
+            raise ValueError("Temperature below absolute zero is impossible!")
+        self._celsius = value
+
+    @property
+    def fahrenheit(self):
+        """取得華氏溫度（唯讀）。"""
+        return self._celsius * 9/5 + 32
+
+# 使用——看起來像簡單的屬性存取
+temp = Temperature(25)
+print(temp.celsius)      # 25
+print(temp.fahrenheit)   # 77.0
+
+temp.celsius = 100       # 呼叫 setter——驗證會執行
+print(temp.fahrenheit)   # 212.0
+
+# 驗證會捕捉錯誤值
+try:
+    temp.celsius = -300
+except ValueError as e:
+    print(e)   # Temperature below absolute zero is impossible!
+
+# fahrenheit 是唯讀的（沒有定義 setter）
+try:
+    temp.fahrenheit = 100
+except AttributeError:
+    print("Can't set fahrenheit directly!")
+# Can't set fahrenheit directly!</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong>MATLAB 的 <code>properties (Access = private)</code>
+        和 <code>methods (get.PropName, set.PropName)</code> 與 Python 的
+        <code>@property</code> 有相同的用途。主要差異是 MATLAB 在語言層級
+        強制存取控制，而 Python 依賴慣例。
+      </div>
+
+      <h2 id="classmethod-staticmethod">9. 類別方法和靜態方法</h2>
+
+      <p>
+        除了常規的實例方法（接受 <code>self</code>），Python 還有另外兩種方法：
+        <strong>類別方法</strong>和<strong>靜態方法</strong>。
+      </p>
+
+      <div class="diagram">
+        <div class="diagram-title">三種方法</div>
+        <div class="concept-map">
+          <div class="concept-node primary">實例方法：def foo(self)</div>
+          <div class="concept-node secondary">類別方法：@classmethod def foo(cls)</div>
+          <div class="concept-node accent">靜態方法：@staticmethod def foo()</div>
+        </div>
+      </div>
+
+      <h3>@classmethod</h3>
+
+      <p>
+        類別方法接收<strong>類別</strong>本身作為第一個引數（慣例上稱為 <code>cls</code>），
+        而非實例。它可以存取和修改類別層級的屬性，通常用作<strong>替代建構子</strong>。
+      </p>
+
+      <pre><code>class Date:
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+    @classmethod
+    def from_string(cls, date_string):
+        """替代建構子：從 'YYYY-MM-DD' 建立 Date。"""
+        year, month, day = map(int, date_string.split("-"))
+        return cls(year, month, day)   # cls 就是 Date 類別本身
+
+    @classmethod
+    def today(cls):
+        """替代建構子：建立今天的 Date。"""
+        import datetime
+        t = datetime.date.today()
+        return cls(t.year, t.month, t.day)
+
+    def __str__(self):
+        return f"{self.year}-{self.month:02d}-{self.day:02d}"
+
+# 標準建構子
+d1 = Date(2025, 6, 15)
+print(d1)   # 2025-06-15
+
+# 從字串的替代建構子
+d2 = Date.from_string("2025-12-25")
+print(d2)   # 2025-12-25
+
+# 今天的替代建構子
+d3 = Date.today()
+print(d3)   # （今天的日期）</code></pre>
+
+      <h3>@staticmethod</h3>
+
+      <p>
+        靜態方法不接收 <code>self</code> 或 <code>cls</code>。它基本上是一個
+        為了組織目的而存在於類別內部的普通函式。
+      </p>
+
+      <pre><code>class MathHelper:
+    @staticmethod
+    def is_even(n):
+        return n % 2 == 0
+
+    @staticmethod
+    def factorial(n):
+        if n &lt;= 1:
+            return 1
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+
+# 不需要建立實例就能呼叫
+print(MathHelper.is_even(4))     # True
+print(MathHelper.factorial(5))   # 120</code></pre>
+
+      <div class="callout callout-info">
+        <strong>何時使用哪一種？</strong>
+        <ul>
+          <li><strong>實例方法</strong>（預設）：需要存取特定物件（<code>self</code>）。大多數方法使用這種。</li>
+          <li><strong>@classmethod</strong>：需要存取類別本身（<code>cls</code>）。用於替代建構子和類別層級操作。</li>
+          <li><strong>@staticmethod</strong>：完全不需要存取類別或實例。用於邏輯上屬於該類別的工具函式。</li>
+        </ul>
+      </div>
+
+      <h2 id="dunder-methods">10. 魔術 / Dunder 方法</h2>
+
+      <p>
+        「Dunder」代表 <strong>d</strong>ouble <strong>under</strong>score（雙底線）。
+        這些特殊方法（如 <code>__init__</code>、<code>__str__</code>）讓你的物件
+        可以與 Python 的內建操作整合。你已經看過 <code>__init__</code>、
+        <code>__str__</code> 和 <code>__repr__</code>。以下是更多：
+      </p>
+
+      <h3>__len__ &mdash; 讓物件支援 len()</h3>
+
+      <pre><code>class Playlist:
+    def __init__(self, name):
+        self.name = name
+        self.songs = []
+
+    def add(self, song):
+        self.songs.append(song)
+
+    def __len__(self):
+        return len(self.songs)
+
+p = Playlist("Road Trip")
+p.add("Bohemian Rhapsody")
+p.add("Hotel California")
+print(len(p))   # 2</code></pre>
+
+      <h3>__eq__ 和 __lt__ &mdash; 比較運算子</h3>
+
+      <pre><code>class Student:
+    def __init__(self, name, gpa):
+        self.name = name
+        self.gpa = gpa
+
+    def __eq__(self, other):
+        """名稱和 GPA 相同則相等。"""
+        return self.name == other.name and self.gpa == other.gpa
+
+    def __lt__(self, other):
+        """基於 GPA 的小於比較。"""
+        return self.gpa &lt; other.gpa
+
+    def __repr__(self):
+        return f"Student('{self.name}', {self.gpa})"
+
+a = Student("Alice", 3.8)
+b = Student("Bob", 3.5)
+c = Student("Alice", 3.8)
+
+print(a == c)    # True
+print(a == b)    # False
+print(b &lt; a)     # True（3.5 &lt; 3.8）
+
+# 現在 sorted() 自動可用！
+students = [a, b, c]
+print(sorted(students))
+# [Student('Bob', 3.5), Student('Alice', 3.8), Student('Alice', 3.8)]</code></pre>
+
+      <h3>__add__ &mdash; + 運算子</h3>
+
+      <pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        """允許 v1 + v2。"""
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+
+v1 = Vector(1, 2)
+v2 = Vector(3, 4)
+v3 = v1 + v2      # 呼叫 v1.__add__(v2)
+print(v3)          # Vector(4, 6)</code></pre>
+
+      <h3>__getitem__ &mdash; 方括號存取</h3>
+
+      <pre><code>class Deck:
+    def __init__(self):
+        suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+        ranks = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
+        self.cards = [f"{r} of {s}" for s in suits for r in ranks]
+
+    def __getitem__(self, index):
+        return self.cards[index]
+
+    def __len__(self):
+        return len(self.cards)
+
+deck = Deck()
+print(deck[0])     # 2 of Hearts
+print(deck[-1])    # A of Spades
+print(len(deck))   # 52
+
+# 切片也可以！
+print(deck[:3])    # ['2 of Hearts', '3 of Hearts', '4 of Hearts']
+
+# 迭代也可以！
+for card in deck[:5]:
+    print(card)</code></pre>
+
+      <h3>完整 Dunder 方法參考</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>方法</th>
+            <th>觸發方式</th>
+            <th>用途</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>__init__(self, ...)</code></td><td><code>MyClass()</code></td><td>初始化新物件</td></tr>
+          <tr><td><code>__str__(self)</code></td><td><code>str(obj)</code>、<code>print(obj)</code></td><td>人類可讀字串</td></tr>
+          <tr><td><code>__repr__(self)</code></td><td><code>repr(obj)</code>、REPL</td><td>開發者友好字串</td></tr>
+          <tr><td><code>__len__(self)</code></td><td><code>len(obj)</code></td><td>物件長度</td></tr>
+          <tr><td><code>__eq__(self, other)</code></td><td><code>obj == other</code></td><td>相等檢查</td></tr>
+          <tr><td><code>__lt__(self, other)</code></td><td><code>obj &lt; other</code></td><td>小於比較</td></tr>
+          <tr><td><code>__le__(self, other)</code></td><td><code>obj &lt;= other</code></td><td>小於或等於</td></tr>
+          <tr><td><code>__gt__(self, other)</code></td><td><code>obj &gt; other</code></td><td>大於</td></tr>
+          <tr><td><code>__add__(self, other)</code></td><td><code>obj + other</code></td><td>加法</td></tr>
+          <tr><td><code>__sub__(self, other)</code></td><td><code>obj - other</code></td><td>減法</td></tr>
+          <tr><td><code>__mul__(self, other)</code></td><td><code>obj * other</code></td><td>乘法</td></tr>
+          <tr><td><code>__getitem__(self, key)</code></td><td><code>obj[key]</code></td><td>方括號存取</td></tr>
+          <tr><td><code>__setitem__(self, key, val)</code></td><td><code>obj[key] = val</code></td><td>方括號賦值</td></tr>
+          <tr><td><code>__contains__(self, item)</code></td><td><code>item in obj</code></td><td>成員檢查</td></tr>
+          <tr><td><code>__iter__(self)</code></td><td><code>for x in obj</code></td><td>使物件可迭代</td></tr>
+          <tr><td><code>__bool__(self)</code></td><td><code>if obj:</code></td><td>真值判斷</td></tr>
+          <tr><td><code>__call__(self, ...)</code></td><td><code>obj()</code></td><td>使物件可呼叫</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>為什麼要學習 dunder 方法？</strong>它們是讓你的類別感覺「Pythonic」的秘訣。
+        當你的物件可以與 <code>len()</code>、<code>print()</code>、<code>sorted()</code>、
+        <code>for</code> 迴圈和運算子一起使用時，它們成為語言的自然組成部分。
+        其他程式設計師可以使用你的類別而不需學習特殊 API。
+      </div>
+
+      <h2 id="composition">11. 組合 vs 繼承</h2>
+
+      <p>有兩種主要方式結合類別：</p>
+
+      <ul>
+        <li><strong>繼承</strong>（「is-a」）：Dog <em>是一個</em> Animal。</li>
+        <li><strong>組合</strong>（「has-a」）：Car <em>有一個</em> Engine。</li>
+      </ul>
+
+      <div class="diagram">
+        <div class="diagram-title">繼承 vs 組合</div>
+        <div class="flowchart">
+          <div class="flow-node" style="background: var(--primary); color: white;">繼承：Dog IS-A Animal</div>
+          <div class="flow-arrow-text">Dog 擴展 Animal &mdash; 獲得其所有方法</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-node" style="background: #eef3f8;">組合：Car HAS-A Engine</div>
+          <div class="flow-arrow-text">Car 將 Engine 物件儲存為屬性</div>
+        </div>
+      </div>
+
+      <h3>組合範例</h3>
+
+      <pre><code>class Engine:
+    def __init__(self, horsepower):
+        self.horsepower = horsepower
+        self.running = False
+
+    def start(self):
+        self.running = True
+        return f"Engine started ({self.horsepower} HP)"
+
+    def stop(self):
+        self.running = False
+        return "Engine stopped"
+
+
+class Car:
+    def __init__(self, make, model, horsepower):
+        self.make = make
+        self.model = model
+        self.engine = Engine(horsepower)   # 組合：Car HAS-A Engine
+
+    def start(self):
+        return f"{self.make} {self.model}: {self.engine.start()}"
+
+    def stop(self):
+        return f"{self.make} {self.model}: {self.engine.stop()}"
+
+car = Car("Toyota", "Camry", 200)
+print(car.start())   # Toyota Camry: Engine started (200 HP)
+print(car.stop())    # Toyota Camry: Engine stopped</code></pre>
+
+      <h3>何時使用哪一種？</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>使用繼承的時機</th>
+            <th>使用組合的時機</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>有明確的「is-a」關係</td><td>有「has-a」或「uses-a」關係</td></tr>
+          <tr><td>子類別確實是父類別的特化版本</td><td>你想結合多個類別的功能</td></tr>
+          <tr><td>你想要多型（相同介面，不同行為）</td><td>你想要靈活地在執行時替換組件</td></tr>
+          <tr><td>例如：Dog 是 Animal，Square 是 Shape</td><td>例如：Car 有 Engine，Team 有 Players</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <strong>優先使用組合而非繼承。</strong>這是軟體設計中廣受認可的原則。
+        繼承在父子之間建立緊密耦合。父類別的變更可能破壞子類別。
+        組合更靈活：你可以替換組件、自由組合物件，並保持類別小而專注。
+        只有在「is-a」關係確實自然時才使用繼承。
+      </div>
+
+      <h3>更實際的範例：組裝電腦</h3>
+
+      <pre><code>class CPU:
+    def __init__(self, model, cores):
+        self.model = model
+        self.cores = cores
+
+class RAM:
+    def __init__(self, size_gb):
+        self.size_gb = size_gb
+
+class Storage:
+    def __init__(self, size_gb, ssd=True):
+        self.size_gb = size_gb
+        self.ssd = ssd
+
+class Computer:
+    """電腦由 CPU、RAM 和 Storage 組成。"""
+    def __init__(self, cpu, ram, storage):
+        self.cpu = cpu          # has-a CPU
+        self.ram = ram          # has-a RAM
+        self.storage = storage  # has-a Storage
+
+    def specs(self):
+        ssd_label = "SSD" if self.storage.ssd else "HDD"
+        return (f"CPU: {self.cpu.model} ({self.cpu.cores} cores), "
+                f"RAM: {self.ram.size_gb}GB, "
+                f"Storage: {self.storage.size_gb}GB {ssd_label}")
+
+# 透過組合零件來組裝電腦
+my_pc = Computer(
+    cpu=CPU("Ryzen 7", 8),
+    ram=RAM(32),
+    storage=Storage(1000, ssd=True)
+)
+print(my_pc.specs())
+# CPU: Ryzen 7 (8 cores), RAM: 32GB, Storage: 1000GB SSD</code></pre>
+
+      <h2 id="practical-examples">12. 實用範例</h2>
+
+      <h3 id="student-tracker">12.1 學生成績追蹤器</h3>
+
+      <pre><code>class Student:
+    """追蹤學生的成績並計算統計資料。"""
+
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        self.grades = {}   # 科目 -> 成績串列
+
+    def add_grade(self, subject, grade):
+        """為科目添加成績。"""
+        if not 0 &lt;= grade &lt;= 100:
+            raise ValueError(f"Grade must be 0-100, got {grade}")
+        if subject not in self.grades:
+            self.grades[subject] = []
+        self.grades[subject].append(grade)
+
+    def average(self, subject=None):
+        """單一科目的平均，或不指定科目時的總平均。"""
+        if subject:
+            if subject not in self.grades:
+                return 0.0
+            grades = self.grades[subject]
+        else:
+            grades = [g for subj_grades in self.grades.values()
+                        for g in subj_grades]
+        if not grades:
+            return 0.0
+        return sum(grades) / len(grades)
+
+    def highest_subject(self):
+        """回傳平均最高的科目。"""
+        if not self.grades:
+            return None
+        return max(self.grades, key=lambda s: self.average(s))
+
+    def report(self):
+        """列印成績報告。"""
+        lines = [f"--- Report for {self.name} ({self.student_id}) ---"]
+        for subject, grades in self.grades.items():
+            avg = self.average(subject)
+            lines.append(f"  {subject}: {grades} -> avg {avg:.1f}")
+        lines.append(f"  Overall average: {self.average():.1f}")
+        best = self.highest_subject()
+        if best:
+            lines.append(f"  Best subject: {best}")
+        return "\n".join(lines)
+
+    def __str__(self):
+        return f"Student({self.name}, avg={self.average():.1f})"
+
+    def __repr__(self):
+        return f"Student('{self.name}', '{self.student_id}')"
+
+# 使用
+alice = Student("Alice", "S001")
+alice.add_grade("Math", 92)
+alice.add_grade("Math", 88)
+alice.add_grade("Science", 95)
+alice.add_grade("English", 87)
+
+print(alice.report())
+print(alice)   # Student(Alice, avg=90.5)</code></pre>
+
+      <h2 id="common-mistakes">13. 常見錯誤</h2>
+
+      <h3>錯誤 1：忘記 <code>self</code></h3>
+
+      <pre><code># 錯誤——缺少 self 作為第一個參數
+class Dog:
+    def __init__(name):        # 錯誤：沒有 self！
+        name = name
+
+# 當你嘗試建立 Dog 時：
+# TypeError: Dog.__init__() takes 1 positional argument but 2 were given
+# Python 自動傳遞實例作為第一個引數。
+# 如果你沒有 'self' 來接收它，引數就對不上。
+
+# 正確
+class Dog:
+    def __init__(self, name):   # self 是第一個參數
+        self.name = name</code></pre>
+
+      <h3>錯誤 2：賦值屬性時忘記 <code>self.</code></h3>
+
+      <pre><code># 錯誤——建立了區域變數，不是屬性
+class Dog:
+    def __init__(self, name):
+        name = name    # 錯誤：這只是賦值給區域變數！
+
+rex = Dog("Rex")
+print(rex.name)   # AttributeError: 'Dog' object has no attribute 'name'
+
+# 正確
+class Dog:
+    def __init__(self, name):
+        self.name = name   # 儲存到物件上</code></pre>
+
+      <h3>錯誤 3：可變的預設類別屬性</h3>
+
+      <div class="callout callout-warning">
+        <strong>這是最常見的 Python 陷阱之一！</strong>
+        如果你使用可變物件（如串列）作為類別屬性，所有實例共享<em>同一個</em>串列。
+      </div>
+
+      <pre><code># 錯誤——所有狗共享同一個 tricks 串列！
+class Dog:
+    tricks = []          # 類別屬性：所有實例共享
+
+    def __init__(self, name):
+        self.name = name
+
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
+
+rex = Dog("Rex")
+luna = Dog("Luna")
+
+rex.learn_trick("sit")
+print(luna.tricks)   # ['sit'] — Luna 知道 Rex 的技能？！
+
+# 正確——在 __init__ 中建立串列，讓每隻狗都有自己的
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []     # 實例屬性：每隻狗獨有
+
+    def learn_trick(self, trick):
+        self.tricks.append(trick)
+
+rex = Dog("Rex")
+luna = Dog("Luna")
+
+rex.learn_trick("sit")
+print(luna.tricks)   # [] — Luna 有自己的空串列</code></pre>
+
+      <h3>錯誤 4：過度使用繼承</h3>
+
+      <pre><code># 值得商榷——Stack 真的是一個 list 嗎？
+class Stack(list):
+    def push(self, item):
+        self.append(item)
+
+# 這「可以運作」但暴露了所有 list 方法：
+s = Stack()
+s.push(1)
+s.push(2)
+s.insert(0, 99)   # 等等——堆疊不應該允許 insert！
+
+# 更好——使用組合
+class Stack:
+    def __init__(self):
+        self._items = []    # has-a list，而非 is-a list
+
+    def push(self, item):
+        self._items.append(item)
+
+    def pop(self):
+        if not self._items:
+            raise IndexError("pop from empty stack")
+        return self._items.pop()
+
+    def peek(self):
+        if not self._items:
+            raise IndexError("peek at empty stack")
+        return self._items[-1]
+
+    def __len__(self):
+        return len(self._items)
+
+    def __bool__(self):
+        return len(self._items) &gt; 0</code></pre>
+
+      <h3>錯誤 5：子類別中不使用 <code>super()</code></h3>
+
+      <pre><code># 錯誤——複製父類別程式碼並失去未來的變更
+class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        self.name = name      # 錯誤：複製父類別程式碼
+        self.sound = sound    # 如果 Animal 添加驗證，Dog 不會得到
+        self.breed = breed
+
+# 正確——讓父類別處理自己的設定
+class Dog(Animal):
+    def __init__(self, name, sound, breed):
+        super().__init__(name, sound)   # 委派給父類別
+        self.breed = breed</code></pre>
+
+      <h2 id="matlab-comparison">14. MATLAB 比較</h2>
+
+      <p>
+        如果你使用過 MATLAB 的 OOP 功能，本節將你已知的概念對應到 Python 語法。
+        如果你之前沒用過 MATLAB 類別，可以跳過本節。
+      </p>
+
+      <h3>並排比較：類別定義</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>功能</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>類別關鍵字</td><td><code>classdef ClassName</code></td><td><code>class ClassName:</code></td></tr>
+          <tr><td>屬性</td><td><code>properties</code> 區塊</td><td>在 <code>__init__</code> 中用 <code>self.x</code> 設定</td></tr>
+          <tr><td>建構子</td><td><code>function obj = ClassName(args)</code></td><td><code>def __init__(self, args):</code></td></tr>
+          <tr><td>方法</td><td><code>function result = myMethod(obj, args)</code></td><td><code>def my_method(self, args):</code></td></tr>
+          <tr><td>自我參考</td><td><code>obj</code>（任何名稱，慣例）</td><td><code>self</code>（慣例，始終是第一個參數）</td></tr>
+          <tr><td>繼承</td><td><code>classdef Child &lt; Parent</code></td><td><code>class Child(Parent):</code></td></tr>
+          <tr><td>呼叫父類別</td><td><code>obj@Parent(args)</code></td><td><code>super().__init__(args)</code></td></tr>
+          <tr><td>私有</td><td><code>properties (Access = private)</code></td><td><code>self.__attr</code>（名稱修飾）</td></tr>
+          <tr><td>靜態方法</td><td><code>methods (Static)</code></td><td><code>@staticmethod</code></td></tr>
+          <tr><td>檔案結構</td><td>每個檔案一個類別（classdef 在 .m 中）</td><td>每個檔案可有多個類別</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Handle vs Value 語意</h3>
+
+      <div class="callout callout-matlab">
+        <strong>這是最大的概念差異。</strong>MATLAB 有兩種類別：
+        <ul>
+          <li><strong>Value 類別</strong>（預設）：賦值或傳遞物件會建立副本。</li>
+          <li><strong>Handle 類別</strong>（<code>classdef MyClass &lt; handle</code>）：賦值或傳遞共享參考。</li>
+        </ul>
+        <strong>在 Python 中，所有物件使用參考語意</strong>（如 MATLAB 的 handle 類別）。
+        將物件賦值給新變數不會建立副本 &mdash; 兩個變數指向同一個物件。
+      </div>
+
+      <pre><code># Python：參考語意（如 MATLAB handle 類別）
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p1 = Point(1, 2)
+p2 = p1            # p2 指向相同的物件
+p2.x = 99
+print(p1.x)        # 99 — p1 受到影響！
+
+# 要建立真正的副本：
+import copy
+p3 = copy.copy(p1)     # 淺拷貝
+p3.x = 42
+print(p1.x)            # 99 — 這次 p1 不受影響</code></pre>
+
+      <h2 id="exercises">15. 練習</h2>
+
+      <p>練習是學習 OOP 的最佳方式。試試這些練習，然後對照解答。</p>
+
+      <h3>練習 1：Book 類別</h3>
+      <p>
+        建立一個 <code>Book</code> 類別，屬性有 <code>title</code>、<code>author</code>
+        和 <code>pages</code>。添加 <code>__str__</code> 方法和 <code>is_long()</code>
+        方法，若書超過 300 頁則回傳 <code>True</code>。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>class Book:
+    def __init__(self, title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = pages
+
+    def is_long(self):
+        return self.pages &gt; 300
+
+    def __str__(self):
+        return f"'{self.title}' by {self.author} ({self.pages} pages)"
+
+b1 = Book("Python Crash Course", "Eric Matthes", 544)
+b2 = Book("The Little Prince", "Saint-Exupery", 96)
+
+print(b1)              # 'Python Crash Course' by Eric Matthes (544 pages)
+print(b1.is_long())    # True
+print(b2.is_long())    # False</code></pre>
+      </details>
+
+      <h3>練習 2：帶比較的 Rectangle</h3>
+      <p>
+        建立 <code>Rectangle</code> 類別，有 <code>width</code> 和 <code>height</code>。
+        實作 <code>area()</code>、<code>perimeter()</code>、<code>__eq__</code>（面積相同則相等）
+        和 <code>__lt__</code>（依面積比較）。用 <code>sorted()</code> 測試。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __lt__(self, other):
+        return self.area() &lt; other.area()
+
+    def __repr__(self):
+        return f"Rectangle({self.width}, {self.height})"
+
+r1 = Rectangle(3, 4)    # 面積 = 12
+r2 = Rectangle(2, 6)    # 面積 = 12
+r3 = Rectangle(5, 5)    # 面積 = 25
+
+print(r1 == r2)              # True（面積相同）
+print(r1 &lt; r3)               # True（12 &lt; 25）
+print(sorted([r3, r1, r2]))  # [Rectangle(3, 4), Rectangle(2, 6), Rectangle(5, 5)]</code></pre>
+      </details>
+
+      <h3>練習 3：帶繼承的庫存系統</h3>
+      <p>
+        建立基礎類別 <code>Item</code>，有 <code>name</code> 和 <code>price</code>。
+        建立兩個子類別：<code>DigitalItem</code>（添加 <code>file_size_mb</code>）和
+        <code>PhysicalItem</code>（添加 <code>weight_kg</code> 和
+        <code>shipping_cost()</code> 方法，回傳 <code>weight_kg * 2.5</code>）。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>class Item:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f"{self.name}: ${self.price:.2f}"
+
+class DigitalItem(Item):
+    def __init__(self, name, price, file_size_mb):
+        super().__init__(name, price)
+        self.file_size_mb = file_size_mb
+
+    def __str__(self):
+        return f"{self.name}: ${self.price:.2f} ({self.file_size_mb}MB)"
+
+class PhysicalItem(Item):
+    def __init__(self, name, price, weight_kg):
+        super().__init__(name, price)
+        self.weight_kg = weight_kg
+
+    def shipping_cost(self):
+        return self.weight_kg * 2.5
+
+    def total_cost(self):
+        return self.price + self.shipping_cost()
+
+    def __str__(self):
+        return (f"{self.name}: ${self.price:.2f} "
+                f"(+${self.shipping_cost():.2f} shipping)")
+
+ebook = DigitalItem("Python Guide", 29.99, 15)
+book = PhysicalItem("Python Textbook", 49.99, 0.8)
+
+print(ebook)   # Python Guide: $29.99 (15MB)
+print(book)    # Python Textbook: $49.99 (+$2.00 shipping)
+print(f"Total: ${book.total_cost():.2f}")   # Total: $51.99</code></pre>
+      </details>
+
+      <h2 id="summary">16. 總結</h2>
+
+      <div class="diagram">
+        <div class="diagram-title">OOP 概念一覽</div>
+        <div class="concept-map">
+          <div class="concept-node primary">類別</div>
+          <div class="concept-node primary">物件</div>
+          <div class="concept-node secondary">__init__</div>
+          <div class="concept-node secondary">self</div>
+          <div class="concept-node secondary">屬性</div>
+          <div class="concept-node secondary">方法</div>
+          <div class="concept-node accent">繼承</div>
+          <div class="concept-node accent">組合</div>
+          <div class="concept-node accent">封裝</div>
+          <div class="concept-node accent">多型</div>
+        </div>
+      </div>
+
+      <ul>
+        <li><strong>類別</strong>是藍圖；<strong>物件</strong>是該藍圖的特定實例。</li>
+        <li><code>__init__</code> 初始化新物件。始終使用 <code>self</code> 設定屬性。</li>
+        <li><strong>實例屬性</strong>每個物件獨有；<strong>類別屬性</strong>所有實例共享。</li>
+        <li>定義 <code>__str__</code> 和 <code>__repr__</code> 讓你的物件可列印和可除錯。</li>
+        <li>使用<strong>繼承</strong>表達「is-a」關係，用 <code>super()</code> 呼叫父方法。</li>
+        <li>使用<strong>組合</strong>表達「has-a」關係 &mdash; 有疑慮時優先使用組合。</li>
+        <li>Python 的<strong>封裝</strong>是慣例：<code>_protected</code>、<code>__private</code> 和 <code>@property</code> 控制存取。</li>
+        <li><code>@classmethod</code> 用於替代建構子；<code>@staticmethod</code> 用於工具函式。</li>
+        <li><strong>Dunder 方法</strong>讓你的物件與 Python 內建函式和運算子協同工作。</li>
+        <li>避免常見錯誤：始終包含 <code>self</code>、不要使用可變類別屬性、優先使用組合而非繼承。</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>恭喜！</strong>你現在已經打下了物件導向程式設計的堅實基礎。
+        這些概念將在你建構的每個 Python 專案中發揮作用。透過為工作中遇到的問題
+        建立自己的類別來練習 &mdash; 你越使用 OOP，它就越自然。
+      </div>
+
+      <div class="page-nav">
+        <a href="python-for-automation.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">Python 自動化</span></a>
+        <a href="numpy-pandas.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">NumPy &amp; Pandas</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

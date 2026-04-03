@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>練習與學習路線 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/practice.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習</div>
+        <a href="practice.html" class="nav-link active">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        練習與學習路線
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  第 H 節 — 練習與學習路線                                      -->
+      <!-- ============================================================ -->
+
+      <h1>第 H 節 &mdash; 練習與學習路線</h1>
+      <p class="page-subtitle">
+        練習題、測驗、除錯挑戰，以及結構化的 30 天計畫，
+        帶你從零開始成為有信心的 Python 程式設計師。
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">如何使用本頁</div>
+        <p>
+          按順序完成練習題。每題都有隱藏的解答
+          &mdash; 請先自己嘗試解題，然後點擊<strong>顯示解答</strong>來對照。測驗和除錯練習
+          能加強你對概念的理解。底部的 30 天路線圖
+          將所有內容串聯在一起。
+        </p>
+      </div>
+
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#beginner-exercises">1. 初學者練習</a></li>
+          <li><a href="#quizzes">2. 小測驗</a></li>
+          <li><a href="#debugging">3. 除錯練習</a></li>
+          <li><a href="#learning-order">4. 建議學習順序</a></li>
+          <li><a href="#30-day-roadmap">5. 30 天學習路線圖</a></li>
+          <li><a href="#advice-engineers">6. 給工程師 / MATLAB 使用者的建議</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. 初學者練習                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="beginner-exercises">1. 初學者練習</h2>
+
+      <p>
+        這 15 道練習題涵蓋了基本的構建模組。每道題
+        都針對一項特定技能。請嘗試在檔案中或在
+        Python REPL 中編寫程式碼，然後再查看解答。
+      </p>
+
+      <!-- 練習 1 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 1 &mdash; 列印你的名字 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個程式，在主控台輸出 <code>Hello, my name is [你的名字]!</code>。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="cmt"># 練習 1 — 列印你的名字</span>
+name = <span class="str">"Alice"</span>
+<span class="fn">print</span>(<span class="str">f"Hello, my name is </span><span class="op">{</span>name<span class="op">}</span><span class="str">!"</span>)</code></pre>
+          <p>輸出：<code>Hello, my name is Alice!</code></p>
+        </details>
+      </div>
+
+      <!-- 練習 2 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 2 &mdash; 圓的面積 <span class="tag tag-beginner">初學者</span></div>
+        <p>請使用者輸入半徑（使用 <code>input()</code>），然後計算並列印圓的面積。使用 <code>math.pi</code>。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">import</span> math
+
+radius = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">"Enter the radius: "</span>))
+area = math.pi * radius ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area = </span><span class="op">{</span>area<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 3 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 3 &mdash; 溫度轉換器 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式 <code>celsius_to_fahrenheit(c)</code>，將攝氏溫度轉換為華氏溫度。公式：<code>F = C * 9/5 + 32</code>。用幾個值測試它。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">celsius_to_fahrenheit</span>(c):
+    <span class="kw">return</span> c * <span class="num">9</span> / <span class="num">5</span> + <span class="num">32</span>
+
+<span class="cmt"># 測試</span>
+<span class="fn">print</span>(celsius_to_fahrenheit(<span class="num">0</span>))    <span class="cmt"># 32.0</span>
+<span class="fn">print</span>(celsius_to_fahrenheit(<span class="num">100</span>))  <span class="cmt"># 212.0</span>
+<span class="fn">print</span>(celsius_to_fahrenheit(<span class="num">37</span>))   <span class="cmt"># 98.6</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 4 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 4 &mdash; 計算母音數量 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式，接受一個字串並回傳其中母音（a、e、i、o、u）的數量。忽略大小寫。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">count_vowels</span>(text):
+    vowels = <span class="str">"aeiou"</span>
+    count = <span class="num">0</span>
+    <span class="kw">for</span> char <span class="kw">in</span> text.lower():
+        <span class="kw">if</span> char <span class="kw">in</span> vowels:
+            count += <span class="num">1</span>
+    <span class="kw">return</span> count
+
+<span class="fn">print</span>(count_vowels(<span class="str">"Hello World"</span>))  <span class="cmt"># 3</span>
+<span class="fn">print</span>(count_vowels(<span class="str">"Python"</span>))       <span class="cmt"># 1</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 5 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 5 &mdash; 反轉字串 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式，接受一個字串並回傳反轉後的結果。<em>不要</em>使用內建的 <code>reversed()</code> 函式 &mdash; 使用切片。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">reverse_string</span>(s):
+    <span class="kw">return</span> s[::<span class="num">-1</span>]
+
+<span class="fn">print</span>(reverse_string(<span class="str">"Python"</span>))   <span class="cmt"># nohtyP</span>
+<span class="fn">print</span>(reverse_string(<span class="str">"abcdef"</span>))   <span class="cmt"># fedcba</span></code></pre>
+          <div class="callout callout-info">
+            <div class="callout-title"><code>[::-1]</code> 如何運作？</div>
+            <p>
+              切片 <code>[start:stop:step]</code> 中 <code>step = -1</code>
+              表示反向走訪字串。省略 <code>start</code> 和
+              <code>stop</code> 代表「從尾到頭」。
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 練習 6 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 6 &mdash; 找出串列中的最大值 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式，接受一個數字串列並回傳最大值。不要使用 <code>max()</code> &mdash; 使用迴圈。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">find_largest</span>(numbers):
+    largest = numbers[<span class="num">0</span>]
+    <span class="kw">for</span> num <span class="kw">in</span> numbers[<span class="num">1</span>:]:
+        <span class="kw">if</span> num > largest:
+            largest = num
+    <span class="kw">return</span> largest
+
+<span class="fn">print</span>(find_largest([<span class="num">3</span>, <span class="num">7</span>, <span class="num">2</span>, <span class="num">9</span>, <span class="num">1</span>]))  <span class="cmt"># 9</span>
+<span class="fn">print</span>(find_largest([<span class="num">-5</span>, <span class="num">-1</span>, <span class="num">-8</span>]))    <span class="cmt"># -1</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 7 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 7 &mdash; 回文檢查 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式，檢查給定的字串是否為回文（正著讀和反著讀相同）。忽略大小寫和空格。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">is_palindrome</span>(text):
+    cleaned = text.lower().replace(<span class="str">" "</span>, <span class="str">""</span>)
+    <span class="kw">return</span> cleaned == cleaned[::<span class="num">-1</span>]
+
+<span class="fn">print</span>(is_palindrome(<span class="str">"racecar"</span>))     <span class="cmt"># True</span>
+<span class="fn">print</span>(is_palindrome(<span class="str">"A man a plan a canal Panama"</span>))  <span class="cmt"># True</span>
+<span class="fn">print</span>(is_palindrome(<span class="str">"hello"</span>))       <span class="cmt"># False</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 8 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 8 &mdash; FizzBuzz <span class="tag tag-beginner">初學者</span></div>
+        <p>
+          印出 1 到 30 的數字。3 的倍數印 <code>"Fizz"</code>
+          ，5 的倍數印 <code>"Buzz"</code>，同時是
+          兩者的倍數印 <code>"FizzBuzz"</code>。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">31</span>):
+    <span class="kw">if</span> i % <span class="num">3</span> == <span class="num">0</span> <span class="kw">and</span> i % <span class="num">5</span> == <span class="num">0</span>:
+        <span class="fn">print</span>(<span class="str">"FizzBuzz"</span>)
+    <span class="kw">elif</span> i % <span class="num">3</span> == <span class="num">0</span>:
+        <span class="fn">print</span>(<span class="str">"Fizz"</span>)
+    <span class="kw">elif</span> i % <span class="num">5</span> == <span class="num">0</span>:
+        <span class="fn">print</span>(<span class="str">"Buzz"</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(i)</code></pre>
+          <div class="callout callout-why">
+            <div class="callout-title">為什麼要先檢查「兩者」？</div>
+            <p>
+              如果你先檢查 <code>% 3</code>，像 15 這樣的數字會印出
+              "Fizz"，永遠不會進入「兩者」的檢查。請永遠先測試
+              最具體的條件。
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 練習 9 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 9 &mdash; 數字位數之和 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式，接受一個整數並回傳其各位數字之和。範例：<code>sum_digits(1234)</code> 回傳 <code>10</code>。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">sum_digits</span>(n):
+    total = <span class="num">0</span>
+    <span class="kw">for</span> digit <span class="kw">in</span> <span class="fn">str</span>(<span class="fn">abs</span>(n)):
+        total += <span class="fn">int</span>(digit)
+    <span class="kw">return</span> total
+
+<span class="fn">print</span>(sum_digits(<span class="num">1234</span>))   <span class="cmt"># 10</span>
+<span class="fn">print</span>(sum_digits(<span class="num">9999</span>))   <span class="cmt"># 36</span>
+<span class="fn">print</span>(sum_digits(<span class="num">-42</span>))    <span class="cmt"># 6</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 10 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 10 &mdash; 階乘 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個函式，使用迴圈（非遞迴）計算非負整數的階乘。<code>factorial(5)</code> 應回傳 <code>120</code>。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">factorial</span>(n):
+    result = <span class="num">1</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">2</span>, n + <span class="num">1</span>):
+        result *= i
+    <span class="kw">return</span> result
+
+<span class="fn">print</span>(factorial(<span class="num">5</span>))   <span class="cmt"># 120</span>
+<span class="fn">print</span>(factorial(<span class="num">0</span>))   <span class="cmt"># 1</span>
+<span class="fn">print</span>(factorial(<span class="num">10</span>))  <span class="cmt"># 3628800</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 11 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 11 &mdash; 九九乘法表 <span class="tag tag-beginner">初學者</span></div>
+        <p>撰寫一個程式，印出給定數字的乘法表（1 到 10）。格式：<code>7 x 1 = 7</code>，以此類推。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code>number = <span class="num">7</span>
+
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):
+    <span class="fn">print</span>(<span class="str">f"</span><span class="op">{</span>number<span class="op">}</span><span class="str"> x </span><span class="op">{</span>i<span class="op">}</span><span class="str"> = </span><span class="op">{</span>number * i<span class="op">}</span><span class="str">"</span>)</code></pre>
+          <p>輸出：</p>
+<pre><code>7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+...
+7 x 10 = 70</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 12 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 12 &mdash; 讀取檔案並計算字數 <span class="tag tag-intermediate">中級</span></div>
+        <p>撰寫一個程式，讀取一個文字檔案並列印其中的總字數。先建立一個小的測試檔案。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="cmt"># 首先，建立一個測試檔案</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"test.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> f:
+    f.write(<span class="str">"Hello world this is a test file\n"</span>)
+    f.write(<span class="str">"It has two lines of text\n"</span>)
+
+<span class="cmt"># 現在讀取並計算字數</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"test.txt"</span>, <span class="str">"r"</span>) <span class="kw">as</span> f:
+    text = f.read()
+
+word_count = <span class="fn">len</span>(text.split())
+<span class="fn">print</span>(<span class="str">f"Word count: </span><span class="op">{</span>word_count<span class="op">}</span><span class="str">"</span>)  <span class="cmt"># 14</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 13 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 13 &mdash; 串列推導式篩選 <span class="tag tag-intermediate">中級</span></div>
+        <p>給定一個數字串列，使用串列推導式建立一個只包含偶數的新串列。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code>numbers = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>, <span class="num">10</span>]
+evens = [n <span class="kw">for</span> n <span class="kw">in</span> numbers <span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>]
+<span class="fn">print</span>(evens)  <span class="cmt"># [2, 4, 6, 8, 10]</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 14 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 14 &mdash; 字典詞頻計數器 <span class="tag tag-intermediate">中級</span></div>
+        <p>撰寫一個函式，接受一個字串並回傳一個字典，其中每個鍵是一個單字，每個值是該單字出現的次數。</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">word_counter</span>(text):
+    counts = {}
+    <span class="kw">for</span> word <span class="kw">in</span> text.lower().split():
+        <span class="kw">if</span> word <span class="kw">in</span> counts:
+            counts[word] += <span class="num">1</span>
+        <span class="kw">else</span>:
+            counts[word] = <span class="num">1</span>
+    <span class="kw">return</span> counts
+
+result = word_counter(<span class="str">"the cat sat on the mat the cat"</span>)
+<span class="fn">print</span>(result)
+<span class="cmt"># {'the': 3, 'cat': 2, 'sat': 1, 'on': 1, 'mat': 1}</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 15 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 15 &mdash; 簡單猜數字遊戲 <span class="tag tag-intermediate">中級</span></div>
+        <p>撰寫一個程式，隨機選擇 1 到 20 之間的數字。使用者有 5 次猜測機會。每次猜測後，告訴他們「太高了」或「太低了」。如果猜對了，印出「你贏了！」</p>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">import</span> random
+
+secret = random.randint(<span class="num">1</span>, <span class="num">20</span>)
+attempts = <span class="num">5</span>
+
+<span class="fn">print</span>(<span class="str">"I'm thinking of a number between 1 and 20."</span>)
+
+<span class="kw">for</span> attempt <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, attempts + <span class="num">1</span>):
+    guess = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">f"Guess </span><span class="op">{</span>attempt<span class="op">}</span><span class="str">/</span><span class="op">{</span>attempts<span class="op">}</span><span class="str">: "</span>))
+
+    <span class="kw">if</span> guess == secret:
+        <span class="fn">print</span>(<span class="str">"You win!"</span>)
+        <span class="kw">break</span>
+    <span class="kw">elif</span> guess &lt; secret:
+        <span class="fn">print</span>(<span class="str">"Too low."</span>)
+    <span class="kw">else</span>:
+        <span class="fn">print</span>(<span class="str">"Too high."</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">f"Out of guesses! The number was </span><span class="op">{</span>secret<span class="op">}</span><span class="str">."</span>)</code></pre>
+          <div class="callout callout-info">
+            <div class="callout-title">for...else 模式</div>
+            <p>
+              <code>for</code> 迴圈的 <code>else</code> 區塊只在
+              迴圈<em>沒有</em>觸發 <code>break</code> 而正常結束時才會執行。這
+              是 Python 特有的模式 &mdash; 在 MATLAB
+              或大多數其他語言中並不存在。
+            </p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. 小測驗                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="quizzes">2. 小測驗</h2>
+
+      <p>
+        測試你對 Python 基礎的理解。選擇你的答案，然後
+        點擊查看正確答案。
+      </p>
+
+      <!-- 測驗 1 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 1 &mdash; 這段程式碼會印出什麼？</div>
+<pre><code>x = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="fn">print</span>(<span class="fn">len</span>(x))</code></pre>
+        <p>a) <code>[1, 2, 3]</code> &nbsp; b) <code>3</code> &nbsp; c) <code>6</code> &nbsp; d) 錯誤</p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>b) <code>3</code></strong> &mdash; <code>len()</code> 回傳串列中的項目數量。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 2 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 2 &mdash; 哪個建立了字典？</div>
+        <p>a) <code>d = [1, 2, 3]</code> &nbsp; b) <code>d = (1, 2, 3)</code> &nbsp; c) <code>d = {"a": 1, "b": 2}</code> &nbsp; d) <code>d = {1, 2, 3}</code></p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>c) <code>d = {"a": 1, "b": 2}</code></strong> &mdash; 大括號配上鍵值對可建立字典。選項 (d) 建立的是<em>集合</em>。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 3 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 3 &mdash; 這段程式碼會印出什麼？</div>
+<pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">3</span>):
+    <span class="fn">print</span>(i, end=<span class="str">" "</span>)</code></pre>
+        <p>a) <code>1 2 3</code> &nbsp; b) <code>0 1 2</code> &nbsp; c) <code>0 1 2 3</code> &nbsp; d) 錯誤</p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>b) <code>0 1 2</code></strong> &mdash; <code>range(3)</code> 產生 0、1、2（三個值，從 0 開始）。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 4 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 4 &mdash; 型別是什麼？</div>
+<pre><code>x = <span class="str">"42"</span>
+<span class="fn">print</span>(<span class="fn">type</span>(x))</code></pre>
+        <p>a) <code>&lt;class 'int'&gt;</code> &nbsp; b) <code>&lt;class 'str'&gt;</code> &nbsp; c) <code>&lt;class 'float'&gt;</code> &nbsp; d) <code>&lt;class 'bool'&gt;</code></p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>b) <code>&lt;class 'str'&gt;</code></strong> &mdash; 引號內的任何內容都是字串，即使它看起來像數字。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 5 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 5 &mdash; 這會回傳什麼？</div>
+<pre><code><span class="str">"hello"</span>[<span class="num">1</span>:<span class="num">3</span>]</code></pre>
+        <p>a) <code>"hel"</code> &nbsp; b) <code>"el"</code> &nbsp; c) <code>"ell"</code> &nbsp; d) <code>"he"</code></p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>b) <code>"el"</code></strong> &mdash; 切片是 <code>[start:stop)</code>，其中 stop 是不包含的。索引 1 是 'e'，索引 2 是 'l'。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 6 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 6 &mdash; 這裡會發生什麼？</div>
+<pre><code>x = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+x.append([<span class="num">4</span>, <span class="num">5</span>])
+<span class="fn">print</span>(<span class="fn">len</span>(x))</code></pre>
+        <p>a) <code>3</code> &nbsp; b) <code>4</code> &nbsp; c) <code>5</code> &nbsp; d) 錯誤</p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>b) <code>4</code></strong> &mdash; <code>append()</code> 將整個串列 <code>[4, 5]</code> 作為單一元素加入。結果：<code>[1, 2, 3, [4, 5]]</code>。如果要逐一加入元素，請使用 <code>extend()</code>。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 7 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 7 &mdash; 布林邏輯</div>
+<pre><code><span class="fn">print</span>(<span class="kw">not</span> <span class="kw">True</span> <span class="kw">or</span> <span class="kw">True</span>)</code></pre>
+        <p>a) <code>True</code> &nbsp; b) <code>False</code> &nbsp; c) <code>None</code> &nbsp; d) 錯誤</p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>a) <code>True</code></strong> &mdash; <code>not</code> 的優先順序高於 <code>or</code>。所以這是 <code>(not True) or True</code> = <code>False or True</code> = <code>True</code>。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 8 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 8 &mdash; 字串方法</div>
+        <p>哪一行正確地將 <code>"hello"</code> 轉換為 <code>"HELLO"</code>？</p>
+        <p>
+          a) <code>"hello".upper()</code> &nbsp;
+          b) <code>upper("hello")</code> &nbsp;
+          c) <code>"hello".toUpperCase()</code> &nbsp;
+          d) <code>str.upper("hello")</code>
+        </p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>a) <code>"hello".upper()</code></strong> &mdash; 在 Python 中，<code>.upper()</code> 是對字串本身呼叫的字串方法。選項 (c) 是 JavaScript 語法。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 9 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 9 &mdash; 這段程式碼會印出什麼？</div>
+<pre><code>d = {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>}
+<span class="fn">print</span>(d.get(<span class="str">"c"</span>, <span class="num">0</span>))</code></pre>
+        <p>a) <code>None</code> &nbsp; b) <code>0</code> &nbsp; c) 錯誤 (KeyError) &nbsp; d) <code>"c"</code></p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>b) <code>0</code></strong> &mdash; <code>.get(key, default)</code> 在鍵不存在時回傳預設值，而不是引發 KeyError。</p>
+        </details>
+      </div>
+
+      <!-- 測驗 10 -->
+      <div class="exercise">
+        <div class="exercise-title">測驗 10 &mdash; 可變性</div>
+        <p>以下哪個在 Python 中是<strong>不可變的</strong>？</p>
+        <p>a) <code>list</code> &nbsp; b) <code>dict</code> &nbsp; c) <code>tuple</code> &nbsp; d) <code>set</code></p>
+        <details>
+          <summary>顯示答案</summary>
+          <p><strong>c) <code>tuple</code></strong> &mdash; 元組建立後不能被修改。串列、字典和集合都是可變的。</p>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. 除錯練習                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="debugging">3. 除錯練習</h2>
+
+      <p>
+        以下每段程式碼都包含一個錯誤。閱讀程式碼，預測會發生什麼，
+        然後點擊查看錯誤和修正方法。
+      </p>
+
+      <!-- 除錯 1 -->
+      <div class="exercise">
+        <div class="exercise-title">除錯 1 &mdash; 差一錯誤 <span class="tag tag-important">常見錯誤</span></div>
+        <p>這段程式碼應該印出 1 到 5 的數字，但有些地方不對：</p>
+<pre><code><span class="cmt"># 錯誤：這裡有什麼問題？</span>
+<span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">5</span>):
+    <span class="fn">print</span>(i)</code></pre>
+        <details>
+          <summary>顯示錯誤與修正</summary>
+          <p><strong>錯誤：</strong> <code>range(1, 5)</code> 產生 1、2、3、4 &mdash; 它在 5 <em>之前</em>就停止了。這是一個差一錯誤。</p>
+          <p><strong>修正：</strong> 使用 <code>range(1, 6)</code> 來包含 5。</p>
+<pre><code><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>):
+    <span class="fn">print</span>(i)</code></pre>
+          <div class="callout callout-matlab">
+            <div class="callout-title">MATLAB 比較</div>
+            <p>在 MATLAB 中，<code>1:5</code> 包含 5。在 Python 中，<code>range(1, 5)</code> 不包含。這幾乎會讓每個 MATLAB 使用者在一開始都踩到坑。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 除錯 2 -->
+      <div class="exercise">
+        <div class="exercise-title">除錯 2 &mdash; 變數名稱錯誤 <span class="tag tag-important">常見錯誤</span></div>
+        <p>這段程式碼應該計算總額，但會當掉：</p>
+<pre><code>total_price = <span class="num">100</span>
+tax_rate = <span class="num">0.08</span>
+final = total_price + total_price * tax_rat   <span class="cmt"># NameError!</span>
+<span class="fn">print</span>(final)</code></pre>
+        <details>
+          <summary>顯示錯誤與修正</summary>
+          <p><strong>錯誤：</strong> <code>tax_rat</code> 是打字錯誤 &mdash; 變數名稱是 <code>tax_rate</code>。Python 區分大小寫，不會自動修正變數名稱。</p>
+          <p><strong>修正：</strong></p>
+<pre><code>total_price = <span class="num">100</span>
+tax_rate = <span class="num">0.08</span>
+final = total_price + total_price * tax_rate  <span class="cmt"># 已修正！</span>
+<span class="fn">print</span>(final)  <span class="cmt"># 108.0</span></code></pre>
+        </details>
+      </div>
+
+      <!-- 除錯 3 -->
+      <div class="exercise">
+        <div class="exercise-title">除錯 3 &mdash; 缺少冒號 <span class="tag tag-important">常見錯誤</span></div>
+        <p>這個函式定義有語法錯誤：</p>
+<pre><code><span class="kw">def</span> <span class="fn">greet</span>(name)
+    <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">!"</span>)
+
+greet(<span class="str">"Alice"</span>)</code></pre>
+        <details>
+          <summary>顯示錯誤與修正</summary>
+          <p><strong>錯誤：</strong> <code>def</code> 行末尾缺少冒號 <code>:</code>。Python 在 <code>def</code>、<code>if</code>、<code>for</code>、<code>while</code>、<code>class</code> 等之後需要冒號。</p>
+          <p><strong>修正：</strong></p>
+<pre><code><span class="kw">def</span> <span class="fn">greet</span>(name):       <span class="cmt"># 加上冒號！</span>
+    <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">!"</span>)
+
+greet(<span class="str">"Alice"</span>)</code></pre>
+        </details>
+      </div>
+
+      <!-- 除錯 4 -->
+      <div class="exercise">
+        <div class="exercise-title">除錯 4 &mdash; 縮排錯誤 <span class="tag tag-important">常見錯誤</span></div>
+        <p>這段程式碼應該在 <code>if</code> 裡面印出兩行，但只有第一行是有條件的：</p>
+<pre><code>score = <span class="num">85</span>
+
+<span class="kw">if</span> score >= <span class="num">70</span>:
+    <span class="fn">print</span>(<span class="str">"You passed!"</span>)
+<span class="fn">print</span>(<span class="str">"Your score was above the threshold."</span>)   <span class="cmt"># 總是會印出！</span></code></pre>
+        <details>
+          <summary>顯示錯誤與修正</summary>
+          <p><strong>錯誤：</strong> 第二個 <code>print()</code> 沒有縮排，所以不管條件如何都會執行。在 Python 中，縮排<em>就是</em>區塊結構。</p>
+          <p><strong>修正：</strong> 將兩個 print 語句縮排到同一層級：</p>
+<pre><code>score = <span class="num">85</span>
+
+<span class="kw">if</span> score >= <span class="num">70</span>:
+    <span class="fn">print</span>(<span class="str">"You passed!"</span>)
+    <span class="fn">print</span>(<span class="str">"Your score was above the threshold."</span>)  <span class="cmt"># 現在是有條件的了</span></code></pre>
+          <div class="callout callout-matlab">
+            <div class="callout-title">MATLAB 比較</div>
+            <p>在 MATLAB 中，縮排只是美觀用途 &mdash; <code>end</code> 關鍵字定義區塊。在 Python 中，縮排<em>就是</em>區塊分隔符號。這是 MATLAB 使用者最大的調整之一。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 除錯 5 -->
+      <div class="exercise">
+        <div class="exercise-title">除錯 5 &mdash; 型別錯誤 <span class="tag tag-important">常見錯誤</span></div>
+        <p>這段程式碼詢問使用者的年齡，然後嘗試用它進行數學運算：</p>
+<pre><code>age = <span class="fn">input</span>(<span class="str">"Enter your age: "</span>)
+years_until_100 = <span class="num">100</span> - age    <span class="cmt"># TypeError!</span>
+<span class="fn">print</span>(<span class="str">f"Years until 100: </span><span class="op">{</span>years_until_100<span class="op">}</span><span class="str">"</span>)</code></pre>
+        <details>
+          <summary>顯示錯誤與修正</summary>
+          <p><strong>錯誤：</strong> <code>input()</code> 總是回傳<strong>字串</strong>。你不能從整數中減去字串。Python 不會自動轉換型別。</p>
+          <p><strong>修正：</strong> 使用 <code>int()</code> 將輸入轉換為整數：</p>
+<pre><code>age = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter your age: "</span>))     <span class="cmt"># 轉換為 int</span>
+years_until_100 = <span class="num">100</span> - age
+<span class="fn">print</span>(<span class="str">f"Years until 100: </span><span class="op">{</span>years_until_100<span class="op">}</span><span class="str">"</span>)</code></pre>
+          <div class="callout callout-matlab">
+            <div class="callout-title">MATLAB 比較</div>
+            <p>MATLAB 的 <code>input()</code> 預設回傳數字。Python 的 <code>input()</code> 總是回傳字串。你必須明確地使用 <code>int()</code> 或 <code>float()</code> 來轉換。</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 建議學習順序                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="learning-order">4. 建議學習順序</h2>
+
+      <p>
+        如果你是 Python 新手（即使你會 MATLAB），請按照這個
+        順序學習。每一步都建立在前一步的基礎上。
+      </p>
+
+      <ol>
+        <li><strong>安裝 Python 並設定開發環境</strong> &mdash; 取得 Python，選擇一個編輯器（推薦 VS Code），執行你的第一個 <code>print("hello")</code>。</li>
+        <li><strong>變數、數字和基本數學運算</strong> &mdash; 學習 <code>int</code>、<code>float</code>、賦值（<code>=</code>）、算術運算子。</li>
+        <li><strong>字串</strong> &mdash; 引號、f-string、常用方法（<code>.upper()</code>、<code>.split()</code>、<code>.strip()</code>）、切片。</li>
+        <li><strong>布林值和比較</strong> &mdash; <code>True</code>/<code>False</code>、<code>==</code>、<code>!=</code>、<code>&lt;</code>、<code>&gt;</code>、<code>and</code>、<code>or</code>、<code>not</code>。</li>
+        <li><strong>條件判斷</strong> &mdash; <code>if</code> / <code>elif</code> / <code>else</code> 區塊。</li>
+        <li><strong>串列和元組</strong> &mdash; 建立、索引、切片、<code>.append()</code>、<code>.pop()</code>、迭代。</li>
+        <li><strong>迴圈</strong> &mdash; 使用 <code>range()</code> 的 <code>for</code> 迴圈、<code>while</code> 迴圈、<code>break</code>/<code>continue</code>。</li>
+        <li><strong>字典</strong> &mdash; 鍵值對、<code>.get()</code>、<code>.items()</code>、<code>.keys()</code>、迭代。</li>
+        <li><strong>函式</strong> &mdash; <code>def</code>、參數、<code>return</code>、預設引數、作用域。</li>
+        <li><strong>檔案 I/O</strong> &mdash; 使用 <code>open()</code> 和 <code>with</code> 語句讀寫檔案。</li>
+        <li><strong>模組和匯入</strong> &mdash; <code>import math</code>、<code>from os import path</code>、使用 <code>pip</code> 安裝套件。</li>
+        <li><strong>錯誤處理</strong> &mdash; <code>try</code> / <code>except</code> / <code>finally</code>、常見的例外型別。</li>
+        <li><strong>串列推導式</strong> &mdash; 從迴圈建立串列的簡潔語法。</li>
+        <li><strong>常用模式</strong> &mdash; 計數、篩選、映射、累加、分組。</li>
+        <li><strong>迷你專案</strong> &mdash; 做一些實際的東西來鞏固你的技能。</li>
+      </ol>
+
+      <div class="callout callout-success">
+        <div class="callout-title">你不需要一次學完所有東西</div>
+        <p>
+          先專注在步驟 1&ndash;9。這已經足以撰寫有用的腳本。
+          步驟 10&ndash;15 能深化你的技能，使你的程式碼更加
+          專業。在需要時再回來學習後面的步驟。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 30 天學習路線圖                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="30-day-roadmap">5. 30 天學習路線圖</h2>
+
+      <p>
+        每日計畫，假設每天練習約 30&ndash;60 分鐘。
+        請根據你的時間調整進度。
+      </p>
+
+      <h3>第 1 週 &mdash; 設定與基礎</h3>
+
+      <table>
+        <thead>
+          <tr><th>天數</th><th>主題</th><th>目標</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>安裝 Python 和 VS Code</td><td>成功執行 <code>print("Hello, World!")</code></td></tr>
+          <tr><td>2</td><td>變數與數字</td><td>建立變數、做算術運算、理解 <code>int</code> 與 <code>float</code> 的差異</td></tr>
+          <tr><td>3</td><td>字串</td><td>練習 f-string、切片、<code>.upper()</code>、<code>.split()</code></td></tr>
+          <tr><td>4</td><td>布林值與比較</td><td>撰寫比較運算式、使用 <code>and</code>/<code>or</code>/<code>not</code></td></tr>
+          <tr><td>5</td><td>輸入與型別轉換</td><td>使用 <code>input()</code>、用 <code>int()</code>/<code>float()</code> 轉換</td></tr>
+          <tr><td>6</td><td>條件判斷</td><td>撰寫 <code>if</code>/<code>elif</code>/<code>else</code> 鏈、解 3 道練習題</td></tr>
+          <tr><td>7</td><td>複習與練習</td><td>不看解答重新做本週的練習題</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第 2 週 &mdash; 資料結構與控制流程</h3>
+
+      <table>
+        <thead>
+          <tr><th>天數</th><th>主題</th><th>目標</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>8</td><td>串列</td><td>建立串列、索引、切片、<code>.append()</code>、<code>.pop()</code>、<code>len()</code></td></tr>
+          <tr><td>9</td><td>元組與集合</td><td>理解不可變性、何時使用元組與串列</td></tr>
+          <tr><td>10</td><td>字典</td><td>建立字典、存取值、<code>.get()</code>、迴圈走訪 <code>.items()</code></td></tr>
+          <tr><td>11</td><td><code>for</code> 迴圈</td><td>迴圈走訪串列、字串、<code>range()</code>；使用 <code>enumerate()</code></td></tr>
+          <tr><td>12</td><td><code>while</code> 迴圈</td><td>撰寫 <code>while</code> 迴圈、使用 <code>break</code>/<code>continue</code></td></tr>
+          <tr><td>13</td><td>巢狀迴圈與模式</td><td>巢狀迭代、建立乘法表</td></tr>
+          <tr><td>14</td><td>複習與練習</td><td>解 FizzBuzz、母音計數器、回文檢查器</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第 3 週 &mdash; 函式、檔案與錯誤處理</h3>
+
+      <table>
+        <thead>
+          <tr><th>天數</th><th>主題</th><th>目標</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>15</td><td>函式基礎</td><td>使用 <code>def</code> 撰寫函式、參數、<code>return</code></td></tr>
+          <tr><td>16</td><td>預設引數與作用域</td><td>預設參數值、局部變數與全域變數</td></tr>
+          <tr><td>17</td><td>讀取檔案</td><td>使用 <code>with</code> 開啟檔案、讀取行、<code>.read()</code>、<code>.readlines()</code></td></tr>
+          <tr><td>18</td><td>寫入檔案</td><td>寫入檔案、附加模式、CSV 基礎</td></tr>
+          <tr><td>19</td><td>模組與匯入</td><td>使用 <code>import</code>、<code>from ... import</code>、探索 <code>math</code>、<code>os</code>、<code>random</code></td></tr>
+          <tr><td>20</td><td>錯誤處理</td><td>使用 <code>try</code>/<code>except</code>、處理 <code>ValueError</code>、<code>FileNotFoundError</code></td></tr>
+          <tr><td>21</td><td>複習與練習</td><td>撰寫一個讀取檔案並回傳詞頻的函式</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第 4 週 &mdash; 專案、模式與複習</h3>
+
+      <table>
+        <thead>
+          <tr><th>天數</th><th>主題</th><th>目標</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>22</td><td>串列推導式</td><td>將迴圈轉換為推導式、篩選和轉換</td></tr>
+          <tr><td>23</td><td>常用模式</td><td>學習累加器、計數器、篩選器和映射模式</td></tr>
+          <tr><td>24</td><td>迷你專案 #1</td><td>建立待辦事項清單或通訊錄（主控台應用程式）</td></tr>
+          <tr><td>25</td><td>迷你專案 #2</td><td>建立檔案整理器或測驗遊戲</td></tr>
+          <tr><td>26</td><td>MATLAB 比較</td><td>複習 MATLAB 到 Python 的轉換對照表</td></tr>
+          <tr><td>27</td><td>最佳實踐</td><td>閱讀 PEP 8 基礎、命名慣例、程式碼結構</td></tr>
+          <tr><td>28</td><td>除錯練習</td><td>完成除錯練習、學習閱讀追蹤回溯</td></tr>
+          <tr><td>29</td><td>全面複習</td><td>重新做你最弱的練習題、複習速查表</td></tr>
+          <tr><td>30</td><td>綜合專案</td><td>建立你真正需要的東西（資料解析器、自動化腳本等）</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">持之以恆勝過密集突擊</div>
+        <p>
+          每天 30 分鐘勝過週末 4 小時。你的大腦需要時間
+          來鞏固所學。如果某天沒練習，不要試圖趕進度
+          &mdash; 只要從上次停下的地方繼續即可。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. 給工程師 / MATLAB 使用者的建議                             -->
+      <!-- ============================================================ -->
+
+      <h2 id="advice-engineers">6. 給工程師 / MATLAB 使用者的建議</h2>
+
+      <p>
+        從 MATLAB 轉換到 Python 比你想像的容易。你
+        已經理解變數、迴圈、函式和陣列。以下是
+        關鍵的思維轉換和實用技巧。
+      </p>
+
+      <h3>思維轉換</h3>
+
+      <ul>
+        <li>
+          <strong>索引從 0 開始。</strong>這是 MATLAB 使用者最大的錯誤來源。在 MATLAB 中，<code>x(1)</code> 是第一個元素。在 Python 中，<code>x[0]</code> 是第一個元素。訓練自己總是想「索引 = 位置減一」。
+        </li>
+        <li>
+          <strong>縮排就是語法。</strong>在 MATLAB 中，區塊以 <code>end</code> 結束。在 Python 中，縮排定義區塊。使用 4 個空格（永遠不要用 tab）。你的編輯器應該會自動處理。
+        </li>
+        <li>
+          <strong>一切都是物件。</strong>在 Python 中，甚至數字和字串都有方法。你會寫 <code>"hello".upper()</code> 而不是 <code>upper('hello')</code>。
+        </li>
+        <li>
+          <strong>括號和方括號有區別。</strong><code>()</code> 用於函式呼叫和元組，<code>[]</code> 用於串列和索引，<code>{}</code> 用於字典和集合。MATLAB 所有東西都使用 <code>()</code>。
+        </li>
+        <li>
+          <strong>Python 是免費且開源的。</strong>不需要授權伺服器，沒有年費。生態系統由社群套件驅動，使用 <code>pip</code> 安裝。
+        </li>
+      </ul>
+
+      <h3>實用技巧</h3>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">盡早使用 NumPy</div>
+        <p>
+          如果你做數值運算，在第一天就安裝 NumPy
+          （<code>pip install numpy</code>）。NumPy 陣列的行為比普通 Python 串列
+          更像 MATLAB 矩陣。你可以像習慣的那樣進行逐元素
+          運算、矩陣乘法和向量化數學運算。
+        </p>
+      </div>
+
+      <ul>
+        <li>
+          <strong>用 f-string 取代 MATLAB 的 <code>fprintf</code>：</strong>
+          <code>print(f"Value = {x:.2f}")</code> 更簡潔且更易讀。
+        </li>
+        <li>
+          <strong>使用 <code>matplotlib</code> 繪圖。</strong>其 API
+          （<code>plt.plot</code>、<code>plt.xlabel</code>、<code>plt.show</code>）
+          刻意設計得類似 MATLAB 的繪圖指令。
+        </li>
+        <li>
+          <strong>學習 <code>pandas</code> 處理表格資料。</strong>它取代了
+          MATLAB 的表格操作，是 Python 中資料分析的標準工具。
+        </li>
+        <li>
+          <strong>不要逐行翻譯 MATLAB 程式碼。</strong>Python 有不同的慣用寫法。例如，與其用 <code>for</code> 迴圈建立串列，不如使用串列推導式。與其檢查 <code>isempty()</code>，不如檢查 <code>if not my_list:</code>。
+        </li>
+        <li>
+          <strong>你不需要分號。</strong>在 MATLAB 中，分號抑制輸出。在 Python 中，沒有自動輸出需要抑制 &mdash; 只有 <code>print()</code> 才會產生主控台輸出。
+        </li>
+      </ul>
+
+      <h3>你的 MATLAB 技能可以直接轉移</h3>
+
+      <table>
+        <thead>
+          <tr><th>技能</th><th>MATLAB 中</th><th>Python 中</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>變數與數學</td><td><code>x = 5; y = x^2;</code></td><td><code>x = 5; y = x**2</code></td></tr>
+          <tr><td>迴圈</td><td><code>for i = 1:10 ... end</code></td><td><code>for i in range(1, 11):</code></td></tr>
+          <tr><td>條件判斷</td><td><code>if x > 0 ... elseif ... end</code></td><td><code>if x > 0: ... elif ...:</code></td></tr>
+          <tr><td>函式</td><td><code>function y = f(x)</code></td><td><code>def f(x): return y</code></td></tr>
+          <tr><td>陣列/矩陣</td><td><code>A = [1 2; 3 4]</code></td><td><code>A = np.array([[1,2],[3,4]])</code></td></tr>
+          <tr><td>繪圖</td><td><code>plot(x, y)</code></td><td><code>plt.plot(x, y)</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-success">
+        <div class="callout-title">你不是從零開始</div>
+        <p>
+          作為工程師或 MATLAB 使用者，你已經理解程式設計邏輯。
+          你學的是新的<em>語法</em>，而不是新的思維方式。
+          大多數有 MATLAB 背景的人在持續練習 2&ndash;4 週後
+          就能在 Python 中有生產力。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  上一頁 / 下一頁 導覽                                         -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="projects.html" class="prev">
+          <span class="nav-label">&larr; 上一頁</span>
+          <span class="nav-title">迷你專案</span>
+        </a>
+        <a href="best-practices.html" class="next">
+          <span class="nav-label">下一頁 &rarr;</span>
+          <span class="nav-title">最佳實踐</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

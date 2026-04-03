@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>檔案與模組 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-files-modules.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link active">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> <a href="basics-print-variables.html">Python 基礎</a><span class="sep">&rsaquo;</span> 檔案與模組
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  檔案與模組                                                    -->
+      <!-- ============================================================ -->
+
+      <h1>檔案與模組</h1>
+
+      <p>
+        本頁涵蓋兩項基本技能：處理磁碟上的檔案
+        （讀取和寫入資料），以及使用模組和匯入來組織你的程式碼。
+        我們也會介紹 <strong>try / except</strong> 錯誤處理
+        &mdash; 因為處理檔案是最常出問題的場景之一。
+        學完本頁後，你將能夠讀寫文字檔案、優雅地處理錯誤，
+        以及使用模組來組織你的 Python 專案。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong>MATLAB 使用
+        <code>fopen</code>、<code>fread</code>、<code>fprintf</code> 和
+        <code>fclose</code> 來進行檔案 I/O。Python 的方法在精神上
+        類似，但使用不同的語法 &mdash; 而且 <code>with</code>
+        陳述式消除了記住呼叫 <code>fclose</code> 的需要。
+        對於模組，MATLAB 依賴 <code>addpath</code> 並將函式放在
+        獨立的 <code>.m</code> 檔案中。Python 使用
+        <code>import</code>，這更加明確和強大。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. 讀取檔案                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-files">1. 讀取檔案</h2>
+
+      <h3>open() 函式與檔案模式</h3>
+
+      <p>
+        Python 的內建 <code>open()</code> 函式是檔案操作的入口。
+        它回傳一個<em>檔案物件</em>，你可以用它來讀取或寫入檔案。
+        第二個引數是<strong>模式</strong>：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模式</th>
+            <th>說明</th>
+            <th>檔案必須存在？</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>"r"</code></td>
+            <td>讀取（預設）。開啟檔案進行讀取。</td>
+            <td>是</td>
+          </tr>
+          <tr>
+            <td><code>"w"</code></td>
+            <td>寫入。建立檔案或<strong>覆蓋</strong>現有內容。</td>
+            <td>否（會建立）</td>
+          </tr>
+          <tr>
+            <td><code>"a"</code></td>
+            <td>附加。在檔案末尾寫入，不會清除現有內容。</td>
+            <td>否（會建立）</td>
+          </tr>
+          <tr>
+            <td><code>"r+"</code></td>
+            <td>讀取和寫入。檔案必須已經存在。</td>
+            <td>是</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>使用 .read() 讀取整個檔案</h3>
+
+      <pre><code># 將整個檔案讀入單一字串
+with open("data.txt", "r") as f:
+    content = f.read()
+
+print(content)</code></pre>
+
+      <p>
+        <code>.read()</code> 方法將整個檔案作為一個字串回傳。
+        對於小檔案沒有問題，但對於非常大的檔案要小心
+        &mdash; 它們會消耗大量記憶體。
+      </p>
+
+      <h3>逐行讀取</h3>
+
+      <p>
+        Python 提供了幾種逐行讀取檔案的方式：
+      </p>
+
+      <pre><code># 方法 1：.readline() — 一次讀取一行
+with open("data.txt", "r") as f:
+    first_line = f.readline()   # 讀取第 1 行
+    second_line = f.readline()  # 讀取第 2 行
+    print(first_line.strip())   # .strip() 移除結尾的換行符
+    print(second_line.strip())</code></pre>
+
+      <pre><code># 方法 2：.readlines() — 回傳所有行的串列
+with open("data.txt", "r") as f:
+    lines = f.readlines()       # 例如 ["line 1\n", "line 2\n", "line 3\n"]
+
+for line in lines:
+    print(line.strip())</code></pre>
+
+      <pre><code># 方法 3（最佳）：直接迭代檔案物件
+with open("data.txt", "r") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+
+      <div class="callout callout-info">
+        <strong>最佳實踐：</strong>方法 3（直接迭代）是最 Pythonic 且最
+        節省記憶體的方式。它一次讀取一行，不會將整個檔案載入記憶體，
+        使其對任何大小的檔案都是安全的。
+      </div>
+
+      <h3>with 陳述式（上下文管理器）</h3>
+
+      <p>
+        處理檔案時你應該<strong>始終</strong>使用 <code>with</code> 陳述式。
+        它保證當區塊結束時檔案會被正確關閉，即使發生錯誤也是如此：
+      </p>
+
+      <pre><code># 好 — with 陳述式（檔案自動關閉）
+with open("data.txt", "r") as f:
+    content = f.read()
+# f 現在已關閉 — 不需要呼叫 f.close()
+
+# 不好 — 手動開啟/關閉（容易忘記，容易出錯）
+f = open("data.txt", "r")
+content = f.read()
+f.close()  # 如果在這行之前發生錯誤怎麼辦？</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong>忘記關閉檔案。如果你開啟了
+        很多檔案而沒有關閉它們，你可能會用完檔案控制代碼，
+        導致程式崩潰。<code>with</code> 陳述式完全防止了
+        這個問題。<strong>永遠使用 <code>with</code>。</strong>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中你寫
+        <code>fid = fopen('data.txt', 'r')</code>，必須記住在
+        完成時呼叫 <code>fclose(fid)</code>。Python 的 <code>with</code>
+        陳述式就像自動的 <code>fclose</code> &mdash; 它會為你處理
+        清理工作，即使你的程式碼拋出錯誤也一樣。
+      </div>
+
+      <h3>編碼</h3>
+
+      <p>
+        預設情況下，Python 使用你系統的預設編碼。為了明確
+        （並避免跨平台的意外），請指定編碼：
+      </p>
+
+      <pre><code># 明確指定編碼 — 建議用於可攜性
+with open("data.txt", "r", encoding="utf-8") as f:
+    content = f.read()</code></pre>
+
+      <p>
+        這在處理包含非 ASCII 字元（帶重音的字母、中日韓字元、
+        表情符號等）的檔案時特別重要。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  2. 寫入檔案                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="writing-files">2. 寫入檔案</h2>
+
+      <h3>使用 "w" 模式寫入（會覆蓋！）</h3>
+
+      <pre><code># 寫入模式 — 建立新檔案或覆蓋現有內容
+with open("output.txt", "w") as f:
+    f.write("Hello, World!\n")
+    f.write("This is line 2.\n")</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>警告：</strong>使用 <code>"w"</code> 模式開啟檔案
+        會在檔案開啟的瞬間<strong>清除所有現有內容</strong>。
+        如果檔案包含重要資料，它就消失了。在執行腳本之前，
+        務必仔細檢查檔案名稱和模式。
+      </div>
+
+      <h3>使用 "a" 模式附加</h3>
+
+      <pre><code># 附加模式 — 在末尾添加，不會清除
+with open("log.txt", "a") as f:
+    f.write("New log entry: everything is fine.\n")</code></pre>
+
+      <p>
+        附加模式非常適合日誌檔案、持續記錄，或任何你想要
+        添加資料而不破壞已有內容的情況。
+      </p>
+
+      <h3>.write() vs .writelines()</h3>
+
+      <pre><code># .write() 接受單一字串
+with open("output.txt", "w") as f:
+    f.write("Line 1\n")
+    f.write("Line 2\n")
+
+# .writelines() 接受字串串列（不會自動添加換行符！）
+lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
+with open("output.txt", "w") as f:
+    f.writelines(lines)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>注意：</strong><code>.writelines()</code>
+        <strong>不會</strong>自動在項目之間添加換行字元。
+        你必須自己在每個字串中包含 <code>\n</code>。
+      </div>
+
+      <h3>寫入格式化資料</h3>
+
+      <pre><code># 將格式化的輸出寫入檔案
+students = [
+    ("Alice", 92),
+    ("Bob", 85),
+    ("Charlie", 78),
+]
+
+with open("grades.txt", "w") as f:
+    f.write("Name        Grade\n")
+    f.write("-" * 20 + "\n")
+    for name, grade in students:
+        f.write(f"{name:<12}{grade}\n")
+
+# grades.txt 的內容將是：
+# Name        Grade
+# --------------------
+# Alice       92
+# Bob         85
+# Charlie     78</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中你會使用
+        <code>fprintf(fid, '%s %d\n', name, grade)</code>。Python 的
+        f-string（<code>f"..."</code>）有相同的用途，通常更易讀。
+        <code>{name:&lt;12}</code> 中的 <code>&lt;</code> 表示在
+        12 個字元的欄位中靠左對齊 &mdash; 類似 MATLAB 的
+        <code>%-12s</code>。
+      </div>
+
+      <h3>完整的讀取-處理-寫入範例</h3>
+
+      <pre><code># 從檔案讀取數字，計算統計資料，寫入結果
+with open("numbers.txt", "r") as f:
+    numbers = [float(line.strip()) for line in f if line.strip()]
+
+total = sum(numbers)
+average = total / len(numbers)
+maximum = max(numbers)
+minimum = min(numbers)
+
+with open("stats.txt", "w") as f:
+    f.write(f"Count:   {len(numbers)}\n")
+    f.write(f"Sum:     {total:.2f}\n")
+    f.write(f"Average: {average:.2f}\n")
+    f.write(f"Max:     {maximum:.2f}\n")
+    f.write(f"Min:     {minimum:.2f}\n")
+
+print("Statistics written to stats.txt")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. TRY / EXCEPT                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="try-except">3. try / except &mdash; 錯誤處理</h2>
+
+      <h3>為什麼錯誤處理很重要</h3>
+
+      <p>
+        當你的程式碼與外部世界互動時 &mdash; 讀取檔案、
+        取得使用者輸入、連接網路 &mdash; 事情可能會出錯。
+        檔案可能不存在。使用者可能在你期望數字時輸入字母。
+        網路可能斷線。沒有錯誤處理，你的程式會因為醜陋的
+        追蹤資訊而崩潰。有了錯誤處理，你可以優雅地回應。
+      </p>
+
+      <h3>基本 try / except 語法</h3>
+
+      <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")</code></pre>
+
+      <p>輸出：</p>
+      <pre><code>Cannot divide by zero!</code></pre>
+
+      <p>
+        <code>try</code> 內的程式碼正常執行。如果發生例外，
+        Python 會跳到匹配的 <code>except</code> 區塊
+        而不是崩潰。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 使用
+        <code>try / catch</code>。Python 使用 <code>try / except</code>。
+        概念相同 &mdash; 只有關鍵字不同：
+        <pre><code>% MATLAB
+try
+    result = 10 / 0;
+catch ME
+    disp(ME.message);
+end</code></pre>
+        <pre><code># Python
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    print(e)</code></pre>
+      </div>
+
+      <h3>捕捉特定的例外</h3>
+
+      <p>
+        始終捕捉<strong>特定的</strong>例外，而非使用裸露的
+        <code>except:</code>。這可以防止你意外隱藏錯誤：
+      </p>
+
+      <pre><code># 好 — 捕捉特定的例外
+try:
+    with open("config.txt", "r") as f:
+        data = f.read()
+except FileNotFoundError:
+    print("config.txt not found. Using defaults.")
+
+# 不好 — 裸露的 except 會捕捉所有東西（包括拼字錯誤和程式錯誤！）
+try:
+    with open("config.txt", "r") as f:
+        data = f.read()
+except:          # 不要這樣做！
+    print("Something went wrong.")</code></pre>
+
+      <h3>多個 except 區塊</h3>
+
+      <pre><code>try:
+    value = int(input("Enter a number: "))
+    result = 100 / value
+    print(f"100 / {value} = {result}")
+except ValueError:
+    print("That's not a valid number!")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"Unexpected error: {e}")</code></pre>
+
+      <p>
+        Python 從上到下檢查每個 <code>except</code> 區塊，
+        並執行第一個匹配的。將更具體的例外放在前面，
+        更一般的放在後面。
+      </p>
+
+      <h3>else 和 finally 子句</h3>
+
+      <pre><code>try:
+    with open("data.txt", "r") as f:
+        content = f.read()
+except FileNotFoundError:
+    print("File not found!")
+else:
+    # 只在沒有發生例外時執行
+    print(f"File has {len(content)} characters.")
+finally:
+    # 無論是否發生例外都會執行
+    print("File operation attempted.")</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>子句</th>
+            <th>何時執行</th>
+            <th>典型用途</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>try</code></td>
+            <td>永遠（這是你「嘗試」的程式碼）</td>
+            <td>有風險的操作</td>
+          </tr>
+          <tr>
+            <td><code>except</code></td>
+            <td>只在 <code>try</code> 中發生例外時</td>
+            <td>處理錯誤</td>
+          </tr>
+          <tr>
+            <td><code>else</code></td>
+            <td>只在<strong>沒有</strong>例外發生時</td>
+            <td>在成功時處理結果</td>
+          </tr>
+          <tr>
+            <td><code>finally</code></td>
+            <td>永遠，無論如何</td>
+            <td>清理（關閉連接等）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>常見的例外</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>例外</th>
+            <th>何時發生</th>
+            <th>範例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>FileNotFoundError</code></td>
+            <td>檔案不存在</td>
+            <td><code>open("nope.txt")</code></td>
+          </tr>
+          <tr>
+            <td><code>ValueError</code></td>
+            <td>值的類型不正確</td>
+            <td><code>int("hello")</code></td>
+          </tr>
+          <tr>
+            <td><code>TypeError</code></td>
+            <td>操作的類型不正確</td>
+            <td><code>"2" + 2</code></td>
+          </tr>
+          <tr>
+            <td><code>ZeroDivisionError</code></td>
+            <td>除以零</td>
+            <td><code>10 / 0</code></td>
+          </tr>
+          <tr>
+            <td><code>IndexError</code></td>
+            <td>串列索引超出範圍</td>
+            <td><code>[1, 2, 3][5]</code></td>
+          </tr>
+          <tr>
+            <td><code>KeyError</code></td>
+            <td>字典鍵不存在</td>
+            <td><code>{"a": 1}["b"]</code></td>
+          </tr>
+          <tr>
+            <td><code>PermissionError</code></td>
+            <td>沒有存取檔案的權限</td>
+            <td>開啟受系統保護的檔案</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>何時使用 try / except（不要過度使用）</h3>
+
+      <p>
+        錯誤處理很強大，但不要用 try / except 包住<em>每一行</em>
+        程式碼。在以下情況使用它：
+      </p>
+
+      <ul>
+        <li>你在進行<strong>檔案 I/O</strong>（檔案可能不存在，磁碟可能滿了）</li>
+        <li>你在<strong>解析使用者輸入</strong>（使用者會輸入意想不到的東西）</li>
+        <li>你在<strong>進行網路請求</strong>（連接可能失敗）</li>
+        <li>你在<strong>轉換資料類型</strong>（<code>int()</code>、<code>float()</code> 可能失敗）</li>
+      </ul>
+
+      <p>
+        不要使用 try / except 來隱藏程式錯誤。如果你的程式碼有邏輯錯誤，
+        修正程式碼而不是捕捉例外然後忽略它。
+      </p>
+
+      <h3>實用範例：安全的檔案讀取器</h3>
+
+      <pre><code>def read_file_safely(filename):
+    """讀取檔案並回傳其內容，如果失敗則回傳 None。"""
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        print(f"Error: '{filename}' not found.")
+        return None
+    except PermissionError:
+        print(f"Error: No permission to read '{filename}'.")
+        return None
+    except UnicodeDecodeError:
+        print(f"Error: '{filename}' contains invalid UTF-8.")
+        return None
+
+# 使用方式
+content = read_file_safely("config.txt")
+if content is not None:
+    print(f"Read {len(content)} characters.")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. 匯入模組                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="importing-modules">4. 匯入模組</h2>
+
+      <h3>什麼是模組？</h3>
+
+      <p>
+        <strong>模組</strong>就是一個包含 Python 程式碼的 <code>.py</code>
+        檔案 &mdash; 函式、類別、變數或可執行的陳述式。
+        Python 附帶了大量的<strong>標準函式庫</strong>模組，
+        你還可以從網路上安裝數千個額外的模組。模組讓你重複使用
+        程式碼而不需要複製貼上。
+      </p>
+
+      <h3>三種匯入方式</h3>
+
+      <pre><code># 方式 1：匯入整個模組
+import math
+print(math.sqrt(16))    # 4.0
+print(math.pi)          # 3.141592653589793
+
+# 方式 2：匯入特定項目
+from math import sqrt, pi
+print(sqrt(16))         # 4.0
+print(pi)               # 3.141592653589793
+
+# 方式 3：使用別名匯入
+import numpy as np      # 常見慣例
+arr = np.array([1, 2, 3])
+print(arr * 2)          # [2 4 6]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>應該使用哪種風格？</strong>
+        <ul>
+          <li><code>import module</code> &mdash; 最清晰。你總是能看到每個函式的來源。</li>
+          <li><code>from module import name</code> &mdash; 當你頻繁使用某個函式，打模組前綴變得繁瑣時適用。</li>
+          <li><code>import module as alias</code> &mdash; 使用知名的別名：<code>np</code> 代表 numpy，<code>pd</code> 代表 pandas，<code>plt</code> 代表 matplotlib.pyplot。</li>
+        </ul>
+        <p>避免 <code>from module import *</code> &mdash; 它會將所有東西傾倒到你的命名空間中，可能導致名稱衝突。</p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中，所有在路徑上的
+        函式都自動可用 &mdash; 不需要 <code>import</code> 步驟。
+        你使用 <code>addpath</code> 來添加目錄。在 Python 中，
+        你必須明確匯入你需要的東西。這比較冗長，但可以防止
+        名稱衝突並使依賴關係更加清晰。
+        <pre><code>% MATLAB — 如果在路徑上，函式就可用
+addpath('my_tools/');
+result = my_function(42);
+
+# Python — 你必須明確匯入
+from my_tools import my_function
+result = my_function(42)</code></pre>
+      </div>
+
+      <h3>常用的標準函式庫模組</h3>
+
+      <p>
+        這些模組是 Python 內建的 &mdash; 不需要安裝：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模組</th>
+            <th>用途</th>
+            <th>快速範例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>os</code></td>
+            <td>作業系統操作（檔案、路徑、目錄）</td>
+            <td><code>os.listdir(".")</code></td>
+          </tr>
+          <tr>
+            <td><code>sys</code></td>
+            <td>系統特定的參數和函式</td>
+            <td><code>sys.argv</code>（命令列引數）</td>
+          </tr>
+          <tr>
+            <td><code>math</code></td>
+            <td>數學函式</td>
+            <td><code>math.sqrt(2)</code>、<code>math.log(10)</code></td>
+          </tr>
+          <tr>
+            <td><code>random</code></td>
+            <td>隨機數生成</td>
+            <td><code>random.randint(1, 100)</code></td>
+          </tr>
+          <tr>
+            <td><code>datetime</code></td>
+            <td>日期和時間操作</td>
+            <td><code>datetime.datetime.now()</code></td>
+          </tr>
+          <tr>
+            <td><code>json</code></td>
+            <td>讀寫 JSON 檔案</td>
+            <td><code>json.loads('{"a": 1}')</code></td>
+          </tr>
+          <tr>
+            <td><code>csv</code></td>
+            <td>讀寫 CSV 檔案</td>
+            <td><code>csv.reader(open("f.csv"))</code></td>
+          </tr>
+          <tr>
+            <td><code>pathlib</code></td>
+            <td>物件導向的檔案路徑（現代風格）</td>
+            <td><code>Path("data") / "file.txt"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre><code># 標準函式庫模組的快速範例
+import os
+print(os.getcwd())              # 目前工作目錄
+print(os.listdir("."))          # 列出目前目錄中的檔案
+
+import random
+print(random.randint(1, 6))     # 模擬擲骰子
+print(random.choice(["A", "B", "C"]))  # 隨機選取一個項目
+
+import datetime
+now = datetime.datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M"))  # 例如 "2026-03-31 14:30"
+
+import json
+data = {"name": "Alice", "score": 95}
+json_string = json.dumps(data, indent=2)
+print(json_string)
+
+from pathlib import Path
+p = Path("data") / "results" / "output.txt"
+print(p)  # data/results/output.txt（跨平台！）</code></pre>
+
+      <h3>使用 pip 安裝第三方模組</h3>
+
+      <p>
+        標準函式庫很豐富，但 Python 真正的力量來自
+        數十萬個第三方套件。你可以使用 <code>pip</code>
+        （Python 的套件管理器）來安裝它們：
+      </p>
+
+      <pre><code># 在你的終端機中（不是在 Python 裡面）：
+pip install requests       # HTTP 函式庫
+pip install pandas         # 資料分析
+pip install matplotlib     # 繪圖
+pip install numpy          # 數值計算
+pip install flask          # 網頁框架</code></pre>
+
+      <pre><code># 然後在你的 Python 程式碼中：
+import requests
+response = requests.get("https://api.github.com")
+print(response.status_code)   # 200
+print(response.json())        # 解析後的 JSON 資料</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>Python 的 <code>pip</code>
+        類似 MATLAB 的附加元件探索器或
+        <code>matlab.addons.install()</code> 函式，但 pip 可以存取
+        超過 500,000 個免費套件。MATLAB 的工具箱很強大但
+        價格昂貴 &mdash; 每個都需要單獨的授權。Python
+        套件是免費的，由社群維護。
+      </div>
+
+      <h3><code>__name__ == "__main__"</code> 是什麼意思？</h3>
+
+      <p>
+        你會經常在 Python 腳本的底部看到這個模式：
+      </p>
+
+      <pre><code># my_script.py
+
+def greet(name):
+    return f"Hello, {name}!"
+
+def main():
+    print(greet("World"))
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+      <p>
+        以下是正在發生的事情：
+      </p>
+
+      <ul>
+        <li>
+          每個 Python 檔案都有一個內建變數叫做
+          <code>__name__</code>。
+        </li>
+        <li>
+          當你<strong>直接執行</strong>一個檔案時（例如
+          <code>python my_script.py</code>），Python 會將
+          <code>__name__</code> 設定為 <code>"__main__"</code>。
+        </li>
+        <li>
+          當你將一個檔案<strong>作為模組匯入</strong>時（例如
+          <code>import my_script</code>），Python 會將
+          <code>__name__</code> 設定為模組的名稱
+          （<code>"my_script"</code>）。
+        </li>
+      </ul>
+
+      <p>
+        <code>if __name__ == "__main__":</code> 守衛的意思是：
+        「只有在我被直接執行時才運行這段程式碼，而不是被匯入時。」
+        這讓同一個檔案既可以作為可重複使用的模組，
+        又可以作為獨立的腳本。
+      </p>
+
+      <pre><code># 沒有守衛的話，匯入時會不小心印出 "Hello, World!"。
+# 守衛防止了這種情況。
+
+# 直接執行：    python my_script.py  → 印出 "Hello, World!"
+# 匯入它：      import my_script     → 什麼都不會發生（好！）</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. 建立你自己的模組                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="own-modules">5. 建立你自己的模組</h2>
+
+      <h3>任何 .py 檔案都是模組</h3>
+
+      <p>
+        建立模組就像儲存一個 <code>.py</code> 檔案一樣簡單。
+        假設你建立了一個名為 <code>helpers.py</code> 的檔案：
+      </p>
+
+      <pre><code># helpers.py — 你的自訂模組
+
+def celsius_to_fahrenheit(c):
+    """將攝氏轉換為華氏。"""
+    return c * 9 / 5 + 32
+
+def fahrenheit_to_celsius(f):
+    """將華氏轉換為攝氏。"""
+    return (f - 32) * 5 / 9
+
+PI = 3.14159265358979</code></pre>
+
+      <p>
+        現在在同一目錄中的另一個檔案裡，你可以匯入並使用它：
+      </p>
+
+      <pre><code># main.py — 使用 helpers 模組
+
+from helpers import celsius_to_fahrenheit, PI
+
+temp_f = celsius_to_fahrenheit(100)
+print(f"100 C = {temp_f} F")     # 100 C = 212.0 F
+print(f"PI = {PI}")              # PI = 3.14159265358979</code></pre>
+
+      <pre><code># 或匯入整個模組
+import helpers
+
+temp_c = helpers.fahrenheit_to_celsius(72)
+print(f"72 F = {temp_c:.1f} C")  # 72 F = 22.2 C</code></pre>
+
+      <h3>在你自己的模組中使用 __name__ 守衛</h3>
+
+      <p>
+        添加守衛使你的模組既可匯入又可執行：
+      </p>
+
+      <pre><code># helpers.py — 帶有 __name__ 守衛
+
+def celsius_to_fahrenheit(c):
+    return c * 9 / 5 + 32
+
+def fahrenheit_to_celsius(f):
+    return (f - 32) * 5 / 9
+
+if __name__ == "__main__":
+    # 這段只在你執行 python helpers.py 時運行
+    # 當別人執行 import helpers 時不會運行
+    print("Running tests...")
+    assert celsius_to_fahrenheit(0) == 32
+    assert celsius_to_fahrenheit(100) == 212
+    assert fahrenheit_to_celsius(32) == 0
+    print("All tests passed!")</code></pre>
+
+      <p>
+        這是常見的模式：將測試程式碼或示範程式碼放在
+        <code>__name__</code> 守衛內，讓檔案的其餘部分
+        保持乾淨以供匯入。
+      </p>
+
+      <h3>組織小型專案</h3>
+
+      <p>
+        以下是典型的小型 Python 專案可能的結構：
+      </p>
+
+      <pre><code>my_project/
+    main.py          # 入口點 — 執行這個
+    helpers.py       # 工具函式
+    file_io.py       # 檔案讀寫函式
+    data/
+        input.txt
+        output.txt</code></pre>
+
+      <pre><code># main.py
+from helpers import celsius_to_fahrenheit
+from file_io import read_temperatures, write_results
+
+temperatures = read_temperatures("data/input.txt")
+converted = [celsius_to_fahrenheit(t) for t in temperatures]
+write_results("data/output.txt", converted)
+print("Done!")</code></pre>
+
+      <pre><code># file_io.py
+def read_temperatures(filename):
+    """讀取溫度檔案（每行一個）並回傳浮點數串列。"""
+    with open(filename, "r") as f:
+        return [float(line.strip()) for line in f if line.strip()]
+
+def write_results(filename, temperatures):
+    """將溫度寫入檔案，每行一個。"""
+    with open(filename, "w") as f:
+        for temp in temperatures:
+            f.write(f"{temp:.1f}\n")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>在 MATLAB 中，每個公開函式
+        都存放在自己的 <code>.m</code> 檔案中（例如
+        <code>celsius_to_fahrenheit.m</code>）。在 Python 中，你可以在
+        單一個 <code>.py</code> 檔案中放<em>很多</em>函式，
+        只匯入你需要的。這讓你在組織程式碼方面有更大的彈性。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  綜合應用                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="putting-together">綜合應用</h2>
+
+      <p>
+        以下是一個結合檔案讀取、錯誤處理、模組和寫入輸出的
+        完整範例：
+      </p>
+
+      <pre><code># analyze_scores.py — 一個完整的迷你程式
+
+import os
+from datetime import datetime
+
+def load_scores(filename):
+    """從檔案載入學生分數。每行格式：'Name,Score'"""
+    scores = {}
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            for line_num, line in enumerate(f, start=1):
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    name, score = line.split(",")
+                    scores[name.strip()] = float(score.strip())
+                except ValueError:
+                    print(f"Warning: skipping malformed line {line_num}: '{line}'")
+    except FileNotFoundError:
+        print(f"Error: '{filename}' not found.")
+    return scores
+
+def compute_stats(scores):
+    """從分數字典計算基本統計資料。"""
+    if not scores:
+        return None
+    values = list(scores.values())
+    return {
+        "count": len(values),
+        "average": sum(values) / len(values),
+        "highest": max(values),
+        "lowest": min(values),
+        "top_student": max(scores, key=scores.get),
+    }
+
+def write_report(filename, stats):
+    """將統計報告寫入檔案。"""
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(f"Report generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
+        f.write("=" * 40 + "\n")
+        f.write(f"Students:     {stats['count']}\n")
+        f.write(f"Average:      {stats['average']:.1f}\n")
+        f.write(f"Highest:      {stats['highest']:.1f}\n")
+        f.write(f"Lowest:       {stats['lowest']:.1f}\n")
+        f.write(f"Top student:  {stats['top_student']}\n")
+    print(f"Report written to '{filename}'.")
+
+if __name__ == "__main__":
+    scores = load_scores("scores.csv")
+    if scores:
+        stats = compute_stats(scores)
+        write_report("report.txt", stats)
+    else:
+        print("No scores to analyse.")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  總結表格                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>概念</th>
+            <th>Python 語法</th>
+            <th>重點</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>開啟 / 讀取檔案</td>
+            <td><code>with open("f.txt") as f:</code></td>
+            <td>永遠使用 <code>with</code></td>
+          </tr>
+          <tr>
+            <td>讀取所有內容</td>
+            <td><code>f.read()</code></td>
+            <td>回傳單一字串</td>
+          </tr>
+          <tr>
+            <td>讀取各行</td>
+            <td><code>for line in f:</code></td>
+            <td>最節省記憶體</td>
+          </tr>
+          <tr>
+            <td>寫入（覆蓋）</td>
+            <td><code>open("f.txt", "w")</code></td>
+            <td>清除現有內容！</td>
+          </tr>
+          <tr>
+            <td>附加</td>
+            <td><code>open("f.txt", "a")</code></td>
+            <td>添加到檔案末尾</td>
+          </tr>
+          <tr>
+            <td>錯誤處理</td>
+            <td><code>try: ... except: ...</code></td>
+            <td>捕捉特定的例外</td>
+          </tr>
+          <tr>
+            <td>匯入模組</td>
+            <td><code>import math</code></td>
+            <td>使用 <code>math.sqrt()</code></td>
+          </tr>
+          <tr>
+            <td>匯入項目</td>
+            <td><code>from math import sqrt</code></td>
+            <td>直接使用 <code>sqrt()</code></td>
+          </tr>
+          <tr>
+            <td>別名</td>
+            <td><code>import numpy as np</code></td>
+            <td>常見慣例</td>
+          </tr>
+          <tr>
+            <td>安裝套件</td>
+            <td><code>pip install name</code></td>
+            <td>在終端機中，不是 Python 中</td>
+          </tr>
+          <tr>
+            <td>主程式守衛</td>
+            <td><code>if __name__ == "__main__":</code></td>
+            <td>僅在直接執行時運行</td>
+          </tr>
+          <tr>
+            <td>建立模組</td>
+            <td>任何 <code>.py</code> 檔案</td>
+            <td>用檔名匯入（不含 <code>.py</code>）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  練習題                                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">練習題</h2>
+
+      <p>
+        練習你所學到的內容。在查看答案之前，先自己嘗試每個練習。
+      </p>
+
+      <h3>練習 1：讀取與計數</h3>
+      <p>
+        撰寫一個程式，讀取一個文字檔案並印出行數、字數和字元數。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>def count_file_stats(filename):
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            content = f.read()
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+        return
+
+    lines = content.split("\n")
+    words = content.split()
+    characters = len(content)
+
+    print(f"Lines:      {len(lines)}")
+    print(f"Words:      {len(words)}")
+    print(f"Characters: {characters}")
+
+count_file_stats("sample.txt")</code></pre>
+      </details>
+
+      <h3>練習 2：寫入乘法表</h3>
+      <p>
+        撰寫一個程式，生成一個乘法表（1 到 10）並儲存到
+        名為 <code>multiplication.txt</code> 的檔案中。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>with open("multiplication.txt", "w") as f:
+    for i in range(1, 11):
+        row = "  ".join(f"{i * j:4d}" for j in range(1, 11))
+        f.write(row + "\n")
+
+print("Multiplication table written to multiplication.txt")</code></pre>
+      </details>
+
+      <h3>練習 3：安全的數字輸入</h3>
+      <p>
+        撰寫一個函式 <code>get_number()</code>，持續詢問使用者
+        輸入數字直到他們輸入有效的數字。使用 try / except。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>def get_number(prompt="Enter a number: "):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+# 使用方式
+num = get_number()
+print(f"You entered: {num}")</code></pre>
+      </details>
+
+      <h3>練習 4：日誌檔案附加器</h3>
+      <p>
+        撰寫一個函式，將帶有時間戳記的日誌條目附加到檔案中。
+        每次呼叫應該添加一行如
+        <code>2026-03-31 14:30:00 - Your message here</code>。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>from datetime import datetime
+
+def log_message(filename, message):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write(f"{timestamp} - {message}\n")
+
+# 使用方式
+log_message("app.log", "Application started")
+log_message("app.log", "Processing data...")
+log_message("app.log", "Done")</code></pre>
+      </details>
+
+      <h3>練習 5：建立工具模組</h3>
+      <p>
+        建立一個名為 <code>text_utils.py</code> 的模組，包含以下
+        函式：<code>word_count(text)</code>、
+        <code>char_count(text)</code> 和
+        <code>reverse_words(text)</code>。然後撰寫一個
+        <code>main.py</code> 來匯入並使用它們。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code># text_utils.py
+
+def word_count(text):
+    """回傳文字中的字數。"""
+    return len(text.split())
+
+def char_count(text):
+    """回傳文字中非空格字元的數量。"""
+    return sum(1 for c in text if c != " ")
+
+def reverse_words(text):
+    """反轉文字中單字的順序。"""
+    return " ".join(text.split()[::-1])
+
+if __name__ == "__main__":
+    sample = "Hello beautiful world"
+    print(f"Words: {word_count(sample)}")
+    print(f"Chars: {char_count(sample)}")
+    print(f"Reversed: {reverse_words(sample)}")</code></pre>
+        <pre><code># main.py
+
+from text_utils import word_count, char_count, reverse_words
+
+text = "Python is a great programming language"
+print(f"Words: {word_count(text)}")           # 6
+print(f"Characters: {char_count(text)}")      # 32
+print(f"Reversed: {reverse_words(text)}")     # language programming great a is Python</code></pre>
+      </details>
+
+      <h3>練習 6：帶錯誤處理的檔案複製器</h3>
+      <p>
+        撰寫一個函式 <code>copy_file(source, destination)</code>，
+        將一個文字檔案的內容複製到另一個。處理來源檔案不存在和
+        權限問題的錯誤。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>def copy_file(source, destination):
+    """將文字內容從來源複製到目的地。"""
+    try:
+        with open(source, "r", encoding="utf-8") as src:
+            content = src.read()
+    except FileNotFoundError:
+        print(f"Error: source file '{source}' not found.")
+        return False
+    except PermissionError:
+        print(f"Error: no permission to read '{source}'.")
+        return False
+
+    try:
+        with open(destination, "w", encoding="utf-8") as dst:
+            dst.write(content)
+    except PermissionError:
+        print(f"Error: no permission to write to '{destination}'.")
+        return False
+
+    print(f"Copied '{source}' to '{destination}' ({len(content)} characters).")
+    return True
+
+# 使用方式
+copy_file("original.txt", "backup.txt")</code></pre>
+      </details>
+
+      <h3>練習 7：CSV 讀取器與平均計算器</h3>
+      <p>
+        撰寫一個程式，讀取一個 CSV 檔案，其中每行包含
+        學生姓名和成績（例如 <code>Alice,92</code>），計算
+        班級平均分數，並將摘要寫入新檔案。
+      </p>
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>def process_grades(input_file, output_file):
+    students = []
+
+    try:
+        with open(input_file, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    name, grade = line.split(",")
+                    students.append((name.strip(), float(grade.strip())))
+                except ValueError:
+                    print(f"Skipping invalid line: '{line}'")
+    except FileNotFoundError:
+        print(f"File '{input_file}' not found.")
+        return
+
+    if not students:
+        print("No valid student data found.")
+        return
+
+    grades = [g for _, g in students]
+    average = sum(grades) / len(grades)
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("Student Grade Report\n")
+        f.write("=" * 30 + "\n")
+        for name, grade in sorted(students, key=lambda x: x[1], reverse=True):
+            status = "PASS" if grade >= 60 else "FAIL"
+            f.write(f"{name:<15} {grade:6.1f}  {status}\n")
+        f.write("=" * 30 + "\n")
+        f.write(f"Class average: {average:.1f}\n")
+        f.write(f"Highest: {max(grades):.1f}\n")
+        f.write(f"Lowest:  {min(grades):.1f}\n")
+
+    print(f"Report written to '{output_file}'.")
+
+process_grades("students.csv", "grade_report.txt")</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  頁面導航                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-more.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">更多內建功能</span></a>
+        <a href="common-patterns.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">常用模式</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常見錯誤與修正方法 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/common-errors.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link active">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="best-practices.html">最佳實踐</a><span class="sep">&rsaquo;</span>
+        常見錯誤
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  常見錯誤與修正方法                                            -->
+      <!-- ============================================================ -->
+
+      <h1>常見錯誤與修正方法</h1>
+
+      <p>
+        每個程式設計師都會犯錯 &mdash; 即使是經驗豐富的專業人士。
+        初學者和有經驗的開發者之間的差別不在於
+        專家永遠不會看到錯誤；而是專家知道如何
+        <strong>閱讀</strong>錯誤訊息、<strong>理解</strong>
+        出了什麼問題，並<strong>快速修正</strong>。本頁是你
+        作為初學者會遇到的 20 個最常見 Python 錯誤的
+        完整參考。
+      </p>
+
+      <div class="callout callout-info">
+        <strong>如何使用本頁：</strong>每個錯誤都包含確切的
+        錯誤訊息、淺顯易懂的解釋、觸發錯誤的程式碼、
+        修正方法，以及未來避免的技巧。將本頁加入書籤，
+        每當你遇到不認識的錯誤時回來查看。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  目錄                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="contents">目錄</h2>
+
+      <ol>
+        <li><a href="#reading-tracebacks">如何閱讀追蹤回溯</a></li>
+        <li><a href="#debugging-strategy">通用除錯策略</a></li>
+        <li><a href="#quick-reference">快速參考表</a></li>
+        <li><a href="#syntax-error-invalid">SyntaxError: invalid syntax</a></li>
+        <li><a href="#syntax-error-eof">SyntaxError: unexpected EOF while parsing</a></li>
+        <li><a href="#indentation-expected">IndentationError: expected an indented block</a></li>
+        <li><a href="#indentation-unexpected">IndentationError: unexpected indent</a></li>
+        <li><a href="#name-error">NameError: name 'x' is not defined</a></li>
+        <li><a href="#type-error-operand">TypeError: unsupported operand type(s)</a></li>
+        <li><a href="#type-error-subscriptable">TypeError: 'type' object is not subscriptable</a></li>
+        <li><a href="#type-error-arguments">TypeError: function takes X positional arguments but Y were given</a></li>
+        <li><a href="#value-error">ValueError: invalid literal for int()</a></li>
+        <li><a href="#index-error">IndexError: list index out of range</a></li>
+        <li><a href="#key-error">KeyError</a></li>
+        <li><a href="#attribute-error">AttributeError</a></li>
+        <li><a href="#file-not-found">FileNotFoundError</a></li>
+        <li><a href="#zero-division">ZeroDivisionError</a></li>
+        <li><a href="#module-not-found">ModuleNotFoundError</a></li>
+        <li><a href="#import-error">ImportError</a></li>
+        <li><a href="#unbound-local">UnboundLocalError</a></li>
+        <li><a href="#recursion-error">RecursionError</a></li>
+        <li><a href="#stop-iteration">StopIteration</a></li>
+        <li><a href="#permission-error">PermissionError</a></li>
+      </ol>
+
+      <!-- ============================================================ -->
+      <!--  如何閱讀追蹤回溯                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="reading-tracebacks">1. 如何閱讀追蹤回溯</h2>
+
+      <p>
+        當 Python 遇到錯誤時，它會印出一個<strong>追蹤回溯</strong>
+        （也稱為堆疊追蹤）。這不是要嚇你的 &mdash;
+        它是一張路線圖，準確告訴你問題在哪裡。讓我們
+        一步一步地走過一個。
+      </p>
+
+      <h3>範例追蹤回溯</h3>
+
+      <pre><code>Traceback (most recent call last):
+  File "calculator.py", line 12, in &lt;module&gt;
+    result = divide(10, 0)
+  File "calculator.py", line 5, in divide
+    return a / b
+ZeroDivisionError: division by zero</code></pre>
+
+      <h3>逐步分析</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>行</th>
+            <th>它告訴你什麼</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Traceback (most recent call last):</code></td>
+            <td>追蹤回溯的開始。最近的呼叫列在<strong>最後</strong>（底部）。</td>
+          </tr>
+          <tr>
+            <td><code>File "calculator.py", line 12, in &lt;module&gt;</code></td>
+            <td>檔案名稱、行號和作用域。<code>&lt;module&gt;</code> 表示頂層程式碼（不在函式內部）。</td>
+          </tr>
+          <tr>
+            <td><code>result = divide(10, 0)</code></td>
+            <td>在該點正在執行的實際程式碼行。</td>
+          </tr>
+          <tr>
+            <td><code>File "calculator.py", line 5, in divide</code></td>
+            <td>錯誤源頭更深處 &mdash; 在 <code>divide</code> 函式內，第 5 行。</td>
+          </tr>
+          <tr>
+            <td><code>return a / b</code></td>
+            <td>這是導致錯誤的確切程式碼行。</td>
+          </tr>
+          <tr>
+            <td><code>ZeroDivisionError: division by zero</code></td>
+            <td><strong>錯誤型別</strong>和<strong>描述</strong>。這總是最後一行，也是最重要的一行。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-success">
+        <strong>關鍵規則：</strong>總是<strong>由下往上</strong>閱讀追蹤回溯。最後一行告訴你<em>出了什麼</em>問題，上面的行告訴你<em>在哪裡</em>出了問題。
+      </div>
+
+      <h3>閱讀追蹤回溯的技巧</h3>
+
+      <ul>
+        <li><strong>從底部開始。</strong>錯誤型別和訊息在最後一行。</li>
+        <li><strong>找到最後一個屬於你的程式碼的檔案/行參考。</strong>忽略你沒有撰寫的函式庫檔案中的行。</li>
+        <li><strong>閱讀顯示的程式碼片段。</strong>Python 為你印出了出錯的那一行。</li>
+        <li><strong>檢查行號。</strong>開啟你的檔案，直接跳到那一行。</li>
+        <li><strong>有時真正的錯誤在上一行。</strong>第 5 行缺少冒號或括號可能導致第 6 行報告錯誤。</li>
+      </ul>
+
+      <!-- ============================================================ -->
+      <!--  通用除錯策略                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="debugging-strategy">2. 通用除錯策略</h2>
+
+      <p>
+        當你遇到錯誤時，不要隨意修改。
+        相反地，遵循這個系統化的 5 步驟方法：
+      </p>
+
+      <h3>步驟 1：閱讀錯誤訊息</h3>
+      <p>
+        這聽起來很明顯，但大多數初學者會跳過它。錯誤訊息
+        幾乎總是準確地告訴你出了什麼問題。閱讀整個追蹤回溯，
+        從底部開始。
+      </p>
+
+      <h3>步驟 2：找到確切的行</h3>
+      <p>
+        追蹤回溯告訴你哪個檔案和行號導致了錯誤。
+        轉到那一行。記住真正的問題可能在報告行的
+        <em>上一行</em>（特別是對於語法錯誤）。
+      </p>
+
+      <h3>步驟 3：用最小範例重現</h3>
+      <p>
+        如果程式碼很複雜，嘗試隔離問題。建立一個能
+        重現相同錯誤的小腳本。這幫助你理解
+        根本原因而不受干擾。
+      </p>
+
+      <h3>步驟 4：加入 print 語句</h3>
+      <p>
+        當你不確定變數包含什麼時，在錯誤行之前加入
+        <code>print()</code> 呼叫來檢查值和型別：
+      </p>
+
+      <pre><code># 除錯：在錯誤之前 x 是什麼？
+print(f"x = {x}, type = {type(x)}")
+result = x + 10  # 這行失敗</code></pre>
+
+      <h3>步驟 5：搜尋錯誤訊息</h3>
+      <p>
+        如果你仍然無法弄清楚，複製錯誤訊息並在網上搜尋。
+        像 Stack Overflow 這樣的網站幾乎有你會遇到的
+        每個 Python 錯誤的答案。在搜尋中包含錯誤型別，
+        例如：<em>"TypeError unsupported operand type str int
+        python"</em>。
+      </p>
+
+      <div class="callout callout-info">
+        <strong>專家提示：</strong>隨著你獲得經驗，步驟 1 和 2 就足以
+        解決 90% 的錯誤。除錯過程很快就會變成第二天性。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  快速參考表                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="quick-reference">3. 快速參考表</h2>
+
+      <p>
+        使用此表快速識別錯誤並跳轉到其詳細
+        說明。
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>錯誤</th>
+            <th>一句話描述</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#syntax-error-invalid"><code>SyntaxError: invalid syntax</code></a></td>
+            <td>缺少冒號、括號或引號 &mdash; Python 無法解析你的程式碼。</td>
+          </tr>
+          <tr>
+            <td><a href="#syntax-error-eof"><code>SyntaxError: unexpected EOF</code></a></td>
+            <td>程式碼在區塊或運算式完成之前就結束了。</td>
+          </tr>
+          <tr>
+            <td><a href="#indentation-expected"><code>IndentationError: expected an indented block</code></a></td>
+            <td>冒號後面沒有縮排的程式碼。</td>
+          </tr>
+          <tr>
+            <td><a href="#indentation-unexpected"><code>IndentationError: unexpected indent</code></a></td>
+            <td>某行的縮排比預期的多。</td>
+          </tr>
+          <tr>
+            <td><a href="#name-error"><code>NameError: name 'x' is not defined</code></a></td>
+            <td>使用了尚未建立的變數，或名稱中有打字錯誤。</td>
+          </tr>
+          <tr>
+            <td><a href="#type-error-operand"><code>TypeError: unsupported operand type(s)</code></a></td>
+            <td>嘗試對不相容的型別執行操作（例如，字串 + 整數）。</td>
+          </tr>
+          <tr>
+            <td><a href="#type-error-subscriptable"><code>TypeError: 'type' object is not subscriptable</code></a></td>
+            <td>對型別名稱使用方括號而不是呼叫它。</td>
+          </tr>
+          <tr>
+            <td><a href="#type-error-arguments"><code>TypeError: takes X arguments but Y given</code></a></td>
+            <td>用錯誤的引數數量呼叫函式。</td>
+          </tr>
+          <tr>
+            <td><a href="#value-error"><code>ValueError: invalid literal for int()</code></a></td>
+            <td>嘗試將非數字的字串轉換為數字。</td>
+          </tr>
+          <tr>
+            <td><a href="#index-error"><code>IndexError: list index out of range</code></a></td>
+            <td>存取不存在的串列位置。</td>
+          </tr>
+          <tr>
+            <td><a href="#key-error"><code>KeyError</code></a></td>
+            <td>存取不存在的字典鍵。</td>
+          </tr>
+          <tr>
+            <td><a href="#attribute-error"><code>AttributeError</code></a></td>
+            <td>呼叫物件沒有的方法或屬性。</td>
+          </tr>
+          <tr>
+            <td><a href="#file-not-found"><code>FileNotFoundError</code></a></td>
+            <td>嘗試開啟給定路徑不存在的檔案。</td>
+          </tr>
+          <tr>
+            <td><a href="#zero-division"><code>ZeroDivisionError</code></a></td>
+            <td>除以零。</td>
+          </tr>
+          <tr>
+            <td><a href="#module-not-found"><code>ModuleNotFoundError</code></a></td>
+            <td>匯入未安裝的模組。</td>
+          </tr>
+          <tr>
+            <td><a href="#import-error"><code>ImportError</code></a></td>
+            <td>匯入模組中不存在的名稱。</td>
+          </tr>
+          <tr>
+            <td><a href="#unbound-local"><code>UnboundLocalError</code></a></td>
+            <td>在函式內部賦值之前讀取局部變數。</td>
+          </tr>
+          <tr>
+            <td><a href="#recursion-error"><code>RecursionError</code></a></td>
+            <td>函式永遠不停地呼叫自己。</td>
+          </tr>
+          <tr>
+            <td><a href="#stop-iteration"><code>StopIteration</code></a></td>
+            <td>對沒有更多項目的迭代器呼叫 <code>next()</code>。</td>
+          </tr>
+          <tr>
+            <td><a href="#permission-error"><code>PermissionError</code></a></td>
+            <td>嘗試讀取/寫入你沒有權限存取的檔案。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 1: SyntaxError: invalid syntax                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="syntax-error-invalid">4. SyntaxError: invalid syntax</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>SyntaxError: invalid syntax</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        Python 嘗試讀取你的程式碼但發現了它不理解的東西。
+        你的程式碼違反了 Python 語言的語法規則。這就像
+        英文中的語法錯誤 &mdash; 句子對直譯器來說沒有意義。
+      </p>
+
+      <h3>常見原因和修正</h3>
+
+      <h4>原因 1：<code>if</code>、<code>for</code>、<code>def</code> 等後面缺少冒號</h4>
+
+      <pre><code># 錯誤 — 缺少冒號
+if x > 10
+    print("big")
+
+# 正確
+if x > 10:
+    print("big")</code></pre>
+
+      <h4>原因 2：缺少或不匹配的括號</h4>
+
+      <pre><code># 錯誤 — 缺少右括號
+print("Hello"
+
+# 正確
+print("Hello")</code></pre>
+
+      <h4>原因 3：缺少或不匹配的引號</h4>
+
+      <pre><code># 錯誤 — 有左引號但沒有右引號
+message = "Hello world
+
+# 正確
+message = "Hello world"</code></pre>
+
+      <h4>原因 4：在條件中使用 <code>=</code> 而不是 <code>==</code></h4>
+
+      <pre><code># 錯誤 — 條件中的賦值
+if x = 5:
+    print("five")
+
+# 正確 — 比較
+if x == 5:
+    print("five")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>查看錯誤訊息中的行號。檢查是否缺少冒號、不匹配的括號、不匹配的引號或打字錯誤。有時真正的問題在報告行的<em>上一行</em>。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>使用有語法高亮的程式碼編輯器。當有東西出問題時，它會用不同的顏色來顯示不匹配的括號和引號。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 2: SyntaxError: unexpected EOF while parsing            -->
+      <!-- ============================================================ -->
+
+      <h2 id="syntax-error-eof">5. SyntaxError: unexpected EOF while parsing</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>SyntaxError: unexpected EOF while parsing</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        「EOF」代表「End Of File（檔案結尾）」。Python 在仍然期待更多內容時到達了程式碼的結尾。某些東西不完整 &mdash; 一個沒有關閉的括號、沒有程式碼的函式本體，或一個空的區塊。
+      </p>
+
+      <h3>常見原因和修正</h3>
+
+      <h4>原因 1：空的程式碼區塊</h4>
+
+      <pre><code># 錯誤 — 空的 if 區塊
+if x > 10:
+
+# 正確 — 使用 pass 作為佔位符
+if x > 10:
+    pass</code></pre>
+
+      <h4>原因 2：未關閉的括號、方括號或大括號</h4>
+
+      <pre><code># 錯誤 — 缺少右方括號
+numbers = [1, 2, 3
+
+# 正確
+numbers = [1, 2, 3]</code></pre>
+
+      <h4>原因 3：不完整的函式定義</h4>
+
+      <pre><code># 錯誤 — 函式本體缺失
+def greet(name):
+
+# 正確
+def greet(name):
+    print(f"Hello, {name}!")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>檢查你是否有空的程式碼區塊（加入 <code>pass</code> 作為佔位符）、未關閉的括號，或檔案結尾處不完整的語句。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>當你輸入左括號時，立即也輸入右括號，然後將游標移回中間填入內容。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 3: IndentationError: expected an indented block         -->
+      <!-- ============================================================ -->
+
+      <h2 id="indentation-expected">6. IndentationError: expected an indented block</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>IndentationError: expected an indented block</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        在冒號（<code>:</code>）之後 &mdash; 例如 <code>if</code>、<code>for</code>、<code>def</code> 或 <code>class</code> 之後 &mdash; Python 期待至少一行縮排的程式碼。你要麼忘記縮排，要麼讓區塊留空了。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 冒號後沒有縮排的區塊
+def say_hello():
+print("Hello!")   # 這行沒有縮排</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 正確 — 縮排函式的本體
+def say_hello():
+    print("Hello!")</code></pre>
+
+      <pre><code># 如果你還沒有程式碼，使用 pass
+def say_hello():
+    pass  # 佔位符 — 稍後會加入程式碼</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>將冒號後的行縮排 4 個空格。如果你故意要一個空區塊，使用 <code>pass</code>。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>設定你的編輯器在按 Tab 時插入 4 個空格。輸入冒號並按 Enter 後，大多數編輯器會自動縮排。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 4: IndentationError: unexpected indent                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="indentation-unexpected">7. IndentationError: unexpected indent</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>IndentationError: unexpected indent</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        某行的縮排比 Python 預期的多。這通常發生在你不小心多加了空格或混用了 tab 和空格時。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 第二個 print 有多餘的縮排
+name = "Alice"
+    print(name)   # IndentationError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 正確 — 兩行在同一縮排層級
+name = "Alice"
+print(name)</code></pre>
+
+      <pre><code># 另一個常見情況：區塊內不一致的縮排
+if True:
+    print("A")
+        print("B")   # 錯誤 — 縮排太多
+
+# 正確
+if True:
+    print("A")
+    print("B")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>確保同一邏輯層級的所有行有完全相同的縮排。移除多餘的空格或修正 tab/空格的混用。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>在編輯器中啟用「顯示空白字元」，這樣你就能看到你是用 tab 還是空格。只使用空格（每層 4 個），永遠不要混用 tab 和空格。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 5: NameError                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="name-error">8. NameError: name 'x' is not defined</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>NameError: name 'x' is not defined</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試使用 Python 從未聽過的變數、函式或名稱。要麼你還沒有建立它、你打了錯字，或它定義在不同的作用域中。
+      </p>
+
+      <h3>常見原因和修正</h3>
+
+      <h4>原因 1：變數名稱打字錯誤</h4>
+
+      <pre><code># 錯誤 — 打字錯誤："mesage" 而不是 "message"
+message = "Hello"
+print(mesage)   # NameError: name 'mesage' is not defined
+
+# 正確
+message = "Hello"
+print(message)</code></pre>
+
+      <h4>原因 2：在賦值之前使用變數</h4>
+
+      <pre><code># 錯誤 — 在 total 存在之前使用它
+print(total)   # NameError
+total = 100
+
+# 正確 — 先賦值，再使用
+total = 100
+print(total)</code></pre>
+
+      <h4>原因 3：忘記匯入模組</h4>
+
+      <pre><code># 錯誤 — math 從未被匯入
+result = math.sqrt(16)   # NameError: name 'math' is not defined
+
+# 正確
+import math
+result = math.sqrt(16)</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>仔細檢查拼寫。確保變數在使用它的行<em>之前</em>被賦值。如果它來自模組，確保你有 <code>import</code> 語句。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>使用描述性但一致的變數名稱。有自動完成功能的程式碼編輯器會通過建議你已經定義的名稱來幫助你避免打字錯誤。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 6: TypeError: unsupported operand type(s)               -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-error-operand">9. TypeError: unsupported operand type(s)</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>TypeError: unsupported operand type(s) for +: 'str' and 'int'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試在 Python 不知道如何組合的兩個型別之間執行操作（如 <code>+</code>、<code>-</code>、<code>*</code>）。最常見的情況是嘗試將字串和數字相加。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 不能直接將字串和整數相加
+age = 25
+message = "I am " + age + " years old"   # TypeError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 修正 1：將數字轉換為字串
+age = 25
+message = "I am " + str(age) + " years old"
+
+# 修正 2：使用 f-string（推薦）
+age = 25
+message = f"I am {age} years old"
+
+# 修正 3：使用 format()
+age = 25
+message = "I am {} years old".format(age)</code></pre>
+
+      <h3>另一個常見情況：字串乘以浮點數</h3>
+
+      <pre><code># 錯誤
+print("ha" * 2.5)   # TypeError: can't multiply str by non-int
+
+# 正確
+print("ha" * 2)     # 輸出：haha</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>在組合之前將值轉換為相容的型別。使用 <code>str()</code> 將數字轉為字串，或 <code>int()</code> / <code>float()</code> 將字串轉為數字。更好的是，使用 f-string 來建構訊息。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>當組合文字和數字時，總是使用 f-string：<code>f"The answer is {value}"</code>。這會自動為你處理轉換。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 7: TypeError: 'type' object is not subscriptable        -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-error-subscriptable">10. TypeError: 'type' object is not subscriptable</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>TypeError: 'list' object is not callable</code> 或
+        <code>TypeError: 'type' object is not subscriptable</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你混淆了 <code>()</code>（括號，用於呼叫函式）和 <code>[]</code>（方括號，用於索引）。或者你對型別名稱如 <code>list</code> 使用了方括號而不是先建立實例。
+      </p>
+
+      <h3>常見原因和修正</h3>
+
+      <h4>原因 1：用括號來索引串列</h4>
+
+      <pre><code># 錯誤 — 使用 () 而不是 []
+fruits = ["apple", "banana", "cherry"]
+print(fruits(0))   # TypeError: 'list' object is not callable
+
+# 正確 — 使用方括號進行索引
+print(fruits[0])   # 輸出：apple</code></pre>
+
+      <h4>原因 2：變數名稱和內建型別同名</h4>
+
+      <pre><code># 錯誤 — 覆蓋了內建的 'list' 名稱
+list = [1, 2, 3]
+new_list = list([4, 5, 6])   # TypeError: 'list' object is not callable
+
+# 正確 — 不要用內建名稱作為變數名稱
+numbers = [1, 2, 3]
+new_list = list([4, 5, 6])   # 正常運作</code></pre>
+
+      <h4>原因 3：在舊版 Python 中對型別名稱使用方括號</h4>
+
+      <pre><code># 在 Python 3.8 及更早版本中，這會失敗：
+def greet(names: list[str]):   # Python < 3.9 中的 TypeError
+    pass
+
+# 舊版 Python 的修正：使用 typing 模組
+from typing import List
+def greet(names: List[str]):
+    pass</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>使用 <code>[]</code> 來索引集合，使用 <code>()</code> 來呼叫函式。避免將變數命名為 <code>list</code>、<code>dict</code>、<code>str</code>、<code>int</code> 或任何其他內建名稱。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>永遠不要將變數命名為和 Python 內建名稱相同。使用描述性名稱如 <code>numbers</code>、<code>names</code> 或 <code>items</code> 而不是 <code>list</code>。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 8: TypeError: function takes X arguments                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="type-error-arguments">11. TypeError: function takes X positional arguments but Y were given</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>TypeError: greet() takes 1 positional argument but 2 were given</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你用和函式期望的不同數量的引數來呼叫函式。你傳了太多或太少的值。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 函式期望 1 個引數
+def greet(name):
+    print(f"Hello, {name}!")
+
+# 錯誤 — 傳了 2 個引數
+greet("Alice", "Bob")   # TypeError: takes 1 but 2 given
+
+# 錯誤 — 傳了 0 個引數
+greet()   # TypeError: missing 1 required argument</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 正確 — 傳入確切的引數數量
+greet("Alice")   # 輸出：Hello, Alice!
+
+# 如果你需要接受可變引數，使用預設值或 *args
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+greet("Alice")              # 使用預設值：Hello, Alice!
+greet("Alice", "Hi there")  # 自訂：Hi there, Alice!</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>檢查函式定義看它期望多少個參數。讓你的函式呼叫匹配那個數量。如果你想要可選引數，使用預設參數值。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>在編輯器中將游標懸停在函式上（或按 Ctrl+點擊）來查看其簽名和參數列表，然後再呼叫它。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 9: ValueError                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="value-error">12. ValueError: invalid literal for int()</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>ValueError: invalid literal for int() with base 10: 'hello'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試將字串轉換為整數（或浮點數），但字串不包含有效的數字。Python 無法將 <code>"hello"</code> 或 <code>"12.5"</code> 轉換為 <code>int</code>。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — "hello" 不是數字
+number = int("hello")   # ValueError!
+
+# 錯誤 — "12.5" 有小數點，不能直接轉換為 int
+number = int("12.5")    # ValueError!
+
+# 錯誤 — 空字串
+number = int("")         # ValueError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 正確 — 轉換有效的數字字串
+number = int("42")       # 有效：42
+
+# 對於有小數的字串，先轉換為 float
+number = int(float("12.5"))   # 有效：12
+
+# 在轉換之前驗證使用者輸入
+user_input = input("Enter a number: ")
+if user_input.isdigit():
+    number = int(user_input)
+else:
+    print("That's not a valid number!")
+
+# 或使用 try/except 進行穩健處理
+try:
+    number = int(user_input)
+except ValueError:
+    print("Please enter a valid whole number.")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>在轉換字串為數字之前總是驗證它們。使用 <code>.isdigit()</code> 進行簡單檢查，或使用 <code>try</code>/<code>except ValueError</code> 進行穩健處理。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>每當你將使用者輸入轉換為數字時，都包在 <code>try</code>/<code>except</code> 區塊中。使用者會輸入意想不到的東西。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 10: IndexError                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="index-error">13. IndexError: list index out of range</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>IndexError: list index out of range</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試存取串列中不存在的位置的元素。記住：Python 使用<strong>零基索引</strong>，所以有 3 個項目的串列有效索引是 0、1 和 2（不是 3）。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]   # 索引：0、1、2
+
+# 錯誤 — 索引 3 不存在（只有 0、1、2）
+print(colors[3])    # IndexError!
+
+# 錯誤 — 直接用 len() 作為索引
+print(colors[len(colors)])   # IndexError！len 是 3，但最大索引是 2
+
+# 錯誤 — 存取空串列
+empty = []
+print(empty[0])   # IndexError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]
+
+# 正確 — 使用有效索引
+print(colors[0])    # red
+print(colors[2])    # blue
+print(colors[-1])   # blue（最後一個項目）
+
+# 正確 — 先檢查長度
+index = 5
+if index &lt; len(colors):
+    print(colors[index])
+else:
+    print(f"Index {index} is out of range (list has {len(colors)} items)")
+
+# 正確 — 使用 try/except
+try:
+    print(colors[10])
+except IndexError:
+    print("That index doesn't exist!")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>檢查你的索引小於 <code>len(list)</code>。記住最後一個有效索引是 <code>len(list) - 1</code>。使用負索引（<code>list[-1]</code>）來安全地存取最後一個元素。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>迴圈時使用 <code>for item in list</code> 而不是 <code>for i in range(len(list))</code>。前者永遠不會引起 IndexError。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 11: KeyError                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="key-error">14. KeyError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>KeyError: 'age'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試存取不存在的字典鍵。與串列（使用數字索引）不同，字典使用命名的鍵 &mdash; 如果鍵不在那裡，Python 會引發 <code>KeyError</code>。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code>person = {"name": "Alice", "city": "London"}
+
+# 錯誤 — "age" 不是這個字典中的鍵
+print(person["age"])   # KeyError: 'age'</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code>person = {"name": "Alice", "city": "London"}
+
+# 修正 1：使用 .get() — 鍵不存在時回傳 None（或預設值）
+age = person.get("age")          # 回傳 None
+age = person.get("age", "N/A")   # 回傳 "N/A"
+
+# 修正 2：先檢查鍵是否存在
+if "age" in person:
+    print(person["age"])
+else:
+    print("Age not found")
+
+# 修正 3：使用 try/except
+try:
+    print(person["age"])
+except KeyError:
+    print("Age not found")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>當鍵可能不存在時，使用 <code>.get(key, default)</code> 而不是 <code>[key]</code>。這是最 Pythonic 的做法，能防止程式崩潰。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>讓 <code>.get()</code> 成為你存取字典值的預設方式。只有在你 100% 確定鍵存在時才使用 <code>[key]</code>。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 12: AttributeError                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="attribute-error">15. AttributeError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>AttributeError: 'str' object has no attribute 'append'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試呼叫物件型別上不存在的方法或存取不存在的屬性。例如，字串沒有 <code>.append()</code> 方法 &mdash; 那屬於串列。
+      </p>
+
+      <h3>常見原因和修正</h3>
+
+      <h4>原因 1：對該型別使用了錯誤的方法</h4>
+
+      <pre><code># 錯誤 — 字串沒有 .append()
+name = "Alice"
+name.append(" Smith")   # AttributeError!
+
+# 正確 — 使用字串串接或 f-string
+name = "Alice"
+name = name + " Smith"
+# 或：name = f"{name} Smith"</code></pre>
+
+      <h4>原因 2：方法名稱拼寫錯誤</h4>
+
+      <pre><code># 錯誤 — 打字錯誤："uper" 而不是 "upper"
+text = "hello"
+print(text.uper())   # AttributeError: 'str' has no attribute 'uper'
+
+# 正確
+print(text.upper())   # HELLO</code></pre>
+
+      <h4>原因 3：變數是 None 但你期望別的東西</h4>
+
+      <pre><code># 錯誤 — sort() 回傳 None，不是排序後的串列
+numbers = [3, 1, 2]
+sorted_numbers = numbers.sort()   # sort() 回傳 None！
+print(sorted_numbers.reverse())   # AttributeError: 'NoneType' has no attribute 'reverse'
+
+# 正確 — sort() 就地修改，或使用 sorted()
+numbers = [3, 1, 2]
+numbers.sort()
+print(numbers)   # [1, 2, 3]
+
+# 或使用 sorted() 來取得新串列
+sorted_numbers = sorted([3, 1, 2])
+print(sorted_numbers)   # [1, 2, 3]</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>用 <code>type(variable)</code> 檢查你的變數實際上是什麼型別，然後查找該型別的正確方法。注意回傳 <code>None</code> 的方法（如 <code>.sort()</code> 和 <code>.append()</code>）。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>在 Python shell 中使用 <code>dir(object)</code> 查看任何物件的所有可用方法。例如，<code>dir("hello")</code> 顯示所有字串方法。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 13: FileNotFoundError                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="file-not-found">16. FileNotFoundError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>FileNotFoundError: [Errno 2] No such file or directory: 'data.txt'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試開啟或讀取在你指定路徑不存在的檔案。要麼檔案名稱錯了、檔案在不同的資料夾中，或它從未被建立。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 這個路徑的檔案不存在
+with open("data.txt", "r") as f:
+    content = f.read()   # FileNotFoundError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code>import os
+
+# 修正 1：先檢查檔案是否存在
+if os.path.exists("data.txt"):
+    with open("data.txt", "r") as f:
+        content = f.read()
+else:
+    print("File not found!")
+
+# 修正 2：使用 try/except
+try:
+    with open("data.txt", "r") as f:
+        content = f.read()
+except FileNotFoundError:
+    print("File 'data.txt' not found. Check the path.")
+
+# 修正 3：使用完整的絕對路徑以明確表示
+with open("/Users/alice/projects/data.txt", "r") as f:
+    content = f.read()</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>仔細檢查檔案路徑和名稱（拼寫、大小寫、副檔名）。使用 <code>os.path.exists()</code> 在開啟前驗證檔案是否存在，或使用 <code>try</code>/<code>except</code>。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>用 <code>os.getcwd()</code> 印出當前工作目錄，以了解 Python 在哪裡尋找檔案。不確定時使用絕對路徑。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 14: ZeroDivisionError                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="zero-division">17. ZeroDivisionError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>ZeroDivisionError: division by zero</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你把一個數字除以零。這在數學上是未定義的，Python 拒絕執行。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 除以零
+result = 10 / 0   # ZeroDivisionError!
+
+# 錯誤 — 變數也可能這樣
+total = 100
+count = 0
+average = total / count   # ZeroDivisionError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 修正 1：除之前先檢查
+total = 100
+count = 0
+
+if count != 0:
+    average = total / count
+else:
+    average = 0   # 或按合理的方式處理
+    print("Cannot compute average: no items")
+
+# 修正 2：使用 try/except
+try:
+    average = total / count
+except ZeroDivisionError:
+    average = 0
+    print("Warning: divided by zero, defaulting to 0")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>在除法之前總是檢查除數不為零。當除數來自使用者輸入、計算結果或串列長度時尤其重要。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>每當你除以一個變數（不是字面數字）時，問自己：「這可能為零嗎？」如果可能，加一個檢查。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 15: ModuleNotFoundError                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="module-not-found">18. ModuleNotFoundError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>ModuleNotFoundError: No module named 'pandas'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試匯入 Python 找不到的模組。要麼套件未安裝、你拼錯了名稱，或你使用的 Python 環境和安裝套件的環境不同。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — pandas 未安裝
+import pandas   # ModuleNotFoundError!
+
+# 錯誤 — 模組名稱打字錯誤
+import numpyy   # ModuleNotFoundError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 修正 1：安裝缺少的模組
+# 在你的終端機中（不是在 Python 中）：
+# pip install pandas
+
+# 修正 2：檢查拼寫
+import numpy   # 不是 "numpyy"
+
+# 修正 3：檢查你使用的 Python 版本
+# 在你的終端機中：
+# python --version
+# pip list   （顯示所有已安裝的套件）</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>在終端機中使用 <code>pip install module_name</code> 安裝模組。驗證正確的拼寫。確保你使用的是安裝套件的同一個 Python 環境。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>追蹤你專案的依賴。使用 <code>pip list</code> 查看已安裝的套件，使用 <code>pip freeze &gt; requirements.txt</code> 儲存清單。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 16: ImportError                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="import-error">19. ImportError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>ImportError: cannot import name 'Calculator' from 'math'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        模組存在，但你嘗試從中匯入的特定名稱不存在。你可能拼錯了函式或類別名稱，或你從錯誤的模組匯入。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — math 模組中不存在 'Calculator'
+from math import Calculator   # ImportError!
+
+# 錯誤 — 函式名稱拼寫錯誤
+from math import squareroot   # ImportError!</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 正確 — 使用正確的名稱
+from math import sqrt
+print(sqrt(16))   # 4.0
+
+# 檢查模組中有哪些可用的名稱
+import math
+print(dir(math))   # 列出模組中的所有名稱</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>查看模組的文件以取得正確的名稱。使用 <code>dir(module)</code> 查看所有可用的名稱。精確驗證拼寫。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>在輸入 <code>from module import</code> 後使用編輯器的自動完成 &mdash; 它會顯示實際可用的名稱。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 17: UnboundLocalError                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="unbound-local">20. UnboundLocalError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>UnboundLocalError: cannot access local variable 'count' where it is not associated with a value</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        在函式內部，你嘗試在賦值之前讀取一個變數。這通常發生在你有一個全域變數並嘗試在函式內修改它而沒有使用 <code>global</code> 關鍵字時。Python 看到賦值就把變數當作局部的 &mdash; 但你在賦值執行之前就嘗試讀取它。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code>count = 0   # 全域變數
+
+def increment():
+    count = count + 1   # UnboundLocalError!
+    # Python 看到 "count = ..." 就把 count 當作局部變數。
+    # 但 "count + 1" 嘗試讀取還不存在的局部 count。
+
+increment()</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 修正 1：使用 global 關鍵字（謹慎使用）
+count = 0
+
+def increment():
+    global count
+    count = count + 1
+
+increment()
+print(count)   # 1
+
+# 修正 2（更好）：將值作為參數傳入並回傳新值
+def increment(current_count):
+    return current_count + 1
+
+count = 0
+count = increment(count)
+print(count)   # 1</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>在函式頂部使用 <code>global variable_name</code>（大型程式不推薦），或將變數作為參數傳入並回傳新值（推薦）。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>避免在函式內修改全域變數。改為透過參數傳入值並回傳結果。這讓你的程式碼更容易理解和除錯。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 18: RecursionError                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="recursion-error">21. RecursionError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>RecursionError: maximum recursion depth exceeded</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        一個函式不斷地呼叫自己。Python 有一個安全限制（通常是 1000 次深度）以防止你的程式讓電腦當機。當遞迴函式沒有適當的停止條件（稱為「基礎情況」）時，就會觸發這個錯誤。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 沒有基礎情況，永遠呼叫自己
+def countdown(n):
+    print(n)
+    countdown(n - 1)   # 永遠不停！
+
+countdown(5)   # 約 1000 次呼叫後 RecursionError</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 正確 — 加入基礎情況來停止遞迴
+def countdown(n):
+    if n &lt;= 0:       # 基礎情況：n 到 0 時停止
+        print("Done!")
+        return
+    print(n)
+    countdown(n - 1)
+
+countdown(5)
+# 輸出：5 4 3 2 1 Done!</code></pre>
+
+      <h3>另一個範例：階乘</h3>
+
+      <pre><code># 錯誤 — 缺少基礎情況
+def factorial(n):
+    return n * factorial(n - 1)   # 永遠不停！
+
+# 正確 — 有基礎情況
+def factorial(n):
+    if n &lt;= 1:       # 基礎情況
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))   # 120</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>每個遞迴函式必須有一個<strong>基礎情況</strong> &mdash; 讓函式不再呼叫自己而直接回傳的條件。確保遞迴呼叫朝向那個基礎情況前進。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>在撰寫遞迴函式之前，定義兩件事：(1) 基礎情況（什麼時候應該停止？），以及 (2) 每次遞迴呼叫如何更接近基礎情況。如果有疑問，改用迴圈。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 19: StopIteration                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="stop-iteration">22. StopIteration</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>StopIteration</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你對一個沒有更多項目可以提供的迭代器呼叫了 <code>next()</code>。迭代器在你走過所有元素後就「用完了」。在最後一個項目之後再呼叫 <code>next()</code> 會引發 <code>StopIteration</code>。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code>numbers = iter([10, 20])   # 建立有 2 個項目的迭代器
+
+print(next(numbers))   # 10
+print(next(numbers))   # 20
+print(next(numbers))   # StopIteration — 沒有更多項目了！</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 修正 1：改用 for 迴圈 — 它自動處理 StopIteration
+numbers = iter([10, 20])
+for num in numbers:
+    print(num)
+# 輸出：10、20（沒有錯誤）
+
+# 修正 2：為 next() 提供預設值
+numbers = iter([10, 20])
+print(next(numbers, "done"))   # 10
+print(next(numbers, "done"))   # 20
+print(next(numbers, "done"))   # "done"（沒有錯誤）
+
+# 修正 3：使用 try/except
+numbers = iter([10, 20])
+try:
+    while True:
+        print(next(numbers))
+except StopIteration:
+    print("All items processed")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>使用 <code>for</code> 迴圈來安全迭代（它自動處理 <code>StopIteration</code>）。如果你必須手動使用 <code>next()</code>，提供預設值：<code>next(iterator, default)</code>。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>作為初學者，偏好使用 <code>for</code> 迴圈而不是手動呼叫 <code>next()</code>。在日常程式碼中你幾乎不需要直接呼叫 <code>next()</code>。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  錯誤 20: PermissionError                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="permission-error">23. PermissionError</h2>
+
+      <div class="callout callout-danger">
+        <strong>錯誤訊息：</strong>
+        <code>PermissionError: [Errno 13] Permission denied: '/etc/config.txt'</code>
+      </div>
+
+      <h3>它的意思</h3>
+      <p>
+        你嘗試讀取、寫入或刪除檔案，但你的使用者帳號沒有權限這麼做。這通常發生在嘗試寫入系統目錄、存取其他使用者擁有的檔案，或嘗試修改唯讀檔案時。
+      </p>
+
+      <h3>導致錯誤的程式碼</h3>
+
+      <pre><code># 錯誤 — 嘗試寫入受保護的系統目錄
+with open("/etc/my_config.txt", "w") as f:
+    f.write("data")   # PermissionError!
+
+# 錯誤 — 嘗試覆寫唯讀檔案
+with open("readonly_file.txt", "w") as f:
+    f.write("new data")   # 如果檔案是唯讀的則 PermissionError</code></pre>
+
+      <h3>如何修正</h3>
+
+      <pre><code># 修正 1：寫入你有權限的目錄
+with open("my_config.txt", "w") as f:   # 當前目錄，不是 /etc/
+    f.write("data")
+
+# 修正 2：優雅地處理錯誤
+try:
+    with open("output.txt", "w") as f:
+        f.write("data")
+except PermissionError:
+    print("Cannot write to that file. Check your permissions.")
+
+# 修正 3：在嘗試之前檢查檔案是否可寫
+import os
+filepath = "output.txt"
+if os.access(filepath, os.W_OK):
+    with open(filepath, "w") as f:
+        f.write("data")
+else:
+    print(f"No write permission for {filepath}")</code></pre>
+
+      <div class="callout callout-success">
+        <strong>如何修正：</strong>將檔案寫入你自己的目錄（如你的主目錄或專案資料夾）。使用 <code>try</code>/<code>except PermissionError</code> 來處理權限不確定的情況。在 Linux/Mac 上，你可能需要用 <code>chmod</code> 更改檔案權限。
+      </div>
+
+      <p>
+        <strong>避免技巧：</strong>總是寫入你控制的位置 &mdash; 你的專案資料夾或專用的輸出目錄。除非你確定有權限，否則避免寫入系統目錄。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  額外：錯誤處理模式                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="error-handling-patterns">24. 整合運用：錯誤處理模式</h2>
+
+      <p>
+        現在你知道了常見的錯誤，以下是在實際程式碼中
+        優雅處理它們的模式。
+      </p>
+
+      <h3>模式 1：基本的 try/except</h3>
+
+      <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+    result = 0</code></pre>
+
+      <h3>模式 2：捕獲多個錯誤</h3>
+
+      <pre><code>try:
+    value = int(input("Enter a number: "))
+    result = 100 / value
+except ValueError:
+    print("That's not a valid number!")
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+except Exception as e:
+    print(f"Unexpected error: {e}")</code></pre>
+
+      <h3>模式 3：使用 else 和 finally</h3>
+
+      <pre><code>try:
+    f = open("data.txt", "r")
+except FileNotFoundError:
+    print("File not found!")
+else:
+    # 只在沒有引發例外時執行
+    content = f.read()
+    print(f"Read {len(content)} characters")
+    f.close()
+finally:
+    # 總是執行，不管有沒有例外
+    print("File operation complete")</code></pre>
+
+      <h3>模式 4：帶預設值的安全字典存取</h3>
+
+      <pre><code>config = {"debug": True, "port": 8080}
+
+# 不冒 KeyError 的風險：
+host = config.get("host", "localhost")    # 回傳 "localhost"
+port = config.get("port", 3000)           # 回傳 8080（鍵存在）
+print(f"Server: {host}:{port}")</code></pre>
+
+      <h3>模式 5：安全的串列存取</h3>
+
+      <pre><code>def safe_get(lst, index, default=None):
+    """安全地按索引從串列中取得項目。"""
+    try:
+        return lst[index]
+    except IndexError:
+        return default
+
+scores = [85, 92, 78]
+print(safe_get(scores, 0))     # 85
+print(safe_get(scores, 10))    # None
+print(safe_get(scores, 10, 0)) # 0</code></pre>
+
+      <div class="callout callout-info">
+        <strong>記住：</strong>錯誤處理不是防止錯誤永遠不發生 &mdash; 而是在錯誤發生時優雅地處理它們。你的程式應該提供有用的錯誤資訊，而不是安靜地或神秘地崩潰。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <ul>
+        <li><strong>由下往上閱讀追蹤回溯</strong> &mdash; 最後一行告訴你<em>出了什麼</em>問題，上面的行告訴你<em>在哪裡</em>。</li>
+        <li><strong>SyntaxError 和 IndentationError</strong> 表示你的程式碼甚至無法被解析 &mdash; 檢查冒號、括號、引號和空格。</li>
+        <li><strong>NameError</strong> 通常表示打字錯誤或缺少匯入。</li>
+        <li><strong>TypeError</strong> 表示你混合了不相容的型別或傳了錯誤的引數數量。</li>
+        <li><strong>ValueError</strong> 表示值的類型不對（例如，將 "hello" 轉換為 int）。</li>
+        <li><strong>IndexError 和 KeyError</strong> 表示你存取了不存在的東西 &mdash; 字典用 <code>.get()</code>，串列檢查 <code>len()</code>。</li>
+        <li><strong>AttributeError</strong> 表示你呼叫了該型別上不存在的方法 &mdash; 用 <code>type()</code> 檢查型別。</li>
+        <li><strong>FileNotFoundError 和 PermissionError</strong> 是檔案系統問題 &mdash; 檢查路徑和權限。</li>
+        <li><strong>使用 try/except</strong> 在生產程式碼中優雅地處理錯誤。</li>
+        <li><strong>不確定時</strong>，加入 <code>print()</code> 語句來檢查變數的值和型別。</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>錯誤是你的朋友，不是敵人。</strong>每個錯誤訊息都是 Python 在嘗試幫助你。你遇到和修正的錯誤越多，你學得越快。不要害怕紅色的文字 &mdash; 閱讀它、理解它、修正它，然後繼續前進。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                     -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="best-practices.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">最佳實踐</span></a>
+        <a href="cheatsheet.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">速查表</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

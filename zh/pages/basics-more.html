@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>更多內建功能 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="Toggle navigation">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-more.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="Search">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link active">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python 基礎</a><span class="sep">&rsaquo;</span>
+        更多內建功能
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  章節 C — 更多內建功能                                         -->
+      <!-- ============================================================ -->
+
+      <h1>更多內建功能</h1>
+      <p class="page-subtitle">
+        透過每個 Python 程式設計師每天都會使用的基本內建函式和技巧來提升
+        你的能力 &mdash; 從取得使用者輸入到串列推導式、切片、排序等等。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong>本頁面中的許多模式
+        &mdash; 特別是串列推導式和 <code>enumerate()</code> &mdash;
+        在 MATLAB 中沒有直接的對應功能。它們是讓 Python 程式碼
+        特別簡潔和富有表現力的特性之一。MATLAB 中最接近串列推導式的是
+        <code>arrayfun()</code>，但 Python 的版本更加易讀且用途更廣。
+      </div>
+
+      <!-- 目錄 -->
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#input">1. input() &mdash; 取得使用者輸入</a></li>
+          <li><a href="#errors">2. 常見錯誤訊息</a></li>
+          <li><a href="#fstrings">3. 深入了解 f-string</a></li>
+          <li><a href="#slicing">4. 深入了解切片</a></li>
+          <li><a href="#list-comp">5. 串列推導式</a></li>
+          <li><a href="#enumerate">6. enumerate()</a></li>
+          <li><a href="#zip">7. zip()</a></li>
+          <li><a href="#range">8. range() &mdash; 進階模式</a></li>
+          <li><a href="#sorting">9. 排序</a></li>
+          <li><a href="#map-filter">10. map() 與 filter()</a></li>
+          <li><a href="#exercises">練習題</a></li>
+          <li><a href="#summary">總結</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. INPUT                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="input">1. input() &mdash; 取得使用者輸入</h2>
+
+      <p>
+        <code>input()</code> 函式會暫停你的程式，顯示一個
+        選擇性的提示訊息，然後等待使用者輸入內容並按下
+        Enter。它<strong>永遠回傳一個字串</strong>。
+      </p>
+
+      <pre><code>name = input("What is your name? ")
+print(f"Hello, {name}!")</code></pre>
+
+      <h3>轉換輸入</h3>
+
+      <p>
+        由於 <code>input()</code> 永遠回傳字串，如果你需要數字
+        就必須進行轉換：
+      </p>
+
+      <pre><code>age_str = input("Enter your age: ")   # 例如使用者輸入 "25"
+age = int(age_str)                     # 轉換為整數
+print(f"Next year you will be {age + 1}.")
+
+# 或合併成一行：
+age = int(input("Enter your age: "))
+
+# 對於小數，使用 float()：
+weight = float(input("Enter your weight in kg: "))</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤：</strong>忘記轉換。如果你跳過轉換，
+        算術運算會失敗或產生意外的結果：
+        <pre><code>num = input("Enter a number: ")   # 使用者輸入 "5"
+print(num + 10)                   # TypeError: 無法將 str 和 int 相加
+print(num * 3)                    # "555" — 字串重複，不是 15！</code></pre>
+      </div>
+
+      <h3>使用錯誤處理的安全輸入</h3>
+
+      <pre><code>while True:
+    try:
+        number = int(input("Enter an integer: "))
+        break                # 如果轉換成功則離開迴圈
+    except ValueError:
+        print("That's not a valid integer. Try again.")</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 使用
+        <code>input('prompt')</code>，預設回傳數字；或使用
+        <code>input('prompt', 's')</code> 回傳字串。Python 的
+        <code>input()</code> 永遠回傳字串 &mdash; 你需要明確轉換，
+        這樣更加可預測。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. 常見錯誤訊息                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="errors">2. 常見錯誤訊息</h2>
+
+      <p>
+        錯誤並不可怕 &mdash; 它們是 Python 在告訴你
+        到底哪裡出了問題。學習閱讀錯誤訊息是你能培養的
+        最有價值的技能之一。以下是你最常遇到的錯誤：
+      </p>
+
+      <h3>NameError</h3>
+
+      <p>
+        <strong>含義：</strong>你使用了一個不存在的變數或函式名稱
+        （通常是拼字錯誤或忘記定義它）。
+      </p>
+
+      <pre><code>print(mesage)
+# NameError: name 'mesage' is not defined
+
+# 修正：檢查拼字
+message = "Hello"
+print(message)   # Hello</code></pre>
+
+      <h3>TypeError</h3>
+
+      <p>
+        <strong>含義：</strong>你對錯誤的型別嘗試了一個操作，
+        或傳入了錯誤數量的引數。
+      </p>
+
+      <pre><code># 錯誤的型別
+result = "5" + 3
+# TypeError: can only concatenate str (not "int") to str
+
+# 修正：轉換型別
+result = int("5") + 3   # 8
+
+# 錯誤的引數數量
+def greet(name):
+    print(f"Hi, {name}")
+
+greet("Alice", "Bob")
+# TypeError: greet() takes 1 positional argument but 2 were given</code></pre>
+
+      <h3>ValueError</h3>
+
+      <p>
+        <strong>含義：</strong>型別正確，但值不適當。
+      </p>
+
+      <pre><code>number = int("hello")
+# ValueError: invalid literal for int() with base 10: 'hello'
+
+# 修正：確保字串包含有效的數字
+number = int("42")   # 42</code></pre>
+
+      <h3>IndexError</h3>
+
+      <p>
+        <strong>含義：</strong>你試圖存取一個不存在的串列（或字串）索引。
+      </p>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+print(fruits[5])
+# IndexError: list index out of range
+
+# 修正：使用有效的索引（3 個元素的串列使用 0、1 或 2）
+print(fruits[2])   # cherry</code></pre>
+
+      <h3>KeyError</h3>
+
+      <p>
+        <strong>含義：</strong>你試圖存取一個不存在的字典鍵。
+      </p>
+
+      <pre><code>person = {"name": "Alice", "age": 30}
+print(person["email"])
+# KeyError: 'email'
+
+# 修正：使用 .get() 進行安全存取
+print(person.get("email", "not found"))   # not found</code></pre>
+
+      <h3>SyntaxError</h3>
+
+      <p>
+        <strong>含義：</strong>Python 無法理解你的程式碼，
+        因為有語法錯誤（缺少冒號、括號不匹配等）。
+      </p>
+
+      <pre><code># 缺少冒號
+if x > 5
+    print("big")
+# SyntaxError: expected ':'
+
+# 括號不匹配
+print("Hello"
+# SyntaxError: unexpected EOF while parsing</code></pre>
+
+      <h3>IndentationError</h3>
+
+      <p>
+        <strong>含義：</strong>你的縮排不一致或缺失。
+      </p>
+
+      <pre><code>def greet():
+print("Hello")
+# IndentationError: expected an indented block
+
+# 修正：縮排函式主體
+def greet():
+    print("Hello")</code></pre>
+
+      <div class="callout callout-info">
+        <strong>專業提示：</strong>永遠先閱讀錯誤追蹤的<em>最後一行</em>
+        &mdash; 它會告訴你錯誤的類型和訊息。然後查看行號
+        來找到錯誤發生的位置。經過練習，你將能在幾秒鐘內修復大多數錯誤。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. 深入了解 F-STRING                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="fstrings">3. 深入了解 f-string</h2>
+
+      <p>
+        你已經見過基本的 f-string（<code>f"Hello, {name}!"</code>）。
+        這裡我們探索它們的全部功能。
+      </p>
+
+      <h3>大括號內的運算式</h3>
+
+      <p>
+        你可以在 <code>{}</code> 內放入<em>任何</em>有效的 Python 運算式：
+      </p>
+
+      <pre><code>x = 10
+print(f"x squared is {x ** 2}")         # x squared is 100
+print(f"x is {'even' if x % 2 == 0 else 'odd'}")  # x is even
+print(f"Uppercase: {'hello'.upper()}")   # Uppercase: HELLO</code></pre>
+
+      <h3>格式化數字</h3>
+
+      <pre><code>pi = 3.14159265
+
+# 固定小數位數
+print(f"Pi: {pi:.2f}")        # Pi: 3.14
+print(f"Pi: {pi:.4f}")        # Pi: 3.1416
+
+# 千分位分隔符
+big = 1234567890
+print(f"Population: {big:,}")  # Population: 1,234,567,890
+
+# 百分比
+rate = 0.856
+print(f"Success: {rate:.1%}")  # Success: 85.6%
+
+# 科學記號
+tiny = 0.000042
+print(f"Value: {tiny:.2e}")    # Value: 4.20e-05</code></pre>
+
+      <h3>對齊與寬度</h3>
+
+      <pre><code># 在寬度為 10 的欄位中靠右對齊
+for item, price in [("Apple", 1.5), ("Banana", 0.75), ("Watermelon", 4.99)]:
+    print(f"{item:&lt;12} ${price:&gt;6.2f}")
+
+# 輸出：
+# Apple        $  1.50
+# Banana       $  0.75
+# Watermelon   $  4.99</code></pre>
+
+      <pre><code># 置中對齊
+title = "Report"
+print(f"{title:*^30}")   # ************Report************</code></pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>格式</th>
+            <th>含義</th>
+            <th>範例</th>
+            <th>結果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>{x:.2f}</code></td>
+            <td>2 位小數</td>
+            <td><code>f"{3.14159:.2f}"</code></td>
+            <td><code>3.14</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:,}</code></td>
+            <td>千分位分隔符</td>
+            <td><code>f"{1000000:,}"</code></td>
+            <td><code>1,000,000</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:.1%}</code></td>
+            <td>百分比</td>
+            <td><code>f"{0.85:.1%}"</code></td>
+            <td><code>85.0%</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:&gt;10}</code></td>
+            <td>靠右對齊，寬度 10</td>
+            <td><code>f"{'hi':&gt;10}"</code></td>
+            <td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hi</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:&lt;10}</code></td>
+            <td>靠左對齊，寬度 10</td>
+            <td><code>f"{'hi':&lt;10}"</code></td>
+            <td><code>hi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:^10}</code></td>
+            <td>置中，寬度 10</td>
+            <td><code>f"{'hi':^10}"</code></td>
+            <td><code>&nbsp;&nbsp;&nbsp;&nbsp;hi&nbsp;&nbsp;&nbsp;&nbsp;</code></td>
+          </tr>
+          <tr>
+            <td><code>{x:0&gt;5}</code></td>
+            <td>零填充，寬度 5</td>
+            <td><code>f"{42:0&gt;5}"</code></td>
+            <td><code>00042</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 使用
+        <code>fprintf('Pi is %.2f\n', pi)</code>，採用 C 風格的格式指定符。
+        Python 的 f-string 將變數和其格式放在字串內部，
+        許多人認為這更加易讀：<code>f"Pi is {pi:.2f}"</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 深入了解切片                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="slicing">4. 深入了解切片</h2>
+
+      <p>
+        切片讓你使用 <code>[start:stop:step]</code> 語法
+        從序列（字串、串列或元組）中提取一部分。
+      </p>
+
+      <h3>基本切片</h3>
+
+      <pre><code>letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+#  索引:    0    1    2    3    4    5    6
+# 負索引: -7   -6   -5   -4   -3   -2   -1
+
+print(letters[1:4])     # ['b', 'c', 'd']  （索引 1、2、3 — stop 不包含在內）
+print(letters[:3])       # ['a', 'b', 'c']  （從開頭到索引 2）
+print(letters[4:])       # ['e', 'f', 'g']  （從索引 4 到結尾）
+print(letters[:])        # ['a', 'b', 'c', 'd', 'e', 'f', 'g']  （完整複製）</code></pre>
+
+      <h3>負索引</h3>
+
+      <pre><code>print(letters[-3:])      # ['e', 'f', 'g']  （最後 3 個元素）
+print(letters[-4:-1])    # ['d', 'e', 'f']  （從 -4 到 -1，但不包含 -1）
+print(letters[:-2])      # ['a', 'b', 'c', 'd', 'e']  （除最後 2 個以外的全部）</code></pre>
+
+      <h3>步長參數</h3>
+
+      <pre><code>numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(numbers[::2])      # [0, 2, 4, 6, 8]   （每隔一個元素）
+print(numbers[1::2])     # [1, 3, 5, 7, 9]   （奇數索引的元素）
+print(numbers[::3])      # [0, 3, 6, 9]      （每隔兩個元素）</code></pre>
+
+      <h3>使用切片反轉</h3>
+
+      <pre><code># 反轉串列
+print(numbers[::-1])     # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+# 反轉字串
+word = "Python"
+print(word[::-1])        # nohtyP
+
+# 檢查迴文
+text = "racecar"
+print(text == text[::-1])  # True</code></pre>
+
+      <h3>字串切片</h3>
+
+      <pre><code>message = "Hello, World!"
+
+print(message[0:5])     # Hello
+print(message[7:])      # World!
+print(message[::-1])    # !dlroW ,olleH
+
+# 提取每隔一個字元
+print(message[::2])     # Hlo ol!</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 使用以 1 為基底的索引
+        （<code>arr(1:3)</code> 取得元素 1、2、3）。Python 使用以 0 為基底的
+        索引，且 stop 值是<em>不包含的</em>（<code>arr[0:3]</code>
+        取得索引 0、1、2 的元素）。MATLAB 的 <code>end</code> 關鍵字
+        對應 Python 的 <code>-1</code> 索引。在 MATLAB 中反轉：
+        <code>flip(arr)</code> 或 <code>arr(end:-1:1)</code>；在 Python 中：
+        <code>arr[::-1]</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 串列推導式                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="list-comp">5. 串列推導式</h2>
+
+      <p>
+        <strong>串列推導式</strong>是一種簡潔的方式，透過轉換或篩選
+        現有可迭代物件中的元素來建立新的串列。
+        它是 Python 最受歡迎的特性之一。
+      </p>
+
+      <h3>基本語法</h3>
+
+      <pre><code># [運算式 for 變數 in 可迭代物件]
+
+squares = [x ** 2 for x in range(6)]
+print(squares)   # [0, 1, 4, 9, 16, 25]</code></pre>
+
+      <p>
+        這等同於（但比以下寫法簡短得多）：
+      </p>
+
+      <pre><code>squares = []
+for x in range(6):
+    squares.append(x ** 2)</code></pre>
+
+      <h3>帶條件的推導式（篩選）</h3>
+
+      <pre><code># [運算式 for 變數 in 可迭代物件 if 條件]
+
+evens = [x for x in range(10) if x % 2 == 0]
+print(evens)   # [0, 2, 4, 6, 8]
+
+# 按長度篩選字串
+words = ["cat", "elephant", "dog", "hippopotamus", "ant"]
+short_words = [w for w in words if len(w) <= 3]
+print(short_words)   # ['cat', 'dog', 'ant']</code></pre>
+
+      <h3>轉換資料</h3>
+
+      <pre><code># 轉換溫度
+celsius = [0, 10, 20, 30, 40]
+fahrenheit = [c * 9/5 + 32 for c in celsius]
+print(fahrenheit)   # [32.0, 50.0, 68.0, 86.0, 104.0]
+
+# 清理字串串列
+names = ["  Alice ", "BOB", " carol  "]
+clean = [name.strip().title() for name in names]
+print(clean)   # ['Alice', 'Bob', 'Carol']</code></pre>
+
+      <h3>巢狀串列推導式</h3>
+
+      <pre><code># 攤平二維串列
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+flat = [num for row in matrix for num in row]
+print(flat)   # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# 建立乘法表
+table = [[i * j for j in range(1, 4)] for i in range(1, 4)]
+print(table)
+# [[1, 2, 3], [2, 4, 6], [3, 6, 9]]</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>保持可讀性：</strong>如果串列推導式超過一兩行，
+        或需要複雜的巢狀邏輯，就改用一般的 <code>for</code> 迴圈。
+        目標是<em>清晰</em>，而非炫技。
+        <pre><code># 太複雜 — 難以閱讀
+result = [f(x) for x in data if g(x) > 0 for y in h(x) if y != z]
+
+# 更好 — 使用一般迴圈
+result = []
+for x in data:
+    if g(x) > 0:
+        for y in h(x):
+            if y != z:
+                result.append(f(x))</code></pre>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 沒有串列推導式的直接對應功能。
+        最接近的是 <code>arrayfun()</code> 或向量化運算如
+        <code>x.^2</code>，但 Python 的串列推導式可以處理<em>任何</em>
+        資料型別（字串、物件、巢狀結構），而不僅限於數值陣列。這是 Python
+        最強大的特性之一 &mdash; 花時間好好熟悉它！
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. ENUMERATE                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="enumerate">6. enumerate()</h2>
+
+      <p>
+        <code>enumerate()</code> 讓你在迴圈遍歷可迭代物件的同時
+        取得每個元素的索引。它避免了手動追蹤計數器變數的常見模式。
+      </p>
+
+      <h3>不使用 enumerate（笨拙的方式）</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+index = 0
+for fruit in fruits:
+    print(f"{index}: {fruit}")
+    index += 1</code></pre>
+
+      <h3>使用 enumerate（Pythonic 的方式）</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# 0: apple
+# 1: banana
+# 2: cherry</code></pre>
+
+      <h3>自訂起始索引</h3>
+
+      <pre><code>for rank, fruit in enumerate(fruits, start=1):
+    print(f"{rank}. {fruit}")
+
+# 1. apple
+# 2. banana
+# 3. cherry</code></pre>
+
+      <h3>實用範例 &mdash; 尋找值的位置</h3>
+
+      <pre><code>scores = [85, 92, 78, 95, 88]
+
+for i, score in enumerate(scores):
+    if score >= 90:
+        print(f"Student {i} scored {score} (excellent!)")
+
+# Student 1 scored 92 (excellent!)
+# Student 3 scored 95 (excellent!)</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong>優先使用 <code>enumerate()</code> 而非
+        <code>range(len(...))</code>。它更簡潔、更易讀，
+        被認為是帶索引迴圈的「Pythonic」方式。
+        <pre><code># 避免這樣做：
+for i in range(len(fruits)):
+    print(f"{i}: {fruits[i]}")
+
+# 優先這樣做：
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")</code></pre>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. ZIP                                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="zip">7. zip()</h2>
+
+      <p>
+        <code>zip()</code> 將兩個或多個可迭代物件逐元素組合，
+        將相同位置的項目配對在一起：
+      </p>
+
+      <pre><code>names = ["Alice", "Bob", "Carol"]
+scores = [85, 92, 78]
+
+for name, score in zip(names, scores):
+    print(f"{name}: {score}")
+
+# Alice: 85
+# Bob: 92
+# Carol: 78</code></pre>
+
+      <h3>組合兩個以上的可迭代物件</h3>
+
+      <pre><code>names = ["Alice", "Bob", "Carol"]
+scores = [85, 92, 78]
+grades = ["B+", "A", "C+"]
+
+for name, score, grade in zip(names, scores, grades):
+    print(f"{name}: {score} ({grade})")
+
+# Alice: 85 (B+)
+# Bob: 92 (A)
+# Carol: 78 (C+)</code></pre>
+
+      <h3>長度不等的情況</h3>
+
+      <p>
+        <code>zip()</code> 在最短的可迭代物件結束時停止：
+      </p>
+
+      <pre><code>a = [1, 2, 3, 4, 5]
+b = ["x", "y", "z"]
+
+print(list(zip(a, b)))   # [(1, 'x'), (2, 'y'), (3, 'z')]
+# 元素 4 和 5 被靜默丟棄！</code></pre>
+
+      <h3>從兩個串列建立字典</h3>
+
+      <pre><code>keys = ["name", "age", "city"]
+values = ["Alice", 30, "London"]
+
+person = dict(zip(keys, values))
+print(person)   # {'name': 'Alice', 'age': 30, 'city': 'London'}</code></pre>
+
+      <h3>解壓縮</h3>
+
+      <pre><code>pairs = [(1, "a"), (2, "b"), (3, "c")]
+numbers, letters = zip(*pairs)
+print(numbers)    # (1, 2, 3)
+print(letters)    # ('a', 'b', 'c')</code></pre>
+
+      <div class="callout callout-info">
+        <strong><code>*</code> 運算子：</strong>在 <code>zip(*pairs)</code> 中，
+        <code>*</code> 將元組串列解包為獨立的引數：
+        <code>zip((1, "a"), (2, "b"), (3, "c"))</code>。這是 Python 中
+        「轉置」資料的常見慣用法。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. RANGE — 進階模式                                           -->
+      <!-- ============================================================ -->
+
+      <h2 id="range">8. range() &mdash; 進階模式</h2>
+
+      <p>
+        你已經在迴圈中使用過 <code>range()</code>。以下是一些更
+        進階的模式：
+      </p>
+
+      <h3>倒數計數</h3>
+
+      <pre><code>for i in range(5, 0, -1):
+    print(i, end=" ")
+# 5 4 3 2 1
+
+# 倒數計時
+for i in range(10, -1, -1):
+    print(i)   # 10, 9, 8, ... 1, 0</code></pre>
+
+      <h3>自訂步長</h3>
+
+      <pre><code># 從 0 到 50 每隔 5 個數字
+fives = list(range(0, 51, 5))
+print(fives)   # [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+
+# 從 2 到 20 的偶數
+evens = list(range(2, 21, 2))
+print(evens)   # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]</code></pre>
+
+      <h3>搭配 len() 使用 range()（當你需要索引時）</h3>
+
+      <pre><code>colours = ["red", "green", "blue"]
+
+# 可以接受但不是首選：
+for i in range(len(colours)):
+    print(f"Index {i}: {colours[i]}")
+
+# 首選 — 改用 enumerate()（見上方第 6 節）</code></pre>
+
+      <h3>將 range 轉換為串列</h3>
+
+      <pre><code># range() 是惰性的 — 它按需生成數字
+r = range(1, 1000000)   # 幾乎不佔用記憶體
+print(r[999999])         # 1000000  — 即時存取
+
+# 只在你需要實際串列時才轉換
+small_list = list(range(10))   # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 對照：</strong>MATLAB 的冒號運算子
+        <code>1:5</code> 會立即建立陣列 <code>[1 2 3 4 5]</code>。
+        Python 的 <code>range(1, 6)</code> 是<em>惰性的</em> &mdash;
+        它不會在你要求之前建立數字。這使得 Python 對大範圍的
+        記憶體使用效率更高。MATLAB 的 <code>1:2:10</code>
+        （步長為 2）對應 Python 的 <code>range(1, 11, 2)</code>。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. 排序                                                       -->
+      <!-- ============================================================ -->
+
+      <h2 id="sorting">9. 排序</h2>
+
+      <p>
+        Python 提供兩種排序方式：<code>sorted()</code> 函式
+        和 <code>.sort()</code> 方法。
+      </p>
+
+      <h3><code>sorted()</code> &mdash; 回傳新串列</h3>
+
+      <pre><code>numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+ordered = sorted(numbers)
+print(ordered)    # [1, 1, 2, 3, 4, 5, 6, 9]
+print(numbers)    # [3, 1, 4, 1, 5, 9, 2, 6]  （原始串列未改變）</code></pre>
+
+      <h3><code>.sort()</code> &mdash; 就地修改串列</h3>
+
+      <pre><code>numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+numbers.sort()
+print(numbers)    # [1, 1, 2, 3, 4, 5, 6, 9]  （原始串列已修改）</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>關鍵差異：</strong><code>sorted()</code> 回傳一個
+        <em>新的</em>串列，原始串列不受影響。
+        <code>.sort()</code> 就地排序並回傳 <code>None</code>。
+        常見錯誤：
+        <pre><code># 錯誤！
+result = numbers.sort()    # result 是 None，不是排序後的串列
+
+# 正確
+numbers.sort()             # 就地排序，然後使用 numbers
+# 或
+result = sorted(numbers)   # 建立一個新的排序後串列</code></pre>
+      </div>
+
+      <h3>反向排序</h3>
+
+      <pre><code>print(sorted(numbers, reverse=True))   # [9, 6, 5, 4, 3, 2, 1, 1]</code></pre>
+
+      <h3>使用 <code>key</code> 函式排序</h3>
+
+      <pre><code># 按長度排序字串
+words = ["banana", "pie", "apple", "fig"]
+print(sorted(words, key=len))
+# ['pie', 'fig', 'apple', 'banana']
+
+# 不區分大小寫排序
+mixed = ["banana", "Apple", "cherry"]
+print(sorted(mixed, key=str.lower))
+# ['Apple', 'banana', 'cherry']</code></pre>
+
+      <h3>排序字典</h3>
+
+      <pre><code>students = {"Alice": 88, "Bob": 95, "Carol": 72, "Dave": 91}
+
+# 按值（分數）排序，最高分在前
+ranked = sorted(students.items(), key=lambda item: item[1], reverse=True)
+for name, score in ranked:
+    print(f"{name}: {score}")
+
+# Bob: 95
+# Dave: 91
+# Alice: 88
+# Carol: 72</code></pre>
+
+      <h3>排序字典串列</h3>
+
+      <pre><code>people = [
+    {"name": "Carol", "age": 28},
+    {"name": "Alice", "age": 35},
+    {"name": "Bob", "age": 22},
+]
+
+by_age = sorted(people, key=lambda p: p["age"])
+for person in by_age:
+    print(f"{person['name']}: {person['age']}")
+
+# Bob: 22
+# Carol: 28
+# Alice: 35</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  10. MAP 與 FILTER                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="map-filter">10. map() 與 filter()</h2>
+
+      <p>
+        <code>map()</code> 和 <code>filter()</code> 是內建函式，
+        會將一個函式套用到可迭代物件的每個元素上。它們源自
+        <em>函數式程式設計</em>的傳統。
+      </p>
+
+      <h3><code>map()</code> &mdash; 轉換每個元素</h3>
+
+      <pre><code># 對每個元素套用函式
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)   # [1, 4, 9, 16, 25]
+
+# 將字串串列轉換為整數
+str_numbers = ["10", "20", "30"]
+int_numbers = list(map(int, str_numbers))
+print(int_numbers)   # [10, 20, 30]</code></pre>
+
+      <h3><code>filter()</code> &mdash; 保留通過測試的元素</h3>
+
+      <pre><code># 只保留正數
+numbers = [-3, -1, 0, 2, 5, -4, 8]
+positives = list(filter(lambda x: x > 0, numbers))
+print(positives)   # [2, 5, 8]
+
+# 只保留非空字串
+data = ["hello", "", "world", "", "python"]
+non_empty = list(filter(None, data))
+print(non_empty)   # ['hello', 'world', 'python']</code></pre>
+
+      <h3>map/filter vs. 串列推導式</h3>
+
+      <p>
+        在大多數情況下，串列推導式更加易讀：
+      </p>
+
+      <pre><code># map + lambda
+squared = list(map(lambda x: x ** 2, numbers))
+
+# 串列推導式（通常更受歡迎）
+squared = [x ** 2 for x in numbers]
+
+# filter + lambda
+positives = list(filter(lambda x: x > 0, numbers))
+
+# 串列推導式（通常更受歡迎）
+positives = [x for x in numbers if x > 0]</code></pre>
+
+      <div class="callout callout-info">
+        <strong>何時使用 map/filter：</strong>當你已經有一個具名函式
+        （如 <code>int</code>、<code>str</code>、<code>len</code>）
+        且不需要 lambda 時最有用。例如，
+        <code>list(map(int, strings))</code> 可以說比
+        <code>[int(s) for s in strings]</code> 更簡潔。否則，優先使用
+        串列推導式 &mdash; 它們更 Pythonic 也更易讀。
+      </div>
+
+      <h3>串聯 map 和 filter</h3>
+
+      <pre><code># 取得 1 到 10 之間偶數的平方
+result = list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, range(1, 11))))
+print(result)   # [4, 16, 36, 64, 100]
+
+# 用串列推導式寫同樣的事（清楚多了！）
+result = [x ** 2 for x in range(1, 11) if x % 2 == 0]
+print(result)   # [4, 16, 36, 64, 100]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  練習題                                                        -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">練習題</h2>
+
+      <p>
+        練習你所學到的內容。在查看答案之前，先自己嘗試每個練習。
+      </p>
+
+      <!-- 練習 1 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 1 &mdash; 使用者問候</div>
+        <p>
+          撰寫一個程式，詢問使用者的姓名和年齡，然後
+          印出：<code>"Hello, [name]! You will be [age+1] next year."</code>
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>name = input("What is your name? ")
+age = int(input("How old are you? "))
+print(f"Hello, {name}! You will be {age + 1} next year.")</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 2 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 2 &mdash; f-string 格式化</div>
+        <p>
+          給定 <code>price = 49.99</code> 和 <code>quantity = 1234</code>，
+          印出：<code>"Total: $61,587.66"</code>（帶千分位分隔符和
+          2 位小數）。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>price = 49.99
+quantity = 1234
+total = price * quantity
+print(f"Total: ${total:,.2f}")   # Total: $61,687.66</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 3 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 3 &mdash; 迴文檢查器</div>
+        <p>
+          撰寫一個程式，使用切片來檢查一個單字是否為迴文。
+          忽略大小寫（先轉換為小寫）。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>word = input("Enter a word: ").lower()
+if word == word[::-1]:
+    print(f"'{word}' is a palindrome!")
+else:
+    print(f"'{word}' is not a palindrome.")</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 4 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 4 &mdash; 使用串列推導式求平方</div>
+        <p>
+          使用串列推導式建立一個串列，包含 1 到 20 之間所有
+          奇數的平方。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>odd_squares = [x ** 2 for x in range(1, 21) if x % 2 != 0]
+print(odd_squares)
+# [1, 9, 25, 49, 81, 121, 169, 225, 289, 361]</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 5 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 5 &mdash; enumerate() 練習</div>
+        <p>
+          給定 <code>tasks = ["Buy groceries", "Clean house", "Write report", "Exercise"]</code>，
+          使用 <code>enumerate()</code> 搭配 <code>start=1</code> 來印出
+          一個編號的任務清單。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>tasks = ["Buy groceries", "Clean house", "Write report", "Exercise"]
+
+for num, task in enumerate(tasks, start=1):
+    print(f"{num}. {task}")
+
+# 1. Buy groceries
+# 2. Clean house
+# 3. Write report
+# 4. Exercise</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 6 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 6 &mdash; zip() 字典</div>
+        <p>
+          給定兩個串列：<code>countries = ["Japan", "France", "Brazil"]</code>
+          和 <code>capitals = ["Tokyo", "Paris", "Brasilia"]</code>，使用
+          <code>zip()</code> 建立一個將國家對應到首都的字典。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>countries = ["Japan", "France", "Brazil"]
+capitals = ["Tokyo", "Paris", "Brasilia"]
+
+country_capitals = dict(zip(countries, capitals))
+print(country_capitals)
+# {'Japan': 'Tokyo', 'France': 'Paris', 'Brazil': 'Brasilia'}</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 7 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 7 &mdash; 按最後一個字元排序</div>
+        <p>
+          將串列 <code>["hello", "world", "banana", "apple", "grape"]</code>
+          按每個單字的<strong>最後一個字元</strong>排序。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>words = ["hello", "world", "banana", "apple", "grape"]
+result = sorted(words, key=lambda w: w[-1])
+print(result)   # ['banana', 'world', 'apple', 'grape', 'hello']
+# 按最後一個字元排序：a, d, e, e, o</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 8 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 8 &mdash; 提取每隔兩個元素</div>
+        <p>
+          給定 <code>data = list(range(1, 21))</code>（數字 1 到 20），使用
+          切片從第二個元素開始提取每隔兩個的元素。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>data = list(range(1, 21))
+result = data[1::3]
+print(result)   # [2, 5, 8, 11, 14, 17, 20]</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 9 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 9 &mdash; 清理與篩選資料</div>
+        <p>
+          給定 <code>raw = [" Alice ", "  ", "Bob", "", " Carol ", "  Dave"]</code>，
+          使用串列推導式去除每個字串的空白並只保留非空的結果。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>raw = [" Alice ", "  ", "Bob", "", " Carol ", "  Dave"]
+clean = [name.strip() for name in raw if name.strip()]
+print(clean)   # ['Alice', 'Bob', 'Carol', 'Dave']</code></pre>
+        </details>
+      </div>
+
+      <!-- 練習 10 -->
+      <div class="exercise">
+        <div class="exercise-title">練習 10 &mdash; 綜合運用</div>
+        <p>
+          給定兩個學生姓名和分數的串列，建立一個格式化的報告，
+          按分數排列每個學生（最高分在前），並附上排名編號。
+          使用 <code>zip()</code>、<code>sorted()</code> 和
+          <code>enumerate()</code>。
+        </p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>names = ["Alice", "Bob", "Carol", "Dave"]
+scores = [88, 95, 72, 91]
+
+# 組合、按分數降序排序、用 enumerate 加上排名
+paired = zip(names, scores)
+ranked = sorted(paired, key=lambda x: x[1], reverse=True)
+
+print("Class Rankings:")
+print("-" * 25)
+for rank, (name, score) in enumerate(ranked, start=1):
+    print(f"  {rank}. {name:&lt;10} {score:&gt;3}")
+
+# Class Rankings:
+# -------------------------
+#   1. Bob         95
+#   2. Dave        91
+#   3. Alice       88
+#   4. Carol       72</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>工具</th>
+            <th>功能</th>
+            <th>快速範例</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>input()</code></td>
+            <td>取得使用者輸入（永遠是字串）</td>
+            <td><code>name = input("Name? ")</code></td>
+          </tr>
+          <tr>
+            <td><strong>錯誤訊息</strong></td>
+            <td>先閱讀追蹤的最後一行</td>
+            <td><code>NameError</code>、<code>TypeError</code> 等</td>
+          </tr>
+          <tr>
+            <td><strong>f-string</strong></td>
+            <td>格式化字串常量</td>
+            <td><code>f"{pi:.2f}"</code> &rarr; <code>3.14</code></td>
+          </tr>
+          <tr>
+            <td><strong>切片</strong></td>
+            <td><code>[start:stop:step]</code></td>
+            <td><code>lst[::-1]</code> 反轉</td>
+          </tr>
+          <tr>
+            <td><strong>串列推導式</strong></td>
+            <td>簡潔地建立串列</td>
+            <td><code>[x**2 for x in range(5)]</code></td>
+          </tr>
+          <tr>
+            <td><code>enumerate()</code></td>
+            <td>帶索引的迴圈</td>
+            <td><code>for i, v in enumerate(lst):</code></td>
+          </tr>
+          <tr>
+            <td><code>zip()</code></td>
+            <td>組合可迭代物件</td>
+            <td><code>for a, b in zip(x, y):</code></td>
+          </tr>
+          <tr>
+            <td><code>range()</code></td>
+            <td>生成數字序列</td>
+            <td><code>range(0, 10, 2)</code></td>
+          </tr>
+          <tr>
+            <td><code>sorted()</code></td>
+            <td>回傳新的排序串列</td>
+            <td><code>sorted(lst, key=len)</code></td>
+          </tr>
+          <tr>
+            <td><code>map()</code> / <code>filter()</code></td>
+            <td>轉換 / 篩選可迭代物件</td>
+            <td><code>list(map(int, strings))</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>本頁面上的工具是你作為 Python 程式設計師
+        <em>每天都會使用</em>的工具。串列推導式、<code>enumerate()</code>、
+        <code>zip()</code> 和切片是讓 Python 程式碼簡潔優雅的關鍵。
+        掌握這些，你將能撰寫出經驗豐富的 Python 開發者會認可為
+        簡潔且符合慣例的程式碼。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導航                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-functions.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">函式與Lambda</span></a>
+        <a href="basics-files-modules.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">檔案與模組</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

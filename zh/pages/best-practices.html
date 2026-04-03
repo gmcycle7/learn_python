@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 最佳實踐 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/best-practices.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link active">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 參考資料</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        最佳實踐
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  第 I 節 — PYTHON 最佳實踐                                    -->
+      <!-- ============================================================ -->
+
+      <h1>第 I 節 &mdash; Python 最佳實踐</h1>
+      <p class="page-subtitle">
+        從一開始就撰寫乾淨、可讀且可維護的 Python 程式碼。
+        這些指導原則能為你省下數小時的除錯時間，並讓你的程式碼
+        在日後重新檢視時令人愉悅。
+      </p>
+
+      <div class="toc">
+        <div class="toc-title">本頁內容</div>
+        <ul>
+          <li><a href="#naming">1. 命名慣例</a></li>
+          <li><a href="#structure">2. 程式碼結構</a></li>
+          <li><a href="#comments">3. 註解與文件字串</a></li>
+          <li><a href="#functions">4. 何時撰寫函式</a></li>
+          <li><a href="#splitting-files">5. 何時拆分檔案</a></li>
+          <li><a href="#debugging">6. 除錯技巧</a></li>
+          <li><a href="#tracebacks">7. 如何閱讀追蹤回溯錯誤</a></li>
+          <li><a href="#style-guide">8. 初學者友善風格指南（PEP 8）</a></li>
+          <li><a href="#anti-patterns">9. 常見反模式</a></li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. 命名慣例                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="naming">1. 命名慣例</h2>
+
+      <p>
+        好的名稱讓程式碼具有自說明性。Python 有在
+        <a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a> 中定義的強烈慣例。
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>項目</th><th>慣例</th><th>範例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>變數</td><td><code>snake_case</code></td><td><code>total_price</code>、<code>user_name</code></td></tr>
+          <tr><td>函式</td><td><code>snake_case</code></td><td><code>calculate_area()</code>、<code>get_user_input()</code></td></tr>
+          <tr><td>類別</td><td><code>PascalCase</code></td><td><code>DataProcessor</code>、<code>HttpClient</code></td></tr>
+          <tr><td>常數</td><td><code>UPPER_SNAKE_CASE</code></td><td><code>MAX_RETRIES</code>、<code>PI</code></td></tr>
+          <tr><td>模組/檔案</td><td><code>snake_case</code></td><td><code>data_utils.py</code>、<code>file_handler.py</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>好的名稱 vs 不好的名稱</h3>
+
+<pre><code><span class="cmt"># 不好 — 模糊、單字母或誤導的名稱</span>
+x = <span class="num">3.14</span>
+l = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]          <span class="cmt"># 'l' 在很多字型中看起來像 '1'</span>
+<span class="kw">def</span> <span class="fn">calc</span>(a, b):
+    <span class="kw">return</span> a * b
+
+<span class="cmt"># 好 — 清楚、描述性、揭示意圖的名稱</span>
+pi = <span class="num">3.14</span>
+scores = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="kw">def</span> <span class="fn">calculate_rectangle_area</span>(width, height):
+    <span class="kw">return</span> width * height</code></pre>
+
+      <div class="callout callout-info">
+        <div class="callout-title">何時可以用單字母</div>
+        <p>
+          迴圈計數器（<code>i</code>、<code>j</code>、<code>k</code>）、
+          座標（<code>x</code>、<code>y</code>、<code>z</code>）以及
+          短數學公式中變數含義從上下文顯而易見的情況
+          是可以接受的。其他所有地方，請使用描述性名稱。
+        </p>
+      </div>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 比較</div>
+        <p>
+          MATLAB 的文化傾向使用短變數名稱（<code>A</code>、
+          <code>b</code>、<code>idx</code>）。Python 的文化強烈偏好
+          較長的描述性名稱。<code>temperature_readings</code> 比
+          <code>T</code> 或 <code>temps</code> 更好。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. 程式碼結構                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="structure">2. 程式碼結構</h2>
+
+      <p>
+        組織良好的 Python 檔案遵循可預測的佈局。這使
+        任何人（包括未來的你）都能快速找到東西。
+      </p>
+
+<pre><code><span class="cmt">#!/usr/bin/env python3</span>
+<span class="str">"""模組文件字串 — 一行描述此檔案的功能。"""</span>
+
+<span class="cmt"># === 標準函式庫匯入 ===</span>
+<span class="kw">import</span> os
+<span class="kw">import</span> sys
+<span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+<span class="cmt"># === 第三方函式庫匯入 ===</span>
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cmt"># === 本地匯入 ===</span>
+<span class="kw">from</span> my_package <span class="kw">import</span> helpers
+
+<span class="cmt"># === 常數 ===</span>
+MAX_RETRIES = <span class="num">3</span>
+DEFAULT_TIMEOUT = <span class="num">30</span>
+
+<span class="cmt"># === 函式 / 類別 ===</span>
+<span class="kw">def</span> <span class="fn">process_data</span>(filepath):
+    <span class="str">"""從 filepath 讀取資料並回傳處理結果。"""</span>
+    <span class="kw">with</span> <span class="fn">open</span>(filepath) <span class="kw">as</span> f:
+        data = f.read()
+    <span class="kw">return</span> data.strip()
+
+<span class="kw">def</span> <span class="fn">main</span>():
+    <span class="str">"""腳本的進入點。"""</span>
+    result = process_data(<span class="str">"data.txt"</span>)
+    <span class="fn">print</span>(result)
+
+<span class="cmt"># === 主程式守衛 ===</span>
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    main()</code></pre>
+
+      <h3><code>__name__</code> 守衛說明</h3>
+
+      <p>
+        <code>if __name__ == "__main__":</code> 區塊只在你
+        直接執行檔案時運行（<code>python my_script.py</code>）。當檔案被作為模組匯入時
+        <strong>不會</strong>運行。這讓你可以重用檔案中的函式
+        而不會觸發主程式碼。
+      </p>
+
+<pre><code><span class="cmt"># 沒有守衛 — 匯入時也會執行！</span>
+result = process_data(<span class="str">"data.txt"</span>)   <span class="cmt"># 匯入時就執行</span>
+
+<span class="cmt"># 有守衛 — 只在直接執行時才運行</span>
+<span class="kw">if</span> __name__ == <span class="str">"__main__"</span>:
+    result = process_data(<span class="str">"data.txt"</span>)   <span class="cmt"># 安全</span></code></pre>
+
+      <div class="callout callout-matlab">
+        <div class="callout-title">MATLAB 比較</div>
+        <p>
+          在 MATLAB 中，每個 <code>.m</code> 檔案不是腳本就是函式。
+          Python 檔案可以兩者兼具 &mdash; <code>__name__</code> 守衛是
+          你控制取得哪種行為的方式。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. 註解與文件字串                                            -->
+      <!-- ============================================================ -->
+
+      <h2 id="comments">3. 註解與文件字串</h2>
+
+      <p>
+        註解解釋<strong>為什麼</strong>，而不是<em>做什麼</em>。程式碼
+        本身應該足夠可讀，能展示它在做什麼。
+      </p>
+
+      <h3>不好的註解（陳述顯而易見的事）</h3>
+
+<pre><code>x = x + <span class="num">1</span>  <span class="cmt"># 將 x 加 1</span>
+
+<span class="cmt"># 迴圈走訪串列</span>
+<span class="kw">for</span> item <span class="kw">in</span> my_list:
+    <span class="fn">print</span>(item)  <span class="cmt"># 印出項目</span></code></pre>
+
+      <h3>好的註解（解釋為什麼）</h3>
+
+<pre><code><span class="cmt"># 加 1 是因為感測器回報 0 基礎的通道號碼，</span>
+<span class="cmt"># 但顯示器期望 1 基礎的編號</span>
+channel_display = channel_raw + <span class="num">1</span>
+
+<span class="cmt"># 跳過第一行 — 它包含標題，不是資料</span>
+<span class="kw">for</span> row <span class="kw">in</span> rows[<span class="num">1</span>:]:
+    process(row)</code></pre>
+
+      <h3>文件字串</h3>
+
+      <p>
+        每個函式都應該有一個<strong>文件字串</strong> &mdash; 函式內部
+        第一行的字串，描述它的功能。
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">celsius_to_fahrenheit</span>(celsius):
+    <span class="str">"""將攝氏溫度轉換為華氏溫度。
+
+    Args:
+        celsius (float): 攝氏溫度值。
+
+    Returns:
+        float: 華氏溫度值。
+    """</span>
+    <span class="kw">return</span> celsius * <span class="num">9</span> / <span class="num">5</span> + <span class="num">32</span></code></pre>
+
+      <div class="callout callout-info">
+        <div class="callout-title">為什麼文件字串很重要</div>
+        <p>
+          Python 的內建 <code>help()</code> 函式會讀取文件字串。
+          在 REPL 中輸入 <code>help(celsius_to_fahrenheit)</code> 會
+          顯示你的文件字串。VS Code 等 IDE 也會在你
+          將游標懸停在函式呼叫上時顯示文件字串作為提示。
+        </p>
+      </div>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 &mdash; 撰寫文件字串</div>
+        <p>為這個函式添加一個適當的文件字串：</p>
+<pre><code><span class="kw">def</span> <span class="fn">count_words</span>(text):
+    <span class="kw">return</span> <span class="fn">len</span>(text.split())</code></pre>
+        <details>
+          <summary>顯示解答</summary>
+<pre><code><span class="kw">def</span> <span class="fn">count_words</span>(text):
+    <span class="str">"""回傳文字字串中的單字數量。
+
+    單字以空白字元分隔。前後的空白字元
+    會被忽略。
+
+    Args:
+        text (str): 要計算單字數的輸入文字。
+
+    Returns:
+        int: 以空白分隔的單字數量。
+    """</span>
+    <span class="kw">return</span> <span class="fn">len</span>(text.split())</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. 何時撰寫函式                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="functions">4. 何時撰寫函式</h2>
+
+      <p>
+        函式是程式碼重用的基本單位。遵循
+        <strong>DRY 原則</strong>（Don't Repeat Yourself，不要重複自己）。
+      </p>
+
+      <h3>在以下情況撰寫函式：</h3>
+
+      <ul>
+        <li><strong>你使用相同的程式碼 2 次以上。</strong>如果你複製貼上，你應該提取一個函式。</li>
+        <li><strong>一段程式碼做一件清楚的事。</strong>給它一個描述該事的名稱。</li>
+        <li><strong>你想獨立測試一段邏輯。</strong>函式容易測試；糾纏在一起的腳本則不然。</li>
+        <li><strong>程式碼變得難以跟隨。</strong>將它拆分成命名的函式使流程更可讀。</li>
+      </ul>
+
+      <h3>之前：重複的程式碼</h3>
+
+<pre><code><span class="cmt"># 在三個不同地方計算面積</span>
+area1 = <span class="num">3.14159</span> * radius1 ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area 1: </span><span class="op">{</span>area1<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)
+
+area2 = <span class="num">3.14159</span> * radius2 ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area 2: </span><span class="op">{</span>area2<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)
+
+area3 = <span class="num">3.14159</span> * radius3 ** <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">f"Area 3: </span><span class="op">{</span>area3<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+
+      <h3>之後：一個函式</h3>
+
+<pre><code><span class="kw">import</span> math
+
+<span class="kw">def</span> <span class="fn">circle_area</span>(radius):
+    <span class="str">"""回傳給定半徑的圓的面積。"""</span>
+    <span class="kw">return</span> math.pi * radius ** <span class="num">2</span>
+
+<span class="kw">for</span> r <span class="kw">in</span> [radius1, radius2, radius3]:
+    <span class="fn">print</span>(<span class="str">f"Area: </span><span class="op">{</span>circle_area(r)<span class="op">:</span><span class="str">.2f</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+
+      <div class="callout callout-success">
+        <div class="callout-title">保持函式簡短</div>
+        <p>
+          一個好的經驗法則：如果一個函式無法在你的螢幕上顯示完整
+          （約 20&ndash;30 行），它可能做了太多事。將它拆分成
+          更小的輔助函式。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  5. 何時拆分檔案                                              -->
+      <!-- ============================================================ -->
+
+      <h2 id="splitting-files">5. 何時拆分檔案</h2>
+
+      <p>
+        隨著專案成長，單一 <code>.py</code> 檔案變得難以
+        瀏覽。以下是何時以及如何拆分。
+      </p>
+
+      <h3>應該拆分的跡象：</h3>
+
+      <ul>
+        <li>你的檔案超過約 200&ndash;300 行。</li>
+        <li>你有服務不同目的的函式群組（例如，檔案 I/O 函式 vs 數學函式 vs 顯示函式）。</li>
+        <li>你想在其他專案中重用某些函式。</li>
+      </ul>
+
+      <h3>範例：拆分專案</h3>
+
+<pre><code><span class="cmt"># 之前：一個大檔案（main.py，400+ 行）</span>
+<span class="cmt"># 之後：組織成模組</span>
+
+my_project/
+    main.py              <span class="cmt"># 進入點 — 呼叫其他檔案的函式</span>
+    data_loader.py       <span class="cmt"># 讀取檔案和解析資料的函式</span>
+    calculations.py      <span class="cmt"># 數學和處理函式</span>
+    display.py           <span class="cmt"># 列印和格式化函式</span>
+    constants.py         <span class="cmt"># 共用常數（MAX_SIZE、FILE_PATH 等）</span></code></pre>
+
+      <h3>如何從你自己的檔案匯入：</h3>
+
+<pre><code><span class="cmt"># main.py</span>
+<span class="kw">from</span> data_loader <span class="kw">import</span> read_csv, parse_header
+<span class="kw">from</span> calculations <span class="kw">import</span> compute_average
+<span class="kw">from</span> display <span class="kw">import</span> print_report
+<span class="kw">from</span> constants <span class="kw">import</span> MAX_SIZE
+
+data = read_csv(<span class="str">"measurements.csv"</span>)
+avg = compute_average(data)
+print_report(avg)</code></pre>
+
+      <div class="callout callout-info">
+        <div class="callout-title">什麼是套件？</div>
+        <p>
+          <strong>套件</strong>是一個包含 <code>__init__.py</code> 檔案（可以是空的）的資料夾。它讓你可以將模組組織到子目錄中：<code>from my_package.utils import helper</code>。小型專案不需要套件 &mdash; 只要在同一個資料夾中使用分開的 <code>.py</code> 檔案就可以了。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  6. 除錯技巧                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="debugging">6. 除錯技巧</h2>
+
+      <p>
+        每個程式設計師都會花時間除錯。這些技巧能幫助你
+        更快地找到和修正錯誤。
+      </p>
+
+      <h3>6.1 &mdash; Print 除錯法</h3>
+
+      <p>
+        最簡單且最常見的技巧。加入 <code>print()</code>
+        語句來查看每個步驟中變數的內容。
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">process_scores</span>(scores):
+    total = <span class="num">0</span>
+    <span class="kw">for</span> i, score <span class="kw">in</span> <span class="fn">enumerate</span>(scores):
+        <span class="fn">print</span>(<span class="str">f"DEBUG: i=</span><span class="op">{</span>i<span class="op">}</span><span class="str">, score=</span><span class="op">{</span>score<span class="op">}</span><span class="str">, total=</span><span class="op">{</span>total<span class="op">}</span><span class="str">"</span>)  <span class="cmt"># 暫時性的</span>
+        total += score
+    <span class="kw">return</span> total / <span class="fn">len</span>(scores)</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">記得移除除錯用的 print</div>
+        <p>
+          在分享程式碼之前，總是搜尋 "DEBUG" 或 "TODO"。在編輯器中
+          快速 <code>Ctrl+F</code> 搜尋 "DEBUG" 就能找到
+          遺留的 print 語句。
+        </p>
+      </div>
+
+      <h3>6.2 &mdash; 使用 <code>assert</code></h3>
+
+      <p>
+        <code>assert</code> 語句驗證你的假設是否正確。
+        如果條件為 <code>False</code>，Python 會引發
+        <code>AssertionError</code>。
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">calculate_average</span>(numbers):
+    <span class="kw">assert</span> <span class="fn">len</span>(numbers) > <span class="num">0</span>, <span class="str">"Cannot average an empty list"</span>
+    <span class="kw">return</span> <span class="fn">sum</span>(numbers) / <span class="fn">len</span>(numbers)
+
+<span class="cmt"># 這會正常運作：</span>
+calculate_average([<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>])
+
+<span class="cmt"># 這會引發 AssertionError 並附帶你的訊息：</span>
+calculate_average([])  <span class="cmt"># AssertionError: Cannot average an empty list</span></code></pre>
+
+      <h3>6.3 &mdash; 使用 <code>breakpoint()</code></h3>
+
+      <p>
+        Python 3.7+ 有內建的 <code>breakpoint()</code> 函式，
+        會在該行將你帶入互動式偵錯器（pdb）。
+      </p>
+
+<pre><code><span class="kw">def</span> <span class="fn">mystery_bug</span>(data):
+    result = []
+    <span class="kw">for</span> item <span class="kw">in</span> data:
+        <span class="fn">breakpoint</span>()  <span class="cmt"># 執行在此暫停 — 你可以檢查變數</span>
+        result.append(item * <span class="num">2</span>)
+    <span class="kw">return</span> result</code></pre>
+
+      <p>
+        當執行暫停時，你可以輸入變數名稱來查看它們的值、
+        輸入 <code>n</code> 前往下一行、<code>c</code> 繼續、
+        <code>q</code> 退出偵錯器。
+      </p>
+
+      <h3>6.4 &mdash; 仔細閱讀錯誤訊息</h3>
+
+      <p>
+        Python 的錯誤訊息異常地有幫助。它們告訴你：
+      </p>
+
+      <ul>
+        <li>錯誤的<strong>型別</strong>（<code>TypeError</code>、<code>ValueError</code>、<code>NameError</code> 等）</li>
+        <li>發生錯誤的確切<strong>行號</strong></li>
+        <li>出了什麼問題的<strong>描述</strong></li>
+      </ul>
+
+      <div class="callout callout-success">
+        <div class="callout-title">先讀最後一行</div>
+        <p>
+          最重要的資訊在錯誤訊息的<strong>底部</strong>。
+          從那裡開始，然後往上找到<em>你的</em>程式碼中（不是函式庫程式碼）
+          引起錯誤的那一行。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. 如何閱讀追蹤回溯                                          -->
+      <!-- ============================================================ -->
+
+      <h2 id="tracebacks">7. 如何閱讀追蹤回溯錯誤</h2>
+
+      <p>
+        <strong>追蹤回溯</strong>是導致錯誤的完整函式呼叫堆疊。
+        學會閱讀追蹤回溯是你可以培養的最有價值的
+        除錯技能之一。
+      </p>
+
+      <h3>範例：一個真實的追蹤回溯</h3>
+
+<pre><code><span class="cmt"># 程式碼</span>
+<span class="kw">def</span> <span class="fn">get_average</span>(numbers):
+    <span class="kw">return</span> <span class="fn">sum</span>(numbers) / <span class="fn">len</span>(numbers)
+
+<span class="kw">def</span> <span class="fn">process_file</span>(filename):
+    <span class="kw">with</span> <span class="fn">open</span>(filename) <span class="kw">as</span> f:
+        values = [<span class="fn">int</span>(line) <span class="kw">for</span> line <span class="kw">in</span> f]
+    <span class="kw">return</span> get_average(values)
+
+result = process_file(<span class="str">"data.txt"</span>)</code></pre>
+
+      <p>如果 <code>data.txt</code> 包含非數字的行，你會得到：</p>
+
+<pre><code>Traceback (most recent call last):           <span class="cmt"># 1. 標題</span>
+  File "main.py", line 9, in &lt;module&gt;        <span class="cmt"># 2. 呼叫堆疊頂端</span>
+    result = process_file("data.txt")
+  File "main.py", line 6, in process_file    <span class="cmt"># 3. 堆疊更深處</span>
+    values = [int(line) for line in f]
+ValueError: invalid literal for int()        <span class="cmt"># 4. 實際錯誤</span>
+  with base 10: 'hello\n'</code></pre>
+
+      <h3>如何閱讀（由下往上）：</h3>
+
+      <ol>
+        <li><strong>第 4 行（底部） &mdash; 錯誤型別和訊息：</strong> <code>ValueError</code> 告訴你一個值是錯誤的。訊息說它嘗試將 <code>'hello\n'</code> 轉換為整數但失敗了。</li>
+        <li><strong>第 3 行 &mdash; 錯誤發生的位置：</strong>檔案 <code>main.py</code>，第 6 行，在函式 <code>process_file</code> 內。罪魁禍首是串列推導式 <code>[int(line) for line in f]</code>。</li>
+        <li><strong>第 2 行 &mdash; 呼叫它的地方：</strong>第 9 行呼叫了 <code>process_file("data.txt")</code>。</li>
+        <li><strong>第 1 行 &mdash; 只是標題：</strong>"Traceback (most recent call last)" &mdash; 總是一樣的。</li>
+      </ol>
+
+      <div class="callout callout-info">
+        <div class="callout-title">修正方法</div>
+        <p>
+          添加錯誤處理或資料驗證。例如，將 <code>int(line)</code>
+          包在 <code>try</code>/<code>except</code> 中，或在轉換前
+          過濾掉非數字的行。
+        </p>
+      </div>
+
+      <h3>常見錯誤型別速覽</h3>
+
+      <table>
+        <thead>
+          <tr><th>錯誤型別</th><th>含義</th><th>常見原因</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>SyntaxError</code></td><td>程式碼不是有效的 Python</td><td>缺少冒號、括號不匹配、打字錯誤</td></tr>
+          <tr><td><code>NameError</code></td><td>找不到變數/函式</td><td>名稱打字錯誤、忘記定義</td></tr>
+          <tr><td><code>TypeError</code></td><td>操作使用了錯誤的型別</td><td>字串 + 整數、引數數量錯誤</td></tr>
+          <tr><td><code>ValueError</code></td><td>型別正確，值錯誤</td><td><code>int("hello")</code>、無效的轉換</td></tr>
+          <tr><td><code>IndexError</code></td><td>索引超出範圍</td><td>串列只有 5 個項目卻存取 <code>list[10]</code></td></tr>
+          <tr><td><code>KeyError</code></td><td>找不到字典鍵</td><td><code>dict["missing_key"]</code></td></tr>
+          <tr><td><code>FileNotFoundError</code></td><td>檔案不存在</td><td>路徑錯誤、檔名打字錯誤</td></tr>
+          <tr><td><code>AttributeError</code></td><td>物件沒有該屬性</td><td>對字串呼叫 <code>.append()</code></td></tr>
+          <tr><td><code>IndentationError</code></td><td>縮排不一致</td><td>混用 tab 和空格</td></tr>
+        </tbody>
+      </table>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 &mdash; 閱讀追蹤回溯</div>
+        <p>這段程式碼有什麼問題，哪一行導致了錯誤？</p>
+<pre><code><span class="kw">def</span> <span class="fn">get_initials</span>(names):
+    initials = []
+    <span class="kw">for</span> name <span class="kw">in</span> names:
+        initials.append(name[<span class="num">0</span>].upper())
+    <span class="kw">return</span> initials
+
+people = [<span class="str">"Alice"</span>, <span class="str">"Bob"</span>, <span class="str">""</span>, <span class="str">"Diana"</span>]
+<span class="fn">print</span>(get_initials(people))</code></pre>
+        <details>
+          <summary>顯示答案</summary>
+          <p>
+            <strong>錯誤：</strong> <code>IndexError: string index out of range</code>
+            發生在 <code>name[0].upper()</code> 這行，當 <code>name</code> 是
+            空字串 <code>""</code> 時。空字串沒有索引 0。
+          </p>
+          <p><strong>修正：</strong>跳過空字串：</p>
+<pre><code><span class="kw">for</span> name <span class="kw">in</span> names:
+    <span class="kw">if</span> name:  <span class="cmt"># 跳過空字串</span>
+        initials.append(name[<span class="num">0</span>].upper())</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. 初學者友善風格指南（PEP 8）                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="style-guide">8. 初學者友善風格指南（PEP 8）</h2>
+
+      <p>
+        <a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a>
+        是 Python 的官方風格指南。以下是對初學者
+        最重要的規則。
+      </p>
+
+      <h3>8.1 &mdash; 使用 4 個空格進行縮排</h3>
+
+<pre><code><span class="cmt"># 正確 — 4 個空格</span>
+<span class="kw">def</span> <span class="fn">greet</span>(name):
+    <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">"</span>)
+
+<span class="cmt"># 錯誤 — 2 個空格（在 JavaScript 中常見，但在 Python 中不是）</span>
+<span class="kw">def</span> <span class="fn">greet</span>(name):
+  <span class="fn">print</span>(<span class="str">f"Hello, </span><span class="op">{</span>name<span class="op">}</span><span class="str">"</span>)</code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">永遠不要混用 tab 和空格</div>
+        <p>
+          設定你的編輯器在按 Tab 時插入 4 個空格。混用
+          tab 和空格會導致 <code>IndentationError</code>，或更糟的是，
+          不可見的錯誤。在 VS Code 中，Python 檔案預設就是這樣。
+        </p>
+      </div>
+
+      <h3>8.2 &mdash; 行長度：目標 79&ndash;99 個字元</h3>
+
+      <p>
+        PEP 8 建議 79 個字元。許多團隊允許到 99 或 120。關鍵是：
+        如果你需要橫向捲動，那行就太長了。
+      </p>
+
+<pre><code><span class="cmt"># 太長 — 難以閱讀</span>
+result = some_function(argument_one, argument_two, argument_three, argument_four, argument_five)
+
+<span class="cmt"># 更好 — 拆開</span>
+result = some_function(
+    argument_one,
+    argument_two,
+    argument_three,
+    argument_four,
+    argument_five,
+)</code></pre>
+
+      <h3>8.3 &mdash; 空行</h3>
+
+      <ul>
+        <li><strong>2 個空行</strong>在頂層函式和類別的前後。</li>
+        <li><strong>1 個空行</strong>在類別內的方法之間。</li>
+        <li>在函式內部少量使用空行來分隔邏輯區段。</li>
+      </ul>
+
+      <h3>8.4 &mdash; 匯入順序</h3>
+
+      <p>按照以下順序分組匯入，每組之間留一個空行：</p>
+
+      <ol>
+        <li>標準函式庫（<code>os</code>、<code>sys</code>、<code>math</code>）</li>
+        <li>第三方套件（<code>numpy</code>、<code>pandas</code>、<code>requests</code>）</li>
+        <li>你自己的模組（<code>from my_project import utils</code>）</li>
+      </ol>
+
+<pre><code><span class="kw">import</span> os
+<span class="kw">import</span> sys
+
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">import</span> requests
+
+<span class="kw">from</span> my_project <span class="kw">import</span> helpers</code></pre>
+
+      <h3>8.5 &mdash; 運算子周圍的空格</h3>
+
+<pre><code><span class="cmt"># 好</span>
+x = <span class="num">5</span>
+y = x + <span class="num">3</span>
+result = (a + b) * (c - d)
+
+<span class="cmt"># 不好 — 太擁擠</span>
+x=<span class="num">5</span>
+y=x+<span class="num">3</span>
+result=(a+b)*(c-d)</code></pre>
+
+      <div class="callout callout-success">
+        <div class="callout-title">讓工具幫助你</div>
+        <p>
+          安裝像 <strong>Ruff</strong> 或
+          <strong>Black</strong> 這樣的 linter/格式化工具。它們會自動格式化你的程式碼以遵循 PEP 8。
+          在 VS Code 中，安裝 "Ruff" 擴充功能並啟用「儲存時格式化」。
+          你再也不需要擔心格式問題了。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. 常見反模式                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="anti-patterns">9. 常見反模式</h2>
+
+      <p>
+        反模式是<em>能運作</em>但之後會造成問題的程式碼習慣。
+        從一開始就學會辨識和避免它們。
+      </p>
+
+      <h3>9.1 &mdash; 可變的預設引數</h3>
+
+      <p>
+        這是 Python 中最臭名昭著的陷阱之一。預設的可變
+        引數（如串列或字典）在所有呼叫之間共享。
+      </p>
+
+<pre><code><span class="cmt"># 錯誤 — 預設串列在呼叫之間共享！</span>
+<span class="kw">def</span> <span class="fn">add_item</span>(item, items=[]):
+    items.append(item)
+    <span class="kw">return</span> items
+
+<span class="fn">print</span>(add_item(<span class="str">"a"</span>))  <span class="cmt"># ['a']       — 看起來沒問題</span>
+<span class="fn">print</span>(add_item(<span class="str">"b"</span>))  <span class="cmt"># ['a', 'b']  — 等等，'a' 是從哪來的？！</span></code></pre>
+
+<pre><code><span class="cmt"># 正確 — 使用 None 作為預設值，在函式內建立新串列</span>
+<span class="kw">def</span> <span class="fn">add_item</span>(item, items=<span class="kw">None</span>):
+    <span class="kw">if</span> items <span class="kw">is</span> <span class="kw">None</span>:
+        items = []
+    items.append(item)
+    <span class="kw">return</span> items
+
+<span class="fn">print</span>(add_item(<span class="str">"a"</span>))  <span class="cmt"># ['a']</span>
+<span class="fn">print</span>(add_item(<span class="str">"b"</span>))  <span class="cmt"># ['b']  — 正確！</span></code></pre>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">這個錯誤很難發現</div>
+        <p>
+          函式第一次呼叫時運作正確。錯誤只在
+          <em>後續</em>呼叫時才會出現。串列、字典或集合參數
+          的預設值永遠使用 <code>None</code>。
+        </p>
+      </div>
+
+      <h3>9.2 &mdash; 裸 <code>except</code></h3>
+
+      <p>
+        裸 <code>except</code> 會捕獲<em>所有</em>例外，包括
+        鍵盤中斷和系統退出。這會隱藏錯誤。
+      </p>
+
+<pre><code><span class="cmt"># 錯誤 — 捕獲所有東西，隱藏真正的問題</span>
+<span class="kw">try</span>:
+    result = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter a number: "</span>))
+<span class="kw">except</span>:
+    <span class="fn">print</span>(<span class="str">"Something went wrong"</span>)  <span class="cmt"># 什麼出了問題？誰知道！</span></code></pre>
+
+<pre><code><span class="cmt"># 正確 — 捕獲你預期的特定例外</span>
+<span class="kw">try</span>:
+    result = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Enter a number: "</span>))
+<span class="kw">except</span> <span class="cls">ValueError</span>:
+    <span class="fn">print</span>(<span class="str">"That's not a valid number. Please try again."</span>)</code></pre>
+
+      <h3>9.3 &mdash; 使用全域變數</h3>
+
+      <p>
+        全域變數使程式碼不可預測，因為任何函式都可以
+        修改它們。改為透過函式參數傳遞資料。
+      </p>
+
+<pre><code><span class="cmt"># 錯誤 — 依賴全域變數</span>
+counter = <span class="num">0</span>
+
+<span class="kw">def</span> <span class="fn">increment</span>():
+    <span class="kw">global</span> counter
+    counter += <span class="num">1</span>
+
+increment()
+increment()
+<span class="fn">print</span>(counter)  <span class="cmt"># 2 — 但是誰改了它？難以追蹤。</span></code></pre>
+
+<pre><code><span class="cmt"># 正確 — 明確地傳遞和回傳值</span>
+<span class="kw">def</span> <span class="fn">increment</span>(counter):
+    <span class="kw">return</span> counter + <span class="num">1</span>
+
+counter = <span class="num">0</span>
+counter = increment(counter)
+counter = increment(counter)
+<span class="fn">print</span>(counter)  <span class="cmt"># 2 — 資料流清晰</span></code></pre>
+
+      <h3>9.4 &mdash; 不使用 <code>with</code> 開啟檔案</h3>
+
+      <p>
+        不使用 <code>with</code> 開啟檔案，如果發生錯誤
+        檔案可能保持開啟狀態，消耗系統資源。
+      </p>
+
+<pre><code><span class="cmt"># 錯誤 — 如果 close() 之前發生錯誤，檔案可能保持開啟</span>
+f = <span class="fn">open</span>(<span class="str">"data.txt"</span>)
+data = f.read()
+f.close()  <span class="cmt"># 如果上面那行發生錯誤怎麼辦？</span></code></pre>
+
+<pre><code><span class="cmt"># 正確 — 'with' 保證檔案被關閉，即使發生錯誤</span>
+<span class="kw">with</span> <span class="fn">open</span>(<span class="str">"data.txt"</span>) <span class="kw">as</span> f:
+    data = f.read()
+<span class="cmt"># 檔案在此自動關閉</span></code></pre>
+
+      <h3>9.5 &mdash; 硬編碼路徑</h3>
+
+      <p>
+        硬編碼路徑在你的程式碼在不同電腦或
+        作業系統上運行時會出問題。
+      </p>
+
+<pre><code><span class="cmt"># 錯誤 — 只在你的電腦上有效</span>
+data = <span class="fn">open</span>(<span class="str">"C:/Users/alice/projects/data.txt"</span>)
+
+<span class="cmt"># 正確 — 使用相對路徑或 pathlib</span>
+<span class="kw">from</span> pathlib <span class="kw">import</span> Path
+
+data_file = Path(__file__).parent / <span class="str">"data"</span> / <span class="str">"data.txt"</span>
+<span class="kw">with</span> <span class="fn">open</span>(data_file) <span class="kw">as</span> f:
+    data = f.read()</code></pre>
+
+      <h3>9.6 &mdash; 複製貼上程式碼</h3>
+
+      <p>
+        如果你複製貼上一段程式碼只改幾個值，你應該
+        提取一個函式。每個副本都是一個未來等待發生的錯誤
+        &mdash; 當你修正一個副本時，你會忘記修正其他的。
+      </p>
+
+<pre><code><span class="cmt"># 錯誤 — 三份幾乎相同的邏輯</span>
+<span class="fn">print</span>(<span class="str">f"Student: Alice, Grade: </span><span class="op">{</span><span class="num">85</span><span class="op">}</span><span class="str">, Status: </span><span class="op">{</span><span class="str">'Pass'</span> <span class="kw">if</span> <span class="num">85</span> >= <span class="num">60</span> <span class="kw">else</span> <span class="str">'Fail'</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Student: Bob, Grade: </span><span class="op">{</span><span class="num">55</span><span class="op">}</span><span class="str">, Status: </span><span class="op">{</span><span class="str">'Pass'</span> <span class="kw">if</span> <span class="num">55</span> >= <span class="num">60</span> <span class="kw">else</span> <span class="str">'Fail'</span><span class="op">}</span><span class="str">"</span>)
+<span class="fn">print</span>(<span class="str">f"Student: Carol, Grade: </span><span class="op">{</span><span class="num">72</span><span class="op">}</span><span class="str">, Status: </span><span class="op">{</span><span class="str">'Pass'</span> <span class="kw">if</span> <span class="num">72</span> >= <span class="num">60</span> <span class="kw">else</span> <span class="str">'Fail'</span><span class="op">}</span><span class="str">"</span>)</code></pre>
+
+<pre><code><span class="cmt"># 正確 — 使用函式和迴圈</span>
+<span class="kw">def</span> <span class="fn">print_student_result</span>(name, grade, passing=<span class="num">60</span>):
+    status = <span class="str">"Pass"</span> <span class="kw">if</span> grade >= passing <span class="kw">else</span> <span class="str">"Fail"</span>
+    <span class="fn">print</span>(<span class="str">f"Student: </span><span class="op">{</span>name<span class="op">}</span><span class="str">, Grade: </span><span class="op">{</span>grade<span class="op">}</span><span class="str">, Status: </span><span class="op">{</span>status<span class="op">}</span><span class="str">"</span>)
+
+students = [(<span class="str">"Alice"</span>, <span class="num">85</span>), (<span class="str">"Bob"</span>, <span class="num">55</span>), (<span class="str">"Carol"</span>, <span class="num">72</span>)]
+<span class="kw">for</span> name, grade <span class="kw">in</span> students:
+    print_student_result(name, grade)</code></pre>
+
+      <div class="exercise">
+        <div class="exercise-title">練習 &mdash; 找出反模式</div>
+        <p>你能在這段程式碼中找到幾個反模式？</p>
+<pre><code><span class="kw">import</span> os
+data = []
+<span class="kw">def</span> <span class="fn">load</span>():
+    <span class="kw">global</span> data
+    f = <span class="fn">open</span>(<span class="str">"C:/Users/bob/data.csv"</span>)
+    <span class="kw">try</span>:
+        data = f.readlines()
+    <span class="kw">except</span>:
+        <span class="fn">print</span>(<span class="str">"error"</span>)
+
+<span class="kw">def</span> <span class="fn">process</span>(items=[]):
+    <span class="kw">for</span> d <span class="kw">in</span> data:
+        items.append(d.strip())
+    <span class="kw">return</span> items</code></pre>
+        <details>
+          <summary>顯示答案</summary>
+          <p>有 <strong>5 個反模式</strong>：</p>
+          <ol>
+            <li><strong>全域變數</strong> &mdash; <code>global data</code> 修改模組層級的狀態。</li>
+            <li><strong>沒有 <code>with</code> 語句</strong> &mdash; 檔案在沒有 <code>with</code> 的情況下開啟，且從未關閉。</li>
+            <li><strong>硬編碼路徑</strong> &mdash; <code>"C:/Users/bob/data.csv"</code> 在其他電腦上不能用。</li>
+            <li><strong>裸 except</strong> &mdash; 捕獲所有例外而不指定哪些。</li>
+            <li><strong>可變的預設引數</strong> &mdash; <code>items=[]</code> 在呼叫之間共享。</li>
+          </ol>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  上一頁 / 下一頁 導覽                                         -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="practice.html" class="prev">
+          <span class="nav-label">&larr; 上一頁</span>
+          <span class="nav-title">練習與學習路線</span>
+        </a>
+        <a href="common-errors.html" class="next">
+          <span class="nav-label">下一頁 &rarr;</span>
+          <span class="nav-title">常見錯誤</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 速查表 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導航">&#9776;</button>
+
+  <!-- 側邊欄 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/cheatsheet.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link active">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span> 速查表
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  PYTHON 速查表                                                -->
+      <!-- ============================================================ -->
+
+      <h1>Python 速查表</h1>
+
+      <p>
+        這是一份精簡、可快速掃描的 Python 日常快速參考。收藏本頁或列印出來
+        &mdash; 每個範例都控制在一到兩行，讓你一眼就能找到所需內容。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  1. 基本語法                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="basic-syntax">1. 基本語法</h2>
+
+      <h3>變數與賦值</h3>
+<pre><code>x = 10
+name = "Alice"</code></pre>
+
+      <h3>輸出</h3>
+<pre><code>print("Hello, world!")
+print(f"Name: {name}, Age: {x}")</code></pre>
+
+      <h3>輸入</h3>
+<pre><code>answer = input("Enter your name: ")</code></pre>
+
+      <h3>註解</h3>
+<pre><code># 這是單行註解
+x = 5  # 行內註解</code></pre>
+
+      <h3>縮排</h3>
+<pre><code>if True:
+    print("縮排定義程式碼區塊 &mdash; 使用4個空格")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  2. 資料型別                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="data-types">2. 資料型別</h2>
+
+<pre><code>x = 42              # 整數 int
+pi = 3.14           # 浮點數 float
+name = "Alice"      # 字串 str
+flag = True         # 布林值 bool
+nums = [1, 2, 3]    # 串列 list
+pair = (1, 2)       # 元組 tuple
+info = {"a": 1}     # 字典 dict
+unique = {1, 2, 3}  # 集合 set
+empty = None        # NoneType</code></pre>
+
+      <h3>檢查型別</h3>
+<pre><code>type(x)        # &lt;class 'int'&gt;
+isinstance(x, int)  # True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  3. 字串操作                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="string-operations">3. 字串操作</h2>
+
+      <h3>建立與串接</h3>
+<pre><code>s = "hello"
+full = "hello" + " " + "world"</code></pre>
+
+      <h3>F-字串（格式化字串）</h3>
+<pre><code>name = "Alice"
+print(f"Hi, {name}! 2+2={2+2}")</code></pre>
+
+      <h3>切片</h3>
+<pre><code>s = "hello"
+s[0]     # 'h'
+s[1:4]   # 'ell'
+s[::-1]  # 'olleh'（反轉）</code></pre>
+
+      <h3>常用方法</h3>
+<pre><code>"hello".upper()                # 'HELLO'
+"HELLO".lower()                # 'hello'
+"  hi  ".strip()               # 'hi'
+"a,b,c".split(",")             # ['a', 'b', 'c']
+", ".join(["a", "b", "c"])     # 'a, b, c'
+"hello".replace("l", "L")     # 'heLLo'
+"hello".find("ll")            # 2（找不到回傳 -1）
+"hello".count("l")            # 2
+"hello".startswith("he")      # True
+"hello".endswith("lo")        # True
+"ell" in "hello"              # True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  4. 串列操作                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="list-operations">4. 串列操作</h2>
+
+      <h3>建立與存取</h3>
+<pre><code>nums = [10, 20, 30, 40]
+nums[0]     # 10
+nums[-1]    # 40
+nums[1:3]   # [20, 30]</code></pre>
+
+      <h3>修改</h3>
+<pre><code>nums.append(50)        # [10, 20, 30, 40, 50]
+nums.extend([60, 70])  # 在末尾添加 60, 70
+nums.insert(0, 5)      # 在索引 0 處插入 5
+nums.remove(20)        # 移除第一個出現的 20
+nums.pop()             # 移除並回傳最後一個元素
+nums.pop(0)            # 移除並回傳索引 0 的元素</code></pre>
+
+      <h3>排序與反轉</h3>
+<pre><code>nums.sort()            # 原地排序（升序）
+nums.sort(reverse=True)
+nums.reverse()         # 原地反轉
+sorted(nums)           # 回傳新的排序串列</code></pre>
+
+      <h3>長度與成員檢查</h3>
+<pre><code>len(nums)          # 元素數量
+30 in nums         # True</code></pre>
+
+      <h3>串列推導式</h3>
+<pre><code>squares = [x**2 for x in range(5)]       # [0, 1, 4, 9, 16]
+evens = [x for x in range(10) if x % 2 == 0]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  5. 字典操作                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="dictionary-operations">5. 字典操作</h2>
+
+      <h3>建立與存取</h3>
+<pre><code>d = {"name": "Alice", "age": 30}
+d["name"]          # 'Alice'
+d.get("age")       # 30
+d.get("x", 0)      # 0（鍵不存在時的預設值）</code></pre>
+
+      <h3>新增、更新與刪除</h3>
+<pre><code>d["email"] = "a@b.com"   # 新增 / 更新
+d.update({"age": 31, "city": "NY"})
+del d["email"]           # 刪除鍵</code></pre>
+
+      <h3>迭代</h3>
+<pre><code>d.keys()           # dict_keys(['name', 'age'])
+d.values()         # dict_values(['Alice', 30])
+d.items()          # dict_items([('name','Alice'), ('age',30)])</code></pre>
+
+      <h3>成員檢查與推導式</h3>
+<pre><code>"name" in d              # True（檢查鍵）
+squares = {x: x**2 for x in range(5)}</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. 集合操作                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="set-operations">6. 集合操作</h2>
+
+<pre><code>s = {1, 2, 3}
+s.add(4)               # {1, 2, 3, 4}
+s.remove(2)            # {1, 3, 4} &mdash; 元素不存在時會報錯
+s.discard(99)          # 元素不存在時不會報錯
+
+a = {1, 2, 3}
+b = {3, 4, 5}
+a | b                  # {1, 2, 3, 4, 5}  聯集
+a &amp; b                  # {3}              交集
+a - b                  # {1, 2}           差集
+3 in a                 # True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  7. 元組操作                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="tuple-operations">7. 元組操作</h2>
+
+<pre><code>t = (1, 2, 3)
+t[0]                   # 1
+a, b, c = t            # 拆解：a=1, b=2, c=3
+single = (42,)         # 單元素元組（注意逗號）</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  8. 流程控制                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="control-flow">8. 流程控制</h2>
+
+      <h3>if / elif / else</h3>
+<pre><code>if x &gt; 0:
+    print("positive")
+elif x == 0:
+    print("zero")
+else:
+    print("negative")</code></pre>
+
+      <h3>for 迴圈</h3>
+<pre><code>for item in [1, 2, 3]:
+    print(item)</code></pre>
+
+      <h3>while 迴圈</h3>
+<pre><code>while x &gt; 0:
+    x -= 1</code></pre>
+
+      <h3>break、continue、pass</h3>
+<pre><code>for i in range(10):
+    if i == 5: break       # 跳出迴圈
+    if i % 2 == 0: continue  # 跳到下一次迭代
+    pass                   # 不做任何事（佔位符）</code></pre>
+
+      <h3>range、enumerate、zip</h3>
+<pre><code>range(5)             # 0, 1, 2, 3, 4
+range(2, 8)          # 2, 3, 4, 5, 6, 7
+range(0, 10, 2)      # 0, 2, 4, 6, 8
+
+for i, val in enumerate(["a", "b", "c"]):
+    print(i, val)    # 0 a, 1 b, 2 c
+
+for a, b in zip([1,2], ["x","y"]):
+    print(a, b)      # 1 x, 2 y</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  9. 函式                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="functions">9. 函式</h2>
+
+      <h3>基本函式</h3>
+<pre><code>def greet(name):
+    return f"Hello, {name}!"</code></pre>
+
+      <h3>預設參數</h3>
+<pre><code>def greet(name, greeting="Hi"):
+    return f"{greeting}, {name}!"</code></pre>
+
+      <h3>*args 和 **kwargs</h3>
+<pre><code>def add(*args):
+    return sum(args)           # add(1, 2, 3) &rarr; 6
+
+def info(**kwargs):
+    for k, v in kwargs.items():
+        print(f"{k}: {v}")     # info(name="Alice", age=30)</code></pre>
+
+      <h3>Lambda（匿名函式）</h3>
+<pre><code>double = lambda x: x * 2     # double(5) &rarr; 10
+sorted(names, key=lambda s: s.lower())</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  10. 檔案處理                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="file-handling">10. 檔案處理</h2>
+
+      <h3>讀取</h3>
+<pre><code>with open("file.txt", "r") as f:
+    content = f.read()         # 整個檔案作為字串
+
+with open("file.txt", "r") as f:
+    lines = f.readlines()      # 行的串列</code></pre>
+
+      <h3>寫入與附加</h3>
+<pre><code>with open("file.txt", "w") as f:
+    f.write("Hello\n")        # 覆寫
+
+with open("file.txt", "a") as f:
+    f.write("More text\n")    # 附加</code></pre>
+
+      <h3>CSV</h3>
+<pre><code>import csv
+with open("data.csv") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)             # 每一行是一個串列</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  11. 錯誤處理                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="error-handling">11. 錯誤處理</h2>
+
+      <h3>try / except / else / finally</h3>
+<pre><code>try:
+    result = 10 / x
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except (TypeError, ValueError) as e:
+    print(f"Error: {e}")
+else:
+    print("Success")          # 沒有例外時執行
+finally:
+    print("Always runs")</code></pre>
+
+      <h3>常見例外</h3>
+<pre><code>ValueError       # 值錯誤（例如 int("abc")）
+TypeError        # 型別錯誤（例如 "a" + 1）
+KeyError         # 字典鍵不存在
+IndexError       # 串列索引超出範圍
+FileNotFoundError
+ZeroDivisionError
+AttributeError   # 物件沒有該屬性
+ImportError      # 找不到模組
+NameError        # 未定義的變數</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  12. 常用匯入                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-imports">12. 常用匯入</h2>
+
+<pre><code>import os                  # 檔案路徑、環境變數、系統命令
+import sys                 # 直譯器設定、argv
+import math                # sqrt、ceil、floor、pi、e
+import random              # randint、choice、shuffle
+import datetime            # date、time、timedelta
+import json                # json.loads()、json.dumps()
+import csv                 # csv.reader()、csv.writer()
+from pathlib import Path   # 現代化檔案路徑
+import re                  # 正規表達式
+import shutil              # 複製/移動檔案和目錄
+import glob                # 檔案模式匹配
+import subprocess          # 執行 shell 命令
+from collections import Counter, defaultdict</code></pre>
+
+      <h3>快速範例</h3>
+<pre><code>os.getcwd()                        # 目前目錄
+os.listdir(".")                    # 列出檔案
+Path("data/file.txt").read_text()  # 讀取檔案
+math.sqrt(16)                      # 4.0
+random.randint(1, 10)              # 1-10 的隨機整數
+json.loads('{"a": 1}')             # 解析 JSON 字串
+datetime.datetime.now()            # 目前日期/時間
+re.findall(r"\d+", "abc123")      # ['123']</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  13. 套件管理                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="package-management">13. 套件管理</h2>
+
+<pre><code>pip install requests           # 安裝套件
+pip install requests==2.28.0   # 指定版本
+pip list                       # 列出已安裝的套件
+pip freeze &gt; requirements.txt  # 儲存相依套件
+pip install -r requirements.txt  # 從檔案安裝</code></pre>
+
+      <h3>虛擬環境</h3>
+<pre><code>python -m venv myenv           # 建立虛擬環境
+source myenv/bin/activate      # 啟用（Linux/Mac）
+myenv\Scripts\activate         # 啟用（Windows）
+deactivate                     # 停用</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  14. 運算子參考                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="operators-reference">14. 運算子參考</h2>
+
+      <h3>算術運算</h3>
+<pre><code>x + y       # 加法
+x - y       # 減法
+x * y       # 乘法
+x / y       # 除法（浮點數）
+x // y      # 整數除法
+x % y       # 取餘數
+x ** y      # 次方</code></pre>
+
+      <h3>比較運算</h3>
+<pre><code>x == y      # 等於
+x != y      # 不等於
+x &lt; y       # 小於
+x &gt; y       # 大於
+x &lt;= y      # 小於或等於
+x &gt;= y      # 大於或等於</code></pre>
+
+      <h3>邏輯運算</h3>
+<pre><code>x and y     # 兩者皆為 True 時為 True
+x or y      # 任一為 True 時為 True
+not x       # 反轉布林值</code></pre>
+
+      <h3>賦值運算</h3>
+<pre><code>x = 10
+x += 5      # x = x + 5
+x -= 3      # x = x - 3
+x *= 2      # x = x * 2
+x /= 4      # x = x / 4</code></pre>
+
+      <h3>成員運算</h3>
+<pre><code>"a" in "abc"          # True
+3 not in [1, 2]       # True</code></pre>
+
+      <h3>身份運算</h3>
+<pre><code>x is None             # 若 x 為 None 則為 True
+x is not None         # 若 x 不為 None 則為 True</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  頁面導航                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="common-errors.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">常見錯誤</span></a>
+        <a href="python-for-automation.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">Python 自動化</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

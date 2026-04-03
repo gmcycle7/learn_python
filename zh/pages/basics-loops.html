@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迴圈 &mdash; 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽列">&#9776;</button>
+
+  <!-- 側邊欄 — 每頁相同 -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon">&#128013;</span> 學習 Python</h2>
+      <p>完整初學者指南</p>
+      <a href="../../pages/basics-loops.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a>
+    </div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section">
+        <div class="nav-section-title">首頁</div>
+        <a href="../index.html" class="nav-link">首頁</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">A &mdash; 什麼是Python</div>
+        <a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python?</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">B &mdash; 入門設定</div>
+        <a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">C &mdash; Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link active">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">D &mdash; 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a>
+        <a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">E &mdash; MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a>
+        <a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">F &mdash; 語言比較</div>
+        <a href="comparisons.html" class="nav-link">語言比較</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">G &mdash; 迷你專案</div>
+        <a href="projects.html" class="nav-link">迷你專案</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">H &mdash; 練習與學習路線</div>
+        <a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">I &mdash; 最佳實踐</div>
+        <a href="best-practices.html" class="nav-link">最佳實踐</a>
+        <a href="common-errors.html" class="nav-link">常見錯誤</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">J &mdash; 速查表</div>
+        <a href="cheatsheet.html" class="nav-link">速查表</a>
+        <a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb">
+        <a href="../index.html">首頁</a><span class="sep">&rsaquo;</span>
+        <a href="basics-print-variables.html">Python 基礎</a><span class="sep">&rsaquo;</span>
+        迴圈
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  第 C6 節 — 迴圈                                               -->
+      <!-- ============================================================ -->
+
+      <h1>第 C6 節 &mdash; 迴圈</h1>
+
+      <p>
+        迴圈讓你可以重複執行一段程式碼許多次，而不需要一遍又一遍地寫出來。
+        需要處理串列中的每個項目？印出 1 到 100 的數字？
+        持續要求輸入直到使用者輸入「quit」？迴圈能處理所有這些。
+        Python 有兩種迴圈：<code>for</code> 和 <code>while</code>。
+        本頁深入介紹這兩種迴圈，以及控制關鍵字 <code>break</code>、
+        <code>continue</code> 和 <code>pass</code>。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong> MATLAB 使用
+        <code>for i = 1:10 ... end</code> 和 <code>while ... end</code>。
+        Python 的迴圈在邏輯上類似，但語法不同：
+        (1)&nbsp;Python 使用 <code>for i in range(10):</code>，搭配
+        <strong>冒號</strong>和<strong>縮排</strong>取代
+        <code>end</code>，(2)&nbsp;<code>range()</code> 是
+        <strong>從 0 開始</strong>且<strong>不包含</strong>結束值，
+        (3)&nbsp;Python 的 <code>for</code> 迴圈可以迭代
+        <em>任何</em>可迭代物件，不僅僅是數字範圍。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. for 迴圈                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="for-loop">1. <code>for</code> 迴圈</h2>
+
+      <p>
+        <code>for</code> 迴圈遍歷一個<strong>序列</strong>
+        （串列、字串、元組、range 等），對每個項目執行一次縮排區塊。
+        迴圈變數依次取得每個項目的值。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>for variable in sequence:
+    # 對 variable 做些什麼</code></pre>
+
+      <p>關鍵規則：</p>
+      <ul>
+        <li>該行以<strong>冒號</strong>結尾。</li>
+        <li>主體需要<strong>縮排</strong>（4 個空格）。</li>
+        <li>沒有 <code>end</code> 關鍵字 &mdash; 當縮排回到前一層時，迴圈主體結束。</li>
+      </ul>
+
+      <h3>範例 1 &mdash; 遍歷串列</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+
+# 輸出：
+# apple
+# banana
+# cherry</code></pre>
+
+      <p>
+        每次迭代，<code>fruit</code> 從串列中取得下一個值。
+        先是 <code>"apple"</code>，然後 <code>"banana"</code>，
+        再來 <code>"cherry"</code>。當沒有更多項目時，迴圈結束。
+      </p>
+
+      <h3>範例 2 &mdash; 遍歷字串</h3>
+
+      <pre><code>word = "Python"
+
+for letter in word:
+    print(letter, end=" ")
+
+# 輸出：P y t h o n</code></pre>
+
+      <p>
+        字串是字元的序列，所以你可以逐字元遍歷它們。
+      </p>
+
+      <h3>範例 3 &mdash; 遍歷字典</h3>
+
+      <pre><code>scores = {"Alice": 95, "Bob": 82, "Carol": 90}
+
+for name in scores:
+    print(f"{name}: {scores[name]}")
+
+# 輸出：
+# Alice: 95
+# Bob: 82
+# Carol: 90</code></pre>
+
+      <p>
+        預設情況下，遍歷字典會給你<strong>鍵</strong>。
+        要同時取得鍵和值，使用 <code>.items()</code>：
+      </p>
+
+      <pre><code>for name, score in scores.items():
+    print(f"{name}: {score}")</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  2. range() 函式                                               -->
+      <!-- ============================================================ -->
+
+      <h2 id="range">2. <code>range()</code> 函式</h2>
+
+      <p>
+        當你需要迴圈特定次數或產生一個數字序列時，使用 <code>range()</code>。
+        它不會在記憶體中建立一個串列 &mdash; 它每次產生一個數字，
+        即使對於龐大的範圍也很節省記憶體。
+      </p>
+
+      <h3><code>range()</code> 的三種形式</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>形式</th>
+            <th>含義</th>
+            <th>範例</th>
+            <th>產生</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>range(stop)</code></td>
+            <td>0 到 stop&minus;1</td>
+            <td><code>range(5)</code></td>
+            <td>0, 1, 2, 3, 4</td>
+          </tr>
+          <tr>
+            <td><code>range(start, stop)</code></td>
+            <td>start 到 stop&minus;1</td>
+            <td><code>range(2, 6)</code></td>
+            <td>2, 3, 4, 5</td>
+          </tr>
+          <tr>
+            <td><code>range(start, stop, step)</code></td>
+            <td>start 到 stop&minus;1，每次跳 step</td>
+            <td><code>range(0, 10, 2)</code></td>
+            <td>0, 2, 4, 6, 8</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>關鍵細節：</strong> stop 值是
+        <strong>不包含的</strong> &mdash; 範圍到 stop 為止但
+        <em>不包括</em> stop 值。這與 MATLAB 不同，
+        MATLAB 的 <code>1:5</code> 包含 5。在 Python 中，
+        <code>range(1, 6)</code> 會給你 1, 2, 3, 4, 5。
+      </div>
+
+      <h3>範例 4 &mdash; <code>range(n)</code></h3>
+
+      <pre><code>for i in range(5):
+    print(i, end=" ")
+
+# 輸出：0 1 2 3 4</code></pre>
+
+      <p>從 0 開始，在 5 之前停止。總共五次迭代。</p>
+
+      <h3>範例 5 &mdash; <code>range(start, stop)</code></h3>
+
+      <pre><code>for i in range(1, 6):
+    print(i, end=" ")
+
+# 輸出：1 2 3 4 5</code></pre>
+
+      <p>
+        如果你想要 1 到 5 的數字（像 MATLAB 的
+        <code>1:5</code>），使用 <code>range(1, 6)</code>。
+      </p>
+
+      <h3>範例 6 &mdash; <code>range(start, stop, step)</code></h3>
+
+      <pre><code># 0 到 10 的偶數
+for i in range(0, 11, 2):
+    print(i, end=" ")
+
+# 輸出：0 2 4 6 8 10</code></pre>
+
+      <h3>範例 7 &mdash; 倒數</h3>
+
+      <pre><code>for i in range(5, 0, -1):
+    print(i, end=" ")
+
+# 輸出：5 4 3 2 1</code></pre>
+
+      <p>
+        使用負的步長來倒數。start 是 5，stop 是 0
+        （不包含），所以產生 5, 4, 3, 2, 1。
+      </p>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 比較：</strong>
+        <table>
+          <thead>
+            <tr><th>MATLAB</th><th>Python</th><th>產生</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>1:5</code></td><td><code>range(1, 6)</code></td><td>1, 2, 3, 4, 5</td></tr>
+            <tr><td><code>0:2:10</code></td><td><code>range(0, 11, 2)</code></td><td>0, 2, 4, 6, 8, 10</td></tr>
+            <tr><td><code>5:-1:1</code></td><td><code>range(5, 0, -1)</code></td><td>5, 4, 3, 2, 1</td></tr>
+          </tbody>
+        </table>
+        <p>
+          關鍵差異：MATLAB 範圍<strong>包含</strong>結束值。
+          Python 的 <code>range()</code> 是<strong>不包含</strong>的。
+          從 MATLAB 轉換時，你需要將 stop 值加 1。
+        </p>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  3. while 迴圈                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="while-loop">3. <code>while</code> 迴圈</h2>
+
+      <p>
+        <code>while</code> 迴圈在條件保持為 <code>True</code> 時
+        重複執行程式碼區塊。它在每次迭代<em>之前</em>檢查條件。
+        如果條件一開始就是 <code>False</code>，主體永遠不會執行。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>while condition:
+    # 做些什麼
+    # （確保條件最終會變成 False！）</code></pre>
+
+      <h3>何時使用 <code>while</code> vs. <code>for</code></h3>
+
+      <ul>
+        <li>當你預先知道迭代次數或正在遍歷集合時，使用 <code>for</code>。</li>
+        <li>當你不知道需要多少次迭代時使用 <code>while</code> &mdash; 迴圈應該持續執行直到條件改變。</li>
+      </ul>
+
+      <h3>範例 8 &mdash; 基本倒數</h3>
+
+      <pre><code>count = 5
+
+while count > 0:
+    print(count, end=" ")
+    count -= 1
+
+print("Go!")
+# 輸出：5 4 3 2 1 Go!</code></pre>
+
+      <p>
+        每次迭代，<code>count</code> 減少 1。當
+        <code>count</code> 達到 0 時，條件 <code>count &gt; 0</code>
+        變為 <code>False</code>，迴圈停止。
+      </p>
+
+      <h3>範例 9 &mdash; 使用者輸入迴圈</h3>
+
+      <pre><code># 持續詢問直到使用者輸入 "quit"
+user_input = ""
+
+while user_input != "quit":
+    user_input = input("Enter a command (type 'quit' to exit): ")
+    print(f"You entered: {user_input}")
+
+print("Goodbye!")</code></pre>
+
+      <p>
+        這是 <code>while</code> 的經典使用場景 &mdash; 你無法預先知道
+        使用者在選擇退出之前會輸入多少次。
+      </p>
+
+      <h3>範例 10 &mdash; 累加到達閾值</h3>
+
+      <pre><code>total = 0
+number = 1
+
+while total < 100:
+    total += number
+    number += 1
+
+print(f"Reached {total} after adding numbers up to {number - 1}")
+# 輸出：Reached 105 after adding numbers up to 14</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong> <code>while</code> 迴圈給你最大的靈活性。
+        然而，你必須確保條件最終會變成 <code>False</code>。
+        如果它永遠不會，你就有了一個<strong>無窮迴圈</strong>，
+        你的程式會卡住。始終仔細檢查迴圈內是否有東西在改變條件。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  4. break                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="break">4. <code>break</code> &mdash; 提前退出迴圈</h2>
+
+      <p>
+        <code>break</code> 語句會立即退出最近的外層迴圈，
+        無論迴圈的條件是否仍為 <code>True</code> 或是否還有更多項目要迭代。
+      </p>
+
+      <h3>範例 11 &mdash; 找到第一個匹配</h3>
+
+      <pre><code>numbers = [4, 7, 2, 9, 1, 8, 3]
+
+for num in numbers:
+    if num > 5:
+        print(f"First number greater than 5: {num}")
+        break
+
+# 輸出：First number greater than 5: 7</code></pre>
+
+      <p>
+        沒有 <code>break</code>，迴圈會繼續遍歷所有項目。
+        有了 <code>break</code>，它找到 <code>7</code> 就立即停止。
+      </p>
+
+      <h3>範例 12 &mdash; 從 <code>while</code> 迴圈中跳出</h3>
+
+      <pre><code>while True:
+    password = input("Enter password: ")
+    if password == "secret":
+        print("Access granted!")
+        break
+    print("Wrong password. Try again.")</code></pre>
+
+      <p>
+        <code>while True:</code> 建立一個刻意的無窮迴圈。
+        唯一的出口是 <code>break</code> 語句，它在輸入正確密碼時執行。
+        這是一個常見且完全有效的模式。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  5. continue                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="continue">5. <code>continue</code> &mdash; 跳到下一次迭代</h2>
+
+      <p>
+        <code>continue</code> 語句跳過當前迭代的其餘部分，
+        直接跳到下一次迭代。迴圈本身不會結束 &mdash;
+        只是當前這一輪被提前終止。
+      </p>
+
+      <h3>範例 13 &mdash; 跳過負數</h3>
+
+      <pre><code>numbers = [3, -1, 4, -5, 9, -2, 6]
+
+for num in numbers:
+    if num < 0:
+        continue  # 跳過此次迭代
+    print(num, end=" ")
+
+# 輸出：3 4 9 6</code></pre>
+
+      <p>
+        當 <code>num</code> 為負數時，<code>continue</code> 使迴圈
+        跳過 <code>print()</code> 並移到下一個項目。
+      </p>
+
+      <h3>範例 14 &mdash; 跳過偶數，處理奇數</h3>
+
+      <pre><code>for i in range(1, 11):
+    if i % 2 == 0:
+        continue
+    print(f"{i} is odd")
+
+# 輸出：
+# 1 is odd
+# 3 is odd
+# 5 is odd
+# 7 is odd
+# 9 is odd</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  6. pass                                                      -->
+      <!-- ============================================================ -->
+
+      <h2 id="pass">6. <code>pass</code> &mdash; 什麼都不做的佔位符</h2>
+
+      <p>
+        <code>pass</code> 絕對什麼都不做。它的存在是因為 Python
+        要求每個縮排區塊中至少有一條語句。如果你想要一個空區塊
+        （例如，作為你還在寫程式碼時的佔位符），使用 <code>pass</code>。
+      </p>
+
+      <h3>範例 15 &mdash; 佔位符迴圈主體</h3>
+
+      <pre><code>for i in range(10):
+    pass  # TODO: 之後再實作</code></pre>
+
+      <p>
+        沒有 <code>pass</code>，Python 會引發
+        <code>IndentationError</code>，因為 <code>for</code> 區塊會是空的。
+      </p>
+
+      <h3>範例 16 &mdash; 忽略特定值</h3>
+
+      <pre><code>for letter in "Hello World":
+    if letter == " ":
+        pass  # 對空格明確地什麼都不做
+    else:
+        print(letter, end="")
+
+# 輸出：HelloWorld</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong> 在上面的範例中，你也可以用
+        <code>continue</code> 取代 <code>pass</code>（跳過迭代的其餘部分）。
+        差別很微妙：<code>pass</code> 什麼都不做然後繼續到區塊中的下一條語句；
+        <code>continue</code> 跳到下一次迭代。這裡兩者都可以，
+        因為 <code>pass</code> 在 <code>if</code> 分支中，
+        而 <code>else</code> 處理列印。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  7. 巢狀迴圈                                                   -->
+      <!-- ============================================================ -->
+
+      <h2 id="nested-loops">7. 巢狀迴圈</h2>
+
+      <p>
+        你可以將一個迴圈放在另一個迴圈內部。內部迴圈在外部迴圈的
+        每次迭代中完整執行一遍。這對於處理二維資料（網格、矩陣、表格）很有用。
+      </p>
+
+      <h3>範例 17 &mdash; 乘法表</h3>
+
+      <pre><code>for i in range(1, 6):
+    for j in range(1, 6):
+        print(f"{i * j:4}", end="")
+    print()  # 每行之後換行
+
+# 輸出：
+#    1   2   3   4   5
+#    2   4   6   8  10
+#    3   6   9  12  15
+#    4   8  12  16  20
+#    5  10  15  20  25</code></pre>
+
+      <p>
+        外部迴圈控制行（<code>i</code>），內部迴圈控制列（<code>j</code>）。
+        對於每個 <code>i</code> 值，內部迴圈會遍歷所有 <code>j</code> 的值。
+      </p>
+
+      <h3>範例 18 &mdash; 找出配對</h3>
+
+      <pre><code>colors = ["red", "green", "blue"]
+sizes = ["S", "M", "L"]
+
+for color in colors:
+    for size in sizes:
+        print(f"{color}-{size}", end="  ")
+    print()
+
+# 輸出：
+# red-S  red-M  red-L
+# green-S  green-M  green-L
+# blue-S  blue-M  blue-L</code></pre>
+
+      <div class="callout callout-info">
+        <strong>效能提示：</strong> 巢狀迴圈會相乘。如果外部迴圈執行
+        <em>m</em> 次，內部迴圈執行 <em>n</em> 次，主體會執行
+        <em>m &times; n</em> 次。1000 &times; 1000 的巢狀迴圈
+        會執行 1,000,000 次迭代。處理大型資料集時請注意這一點。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  8. 迴圈 + else                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="loop-else">8. 迴圈 + <code>else</code>（Python 特有功能）</h2>
+
+      <p>
+        這是 Python 獨有的功能，讓許多來自其他語言的程式設計師感到驚訝。
+        你可以在 <code>for</code> 或 <code>while</code> 迴圈後面
+        附加一個 <code>else</code> 區塊。<code>else</code> 區塊
+        <strong>僅在迴圈正常完成時</strong>執行 &mdash;
+        也就是沒有觸發 <code>break</code> 的情況。
+      </p>
+
+      <h3>語法</h3>
+
+      <pre><code>for item in collection:
+    if some_condition:
+        break
+else:
+    # 僅在迴圈完成而沒有 break 時執行</code></pre>
+
+      <h3>範例 19 &mdash; 使用迴圈/else 搜尋</h3>
+
+      <pre><code>numbers = [2, 4, 6, 8, 10]
+
+for num in numbers:
+    if num % 3 == 0:
+        print(f"Found a multiple of 3: {num}")
+        break
+else:
+    print("No multiples of 3 found.")
+
+# 輸出：Found a multiple of 3: 6</code></pre>
+
+      <pre><code># 現在試試沒有 3 的倍數的串列
+numbers = [2, 4, 8, 10]
+
+for num in numbers:
+    if num % 3 == 0:
+        print(f"Found a multiple of 3: {num}")
+        break
+else:
+    print("No multiples of 3 found.")
+
+# 輸出：No multiples of 3 found.</code></pre>
+
+      <p>
+        在第二種情況中，迴圈完成而沒有觸發 <code>break</code>，
+        所以 <code>else</code> 區塊執行。把它想成：
+        「如果我搜尋完所有東西而沒有提前跳出，就做這件事。」
+      </p>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong> 迴圈/else 模式取代了
+        一個常見的模式，在那個模式中你會使用一個旗標變數如
+        <code>found = False</code>，然後在迴圈後檢查它。
+        這更 Pythonic，且消除了對額外變數的需求。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  9. 常見迴圈模式                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-patterns">9. 常見迴圈模式</h2>
+
+      <p>
+        某些模式在真實的 Python 程式中反覆出現。
+        認識它們將幫助你更快速、更有信心地寫迴圈。
+      </p>
+
+      <h3>模式 1：累加器（求和）</h3>
+
+      <pre><code>numbers = [10, 20, 30, 40, 50]
+
+total = 0
+for num in numbers:
+    total += num
+
+print(f"Sum: {total}")
+# 輸出：Sum: 150</code></pre>
+
+      <p>
+        從一個值為 0 的變數（累加器）開始，然後在每次迭代中累加。
+        這是最常見的迴圈模式。
+      </p>
+
+      <h3>模式 2：計數</h3>
+
+      <pre><code>words = ["apple", "banana", "avocado", "cherry", "apricot"]
+
+count = 0
+for word in words:
+    if word.startswith("a"):
+        count += 1
+
+print(f"Words starting with 'a': {count}")
+# 輸出：Words starting with 'a': 3</code></pre>
+
+      <h3>模式 3：搜尋（找最大值）</h3>
+
+      <pre><code>temperatures = [22, 18, 31, 27, 15, 29]
+
+max_temp = temperatures[0]
+for temp in temperatures:
+    if temp > max_temp:
+        max_temp = temp
+
+print(f"Highest temperature: {max_temp}")
+# 輸出：Highest temperature: 31</code></pre>
+
+      <div class="callout callout-info">
+        <strong>內建捷徑：</strong> Python 有內建的
+        <code>max()</code> 函式（<code>max(temperatures)</code>）和
+        <code>sum()</code> 函式（<code>sum(numbers)</code>），
+        可以用一行完成這些模式。但理解迴圈版本是必要的 &mdash;
+        許多真實問題需要這些模式的自訂版本。
+      </div>
+
+      <h3>模式 4：建立新串列</h3>
+
+      <pre><code>numbers = [1, 2, 3, 4, 5]
+
+squared = []
+for num in numbers:
+    squared.append(num ** 2)
+
+print(squared)
+# 輸出：[1, 4, 9, 16, 25]</code></pre>
+
+      <p>
+        從空串列開始，在每次迭代中使用 <code>.append()</code> 新增項目。
+        （之後你會學到<strong>串列推導式</strong>，可以更簡潔地完成這件事。）
+      </p>
+
+      <h3>模式 5：Enumerate（索引 + 值）</h3>
+
+      <pre><code>fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# 輸出：
+# 0: apple
+# 1: banana
+# 2: cherry</code></pre>
+
+      <p>
+        <code>enumerate()</code> 在每次迭代中同時給你索引和值。
+        這比手動追蹤索引變數要簡潔得多。
+      </p>
+
+      <!-- ============================================================ -->
+      <!--  10. 常見錯誤                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="common-mistakes">10. 常見錯誤</h2>
+
+      <h3>錯誤 1：無窮迴圈</h3>
+
+      <p>
+        如果 <code>while</code> 迴圈的條件永遠不會變成
+        <code>False</code>，迴圈會永遠執行，你的程式會卡住。
+      </p>
+
+      <pre><code># 錯誤 — 無窮迴圈！count 永遠不會改變
+count = 5
+while count > 0:
+    print(count)
+    # 忘了：count -= 1
+
+# 正確
+count = 5
+while count > 0:
+    print(count)
+    count -= 1</code></pre>
+
+      <div class="callout callout-info">
+        <strong>緊急退出：</strong> 如果你的程式卡在無窮迴圈中，
+        在終端按 <code>Ctrl + C</code> 來中斷它。
+      </div>
+
+      <h3>錯誤 2：差一錯誤</h3>
+
+      <p>
+        因為 <code>range()</code> 不包含 stop 值，很容易差一。
+      </p>
+
+      <pre><code># 錯誤 — 印出 1 到 9，而非 1 到 10
+for i in range(1, 10):
+    print(i, end=" ")
+# 輸出：1 2 3 4 5 6 7 8 9
+
+# 正確 — 將 stop 值加 1
+for i in range(1, 11):
+    print(i, end=" ")
+# 輸出：1 2 3 4 5 6 7 8 9 10</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者注意：</strong> 這是最常見的陷阱。
+        MATLAB 的 <code>1:10</code> 產生 1 到 10（包含）。Python 的
+        <code>range(1, 10)</code> 產生 1 到 9。你需要
+        <code>range(1, 11)</code> 才能得到相同的結果。
+      </div>
+
+      <h3>錯誤 3：在迭代時修改串列</h3>
+
+      <pre><code># 錯誤 — 在迭代期間修改串列會導致不可預測的行為
+numbers = [1, 2, 3, 4, 5, 6]
+for num in numbers:
+    if num % 2 == 0:
+        numbers.remove(num)  # 不要這樣做！
+print(numbers)
+# 輸出：[1, 3, 5] — 看起來正確，但只是運氣好。它可能會跳過項目。
+
+# 正確 — 遍歷副本，或建立新串列
+numbers = [1, 2, 3, 4, 5, 6]
+odds = [num for num in numbers if num % 2 != 0]
+print(odds)
+# 輸出：[1, 3, 5]
+
+# 也正確 — 使用 [:] 遍歷副本
+numbers = [1, 2, 3, 4, 5, 6]
+for num in numbers[:]:   # numbers[:] 建立一個副本
+    if num % 2 == 0:
+        numbers.remove(num)
+print(numbers)
+# 輸出：[1, 3, 5]</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong> 在迭代串列的同時修改它
+        是 Python 中最隱蔽的 bug 之一。迴圈的內部計數器
+        與變動中的串列不同步，導致項目被跳過。
+        始終遍歷副本或建立新串列。
+      </div>
+
+      <h3>錯誤 4：忘記冒號</h3>
+
+      <pre><code># 錯誤
+for i in range(5)
+    print(i)
+
+# 正確
+for i in range(5):
+    print(i)</code></pre>
+
+      <h3>錯誤 5：使用錯誤的變數名</h3>
+
+      <pre><code># 錯誤 — 意外覆蓋變數
+total = 100
+
+for total in range(5):  # 糟糕！'total' 現在是迴圈變數
+    print(total)
+
+print(total)  # 現在 total 是 4，不是 100！
+
+# 更好 — 使用描述性的迴圈變數名
+total = 100
+for i in range(5):
+    print(i)
+
+print(total)  # total 仍然是 100</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  11. MATLAB vs PYTHON 並排比較                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="matlab-comparison">11. MATLAB vs. Python &mdash; 迴圈並排比較</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>任務</th>
+            <th>MATLAB</th>
+            <th>Python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>迴圈 1 到 5</td>
+            <td><code>for i = 1:5<br>&nbsp;&nbsp;disp(i);<br>end</code></td>
+            <td><code>for i in range(1, 6):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+          </tr>
+          <tr>
+            <td>迴圈 0 到 9</td>
+            <td><code>for i = 0:9<br>&nbsp;&nbsp;disp(i);<br>end</code></td>
+            <td><code>for i in range(10):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+          </tr>
+          <tr>
+            <td>每次跳 2</td>
+            <td><code>for i = 0:2:10<br>&nbsp;&nbsp;disp(i);<br>end</code></td>
+            <td><code>for i in range(0, 11, 2):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+          </tr>
+          <tr>
+            <td>遍歷串列</td>
+            <td><code>for i = 1:length(A)<br>&nbsp;&nbsp;disp(A(i));<br>end</code></td>
+            <td><code>for item in A:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(item)</code></td>
+          </tr>
+          <tr>
+            <td>while 迴圈</td>
+            <td><code>while x &gt; 0<br>&nbsp;&nbsp;x = x - 1;<br>end</code></td>
+            <td><code>while x &gt; 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;x -= 1</code></td>
+          </tr>
+          <tr>
+            <td>Break</td>
+            <td><code>break;</code></td>
+            <td><code>break</code></td>
+          </tr>
+          <tr>
+            <td>Continue</td>
+            <td><code>continue;</code></td>
+            <td><code>continue</code></td>
+          </tr>
+          <tr>
+            <td>區塊終止符</td>
+            <td><code>end</code></td>
+            <td>縮排（沒有 end 關鍵字）</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 使用者的關鍵差異：</strong>
+        <ul>
+          <li><strong>沒有 <code>end</code> 關鍵字。</strong> Python 使用縮排來標記迴圈主體。</li>
+          <li><strong><code>range()</code> 從 0 開始且不包含結束值。</strong> <code>range(5)</code> 產生 0,1,2,3,4 &mdash; 不是 1,2,3,4,5。</li>
+          <li><strong>Python 直接遍歷項目。</strong> 不用 <code>A(i)</code> 索引，你寫 <code>for item in A:</code>。這更簡潔且不容易出錯。</li>
+          <li><strong>不需要分號。</strong> 行自然結束。</li>
+        </ul>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  12. 實際範例                                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="real-world">12. 實際範例</h2>
+
+      <h3>範例 20 &mdash; 計算串列的平均值</h3>
+
+      <pre><code>grades = [88, 92, 75, 90, 85, 78, 95]
+
+total = 0
+for grade in grades:
+    total += grade
+
+average = total / len(grades)
+print(f"Average grade: {average:.1f}")
+# 輸出：Average grade: 86.1</code></pre>
+
+      <h3>範例 21 &mdash; 找出 n 以內的所有質數</h3>
+
+      <pre><code>n = 30
+
+for num in range(2, n + 1):
+    is_prime = True
+    for divisor in range(2, int(num ** 0.5) + 1):
+        if num % divisor == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(num, end=" ")
+
+# 輸出：2 3 5 7 11 13 17 19 23 29</code></pre>
+
+      <p>
+        這使用了巢狀迴圈：外部迴圈檢查每個候選數字，
+        內部迴圈測試是否有因數。<code>break</code> 在找到因數後
+        提前退出內部迴圈。
+      </p>
+
+      <h3>範例 22 &mdash; 反轉字串</h3>
+
+      <pre><code>original = "Python"
+reversed_str = ""
+
+for char in original:
+    reversed_str = char + reversed_str
+
+print(reversed_str)
+# 輸出：nohtyP</code></pre>
+
+      <h3>範例 23 &mdash; 計算字元頻率</h3>
+
+      <pre><code>text = "hello world"
+freq = {}
+
+for char in text:
+    if char in freq:
+        freq[char] += 1
+    else:
+        freq[char] = 1
+
+for char, count in freq.items():
+    print(f"'{char}': {count}")
+
+# 輸出：
+# 'h': 1
+# 'e': 1
+# 'l': 3
+# 'o': 2
+# ' ': 1
+# 'w': 1
+# 'r': 1
+# 'd': 1</code></pre>
+
+      <h3>範例 24 &mdash; 展平二維串列</h3>
+
+      <pre><code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+flat = []
+for row in matrix:
+    for item in row:
+        flat.append(item)
+
+print(flat)
+# 輸出：[1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+
+      <!-- ============================================================ -->
+      <!--  13. 練習題                                                    -->
+      <!-- ============================================================ -->
+
+      <h2 id="exercises">13. 練習題</h2>
+
+      <div class="callout callout-info">
+        <strong>練習使之永久。</strong> 在查看解答之前先自己嘗試每個練習。
+        把程式碼打出來 &mdash; 不要複製貼上。
+      </div>
+
+      <h3>練習 1：偶數之和</h3>
+      <p>
+        使用 <code>for</code> 迴圈和 <code>range()</code>，計算
+        1 到 100（含）之間所有偶數的總和。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>total = 0
+for i in range(2, 101, 2):
+    total += i
+
+print(f"Sum of even numbers from 1 to 100: {total}")
+# 輸出：Sum of even numbers from 1 to 100: 2550</code></pre>
+      </details>
+
+      <h3>練習 2：階乘</h3>
+      <p>
+        寫一個迴圈計算數字 <code>n</code> 的階乘。
+        例如，5! = 5 &times; 4 &times; 3 &times; 2 &times; 1 = 120。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>n = 5
+factorial = 1
+
+for i in range(1, n + 1):
+    factorial *= i
+
+print(f"{n}! = {factorial}")
+# 輸出：5! = 120</code></pre>
+      </details>
+
+      <h3>練習 3：FizzBuzz（1 到 20）</h3>
+      <p>
+        遍歷數字 1 到 20。對於每個數字：
+      </p>
+      <ul>
+        <li>如果能同時被 3 和 5 整除，印出「FizzBuzz」</li>
+        <li>如果只能被 3 整除，印出「Fizz」</li>
+        <li>如果只能被 5 整除，印出「Buzz」</li>
+        <li>否則，印出該數字</li>
+      </ul>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>for i in range(1, 21):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+
+# 輸出：
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
+# 16
+# 17
+# Fizz
+# 19
+# Buzz</code></pre>
+      </details>
+
+      <h3>練習 4：猜數字</h3>
+      <p>
+        寫一個 <code>while</code> 迴圈來模擬猜數字遊戲。
+        秘密數字是 7。持續要求使用者猜測。每次猜測後，
+        告訴他們「Too high」、「Too low」或「Correct!」。
+        當他們猜對時結束迴圈。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>secret = 7
+
+while True:
+    guess = int(input("Guess the number (1-10): "))
+
+    if guess < secret:
+        print("Too low!")
+    elif guess > secret:
+        print("Too high!")
+    else:
+        print("Correct! You got it!")
+        break</code></pre>
+      </details>
+
+      <h3>練習 5：星號三角形</h3>
+      <p>
+        使用巢狀迴圈，印出這個圖案：
+      </p>
+      <pre><code>*
+**
+***
+****
+*****</code></pre>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>for i in range(1, 6):
+    for j in range(i):
+        print("*", end="")
+    print()
+
+# 或更簡潔地：
+for i in range(1, 6):
+    print("*" * i)</code></pre>
+      </details>
+
+      <h3>練習 6：找出共同元素</h3>
+      <p>
+        給定兩個串列，使用迴圈找出並印出兩個串列中都出現的元素。
+      </p>
+
+      <details>
+        <summary>顯示解答</summary>
+        <pre><code>list_a = [1, 2, 3, 4, 5, 6]
+list_b = [4, 5, 6, 7, 8, 9]
+
+common = []
+for item in list_a:
+    if item in list_b:
+        common.append(item)
+
+print(f"Common elements: {common}")
+# 輸出：Common elements: [4, 5, 6]
+
+# 注意：對於大型串列，使用集合會快得多：
+# common = list(set(list_a) & set(list_b))</code></pre>
+      </details>
+
+      <!-- ============================================================ -->
+      <!--  總結                                                         -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <ul>
+        <li><code>for</code> 迴圈遍歷序列（串列、字串、range 等）。</li>
+        <li><code>range(stop)</code>、<code>range(start, stop)</code> 和 <code>range(start, stop, step)</code> 產生數字序列。stop 值是<strong>不包含的</strong>。</li>
+        <li><code>while</code> 迴圈在條件為 <code>True</code> 時持續重複。確保條件最終會變成 <code>False</code>。</li>
+        <li><code>break</code> 立即退出迴圈。</li>
+        <li><code>continue</code> 跳到下一次迭代。</li>
+        <li><code>pass</code> 是什麼都不做的佔位符。</li>
+        <li>巢狀迴圈是迴圈中的迴圈 &mdash; 對於外部的每次迭代，內部迴圈完整執行一遍。</li>
+        <li>迴圈 + <code>else</code> 是 Python 特有功能：<code>else</code> 區塊僅在迴圈完成而沒有 <code>break</code> 時執行。</li>
+        <li>常見模式：累加器（求和）、計數、搜尋、建立新串列。</li>
+        <li>常見錯誤：無窮迴圈、差一錯誤、在迭代時修改串列。</li>
+      </ul>
+
+      <div class="callout callout-success">
+        <strong>迴圈是程式設計中最強大的工具之一。</strong>
+        結合條件判斷（前一頁的內容），你現在可以寫出
+        既能做決定<em>又</em>能重複執行動作的程式 &mdash;
+        這涵蓋了程式所做的絕大部分工作。接下來：
+        <strong>函式</strong> &mdash; 將可重用的邏輯區塊打包的能力。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  頁面導覽                                                      -->
+      <!-- ============================================================ -->
+
+      <div class="page-nav">
+        <a href="basics-conditionals.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">條件判斷</span></a>
+        <a href="basics-functions.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">函式與Lambda</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

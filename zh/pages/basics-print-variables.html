@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>輸出、變數與數字 — 學習 Python</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <button class="sidebar-toggle" aria-label="切換導覽">&#9776;</button>
+  <aside class="sidebar">
+    <div class="sidebar-header"><h2><span class="logo-icon">&#128013;</span> 學習 Python</h2><p>完整初學者指南</p><a href="../../pages/basics-print-variables.html" style="color:rgba(255,255,255,0.8);font-size:0.75rem;text-decoration:none;">English Version</a></div>
+    <div class="sidebar-search">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" placeholder="搜尋頁面..." aria-label="搜尋">
+    <div class="search-results"></div>
+  </div>
+  <div class="sidebar-progress"></div>
+    <nav>
+      <div class="nav-section"><div class="nav-section-title">首頁</div><a href="../index.html" class="nav-link">首頁</a></div>
+      <div class="nav-section"><div class="nav-section-title">A — 什麼是Python</div><a href="what-is-python.html" class="nav-link"><span class="section-badge">A</span> 什麼是Python？</a></div>
+      <div class="nav-section"><div class="nav-section-title">B — 入門設定</div><a href="getting-started.html" class="nav-link"><span class="section-badge">B</span> 入門設定</a></div>
+      <div class="nav-section"><div class="nav-section-title">C — Python 基礎</div>
+        <a href="basics-print-variables.html" class="nav-link">輸出、變數與數字</a>
+        <a href="basics-strings-booleans.html" class="nav-link">字串與布林值</a>
+        <a href="basics-lists-tuples.html" class="nav-link">串列、元組與集合</a>
+        <a href="basics-dictionaries.html" class="nav-link">字典</a>
+        <a href="basics-conditionals.html" class="nav-link">條件判斷</a>
+        <a href="basics-loops.html" class="nav-link">迴圈</a>
+        <a href="basics-functions.html" class="nav-link">函式與Lambda</a>
+        <a href="basics-more.html" class="nav-link">更多內建功能</a>
+        <a href="basics-files-modules.html" class="nav-link">檔案與模組</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">D — 常用模式</div>
+        <a href="common-patterns.html" class="nav-link">常用模式</a><a href="top-100-patterns.html" class="nav-link">前100個常用模式</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">E — MATLAB 轉 Python</div>
+        <a href="matlab-to-python.html" class="nav-link">MATLAB 轉 Python</a><a href="matlab-quick-translation.html" class="nav-link">快速轉換對照表</a>
+      </div>
+      <div class="nav-section"><div class="nav-section-title">F — 語言比較</div><a href="comparisons.html" class="nav-link">語言比較</a></div>
+      <div class="nav-section"><div class="nav-section-title">G — 迷你專案</div><a href="projects.html" class="nav-link">迷你專案</a></div>
+      <div class="nav-section"><div class="nav-section-title">H — 練習與學習路線</div><a href="practice.html" class="nav-link">練習與學習路線</a>
+        <a href="interactive-quizzes.html" class="nav-link">互動測驗</a></div>
+      <div class="nav-section"><div class="nav-section-title">I — 最佳實踐</div><a href="best-practices.html" class="nav-link">最佳實踐</a><a href="common-errors.html" class="nav-link">常見錯誤</a></div>
+      <div class="nav-section"><div class="nav-section-title">J — 速查表</div><a href="cheatsheet.html" class="nav-link">速查表</a><a href="python-for-automation.html" class="nav-link">Python 自動化</a>
+        <a href="glossary.html" class="nav-link">術語表</a></div>
+      <div class="nav-section">
+        <div class="nav-section-title">K &mdash; 更多主題</div>
+        <a href="oop.html" class="nav-link">物件導向程式設計</a>
+        <a href="numpy-pandas.html" class="nav-link">NumPy &amp; Pandas</a>
+      </div>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="content-wrapper">
+      <div class="breadcrumb"><a href="../index.html">首頁</a><span class="sep">&rsaquo;</span><a href="basics-print-variables.html">Python 基礎</a><span class="sep">&rsaquo;</span> 輸出、變數與數字</div>
+
+      <!-- ============================================================ -->
+      <!--  SECTION C — Print, Comments, Variables & Numbers            -->
+      <!-- ============================================================ -->
+
+      <h1>輸出、註解、變數與數字</h1>
+
+      <p>這是第一個「真正的 Python」頁面。學完這一頁後，你將能夠在螢幕上顯示輸出、在程式碼中留下註解、將值儲存在變數中，以及進行算術運算。這四項技能構成了你將來撰寫的每一個 Python 程式的基礎。</p>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>每一種程式語言都需要一種方式來顯示結果、記住值，以及進行數值運算。掌握這些基礎知識後，接下來的一切&mdash;字串、串列、函式&mdash;都會感覺像是自然的延伸。
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  1. THE print() FUNCTION                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="print">1. <code>print()</code> 函式</h2>
+
+      <p><code>print()</code> 是 Python 的內建函式，用來將輸出顯示在螢幕上（「主控台」或「終端機」）。它是你擁有的最實用的除錯和學習工具。當你不確定某個值是什麼時，直接用 <code>print()</code> 來查看它。</p>
+
+      <div class="callout callout-info">
+        <strong>運作方式：</strong>你透過寫 <code>print</code> 這個字後面加上括號來呼叫 <code>print()</code>。在括號裡放入你想顯示的內容。Python 會將其轉換為文字並寫入主控台，然後加上一個換行字元（這樣下一個輸出就會出現在新的一行）。
+      </div>
+
+      <h3>1.1 基本輸出</h3>
+
+      <p>最簡單的用法：將一個字串（引號內的文字）傳給 <code>print()</code>。</p>
+
+      <pre><code># 範例 1 — 印出一個簡單的字串
+print("Hello, world!")
+# 輸出：Hello, world!
+
+# 範例 2 — 單引號也可以
+print('Python is fun!')
+# 輸出：Python is fun!
+
+# 範例 3 — 直接印出一個數字
+print(42)
+# 輸出：42</code></pre>
+
+      <h3>1.2 印出多個值</h3>
+
+      <p>你可以用逗號分隔的方式傳遞多個值給 <code>print()</code>。Python 會將它們全部印在同一行，預設用空格分隔。</p>
+
+      <pre><code># 範例 4 — 多個值
+print("The answer is", 42)
+# 輸出：The answer is 42
+
+# 範例 5 — 自由混合不同型別
+print("Pi is approximately", 3.14159, "and e is approximately", 2.71828)
+# 輸出：Pi is approximately 3.14159 and e is approximately 2.71828</code></pre>
+
+      <h3>1.3 <code>sep</code> 參數</h3>
+
+      <p><code>sep</code>（分隔符）參數控制每個值<em>之間</em>放什麼。預設是一個空格（<code>" "</code>）。</p>
+
+      <pre><code># 範例 6 — 自訂分隔符
+print("2026", "03", "31", sep="-")
+# 輸出：2026-03-31
+
+# 範例 7 — 無分隔符
+print("P", "y", "t", "h", "o", "n", sep="")
+# 輸出：Python
+
+# 範例 8 — Tab 分隔符
+print("Name", "Age", "City", sep="\t")
+# 輸出：Name    Age    City</code></pre>
+
+      <h3>1.4 <code>end</code> 參數</h3>
+
+      <p>預設情況下 <code>print()</code> 以換行字元（<code>\n</code>）結尾，因此下一個 <code>print()</code> 會出現在下一行。<code>end</code> 參數讓你改變這個行為。</p>
+
+      <pre><code># 範例 9 — 在同一行印出
+print("Loading", end="")
+print("...", end="")
+print(" Done!")
+# 輸出：Loading... Done!
+
+# 範例 10 — 以自訂字串結尾
+print("Item 1", end=" | ")
+print("Item 2", end=" | ")
+print("Item 3")
+# 輸出：Item 1 | Item 2 | Item 3</code></pre>
+
+      <h3>1.5 印出變數</h3>
+
+      <p>你幾乎總是會印出變數的內容，而不是寫死的文字。只需將變數名稱放在 <code>print()</code> 裡面&mdash;不需要加引號。</p>
+
+      <pre><code># 範例 11 — 印出變數
+name = "Alice"
+age = 30
+print(name)          # 輸出：Alice
+print(age)           # 輸出：30
+print(name, "is", age, "years old.")
+# 輸出：Alice is 30 years old.</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; 忘記括號：</strong><br>
+        在 Python 2 中，<code>print</code> 是一個<em>陳述式</em>，你可以寫 <code>print "hello"</code>。在 Python 3 中，<code>print()</code> 是一個<em>函式</em>，括號是<strong>必須的</strong>。如果你看到舊的教學或 Stack Overflow 的答案使用 <code>print "hello"</code>，請知道這在 Python 3 中會產生 <code>SyntaxError</code>。
+        <pre><code># Python 3 中的錯誤寫法：
+print "hello"   # SyntaxError: Missing parentheses in call to 'print'
+
+# 正確寫法：
+print("hello")</code></pre>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 注意事項：</strong> <code>print()</code> 類似於 MATLAB 的 <code>disp()</code>（用於簡單輸出）和 <code>fprintf()</code>（用於格式化輸出）。主要差異是：Python 的 <code>print()</code> 會自動在結尾加上換行（像 <code>disp()</code>），而 MATLAB 的 <code>fprintf()</code> 則不會，除非你自己加上 <code>\n</code>。在 Python 中，如果你想要格式化輸出，請查看 <strong>f-string</strong>（在字串頁面介紹），它取代了 <code>fprintf</code> 風格的格式化。
+        <pre><code>% MATLAB
+disp('Hello, world!')
+fprintf('The answer is %d\n', 42)
+
+# Python 等效寫法
+print('Hello, world!')
+print(f'The answer is {42}')</code></pre>
+      </div>
+
+      <!-- Exercise: print -->
+      <div class="exercise">
+        <h4>練習 1 &mdash; 練習使用 <code>print()</code></h4>
+        <p>寫一個 Python 腳本，精確印出以下輸出（包括破折號）：</p>
+        <pre><code>Name: Alice
+Age: 30
+City: New York
+----------
+Alice | 30 | New York</code></pre>
+        <p><em>提示：最後一行使用 <code>sep</code>。</em></p>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>name = "Alice"
+age = 30
+city = "New York"
+
+print("Name:", name)
+print("Age:", age)
+print("City:", city)
+print("----------")
+print(name, age, city, sep=" | ")</code></pre>
+        </details>
+      </div>
+
+      <!-- ============================================================ -->
+      <!--  2. COMMENTS                                                 -->
+      <!-- ============================================================ -->
+
+      <h2 id="comments">2. 註解</h2>
+
+      <p>註解是你在程式碼中為自己（或其他閱讀程式碼的人）留下的備註。Python 在執行程式時會完全忽略註解&mdash;它們存在的目的僅僅是讓程式碼更容易理解。</p>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>程式碼被閱讀的次數遠比被撰寫的次數多。一個放置得當的註解，可以在你幾週或幾個月後重新檢視程式碼時，省下你（或同事）數小時的困惑。
+      </div>
+
+      <h3>2.1 使用 <code>#</code> 的單行註解</h3>
+
+      <p>一行中 <code>#</code> 之後的所有內容都是註解。Python 會忽略它。</p>
+
+      <pre><code># 這是一個註解 — Python 會跳過整行
+print("Hello")  # 這個註解在程式碼之後 — Python 執行 print，忽略其餘部分
+
+# 你可以用註解來暫時停用程式碼：
+# print("This line will NOT run")</code></pre>
+
+      <h3>2.2 使用三引號的多行註解</h3>
+
+      <p>Python 沒有專門的多行註解語法（不像 C 語言的 <code>/* ... */</code>）。然而，你可以使用三引號字串（<code>"""..."""</code> 或 <code>'''...'''</code>）作為替代。如果三引號字串沒有被指定給變數，Python 會評估它然後丟棄&mdash;實際上使其成為註解。</p>
+
+      <pre><code>"""
+This is a multi-line comment (technically a string literal).
+Python evaluates it but discards the result,
+so it behaves like a comment.
+"""
+
+'''
+You can also use single triple-quotes.
+This is useful for longer explanations.
+'''</code></pre>
+
+      <div class="callout callout-info">
+        <strong>文件字串（Docstrings）：</strong>當三引號字串出現在函式、類別或模組內部的第一個陳述式時，它會成為<strong>文件字串</strong>&mdash;一種特殊的文件，Python 會儲存它並透過 <code>help()</code> 函式讓你可以存取。你將在函式頁面詳細學習文件字串。
+        <pre><code>def greet(name):
+    """為指定的名字回傳一個問候字串。"""
+    return f"Hello, {name}!"
+
+help(greet)
+# 顯示：為指定的名字回傳一個問候字串。</code></pre>
+      </div>
+
+      <h3>2.3 何時使用註解</h3>
+
+      <ul>
+        <li><strong>解釋「為什麼」，而非「做什麼」。</strong>好的例子：<code># 轉換為公尺，因為感測器回傳的是毫米</code>。不好的例子：<code># 將 x 除以 1000</code>（程式碼已經說明了這一點）。</li>
+        <li><strong>標記待辦事項：</strong> <code># TODO: 處理檔案為空的情況</code>。</li>
+        <li><strong>在除錯時暫時停用程式碼</strong>（稱為「註解掉」）。</li>
+        <li><strong>長腳本中的區段標題</strong>：<code># --- 資料載入 ---</code>。</li>
+      </ul>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; 過度註解：</strong>不要在每一行都加上註解。如果你的變數名稱是 <code>total_price</code>，你不需要加上 <code># 總價</code> 的註解。使用清楚的變數名稱，把註解留給不明顯的邏輯。
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 注意事項：</strong> MATLAB 使用 <code>%</code> 作為單行註解，使用 <code>%{ ... %}</code> 作為區塊註解。在 Python 中，使用 <code>#</code> 作為單行，使用 <code>"""..."""</code> 作為多行區塊。對應關係很直觀：
+        <pre><code>% MATLAB 單行註解
+%{
+  MATLAB 區塊註解
+%}
+
+# Python 單行註解
+"""
+Python 多行註解
+（如果在函式/類別內則為文件字串）
+"""</code></pre>
+      </div>
+
+      <!-- Exercise: comments -->
+      <div class="exercise">
+        <h4>練習 2 &mdash; 練習使用註解</h4>
+        <p>拿下面的程式碼，加上註解來解釋每個區段的功能。同時在最上方加上一個多行文件字串，描述腳本的用途。</p>
+        <pre><code>x = 10
+y = 20
+total = x + y
+print(total)
+average = total / 2
+print(average)</code></pre>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>"""
+簡單的算術腳本。
+計算兩個數字的總和與平均值。
+"""
+
+# 定義兩個輸入值
+x = 10
+y = 20
+
+# 計算並顯示總和
+total = x + y
+print(total)       # 輸出：30
+
+# 計算並顯示平均值
+average = total / 2
+print(average)     # 輸出：15.0</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  3. VARIABLES                                                -->
+      <!-- ============================================================ -->
+
+      <h2 id="variables">3. 變數</h2>
+
+      <h3>3.1 什麼是變數？</h3>
+
+      <p>變數是一個<strong>名稱</strong>，它指向儲存在電腦記憶體中的一個<strong>值</strong>。把它想像成一個有標籤的盒子：標籤是變數名稱，盒子裡的內容就是值。你可以把東西放進盒子、查看裡面有什麼、用其他東西替換，或在計算中使用它。</p>
+
+      <div class="callout callout-info">
+        <strong>白話解釋：</strong>變數只是一種為一筆資料命名的方式，讓你以後可以使用它。你不用到處寫 <code>3.14159</code>，只要寫一次 <code>pi = 3.14159</code>，然後在需要的地方使用 <code>pi</code> 這個名稱即可。
+      </div>
+
+      <h3>3.2 使用 <code>=</code> 賦值</h3>
+
+      <p>你使用 <code>=</code> 運算子來建立（或更新）一個變數。名稱放在左邊；值放在右邊。</p>
+
+      <pre><code># 範例 12 — 建立變數
+message = "Hello, Python!"
+count = 5
+temperature = 98.6
+
+print(message)        # 輸出：Hello, Python!
+print(count)          # 輸出：5
+print(temperature)    # 輸出：98.6</code></pre>
+
+      <p>你可以隨時<strong>重新賦值</strong>一個變數&mdash;舊的值會直接被替換。</p>
+
+      <pre><code># 範例 13 — 重新賦值
+x = 10
+print(x)   # 輸出：10
+
+x = 20
+print(x)   # 輸出：20
+
+x = x + 5  # 使用 x 的當前值（20）來計算新值（25）
+print(x)   # 輸出：25</code></pre>
+
+      <h3>3.3 命名規則與慣例</h3>
+
+      <p>Python 有嚴格的<strong>規則</strong>（違反會產生錯誤）以及社群的<strong>慣例</strong>（違反會讓程式碼更難閱讀）。</p>
+
+      <table>
+        <thead>
+          <tr><th>規則 / 慣例</th><th>範例</th><th>說明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>必須以字母或底線開頭</td><td><code>name</code>, <code>_private</code></td><td>不能以數字開頭</td></tr>
+          <tr><td>可以包含字母、數字、底線</td><td><code>score_1</code>, <code>total2</code></td><td>不能有空格、連字號或特殊字元</td></tr>
+          <tr><td>區分大小寫</td><td><code>Name</code> &ne; <code>name</code> &ne; <code>NAME</code></td><td>這是三個不同的變數</td></tr>
+          <tr><td><em>慣例：</em>使用 <code>snake_case</code></td><td><code>total_price</code>, <code>user_name</code></td><td>小寫字母以底線分隔</td></tr>
+          <tr><td><em>慣例：</em>常數使用大寫</td><td><code>MAX_RETRIES = 5</code></td><td>表示「不要改變這個值」</td></tr>
+          <tr><td>不要使用保留字</td><td>避免使用 <code>print</code>、<code>list</code>、<code>type</code></td><td>這些在 Python 中有特殊意義</td></tr>
+        </tbody>
+      </table>
+
+      <pre><code># 好的變數名稱
+student_name = "Bob"
+max_score = 100
+is_active = True
+_internal_counter = 0
+
+# 合法但不建議（不是 snake_case）
+studentName = "Bob"   # 這是 camelCase — 在 JavaScript 中常見，Python 中不建議
+StudentName = "Bob"   # 這是 PascalCase — 在 Python 中保留給類別名稱</code></pre>
+
+      <h3>3.4 動態型別</h3>
+
+      <p>在 Python 中，你<strong>不需要宣告</strong>變數的型別。Python 會根據你賦予的值自動判斷。這稱為<strong>動態型別</strong>。</p>
+
+      <pre><code># 範例 14 — 動態型別
+x = 10          # x 是整數
+print(type(x))  # 輸出：&lt;class 'int'&gt;
+
+x = "hello"     # 現在 x 是字串 — 不會出錯！
+print(type(x))  # 輸出：&lt;class 'str'&gt;
+
+x = 3.14        # 現在 x 是浮點數
+print(type(x))  # 輸出：&lt;class 'float'&gt;</code></pre>
+
+      <div class="callout callout-info">
+        <strong><code>type()</code> 函式：</strong>你可以隨時呼叫 <code>type(variable_name)</code> 來檢查變數目前的型別。這對除錯非常有用。你在學習過程中會經常使用它。
+      </div>
+
+      <h3>3.5 多重賦值</h3>
+
+      <p>Python 允許你在一行中指定多個變數。這是一個方便的簡寫方式。</p>
+
+      <pre><code># 範例 15 — 單行多重賦值
+x, y, z = 1, 2, 3
+print(x, y, z)   # 輸出：1 2 3
+
+# 將同一個值指定給多個變數
+a = b = c = 0
+print(a, b, c)   # 輸出：0 0 0
+
+# 不需要臨時變數就能交換兩個變數
+x, y = 10, 20
+print(x, y)       # 輸出：10 20
+x, y = y, x       # 交換！
+print(x, y)       # 輸出：20 10</code></pre>
+
+      <div class="callout callout-why">
+        <strong>為什麼這很重要：</strong>變數交換技巧（<code>x, y = y, x</code>）是 Python 讓事情變得優美簡潔的一個例子。在大多數其他語言（包括 MATLAB）中，你需要一個臨時變數來交換兩個值。在 Python 中只需一行。
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; 使用保留字：</strong> Python 有大約 35 個<strong>關鍵字</strong>（如 <code>if</code>、<code>for</code>、<code>while</code>、<code>True</code>、<code>False</code>、<code>None</code>、<code>class</code>、<code>return</code>），你不能用它們作為變數名稱。否則會得到 <code>SyntaxError</code>。
+        <pre><code># 錯誤 — 'class' 是保留關鍵字
+class = "Biology 101"   # SyntaxError: invalid syntax
+
+# 修正 — 使用稍微不同的名稱
+course_class = "Biology 101"</code></pre>
+        此外，避免<strong>覆蓋</strong>內建名稱如 <code>print</code>、<code>list</code>、<code>type</code>、<code>sum</code>、<code>max</code> 等。這不會立即產生錯誤，但會使這些函式在後續程式碼中無法使用。
+        <pre><code># 不好 — 覆蓋了內建的 list() 函式
+list = [1, 2, 3]
+# 現在 list() 不再如預期般運作！
+
+# 修正 — 使用描述性名稱
+my_list = [1, 2, 3]</code></pre>
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; 以數字開頭：</strong>
+        <pre><code># 錯誤
+2nd_place = "Silver"   # SyntaxError: invalid syntax
+
+# 修正
+second_place = "Silver"
+place_2 = "Silver"</code></pre>
+      </div>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 注意事項：</strong> MATLAB 和 Python 中的變數建立方式非常相似&mdash;兩者都使用 <code>=</code>，且都不需要型別宣告。主要差異：
+        <ul>
+          <li>MATLAB 慣例使用 <code>camelCase</code>；Python 慣例使用 <code>snake_case</code>。</li>
+          <li>MATLAB 在行尾使用 <code>;</code> 來抑制輸出；Python 不會自動印出賦值結果（沒有東西需要抑制）。</li>
+          <li>Python 變數<strong>區分大小寫</strong>。MATLAB 變數也區分大小寫，所以這一點相同。</li>
+          <li>MATLAB 的 <code>who</code>/<code>whos</code> 指令在 Python 中沒有直接對應，但你可以使用 <code>dir()</code> 或 <code>type()</code> 來檢視變數。</li>
+        </ul>
+        <pre><code>% MATLAB
+studentName = 'Alice';   % camelCase，分號抑制輸出
+x = 10;
+
+# Python
+student_name = "Alice"   # snake_case，不需要分號
+x = 10</code></pre>
+      </div>
+
+      <!-- Exercise: variables -->
+      <div class="exercise">
+        <h4>練習 3 &mdash; 練習使用變數</h4>
+        <ol>
+          <li>建立你的名字、姓氏和年齡的變數。</li>
+          <li>用一個句子印出它們，如：<code>Alice Smith is 30 years old.</code></li>
+          <li>使用單行交換技巧交換你的名字和姓氏，然後印出結果。</li>
+          <li>使用 <code>type()</code> 印出每個變數的型別。</li>
+        </ol>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code># 步驟 1：建立變數
+first_name = "Alice"
+last_name = "Smith"
+age = 30
+
+# 步驟 2：印出一個句子
+print(first_name, last_name, "is", age, "years old.")
+# 輸出：Alice Smith is 30 years old.
+
+# 步驟 3：交換名字和姓氏
+first_name, last_name = last_name, first_name
+print("After swap:", first_name, last_name)
+# 輸出：After swap: Smith Alice
+
+# 步驟 4：檢查型別
+print(type(first_name))   # &lt;class 'str'&gt;
+print(type(last_name))    # &lt;class 'str'&gt;
+print(type(age))          # &lt;class 'int'&gt;</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  4. NUMBERS (int and float)                                  -->
+      <!-- ============================================================ -->
+
+      <h2 id="numbers">4. 數字：整數與浮點數</h2>
+
+      <p>Python 有兩種你每天都會用到的數值型別：</p>
+      <ul>
+        <li><strong><code>int</code></strong>（整數）&mdash;沒有小數點的整數：<code>0</code>、<code>42</code>、<code>-7</code>、<code>1000000</code></li>
+        <li><strong><code>float</code></strong>（浮點數）&mdash;有小數點的數字：<code>3.14</code>、<code>-0.001</code>、<code>2.0</code></li>
+      </ul>
+
+      <pre><code># 範例 16 — int 與 float
+a = 10       # int
+b = 10.0     # float（.0 使其成為 float）
+c = -3       # int
+d = 0.5      # float
+
+print(type(a))  # &lt;class 'int'&gt;
+print(type(b))  # &lt;class 'float'&gt;</code></pre>
+
+      <div class="callout callout-info">
+        <strong>關鍵差異：</strong> <code>10</code> 是 <code>int</code>，而 <code>10.0</code> 是 <code>float</code>。它們的<em>值</em>相等（<code>10 == 10.0</code> 是 <code>True</code>），但它們是不同的<em>型別</em>。這很少造成問題，但了解這一點很有幫助。
+      </div>
+
+      <h3>4.1 算術運算子</h3>
+
+      <p>Python 支援你預期的所有算術運算，加上一些額外的。</p>
+
+      <table>
+        <thead>
+          <tr><th>運算子</th><th>名稱</th><th>範例</th><th>結果</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>+</code></td><td>加法</td><td><code>10 + 3</code></td><td><code>13</code></td></tr>
+          <tr><td><code>-</code></td><td>減法</td><td><code>10 - 3</code></td><td><code>7</code></td></tr>
+          <tr><td><code>*</code></td><td>乘法</td><td><code>10 * 3</code></td><td><code>30</code></td></tr>
+          <tr><td><code>/</code></td><td>除法（真除法）</td><td><code>10 / 3</code></td><td><code>3.3333...</code></td></tr>
+          <tr><td><code>//</code></td><td>整數除法</td><td><code>10 // 3</code></td><td><code>3</code></td></tr>
+          <tr><td><code>%</code></td><td>取餘數</td><td><code>10 % 3</code></td><td><code>1</code></td></tr>
+          <tr><td><code>**</code></td><td>次方</td><td><code>10 ** 3</code></td><td><code>1000</code></td></tr>
+        </tbody>
+      </table>
+
+      <pre><code># 範例 17 — 所有算術運算子
+a = 17
+b = 5
+
+print("a + b  =", a + b)     # 22
+print("a - b  =", a - b)     # 12
+print("a * b  =", a * b)     # 85
+print("a / b  =", a / b)     # 3.4
+print("a // b =", a // b)    # 3    （整數除法 — 向下取整）
+print("a % b  =", a % b)     # 2    （17 / 5 的餘數）
+print("a ** b =", a ** b)    # 1419857  （17 的 5 次方）</code></pre>
+
+      <h3>4.2 整數除法 vs 浮點除法</h3>
+
+      <p>這是最重要的概念之一：</p>
+      <ul>
+        <li><code>/</code>（單斜線）總是回傳<strong>浮點數</strong>，即使結果是整數。</li>
+        <li><code>//</code>（雙斜線）回傳結果<strong>向下取整到最接近的整數</strong>（整數除法）。</li>
+      </ul>
+
+      <pre><code># 範例 18 — 除法比較
+print(10 / 2)     # 5.0   （浮點數，即使 10 可以被 2 整除）
+print(10 // 2)    # 5     （整數）
+
+print(7 / 2)      # 3.5   （浮點數）
+print(7 // 2)     # 3     （整數 — 向下取整，不是四捨五入）
+
+print(-7 / 2)     # -3.5  （浮點數）
+print(-7 // 2)    # -4    （向負無窮取整，不是向零取整！）</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; 除法的意外行為：</strong>在 Python 3 中，<code>/</code> <strong>總是</strong>回傳浮點數。這讓來自 C、Java 或 Python 2 的人感到驚訝，因為在那些語言中，兩個整數相除會得到整數。
+        <pre><code>print(10 / 5)    # 2.0，不是 2
+print(type(10 / 5))  # &lt;class 'float'&gt;</code></pre>
+        如果你想要整數結果，使用 <code>//</code>。另外注意：<code>//</code> 是向<em>負無窮</em>取整，不是向零取整。所以 <code>-7 // 2</code> 是 <code>-4</code>，不是 <code>-3</code>。
+      </div>
+
+      <h3>4.3 運算順序（優先級）</h3>
+
+      <p>Python 遵循標準的數學運算順序，通常記為 <strong>PEMDAS</strong>：</p>
+
+      <ol>
+        <li><strong>P</strong>arentheses（括號）<code>()</code></li>
+        <li><strong>E</strong>xponentiation（次方）<code>**</code></li>
+        <li><strong>M</strong>ultiplication（乘法）<code>*</code>、<strong>D</strong>ivision（除法）<code>/</code>、整數除法 <code>//</code>、取餘數 <code>%</code>（由左至右）</li>
+        <li><strong>A</strong>ddition（加法）<code>+</code>、<strong>S</strong>ubtraction（減法）<code>-</code>（由左至右）</li>
+      </ol>
+
+      <pre><code># 範例 19 — 運算順序
+print(2 + 3 * 4)        # 14  （先乘法：3*4=12，然後 2+12=14）
+print((2 + 3) * 4)      # 20  （先括號：2+3=5，然後 5*4=20）
+print(2 ** 3 ** 2)       # 512 （次方由右至左：3**2=9，然後 2**9=512）
+print(10 - 2 * 3 + 1)   # 5   （2*3=6，然後 10-6+1=5）</code></pre>
+
+      <div class="callout callout-info">
+        <strong>提示：</strong>有疑問時就用括號。它們讓你的意圖一目瞭然，並防止錯誤。<code>(a + b) * c</code> 一看就懂；<code>a + b * c</code> 則需要你記住優先級規則。
+      </div>
+
+      <h3>4.4 常用內建數學函式</h3>
+
+      <p>Python 提供了幾個不需要 <code>import</code> 的數學函式。</p>
+
+      <pre><code># 範例 20 — 內建數學函式
+print(abs(-42))          # 42    （絕對值）
+print(abs(3.7))          # 3.7
+
+print(round(3.14159))    # 3     （四捨五入到最接近的整數）
+print(round(3.14159, 2)) # 3.14  （四捨五入到小數點後 2 位）
+print(round(2.5))        # 2     （銀行家取整 — 取到最接近的偶數）
+print(round(3.5))        # 4
+
+print(min(4, 7, 2, 9))   # 2     （最小值）
+print(max(4, 7, 2, 9))   # 9     （最大值）
+
+print(pow(2, 10))        # 1024  （等同 2 ** 10）</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; 銀行家取整：</strong> Python 的 <code>round()</code> 使用「四捨六入五取偶」（銀行家取整）。這表示 <code>round(0.5)</code> 是 <code>0</code>，<code>round(1.5)</code> 是 <code>2</code>，<code>round(2.5)</code> 是 <code>2</code>，<code>round(3.5)</code> 是 <code>4</code>。這在統計上是無偏的，但會讓大多數初學者感到驚訝。如果你需要傳統的「四捨五入」行為，你需要使用不同的方法（例如 <code>math.floor(x + 0.5)</code>）。
+      </div>
+
+      <h3>4.5 <code>math</code> 模組</h3>
+
+      <p>對於更進階的數學運算，Python 提供了 <code>math</code> 模組。你必須在使用前<strong>匯入</strong>它。</p>
+
+      <pre><code># 範例 21 — math 模組
+import math
+
+# 平方根
+print(math.sqrt(144))     # 12.0
+print(math.sqrt(2))       # 1.4142135623730951
+
+# 常數
+print(math.pi)            # 3.141592653589793
+print(math.e)             # 2.718281828459045
+
+# 天花板函式和地板函式
+print(math.ceil(4.2))     # 5   （向上取整到最接近的整數）
+print(math.floor(4.8))    # 4   （向下取整到最接近的整數）
+print(math.ceil(-4.2))    # -4  （向正無窮方向）
+print(math.floor(-4.8))   # -5  （向負無窮方向）
+
+# 對數
+print(math.log(100, 10))  # 2.0  （以 10 為底的 100 的對數）
+print(math.log(math.e))   # 1.0  （e 的自然對數）
+
+# 三角函式（引數以弧度為單位）
+print(math.sin(math.pi / 2))  # 1.0
+print(math.cos(0))            # 1.0
+
+# 角度與弧度互換
+print(math.radians(180))      # 3.141592653589793
+print(math.degrees(math.pi))  # 180.0</code></pre>
+
+      <div class="callout callout-matlab">
+        <strong>MATLAB 注意事項：</strong> MATLAB 預設將<em>所有</em>數字視為 <code>double</code>（64 位元浮點數）。Python 區分 <code>int</code> 和 <code>float</code>。這意味著：
+        <ul>
+          <li>在 MATLAB 中，<code>x = 10</code> 建立的是 double。在 Python 中，<code>x = 10</code> 建立的是 <code>int</code>，而 <code>x = 10.0</code> 建立的是 <code>float</code>。</li>
+          <li>MATLAB 的數學函式（<code>sqrt</code>、<code>sin</code>、<code>abs</code> 等）可以直接使用。在 Python 中，大部分需要先 <code>import math</code>（<code>abs()</code>、<code>round()</code>、<code>min()</code>、<code>max()</code> 是內建的，但 <code>sqrt()</code>、<code>sin()</code>、<code>cos()</code> 在 <code>math</code> 模組中）。</li>
+          <li>MATLAB 使用 <code>^</code> 做次方運算；Python 使用 <code>**</code>。</li>
+          <li>MATLAB 的 <code>mod(a, b)</code> 等同 Python 的 <code>a % b</code>。</li>
+        </ul>
+        <pre><code>% MATLAB
+x = sqrt(144);        % 12（double）
+y = 10 ^ 3;           % 1000
+r = mod(17, 5);       % 2
+
+# Python
+import math
+x = math.sqrt(144)    # 12.0（float）
+y = 10 ** 3           # 1000（int）
+r = 17 % 5            # 2（int）</code></pre>
+      </div>
+
+      <h3>4.6 型別檢查與轉換</h3>
+
+      <p>你可以使用 <code>type()</code> 檢查值的型別，並使用 <code>int()</code>、<code>float()</code> 和 <code>str()</code> 在型別之間轉換。</p>
+
+      <pre><code># 範例 22 — 型別檢查
+x = 42
+print(type(x))         # &lt;class 'int'&gt;
+print(isinstance(x, int))   # True
+print(isinstance(x, float)) # False</code></pre>
+
+      <pre><code># 範例 23 — 型別轉換
+# float 轉 int（截斷 — 不會四捨五入）
+print(int(3.9))        # 3
+print(int(-3.9))       # -3
+
+# int 轉 float
+print(float(42))       # 42.0
+
+# 字串轉數字
+print(int("100"))      # 100
+print(float("3.14"))   # 3.14
+
+# 數字轉字串
+print(str(42))         # "42"
+print(str(3.14))       # "3.14"</code></pre>
+
+      <div class="callout callout-warning">
+        <strong>常見錯誤 &mdash; <code>int()</code> 是截斷，不是四捨五入：</strong>
+        <pre><code>print(int(9.99))    # 9，不是 10
+print(int(-2.7))    # -2，不是 -3
+
+# 如果你要四捨五入，先使用 round()：
+print(round(9.99))  # 10
+print(int(round(9.99)))  # 10</code></pre>
+      </div>
+
+      <h3>4.7 複合賦值運算子</h3>
+
+      <p>Python 提供了用算術運算更新變數的簡寫方式：</p>
+
+      <pre><code># 範例 24 — 複合賦值
+x = 10
+
+x += 5    # 等同：x = x + 5   → x 現在是 15
+x -= 3    # 等同：x = x - 3   → x 現在是 12
+x *= 2    # 等同：x = x * 2   → x 現在是 24
+x /= 4    # 等同：x = x / 4   → x 現在是 6.0（float！）
+x //= 2   # 等同：x = x // 2  → x 現在是 3.0
+x **= 3   # 等同：x = x ** 3  → x 現在是 27.0
+x %= 5    # 等同：x = x % 5   → x 現在是 2.0
+
+print(x)  # 2.0</code></pre>
+
+      <div class="callout callout-info">
+        <strong>注意：</strong>一旦使用了 <code>/=</code>，變數就會變成 <code>float</code>，並在後續所有操作中保持 <code>float</code>，即使是 <code>//=</code> 也一樣。如果你從 <code>x = 10</code>（int）開始，然後執行 <code>x /= 2</code>，<code>x</code> 現在是 <code>5.0</code>（float），不是 <code>5</code>（int）。
+      </div>
+
+      <h3>4.8 大數字與底線</h3>
+
+      <p>Python 可以處理任意大的整數（不會溢位！），並允許你在數字中使用底線作為視覺分隔符。</p>
+
+      <pre><code># 範例 25 — 大數字與底線
+big = 1_000_000_000     # 比 1000000000 更容易閱讀
+print(big)               # 1000000000
+
+# Python 的整數大小沒有限制
+huge = 2 ** 100
+print(huge)              # 1267650600228229401496703205376
+
+# 底線在浮點數中也可以使用
+speed_of_light = 299_792_458.0   # 公尺/秒
+print(speed_of_light)            # 299792458.0</code></pre>
+
+      <!-- Exercise: numbers -->
+      <div class="exercise">
+        <h4>練習 4 &mdash; 算術練習</h4>
+        <p>一個長方形的寬度為 <code>7.5</code>，高度為 <code>12.3</code>。寫一個 Python 腳本：</p>
+        <ol>
+          <li>將寬度和高度儲存在變數中。</li>
+          <li>計算並印出<strong>面積</strong>（寬 &times; 高）。</li>
+          <li>計算並印出<strong>周長</strong>（2 &times;（寬 + 高））。</li>
+          <li>使用畢氏定理計算並印出<strong>對角線</strong>（使用 <code>math.sqrt()</code>）。</li>
+          <li>將每個結果四捨五入到小數點後 2 位。</li>
+        </ol>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>import math
+
+# 步驟 1：儲存尺寸
+width = 7.5
+height = 12.3
+
+# 步驟 2：面積
+area = width * height
+print("Area:", round(area, 2))         # 92.25
+
+# 步驟 3：周長
+perimeter = 2 * (width + height)
+print("Perimeter:", round(perimeter, 2))  # 39.6
+
+# 步驟 4：對角線（畢氏定理）
+diagonal = math.sqrt(width ** 2 + height ** 2)
+print("Diagonal:", round(diagonal, 2))   # 14.41</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <h4>練習 5 &mdash; 溫度轉換器</h4>
+        <p>寫一個腳本，使用以下公式將溫度從華氏轉換為攝氏：</p>
+        <p><code>celsius = (fahrenheit - 32) * 5 / 9</code></p>
+        <ol>
+          <li>將 <code>98.6</code>（正常體溫）儲存在名為 <code>fahrenheit</code> 的變數中。</li>
+          <li>計算攝氏等效值並儲存在名為 <code>celsius</code> 的變數中。</li>
+          <li>印出結果，四捨五入到小數點後 1 位。</li>
+          <li>印出兩個變數的型別。</li>
+        </ol>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code># 溫度轉換
+fahrenheit = 98.6
+celsius = (fahrenheit - 32) * 5 / 9
+
+print("Fahrenheit:", fahrenheit)
+print("Celsius:", round(celsius, 1))      # 37.0
+
+print("Type of fahrenheit:", type(fahrenheit))  # &lt;class 'float'&gt;
+print("Type of celsius:", type(celsius))        # &lt;class 'float'&gt;</code></pre>
+        </details>
+      </div>
+
+      <div class="exercise">
+        <h4>練習 6 &mdash; 整數除法與取餘數</h4>
+        <p>你有 <strong>157 分鐘</strong>的影片要看。寫一個腳本：</p>
+        <ol>
+          <li>使用整數除法（<code>//</code>）來計算有多少<strong>完整的小時</strong>。</li>
+          <li>使用取餘數（<code>%</code>）來計算<strong>剩餘的分鐘數</strong>。</li>
+          <li>印出結果如：<code>157 minutes = 2 hours and 37 minutes</code></li>
+        </ol>
+        <details>
+          <summary>顯示解答</summary>
+          <pre><code>total_minutes = 157
+
+hours = total_minutes // 60
+remaining = total_minutes % 60
+
+print(total_minutes, "minutes =", hours, "hours and", remaining, "minutes")
+# 輸出：157 minutes = 2 hours and 37 minutes</code></pre>
+        </details>
+      </div>
+
+
+      <!-- ============================================================ -->
+      <!--  SUMMARY                                                     -->
+      <!-- ============================================================ -->
+
+      <h2 id="summary">總結</h2>
+
+      <table>
+        <thead>
+          <tr><th>概念</th><th>語法</th><th>關鍵重點</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>print()</code></td><td><code>print(value, ...)</code></td><td>使用 <code>sep</code> 和 <code>end</code> 控制格式</td></tr>
+          <tr><td>註解</td><td><code># 單行</code> 或 <code>"""多行"""</code></td><td>解釋<em>為什麼</em>，而非<em>做什麼</em></td></tr>
+          <tr><td>變數</td><td><code>name = value</code></td><td>使用 <code>snake_case</code>；Python 是動態型別</td></tr>
+          <tr><td>int &amp; float</td><td><code>42</code> vs <code>42.0</code></td><td><code>/</code> 總是回傳 float；使用 <code>//</code> 做整數除法</td></tr>
+          <tr><td>算術</td><td><code>+ - * / // % **</code></td><td>括號可以覆蓋優先級</td></tr>
+          <tr><td>math 模組</td><td><code>import math</code></td><td>提供 <code>sqrt</code>、<code>pi</code>、<code>ceil</code>、<code>floor</code>、三角函式等</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <strong>下一步是什麼？</strong>現在你已經可以印出輸出、留下註解、在變數中儲存值，以及進行數學運算了，下一頁將介紹<strong>字串與布林值</strong>&mdash;另外兩個基礎資料型別，讓你能夠進行文字處理和邏輯判斷。
+      </div>
+
+      <div class="page-nav">
+        <a href="getting-started.html" class="prev"><span class="nav-label">&larr; 上一頁</span><span class="nav-title">入門設定</span></a>
+        <a href="basics-strings-booleans.html" class="next"><span class="nav-label">下一頁 &rarr;</span><span class="nav-title">字串與布林值</span></a>
+      </div>
+    </div>
+  </main>
+  <script src="../../js/main.js"></script>
+</body>
+</html>
